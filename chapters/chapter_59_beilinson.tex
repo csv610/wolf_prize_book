@@ -1,0 +1,252 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\F}{\mathbb{F}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Rep}{\operatorname{Rep}}
+\providecommand{\Loc}{\operatorname{Loc}}
+\providecommand{\Bun}{\operatorname{Bun}}
+
+\chapter{Alexander Beilinson (2018)}
+
+\begin{quote}
+\it ``Alexander Beilinson's work has profoundly influenced algebraic geometry, representation theory, and number theory. From the Beilinson conjectures to the geometric Langlands program, his ideas have opened entirely new directions and provided the conceptual framework for much of modern mathematics.'' --- Wolf Prize Citation, 2018
+\end{quote}
+
+\section{Main Contribution}
+
+Alexander Beilinson (born 1957) is a Russian--American mathematician whose work has fundamentally shaped algebraic geometry, representation theory, and number theory. He was awarded the Wolf Prize in Mathematics in 2018 alongside Vladimir Drinfeld.
+
+The Wolf Prize citation reads: ``for their contributions to algebraic geometry, representation theory, and number theory.''
+
+Beilinson's core contributions include:
+\begin{itemize}
+    \item \textbf{Beilinson Conjectures:} A deep set of conjectures relating the special values of L-functions to regulator maps from algebraic K-theory to Deligne cohomology, providing a conceptual framework for understanding the arithmetic of algebraic varieties.
+    \item \textbf{Beilinson--Bernstein Localization Theorem:} An equivalence of categories between representations of a semisimple Lie algebra and D-modules on the flag variety, revolutionizing representation theory.
+    \item \textbf{Geometric Langlands Program:} With Drinfeld, the development of the geometric Langlands program, including the construction of Hecke eigensheaves and the proof of the geometric Langlands conjecture for $\GL(n)$.
+    \item \textbf{Perverse Sheaves:} The development of the theory of perverse sheaves and the proof (with Bernstein, Deligne, and Gabber) of the decomposition theorem for the direct image of perverse sheaves under proper maps.
+    \item \textbf{Derived Categories:} Beilinson's resolution of the derived category of coherent sheaves on projective space, establishing a fundamental connection between algebraic geometry and homological algebra.
+    \item \textbf{Mixed Hodge Structures:} The Beilinson--Deligne construction of mixed Hodge structures on the cohomology of algebraic varieties.
+    \item \textbf{Beilinson--Lusztig--MacPherson:} A geometric construction of quantum groups using perverse sheaves on quiver varieties.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{Special Values of L-Functions}
+
+The Dirichlet class number formula relates $L(1, \chi)$ to arithmetic invariants of number fields. The Birch and Swinnerton--Dyer conjecture relates the leading term of an elliptic curve L-function at $s = 1$ to the rank of the Mordell--Weil group. Beilinson conjectured a vast generalization: for any algebraic variety, the special values of its L-functions at integer arguments are related to regulator maps from algebraic K-theory.
+
+\subsection{Representations of Lie Algebras}
+
+The classification of representations of semisimple Lie algebras is classical (highest weight theory). But understanding representations in geometric terms---as global sections of twisted D-modules on the flag variety---was a revolutionary idea of the Beilinson--Bernstein localization theorem.
+
+\subsection{The Geometric Langlands Program}
+
+The classical Langlands program connects Galois representations to automorphic forms. Drinfeld proposed a geometric analogue: replace number fields by function fields of curves, Galois representations by local systems (flat connections), and automorphic forms by perverse sheaves on moduli spaces of bundles. Beilinson and Drinfeld developed this program in depth.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Beilinson--Bernstein Localization}
+
+The key idea: the flag variety $G/B$ carries a natural action of the Lie algebra $\mathfrak{g}$ via differential operators. The global sections of the sheaf of differential operators produce the universal enveloping algebra $U(\mathfrak{g})$ at the center. By twisting by a character (the Harish-Chandra homomorphism), one obtains an equivalence between certain categories of $\mathfrak{g}$-modules and $D$-modules on $G/B$.
+
+\begin{theorem}[Beilinson--Bernstein, 1981]
+For a semisimple Lie algebra $\mathfrak{g}$, there is an equivalence of categories:
+\[
+\text{(regular, dominant) }\mathfrak{g}\text{-modules} \cong D_\lambda\text{-modules on } G/B
+\]
+where $D_\lambda$ is the sheaf of twisted differential operators.
+\end{theorem}
+
+\subsection{The Geometric Langlands Correspondence}
+
+Beilinson and Drinfeld constructed the geometric Langlands correspondence for $\GL(n)$ over a smooth projective curve $X$. The correspondence pairs:
+\begin{itemize}
+    \item Local systems $E$ of rank $n$ on $X$ (the Galois side).
+    \item Hecke eigensheaves on the moduli stack $\Bun_n(X)$ of rank $n$ bundles (the automorphic side).
+\end{itemize}
+
+The construction uses the Hitchin system (integrable system on the cotangent bundle of $\Bun_n$) and the technique of quantization.
+
+\subsection{Perverse Sheaves and the Decomposition Theorem}
+
+Perverse sheaves are a class of objects in the derived category of constructible sheaves that behave like ``intersection cohomology complexes.'' The decomposition theorem (Beilinson--Bernstein--Deligne--Gabber) states that for a proper map $f: X \to Y$, the direct image $Rf_* \IC_X$ decomposes into a direct sum of perverse sheaves on $Y$.
+
+\section{Mathematical Theory}
+
+\subsection{Beilinson Conjectures}
+
+\begin{definition}[Regulator Map]
+For an algebraic variety $X$ over $\Q$, the \textbf{regulator map} is:
+\[
+r: K_i(X)_{\Q} \to H^{2j-i}_{\mathcal{D}}(X_{\C}, \Q(j))
+\]
+from algebraic K-theory to Deligne cohomology.
+\end{definition}
+
+\begin{conjecture}[Beilinson, 1984]
+Let $X$ be a smooth projective variety over $\Q$ and let $L(H^{k}(X), s)$ be the L-function of its $k$th cohomology. Then:
+\begin{enumerate}
+    \item The order of vanishing of $L(H^k(X), s)$ at $s = m$ is given by the rank of a certain regulator map.
+    \item The leading coefficient of the Taylor expansion is given by the determinant of the regulator map times a period.
+\end{enumerate}
+\end{conjecture}
+
+\subsection{Beilinson--Bernstein Localization}
+
+\begin{definition}[Flag Variety]
+The \textbf{flag variety} of a semisimple Lie group $G$ is $G/B$, where $B$ is a Borel subgroup. It parametrizes all Borel subgroups of $G$.
+\end{definition}
+
+\begin{definition}[Twisted D-Module]
+Let $G/B$ be the flag variety and $\lambda$ a weight. A \textbf{twisted D-module} of twist $\lambda$ is a sheaf of modules over the sheaf $D_\lambda$ of twisted differential operators.
+\end{definition}
+
+\begin{theorem}[Beilinson--Bernstein, 1981]
+Let $\mathfrak{g}$ be a semisimple Lie algebra and $\lambda$ a regular dominant weight. Then there is an equivalence of categories:
+\[
+D_\lambda\text{-mod}(G/B) \cong U(\mathfrak{g})/I_\lambda\text{-mod}
+\]
+where $I_\lambda$ is the annihilator of the Verma module with highest weight $\lambda$.
+\end{theorem}
+
+This theorem gives a geometric realization of all representations of $\mathfrak{g}$ and is the foundation for the study of representations via D-modules.
+
+\subsection{Perverse Sheaves}
+
+\begin{definition}[Perverse Sheaf]
+A \textbf{perverse sheaf} on an algebraic variety $X$ is an object $\mathcal{F}$ in the derived category $D^b_c(X)$ of constructible sheaves satisfying:
+\begin{enumerate}
+    \item $\dim \supp \mathcal{H}^i(\mathcal{F}) \leq -i$ (support condition).
+    \item $\dim \supp \mathcal{H}^i(D\mathcal{F}) \leq -i$ (cosupport condition) where $D$ is Verdier duality.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Decomposition Theorem, BBDG 1982]
+Let $f: X \to Y$ be a proper map of algebraic varieties. Then the direct image $Rf_* \IC_X$ decomposes as a direct sum of shifted perverse sheaves:
+\[
+Rf_* \IC_X \cong \bigoplus_i {}^p\mathcal{H}^i(Rf_* \IC_X)[-i]
+\]
+\end{theorem}
+
+\subsection{Geometric Langlands Correspondence}
+
+\begin{definition}[Hecke Eigensheaf]
+A perverse sheaf $\mathcal{A}$ on $\Bun_n(X)$ is a \textbf{Hecke eigensheaf} with eigenvalue $E$ (a rank $n$ local system on $X$) if for each point $x \in X$, there is an isomorphism:
+\[
+\mathbb{H}_x(\mathcal{A}) \cong E_x \boxtimes \mathcal{A}
+\]
+where $\mathbb{H}_x$ is the Hecke functor.
+\end{definition}
+
+\begin{theorem}[Beilinson--Drinfeld, 2000s]
+For each irreducible rank $n$ local system $E$ on a smooth projective curve $X$, there exists a Hecke eigensheaf $\mathcal{A}_E$ on $\Bun_n(X)$ whose eigenvalue is $E$.
+\end{theorem}
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Representation Theory:} The Beilinson--Bernstein localization theorem revolutionized the field, providing geometric methods for all aspects of representation theory.
+    \item \textbf{Algebraic Geometry:} The decomposition theorem and the theory of perverse sheaves are fundamental tools.
+    \item \textbf{Number Theory:} The Beilinson conjectures provide a unifying framework for special values of L-functions.
+    \item \textbf{Geometric Langlands:} The Beilinson--Drinfeld work is the foundation for one of the most active research areas.
+    \item \textbf{Quantum Groups:} The geometric construction of quantum groups via perverse sheaves connects representation theory to algebraic geometry.
+\end{enumerate}
+
+\subsection{In Physics}
+
+\begin{enumerate}
+    \item \textbf{Topological Field Theory:} Perverse sheaves and the geometric Langlands correspondence appear in 4D gauge theories (Kapustin--Witten).
+    \item \textbf{Conformal Field Theory:} The geometric Langlands program is related to the representation theory of affine Kac--Moody algebras and conformal blocks.
+    \item \textbf{String Theory:} The Hitchin system and the geometric Langlands correspondence arise in string compactifications and S-duality.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What are the Beilinson conjectures?}
+They predict that the special values of L-functions of algebraic varieties are given by regulator maps from algebraic K-theory to Deligne cohomology. They generalize the Dirichlet class number formula and the Birch and Swinnerton--Dyer conjecture.
+
+\subsection*{Q2: What is Beilinson--Bernstein localization?}
+An equivalence between representations of a semisimple Lie algebra and D-modules on the flag variety. It translates representation-theoretic problems into geometric problems on the flag variety.
+
+\subsection*{Q3: What is a perverse sheaf?}
+A perverse sheaf is a particular kind of complex of sheaves on an algebraic variety that satisfies certain dimension constraints. Despite the name, perverse sheaves are not sheaves but objects in the derived category. They are the building blocks of the ``constructible world.''
+
+\subsection*{Q4: What is the geometric Langlands program?}
+A geometric reformulation of the classical Langlands program, replacing number fields by function fields of curves. It relates local systems on a curve to perverse sheaves on moduli spaces of bundles, and is connected to 4D gauge theory in physics.
+
+\subsection*{Q5: What should an undergraduate study to understand Beilinson's work?}
+Algebraic geometry (schemes, sheaves, cohomology), representation theory (Lie algebras, Verma modules), and category theory (derived categories). Recommended: \textit{Algebraic Geometry} (Hartshorne), \textit{Representation Theory} (Humphreys), and \textit{Sheaves in Geometry and Logic} (Mac Lane--Moerdijk).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the category of $\mathfrak{sl}_2$-modules is equivalent to D-modules on $\P^1$.
+    \item Compute the cohomology of a perverse sheaf on a curve.
+    \item State the decomposition theorem for a resolution of singularities of a surface.
+    \item Show that the flag variety $G/B$ is a projective algebraic variety.
+    \item Define the regulator map from $K_1$ of a number field to its Minkowski embedding.
+    \item Give an example of a Hecke eigensheaf for $\GL(1)$.
+    \item Compute the K-theory of $\P^1$ and relate it to the Beilinson regulator.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1957 & Born in Moscow, USSR \\ \hline
+1981 & Beilinson--Bernstein localization theorem \\ \hline
+1982 & Perverse sheaves and decomposition theorem (with Bernstein, Deligne, Gabber) \\ \hline
+1984 & Beilinson conjectures \\ \hline
+1987 | Moves to the University of Chicago \\ \hline
+1990 | Beilinson--Lusztig--MacPherson geometric construction of quantum groups \\ \hline
+1998 | Moves to the University of Chicago (continuing) \\ \hline
+2000s | Geometric Langlands with Drinfeld \\ \hline
+2018 | Wolf Prize in Mathematics \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Beilinson conjecture] A conjecture relating L-functions to K-theoretic regulators.
+    \item[D-module] A sheaf of modules over the sheaf of differential operators on a variety.
+    \item[Decomposition theorem] A theorem stating that the direct image of the intersection cohomology complex under a proper map decomposes into a direct sum.
+    \item[Derived category] A triangulated category of complexes of sheaves up to quasi-isomorphism.
+    \item[Geometric Langlands] A geometric analogue of the classical Langlands program over function fields.
+    \item[Hecke eigensheaf] A perverse sheaf on $\Bun_n(X)$ whose eigenvalues under Hecke operators are given by a local system.
+    \item[Intersection cohomology] A cohomology theory for singular varieties satisfying Poincar\'e duality.
+    \item[Local system] A locally constant sheaf of vector spaces (equivalently, a flat connection).
+    \item[Perverse sheaf] A constructible complex satisfying support and cosupport conditions.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item A.\ Beilinson and J.\ Bernstein, \textit{Localisation de $\mathfrak{g}$-modules}, C.\ R.\ Acad.\ Sci.\ Paris 292 (1981), 15--18.
+    \item A.\ Beilinson, J.\ Bernstein, and P.\ Deligne, \textit{Faisceaux pervers}, Ast\'erisque 100 (1982).
+    \item A.\ Beilinson, \textit{Higher regulators and values of L-functions}, J.\ Soviet Math.\ 30 (1985), 2036--2070.
+    \item A.\ Beilinson and V.\ Drinfeld, \textit{Quantization of Hitchin's integrable system and Hecke eigensheaves}, preprint (2000s).
+    \item A.\ Beilinson, G.\ Lusztig, and R.\ MacPherson, \textit{A geometric setting for the quantum deformation of $\GL_n$}, Duke Math.\ J.\ 61 (1990), 655--677.
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item E.\ Frenkel, \textit{Lectures on the Langlands Program and Conformal Field Theory}, Les Houches, 2005.
+    \item R.\ Kiehl and R.\ Weissauer, \textit{Weil Conjectures, Perverse Sheaves, and l'adic Fourier Transform}, Springer, 2001.
+    \item C.\ Norenberg, \textit{Beilinson's conjectures}, in \textit{Arithmetic Geometry}, Springer, 1997.
+\end{enumerate}
+

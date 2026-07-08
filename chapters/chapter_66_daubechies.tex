@@ -1,0 +1,236 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\supp}{\operatorname{supp}}
+\providecommand{\span}{\operatorname{span}}
+
+\chapter{Ingrid Daubechies (2023)}
+
+\begin{quote}
+\it ``Ingrid Daubechies has revolutionized the field of signal processing through her discovery of compactly supported wavelets. Her work has had an extraordinary impact, from the FBI fingerprint database and image compression standards to applications in art conservation, medicine, and astronomy. She has built bridges between pure mathematics and real-world problems that are models of scientific excellence.'' --- Wolf Prize Citation, 2023
+\end{quote}
+
+\section{Main Contribution}
+
+Ingrid Daubechies (born 1954) is a Belgian physicist and mathematician whose work in wavelet theory has transformed signal processing, image compression, and data analysis. She was awarded the Wolf Prize in Mathematics in 2023.
+
+The Wolf Prize citation reads: ``for her pathbreaking contributions to wavelet theory and to applied mathematics.''
+
+Daubechies' core contributions include:
+\begin{itemize}
+    \item \textbf{Daubechies Wavelets:} The construction of the first family of compactly supported orthogonal wavelets, now fundamental to signal processing and data compression.
+    \item \textbf{The Lifting Scheme:} A construction (with Sweldens) of wavelets through spatial lifting, enabling efficient implementation and integer-wavelet transforms.
+    \item \textbf{FBI Fingerprint Standard:} The wavelet-based compression standard for the FBI's fingerprint database, achieving 20:1 compression ratios.
+    \item \textbf{Image Processing:} Foundational work on wavelet-based image denoising, compression (JPEG 2000), and analysis.
+    \item \textbf{Time-Frequency Analysis:} The theory of frames and time-frequency localization, including the Daubechies--Grossmann--Meyer work on coherent states.
+    \item \textbf{Applications:} Wavelet methods in medical imaging, astronomy, geophysics, art conservation, and many other scientific fields.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Need for Better Signal Representations}
+
+Before wavelets, signal processing relied primarily on the Fourier transform, which represents signals as sums of sine waves. The Fourier transform gives perfect frequency resolution but poor time localization. The short-time Fourier transform (STFT) provides time-frequency localization but has fixed resolution.
+
+What was needed: a representation that can analyze signals at multiple resolutions, with good time localization for high frequencies and good frequency localization for low frequencies. This is the multiresolution analysis idea.
+
+\subsection{The Problem of Compact Support}
+
+The Haar wavelet (1910) is the simplest orthogonal wavelet, but it is discontinuous and gives poor approximation for smooth signals. Meyer (1985) constructed smooth orthogonal wavelets, but they were not compactly supported (they decay but don't vanish outside a finite interval).
+
+The question: can one construct smooth, orthogonal wavelets that are compactly supported? This was the problem Daubechies solved, producing wavelets with:
+\begin{itemize}
+    \item Compact support (finite duration).
+    \item Arbitrarily high smoothness.
+    \item Orthogonality (preserving energy).
+    \item Exact reconstruction from the wavelet coefficients.
+\end{itemize}
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Daubechies' Construction}
+
+Daubechies constructed compactly supported wavelets using the theory of conjugate quadrature filters (CQFs) from signal processing. The key insight: designing a wavelet reduces to finding a finite sequence $h_n$ (the scaling filter) satisfying certain polynomial equations.
+
+For a wavelet with $N$ vanishing moments (accuracy of order $N$), the filter must satisfy:
+\[
+\sum_n h_n = \sqrt{2}, \quad \sum_n h_n h_{n+2k} = \delta_{k,0}
+\]
+and the polynomial $H(z) = \frac{1}{\sqrt{2}} \sum_n h_n z^n$ must have a factor $(1+z)^N$.
+
+Daubechies solved these equations explicitly, producing wavelets of increasing smoothness as $N$ increases.
+
+\subsection{Tools and Techniques}
+
+\begin{itemize}
+    \item \textbf{Multiresolution Analysis (MRA):} A framework (Mallat--Meyer) for constructing wavelets using nested approximation spaces.
+    \item \textbf{Conjugate Quadrature Filters:} Finite impulse response (FIR) filters satisfying exact reconstruction conditions.
+    \item \textbf{Polynomial Factorization:} The spectral factorization of the autocorrelation function of the scaling filter.
+    \item \textbf{Cascade Algorithm:} Iterative application of the scaling filter to construct the scaling function.
+\end{itemize}
+
+\section{Mathematical Theory}
+
+\subsection{Multiresolution Analysis}
+
+\begin{definition}[Multiresolution Analysis]
+A \textbf{multiresolution analysis} (MRA) of $L^2(\R)$ is a sequence of closed subspaces $V_j \subset L^2(\R)$ such that:
+\begin{enumerate}
+    \item $V_j \subset V_{j+1}$ for all $j \in \Z$ (nested).
+    \item $\bigcap_j V_j = \{0\}$ and $\overline{\bigcup_j V_j} = L^2(\R)$ (density).
+    \item $f(x) \in V_j \iff f(2x) \in V_{j+1}$ (scaling).
+    \item There exists a \textbf{scaling function} $\varphi \in V_0$ such that $\{\varphi(x - k)\}_{k \in \Z}$ is an orthonormal basis of $V_0$.
+\end{enumerate}
+\end{definition}
+
+\subsection{Daubechies Wavelets}
+
+\begin{definition}[Daubechies Wavelet]
+For a positive integer $N$, the \textbf{Daubechies wavelet} $\psi_N$ is defined by the scaling function $\varphi_N$ satisfying:
+\[
+\varphi(x) = \sqrt{2} \sum_{k=0}^{2N-1} h_k \varphi(2x - k)
+\]
+The wavelet is:
+\[
+\psi(x) = \sqrt{2} \sum_{k=0}^{2N-1} (-1)^k h_{2N-1-k} \varphi(2x - k)
+\]
+where $h_k$ are the Daubechies filter coefficients.
+\end{definition}
+
+\begin{theorem}[Daubechies, 1988]
+For each $N \geq 1$, there exists a compactly supported orthogonal wavelet $\psi_N$ with the following properties:
+\begin{itemize}
+    \item $\supp \psi_N = [0, 2N-1]$ (compact support of length $2N-1$).
+    \item $\psi_N \in C^{cN}$ (smoothness grows linearly with $N$).
+    \item $\psi_N$ has $N$ vanishing moments: $\int x^k \psi_N(x) \, dx = 0$ for $k = 0, \ldots, N-1$.
+    \item The wavelet system $\{\psi_{j,k}(x) = 2^{j/2} \psi(2^j x - k)\}$ is an orthonormal basis of $L^2(\R)$.
+\end{itemize}
+\end{theorem}
+
+\subsection{The Lifting Scheme}
+
+\begin{definition}[Lifting Scheme]
+The \textbf{lifting scheme} (Daubechies--Sweldens, 1998) constructs wavelets through three steps:
+\begin{enumerate}
+    \item \textbf{Split:} Divide the signal into even and odd samples.
+    \item \textbf{Predict:} Predict odd samples from even samples using a linear combination.
+    \item \textbf{Update:} Update even samples using the prediction error to preserve moments.
+\end{enumerate}
+\end{definition}
+
+The lifting scheme enables:
+\begin{itemize}
+    \item In-place computation (reduced memory).
+    \item Integer-to-integer wavelet transforms (lossless compression).
+    \item Custom wavelet design adapted to specific data.
+\end{itemize}
+
+\subsection{The FBI Wavelet Standard}
+
+The FBI's WSQ (Wavelet Scalar Quantization) standard, based on Daubechies wavelets, compresses fingerprint images at ratios of 15:1 to 20:1 while preserving the fine ridge details needed for identification. This was the first large-scale government standard using wavelets.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Harmonic Analysis:} Wavelet theory is now a core area of harmonic analysis.
+    \item \textbf{Approximation Theory:} Wavelets provide optimal approximation for many function classes.
+    \item \textbf{Functional Analysis:} Frame theory and operator theory connections.
+\end{enumerate}
+
+\subsection{In Technology}
+
+\begin{enumerate}
+    \item \textbf{Image Compression:} JPEG 2000 uses the Daubechies 9/7 wavelet.
+    \item \textbf{FBI Fingerprints:} The WSQ standard processes millions of fingerprints daily.
+    \item \textbf{Medical Imaging:} Wavelet-based denoising in MRI, CT, and ultrasound.
+    \item \textbf{Astronomy:} Wavelet analysis of astronomical data (e.g., gravitational wave detection).
+    \item \textbf{Audio Compression:} MPEG-4 audio uses wavelet-based coding.
+    \item \textbf{Art Conservation:} Wavelet analysis of X-ray images of paintings.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What are Daubechies wavelets?}
+A family of compactly supported orthogonal wavelets, indexed by the number of vanishing moments $N$. They are smooth, have compact support, and form orthonormal bases of $L^2(\R)$.
+
+\subsection*{Q2: How are wavelets different from Fourier analysis?}
+Fourier analysis represents signals as sums of sine waves (global in time). Wavelets represent signals at multiple scales, with good time localization at high frequencies and good frequency localization at low frequencies.
+
+\subsection*{Q3: What is the lifting scheme?}
+A method for constructing wavelets through a predict-and-update procedure, enabling efficient in-place computation and integer-to-integer transforms.
+
+\subsection*{Q4: Why were Daubechies wavelets revolutionary?}
+They were the first smooth, compactly supported, orthogonal wavelets. This combination of properties made them practical for real-world applications in compression and denoising.
+
+\subsection*{Q5: What should an undergraduate study to understand Daubechies' work?}
+Fourier analysis, linear algebra (filter banks, orthogonal bases), and signal processing. Recommended: \textit{Ten Lectures on Wavelets} (Daubechies), \textit{A Wavelet Tour of Signal Processing} (Mallat), and \textit{Wavelets and Filter Banks} (Strang--Nguyen).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the Haar wavelet ($N=1$) is the simplest Daubechies wavelet.
+    \item Compute the filter coefficients $h_k$ for the Daubechies D4 wavelet.
+    \item Show that a wavelet with $N$ vanishing moments can represent polynomials of degree $N-1$ exactly.
+    \item Implement the lifting scheme for the Haar wavelet.
+    \item Show that the JPEG 2000 9/7 wavelet is biorthogonal, not orthogonal.
+    \item Compute the smoothness of the D4 wavelet using the Holder exponent.
+    \item Show that the FBI wavelet standard achieves 20:1 compression on fingerprint images.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1954 & Born in Houthalen, Belgium \\ \hline
+1975 & B.S.\ in Physics from Vrije Universiteit Brussel \\ \hline
+1980 & Ph.D.\ in Physics from Vrije Universiteit Brussel \\ \hline
+1986 | Moves to the Courant Institute, NYU \\ \hline
+1988 | Discovery of compactly supported orthogonal wavelets \\ \hline
+1992 | \textit{Ten Lectures on Wavelets} published \\ \hline
+1993 | FBI adopts wavelet fingerprint standard \\ \hline
+1994 | MacArthur Fellowship \\ \hline
+1998 | Lifting scheme (with Sweldens) \\ \hline
+2000 | JPEG 2000 standard (using Daubechies 9/7) \\ \hline
+2005 | Steele Prize of the AMS \\ \hline
+2013 | Moves to Duke University \\ \hline
+2023 | Wolf Prize in Mathematics \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Compact support] A function that is zero outside a finite interval.
+    \item[Conjugate quadrature filter] A pair of filters enabling perfect reconstruction in filter banks.
+    \item[Lifting scheme] A spatial construction of wavelets using predict and update steps.
+    \item[Multiresolution analysis] A framework of nested approximation spaces for wavelet construction.
+    \item[Scaling function] The function $\varphi$ generating the MRA, satisfying the dilation equation.
+    \item[Vanishing moment] The condition $\int x^k \psi(x) dx = 0$, enabling wavelet coefficients to measure high-order signal features.
+    \item[Wavelet] A function $\psi$ whose dilations and translations form an orthonormal basis of $L^2(\R)$.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item I.\ Daubechies, \textit{Orthonormal bases of compactly supported wavelets}, Comm.\ Pure Appl.\ Math.\ 41 (1988), 909--996.
+    \item I.\ Daubechies, \textit{Ten Lectures on Wavelets}, SIAM, 1992.
+    \item I.\ Daubechies and W.\ Sweldens, \textit{Factoring wavelet transforms into lifting steps}, J.\ Fourier Anal.\ Appl.\ 4 (1998), 247--269.
+    \item I.\ Daubechies, A.\ Grossmann, and Y.\ Meyer, \textit{Painless nonorthogonal expansions}, J.\ Math.\ Phys.\ 27 (1986), 1271--1283.
+    \item A.\ Cohen, I.\ Daubechies, and J.-C.\ Feauveau, \textit{Biorthogonal bases of compactly supported wavelets}, Comm.\ Pure Appl.\ Math.\ 45 (1992), 485--560.
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item S.\ Mallat, \textit{A Wavelet Tour of Signal Processing}, Academic Press, 3rd ed., 2009.
+    \item G.\ Strang and T.\ Nguyen, \textit{Wavelets and Filter Banks}, Wellesley-Cambridge Press, 1996.
+    \item B.\ Burke Hubbard, \textit{The World According to Wavelets}, A.\ K.\ Peters, 1996.
+\end{enumerate}
+

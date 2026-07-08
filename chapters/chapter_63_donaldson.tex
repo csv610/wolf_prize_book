@@ -1,0 +1,238 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\CP}{\mathbb{CP}}
+\providecommand{\SU}{\operatorname{SU}}
+\providecommand{\SO}{\operatorname{SO}}
+\providecommand{\Spin}{\operatorname{Spin}}
+\providecommand{\tr}{\operatorname{tr}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Holder}{\operatorname{Holder}}
+
+\chapter{Simon Donaldson (2020)}
+
+\begin{quote}
+\it ``Simon Donaldson revolutionized the study of 4-manifolds by introducing the powerful techniques of gauge theory. His invariants, which detect the smooth structure of 4-manifolds where classical topology cannot, opened an entirely new chapter in geometry. His work continues to shape the field through deep connections between gauge theory, symplectic geometry, and algebraic geometry.'' --- Wolf Prize Citation, 2020
+\end{quote}
+
+\section{Main Contribution}
+
+Simon Donaldson (born 1957) is a British mathematician whose work has transformed the study of 4-manifolds, symplectic geometry, and complex geometry through the use of gauge theory. He was awarded the Fields Medal in 1986 and the Wolf Prize in Mathematics in 2020 alongside Yakov Eliashberg.
+
+The Wolf Prize citation reads: ``for their contributions to differential geometry and topology.''
+
+Donaldson's core contributions include:
+\begin{itemize}
+    \item \textbf{Donaldson's Theorem:} A proof that the intersection form of a smooth simply connected 4-manifold must be diagonalizable over $\Z$ if it is positive definite, completely changing the understanding of 4-manifold topology.
+    \item \textbf{Donaldson Invariants:} The construction of powerful polynomial invariants for smooth 4-manifolds using the moduli space of anti-self-dual connections (instantons), distinguishing smooth structures on homeomorphic 4-manifolds.
+    \item \textbf{The Hitchin--Kobayashi Correspondence:} The proof (with Uhlenbeck and Yau) that a holomorphic vector bundle admits a Hermitian Yang--Mills connection if and only if it is polystable.
+    \item \textbf{Donaldson--Thomas Invariants:} The definition of new invariants for Calabi--Yau 3-folds using gauge theory on the 6-manifold.
+    \item \textbf{Symplectic Geometry:} Foundational results on the existence of symplectic submanifolds and the study of Lagrangian submanifolds.
+    \item \textbf{K\"ahler--Einstein Metrics:} The existence of constant scalar curvature K\"ahler metrics and their relation to stability.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Classification of 4-Manifolds}
+
+By the 1970s, the topology of simply connected 4-manifolds was well understood up to homeomorphism (Freedman's theorem). The intersection form $Q_X: H^2(X,\Z) \times H^2(X,\Z) \to \Z$ classifies simply connected topological 4-manifolds.
+
+However, the smooth classification was mysterious. Many intersection forms that are realizable by topological manifolds cannot be realized by smooth manifolds. Donaldson proved the first such restriction.
+
+\subsection{Instantons and Yang--Mills Theory}
+
+In physics, instantons are solutions to the Yang--Mills equations on a 4-manifold that minimize the Yang--Mills functional:
+\[
+YM(A) = \int_X |F_A|^2
+\]
+
+The instanton equation is $F_A^+ = 0$ (anti-self-dual curvature). The moduli space of such connections has a rich structure that Donaldson used to define invariants of the underlying 4-manifold.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Donaldson's Theorem}
+
+The proof uses the following strategy:
+\begin{enumerate}
+    \item Consider an $\SU(2)$ bundle over a 4-manifold $X$ with positive definite intersection form.
+    \item The moduli space $\mathcal{M}$ of anti-self-dual connections on this bundle is a smooth manifold (except at reducible connections).
+    \item $\mathcal{M}$ has a natural orientation and, for generic metrics, is a manifold of dimension determined by the topology of $X$.
+    \item By analyzing the ends of $\mathcal{M}$ (corresponding to ``bubbling'' of instantons), Donaldson showed that $\mathcal{M}$ must be a cobordism between $X$ itself and a boundary.
+    \item This implies that $Q_X$ is equivalent to the standard diagonal form.
+\end{enumerate}
+
+\subsection{Tools and Techniques}
+
+\begin{itemize}
+    \item \textbf{Gauge Theory:} The study of connections on principal bundles and their moduli spaces.
+    \item \textbf{Atiyah--Singer Index Theorem:} Used to compute the dimension of the instanton moduli space.
+    \item \textbf{Uhlenbeck Compactness:} Limits of instantons correspond to idealized connections with point singularities.
+    \item \textbf{Topology of Moduli Spaces:} Understanding the boundary of the moduli space via bubbling analysis.
+\end{itemize}
+
+\section{Mathematical Theory}
+
+\subsection{Donaldson's Theorem on 4-Manifolds}
+
+\begin{definition}[Intersection Form]
+For a closed oriented 4-manifold $X$, the \textbf{intersection form} $Q_X: H^2(X,\Z) \times H^2(X,\Z) \to \Z$ is defined by:
+\[
+Q_X(\alpha, \beta) = \langle \alpha \cup \beta, [X] \rangle
+\]
+\end{definition}
+
+\begin{theorem}[Donaldson, 1983]
+Let $X$ be a smooth, simply connected, oriented 4-manifold with a positive definite intersection form $Q_X$. Then $Q_X$ is equivalent over $\Z$ to the standard diagonal form:
+\[
+Q_X \cong \langle 1 \rangle \oplus \langle 1 \rangle \oplus \cdots \oplus \langle 1 \rangle
+\]
+\end{theorem}
+
+This immediately implies that many topological 4-manifolds (such as those with intersection form $E_8$) admit no smooth structure.
+
+\subsection{Donaldson Invariants}
+
+\begin{definition}[Donaldson Invariant]
+Let $X$ be a smooth oriented 4-manifold with $b_2^+(X) > 1$. For a homology class $\gamma \in H_0(X) \oplus H_2(X)$, the \textbf{Donaldson invariant} $q_{X,d}(\gamma)$ is defined by evaluating cohomology classes on the instanton moduli space $\mathcal{M}_d$:
+\[
+q_{X,d}(\gamma) = \int_{\overline{\mathcal{M}}_d} \mu(\gamma)^{\dim \mathcal{M}_d/2}
+\]
+where $\mu: H_*(X) \to H^*(\mathcal{M})$ is the Donaldson map.
+\end{definition}
+
+These invariants are polynomials on $H_2(X)$ that distinguish smooth structures on homeomorphic 4-manifolds.
+
+\begin{theorem}[Donaldson, 1990]
+The Donaldson invariants distinguish infinitely many distinct smooth structures on the topological 4-manifold $\CP^2 \# \overline{\CP^2} \# \cdots \# \overline{\CP^2}$.
+\end{theorem}
+
+\subsection{The Hitchin--Kobayashi Correspondence}
+
+\begin{definition}[Hermitian Yang--Mills Connection]
+Let $E \to X$ be a holomorphic vector bundle over a compact K\"ahler manifold. A Hermitian metric on $E$ induces a \textbf{Hermitian Yang--Mills connection} if its curvature $F$ satisfies:
+\[
+\Lambda F = \lambda \cdot \mathrm{Id}_E
+\]
+\end{definition}
+
+\begin{theorem}[Donaldson, 1985; Uhlenbeck--Yau, 1986]
+A holomorphic vector bundle over a compact K\"ahler manifold admits a Hermitian Yang--Mills connection if and only if it is a direct sum of stable bundles.
+\end{theorem}
+
+This established the Hitchin--Kobayashi correspondence, linking algebraic geometry (stability) to differential geometry (Hermitian Yang--Mills connections).
+
+\subsection{Donaldson--Thomas Invariants}
+
+\begin{definition}[Donaldson--Thomas Invariant]
+For a Calabi--Yau 3-fold $Y$, the \textbf{Donaldson--Thomas invariant} $DT_{n,\chi}$ counts ideal sheaves $\mathcal{I}_Z$ of curves $Z \subset Y$ with fixed holomorphic Chern number $n$ and Euler characteristic $\chi$, using the moduli space of sheaves and its virtual fundamental cycle.
+\end{definition}
+
+These invariants are unchanged under deformations of the Calabi--Yau and satisfy the same wall-crossing formulas as the related Gromov--Witten invariants.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{4-Manifold Topology:} Donaldson's theorem and invariants revolutionized the field, later supplemented by Seiberg--Witten theory.
+    \item \textbf{Gauge Theory:} The use of Yang--Mills equations in geometry became a central technique.
+    \item \textbf{Algebraic Geometry:} The Hitchin--Kobayashi correspondence and Donaldson--Thomas invariants are fundamental.
+    \item \textbf{Symplectic Geometry:} Donaldson's results on symplectic submanifolds are foundational.
+    \item \textbf{K\"ahler Geometry:} The existence of constant scalar curvature metrics relates to algebraic stability.
+\end{enumerate}
+
+\subsection{In Physics}
+
+\begin{enumerate}
+    \item \textbf{String Theory:} Donaldson--Thomas invariants are related to counting BPS states in string theory.
+    \item \textbf{Gauge Theory:} The instanton moduli space is central to quantum field theory.
+    \item \textbf{Mirror Symmetry:} Donaldson--Thomas invariants are dual to Gromov--Witten invariants under mirror symmetry.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is Donaldson's theorem?}
+It states that a smooth simply connected 4-manifold with a positive definite intersection form must have a diagonalizable intersection form. This showed that many topological 4-manifolds (e.g., the $E_8$ manifold) admit no smooth structure.
+
+\subsection*{Q2: What are Donaldson invariants?}
+Polynomial invariants of smooth 4-manifolds defined using the moduli space of anti-self-dual Yang--Mills connections (instantons). They distinguish smooth structures on homeomorphic 4-manifolds.
+
+\subsection*{Q3: What is the Hitchin--Kobayashi correspondence?}
+The equivalence between the existence of Hermitian Yang--Mills connections on a holomorphic bundle and the algebraic stability of the bundle. It bridges differential geometry and algebraic geometry.
+
+\subsection*{Q4: What are Donaldson--Thomas invariants?}
+Invariants counting sheaves on Calabi--Yau 3-folds, analogous to Gromov--Witten invariants. They are unchanged under deformations and satisfy wall-crossing formulas.
+
+\subsection*{Q5: What should an undergraduate study to understand Donaldson's work?}
+Differential geometry (connections, curvature), algebraic topology (cohomology, characteristic classes), and gauge theory. Recommended: \textit{Geometry of Four-Manifolds} (Donaldson--Kronheimer), \textit{Instantons and Four-Manifolds} (Freed--Uhlenbeck), and \textit{Introduction to Gauge Theory} (Morgan).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the intersection form $E_8$ is positive definite but not diagonalizable over $\Z$.
+    \item Compute the dimension of the instanton moduli space for an $\SU(2)$ bundle over $\CP^2$.
+    \item Prove that the Donaldson invariant for $\CP^2$ vanishes.
+    \item Show that a stable vector bundle over a Riemann surface admits a Hermitian Yang--Mills connection.
+    \item Compute the Donaldson--Thomas invariant of a point (the Hilbert scheme of points on $\C^3$).
+    \item Show that the Hitchin--Kobayashi correspondence implies that the moduli space of stable bundles is K\"ahler.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1957 & Born in Cambridge, England \\ \hline
+1979 & B.A.\ from Pembroke College, Cambridge \\ \hline
+1983 & Ph.D.\ from Oxford (advisor: Michael Atiyah) \\ \hline
+1983 | Donaldson's theorem on 4-manifolds \\ \hline
+1985 | Hitchin--Kobayashi correspondence for Riemann surfaces \\ \hline
+1990 | Donaldson invariants for 4-manifolds \\ \hline
+1986 | Fields Medal at ICM Berkeley \\ \hline
+1996 | Professor at Imperial College \\ \hline
+1998 | Moves to the University of Oxford (Wallis Professor) \\ \hline
+2001 | Sylvester Medal of the Royal Society \\ \hline
+2010 | Breakthrough Prize in Mathematics \\ \hline
+2015 | Moves to Stony Brook University \\ \hline
+2020 | Wolf Prize in Mathematics \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Anti-self-dual connection] A connection $A$ satisfying $F_A^+ = 0$, i.e., the self-dual part of the curvature vanishes.
+    \item[Donaldson invariant] A polynomial invariant of smooth 4-manifolds defined via instanton moduli spaces.
+    \item[Gauge theory] The study of connections on principal bundles and their moduli spaces.
+    \item[Hermitian Yang--Mills connection] A connection satisfying $\Lambda F = \lambda \cdot \mathrm{Id}$.
+    \item[Hitchin--Kobayashi correspondence] The equivalence between stability and the existence of Hermitian Yang--Mills connections.
+    \item[Instanton] An anti-self-dual $\SU(2)$ connection on a 4-manifold.
+    \item[Intersection form] A symmetric bilinear form on $H^2(X,\Z)$ given by cup product.
+    \item[Moduli space] The space of solutions to a PDE modulo gauge transformations.
+    \item[Stability] An algebro-geometric condition related to slope of subsheaves.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item S.\ K.\ Donaldson, \textit{An application of gauge theory to the topology of 4-manifolds}, J.\ Diff.\ Geom.\ 18 (1983), 279--315.
+    \item S.\ K.\ Donaldson, \textit{Polynomial invariants for smooth 4-manifolds}, Topology 29 (1990), 257--315.
+    \item S.\ K.\ Donaldson, \textit{Anti-self-dual Yang--Mills connections on complex algebraic surfaces and stable vector bundles}, Proc.\ London Math.\ Soc.\ 50 (1985), 1--26.
+    \item S.\ K.\ Donaldson and R.\ P.\ Thomas, \textit{Gauge theory in higher dimensions}, in \textit{The Geometric Universe}, Oxford Univ.\ Press, 1998.
+    \item S.\ K.\ Donaldson and P.\ B.\ Kronheimer, \textit{The Geometry of Four-Manifolds}, Oxford Univ.\ Press, 1990.
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item S.\ K.\ Donaldson, \textit{The Seiberg--Witten equations and 4-manifold topology}, Bull.\ AMS 33 (1996), 45--70.
+    \item D.\ S.\ Freed and K.\ K.\ Uhlenbeck, \textit{Instantons and Four-Manifolds}, Springer, 1984.
+    \item R.\ P.\ Thomas, \textit{A holomorphic Casson invariant for Calabi--Yau 3-folds}, J.\ Diff.\ Geom.\ 54 (2000), 367--438.
+\end{enumerate}
+

@@ -1,0 +1,233 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\Cont}{\operatorname{Cont}}
+\providecommand{\Symp}{\operatorname{Symp}}
+\providecommand{\Ham}{\operatorname{Ham}}
+\providecommand{\Leg}{\operatorname{Leg}}
+
+\chapter{Yakov Eliashberg (2020)}
+
+\begin{quote}
+\it ``Yakov Eliashberg has been the leading figure in symplectic and contact topology for decades. His discovery of overtwisted contact structures, his development of the h-principle, and his creation of symplectic field theory have transformed our understanding of odd-dimensional geometry and its connections to analysis and physics.'' --- Wolf Prize Citation, 2020
+\end{quote}
+
+\section{Main Contribution}
+
+Yakov Eliashberg (born 1946) is a Russian--American mathematician who has fundamentally shaped symplectic and contact geometry and topology. He was awarded the Wolf Prize in Mathematics in 2020 alongside Simon Donaldson.
+
+The Wolf Prize citation reads: ``for their contributions to differential geometry and topology.''
+
+Eliashberg's core contributions include:
+\begin{itemize}
+    \item \textbf{Overtwisted Contact Structures:} The classification of overtwisted contact structures on 3-manifolds, showing they are completely determined by algebraic topological data (the h-principle holds), in stark contrast to tight contact structures.
+    \item \textbf{Flexible and Rigid Symplectic Geometry:} The discovery of the dichotomy between flexibility (h-principle) and rigidity (Gromov's theory of pseudoholomorphic curves) in symplectic topology.
+    \item \textbf{Symplectic Field Theory (SFT):} The creation (with Givental and Hofer) of a comprehensive framework for invariants of symplectic and contact manifolds using punctured pseudoholomorphic curves.
+    \item \textbf{Classification of Legendrian Knots:} The classification of Legendrian and transverse knots in contact 3-manifolds using invariants from SFT.
+    \item \textbf{Stein Manifolds:} The characterization of Stein manifolds (complex manifolds admitting a proper plurisubharmonic function) in terms of handlebody decompositions, leading to the construction of exotic Stein structures.
+    \item \textbf{The h-Principle:} Systematic development of the h-principle (homotopy principle) for differential relations, showing that many geometric problems reduce to algebraic topology.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{Contact Structures and Flexibility}
+
+A contact structure on an odd-dimensional manifold is a maximally non-integrable hyperplane field. It is the odd-dimensional analogue of a symplectic structure. The fundamental question: when do two contact structures on the same manifold differ by a diffeomorphism?
+
+The discovery: there is a fundamental dichotomy. Some contact structures (``overtwisted'') are flexible and classified by homotopy theory. Others (``tight'') are rigid and require pseudoholomorphic curves for their study.
+
+\subsection{The h-Principle}
+
+In differential geometry, many problems involve finding a solution to a differential equation or relation. The h-principle states that the existence of a formal solution (satisfying the algebraic topological constraints) often implies the existence of an actual solution.
+
+For example, the h-principle for immersions says that any map $f: M \to N$ with $df$ injective (formally an immersion) can be deformed to an actual immersion.
+
+\subsection{Symplectic Field Theory}
+
+Symplectic field theory provides a unified framework for counting pseudoholomorphic curves in symplectic and contact manifolds. It generalizes Gromov--Witten theory and Floer homology, and produces invariants of symplectic and contact structures.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{The Classification of Overtwisted Contact Structures}
+
+Eliashberg proved that on a 3-manifold, every homotopy class of plane fields that are formally contact (i.e., a reduction of the structure group to $\U(1) \times 1$) contains a unique overtwisted contact structure up to isotopy. The proof uses a combination of:
+\begin{enumerate}
+    \item The parametric h-principle for overtwisted contact structures.
+    \item A surgery decomposition of 3-manifolds.
+    \item Explicit model contact structures on standard pieces.
+\end{enumerate}
+
+\subsection{Tools and Techniques}
+
+\begin{itemize}
+    \item \textbf{Pseudoholomorphic Curves:} Gromov's theory of $J$-holomorphic curves is the main source of rigidity in symplectic topology.
+    \item \textbf{Holomorphic Disk Filling:} A technique to detect tightness using families of pseudoholomorphic disks.
+    \item \textbf{Convex Surface Theory:} The study of contact structures via convex surfaces (Giroux).
+    \item \textbf{Hurwitz--Morse Theory:} The topology of Stein manifolds via Morse theory of plurisubharmonic functions.
+\end{itemize}
+
+\section{Mathematical Theory}
+
+\subsection{Contact Structures}
+
+\begin{definition}[Contact Structure]
+A \textbf{contact structure} on a $(2n+1)$-dimensional manifold $M$ is a hyperplane field $\xi \subset TM$ that is maximally non-integrable: if $\xi = \ker \alpha$ locally, then $\alpha \wedge (d\alpha)^n \neq 0$.
+\end{definition}
+
+\begin{definition}[Overtwisted vs Tight]
+A contact 3-manifold $(M,\xi)$ is \textbf{overtwisted} if it contains an overtwisted disk: an embedded disk $D$ such that $\xi$ is tangent to $\partial D$ and transverse to the interior of $D$. Otherwise, $\xi$ is \textbf{tight}.
+\end{definition}
+
+\begin{theorem}[Eliashberg, 1989]
+On any closed oriented 3-manifold $M$, there is a natural bijection between:
+\[
+\frac{\{\text{overtwisted contact structures}\}}{\text{isotopy}} \cong \frac{\{\text{formal contact structures}\}}{\text{homotopy}}
+\]
+In other words, overtwisted contact structures satisfy the h-principle and are classified by algebraic topology.
+\end{theorem}
+
+\subsection{The h-Principle}
+
+\begin{definition}[Differential Relation]
+A \textbf{differential relation} $\mathcal{R}$ of order $k$ is a subset of the jet bundle $J^k(M,N)$. A solution is a function $f: M \to N$ such that $j^k f(M) \subset \mathcal{R}$.
+\end{definition}
+
+\begin{definition}[h-Principle]
+We say that the \textbf{h-principle} holds for a differential relation $\mathcal{R}$ if every formal solution (a section $F: M \to \mathcal{R}$) is homotopic through formal solutions to a holonomic solution (one of the form $j^k f$ for some $f$).
+\end{definition}
+
+Eliashberg proved the h-principle for many geometric problems, including:
+\begin{itemize}
+    \item Immersions and submersions.
+    \item Symplectic and contact embeddings.
+    \item Over twised contact structures.
+    \item Legendrian immersions.
+\end{itemize}
+
+\subsection{Symplectic Field Theory}
+
+\begin{definition}[Symplectic Field Theory]
+SFT is a collection of invariants of symplectic and contact manifolds defined by counting pseudoholomorphic curves in the symplectization $\R \times M$ of a contact manifold $M$, with punctures asymptotic to periodic Reeb orbits.
+\end{definition}
+
+The SFT Hamiltonian $H$ is a formal power series in variables corresponding to Reeb orbits, satisfying:
+\[
+H \circ H = 0
+\]
+making it a differential graded algebra. The homology of this complex is an invariant of the contact structure.
+
+\subsection{Stein Manifolds}
+
+\begin{definition}[Stein Manifold]
+A complex manifold $W$ is \textbf{Stein} if it admits a proper holomorphic embedding into $\C^N$ for some $N$. Equivalently, $W$ admits a smooth proper plurisubharmonic function $\varphi: W \to \R$ with finitely many critical points.
+\end{definition}
+
+\begin{theorem}[Eliashberg, 1990]
+A smooth almost complex manifold $W$ of dimension $2n$ (with $n > 2$) admits a Stein structure if and only if it has a handlebody decomposition with handles of index at most $n$.
+\end{theorem}
+
+This theorem enables the construction of exotic Stein manifolds and establishes a deep connection between complex geometry and contact topology (the boundary of a Stein manifold inherits a tight contact structure).
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Symplectic Topology:} The flexibility/rigidity dichotomy is fundamental.
+    \item \textbf{Contact Topology:} The classification of overtwisted structures is the central result in the field.
+    \item \textbf{Stein Geometry:} Eliashberg's characterization enabled the construction of many new Stein manifolds.
+    \item \textbf{Topology of 3-Manifolds:} Contact structures are deeply connected to the geometry of 3-manifolds.
+\end{enumerate}
+
+\subsection{In Physics}
+
+\begin{enumerate}
+    \item \textbf{Symplectic Field Theory:} SFT is related to topological field theories and string theory.
+    \item \textbf{Classical Mechanics:} Contact geometry appears in thermodynamics and geometric optics.
+    \item \textbf{Quantization:} Contact structures are related to the prequantization of symplectic manifolds.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is an overtwisted contact structure?}
+A contact structure on a 3-manifold that contains an overtwisted disk—a disk whose boundary is tangent to the contact planes. Overtwisted structures are flexible and classified by algebraic topology.
+
+\subsection*{Q2: What is the h-principle?}
+The homotopy principle states that for certain differential relations, the existence of a formal (algebraic topological) solution implies the existence of an actual geometric solution. It is the source of flexibility in geometry.
+
+\subsection*{Q3: What is symplectic field theory?}
+A comprehensive framework for invariants of symplectic and contact manifolds, counting punctured pseudoholomorphic curves in symplectizations. It generalizes Gromov--Witten theory and Floer homology.
+
+\subsection*{Q4: What is a Stein manifold?}
+A complex manifold that can be properly holomorphically embedded in $\C^N$. Eliashberg characterized Stein manifolds as those with a handlebody decomposition where handles have index at most the complex dimension.
+
+\subsection*{Q5: What should an undergraduate study to understand Eliashberg's work?}
+Differential topology (manifolds, vector bundles, transversality), symplectic geometry (symplectic forms, Hamiltonian dynamics), and complex geometry. Recommended: \textit{Introduction to Symplectic Topology} (McDuff--Salamon), \textit{Contact Geometry} (Geiges), and \textit{The h-Principle} (Eliashberg--Mishachev).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that $\R^3$ with $\xi = \ker(dz + x\,dy)$ is a contact structure.
+    \item Prove that an overtwisted disk cannot exist in the standard tight contact structure on $S^3$.
+    \item Show that every closed oriented 3-manifold admits an overtwisted contact structure.
+    \item Prove the h-principle for immersions of $S^1$ into $\R^2$.
+    \item Show that the boundary of a Stein manifold carries a natural contact structure.
+    \item Construct an exotic Stein structure on $\R^4$.
+    \item Show that the Reeb vector field of a contact form generates a volume-preserving flow.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1946 & Born in Leningrad, USSR \\ \hline
+1968 & M.S.\ from Leningrad State University \\ \hline
+1972 | Ph.D.\ from Leningrad State University \\ \hline
+1988 | Moves to the United States (Stanford) \\ \hline
+1989 | Classification of overtwisted contact structures \\ \hline
+1990 | Characterization of Stein manifolds \\ \hline
+1994 | Moves to Stanford University \\ \hline
+2000 | Symplectic field theory (with Givental and Hofer) \\ \hline
+2005 | Veblen Prize of the AMS \\ \hline
+2015 | Moves to Stanford (continuing) \\ \hline
+2020 | Wolf Prize in Mathematics \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Contact structure] A maximally non-integrable hyperplane field on an odd-dimensional manifold.
+    \item[h-Principle] The principle that formal solutions imply actual geometric solutions.
+    \item[Legendrian knot] A knot tangent to a contact structure.
+    \item[Overtwisted] A contact structure containing an overtwisted disk.
+    \item[Pseudoholomorphic curve] A map from a Riemann surface to an almost complex manifold satisfying the Cauchy--Riemann equations.
+    \item[Reeb orbit] A periodic orbit of the Reeb vector field of a contact form.
+    \item[Stein manifold] A complex manifold with a proper plurisubharmonic function.
+    \item[Symplectic field theory] An invariant counting punctured pseudoholomorphic curves in symplectizations.
+    \item[Tight] A contact structure that is not overtwisted.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item Y.\ Eliashberg, \textit{Classification of overtwisted contact structures on 3-manifolds}, Invent.\ Math.\ 98 (1989), 623--637.
+    \item Y.\ Eliashberg, \textit{Topological characterization of Stein manifolds of dimension $> 2$}, Int.\ J.\ Math.\ 1 (1990), 29--46.
+    \item Y.\ Eliashberg, A.\ Givental, and H.\ Hofer, \textit{Introduction to symplectic field theory}, GAFA 2000 (Tel Aviv), 560--673.
+    \item Y.\ Eliashberg and N.\ Mishachev, \textit{Introduction to the h-Principle}, AMS Grad.\ Stud.\ in Math.\ 48, 2002.
+    \item Y.\ Eliashberg, \textit{Symplectic geometry and topology}, Proc.\ ICM 1998.
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item H.\ Geiges, \textit{An Introduction to Contact Topology}, Cambridge Univ.\ Press, 2008.
+    \item D.\ McDuff and D.\ Salamon, \textit{Introduction to Symplectic Topology}, Oxford Univ.\ Press, 2017.
+    \item K.\ Cieliebak and Y.\ Eliashberg, \textit{From Stein to Weinstein and Back}, AMS Colloquium Publ., 2012.
+\end{enumerate}
+

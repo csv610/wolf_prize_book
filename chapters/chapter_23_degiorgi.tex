@@ -1,0 +1,658 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\SO\relax
+\newcommand{\SO}{\operatorname{SO}}
+\let\SL\relax
+\newcommand{\SL}{\operatorname{SL}}
+\let\GL\relax
+\newcommand{\GL}{\operatorname{GL}}
+\let\St\relax
+\newcommand{\St}{\operatorname{St}}
+\let\GV\relax
+\newcommand{\GV}{\operatorname{GV}}
+\let\E\relax
+\newcommand{\E}{\operatorname{E}}
+\let\per\relax
+\newcommand{\per}{\operatorname{per}}
+\let\BV\relax
+\newcommand{\BV}{\operatorname{BV}}
+
+\chapter{Ennio de Giorgi (1990)}
+
+\begin{quote}
+\it ``De Giorgi's work is characterized by a rare combination of geometric intuition, analytic power, and measure-theoretic precision. His solution of Hilbert's 19th problem, his regularity theory for minimal surfaces, and his creation of the theory of sets of finite perimeter and \(\Gamma\)-convergence have profoundly transformed the calculus of variations, geometric measure theory, and partial differential equations. His papers are models of depth and originality.'' --- Wolf Prize Citation
+\end{quote}
+
+Ennio de Giorgi (February 8, 1928 -- October 25, 1996) was one of the most original mathematicians of the 20th century. The 1990 Wolf Prize in Mathematics (shared with Ilia Piatetski-Shapiro) recognized his fundamental contributions to the calculus of variations, geometric measure theory, and the theory of partial differential equations. De Giorgi's work is renowned for its depth, originality, and the introduction of entirely new points of view.
+
+De Giorgi's solution of Hilbert's 19th problem established the \(C^{1,\alpha}\) regularity of minimizers of elliptic variational integrals with analytic coefficients, a result that revolutionized the field. His regularity theorem for minimal surfaces showed that area-minimizing hypersurfaces in \(\R^n\) are smooth outside a singular set of codimension at least 8. He created the theory of sets of finite perimeter (Caccioppoli sets), which became the foundation of geometric measure theory, and introduced the concept of \(\Gamma\)-convergence, a powerful tool for studying variational problems with singular perturbations.
+
+\section{Early Life and Career}
+
+Ennio de Giorgi was born in Lecce, Italy, on February 8, 1928, into a family of modest means. His father, Nicola de Giorgi, was a lawyer, and his mother, Maria Piscopo, was a homemaker. De Giorgi showed exceptional mathematical talent from an early age. He studied at the Liceo Classico ``Giuseppe Palmieri'' in Lecce, where he developed a passion for mathematics and classical literature.
+
+In 1946, de Giorgi enrolled at the University of Rome ``La Sapienza'' to study mathematics. He was deeply influenced by the teaching of Mauro Picone, the founder of the Italian school of mathematical analysis, and by Francesco Severi, a leading algebraic geometer. De Giorgi completed his undergraduate thesis under the supervision of Picone in 1950, earning his doctorate with a dissertation on the properties of solutions of elliptic equations.
+
+After completing his PhD, de Giorgi held positions at the University of Rome. In 1956, he became a professor of mathematical analysis at the University of Messina. A year later, in 1957, he moved to the Scuola Normale Superiore di Pisa, where he remained for the rest of his career. It was at Pisa that de Giorgi created his most important works, building a school of mathematics that attracted students and collaborators from around the world.
+
+De Giorgi's early work focused on elliptic partial differential equations. In 1956--57, he astonished the mathematical world by solving Hilbert's 19th problem, one of the famous problems posed by David Hilbert at the 1900 International Congress of Mathematicians. This achievement brought him international recognition.
+
+In the 1960s, de Giorgi turned his attention to minimal surfaces and geometric measure theory. He developed the theory of sets of finite perimeter, which provided a measure-theoretic foundation for the study of minimal surfaces. His regularity theorem for area-minimizing hypersurfaces (1961) is a landmark result in the field.
+
+In the 1970s, de Giorgi introduced the concept of \(\Gamma\)-convergence, a variational notion of convergence for functionals that has applications to homogenization, phase transitions, and image processing. In the 1980s, he formulated a celebrated conjecture on the one-dimensional symmetry of transition layers for the Allen--Cahn equation, which has driven research in nonlinear analysis for decades.
+
+De Giorgi received numerous honors: the Wolf Prize in Mathematics (1990, shared with Piatetski-Shapiro), the Caccioppoli Prize (1960), and membership in the Accademia Nazionale dei Lincei, the Pontifical Academy of Sciences, and the French Academy of Sciences. He died in Pisa on October 25, 1996, at the age of 68.
+
+De Giorgi was known for his humility, his profound philosophical reflections on mathematics, and his dedication to his students. He published many of his papers in obscure journals to avoid the pressure of academic competition, and he often gave away his own results to younger colleagues. His collected works, published posthumously, attest to the breadth and depth of his contributions.
+
+\section{Hilbert's 19th Problem and the De Giorgi Regularity Theorem}
+
+\subsection{Background: Hilbert's 19th Problem}
+
+At the 1900 International Congress of Mathematicians in Paris, David Hilbert presented a list of 23 unsolved problems that would shape the mathematics of the 20th century. Hilbert's 19th problem asked:
+
+\begin{quote}
+\it Are the solutions of regular variational problems always analytic?
+\end{quote}
+
+More precisely, consider a variational integral of the form
+\[
+F(u) = \int_\Omega F(\nabla u)\,dx,
+\]
+where \(\Omega \subset \R^n\) is a bounded open set, \(u: \Omega \to \R\) is a function, and \(F: \R^n \to \R\) is a smooth, strictly convex function satisfying suitable growth conditions. The Euler--Lagrange equation for a minimizer \(u\) is the elliptic partial differential equation
+\[
+\sum_{i=1}^n \frac{\partial}{\partial x_i} \left( \frac{\partial F}{\partial p_i}(\nabla u) \right) = 0,
+\]
+which is called the \textbf{Euler--Lagrange equation} of the variational problem.
+
+In the special case where the integrand is quadratic, \(F(p) = \frac{1}{2}|p|^2\), the Euler--Lagrange equation reduces to the Laplace equation \(\Delta u = 0\), whose solutions are harmonic functions, known to be analytic. Hilbert asked whether this analyticity property persists for general smooth, convex integrands \(F\).
+
+Before de Giorgi's work, partial results were known. For the case of two independent variables (\(n = 2\)), the problem had been solved by Leon Lichtenstein (1912) and later by Charles Morrey (1938). For \(n \geq 3\), the problem remained open despite the efforts of many leading analysts.
+
+\subsection{De Giorgi's Breakthrough}
+
+In 1956--57, de Giorgi solved Hilbert's 19th problem for all dimensions. His approach was entirely novel and introduced techniques that would become central to regularity theory.
+
+\begin{theorem}[De Giorgi Regularity Theorem, 1957]
+Let \(\Omega \subset \R^n\) be a bounded open set. Consider a function \(u \in H^1(\Omega)\) that minimizes the variational integral
+\[
+F(u) = \int_\Omega F(\nabla u)\,dx,
+\]
+where \(F: \R^n \to \R\) is a \(C^2\) function satisfying the uniform ellipticity condition
+\[
+\lambda |\xi|^2 \leq \sum_{i,j=1}^n \frac{\partial^2 F}{\partial p_i \partial p_j}(p) \,\xi_i\xi_j \leq \Lambda |\xi|^2
+\]
+for all \(p,\xi \in \R^n\) and some \(0 < \lambda < \Lambda\). Then \(u\) is of class \(C^{1,\alpha}(\Omega)\) for some \(\alpha \in (0,1)\). Moreover, if \(F\) is analytic, then \(u\) is analytic in \(\Omega\).
+\end{theorem}
+
+The key innovation in de Giorgi's proof was the development of a regularity theory for elliptic equations with \textbf{bounded measurable coefficients}. De Giorgi considered the linearized equation
+\[
+\sum_{i,j=1}^n \partial_i (a_{ij}(x) \partial_j u) = 0,
+\]
+where the coefficients \(a_{ij}\) are measurable functions satisfying
+\[
+\lambda |\xi|^2 \leq \sum_{i,j=1}^n a_{ij}(x) \xi_i \xi_j \leq \Lambda |\xi|^2
+\]
+for almost every \(x \in \Omega\). De Giorgi proved that any weak solution of such an equation is locally H\"older continuous.
+
+\subsection{The De Giorgi--Nash--Moser Regularity Theory}
+
+De Giorgi's proof of H\"older continuity for elliptic equations with bounded measurable coefficients was published in 1957. Independently, John Nash (1958) obtained a similar result using a different method based on parabolic estimates and Harnack inequalities. J\"urgen Moser (1960) later simplified and extended the theory using an iterative Harnack inequality.
+
+\begin{theorem}[De Giorgi--Nash--Moser Theorem]
+Let \(u \in H^1(\Omega)\) be a weak solution of
+\[
+\sum_{i,j=1}^n \partial_i (a_{ij}(x) \partial_j u) = 0,
+\]
+where the coefficients \(a_{ij}\) are measurable and satisfy
+\[
+\lambda |\xi|^2 \leq \sum_{i,j=1}^n a_{ij}(x) \xi_i \xi_j \leq \Lambda |\xi|^2
+\]
+for almost every \(x \in \Omega\) and all \(\xi \in \R^n\), with \(0 < \lambda \leq \Lambda < \infty\). Then \(u\) is locally H\"older continuous in \(\Omega\). More precisely, there exist constants \(C > 0\) and \(\alpha \in (0,1)\), depending only on \(n\), \(\lambda\), and \(\Lambda\), such that for any ball \(B_{2R} \subset \Omega\),
+\[
+\sup_{B_R} |u| \leq C \left( \frac{1}{|B_{2R}|} \int_{B_{2R}} |u|^2 \right)^{1/2},
+\]
+and for any \(x,y \in B_R\),
+\[
+|u(x) - u(y)| \leq C \left( \frac{|x-y|}{R} \right)^\alpha \left( \frac{1}{|B_{2R}|} \int_{B_{2R}} |u|^2 \right)^{1/2}.
+\]
+\end{theorem}
+
+The three proofs of de Giorgi, Nash, and Moser are conceptually different. De Giorgi's method is based on estimating the oscillation of the solution through iterative energy estimates and the study of level sets (the so-called \textbf{De Giorgi iteration}). Nash's method uses integral estimates for the fundamental solution and the theory of parabolic equations. Moser's method employs an iterative Harnack inequality based on the exponential integrability of solutions.
+
+These three approaches together form the foundation of modern regularity theory for elliptic and parabolic equations. The De Giorgi iteration, in particular, has become a standard tool for proving H\"older continuity of solutions to a wide class of PDEs.
+
+\subsection{The Proof of Hilbert's 19th Problem}
+
+De Giorgi's solution of Hilbert's 19th problem proceeds as follows. Let \(u\) be a minimizer of a variational integral with smooth, strictly convex integrand \(F\). The Euler--Lagrange equation
+\[
+\sum_i \partial_i \left( \frac{\partial F}{\partial p_i}(\nabla u) \right) = 0
+\]
+can be linearized. For any test function \(\varphi \in C^\infty_c(\Omega)\), we have
+\[
+\sum_{i,j} \int_\Omega \frac{\partial^2 F}{\partial p_i \partial p_j}(\nabla u) \, \partial_i \varphi \, \partial_j u \, dx = 0.
+\]
+Differentiating the equation with respect to \(x_k\), the partial derivatives \(v = \partial_k u\) satisfy an equation of the form
+\[
+\sum_{i,j} \partial_i (a_{ij}(x) \partial_j v) = 0,
+\]
+where \(a_{ij}(x) = \frac{\partial^2 F}{\partial p_i \partial p_j}(\nabla u(x))\). By the strict convexity of \(F\), the coefficients \(a_{ij}\) are measurable and satisfy the uniform ellipticity condition. By the De Giorgi regularity theorem, each \(\partial_k u\) is H\"older continuous, so \(u \in C^{1,\alpha}\). A bootstrap argument using Schauder estimates then shows that \(u\) is smooth, and if \(F\) is analytic, \(u\) is analytic.
+
+This proof is a masterpiece of analysis. It reduces a nonlinear problem to a linear one through differentiation and applies the deep regularity theory for elliptic equations with rough coefficients. The technique of proving regularity by differentiating the equation and iterating is now called the \textbf{De Giorgi--Nash--Moser bootstrap}.
+
+\section{The De Giorgi Theorem on Minimal Surfaces}
+
+\subsection{Minimal Surfaces and the Plateau Problem}
+
+A \textbf{minimal surface} is a surface that locally minimizes area. More precisely, given an \((n-1)\)-dimensional hypersurface \(\Sigma \subset \R^n\), \(\Sigma\) is minimal if it is a critical point of the area functional. The classical Plateau problem asks: given a closed \((n-2)\)-dimensional boundary \(\Gamma \subset \R^n\), does there exist an \((n-1)\)-dimensional area-minimizing hypersurface spanning \(\Gamma\)?
+
+The solution of the Plateau problem in higher dimensions was achieved through the work of several mathematicians. In 1960, Ennio de Giorgi and, independently, Eldred Reifenberg and Herbert Federer, developed different approaches to proving the existence of area-minimizing surfaces. De Giorgi's approach was based on his theory of sets of finite perimeter, which provided a measure-theoretic framework for the problem.
+
+A fundamental question in the theory of minimal surfaces is: how regular are area-minimizing hypersurfaces? In 1915, Bernstein proved that the only entire minimal graphs in \(\R^3\) are affine functions, i.e., planes. This result, now known as the \textbf{Bernstein theorem}, suggested that minimal surfaces in low dimensions might be very regular. However, it was unknown whether higher-dimensional area-minimizing hypersurfaces could develop singularities.
+
+\subsection{De Giorgi's Regularity Theorem for Minimal Surfaces}
+
+In 1961, de Giorgi proved a landmark regularity theorem for area-minimizing hypersurfaces.
+
+\begin{theorem}[De Giorgi's Theorem on Minimal Surfaces, 1961]
+Let \(\Sigma \subset \R^n\) be an \((n-1)\)-dimensional area-minimizing hypersurface. Then \(\Sigma\) is smooth (real analytic) outside a closed singular set of Hausdorff dimension at most \(n-8\). In particular:
+\begin{itemize}
+    \item For \(n \leq 7\), \(\Sigma\) is everywhere smooth.
+    \item For \(n = 8\), singularities can occur, but they are isolated points.
+    \item For \(n > 8\), the singular set has dimension at most \(n-8\).
+\end{itemize}
+\end{theorem}
+
+This theorem was a complete surprise to the mathematical community. It established a sharp dimension threshold for the regularity of minimal surfaces: in dimensions \(\leq 7\), area-minimizing hypersurfaces are smooth; in dimension 8 and above, singularities can appear.
+
+The proof of de Giorgi's theorem uses an ingenious variational argument. Consider a point on the hypersurface where a singularity might occur. By a rescaling argument (blow-up), one obtains a \textbf{tangent cone} to the hypersurface at the singular point. De Giorgi proved that if the dimension \(n \leq 7\), any such tangent cone must be a plane, implying that the point is actually a regular point. The obstruction in dimension 8 comes from the existence of non-planar area-minimizing cones, such as the cone over \(S^3 \times S^3\) discovered by Bombieri, De Giorgi, and Giusti (1969).
+
+\subsection{The Bombieri--De Giorgi--Giusti Counterexample}
+
+The sharpness of de Giorgi's theorem was demonstrated by Enrico Bombieri, Ennio de Giorgi, and Enrico Giusti in 1969. They constructed an explicit area-minimizing hypersurface in \(\R^8\) with an isolated singularity at the origin.
+
+\begin{theorem}[Bombieri--De Giorgi--Giusti, 1969]
+The cone
+\[
+C = \{ (x,y) \in \R^4 \times \R^4 : |x| = |y| \}
+\]
+is an area-minimizing hypersurface in \(\R^8\). The cone has an isolated singularity at the origin, and it provides a counterexample to the Bernstein theorem in dimension 8: the minimal graph of the function
+\[
+u(x) = \sqrt{|x'|^2 - |x''|^2} \quad \text{for } (x',x'') \in \R^4 \times \R^4
+\]
+is not a plane but is an entire minimal graph.
+\end{theorem}
+
+This result was a milestone in geometric measure theory. It showed that the dimension threshold \(n = 8\) in de Giorgi's theorem is optimal, and it revealed a profound connection between the regularity of minimal surfaces and the geometry of higher-dimensional cones.
+
+\subsection{Connection to the Bernstein Problem}
+
+The classical Bernstein theorem states that a minimal graph in \(\R^3\) (i.e., a smooth solution of the minimal surface equation defined on all of \(\R^2\)) must be an affine function. This result was extended by de Giorgi (1965) to dimensions \(n \leq 4\) using his regularity theorem:
+
+\begin{theorem}[De Giorgi, 1965]
+For \(n \leq 4\), every entire minimal graph in \(\R^n\) is an affine function. Equivalently, the only solutions of the minimal surface equation defined on all of \(\R^{n-1}\) are linear functions.
+\end{theorem}
+
+De Giorgi's proof uses the fact that a non-flat entire minimal graph would produce a singular area-minimizing cone in one dimension higher via a blowing-down argument. Since his regularity theorem excludes singularities in dimensions \(\leq 7\), the cone would need to be smooth, leading to a contradiction unless the original graph is flat. This argument established the Bernstein theorem for dimensions up to 7, and the Bombieri--De Giorgi--Giusti counterexample showed it fails in dimension 8.
+
+The De Giorgi theorem on minimal surfaces and the Bombieri--De Giorgi--Giusti counterexample together form one of the most elegant chapters in geometric analysis. They represent the culmination of the classical theory of minimal surfaces and established the foundations for modern research in the field.
+
+\section{Sets of Finite Perimeter}
+
+\subsection{The Measure-Theoretic Approach}
+
+One of de Giorgi's most enduring contributions is the theory of \textbf{sets of finite perimeter}, also called \textbf{Caccioppoli sets} in honor of Renato Caccioppoli, who anticipated some of the ideas. This theory provides a measure-theoretic framework for studying surfaces and their geometric properties without assuming any differentiability.
+
+\begin{definition}[Caccioppoli Sets]
+A measurable set \(E \subset \R^n\) is said to have \textbf{finite perimeter} in an open set \(\Omega \subset \R^n\) if its characteristic function \(\chi_E\) belongs to the space \(\BV(\Omega)\), i.e., the distributional gradient of \(\chi_E\) is a vector-valued Radon measure with finite total variation in \(\Omega\). The \textbf{perimeter} of \(E\) in \(\Omega\) is defined as
+\[
+\per(E,\Omega) = |D\chi_E|(\Omega),
+\]
+where \(|D\chi_E|\) denotes the total variation measure of the distributional gradient. Equivalently,
+\[
+\per(E,\Omega) = \sup \left\{ \int_E \operatorname{div} \varphi \, dx : \varphi \in C^\infty_c(\Omega; \R^n), \|\varphi\|_\infty \leq 1 \right\}.
+\]
+\end{definition}
+
+The perimeter functional coincides with the \((n-1)\)-dimensional Hausdorff measure of the reduced boundary of \(E\), when the latter is sufficiently regular. For a smooth set \(E\) with boundary \(\partial E\), we have \(\per(E,\Omega) = \mathcal{H}^{n-1}(\partial E \cap \Omega)\).
+
+\begin{definition}[The Space \(\BV(\Omega)\)]
+A function \(u \in L^1(\Omega)\) is said to have \textbf{bounded variation} if its distributional derivative is a vector-valued Radon measure with finite total variation. The space \(\BV(\Omega)\) is
+\[
+\BV(\Omega) = \left\{ u \in L^1(\Omega) : \int_\Omega |Du| < \infty \right\},
+\]
+where \(\int_\Omega |Du|\) denotes the total variation of the distributional gradient.
+\end{definition}
+
+De Giorgi developed the theory of sets of finite perimeter in a series of papers in the early 1960s. He proved the fundamental compactness and lower semicontinuity properties of the perimeter functional.
+
+\begin{theorem}[Compactness for Sets of Finite Perimeter]
+Let \(\{E_k\}_{k=1}^\infty\) be a sequence of sets of finite perimeter in a bounded open set \(\Omega \subset \R^n\) such that
+\[
+\sup_k \per(E_k,\Omega) < \infty.
+\]
+Then there exists a subsequence \(\{E_{k_j}\}\) and a set of finite perimeter \(E \subset \Omega\) such that \(\chi_{E_{k_j}} \to \chi_E\) in \(L^1_{\mathrm{loc}}(\Omega)\).
+\end{theorem}
+
+\begin{theorem}[Lower Semicontinuity of Perimeter]
+If \(\chi_{E_k} \to \chi_E\) in \(L^1_{\mathrm{loc}}(\Omega)\), then
+\[
+\per(E,\Omega) \leq \liminf_{k \to \infty} \per(E_k,\Omega).
+\]
+\end{theorem}
+
+These properties make the perimeter functional an ideal tool for solving variational problems in geometric measure theory. The existence of area-minimizing surfaces (the Plateau problem) follows immediately from the direct method of the calculus of variations: the perimeter is bounded below, and the compactness and lower semicontinuity properties guarantee that a minimizing sequence converges to a minimizer.
+
+\subsection{The Reduced Boundary and Regularity}
+
+For a set of finite perimeter \(E\), de Giorgi introduced the notion of the \textbf{reduced boundary} \(\partial^* E\), which is a measurable subset of the topological boundary where a suitable measure-theoretic normal vector exists.
+
+\begin{definition}[Reduced Boundary]
+A point \(x \in \R^n\) belongs to the \textbf{reduced boundary} \(\partial^* E\) of a set of finite perimeter \(E\) if:
+\begin{enumerate}
+    \item The perimeter measure \(|D\chi_E|\) has a positive density at \(x\):
+    \[
+    \lim_{r \to 0^+} \frac{|D\chi_E|(B_r(x))}{\omega_{n-1} r^{n-1}} > 0.
+    \]
+    \item There exists a unit vector \(\nu_E(x) \in S^{n-1}\) such that
+    \[
+    \lim_{r \to 0^+} \frac{D\chi_E(B_r(x))}{|D\chi_E|(B_r(x))} = \nu_E(x).
+    \]
+    \item For every \(\varepsilon > 0\),
+    \[
+    \lim_{r \to 0^+} \frac{|B_r(x) \cap \{y: (y-x) \cdot \nu_E(x) > 0, y \in E\}|}{r^n} = 0,
+    \]
+    \[
+    \lim_{r \to 0^+} \frac{|B_r(x) \cap \{y: (y-x) \cdot \nu_E(x) < 0, y \notin E\}|}{r^n} = 0.
+    \]
+\end{enumerate}
+\end{definition}
+
+De Giorgi's structure theorem states that the reduced boundary is essentially the same as the topological boundary of \(E\) up to a set of negligible perimeter.
+
+\begin{theorem}[De Giorgi's Structure Theorem]
+Let \(E \subset \R^n\) be a set of finite perimeter. Then:
+\begin{enumerate}
+    \item The reduced boundary \(\partial^* E\) is \((n-1)\)-rectifiable, i.e., it can be covered up to a set of \(\mathcal{H}^{n-1}\)-measure zero by a countable union of \(C^1\) hypersurfaces.
+    \item The perimeter measure is given by
+    \[
+    |D\chi_E| = \mathcal{H}^{n-1} \llcorner \partial^* E,
+    \]
+    i.e., the total variation measure of \(\chi_E\) coincides with the \((n-1)\)-dimensional Hausdorff measure restricted to the reduced boundary.
+    \item For \(\mathcal{H}^{n-1}\)-almost every point \(x \in \partial^* E\), the set \(E\) is approximately tangent to the half-space \(\{y: (y-x) \cdot \nu_E(x) < 0\}\), with convergence in \(L^1_{\mathrm{loc}}\) of characteristic functions.
+\end{enumerate}
+\end{theorem}
+
+This theorem provides a precise description of the geometric structure of sets of finite perimeter. It shows that although such sets may have very irregular boundaries, the boundary is rectifiable in a measure-theoretic sense, and the perimeter measures the \((n-1)\)-dimensional area of this rectifiable set.
+
+\subsection{Applications to the Plateau Problem}
+
+De Giorgi used the theory of sets of finite perimeter to solve the Plateau problem in higher dimensions. Given a boundary \(\Gamma \subset \R^n\) of codimension 1, one considers the class of sets \(E\) whose boundary contains \(\Gamma\) (in a suitable sense). The area-minimizing set is obtained by minimizing the perimeter among all sets in this class.
+
+The existence of a minimizer follows from the direct method: take a minimizing sequence, apply the compactness theorem to extract a convergent subsequence, and use the lower semicontinuity of the perimeter to pass to the limit. The regularity of the minimizer is then governed by de Giorgi's theorem on minimal surfaces, which shows that the reduced boundary of a perimeter-minimizing set is smooth outside a singular set of codimension at least 8.
+
+The theory of sets of finite perimeter has become a central tool in geometric measure theory, the calculus of variations, and partial differential equations. It has applications to image processing, materials science, and the study of phase transitions.
+
+\section{Gamma-Convergence}
+
+\subsection{Definition and Basic Properties}
+
+In the 1970s, de Giorgi introduced the concept of \(\Gamma\)-convergence, a variational notion of convergence for functionals. This theory provides a rigorous framework for studying limits of minimization problems and for understanding how singular perturbations affect variational problems.
+
+\begin{definition}[\(\Gamma\)-Convergence]
+Let \(X\) be a metric space (more generally, a topological space). A sequence of functionals \(F_k: X \to \R \cup \{+\infty\}\) is said to \(\Gamma\)-converge to a functional \(F: X \to \R \cup \{+\infty\}\) as \(k \to \infty\), written
+\[
+F_k \xrightarrow{\Gamma} F,
+\]
+if the following two conditions hold for every \(x \in X\):
+\begin{enumerate}
+    \item \textbf{Liminf inequality:} For every sequence \(\{x_k\}\) converging to \(x\),
+    \[
+    F(x) \leq \liminf_{k \to \infty} F_k(x_k).
+    \]
+    \item \textbf{Limsup inequality (recovery sequence):} There exists a sequence \(\{x_k\}\) converging to \(x\) such that
+    \[
+    F(x) \geq \limsup_{k \to \infty} F_k(x_k).
+    \]
+\end{enumerate}
+\end{definition}
+
+The fundamental property of \(\Gamma\)-convergence is that it implies the convergence of minimizers and minimum values.
+
+\begin{theorem}[Convergence of Minimizers]
+Let \(\{F_k\}\) be a sequence of functionals on a metric space \(X\) that \(\Gamma\)-converges to \(F\). Suppose that there exists a compact set \(K \subset X\) such that all \(F_k\) are coercive on \(K\), i.e., \(\inf_X F_k = \inf_K F_k\). Then:
+\begin{enumerate}
+    \item \(\lim_{k \to \infty} \inf_X F_k = \inf_X F\).
+    \item If \(x_k\) is a minimizer of \(F_k\) and \(x_k \to x\) (up to subsequence), then \(x\) is a minimizer of \(F\).
+\end{enumerate}
+\end{theorem}
+
+\subsection{Applications to Homogenization and Phase Transitions}
+
+\(\Gamma\)-convergence has become a fundamental tool in the calculus of variations. One of its most important applications is in the theory of \textbf{homogenization}, where one studies the effective behavior of materials with rapidly oscillating microstructure. Consider a family of energy functionals
+\[
+F_\varepsilon(u) = \int_\Omega f\left(\frac{x}{\varepsilon}, \nabla u(x)\right) dx,
+\]
+where \(f(y,\cdot)\) is periodic in \(y\). As \(\varepsilon \to 0\), the sequence \(F_\varepsilon\) \(\Gamma\)-converges to a \textbf{homogenized} functional
+\[
+F_{\mathrm{hom}}(u) = \int_\Omega f_{\mathrm{hom}}(\nabla u(x))\,dx,
+\]
+where \(f_{\mathrm{hom}}\) is obtained by solving a cell problem.
+
+Another major application is to \textbf{phase transitions}. De Giorgi considered the family of functionals
+\[
+F_\varepsilon(u) = \int_\Omega \left( \frac{\varepsilon}{2} |\nabla u|^2 + \frac{1}{\varepsilon} W(u) \right) dx,
+\]
+where \(W\) is a double-well potential (e.g., \(W(u) = (1-u^2)^2\)) and \(u\) takes values near \(\pm 1\) in the two phases. As \(\varepsilon \to 0\), the minimizers of \(F_\varepsilon\) converge to functions taking values in \(\{\pm 1\}\), and the \(\Gamma\)-limit is proportional to the perimeter of the interface separating the phases.
+
+\begin{theorem}[Modica--Mortola, 1977]
+Let \(W: \R \to [0,\infty)\) be a continuous function vanishing only at \(\pm 1\). For \(\varepsilon > 0\), define
+\[
+F_\varepsilon(u) = \int_\Omega \left( \varepsilon |\nabla u|^2 + \frac{1}{\varepsilon} W(u) \right) dx
+\]
+for \(u \in H^1(\Omega)\). Then as \(\varepsilon \to 0\), \(F_\varepsilon\) \(\Gamma\)-converges in \(L^1(\Omega)\) to
+\[
+F_0(u) = \begin{cases}
+c_W \per(E,\Omega), & \text{if } u = 2\chi_E - 1 \text{ for some set of finite perimeter } E,\\
++\infty, & \text{otherwise},
+\end{cases}
+\]
+where \(c_W = \int_{-1}^1 \sqrt{W(s)}\,ds\).
+\end{theorem}
+
+This result, now known as the \textbf{Modica--Mortola theorem}, shows that the sharp interface limit of the Allen--Cahn equation (a model for phase separation) is mean curvature flow. It establishes a rigorous connection between diffuse interface models (where the interface has a small but positive thickness) and sharp interface models (where the interface is a surface of zero thickness).
+
+De Giorgi's \(\Gamma\)-convergence has also found applications in image processing (the Mumford--Shah functional), fracture mechanics (the Griffith fracture model), and the theory of thin structures (plates, rods, shells).
+
+\section{De Giorgi's Conjecture on 1D Symmetry}
+
+\subsection{The Allen--Cahn Equation and Transition Layers}
+
+The \textbf{Allen--Cahn equation} is a reaction-diffusion equation of the form
+\[
+\Delta u + u(1-u^2) = 0 \quad \text{in } \R^n,
+\]
+which arises in the theory of phase transitions. This equation is the Euler--Lagrange equation of the functional
+\[
+F(u) = \int_{\R^n} \left( \frac{1}{2} |\nabla u|^2 + W(u) \right) dx,
+\]
+where \(W(u) = \frac{1}{4}(1-u^2)^2\) is a double-well potential with minima at \(u = \pm 1\).
+
+A solution \(u: \R^n \to \R\) of the Allen--Cahn equation is called a \textbf{transition layer} if it connects the two phases, i.e.,
+\[
+\lim_{x_n \to -\infty} u(x',x_n) = -1, \quad
+\lim_{x_n \to +\infty} u(x',x_n) = +1,
+\]
+uniformly in the tangential variables \(x' \in \R^{n-1}\). The simplest one-dimensional solution is
+\[
+u_0(s) = \tanh\left(\frac{s}{\sqrt{2}}\right),
+\]
+which satisfies \(u_0'' + u_0(1-u_0^2) = 0\) on \(\R\) with limits \(\pm 1\) at \(\pm \infty\). This profile is called the \textbf{one-dimensional transition layer} or the \textbf{tanh profile}.
+
+\subsection{De Giorgi's Conjecture}
+
+In 1978, during a lecture at the International Congress of Mathematicians in Helsinki, de Giorgi proposed the following conjecture:
+
+\begin{condition}[De Giorgi's Conjecture, 1978]
+Let \(u: \R^n \to \R\) be a bounded solution of the Allen--Cahn equation
+\[
+\Delta u + u(1-u^2) = 0 \quad \text{in } \R^n
+\]
+satisfying
+\[
+\frac{\partial u}{\partial x_n} > 0 \quad \text{in } \R^n,
+\]
+and the asymptotic conditions
+\[
+\lim_{x_n \to \pm \infty} u(x',x_n) = \pm 1,
+\]
+uniformly in \(x' \in \R^{n-1}\). Then the level sets of \(u\) are hyperplanes, i.e., \(u\) depends only on one variable: there exists a function \(\varphi: \R \to \R\) such that
+\[
+u(x) = \varphi(a \cdot x + b)
+\]
+for some unit vector \(a \in S^{n-1}\) and constant \(b \in \R\).
+\end{condition}
+
+In other words, every monotone solution of the Allen--Cahn equation with transition layers must be one-dimensional. This conjecture is a nonlinear analogue of the Bernstein theorem for minimal surfaces and is deeply connected to the regularity theory of phase transitions.
+
+\subsection{Progress on the Conjecture}
+
+De Giorgi's conjecture has been a driving force in nonlinear analysis for decades. Significant progress has been made:
+
+\begin{theorem}[Ambrosio--Cabr\'e, 2000]
+De Giorgi's conjecture holds for \(n = 2\). The proof uses a combination of the monotonicity formula for the Allen--Cahn equation, the Poincar\'e inequality on level sets, and the theory of minimal surfaces.
+\end{theorem}
+
+\begin{theorem}[Savin, 2004]
+De Giorgi's conjecture holds for \(n = 3\) and, under the additional assumption that the level sets are not too wiggly, for \(n \leq 8\). More precisely, Savin proved that if \(n \leq 8\) and the solution satisfies
+\[
+\lim_{|x_n| \to \infty} u(x',x_n) = \pm 1
+\]
+with a uniform rate of convergence, then the level sets are hyperplanes.
+\end{theorem}
+
+\begin{theorem}[del Pino--Kowalczyk--Wei, 2011]
+In dimensions \(n \geq 9\), there exist solutions of the Allen--Cahn equation satisfying all the conditions of de Giorgi's conjecture whose level sets are not hyperplanes. These counterexamples are constructed using the Bombieri--De Giorgi--Giusti minimal cone in \(\R^8\).
+\end{theorem}
+
+The counterexample in dimensions \(n \geq 9\) is particularly striking because it shows that the dimension threshold for de Giorgi's conjecture (\(n \leq 8\)) matches the dimension threshold for the regularity of minimal surfaces. This is not a coincidence: the asymptotic behavior of solutions of the Allen--Cahn equation is governed by minimal surfaces, and the connection between the two problems has been exploited in both directions.
+
+\subsection{The Modica Gradient Estimate}
+
+A key tool in the study of the Allen--Cahn equation is the \textbf{Modica gradient estimate}:
+
+\begin{lemma}[Modica, 1987]
+Let \(u\) be a bounded solution of \(\Delta u + u(1-u^2) = 0\) in \(\R^n\). Then
+\[
+|\nabla u|^2 \leq W(u) = \frac{1}{4}(1-u^2)^2.
+\]
+\end{lemma}
+
+This estimate follows from the maximum principle applied to the auxiliary function \(|\nabla u|^2 - W(u)\). It shows that the energy of the solution is concentrated near the interface \(\{u \approx 0\}\), and it provides a powerful tool for analyzing the geometry of level sets.
+
+The Modica estimate is closely related to the \textbf{monotonicity formula} for the Allen--Cahn equation. For a solution \(u\) and a fixed point \(x_0 \in \R^n\), the function
+\[
+\Phi(t) = \frac{1}{t^{n-2}} \int_{B_t(x_0)} \left( \frac{1}{2} |\nabla u|^2 + W(u) \right) dx - \frac{1}{t^{n-1}} \int_{\partial B_t(x_0)} \frac{1}{2} W(u) \, d\sigma
+\]
+is nondecreasing in \(t\). This monotonicity formula plays a role analogous to the area growth estimate for minimal surfaces and is the starting point for the regularity theory of phase transition interfaces.
+
+\section{Impact and Legacy}
+
+\subsection{Regularity Theory}
+
+De Giorgi's work on the regularity of elliptic equations is one of the cornerstones of modern PDE theory. The De Giorgi--Nash--Moser theory is a standard tool in the analysis of elliptic and parabolic equations with rough coefficients. It has been extended to systems, to equations on manifolds, and to degenerate elliptic equations. The De Giorgi iteration is taught in every graduate course on elliptic PDEs.
+
+The solution of Hilbert's 19th problem had a profound impact on the calculus of variations. It showed that minimizers of variational integrals with analytic coefficients are analytic, resolving a question that had been open for more than half a century. This result is essential for the modern theory of regularity of minimizers, which includes the work of Morrey, Almgren, and others on the regularity of energy-minimizing maps and currents.
+
+\subsection{Geometric Measure Theory}
+
+De Giorgi's theory of sets of finite perimeter is one of the foundational pillars of geometric measure theory. Together with the work of Federer, Fleming, and Almgren, it provides the language and tools for studying geometric variational problems in higher dimensions. The compactness and rectifiability theorems for sets of finite perimeter are used in virtually every branch of geometric analysis.
+
+The De Giorgi theorem on minimal surfaces initiated the modern study of the regularity of area-minimizing surfaces. It showed that the singular set of an area-minimizing hypersurface has codimension at least 8, a result that is both sharp and surprising. This theorem led to the classification of area-minimizing cones and the solution of the Bernstein problem in all dimensions.
+
+\subsection{Phase Transitions and the Allen--Cahn Equation}
+
+De Giorgi's conjecture on one-dimensional symmetry has driven research on the Allen--Cahn equation for more than four decades. It has led to the development of new techniques in nonlinear analysis, including the use of improved gradient estimates, monotonicity formulas, and the theory of minimal surfaces. The counterexample in dimensions \(n \geq 9\) deepens our understanding of the relationship between phase transitions and minimal surfaces.
+
+The \(\Gamma\)-convergence approach to phase transitions, pioneered by de Giorgi and developed by Modica, Mortola, and others, provides a rigorous connection between diffuse interface models and sharp interface models. This approach is now standard in materials science and has applications to the study of grain boundaries, crystal growth, and multiphase flows.
+
+\subsection{\(\Gamma\)-Convergence and Variational Methods}
+
+De Giorgi's \(\Gamma\)-convergence has become an essential tool in the calculus of variations and its applications. It provides a systematic method for deriving effective theories for materials with microstructure, thin structures, and singularly perturbed problems. The theory has been applied to homogenization of composite materials, the derivation of plate and shell theories from three-dimensional elasticity, the analysis of fracture and damage, and the study of phase transformations in solids.
+
+De Giorgi's school in Pisa produced many leading mathematicians who continued and extended his work. Luigi Ambrosio, Andrea Braides, Gianni Dal Maso, Paolo Marcellini, and others have made fundamental contributions to the calculus of variations, geometric measure theory, and the theory of \(\Gamma\)-convergence.
+
+\section{Frequently Asked Questions}
+
+\subsection*{Q1: What exactly is a set of finite perimeter?}
+
+A set \(E \subset \R^n\) has finite perimeter if the distributional derivative of its characteristic function \(\chi_E\) is a vector-valued Radon measure with finite total variation. The total variation measure \(|D\chi_E|\) is called the perimeter measure. For a smooth set, the perimeter coincides with the \((n-1)\)-dimensional area of the boundary. The theory of sets of finite perimeter allows one to study variational problems about surfaces using measure-theoretic methods, without assuming smoothness of the boundary.
+
+\subsection*{Q2: What is the significance of Hilbert's 19th problem?}
+
+Hilbert's 19th problem asks whether solutions of regular variational problems are always analytic. De Giorgi solved this problem in 1957, proving that minimizers of elliptic variational integrals with analytic coefficients are themselves analytic. The techniques he introduced -- the De Giorgi iteration for H\"older continuity of solutions to elliptic equations with bounded measurable coefficients -- became foundational for modern PDE theory. The solution was a landmark in the calculus of variations.
+
+\subsection*{Q3: How did de Giorgi prove the regularity of minimal surfaces?}
+
+De Giorgi's proof uses a blow-up argument. At a point where a singularity might occur, he considers rescalings of the hypersurface to obtain a tangent cone. He then shows that in dimensions \(n \leq 7\), any such tangent cone must be a plane, implying the point is regular. The proof relies on the theory of sets of finite perimeter and a sophisticated variational argument showing that the density of the surface satisfies a monotonicity formula.
+
+\subsection*{Q4: What is the connection between de Giorgi's conjecture and minimal surfaces?}
+
+De Giorgi's conjecture states that monotone solutions of the Allen--Cahn equation are one-dimensional. This is analogous to the Bernstein theorem for minimal surfaces, which states that entire minimal graphs are affine. The connection is deep: the level sets of solutions of the Allen--Cahn equation converge (in the \(\Gamma\)-convergence sense) to minimal surfaces as the interface thickness goes to zero. The dimension threshold of 8 appears in both problems, reflecting the same underlying geometric phenomenon.
+
+\subsection*{Q5: What is \(\Gamma\)-convergence used for?}
+
+\(\Gamma\)-convergence is used to study limits of minimization problems. When a family of functionals depends on a small parameter \(\varepsilon\), the \(\Gamma\)-limit captures the effective behavior as \(\varepsilon \to 0\). Applications include homogenization of composite materials (finding effective properties of materials with fine microstructure), phase transitions (deriving sharp interface models from diffuse interface models), and dimension reduction (deriving plate and shell theories from three-dimensional elasticity).
+
+\subsection*{Q6: Who are the main figures in the school of Pisa?}
+
+De Giorgi's school at the Scuola Normale Superiore di Pisa produced numerous leading mathematicians. These include Luigi Ambrosio (geometric measure theory, calculus of variations), Andrea Braides (\(\Gamma\)-convergence, homogenization), Gianni Dal Maso (variational analysis, free discontinuity problems), Bernard Dacorogna (calculus of variations), and Enrico Giusti (minimal surfaces, regularity theory). The Pisa school remains a world center for the calculus of variations and geometric analysis.
+
+\subsection*{Q7: What are the major open problems related to de Giorgi's work?}
+
+Several deep problems remain:
+\begin{enumerate}
+    \item \textbf{De Giorgi's conjecture in dimensions \(4 \leq n \leq 8\):} While it holds in dimensions 2 and 3 (Ambrosio--Cabr\'e, Savin), and counterexamples exist for \(n \geq 9\), the intermediate dimensions remain open in full generality.
+    \item \textbf{Regularity of area-minimizing currents:} The singular set structure for area-minimizing currents in higher codimension is not fully understood.
+    \item \textbf{Stability of sets of finite perimeter:} The classification of stable solutions of the isoperimetric problem on manifolds is an active research area.
+    \item \textbf{\(\Gamma\)-convergence and nonlocal effects:} The \(\Gamma\)-convergence of nonlocal functionals and their relation to classical local models is not fully understood.
+\end{enumerate}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item E.\ De Giorgi, \textit{Sulla differenziabilit\`a e l'analiticit\`a delle estremali degli integrali multipli regolari}, Ann.\ Sc.\ Norm.\ Super.\ Pisa Cl.\ Sci.\ (3) 11 (1957), 25--43. (Solution of Hilbert's 19th problem.)
+    \item E.\ De Giorgi, \textit{Un esempio di estremali discontinue per un problema variazionale di tipo ellittico}, Boll.\ Un.\ Mat.\ Ital.\ (4) 1 (1968), 135--137.
+    \item E.\ De Giorgi, \textit{Unaestensione del teorema di Bernstein}, Ann.\ Sc.\ Norm.\ Super.\ Pisa Cl.\ Sci.\ (3) 19 (1965), 79--85. (Extension of the Bernstein theorem.)
+    \item E.\ De Giorgi, \textit{Frontiere orientate di misura minima}, Seminario di Matematica della Scuola Normale Superiore di Pisa, 1961. (Regularity of minimal surfaces.)
+    \item E.\ De Giorgi, \textit{Su una teoria generale della misura \((r-1)\)-dimensionale in uno spazio ad \(r\) dimensioni}, Ann.\ Mat.\ Pura Appl.\ (4) 36 (1954), 191--213.
+    \item E.\ De Giorgi, \textit{Complementi alla teoria della misura \((n-1)\)-dimensionale in uno spazio \(n\)-dimensionale}, Seminario di Matematica della Scuola Normale Superiore di Pisa, 1961. (Sets of finite perimeter.)
+    \item E.\ De Giorgi and T.\ Franzoni, \textit{Su un tipo di convergenza variazionale}, Atti Accad.\ Naz.\ Lincei Rend.\ Cl.\ Sci.\ Fis.\ Mat.\ Nat.\ (8) 58 (1975), 842--850. (Introduction of \(\Gamma\)-convergence.)
+    \item E.\ Bombieri, E.\ De Giorgi, and E.\ Giusti, \textit{Minimal cones and the Bernstein problem}, Invent.\ Math.\ 7 (1969), 243--268. (Counterexample in dimension 8.)
+\end{enumerate}
+
+\subsection*{Biographies and Surveys}
+\begin{enumerate}
+    \item L.\ Ambrosio, \textit{Ennio De Giorgi}, in ``Wolf Prize in Mathematics,'' Vol.\ 2, World Scientific, 2001.
+    \item L.\ Ambrosio, \textit{Geometric measure theory and the legacy of Ennio De Giorgi}, Notices AMS 57 (2010), 412--421.
+    \item E.\ Giusti, \textit{Ennio De Giorgi (1928--1996)}, Boll.\ Un.\ Mat.\ Ital.\ (8) 1-B (1998), 1--31.
+    \item M.\ Giaquinta, \textit{Ennio De Giorgi: 1928--1996}, in ``Proceedings of the International Congress of Mathematicians 1998,'' Vol.\ I, 27--40.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item L.\ Ambrosio, N.\ Fusco, and D.\ Pallara, \textit{Functions of Bounded Variation and Free Discontinuity Problems}, Oxford University Press, 2000.
+    \item A.\ Braides, \textit{\(\Gamma\)-Convergence for Beginners}, Oxford University Press, 2002.
+    \item E.\ Giusti, \textit{Minimal Surfaces and Functions of Bounded Variation}, Birkh\"auser, 1984.
+    \item D.\ Gilbarg and N.\ Trudinger, \textit{Elliptic Partial Differential Equations of Second Order}, 2nd ed., Springer, 1983.
+    \item Q.\ Han and F.\ Lin, \textit{Elliptic Partial Differential Equations}, 2nd ed., AMS, 2011.
+    \item F.\ Maggi, \textit{Sets of Finite Perimeter and Geometric Variational Problems}, Cambridge University Press, 2012.
+    \item P.\ Mattila, \textit{Geometry of Sets and Measures in Euclidean Spaces}, Cambridge University Press, 1995.
+    \item L.\ Simon, \textit{Lectures on Geometric Measure Theory}, Proc.\ Centre Math.\ Anal.\ Austral.\ Nat.\ Univ.\ 3, 1983.
+\end{enumerate}
+
+\section{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1928 & Born on February 8 in Lecce, Italy \\ \hline
+1946 & Enrolled at the University of Rome ``La Sapienza'' \\ \hline
+1950 & Laurea (PhD) under Mauro Picone, University of Rome \\ \hline
+1956 & Professor at the University of Messina \\ \hline
+1957 & Solved Hilbert's 19th problem (regularity of elliptic equations) \\ \hline
+1957 & Moved to the Scuola Normale Superiore di Pisa \\ \hline
+1958 & De Giorgi--Nash--Moser regularity theory developed \\ \hline
+1960 & Awarded the Caccioppoli Prize \\ \hline
+1961 & Regularity theorem for area-minimizing hypersurfaces \\ \hline
+1961 & Theory of sets of finite perimeter established \\ \hline
+1965 & Extension of the Bernstein theorem to dimensions \(n \leq 4\) \\ \hline
+1969 & Bombieri--De Giorgi--Giusti: minimal cone in \(\R^8\) \\ \hline
+1975 & Introduction of \(\Gamma\)-convergence (with Franzoni) \\ \hline
+1978 & De Giorgi's conjecture on 1D symmetry proposed at ICM Helsinki \\ \hline
+1990 & Awarded the Wolf Prize in Mathematics (shared with I.\ Piatetski-Shapiro) \\ \hline
+1996 & Died in Pisa on October 25 at age 68 \\ \hline
+\end{tabular}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Let \(\Omega \subset \R^n\) be a bounded domain and let \(u \in H^1(\Omega)\) be a minimizer of the Dirichlet integral
+    \[
+    F(u) = \int_\Omega |\nabla u|^2\,dx.
+    \]
+    Show that \(u\) is harmonic, i.e., \(\Delta u = 0\) in \(\Omega\) in the weak sense.
+    \item Prove the Modica gradient estimate: if \(u\) is a bounded solution of \(\Delta u + u(1-u^2) = 0\) in \(\R^n\), then \(|\nabla u|^2 \leq \frac{1}{4}(1-u^2)^2\). (Hint: compute \(\Delta (|\nabla u|^2)\) and apply the maximum principle.)
+    \item Let \(E \subset \R^n\) be a smooth bounded set. Show that
+    \[
+    \per(E,\R^n) = \mathcal{H}^{n-1}(\partial E),
+    \]
+    by considering the divergence theorem with a vector field that equals the outward unit normal on \(\partial E\).
+    \item Show that the one-dimensional function \(u_0(s) = \tanh(s/\sqrt{2})\) satisfies \(u_0'' + u_0(1-u_0^2) = 0\) with limits \(\pm 1\) as \(s \to \pm \infty\).
+    \item Let \(\{F_k\}\) be a sequence of functionals on a metric space \(X\), and suppose that \(F_k\) \(\Gamma\)-converges to \(F\). Show that every cluster point of a sequence of minimizers of \(F_k\) is a minimizer of \(F\).
+    \item Consider the double-well potential \(W(u) = (1-u^2)^2\). Compute the constant \(c_W = \int_{-1}^1 \sqrt{W(s)}\,ds\) appearing in the Modica--Mortola theorem.
+    \item Let \(u \in H^1(\Omega)\) be a weak solution of \(\Delta u = 0\). Prove the mean value property: for any ball \(B_r(x_0) \subset \Omega\),
+    \[
+    u(x_0) = \frac{1}{|B_r|} \int_{B_r} u(x)\,dx.
+    \]
+    \item Let \(E \subset \R^n\) be a set of finite perimeter. Show that
+    \[
+    \per(E,\R^n) = \sup \left\{ \int_E \operatorname{div} \varphi \, dx : \varphi \in C^\infty_c(\R^n; \R^n), \|\varphi\|_\infty \leq 1 \right\}.
+    \]
+    \item Consider the Allen--Cahn equation \(\Delta u + u(1-u^2) = 0\) in \(\R^2\). Suppose \(u\) satisfies the monotonicity condition \(\partial u/\partial x_2 > 0\) and the limits \(\lim_{x_2 \to \pm \infty} u(x_1,x_2) = \pm 1\). Show that there exists a unit vector \(a \in S^1\) such that \(u(x) = \tanh(a \cdot x / \sqrt{2})\). (This is the Ambrosio--Cabr\'e theorem; you may assume the result without proof.)
+    \item Prove that the De Giorgi iteration implies the H\"older continuity of bounded weak solutions of \(\operatorname{div}(a(x)\nabla u) = 0\) with measurable, uniformly elliptic coefficients. (Hint: use the energy estimates for sub- and super-level sets to show that the oscillation decays geometrically.)
+    \item Show that every set of finite perimeter has a representative (a set equal almost everywhere) whose topological boundary is contained in the support of the perimeter measure and has finite \((n-1)\)-dimensional Hausdorff measure.
+    \item Let \(F: \R^n \to \R\) be a smooth, strictly convex function satisfying \(\lambda |p|^2 \leq D^2F(p) \leq \Lambda |p|^2\) for some \(0 < \lambda < \Lambda\). Suppose \(u \in C^2(\Omega)\) is a minimizer of \(\int_\Omega F(\nabla u)\,dx\). Show that the gradient \(v = \partial_{x_k}u\) satisfies a uniformly elliptic linear equation with measurable coefficients.
+    \item Consider the family of functionals
+    \[
+    F_\varepsilon(u) = \int_0^1 \left( \varepsilon (u')^2 + \frac{1}{\varepsilon} W(u) \right) dt
+    \]
+    for \(u \in H^1(0,1)\) with \(u(0) = -1\), \(u(1) = 1\), where \(W(t) = (1-t^2)^2\). Compute the \(\Gamma\)-limit as \(\varepsilon \to 0\).
+    \item Let \(C = \{(x,y) \in \R^4 \times \R^4 : |x| = |y|\}\). Show that \(C\) is a minimal cone in \(\R^8\) and that the area of \(C \cap B_1\) is larger than the area of the disk \(B_1 \cap \R^7\) in \(\R^8\). (This is the Bombieri--De Giorgi--Giusti cone.)
+    \item Let \(E \subset \R^n\) be a perimeter-minimizing set. Prove the monotonicity formula:
+    \[
+    \frac{\per(E, B_r(x))}{\omega_{n-1} r^{n-1}}
+    \]
+    is a nondecreasing function of \(r\), where \(\omega_{n-1}\) is the volume of the \((n-1)\)-dimensional unit ball.
+    \item Show that if \(u \in \BV(\R^n)\) is a characteristic function of a set of finite perimeter, then the total variation measure \(|Du|\) coincides with the perimeter measure. Conclude that the perimeter is lower semicontinuous with respect to \(L^1\) convergence of characteristic functions.
+    \item Prove that the only bounded entire solutions of \(\Delta u = 0\) are constant functions. Why does this not contradict the existence of non-constant solutions to the Allen--Cahn equation?
+    \item Let \(f: \R \to \R\) be a smooth function and consider the ODE \(u'' + f(u) = 0\) on \(\R\). Show that if \(F(u) = \int_0^u f(s)\,ds\) has a double well with minima at \(\pm 1\), then there exists a heteroclinic orbit connecting \(-1\) to \(+1\).
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Allen--Cahn equation] The reaction-diffusion equation \(\Delta u + u(1-u^2) = 0\), arising in the theory of phase transitions.
+    \item[Bernstein theorem] The theorem stating that the only entire minimal graphs in \(\R^3\) are affine functions; extended by de Giorgi to dimensions \(n \leq 4\).
+    \item[Blow-up] A rescaling procedure used to study the local structure of a surface or solution near a point.
+    \item[Bombieri--De Giorgi--Giusti cone] The minimal cone \(C = \{(x,y) \in \R^4 \times \R^4 : |x| = |y|\}\) in \(\R^8\) with an isolated singularity, showing optimality of de Giorgi's regularity theorem.
+    \item[Caccioppoli set] Another name for a set of finite perimeter, honoring Renato Caccioppoli.
+    \item[De Giorgi iteration] A technique for proving H\"older continuity of solutions to elliptic equations by iteratively estimating the measure of level sets.
+    \item[De Giorgi--Nash--Moser theory] The theory establishing H\"older continuity of weak solutions to elliptic equations with bounded measurable coefficients.
+    \item[De Giorgi's conjecture] The conjecture that monotone solutions of the Allen--Cahn equation with transition layers are one-dimensional.
+    \item[Double-well potential] A function \(W: \R \to [0,\infty)\) with two minima, such as \(W(u) = (1-u^2)^2\), used to model two-phase systems.
+    \item[\(\Gamma\)-convergence] A variational notion of convergence for functionals introduced by de Giorgi, preserving minimizers and minimum values in the limit.
+    \item[Hilbert's 19th problem] The problem asking whether solutions of regular variational problems are analytic, solved by de Giorgi in 1957.
+    \item[Minimal surface] A surface that locally minimizes area, equivalently a surface with zero mean curvature.
+    \item[Modica--Mortola theorem] The \(\Gamma\)-convergence result showing that the Allen--Cahn functional converges to the perimeter functional.
+    \item[Monotonicity formula] A formula showing that a suitably normalized energy or area functional is monotone in the radius of the ball, useful for regularity theory.
+    \item[Perimeter] The \((n-1)\)-dimensional measure of the boundary of a set, extended to non-smooth sets via the theory of BV functions.
+    \item[Plateau problem] The problem of finding a surface of minimal area spanning a given boundary curve or frame.
+    \item[Reduced boundary] The subset of the topological boundary of a set of finite perimeter where a measure-theoretic normal exists.
+    \item[Regularity theory] The study of how smooth the solutions of PDEs or minimizers of variational problems are.
+    \item[Set of finite perimeter] A measurable set whose characteristic function has bounded variation, providing a measure-theoretic notion of surface area.
+    \item[Tangent cone] A blow-up limit of a surface or set at a point, giving an approximate description of the local geometry.
+    \item[Transition layer] A region where a solution of the Allen--Cahn equation rapidly changes from \(-1\) to \(+1\), representing a phase boundary.
+    \item[Variational integral] A functional of the form \(\int_\Omega F(x,u,\nabla u)\,dx\) whose minimizers are studied in the calculus of variations.
+\end{description}

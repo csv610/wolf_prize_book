@@ -1,0 +1,225 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\SL}{\operatorname{SL}}
+\providecommand{\SO}{\operatorname{SO}}
+\providecommand{\Sp}{\operatorname{Sp}}
+\providecommand{\tr}{\operatorname{tr}}
+
+\chapter{James Arthur (2015)}
+
+\begin{quote}
+\it ``James Arthur has transformed the theory of automorphic forms through his development of the trace formula and his classification of representations of classical groups. His work is a monumental achievement that has laid the foundation for much of modern number theory.'' --- Wolf Prize Citation, 2015
+\end{quote}
+
+\section{Main Contribution}
+
+James Arthur (born 1944) is a Canadian mathematician whose work on the trace formula and automorphic representations has fundamentally shaped modern number theory and representation theory. He was awarded the Wolf Prize in Mathematics in 2015.
+
+The Wolf Prize citation reads: ``for his monumental work on the Selberg trace formula and on the representation theory of reductive groups, and for his fundamental contributions to the Langlands program.''
+
+Arthur's core contributions include:
+\begin{itemize}
+    \item \textbf{Arthur--Selberg Trace Formula:} A far-reaching generalization of Selberg's trace formula that applies to any reductive group over a number field, relating automorphic representations to orbital integrals on the group.
+    \item \textbf{Arthur's Conjectures:} A conjectural classification of the discrete automorphic spectrum of any reductive group in terms of global Langlands parameters, now a central part of the Langlands program.
+    \item \textbf{Endoscopic Classification:} The proof (building on work of many others) of the endoscopic classification of representations of classical groups, establishing the Langlands functoriality principle for these groups.
+    \item \textbf{The Arthur--Clozel Base Change:} A fundamental result establishing base change for $\GL(n)$ as predicted by Langlands functoriality.
+    \item \textbf{Local Trace Formula:} The development of a local analogue of the trace formula, essential for the study of local Langlands correspondence.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{Selberg's Trace Formula}
+
+In 1956, Selberg proved a remarkable formula for a Riemannian surface $\Gamma \backslash \H^2$:
+\[
+\sum_{\text{eigenvalues}} h(\lambda_j) = \sum_{\text{conjugacy classes } \{\gamma\}} \frac{\operatorname{vol}(\Gamma \backslash \H^2)}{2\pi} \int_{-\infty}^{\infty} h(r) \tanh(\pi r) \, dr + \sum_{\gamma \neq 1} \frac{\ell(\gamma_0)}{2\pi \sinh(\ell(\gamma)/2)} \hat{h}(\ell(\gamma))
+\]
+
+This formula relates the spectral data (eigenvalues of the Laplacian) to geometric data (lengths of geodesics). Selberg's formula works for $\GL(2)$ (or $\SL(2,\R)$), but a generalization to higher rank groups was needed for the Langlands program.
+
+\subsection{The Langlands Program}
+
+Langlands proposed a grand unified vision connecting number theory, representation theory, and harmonic analysis. At its core is the principle of functoriality: for any morphism of Langlands dual groups $^L G \to ^L H$, there should be a transfer of automorphic representations from $G$ to $H$. Proving such transfers requires powerful analytic tools.
+
+\subsection{The Need for a General Trace Formula}
+
+To compare automorphic spectra of different groups (as required by functoriality), one needed a trace formula that:
+\begin{enumerate}
+    \item Works for any reductive group over a number field.
+    \item Can be stabilized (grouped by stable conjugacy classes rather than rational conjugacy classes).
+    \item Can be compared between different groups (the ``comparison of trace formulas'').
+\end{enumerate}
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Arthur's Trace Formula}
+
+Arthur developed the trace formula through a series of monumental papers from 1978 to 2000. The key steps include:
+\begin{enumerate}
+    \item \textbf{The Coarse Expansion:} Decomposing the kernel of the trace formula according to the cuspidal data and the unipotent radical.
+    \item \textbf{The Fine Expansion:} Further decomposing each coarse term into contributions from individual automorphic representations.
+    \item \textbf{The Invariant Trace Formula:} Removing the dependence on a choice of truncation parameter to obtain an invariant formula.
+    \item \textbf{The Stable Trace Formula:} Refining the invariant formula to group terms by stable conjugacy classes.
+\end{enumerate}
+
+\subsection{Tools and Techniques}
+
+\begin{itemize}
+    \item \textbf{Geometric Analysis:} The spectral theory of the Laplacian and the analysis of Eisenstein series, building on the work of Langlands.
+    \item \textbf{Harmonic Analysis on Reductive Groups:} The theory of orbital integrals, Harish-Chandra's Plancherel theorem, and the theory of characters.
+    \item \textbf{Stable Conjugacy:} The notion that conjugacy over an algebraic closure, rather than over the base field, gives the correct geometric terms for comparison.
+    \item \textbf{Endoscopy:} The theory of endoscopic groups, which are auxiliary groups whose trace formulas can be compared to the original group.
+\end{itemize}
+
+\section{Mathematical Theory}
+
+\subsection{The Arthur--Selberg Trace Formula}
+
+\begin{definition}[Automorphic Representation]
+Let $G$ be a reductive group over a number field $F$. An \textbf{automorphic representation} of $G(\A_F)$ (where $\A_F$ is the adele ring) is an irreducible representation of $G(\A_F)$ occurring in the space $L^2(G(F)\backslash G(\A_F))$ of automorphic forms.
+\end{definition}
+
+\begin{theorem}[Arthur Trace Formula]
+For a test function $f$ on $G(\A_F)$ with suitable properties, we have:
+\[
+\sum_{\pi} m_\pi \, \tr \pi(f) = \sum_{\{M\}} \frac{|\det(W_0^M)|}{|W_0^G|} \sum_{\gamma \in \mathfrak{C}(M)} a^M(\gamma) \int_{G_\gamma(\A_F) \backslash G(\A_F)} f(g^{-1}\gamma g) \, dg
+\]
+where the left side is the spectral expansion (sum over automorphic representations $\pi$) and the right side is the geometric expansion (sum over conjugacy classes $\gamma$).
+\end{theorem}
+
+\subsection{Arthur's Classification for Classical Groups}
+
+\begin{definition}[Langlands Parameter]
+A \textbf{global Langlands parameter} for $G$ is a homomorphism $\varphi: L_F \to {}^L G$ where $L_F$ is the Langlands group of $F$ and ${}^L G$ is the Langlands dual group.
+\end{definition}
+
+\begin{theorem}[Arthur's Endoscopic Classification, 2013]
+Let $G$ be a classical group (symplectic, orthogonal, or unitary) over a number field $F$. There is a canonical bijection between:
+\begin{enumerate}
+    \item The set of global Langlands packets of square-integrable automorphic representations of $G$.
+    \item The set of global Arthur parameters $\psi$ mapping into the dual group.
+\end{enumerate}
+This classification establishes that the discrete automorphic spectrum of $G$ is parametrized by certain self-dual automorphic representations of $\GL(N)$.
+\end{theorem}
+
+\subsection{The Arthur--Clozel Base Change}
+
+\begin{theorem}[Arthur--Clozel, 1989]
+Let $E/F$ be a cyclic extension of number fields of prime degree. Then there is a base change lifting from automorphic representations of $\GL(n, \A_F)$ to automorphic representations of $\GL(n, \A_E)$, realizing the Langlands functoriality for the inclusion $\GL(n,\C) \hookrightarrow \GL(n,\C)^d$ induced by the Galois group.
+\end{theorem}
+
+\subsection{The Local Trace Formula}
+
+\begin{definition}[Local Trace Formula]
+For a reductive group $G$ over a local field $F$, the \textbf{local trace formula} is an identity:
+\[
+\tr \pi(f) = \int_{G(F)} f(g) \Theta_\pi(g) \, dg
+\]
+where $\Theta_\pi$ is the character of the representation $\pi$.
+\end{definition}
+
+Arthur developed the local trace formula to relate characters of representations to orbital integrals, providing a powerful tool for the local Langlands correspondence.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Langlands Program:} Arthur's trace formula and endoscopic classification are central to the modern Langlands program, which connects number theory, representation theory, and harmonic analysis.
+    \item \textbf{Number Theory:} Applications to the Birch and Swinnerton--Dyer conjecture, modularity of elliptic curves, and the Sato--Tate conjecture.
+    \item \textbf{Representation Theory:} Arthur's conjectures guide the classification of representations of reductive groups over local and global fields.
+    \item \textbf{Harmonic Analysis:} The trace formula is a powerful tool for studying the harmonic analysis of reductive groups.
+\end{enumerate}
+
+\subsection{In Other Fields}
+
+\begin{enumerate}
+    \item \textbf{Physics:} Automorphic forms and the trace formula appear in string theory (mirror symmetry, S-duality) and quantum chaos.
+    \item \textbf{Cryptography:} The Langlands program has connections to isogeny-based cryptography (SIDH).
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is the Arthur--Selberg trace formula?}
+A vast generalization of Selberg's trace formula that applies to any reductive group over a number field. It relates sums over automorphic representations (spectral side) to sums over conjugacy classes (geometric side) and is a central tool in the Langlands program.
+
+\subsection*{Q2: What is Arthur's endoscopic classification?}
+A complete description of the automorphic spectrum of classical groups in terms of automorphic representations of general linear groups. It establishes the Langlands functoriality principle for all classical groups.
+
+\subsection*{Q3: What is the Langlands program?}
+A far-reaching network of conjectures connecting number theory (Galois groups) to harmonic analysis (automorphic forms) through the Langlands dual group. It is one of the central themes of modern mathematics.
+
+\subsection*{Q4: What is base change?}
+Given an extension of number fields $E/F$ and an automorphic representation of $\GL(n)$ over $F$, base change produces an automorphic representation over $E$. The Arthur--Clozel theorem proves this for cyclic extensions.
+
+\subsection*{Q5: What should an undergraduate study to understand Arthur's work?}
+Number theory (algebraic and analytic), representation theory of Lie groups, harmonic analysis on groups, and algebraic geometry. Recommended: \textit{Automorphic Forms and Representations} (Bump), \textit{An Introduction to the Langlands Program} (Gelbart), and \textit{Trace Formulas} (Arthur--Elstrodt--Grunewald).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Derive Selberg's trace formula for a compact hyperbolic surface.
+    \item Show that the conjugacy classes in $\GL(n,\R)$ are classified by their Jordan normal form.
+    \item Prove that a non-trivial unipotent element cannot be a rational conjugacy class in $\GL(n,\Q)$.
+    \item Compute the Langlands dual group for $\SO(2n+1)$ and $\Sp(2n)$.
+    \item Show that the trace of an induced representation can be expressed in terms of orbital integrals.
+    \item State the Langlands functoriality conjecture for $\GL(2) \to \GL(3)$ via the symmetric square.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1944 & Born in Hamilton, Ontario, Canada \\ \hline
+1966 & B.Sc.\ from the University of Toronto \\ \hline
+1970 & Ph.D.\ from Yale (advisor: Robert Langlands) \\ \hline
+1978 | Begins systematic development of the trace formula \\ \hline
+1989 | Arthur--Clozel base change for $\GL(n)$ \\ \hline
+1990 | Invariant trace formula \\ \hline
+1991 | Professor at the University of Toronto \\ \hline
+1999 | CRM-Fields-PIMS Prize \\ \hline
+2005 | Steele Prize of the AMS (with Langlands) \\ \hline
+2013 | Endoscopic classification published \\ \hline
+2015 | Wolf Prize in Mathematics \\ \hline
+2017 | Siberian Federal University Prize \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Automorphic form] A function on $G(F)\backslash G(\A_F)$ satisfying certain growth and invariance conditions.
+    \item[Automorphic representation] An irreducible representation of $G(\A_F)$ in the space of automorphic forms.
+    \item[Base change] A lift of automorphic representations from a group over $F$ to the same group over an extension $E$.
+    \item[Endoscopy] A theory that relates the trace formula of a group to that of its endoscopic groups.
+    \item[Langlands dual] A reductive group ${}^L G$ over $\C$ whose root datum is dual to that of $G$.
+    \item[Langlands program] A web of conjectures connecting Galois theory, automorphic forms, and representation theory.
+    \item[Orbital integral] An integral of a function over a conjugacy class.
+    \item[Trace formula] An identity relating a sum over representations to a sum over conjugacy classes.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item J.\ Arthur, \textit{A trace formula for reductive groups I}, Duke Math.\ J.\ 45 (1978), 911--952.
+    \item J.\ Arthur, \textit{The invariant trace formula}, J.\ Amer.\ Math.\ Soc.\ 1 (1988), 323--383.
+    \item J.\ Arthur, \textit{An introduction to the trace formula}, in \textit{Harmonic Analysis, the Trace Formula, and Shimura Varieties}, AMS, 2005.
+    \item J.\ Arthur, \textit{The endoscopic classification of representations}, AMS Colloquium Publ., 2013.
+    \item J.\ Arthur and L.\ Clozel, \textit{Simple Algebras, Base Change, and the Advanced Theory of the Trace Formula}, Ann.\ Math.\ Studies 120, Princeton Univ.\ Press, 1989.
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item J.\ Arthur, \textit{The principle of functoriality}, Bull.\ AMS 40 (2003), 39--53.
+    \item S.\ Gelbart, \textit{An elementary introduction to the Langlands program}, Bull.\ AMS 10 (1984), 177--219.
+    \item R.\ Langlands, \textit{Problems in the theory of automorphic forms}, Lecture Notes in Math.\ 170, Springer, 1970.
+\end{enumerate}
+

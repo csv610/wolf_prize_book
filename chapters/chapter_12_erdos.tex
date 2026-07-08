@@ -1,0 +1,515 @@
+\let\im\relax
+\newcommand{\im}{\operatorname{im}}
+\let\End\relax
+\newcommand{\End}{\operatorname{End}}
+\let\Ker\relax
+\newcommand{\Ker}{\operatorname{Ker}}
+\let\Aut\relax
+\newcommand{\Aut}{\operatorname{Aut}}
+\let\Hom\relax
+\newcommand{\Hom}{\operatorname{Hom}}
+\let\diam\relax
+\newcommand{\diam}{\operatorname{diam}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+
+\chapter{Paul Erd\H{o}s (1983/84)}
+
+\begin{quote}
+\it ``A mathematician is a machine for turning coffee into theorems.'' --- Paul Erd\H{o}s
+\end{quote}
+
+Paul Erd\H{o}s (1913--1996) was the most prolific mathematician of the 20th century, publishing over 1500 papers with more than 500 collaborators. He was a wandering scholar who traveled the world with a single suitcase, staying with fellow mathematicians and writing papers on every conceivable topic in combinatorics, number theory, probability, set theory, and approximation theory.
+
+The Wolf Prize recognized his ``numerous outstanding contributions to mathematics, in particular in number theory, combinatorics, probability theory, set theory, and mathematical analysis.'' He shared the prize with Shiing-Shen Chern.
+
+Erd\H{o}s's approach emphasized clever elementary arguments and probabilistic methods. He pioneered the use of random methods in combinatorics and graph theory, and his conjectures continue to drive research.
+
+\section{Main Contribution}
+
+\begin{itemize}
+    \item \textbf{Prime Number Theorem:} With Selberg, gave an elementary proof (1949) that $\pi(x) \sim x/\log x$ without complex analysis.
+    \item \textbf{Erd\H{o}s--Kac Theorem:} The Gaussian law for the distribution of the number of prime factors: $\frac{\omega(n) - \log\log n}{\sqrt{\log\log n}} \to N(0,1)$.
+    \item \textbf{Erd\H{o}s--Szekeres Theorem:} Every sequence of $n^2+1$ real numbers contains a monotone subsequence of length $n+1$.
+    \item \textbf{Ramsey Theory:} The Erd\H{o}s--Szekeres bounds $R(s,s) \geq 2^{s/2}$ (lower bound via probabilistic method). The Erd\H{o}s--Rado theorem in partition calculus.
+    \item \textbf{Probabilistic Method:} Pioneered the use of randomness to prove existence of combinatorial structures. Classic example: graphs with large girth and large chromatic number.
+    \item \textbf{Erd\H{o}s--R\'{e}nyi Random Graphs:} The theory of random graphs $G(n,p)$, including the discovery of the phase transition at $p = 1/n$.
+    \item \textbf{Erd\H{o}s--Gallai Theorem:} Necessary and sufficient conditions for a degree sequence to be graphical.
+    \item \textbf{Erd\H{o}s--Selfridge Conjecture:} On discrepancy of sequences. Proved by Beck (1981) for arithmetic progressions.
+    \item \textbf{Erd\H{o}s--Moser Problem:} On minimal overlapping of sequences. Related to Sidon sets.
+    \item \textbf{Erd\H{o}s--Tur\'{a}n Inequality:} Bounds on the number of zeros of polynomials.
+    \item \textbf{Erd\H{o}s--Mordell Inequality:} Inequality for distances from a point to the sides of a triangle.
+    \item \textbf{Erd\H{o}s--Ko--Rado Theorem:} On intersecting families of subsets.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Prime Number Theorem}
+
+The prime number theorem states $\pi(x) \sim x/\log x$ as $x \to \infty$, where $\pi(x)$ counts primes $\leq x$. Legendre (1798) and Gauss (1792) conjectured this based on numerical evidence. Riemann (1859) showed it followed from the non-vanishing of $\zeta(s)$ on $\Re(s) = 1$, but analytic proofs were complex.
+
+Hadamard and de la Vall\'{e}e Poussin (1896) independently proved PNT using complex analysis and the Riemann zeta function. The question arose: could the theorem be proved using only elementary (real-variable) methods? This became a major challenge.
+
+In 1949, Selberg and Erd\H{o}s independently found an elementary proof. The key was Selberg's identity:
+\[
+\psi(x) \log x + \sum_{n \leq x} \psi(x/n) \Lambda(n) = 2x \log x + O(x),
+\]
+where $\psi(x) = \sum_{p^k \leq x} \log p$ and $\Lambda$ is the von Mangoldt function ($\Lambda(p^k) = \log p$ and zero otherwise).
+
+This identity relates $\psi(x)$ (the Chebyshev function) to its weighted averages. By iterating, one can show:
+\[
+\lim_{x \to \infty} \frac{\psi(x)}{x} = 1,
+\]
+which is equivalent to the prime number theorem. The proof uses only real analysis: limsup and liminf arguments, careful estimation, and the fact that $\sum_{p \leq x} \frac{\log p}{p} = \log x + O(1)$ (Mertens' theorem).
+
+The priority dispute over the elementary proof was unfortunate. Both Erd\H{o}s and Selberg deserved credit, but the controversy damaged their friendship permanently. Selberg is now generally credited with the identity, while Erd\H{o}s contributed key ideas about the iterative argument.
+
+The elementary proof was important because:
+\begin{enumerate}
+    \item It showed PNT does not require complex analysis.
+    \item It revealed new arithmetic information about primes.
+    \item It led to further elementary results in number theory.
+\end{enumerate}
+
+\subsection{Probabilistic Number Theory}
+
+The Erd\H{o}s--Kac theorem (1940) is a landmark result in probabilistic number theory. The function $\omega(n)$ counts distinct prime divisors of $n$. The theorem states:
+\[
+\lim_{N \to \infty} \frac{1}{N} \#\left\{ n \leq N : \frac{\omega(n) - \log\log n}{\sqrt{\log\log n}} < t \right\} = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^t e^{-u^2/2} du.
+\]
+
+The intuition: the event that a prime $p$ divides a random $n$ has probability $1/p$, and these events are nearly independent (for distinct primes). So $\omega(n)$ behaves like a sum of independent Bernoulli variables with parameters $1/p$. The mean is $\sum_{p \leq n} 1/p \sim \log\log n$, and the variance is $\sum_{p \leq n} 1/p(1-1/p) \sim \log\log n$.
+
+The proof uses the method of moments and the central limit theorem for independent random variables, with careful sieving to handle the dependence.
+
+Important extensions:
+\begin{itemize}
+    \item The Erd\H{o}s--Wintner theorem: every distribution function arising from additive arithmetic functions is a sum of independent random variables.
+    \item The Kubilius model: approximating additive functions by sums of independent random variables.
+    \item The Elliott--Halberstam conjecture: sharp bounds on the distribution of primes in arithmetic progressions.
+\end{itemize}
+
+\subsection{Ramsey Theory}
+
+Ramsey theory studies conditions under which order must appear. The classical Ramsey number $R(s,t)$ is the smallest $n$ such that any 2-coloring of the edges of $K_n$ contains either a red $K_s$ or a blue $K_t$.
+
+Erd\H{o}s and Szekeres (1935) proved:
+\[
+R(s,s) > 2^{s/2}, \qquad R(3,t) < \frac{t^2}{\log t}.
+\]
+
+The lower bound was the first use of the probabilistic method in combinatorics: color each edge red/blue independently with probability $1/2$. For a fixed set of $s$ vertices, the probability that all $\binom{s}{2}$ edges are the same color is $2^{1-\binom{s}{2}}$. By the union bound over all $\binom{n}{s}$ subsets, if $\binom{n}{s} 2^{1-\binom{s}{2}} < 1$, then a coloring with no monochromatic $K_s$ exists.
+
+The upper bound $R(3,t) < \frac{t^2}{\log t}$ was proved using explicit constructive methods. Improving the constant in this bound was a major open problem until 2023.
+
+The Erd\H{o}s--Szekeres theorem on monotone sequences (also 1935) states:
+\begin{theorem}[Erd\H{o}s--Szekeres]
+Every sequence of $n^2+1$ real numbers contains a monotone (increasing or decreasing) subsequence of length $n+1$.
+\end{theorem}
+
+This is proved by the pigeonhole principle: each element of the sequence is assigned a pair $(a_i, d_i)$ where $a_i$ is the length of the longest increasing subsequence ending at position $i$, and $d_i$ is the length of the longest decreasing subsequence. The $n^2+1$ elements must have distinct pairs; if all $a_i, d_i \leq n$, that is impossible.
+
+\subsection{Random Graphs}
+
+Random graph theory was initiated by Erd\H{o}s and R\'{e}nyi (1959--1960). The model $G(n,p)$ is a random graph on $n$ vertices where each of the $\binom{n}{2}$ edges appears independently with probability $p$.
+
+The central discovery: many properties emerge suddenly at a threshold $p(n)$. For connectivity:
+\[
+\lim_{n \to \infty} P(G(n,p) \text{ is connected}) = 
+\begin{cases}
+0 & \text{if } p < \frac{\log n}{n} (1-\epsilon), \\
+1 & \text{if } p > \frac{\log n}{n} (1+\epsilon).
+\end{cases}
+\]
+
+For the component structure, with $p = c/n$:
+\begin{itemize}
+    \item Subcritical ($c < 1$): components are small (trees and unicyclic graphs), largest component $O(\log n)$.
+    \item Critical ($c = 1$): largest component $\Theta(n^{2/3})$, scaling given by the multiplicative coalescent.
+    \item Supercritical ($c > 1$): there is a unique giant component of size $\Theta(n)$, all other components $O(\log n)$.
+\end{itemize}
+
+This phase transition is analogous to percolation on the complete graph. The critical window is $p = 1/n \pm O(n^{-4/3})$.
+
+\subsection{The Erd\H{o}s--Gallai Theorem}
+
+A sequence $d_1 \geq d_2 \geq \cdots \geq d_n$ of non-negative integers is graphical (realizable as the degree sequence of a simple graph) if and only if:
+\[
+\sum_{i=1}^n d_i \text{ is even}, \quad \sum_{i=1}^k d_i \leq k(k-1) + \sum_{i=k+1}^n \min(d_i, k),
+\]
+for all $1 \leq k \leq n$.
+
+This is the Erd\H{o}s--Gallai theorem (1960). The first condition is necessary because each edge contributes 2 to the sum of degrees. The second condition (the Erd\H{o}s--Gallai inequalities) ensures that for any set of $k$ vertices, the total degree inside the set plus degrees to vertices outside cannot exceed the total possible.
+
+\subsection{Set Systems and Extremal Combinatorics}
+
+The Erd\H{o}s--Ko--Rado theorem (1961) is a fundamental result in extremal set theory:
+\begin{theorem}[Erd\H{o}s--Ko--Rado]
+For $n \geq 2k$, the largest family of $k$-element subsets of $\{1, \ldots, n\}$ with the property that any two subsets intersect has size $\binom{n-1}{k-1}$, attained by the star (all subsets containing a fixed element).
+\end{theorem}
+
+This theorem initiated a vast literature on intersecting families and the Erd\H{o}s--Ko--Rado phenomenon in various algebraic and geometric settings.
+
+\subsection{The Erd\H{o}s--Moser Problem on Sidon Sets}
+
+A set $A \subset \{1, \ldots, N\}$ is a Sidon set if all pairwise sums $a_i + a_j$ (with $i \leq j$) are distinct. The maximum size of a Sidon set is approximately $\sqrt{N}$.
+
+Erd\H{o}s and Moser asked: for a set $A$ of $N$ integers with all pairwise sums distinct, what is the minimum possible maximum element? This is equivalent to finding the smallest $M$ such that there exists a Sidon set of size $N$ in $\{1, \ldots, M\}$. The answer is $M \sim N^2$.
+
+The difference version: if all pairwise differences $a_i - a_j$ are distinct (a Golomb ruler), the maximum size up to $N$ is about $\sqrt{N}$.
+
+\section{How It Was Solved}
+
+\subsection{The Probabilistic Method}
+
+The probabilistic method proves existence of combinatorial objects with desired properties by showing they occur with positive probability. Erd\H{o}s used it to prove lower bounds for Ramsey numbers.
+
+\begin{theorem}[Erd\H{o}s Lower Bound]
+$R(s,s) \geq 2^{s/2}$.
+\end{theorem}
+
+\begin{proof}
+Consider a random 2-coloring of edges of $K_n$ with colors red/blue equally likely. For a fixed set $S$ of $s$ vertices, the probability that $S$ is monochromatic is $2 \cdot 2^{-\binom{s}{2}} = 2^{1-\binom{s}{2}}$. By union bound:
+\[
+P(\text{there exists monochromatic } K_s) \leq \binom{n}{s} 2^{1-\binom{s}{2}}.
+\]
+If this is less than 1, there exists a coloring with no monochromatic $K_s$. Setting $n = \lfloor 2^{s/2} \rfloor$ gives the bound. \end{proof}
+
+The probabilistic method can be refined using the Lov\'{a}sz local lemma (Erd\H{o}s--Lov\'{a}sz, 1975): if events $A_1, \ldots, A_n$ each have probability at most $p$ and each depends on at most $d$ others, then if $ep(d+1) \leq 1$, $P(\cap \overline{A_i}) > 0$. This gives better bounds when dependencies are limited.
+
+The probabilistic method has become one of the most powerful tools in combinatorics. Applications include:
+\begin{itemize}
+    \item Ramsey theory: lower bounds on Ramsey numbers.
+    \item Graph theory: existence of graphs with large girth and large chromatic number.
+    \item Combinatorial geometry: the Szemer\'{e}di--Trotter theorem via crossing numbers.
+    \item Theoretical CS: randomized algorithms, expander graphs, error-correcting codes.
+    \item Additive combinatorics: Roth's theorem, Freiman's theorem.
+\end{itemize}
+
+\subsection{Elementary Proof of PNT: Detailed Sketch}
+
+Selberg's identity:
+\[
+\psi(x) \log x + \sum_{n \leq x} \psi(x/n) \Lambda(n) = 2x \log x + O(x).
+\]
+
+From this identity, the proof proceeds as follows. Define:
+\[
+\lambda = \liminf_{x \to \infty} \frac{\psi(x)}{x}, \quad \Lambda = \limsup_{x \to \infty} \frac{\psi(x)}{x}.
+\]
+
+The goal is to show $\lambda = \Lambda = 1$. Using Selberg's identity, one derives:
+\[
+\Lambda \log x + \sum_{n \leq x} \lambda \log n + o(\log x) = 2x \log x + O(x).
+\]
+
+After careful analysis:
+\[
+\Lambda + \lambda = 2, \quad \Lambda - \lambda = 0,
+\]
+giving $\lambda = \Lambda = 1$. The proof requires detailed bounds on sums over primes and the Chebyshev estimates $\psi(x) \geq x \log 2 + o(x)$.
+
+The elementary proof was a major achievement, but it is not simpler than the analytic proof. It is more elementary (no complex analysis) but more technical.
+
+\subsection{Erd\H{o}s--Ginzburg--Ziv Theorem}
+
+\begin{theorem}[EGZ Theorem]
+Any $2n-1$ integers contain a subset of size $n$ whose sum is divisible by $n$.
+\end{theorem}
+
+\begin{proof}
+Let the integers be $a_1, \ldots, a_{2n-1}$. Consider the partial sums $s_k = a_1 + \cdots + a_k$ modulo $n$. If some $s_k = 0$ mod $n$ for $k \leq n$, we are done. Otherwise, by pigeonhole principle, among the $n$ sums $s_0 = 0, s_1, \ldots, s_{n-1}$, two are equal: $s_i = s_j$ (mod $n$), and $a_{i+1} + \cdots + a_j$ is divisible by $n$. The EGZ theorem states that in any multiset of $2n-1$ integers, there is a subset of size exactly $n$ with sum divisible by $n$. This requires a more sophisticated argument using Chevalley--Warning or combinatorial Nullstellensatz.
+\end{proof}
+
+\subsection{Large Girth, Large Chromatic Number}
+
+One of Erd\H{o}s's most striking results: for any $k, g$, there exists a graph with chromatic number $> k$ and girth $> g$ (no cycles of length $\leq g$).
+
+\begin{proof}
+Construct $G(n,p)$ with $p = c/n$ and $n$ large. The expected number of cycles of length $\leq g$ is:
+\[
+E[C_{\leq g}] \leq \sum_{i=3}^g \frac{n^i p^i}{2i} = \sum_{i=3}^g \frac{c^i}{2i} \leq \frac{c^g}{2}.
+\]
+By Markov's inequality, $P(C_{\leq g} > n/2) \leq c^g/n$, which goes to 0.
+
+The chromatic number satisfies: with high probability,
+\[
+\chi(G) \geq \frac{n}{\alpha(G)} \geq \frac{n}{\log_{1/(1-p)}(n)} \sim \frac{np}{2\log n} \to \infty.
+\]
+
+Remove one vertex from each short cycle to obtain a graph with girth $> g$ and chromatic number still large. \end{proof}
+
+This shows that high chromatic number is not caused by local obstructions (short cycles), but by global structure.
+
+\section{Mathematical Theory}
+
+\subsection{Erd\H{o}s--Selfridge Theory of Discrepancy}
+
+A sequence $a_1, a_2, \ldots \in \{-1, 1\}$ has discrepancy $D(n) = |\sum_{i=1}^n a_i|$ measuring imbalance. The Erd\H{o}s discrepancy problem asks: does any infinite $\pm 1$ sequence have arbitrarily large discrepancy?
+
+\begin{theorem}[Erd\H{o}s--Selfridge, special case]
+For any $n$, there exists a sequence of $\pm 1$ of length $n$ such that all partial sums are bounded by $O(\sqrt{n})$.
+\end{theorem}
+
+This is optimal: a random sequence has discrepancy $\Theta(\sqrt{n})$ by the central limit theorem.
+
+The Erd\H{o}s discrepancy problem was solved by Tao (2015) using logician techniques (the Furstenberg correspondence principle). Tao showed that for any infinite $\pm 1$ sequence and any $C > 0$, there exists $n$ such that $|\sum_{i=1}^{kn} a_i| > C$ for some $k$.
+
+\subsection{Random Graphs: Detailed Analysis}
+
+The Erd\H{o}s--R\'{e}nyi model $G(n,m)$ chooses uniformly among graphs with $n$ vertices and $m$ edges. The model $G(n,p)$ is easier to analyze: each edge appears independently with probability $p$.
+
+Key thresholds:
+\begin{itemize}
+    \item $p = 1/n^2$: edges appear.
+    \item $p = n^{-3/2}$: trees of size 3 appear.
+    \item $p = 1/n$: the phase transition (giant component emerges).
+    \item $p = \log n/n$: connectivity threshold.
+    \item $p = 1/2$: typical graphs are quite dense.
+\end{itemize}
+
+For $p = c/n$ with $c > 1$, the giant component size $n\theta$ satisfies:
+\[
+1 - \theta = e^{-c\theta},
+\]
+which has a nontrivial solution $\theta > 0$ exactly when $c > 1$.
+
+The second moment method shows that the giant component is unique. The Small components are mostly trees; the expected number of components of size $k$ is approximately $n k^{k-2} (ce^{-c})^k / k!$.
+
+In the critical window $p = 1/n + \lambda n^{-4/3}$, the component sizes scale as $n^{2/3}$ and follow the Aldous--Pittel distribution related to the multiplicative coalescent.
+
+\subsection{Erd\H{o}s--Ko--Rado Type Theorems}
+
+The EKR theorem initiated the study of intersecting families. For $k$-subsets of $[n]$, the maximum intersecting family when $n > 2k$ is a star. When $n = 2k$, the maximum size is $\frac{1}{2}\binom{2k}{k}$, attained by the family of all $k$-sets containing at least one of two fixed complementary $k$-sets.
+
+Extensions:
+\begin{itemize}
+    \item Frankl's theorem: for $t$-intersecting families (any two sets intersect in at least $t$ elements).
+    \item Ahlswede--Khachatrian: complete solution for $t$-intersecting families.
+    \item The Hilton--Milner theorem: the largest non-trivial intersecting family.
+\end{itemize}
+
+The EKR phenomenon also appears in vector spaces, permutations, and other algebraic structures.
+
+\subsection{Erd\H{o}s--Tur\'{a}n Type Theorems}
+
+Extremal graph theory studies $\ex(n, H)$, the maximum number of edges in an $n$-vertex graph with no $H$-subgraph.
+
+For $H = K_r$, Tur\'{a}n's theorem: $\ex(n, K_r) = \left(1 - \frac{1}{r-1}\right) \frac{n^2}{2}$, attained by the complete $(r-1)$-partite Tur\'{a}n graph $T_{r-1}(n)$.
+
+The Erd\H{o}s--Stone--Simonovits theorem (1966) generalizes this to any $H$:
+\[
+\ex(n, H) = \left(1 - \frac{1}{\chi(H) - 1} + o(1)\right) \frac{n^2}{2},
+\]
+where $\chi(H)$ is the chromatic number of $H$. The leading constant depends only on $\chi(H)$, not on the finer structure of $H$.
+
+The degenerate case: when $\chi(H) = 2$ ($H$ is bipartite), the theorem gives $\ex(n, H) = o(n^2)$. Determining the exact rate for bipartite $H$ is a major open problem. The K\H{o}v\'{a}ri--S\'{o}s--Tur\'{a}n theorem gives $\ex(n, K_{s,t}) = O(n^{2-1/s})$.
+
+Erd\H{o}s also studied supersaturation: if a graph has more than $\ex(n, H)$ edges, how many copies of $H$ must it contain? The Erd\H{o}s--Simonovits supersaturation theorem gives a lower bound proportional to $(\text{excess edges})^{\text{edges}(H)}$.
+
+\subsection{The Erd\H{o}s--Moser Problem}
+
+Erd\H{o}s and Moser studied sets with distinct sums: a set $A \subset \{1, \ldots, N\}$ is sum-free if all pairwise sums $a_i + a_j$ (including $i=j$) are distinct. These are Sidon sets, also called $B_2$-sequences.
+
+The maximum size of a Sidon set in $[N]$ is $\sqrt{N} + O(N^{1/4})$. The lower bound was proved by Singer via finite projective planes: for prime powers $q$, there exists a Sidon set of size $q+1$ in $[q^2+q+1]$.
+
+Erd\H{o}s and Moser also studied $B_k$-sequences where all $k$-term sums are distinct. The maximum size is approximately $N^{1/k}$.
+
+\subsection{The Erd\H{o}s--Rado Canonical Ramsey Theorem}
+
+Erd\H{o}s and Rado (1950) proved a canonical version of Ramsey's theorem: for any 2-coloring of the edges of $K_\mathbb{N}$, there exists an infinite subset $X$ such that the color of edge $\{i,j\}$ depends only on whether $\min(i,j) < i < j$ in some canonical way. More generally, for any $k$-coloring of $r$-tuples of $\mathbb{N}$, there is an infinite $X$ such that the coloring on $[X]^r$ is canonical (determined by the equality pattern of the coordinates).
+
+This theorem is fundamental in partition calculus and infinite combinatorics.
+
+\subsection{Probabilistic Inequalities and Concentration}
+
+Erd\H{o}s used various probabilistic inequalities:
+\begin{itemize}
+    \item Markov: $P(X \geq a) \leq E[X]/a$.
+    \item Chebyshev: $P(|X - \mu| \geq t\sigma) \leq 1/t^2$.
+    \item Chernoff: $P(\sum X_i \leq (1-\delta)np) \leq e^{-\delta^2 np/2}$ for independent Bernoulli.
+\end{itemize}
+
+The second moment method is particularly useful: if $E[X] \to \infty$ and $\Var(X) = o(E[X]^2)$, then $P(X > 0) \to 1$. This was used to show thresholds for many properties.
+
+\subsection{The Erd\H{o}s--Szekeres Problem on Convex Polygons}
+
+The Erd\H{o}s--Szekeres problem (also known as the happy ending problem, named because it led to the marriage of Eszter Szekeres and George Szekeres) asks: given a set of $n$ points in the plane in general position, how many are needed to guarantee the existence of a convex $k$-gon?
+
+The answer is $N(k) = 2^{k-2} + 1$. The proof of the upper bound uses the Erd\H{o}s--Szekeres monotone subsequence theorem. The lower bound $N(k) \geq 2^{k-2}$ was proved by Erd\H{o}s and Szekeres (1935). The exact value is known only for $k \leq 6$.
+\[
+N(3) = 3, \quad N(4) = 5, \quad N(5) = 9, \quad N(6) = 17.
+\]
+
+For $k = 7$, the best known bounds are $2^{5}+1 = 33 \leq N(7) \leq 2^{6}+1 = 65$. The problem is still open.
+
+\subsection{The Erd\H{o}s--Newman Problem on Sum-Free Sets}
+
+A set $A \subset \mathbb{N}$ is sum-free if $A \cap (A + A) = \emptyset$. Erd\H{o}s and Newman asked: what is the maximum possible upper density of a sum-free subset of $\{1, \ldots, n\}$?
+
+The maximum is achieved by taking all odd numbers (density $1/2$) or numbers in $(n/3, n/2]$ (density $1/6$). The Erd\H{o}s--Newman problem asks for the structure of sum-free sets of maximum size. The result is that the maximum size is $\lceil n/2\rceil$, achieved by the odd numbers.
+
+\subsection{The Erd\H{o}s--P\'{o}sa Theorem}
+
+The Erd\H{o}s--P\'{o}sa theorem (1965) relates the size of a packing of cycles to the size of a hitting set of cycles in a graph:
+\begin{theorem}[Erd\H{o}s--P\'{o}sa]
+For every integer $k$, any graph contains either $k$ vertex-disjoint cycles or a set of $O(k \log k)$ vertices intersecting every cycle.
+\end{theorem}
+
+This theorem initiated the study of the Erd\H{o}s--P\'{o}sa property, which asks for which families of graphs there is a logarithmic relation between packing and covering.
+
+\subsection{Erd\H{o}s's Work on the Littlewood--Offord Problem}
+
+The Littlewood--Offord problem (1945) asks: given complex numbers $a_1, \ldots, a_n$ with $|a_i| \geq 1$, what is the maximum number of distinct sums $\sum \epsilon_i a_i$ that can lie in a disk of radius 1?
+
+Erd\H{o}s solved this: the maximum is $\binom{n}{\lfloor n/2\rfloor}$, achieved by $a_i = 1$ for all $i$ and the sums $\sum \epsilon_i$ (the number of ways to have sum close to 0 is $\binom{n}{n/2}$).
+
+The Erd\H{o}s--Littlewood--Offord theorem and its extensions (by Hal\'{a}sz, Kleitman, Tao--Vu) are fundamental in additive combinatorics.
+
+\subsection{The Erd\H{o}s--Rado Theorem on Sunflowers}
+
+A sunflower (or $\Delta$-system) is a collection of sets whose pairwise intersections are identical. The Erd\H{o}s--Rado theorem (1960) states:
+\begin{theorem}[Erd\H{o}s--Rado]
+For any integers $k, r$, there exists $f(k,r)$ such that any family of $f(k,r)$ sets of size $k$ contains a sunflower with $r$ petals.
+\end{theorem}
+
+The best known bound for $f(k,3)$ is $f(k,3) \leq k! \cdot c^k$ for some constant $c$. The EKR phenomenon reappears here: the sunflower lemma is essential in extremal set theory.
+
+\subsection{Erd\H{o}s's Contributions to Ramsey Theory}
+
+Beyond finite Ramsey numbers, Erd\H{o}s made fundamental contributions to infinite Ramsey theory. The Erd\H{o}s--Rado theorem in partition calculus:
+\[
+\kappa \to (\lambda)^n_\mu
+\]
+means: for any coloring of $n$-tuples of $\kappa$ with $\mu$ colors, there is a subset of size $\lambda$ all of whose $n$-tuples have the same color.
+
+Erd\H{o}s and Rado proved that $(2^\kappa)^+ \to (\kappa^+)^2_\kappa$, which is essentially the best possible for the square bracket partition relation.
+
+\section{Impact}
+
+Erd\H{o}s transformed combinatorics from a collection of puzzles into a deep mathematical discipline. The probabilistic method is now a standard tool across mathematics and CS. Random graph theory is central to network science and social network analysis. His elementary proof of PNT showed the deep connections between number theory and analysis.
+
+The Erd\H{o}s number (collaborative distance from Erd\H{o}s) is a cultural phenomenon. About 250,000 mathematicians have Erd\H{o}s number $\leq 5$. The ``Erd\H{o}s problem'' collection (with cash prizes ranging from \$10 to \$10,000) continues to drive research in combinatorics and number theory. Some famous unsolved Erd\H{o}s problems:
+\begin{itemize}
+    \item The Erd\H{o}s--Straus conjecture: $\frac{4}{n} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c}$ has integer solutions for all $n > 1$.
+    \item The Erd\H{o}s discrepancy problem: solved by Tao (2015).
+    \item The Erd\H{o}s--Graham conjecture: any set of integers with positive density contains arbitrarily long arithmetic progressions (Green--Tao theorem, 2004, generalizes this).
+    \item The Erd\H{o}s--Tur\'{a}n conjecture on additive bases.
+\end{itemize}
+
+\subsection{Impact on Network Science}
+
+The Erd\H{o}s--R\'{e}nyi random graph model, despite its simplicity, provided the first rigorous framework for studying large networks. Key ideas that influenced modern network science:
+\begin{itemize}
+    \item The phase transition explains the emergence of connectivity in networks.
+    \item The concept of thresholds explains when properties appear.
+    \item The small-world phenomenon: random graphs have diameter $O(\log n)$.
+    \item Scale-free vs.\ homogeneous degree distributions.
+\end{itemize}
+
+While real networks are not well described by $G(n,p)$ (they are scale-free with power-law degree distributions), the ER model is the baseline against which all others are compared.
+
+\subsection{The Erd\H{o}s Number and Academic Genealogy}
+
+The Erd\H{o}s number has become a celebrated concept in mathematics. As of 2024:
+\begin{itemize}
+    \item Erd\H{o}s himself: 0.
+    \item 511 direct collaborators: Erd\H{o}s number 1.
+    \item About 12,000 people: Erd\H{o}s number 2.
+    \item About 100,000: Erd\H{o}s number 3.
+    \item About 250,000 people: Erd\H{o}s number $\leq 4$.
+\end{itemize}
+
+The Erd\H{o}s--Bacon number combines the Erd\H{o}s number with the Bacon number (collaborative distance to actor Kevin Bacon). Only about 1000 people have both numbers defined.
+
+\subsection{Cash Prizes and Unsolved Problems}
+
+Erd\H{o}s offered cash prizes for solutions to his problems, ranging from \$10 to \$10,000. The prizes symbolized the importance he placed on problem-solving. Notable solved problems include:
+\begin{itemize}
+    \item Erd\H{o}s discrepancy problem (\$500): solved by Tao (2015).
+    \item Littlewood--Offord problem (\$500): solved by Hal\'{a}sz (1972).
+\end{itemize}
+
+Active open problems with prizes (as of 2024) include:
+\begin{itemize}
+    \item Erd\H{o}s--Straus conjecture (\$500): $4/n = 1/a + 1/b + 1/c$ has positive integer solutions for all $n > 1$.
+    \item Erd\H{o}s--Hajnal conjecture (\$500): every graph with no $K_k$ subgraph has a large homogeneous set.
+    \item Erd\H{o}s--Moser problem (\$500): on the minimum size of a set of integers with all differences distinct.
+    \item Erd\H{o}s--Faber--Lov\'{a}sz conjecture (\$50): on the chromatic number of unions of cliques.
+\end{itemize}
+
+The prizes are managed by Ronald Graham (Erd\H{o}s's close collaborator) and are still honored.
+
+\subsection{Erd\H{o}s's Mathematical Style}
+
+Erd\H{o}s's style emphasized:
+\begin{itemize}
+    \item Elementary methods: minimal prerequisites, maximal insight.
+    \item The probabilistic method: using randomness as a construction tool.
+    \item Extremal problems: what is the maximum/minimum possible?
+    \item Conjectures that drive research: hundreds of open problems.
+    \item Collaboration: he believed mathematics is a social activity.
+\end{itemize}
+
+His famous quote ``Another roof, another proof'' captures his nomadic lifestyle. He would show up at a colleague's doorstep, announce ``My brain is open,'' and work intensely for days.
+
+\subsection*{FAQs}
+
+\noindent\textbf{Q: What is the Erd\H{o}s number?} The collaborative distance to Paul Erd\H{o}s: Erd\H{o}s = 0, co-authors = 1, co-authors of co-authors = 2, etc. Most mathematicians have number $\leq 5$.
+
+\noindent\textbf{Q: What is the probabilistic method?} Proving existence of an object by showing a random construction succeeds with positive probability. It does not find the object explicitly but guarantees its existence. Useful when explicit constructions are difficult or unknown.
+
+\noindent\textbf{Q: Why was the elementary proof of PNT important?} It showed that the prime number theorem does not require complex analysis, making it accessible to a wider audience and revealing its arithmetic nature. It also opened new avenues in sieve theory.
+
+\noindent\textbf{Q: What should I study?} Alon--Spencer ``Probabilistic Method'', Bollob\'{a}s ``Modern Graph Theory'', Erd\H{o}s--Graham ``Old and New Problems in Combinatorial Number Theory'', and Tao--Vu ``Additive Combinatorics.''
+
+\noindent\textbf{Q: How did Erd\H{o}s manage to be so prolific?} He had an extraordinary memory, an ability to focus deeply, and a collaborative lifestyle. He would travel to colleagues' homes, work intensely for days, write papers, and move on. He never had a permanent home or family.
+
+\noindent\textbf{Q: What is the Erd\H{o}s--R\'{e}nyi random graph used for?} It models real-world networks approximately. The discovery of the phase transition explains why many networks (social, biological, technological) exhibit a giant component. It is the simplest generative model for networks.
+
+\subsection*{Citations}
+
+Primary: Erd\H{o}s--Szekeres 1935, Erd\H{o}s--Kac 1940, Erd\H{o}s--R\'{e}nyi 1959, Erd\H{o}s--Selberg PNT 1949, Erd\H{o}s--Ko--Rado 1961, Erd\H{o}s--Gallai 1960. Textbooks: Alon--Spencer ``Probabilistic Method'', Bollob\'{a}s ``Modern Graph Theory'', Janson--Luczak--Rucinski ``Random Graphs''.
+
+\subsection*{Timeline}
+
+1913 Born Budapest. 1930 PhD at 21 (University of Budapest). 1934--38 Manchester (postdoc). 1938--40 IAS Princeton. 1940 Erd\H{o}s--Kac theorem. 1941--48 Travels in US (Jewish refugee). 1949 Elementary proof of PNT. 1950s Travels the world. 1959 Random graphs with R\'{e}nyi. 1960 Erd\H{o}s--Gallai theorem. 1961 Erd\H{o}s--Ko--Rado theorem. 1970s Ramsey theory and set theory. 1984 Wolf Prize with Chern. 1996 Dies in Warsaw while attending a conference.
+
+\section*{Exercises}
+
+\begin{enumerate}
+    \item Show that the Erd\H{o}s--Szekeres theorem on monotone subsequences is sharp: for any $n$, construct a sequence of $n^2$ numbers with no monotone subsequence of length $n+1$.
+    \item Prove that $R(3,3) = 6$ by showing that $K_5$ can be 2-colored without monochromatic $K_3$, but $K_6$ cannot.
+    \item Use the probabilistic method to show $R(k,k) \geq k^{k/2}/e^{k/2}$ (improving the basic bound).
+    \item Compute the expected number of isolated vertices in $G(n,p)$ when $p = \log n/n$.
+    \item Show that in $G(n, c/n)$ with $c < 1$, the expected number of vertices not in the largest component is $n(1 - \theta(c))$ where $\theta(c)$ is the survival probability.
+    \item State and prove the Erd\H{o}s--Ko--Rado theorem for $n \geq 2k$.
+    \item Show that the Erd\H{o}s--Gallai inequalities are necessary for a graphical sequence.
+    \item Prove Chebyshev's inequality and use it to show that $\omega(n)$ has mean $\log\log n + O(1)$.
+    \item Show that the Tur\'{a}n graph $T_{r-1}(n)$ is the unique extremal graph for $K_r$-free graphs.
+    \item Compute $\ex(n, C_4)$ using the Kovari--Sos--Turan theorem.
+    \item Show that any Sidon set in $[N]$ has size at most $\sqrt{N} + O(N^{1/4})$.
+    \item Prove the EGZ theorem for $n$ prime using pigeonhole principle only.
+\end{enumerate}
+
+\section*{Glossary}
+\begin{description}
+    \item[Probabilistic method] Proving existence by showing positive probability.
+    \item[Ramsey number] The smallest $n$ such that any 2-coloring of $K_n$ contains a monochromatic $K_s$.
+    \item[Giant component] In random graphs, the unique component of size $\Theta(n)$ in the supercritical regime.
+    \item[Phase transition] Sudden emergence of a property at a threshold value of $p$.
+    \item[Sidon set] A set with all pairwise sums distinct.
+    \item[Intersecting family] A family of subsets where any two intersect.
+    \item[Supersaturation] Having many copies of a subgraph when the extremal number is exceeded.
+    \item[Discrepancy] The maximum deviation of partial sums from zero.
+    \item[Girth] The length of the shortest cycle in a graph.
+    \item[Chebyshev function] $\psi(x) = \sum_{p^k \leq x} \log p$, useful for counting primes.
+\end{description}

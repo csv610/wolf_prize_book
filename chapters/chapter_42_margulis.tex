@@ -1,0 +1,524 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\A\relax
+\newcommand{\A}{\mathbb{A}}
+\let\F\relax
+\newcommand{\F}{\mathbb{F}}
+\let\SL\relax
+\newcommand{\SL}{\operatorname{SL}}
+\let\GL\relax
+\newcommand{\GL}{\operatorname{GL}}
+\let\SO\relax
+\newcommand{\SO}{\operatorname{SO}}
+\let\SU\relax
+\newcommand{\SU}{\operatorname{SU}}
+\let\Sp\relax
+\newcommand{\Sp}{\operatorname{Sp}}
+\let\PSL\relax
+\newcommand{\PSL}{\operatorname{PSL}}
+\let\Ad\relax
+\newcommand{\Ad}{\operatorname{Ad}}
+\let\Hom\relax
+\newcommand{\Hom}{\operatorname{Hom}}
+\let\Aut\relax
+\newcommand{\Aut}{\operatorname{Aut}}
+\let\End\relax
+\newcommand{\End}{\operatorname{End}}
+\let\Lie\relax
+\newcommand{\Lie}{\operatorname{Lie}}
+\let\Gal\relax
+\newcommand{\Gal}{\operatorname{Gal}}
+\let\vol\relax
+\newcommand{\vol}{\operatorname{vol}}
+
+\chapter{Grigory Margulis (2005)}
+
+\begin{quote}
+\it ``Margulis is one of the most original and powerful mathematicians of our time. His work has profoundly transformed the theory of Lie groups, ergodic theory, and number theory. His proof of the Oppenheim conjecture, his superrigidity and arithmeticity theorems for lattices in higher-rank Lie groups, and his contributions to the theory of discrete subgroups and expander graphs represent some of the deepest achievements in modern mathematics.'' --- Wolf Prize Citation
+\end{quote}
+
+Grigory Aleksandrovich Margulis (born February 24, 1946) is a Russian-American mathematician whose work has fundamentally reshaped the interface of Lie theory, ergodic theory, combinatorics, and number theory. He was awarded the Fields Medal in 1978 for his pioneering contributions to the theory of Lie groups, particularly his proof of the superrigidity theorem and the arithmeticity theorem for irreducible lattices in higher-rank semisimple Lie groups. In 2005, he shared the Wolf Prize in Mathematics with Sergei Novikov. He is currently the Erastus L.\ DeForest Professor of Mathematics at Yale University.
+
+Margulis's mathematical style is characterized by breathtaking originality and technical power. He has an uncanny ability to find deep connections between seemingly unrelated fields --- using ergodic theory to solve problems in number theory, applying combinatorial methods to Lie groups, and deploying the theory of dynamical systems to settle open questions in the theory of quadratic forms. Four of his results are so fundamental that they bear his name as theorems: the Margulis superrigidity theorem, the Margulis arithmeticity theorem, the Margulis normal subgroup theorem, and the Margulis lemma. His proof of the Oppenheim conjecture is widely regarded as one of the most spectacular applications of homogeneous dynamics to number theory.
+
+\section{Early Life and Career}
+
+Grigory Margulis was born on February 24, 1946, in Moscow, Soviet Union. He showed exceptional mathematical talent early on, winning a gold medal at the International Mathematical Olympiad in 1962. He entered Moscow State University, where he studied under the guidance of Yakov Sinai. His early work was in ergodic theory and dynamical systems, heavily influenced by Sinai's school.
+
+Margulis received his PhD in 1970 from Moscow State University. His doctoral dissertation, written under the supervision of Sinai, dealt with the theory of \(Y\)-systems (Anosov flows) and the ergodic theory of dynamical systems with invariant measures. Even in these early works, the characteristic blend of dynamical ideas with algebraic and geometric methods was already apparent.
+
+A crucial turning point came when Margulis attended lectures by Jacques Tits on the structure of semisimple algebraic groups. The lectures, combined with Margulis's deep understanding of ergodic theory, led him to a series of breakthroughs on the structure of lattices in Lie groups. In 1975, he proved the superrigidity theorem, which immediately implied the arithmeticity theorem. These results, presented at the 1978 International Congress of Mathematicians in Helsinki, earned him the Fields Medal.
+
+Despite his international recognition, Margulis faced significant obstacles in the Soviet Union. As a Jewish mathematician, he was denied permission to travel abroad for many years. He was unable to attend the 1978 ICM in Helsinki to receive his Fields Medal in person; the medal was accepted on his behalf by the Finnish mathematician Olli Lehto. This episode became a cause c\'el\`ebre in the international mathematical community, highlighting the Soviet Union's restrictions on Jewish scientists. It was not until the late 1980s, during the period of \textit{glasnost} under Gorbachev, that he was able to travel freely. He visited the Institute for Advanced Study in Princeton in 1988 and later joined the faculty at Yale University, where he has remained since 1991. At Yale, he has mentored a generation of students in homogeneous dynamics and Lie theory.
+
+\section{Lattices in Lie Groups: An Overview}
+
+To understand Margulis's contributions, one must first understand the notion of a \textbf{lattice} in a Lie group. Let \(G\) be a connected semisimple Lie group (for example, \(\SL(n,\R)\)). A discrete subgroup \(\Gamma \subset G\) is called a \textbf{lattice} if the quotient \(G/\Gamma\) has finite volume with respect to the Haar measure on \(G\). A lattice is \textbf{uniform} (or cocompact) if \(G/\Gamma\) is compact, and \textbf{non-uniform} otherwise.
+
+\begin{example}
+The group \(\SL(n,\Z)\) is a lattice in \(\SL(n,\R)\). The quotient \(\SL(n,\R)/\SL(n,\Z)\) has finite volume but is not compact; thus \(\SL(n,\Z)\) is a non-uniform lattice.
+\end{example}
+
+\begin{example}
+Let \(\Gamma\) be a torsion-free cocompact Fuchsian group acting on the hyperbolic plane \(\mathbb{H}^2\). Then \(\Gamma\) is a uniform lattice in \(\PSL(2,\R)\). Similarly, a torsion-free cocompact Kleinian group is a uniform lattice in \(\PSL(2,\C)\).
+\end{example}
+
+A lattice \(\Gamma \subset G\) is called \textbf{irreducible} if, for every nontrivial product decomposition \(G = G_1 \times G_2\) (up to finite index and compact factors), the projection of \(\Gamma\) to each factor is dense. Otherwise, \(\Gamma\) is called \textbf{reducible} and can be written (up to finite index) as a product of lattices in the factors.
+
+The \textbf{rank} of a semisimple Lie group \(G\) is the dimension of a maximal split torus in \(G\). For example:
+\begin{itemize}
+    \item \(\SL(2,\R)\) has rank 1 (its split torus is the diagonal matrices);
+    \item \(\SL(n,\R)\) has rank \(n-1\);
+    \item \(\SO(n,1)\) has rank 1;
+    \item \(\SL(n,\Z)\) has \(\Q\)-rank \(n-1\).
+\end{itemize}
+
+The distinction between rank 1 and higher rank is one of the central themes in Margulis's work. Many phenomena that hold for higher-rank lattices fail in rank 1. For example, the superrigidity theorem, the arithmeticity theorem, and the normal subgroup theorem all hold for irreducible lattices in semisimple Lie groups of real rank at least 2, but they fail for rank-1 groups.
+
+\section{Margulis Superrigidity Theorem}
+
+The superrigidity theorem is Margulis's most celebrated result. It addresses the following question: given a lattice \(\Gamma \subset G\) and a homomorphism \(\rho: \Gamma \to H\) into another Lie group, when does \(\rho\) extend to a homomorphism of the ambient group \(G\)?
+
+In rank 1, there are many representations that do not extend. For example, the fundamental group of a closed hyperbolic surface (a lattice in \(\PSL(2,\R)\)) admits many representations into \(\PSL(2,\R)\) that do not extend to a continuous homomorphism of \(\PSL(2,\R)\). The space of such representations is the \textbf{character variety}, a rich object of study in its own right.
+
+For higher-rank groups, Margulis proved that such an extension is essentially always possible, provided that the target group is not too small and that the representation is sufficiently nontrivial.
+
+\begin{theorem}[Margulis Superrigidity Theorem, 1975]
+Let \(G\) be a connected semisimple Lie group with finite center, no compact factors, and \(\rank_\R(G) \geq 2\). Let \(\Gamma \subset G\) be an irreducible lattice. Let \(H\) be a linear algebraic group over a local field \(k\) (either \(\R\), \(\C\), or a finite extension of \(\Q_p\)), and let \(\pi: \Gamma \to H(k)\) be a homomorphism with Zariski-dense image. Then there exists a continuous homomorphism \(\pi': G \to H(k)\) such that \(\pi'|_{\Gamma} = \pi\), after possibly composing \(\pi\) with an automorphism of \(G\) arising from a field embedding.
+
+More precisely, one of the following holds:
+\begin{enumerate}
+    \item \(\pi\) extends to a continuous homomorphism \(\widetilde{\pi}: G \to H(k)\); or
+    \item The image \(\pi(\Gamma)\) is bounded (i.e., precompact in \(H(k)\)); or
+    \item \(\pi\) factors through a compact factor of \(G\).
+\end{enumerate}
+\end{theorem}
+
+The theorem has a number of profound consequences. First, it implies that every finite-dimensional representation of a higher-rank lattice (with Zariski-dense image) is essentially algebraic. This is in sharp contrast to the rank-1 case, where nonalgebraic representations abound.
+
+Second, the superrigidity theorem implies the \textbf{Rigidity Theorem}: any two irreducible lattices \(\Gamma_1, \Gamma_2 \subset G\) in a higher-rank semisimple Lie group are commensurable up to automorphisms of \(G\). More precisely, if \(\Gamma_1\) and \(\Gamma_2\) are isomorphic as abstract groups, then there exists an automorphism \(\varphi\) of \(G\) such that \(\varphi(\Gamma_1)\) is commensurable with \(\Gamma_2\).
+
+The proof of the superrigidity theorem combines techniques from several areas:
+\begin{itemize}
+    \item \textbf{Ergodic theory:} Margulis uses the theory of measurable cocycles and the Howe--Moore theorem on the decay of matrix coefficients to construct a measurable extension of the homomorphism.
+    \item \textbf{Algebraic groups:} The extension is shown to be continuous and algebraic using the Borel density theorem and the structure theory of semisimple groups.
+    \item \textbf{Reduction theory:} The behavior of the lattice at infinity is controlled using reduction theory for arithmetic groups.
+\end{itemize}
+
+The superrigidity theorem can be generalized to the \textbf{S-arithmetic setting}. Let \(k\) be a global field, \(S\) a finite set of places, and \(\mathcal{O}_S\) the ring of \(S\)-integers. Let \(\mathbf{G}\) be a semisimple algebraic group over \(k\) with \(\sum_{v \in S} \rank_{k_v}(\mathbf{G}) \geq 2\). Then any irreducible lattice \(\Gamma \subset \prod_{v \in S} \mathbf{G}(k_v)\) is superrigid: any representation of \(\Gamma\) into a \(k\)-algebraic group extends to an algebraic representation of \(\mathbf{G}\).
+
+\section{Margulis Arithmeticity Theorem}
+
+The arithmeticity theorem is a direct consequence of the superrigidity theorem. It answers a fundamental question: which lattices in semisimple Lie groups are arithmetic? A lattice \(\Gamma \subset G\) is called \textbf{arithmetic} if there exists a semisimple algebraic group \(\mathbf{G}\) defined over \(\Q\) and an isomorphism \(G \cong \mathbf{G}(\R)\) (up to compact factors) such that \(\Gamma\) is commensurable with \(\mathbf{G}(\Z)\).
+
+The existence of non-arithmetic lattices in rank-1 groups was known from the work of Makarov and Vinberg in real hyperbolic space, and from the work of Gromov and Thurston in complex hyperbolic space. For higher-rank groups, Margulis proved that every irreducible lattice is arithmetic.
+
+\begin{theorem}[Margulis Arithmeticity Theorem, 1975]
+Let \(G\) be a connected semisimple Lie group with finite center, no compact factors, and \(\rank_\R(G) \geq 2\). Let \(\Gamma \subset G\) be an irreducible lattice. Then \(\Gamma\) is an arithmetic lattice in \(G\).
+
+Equivalently, there exists a semisimple algebraic group \(\mathbf{H}\) defined over \(\Q\) and a surjective homomorphism \(\mathbf{H}(\R) \to G\) with compact kernel such that \(\Gamma\) is commensurable with the image of \(\mathbf{H}(\Z)\).
+\end{theorem}
+
+The proof proceeds roughly as follows:
+\begin{enumerate}
+    \item Using the superrigidity theorem, one shows that the adjoint representation of \(\Gamma\) on the Lie algebra \(\mathfrak{g}\) extends to an algebraic representation of \(G\).
+    \item This extension allows one to construct a \(\Q\)-structure on \(\mathfrak{g}\) and, consequently, a \(\Q\)-structure on \(G\) itself.
+    \item One then shows that \(\Gamma\) is contained in a natural \(\Z\)-form of this \(\Q\)-structure, establishing arithmeticity.
+\end{enumerate}
+
+The arithmeticity theorem completed the classification of irreducible lattices in higher-rank Lie groups: they are all obtained by the arithmetic construction first discovered by Borel and Harish-Chandra. Combined with the work of Borel, Harish-Chandra, Mostow, and Prasad, this theorem provides a complete description of lattices in semisimple groups.
+
+The theorem also has an \textbf{S-arithmetic} generalization. Let \(k\) be a global field and \(S\) a finite set of places. Let \(\mathbf{G}\) be a connected, simply connected, semisimple algebraic group over \(k\). Assume that \(\sum_{v \in S} \rank_{k_v}(\mathbf{G}) \geq 2\). Then any irreducible lattice in \(\prod_{v \in S} \mathbf{G}(k_v)\) is an S-arithmetic lattice: it is commensurable with \(\mathbf{G}(\mathcal{O}_S)\).
+
+\section{Margulis Normal Subgroup Theorem}
+
+The normal subgroup theorem is another consequence of the superrigidity theorem. It addresses the structure of normal subgroups of higher-rank lattices.
+
+\begin{theorem}[Margulis Normal Subgroup Theorem, 1978]
+Let \(G\) be a connected semisimple Lie group with finite center, no compact factors, and \(\rank_\R(G) \geq 2\). Let \(\Gamma \subset G\) be an irreducible lattice. Then every normal subgroup \(N \trianglelefteq \Gamma\) is either finite or of finite index in \(\Gamma\).
+\end{theorem}
+
+In other words, higher-rank irreducible lattices are \textbf{just infinite}: every nontrivial normal subgroup has finite index. This is a remarkable rigidity property that has no analogue in rank 1. For example, the fundamental group of a closed hyperbolic surface (a lattice in \(\PSL(2,\R)\)) has many infinite normal subgroups of infinite index, such as the commutator subgroup.
+
+The proof uses the superrigidity theorem in an essential way. Given a normal subgroup \(N \subset \Gamma\), one considers the quotient homomorphism \(\Gamma \to \Gamma/N\). If \(\Gamma/N\) is infinite, one constructs a nontrivial representation of \(\Gamma\) into a linear group that does not extend to \(G\), contradicting superrigidity.
+
+The theorem implies that the lattice \(\Gamma\) has a very rigid normal subgroup structure: the only quotients of \(\Gamma\) are finite groups, and the only infinite quotients are virtually \(\Gamma\) itself. This has important consequences for the structure of \(\Gamma\): any infinite homomorphic image of \(\Gamma\) is itself a lattice in some Lie group related to \(G\).
+
+\section{The Oppenheim Conjecture}
+
+The Oppenheim conjecture is one of the most famous problems in number theory, dating back to 1929. It concerns the values taken by indefinite quadratic forms at integer points. Let \(Q(x_1,\dots,x_n)\) be a non-degenerate indefinite quadratic form in \(n \geq 3\) variables with real coefficients. Oppenheim conjectured that if \(Q\) is not a scalar multiple of a rational form, then the set of values \(Q(\Z^n)\) is dense in \(\R\).
+
+This conjecture had resisted solution for nearly sixty years. Partial results were obtained by Davenport, Heilbronn, and others using analytic number theory and the Hardy--Littlewood circle method, but they required the number of variables to be sufficiently large and imposed additional conditions on the form.
+
+Margulis solved the Oppenheim conjecture in 1987 using techniques from homogeneous dynamics and ergodic theory. His proof was a stunning application of the theory of unipotent flows on homogeneous spaces.
+
+\begin{theorem}[Margulis, 1987; The Oppenheim Conjecture]
+Let \(Q\) be a non-degenerate indefinite quadratic form in \(n \geq 3\) variables with real coefficients. Assume that \(Q\) is not proportional to a rational quadratic form. Then the set
+\[
+\{Q(m) : m \in \Z^n \setminus \{0\}\}
+\]
+is dense in \(\R\).
+\end{theorem}
+
+The proof proceeds by reformulating the problem in terms of the dynamics of a flow on the homogeneous space \(\SL(n,\R)/\SL(n,\Z)\). Let
+\[
+X_n = \SL(n,\R)/\SL(n,\Z),
+\]
+which is a non-compact finite-volume Riemannian manifold. The group \(\SL(n,\R)\) acts on \(X_n\) by left multiplication. Given the quadratic form \(Q\), one considers the stabilizer \(H_Q = \{g \in \SL(n,\R) : Q \circ g = Q\}\), which is isomorphic to \(\SO(p,q)\) where \((p,q)\) is the signature of \(Q\) (with \(p+q = n\) and \(p,q \geq 1\)).
+
+The key observation is that the set of values \(Q(\Z^n)\) is closely related to the dynamics of the \(H_Q\)-action on \(X_n\). Specifically, if the orbit \(H_Q \cdot x_0\) (for \(x_0\) the base point) is dense in \(X_n\), then the values of \(Q\) at integer points are dense in \(\R\).
+
+Margulis proved that for any nondegenerate indefinite quadratic form \(Q\) in \(n \geq 3\) variables that is not proportional to a rational form, the orbit \(H_Q \cdot x_0\) is dense in \(X_n\). The proof relies on \textbf{Ratner's theorem} on the classification of measures invariant under unipotent flows, which was proved around the same time by Marina Ratner. Ratner's theorem states that any ergodic invariant measure for a unipotent flow on a homogeneous space is algebraic: it is the Haar measure on some closed subgroup.
+
+The proof also uses the \textbf{Margulis--Tomanov theorem}, which generalizes Ratner's theorem to the S-arithmetic setting and to arbitrary local fields.
+
+The Oppenheim conjecture has been generalized in several directions:
+\begin{itemize}
+    \item \textbf{Simultaneous approximation:} For forms \(Q_1,\dots,Q_k\) in \(n \geq 3\) variables, the set of simultaneous values \((Q_1(m),\dots,Q_k(m))\) is dense in \(\R^k\), provided the forms are sufficiently independent.
+    \item \textbf{S-arithmetic version:} For quadratic forms over \(p\)-adic fields and number fields, analogous density results hold.
+    \item \textbf{Effective versions:} Recent work by Lindenstrauss, Margulis, and others has established effective versions of the Oppenheim conjecture, providing quantitative estimates on how quickly the values become dense.
+\end{itemize}
+
+\section{Expander Graphs and Kazhdan's Property (T)}
+
+Property (T) was introduced by David Kazhdan in 1967 as a representation-theoretic property of groups. A locally compact group \(G\) has \textbf{Kazhdan's property (T)} if the trivial representation is isolated in the unitary dual of \(G\). Equivalently, any unitary representation of \(G\) with almost-invariant vectors has a nonzero invariant vector.
+
+Property (T) has profound consequences in many areas of mathematics. Groups with property (T) are finitely generated, have finite abelianization, and satisfy strong rigidity properties. Margulis made fundamental contributions to the study of property (T) and its applications to expander graphs.
+
+\begin{definition}[Expander Graph]
+A finite graph \(X\) is called an \textbf{\(\varepsilon\)-expander} if for every subset \(S \subset V(X)\) with \(|S| \leq |V|/2\), the boundary \(\partial S\) (the set of edges connecting \(S\) to its complement) satisfies
+\[
+|\partial S| \geq \varepsilon |S|.
+\]
+A sequence of graphs \(\{X_n\}\) is called a family of expanders if there exists \(\varepsilon > 0\) such that each \(X_n\) is an \(\varepsilon\)-expander.
+\end{definition}
+
+Expanders are sparse graphs with strong connectivity properties. They arise in computer science (network design, error-correcting codes), in combinatorics, and in group theory. The existence of families of expanders was first proved by Pinsker in the 1970s using probabilistic methods, but explicit constructions are highly nontrivial.
+
+Margulis gave the first explicit construction of an infinite family of expander graphs in 1973, two years before his superrigidity theorem. The construction used property (T) for \(\SL(n,\Z)\) and its quotients.
+
+\begin{theorem}[Margulis, 1973]
+Let \(p\) be a prime number. Consider the group \(\Gamma = \SL(3,\Z)\). Let \(\Gamma(p) = \ker(\SL(3,\Z) \to \SL(3,\F_p))\) be the principal congruence subgroup. The Cayley graphs of the finite quotients \(\SL(3,\F_p)\) with respect to a fixed finite generating set form a family of expander graphs.
+\end{theorem}
+
+The proof uses the fact that \(\SL(3,\R)\) has property (T), which implies that \(\SL(3,\Z)\) has property (T) as a lattice. Property (T) provides a uniform spectral gap for the Laplacian on the finite quotients, which translates directly into an expansion constant independent of \(p\).
+
+This construction was the first explicit example of an expander family. It was later generalized by Lubotzky, Phillips, and Sarnak (the LPS construction, also called Ramanujan graphs), which gives optimal expanders using quaternion algebras and the Ramanujan--Petersson conjecture.
+
+Margulis's work on expanders is intimately connected with his work on property (T) and the structure of lattices. The existence of a spectral gap for the Laplacian on a locally symmetric space is a consequence of property (T), and this gap controls the mixing properties of the geodesic flow and the rate of equidistribution of Hecke points.
+
+\section{The Margulis Lemma}
+
+The Margulis lemma is a fundamental result about the structure of discrete subgroups of Lie groups, particularly in the context of negative curvature.
+
+\begin{theorem}[Margulis Lemma]
+Let \(G\) be a semisimple Lie group (or more generally, a connected Lie group). There exists a constant \(\varepsilon = \varepsilon(G) > 0\) (called the Margulis constant) such that for any discrete subgroup \(\Gamma \subset G\), the subgroup generated by the set
+\[
+\Gamma_\varepsilon = \{\gamma \in \Gamma : d(\gamma \cdot x, x) < \varepsilon \text{ for some } x \in G/K\}
+\]
+is virtually nilpotent. Here \(d\) is the Riemannian distance on the symmetric space \(G/K\).
+\end{theorem}
+
+In other words, elements of a discrete group that move a point by a very small amount generate a nearly abelian subgroup. This result is the key to understanding the geometry of locally symmetric spaces in the thin parts, near the cusps.
+
+For hyperbolic manifolds, the Margulis lemma implies the following structure theorem. Let \(M\) be a complete hyperbolic \(n\)-manifold of finite volume. The \textbf{thin part} of \(M\) (the set of points where the injectivity radius is less than the Margulis constant \(\varepsilon_n\)) consists of:
+\begin{itemize}
+    \item Cuspidal neighborhoods (tubes around short geodesics that go out to infinity) in the non-compact case;
+    \item Tubes around short closed geodesics in the compact case.
+\end{itemize}
+
+For \(n = 3\), the Margulis lemma gives the thick-thin decomposition: a finite-volume hyperbolic 3-manifold decomposes into a compact thick part and a finite collection of cusp ends and tubular neighborhoods of short geodesics.
+
+The Margulis lemma is also essential in the proof of the \textbf{Margulis--Mostow--Prasad rigidity theorem}, which states that two finite-volume hyperbolic manifolds of dimension \(n \geq 3\) with isomorphic fundamental groups are isometric. This is a special case of the Mostow rigidity theorem, but the Margulis lemma provides the key geometric input.
+
+\section{The Margulis Expansion in the Theory of Discrete Subgroups}
+
+The term ``Margulis expansion'' refers to a technique developed by Margulis for studying the dynamics of the geodesic flow on locally symmetric spaces, and more generally, for analyzing the asymptotic behavior of discrete subgroups.
+
+Consider a locally symmetric space \(X = \Gamma \backslash G/K\). The geodesic flow on the unit tangent bundle \(T^1 X\) corresponds to the action of the diagonal subgroup \(A \subset G\) on \(\Gamma \backslash G\). Margulis introduced the concept of the \textbf{Margulis function} or \textbf{Margulis expansion} to describe the rate at which nearby geodesics diverge.
+
+One of the key applications of the Margulis expansion is the \textbf{Margulis asymptotic formula} for the growth of closed geodesics on a compact locally symmetric space of negative curvature.
+
+\begin{theorem}[Margulis, 1969]
+Let \(M\) be a compact Riemannian manifold of negative curvature. Let \(\pi(T)\) be the number of closed geodesics on \(M\) with length at most \(T\). Then
+\[
+\pi(T) \sim \frac{e^{hT}}{hT} \quad \text{as } T \to \infty,
+\]
+where \(h\) is the topological entropy of the geodesic flow.
+\end{theorem}
+
+This formula is the analogue of the prime number theorem for closed geodesics. The proof uses the symbolic dynamics of the geodesic flow (via the coding of geodesics by sequences of fundamental domain translates) and the ergodic theory of Anosov flows.
+
+Margulis's work on the asymptotic distribution of closed geodesics was part of his doctoral research under Yakov Sinai. It was one of the first applications of the theory of \(Y\)-systems (Anosov flows) to obtain precise counting results in geometry.
+
+The formula has been generalized by many authors. For non-compact finite-volume manifolds, the asymptotics are more complicated due to the contribution of cuspidal geodesics. For rank-1 locally symmetric spaces, the formula holds with \(h\) equal to the volume entropy of the universal cover.
+
+\section{The Congruence Subgroup Problem}
+
+The congruence subgroup problem is one of the central problems in the theory of arithmetic groups. It asks: is every finite-index subgroup of an arithmetic group \(\Gamma = \mathbf{G}(\mathcal{O}_S)\) a congruence subgroup? In other words, does every subgroup of finite index contain a principal congruence subgroup \(\Gamma(\mathfrak{a}) = \ker(\mathbf{G}(\mathcal{O}_S) \to \mathbf{G}(\mathcal{O}_S/\mathfrak{a}))\) for some ideal \(\mathfrak{a}\)?
+
+For \(\SL(2,\Z)\), the answer is no: there are many non-congruence subgroups, such as the commutator subgroup and the subgroups corresponding to the levels of modular forms with non-trivial character. The existence of non-congruence subgroups is related to the fact that \(\SL(2,\R)\) has rank 1.
+
+For higher-rank groups, the situation is different. Margulis's superrigidity theorem implies that, in many cases, every finite-index subgroup of an irreducible higher-rank lattice contains a congruence subgroup. This is the \textbf{congruence subgroup property}.
+
+\begin{theorem}[Congruence Subgroup Property for Higher-Rank Groups]
+Let \(\mathbf{G}\) be a connected, simply connected, semisimple algebraic group over a global field \(k\). Assume that \(\sum_{v \in S} \rank_{k_v}(\mathbf{G}) \geq 2\). Then the S-arithmetic group \(\Gamma = \mathbf{G}(\mathcal{O}_S)\) has the congruence subgroup property: the kernel of the map \(\widehat{\Gamma} \to \overline{\Gamma}\) (from the profinite completion to the congruence completion) is finite.
+
+Equivalently, every finite-index subgroup of \(\Gamma\) contains a principal congruence subgroup of finite index.
+\end{theorem}
+
+This theorem was proved through the combined work of Bass, Milnor, Serre, and Margulis. The rank-1 case (for \(\SL(2)\)) was settled by Serre, who showed that the congruence subgroup property fails. For higher rank, the property holds, and this can be seen as another manifestation of the rigidity of higher-rank lattices.
+
+The congruence subgroup property has many applications. It implies that the cohomology of arithmetic groups can be computed using the theory of automorphic forms. It also implies strong results on the structure of the profinite completion of arithmetic groups.
+
+\section{Discrete Subgroups and Homogeneous Dynamics}
+
+Margulis's work on homogeneous dynamics has had a transformative impact on number theory. The central idea is to study the distribution of lattice points in a homogeneous space \(G/\Gamma\) by analyzing the dynamics of a subgroup action.
+
+Let \(G\) be a semisimple Lie group and \(\Gamma \subset G\) a lattice. For a point \(x \in G/\Gamma\) and a subgroup \(H \subset G\), the orbit \(H \cdot x\) can be studied using ergodic theory. The fundamental question is: when is the orbit dense? When is it equidistributed?
+
+Margulis, building on the work of Ratner, developed a comprehensive theory of orbit closures and invariant measures for unipotent flows. The centerpiece is Ratner's theorem, which classifies all ergodic invariant measures for unipotent flows on homogeneous spaces.
+
+\begin{theorem}[Ratner's Measure Classification Theorem]
+Let \(G\) be a connected Lie group and \(\Gamma \subset G\) a lattice. Let \(\{u_t\} \subset G\) be a one-parameter unipotent subgroup. Let \(\mu\) be an ergodic \(\{u_t\}\)-invariant probability measure on \(G/\Gamma\). Then \(\mu\) is the Haar measure on a closed homogeneous subspace \(H \cdot x \subset G/\Gamma\), where \(H\) is a closed subgroup of \(G\) containing \(\{u_t\}\).
+\end{theorem}
+
+Ratner's theorem implies a complete classification of orbit closures:
+
+\begin{theorem}[Ratner's Orbit Closure Theorem]
+For any \(x \in G/\Gamma\) and any unipotent subgroup \(U \subset G\), the closure \(\overline{U \cdot x}\) is a homogeneous subspace: there exists a closed subgroup \(H \subset G\) containing \(U\) such that \(\overline{U \cdot x} = H \cdot x\), and the orbit \(H \cdot x\) supports a finite \(H\)-invariant measure.
+\end{theorem}
+
+Margulis used Ratner's theorems in his proof of the Oppenheim conjecture. He also contributed to their proof and to their generalization to the S-arithmetic setting (the Margulis--Tomanov theorem).
+
+The theory of unipotent flows has many applications in number theory beyond the Oppenheim conjecture:
+\begin{itemize}
+    \item \textbf{Equidistribution of Hecke points:} The action of Hecke operators on locally symmetric spaces is related to unipotent flows, and their equidistribution follows from Ratner's theorem.
+    \item \textbf{Effective equidistribution:} Recent work by Margulis, Lindenstrauss, Venkatesh, and others has established effective versions of equidistribution for unipotent flows, with applications to Diophantine approximation.
+    \item \textbf{Littlewood's conjecture:} This famous conjecture in Diophantine approximation (that \(\liminf_{n \to \infty} n \|n\alpha\| \|n\beta\| = 0\) for all real \(\alpha,\beta\)) is closely related to the dynamics of unipotent flows on \(\SL(3,\R)/\SL(3,\Z)\), and significant progress has been made using these methods.
+\end{itemize}
+
+\section{Topological Transformation Groups and the Zimmer Program}
+
+Margulis's rigidity theorems have profoundly influenced the study of group actions on manifolds. A natural question is: which groups can act smoothly on a given compact manifold? For actions of lattices in higher-rank Lie groups, the rigidity phenomena discovered by Margulis impose severe restrictions.
+
+Robert Zimmer, building on Margulis's ideas, initiated a program to classify the possible actions of higher-rank lattices on compact manifolds. The central conjecture of the \textbf{Zimmer program} is that any smooth action of an irreducible higher-rank lattice \(\Gamma\) on a compact manifold \(M\) must, under suitable conditions, come from an algebraic construction: the manifold \(M\) is equivariantly diffeomorphic to a homogeneous space of a Lie group related to the ambient group \(G\).
+
+More precisely, Zimmer conjectured that if \(\Gamma\) acts smoothly and faithfully on a compact manifold \(M\) preserving a volume form, then the action is induced by a homomorphism \(\rho: G \to \operatorname{Diff}(M)\) (extending the inclusion \(\Gamma \subset G\)) such that \(M\) is a homogeneous space of a Lie group containing \(\rho(G)\). This would mean that all such actions are of algebraic origin.
+
+Significant progress on the Zimmer program has been made by:
+\begin{itemize}
+    \item \textbf{A.\ Brown, D.\ Fisher, and S.\ Hurtado} proved that for many higher-rank lattices, any smooth action on a low-dimensional manifold must factor through a finite group.
+    \item \textbf{A.\ Katok, S.\ Katok, and F.\ Rodriguez Hertz} have established rigidity results for actions of higher-rank abelian groups on tori and nilmanifolds.
+    \item \textbf{E.\ Lindenstrauss} proved measure rigidity for actions of higher-rank diagonalizable groups, with applications to quantum unique ergodicity.
+\end{itemize}
+
+The Zimmer program represents a culmination of the ideas initiated by Margulis: the principle that higher-rank groups and their lattices are so rigid that their actions on manifolds are essentially algebraic.
+
+\section{Impact and Legacy}
+
+\subsection{Lie Theory and Lattices}
+
+Margulis's superrigidity and arithmeticity theorems completely transformed the theory of lattices in Lie groups. Before his work, the only known way to construct lattices in higher-rank groups was the arithmetic construction of Borel and Harish-Chandra. Margulis proved that every irreducible lattice in higher rank is of this type, completing the classification. His results established the deep principle that higher-rank lattices are essentially algebraic objects, governed by the arithmetic of number fields.
+
+The normal subgroup theorem further reinforced this picture, showing that higher-rank lattices have a remarkably rigid normal subgroup structure. This has important implications for the study of linear groups and their subgroup growth.
+
+\subsection{Ergodic Theory and Dynamics}
+
+Margulis's work introduced dynamical methods into the study of Lie groups and number theory in a way that few had anticipated. His proof of the Oppenheim conjecture showed that unipotent flows on homogeneous spaces could resolve deep problems in number theory. This opened up an entire field of research, now called \textbf{homogeneous dynamics}, which studies the interplay between ergodic theory, Lie groups, and Diophantine approximation.
+
+The Margulis asymptotic formula for closed geodesics was a landmark in the study of Anosov flows. It connected the symbolic dynamics of geodesic flows with the distribution of closed orbits, analogous to the prime number theorem.
+
+\subsection{Combinatorics and Computer Science}
+
+Margulis's explicit construction of expander graphs using property (T) was a milestone in combinatorics and theoretical computer science. It provided the first explicit family of expanders, solving a problem that had seemed to require probabilistic methods. The connection between property (T) and expansion has been extensively developed, leading to the theory of Ramanujan graphs and to applications in coding theory, network design, and the theory of algorithms.
+
+\subsection{Homogeneous Dynamics}
+
+The field of homogeneous dynamics, which studies the action of subgroups of a Lie group on a homogeneous space \(G/\Gamma\), traces its modern form to Margulis's work on the Oppenheim conjecture. The key insight was that number-theoretic problems about the distribution of integer points and the values of forms could be reformulated as dynamical problems on the space of lattices.
+
+The space \(X_n = \SL(n,\R)/\SL(n,\Z)\) parametrizes unimodular lattices in \(\R^n\). The action of a subgroup \(H \subset \SL(n,\R)\) on \(X_n\) corresponds to the evolution of a lattice under linear transformations. Studying the orbit closure of a lattice under \(H\) can reveal deep arithmetic properties.
+
+One of the most striking applications of homogeneous dynamics beyond the Oppenheim conjecture is the study of \textbf{Littlewood's conjecture}. This conjecture states that for any two real numbers \(\alpha, \beta\),
+\[
+\liminf_{n \to \infty} n \cdot \|n\alpha\| \cdot \|n\beta\| = 0,
+\]
+where \(\|x\|\) denotes the distance from \(x\) to the nearest integer. The conjecture is equivalent to a statement about the dynamics of a diagonalizable subgroup on \(\SL(3,\R)/\SL(3,\Z)\). While the full conjecture remains open, significant progress has been made using the theory of unipotent flows developed by Margulis and Ratner. In particular, Einsiedler, Katok, and Lindenstrauss proved that the set of \((\alpha, \beta)\) for which the limit inferior is positive has Hausdorff dimension zero.
+
+\subsection{Number Theory}
+
+The Oppenheim conjecture, solved by Margulis, was one of the last great unsolved problems from the classical theory of quadratic forms. Its solution demonstrated the power of homogeneous dynamics for Diophantine problems. Subsequent work has established effective versions of the Oppenheim conjecture, quantitative estimates for the distribution of values of quadratic forms, and generalizations to higher-degree forms.
+
+Margulis's work on the equidistribution of lattice points and on the asymptotic distribution of closed geodesics has applications to analytic number theory, particularly to the study of automorphic forms and \(L\)-functions.
+
+\subsection{Homogeneous Dynamics and the Equidistribution of Hecke Points}
+
+One of the most active areas of research inspired by Margulis's work is the study of Hecke operators and their equidistribution properties. Let \(\Gamma \subset G\) be an arithmetic lattice, and let \(g \in G(\Q)\) be a rational element. The \textbf{Hecke operator} \(T_g\) acts on functions on \(\Gamma \backslash G\) by averaging over the Hecke orbit:
+\[
+T_g f(x) = \frac{1}{\#(\Gamma \cap \Gamma g \Gamma / \Gamma)} \sum_{\gamma \in \Gamma \cap \Gamma g \Gamma / \Gamma} f(\gamma x).
+\]
+
+A fundamental result, proved by Margulis, Clozel, Oh, and Ullmo, states that the Hecke points are equidistributed in the homogeneous space \(\Gamma \backslash G\) with respect to the Haar measure. More precisely, for a fixed \(g\), the set of Hecke points \(\Gamma g_i x_0\) (where \(\Gamma g \Gamma = \bigsqcup \Gamma g_i\)) becomes equidistributed as the norm of the Hecke operator grows.
+
+This equidistribution result has deep consequences in number theory. It implies the \textbf{meromorphic continuation of Rankin--Selberg \(L\)-functions}, the \textbf{subconvexity bound for \(L\)-functions in the level aspect}, and the \textbf{quantum unique ergodicity conjecture} for Hecke--Maass forms on arithmetic surfaces.
+
+\subsection{Influence on Subsequent Generations}
+
+Margulis's ideas have shaped the research of many mathematicians. His students and collaborators include some of the leading figures in homogeneous dynamics, including Alex Eskin, Elon Lindenstrauss, and Nimish Shah. The theory of unipotent flows, now a central area of mathematics, traces its origins directly to Margulis's work on the Oppenheim conjecture.
+
+The combination of methods from different fields --- ergodic theory, Lie theory, algebraic geometry, and number theory --- has become a hallmark of the area now known as \textbf{homogeneous dynamics} or \textbf{ergodic theory on homogeneous spaces}. This field has grown enormously since Margulis's pioneering contributions.
+
+\subsection{Awards and Honors}
+
+In addition to the Fields Medal (1978) and the Wolf Prize (2005), Margulis has received numerous other honors:
+\begin{itemize}
+    \item \textbf{Lobachevsky Prize} (1996) for his contributions to geometry and Lie theory.
+    \item \textbf{Member of the National Academy of Sciences} (USA) and the \textbf{American Academy of Arts and Sciences}.
+    \item \textbf{Humboldt Prize} for his lifetime achievements.
+    \item Honorary doctorates from several universities, including the University of Chicago and Hebrew University of Jerusalem.
+\end{itemize}
+
+\section{Frequently Asked Questions}
+
+\subsection*{Q1: What is the essential difference between rank-1 and higher-rank lattices that makes Margulis's theorems possible?}
+
+The key difference lies in the structure of the geodesic flow and the behavior of unipotent subgroups. In higher-rank groups, there are many commuting one-parameter unipotent subgroups, and the dynamics of their action is much more constrained than in rank 1. This allows ergodic-theoretic arguments to force algebraic behavior: a measurable cocycle must be equivalent to a homomorphism, a unipotent-invariant measure must be algebraic, and so on. In rank 1, the dynamics is more flexible, and many of the rigidity phenomena that Margulis discovered fail.
+
+\subsection*{Q2: How did Margulis prove the Oppenheim conjecture?}
+
+Margulis reformulated the problem as the study of the action of the orthogonal group \(\SO(p,q)\) on the homogeneous space \(\SL(n,\R)/\SL(n,\Z)\). He showed that if the quadratic form is not rational, then the \(\SO(p,q)\)-orbit of the base point is dense, which implies that the values of the form at integer points are dense in \(\R\). The density of the orbit follows from Ratner's theorem on unipotent flows, which classifies invariant measures for unipotent subgroups. Margulis's key insight was to relate the values of the quadratic form to the dynamics of a unipotent flow on the homogeneous space.
+
+\subsection*{Q3: What are expander graphs and why are they important?}
+
+Expander graphs are sparse graphs in which every subset of vertices has many edges connecting it to its complement. They have applications in computer science (constructing robust networks, error-correcting codes, derandomization), in combinatorics, and in group theory. Margulis gave the first explicit construction of an infinite family of expander graphs using \(\SL(3,\Z)\) and its congruence subgroups. The existence of a spectral gap, which follows from property (T) of \(\SL(3,\R)\), ensures that the Cayley graphs of \(\SL(3,\F_p)\) are expanders.
+
+\subsection*{Q4: What is the relationship between the Margulis lemma and the geometry of hyperbolic manifolds?}
+
+The Margulis lemma states that elements of a discrete subgroup of a Lie group that move a point by a small amount generate a virtually nilpotent subgroup. For hyperbolic manifolds, this implies the thick-thin decomposition: a finite-volume hyperbolic manifold can be decomposed into a compact thick part (where the injectivity radius is at least the Margulis constant) and a thin part consisting of cuspidal neighborhoods and tubular neighborhoods of short geodesics. The thin part is described by the Margulis lemma: it is a disjoint union of tubes around closed geodesics and cusp ends, each of which is a quotient of a horoball by a virtually nilpotent group.
+
+\subsection*{Q5: Is the Oppenheim conjecture effective?}
+
+The original proof of the Oppenheim conjecture was ineffective: it showed that the values of a non-rational indefinite quadratic form are dense in \(\R\), but it gave no estimate for how large \(|m|\) must be to approximate a given real number to a given accuracy. Recent work by Lindenstrauss, Margulis, Mohammadi, and others has established effective versions of the Oppenheim conjecture for quadratic forms in \(n \geq 5\) variables, providing polynomial bounds on the size of the integer vector needed. The case \(n = 3\) and \(n = 4\) remains challenging and is the subject of active research.
+
+\subsection*{Q6: What is the current status of Margulis's work on discrete subgroups?}
+
+The study of discrete subgroups of Lie groups, particularly the structure of lattices and their representations, remains a very active area. Some important directions include:
+\begin{enumerate}
+    \item \textbf{Superrigidity beyond Lie groups:} The extension of superrigidity to mappings between lattices and mapping class groups, \(\operatorname{Out}(F_n)\), and other groups of geometric origin.
+    \item \textbf{The Zimmer program:} Robert Zimmer's program to classify actions of higher-rank lattices on compact manifolds, using techniques inspired by Margulis's work.
+    \item \textbf{Effective equidistribution:} Establishing effective (quantitative) versions of Ratner's theorem and its applications to Diophantine approximation.
+    \item \textbf{Fine structure of locally symmetric spaces:} Understanding the geometry of the thin part of locally symmetric spaces using the Margulis lemma and reduction theory.
+\end{enumerate}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item G.\ A.\ Margulis, \textit{Explicit constructions of expanders}, Probl.\ Peredachi Informatsii 9 (1973), 71--80 (Russian); English translation: Problems Inform.\ Transmission 9 (1973), 325--332.
+    \item G.\ A.\ Margulis, \textit{Discrete subgroups of semisimple Lie groups}, Proc.\ Internat.\ Congr.\ Math.\ (Helsinki, 1978), Acad.\ Sci.\ Fennica, 1980, 621--626.
+    \item G.\ A.\ Margulis, \textit{Discrete Subgroups of Semisimple Lie Groups}, Ergebnisse der Mathematik und ihrer Grenzgebiete (3), Vol.\ 17, Springer-Verlag, 1991.
+    \item G.\ A.\ Margulis, \textit{Formes quadratriques ind\'efinies et flots unipotents}, S\'em.\ Bourbaki, Ast\'erisque 173--174 (1989), 19--33.
+    \item G.\ A.\ Margulis, \textit{Oppenheim conjecture}, Fields Medallists' Lectures, World Scientific, 1997, 272--327.
+    \item G.\ A.\ Margulis and G.\ M.\ Tomanov, \textit{Invariant measures for actions of unipotent groups over local fields on homogeneous spaces}, Invent.\ Math.\ 116 (1994), 347--392.
+    \item M.\ Ratner, \textit{On Raghunathan's measure conjecture}, Ann.\ of Math.\ 134 (1991), 545--607.
+    \item M.\ Ratner, \textit{Interactions between ergodic theory, Lie groups, and number theory}, Proc.\ Internat.\ Congr.\ Math.\ (Z\"urich, 1994), 157--182.
+\end{enumerate}
+
+\subsection*{Surveys and Expositions}
+\begin{enumerate}
+    \item A.\ Borel, \textit{On the work of Grigory Margulis}, in ``Proceedings of the International Congress of Mathematicians 1978,'' 55--60.
+    \item D.\ W.\ Morris, \textit{Introduction to Arithmetic Groups}, Deductive Press, 2015.
+    \item D.\ W.\ Morris, \textit{Ratner's Theorems on Unipotent Flows}, University of Chicago Press, 2005.
+    \item M.\ S.\ Raghunathan, \textit{Discrete Subgroups of Lie Groups}, Ergebnisse der Mathematik und ihrer Grenzgebiete, Vol.\ 68, Springer-Verlag, 1972.
+    \item R.\ J.\ Zimmer, \textit{Ergodic Theory and Semisimple Groups}, Monographs in Mathematics, Vol.\ 81, Birkh\"auser, 1984.
+    \item G.\ A.\ Soifer, \textit{Grigory Margulis: a life in mathematics}, Notices AMS 65 (2018), 264--274.
+\end{enumerate}
+
+\subsection*{Background Texts}
+\begin{enumerate}
+    \item H.\ Furstenberg, \textit{Recurrence in Ergodic Theory and Combinatorial Number Theory}, Princeton University Press, 1981.
+    \item Y.\ Katznelson and B.\ Weiss, \textit{Ergodic theory and the work of Grigory Margulis}, in ``Wolf Prize in Mathematics,'' Vol.\ 3, World Scientific, 2005.
+    \item A.\ Lubotzky, \textit{Discrete Groups, Expanding Graphs and Invariant Measures}, Birkh\"auser, 1994.
+    \item H.\ Oh, \textit{Dynamics on locally symmetric spaces: from geometry to number theory}, J.\ Mod.\ Dyn.\ 4 (2010), 621--671.
+    \item M.\ S.\ Raghunathan, \textit{The Margulis arithmeticity theorem}, in ``S\'em.\ Bourbaki,'' Ast\'erisque 57--58 (1979), 245--263.
+    \item T.\ N.\ Venkataramana, \textit{Superrigidity and arithmeticity: a survey}, in ``Proc.\ ICM Satellite Conf.\ on Algebra and Number Theory,'' 2005.
+\end{enumerate}
+
+\section{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1946 & Born on February 24 in Moscow, Soviet Union \\ \hline
+1962 & Gold medal, International Mathematical Olympiad \\ \hline
+1970 & PhD from Moscow State University (advisor: Yakov Sinai) \\ \hline
+1973 & First explicit construction of expander graphs using property (T) \\ \hline
+1975 & Proof of superrigidity and arithmeticity theorems for higher-rank lattices \\ \hline
+1978 & Awarded the Fields Medal at the ICM in Helsinki (unable to attend) \\ \hline
+1987 & Proof of the Oppenheim conjecture using homogeneous dynamics \\ \hline
+1991 & Joined the faculty at Yale University \\ \hline
+1994 | Margulis--Tomanov theorem: generalization of Ratner's theorem to S-arithmetic groups \\ \hline
+1996 | Awarded the Lobachevsky Prize \\ \hline
+2005 & Awarded the Wolf Prize in Mathematics (shared with Sergei Novikov) \\ \hline
+\end{tabular}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that \(\SL(2,\Z)\) is a non-uniform lattice in \(\SL(2,\R)\). Compute the volume of the quotient \(\SL(2,\R)/\SL(2,\Z)\) relative to the Haar measure.
+    \item Prove that the free group \(F_2\) is a lattice in \(\SL(2,\R)\) only up to finite index. Determine which free groups appear as lattices in \(\SL(2,\R)\).
+    \item Let \(\Gamma \subset G\) be an irreducible lattice in a higher-rank semisimple Lie group. Show that \(\Gamma\) is finitely generated. (Hint: use the arithmeticity theorem and the finite generation of arithmetic groups.)
+    \item Show that the normal subgroup theorem fails for \(\SL(2,\Z)\). Exhibit a normal subgroup of \(\SL(2,\Z)\) that is infinite and of infinite index.
+    \item Prove that the set of values \(m^2 - \sqrt{2}\, n^2\) for \(m,n \in \Z\) is dense in \(\R\). (This is a special case of the Oppenheim conjecture for the form \(x^2 - \sqrt{2} y^2\).)
+    \item Let \(G\) be a group with property (T). Show that every finite-dimensional unitary representation of \(G\) is completely reducible (a direct sum of irreducible representations).
+    \item Let \(\Gamma = \SL(3,\Z)\) and let \(\Gamma(p)\) be the principal congruence subgroup modulo \(p\). Show that the Cayley graph of \(\SL(3,\F_p)\) with respect to the images of a fixed generating set of \(\Gamma\) is an expander family. (Use property (T) of \(\SL(3,\R)\).)
+    \item Prove the Margulis lemma for the case of \(\PSL(2,\R)\) acting on the hyperbolic plane. Show that the subgroup generated by elements that translate a point by a small amount is abelian.
+    \item Let \(Q(x,y,z) = x^2 + y^2 - 3z^2\). Show that the set \(\{Q(m,n,p) : m,n,p \in \Z\}\) is dense in \(\R\). (Hint: apply the Oppenheim conjecture and check that \(Q\) is not proportional to a rational form.)
+    \item Show that any closed subgroup \(H \subset \SL(n,\R)\) containing a unipotent one-parameter subgroup \(\{u_t\}\) is algebraic. (This is a special case of the result that unipotent subgroups are contained in algebraic subgroups.)
+    \item For a compact Riemannian manifold \(M\) of negative curvature, show that the topological entropy of the geodesic flow equals the exponential growth rate of the number of closed geodesics.
+    \item Let \(\Gamma \subset G\) be a lattice, and let \(U \subset G\) be a unipotent subgroup. Suppose \(\mu\) is a \(U\)-invariant probability measure on \(G/\Gamma\) that is supported on a proper closed subspace. Show that \(\mu\) is supported on a finite union of proper closed homogeneous subspaces. (This is a step in the proof of Ratner's theorem.)
+    \item Show that \(\SL(n,\Z)\) is just infinite for \(n \geq 3\): every nontrivial normal subgroup has finite index. (Use the normal subgroup theorem.)
+    \item Prove that the subgroup \(\Gamma = \SL(3,\Z[1/p])\) is an S-arithmetic lattice in \(\SL(3,\R) \times \SL(3,\Q_p)\).
+    \item Show that an irreducible lattice in a product of two or more simple Lie groups is automatically irreducible in the product sense (its projection to each factor is dense).
+    \item Let \(G\) be a semisimple Lie group with property (T). Prove that any lattice \(\Gamma \subset G\) also has property (T).
+    \item For the quadratic form \(Q(x_1,\dots,x_5) = x_1^2 + x_2^2 + x_3^2 - x_4^2 - x_5^2\), show that the values \(Q(\Z^5)\) are dense in \(\R\). Exhibit an explicit sequence of integer vectors whose values approximate any given real number.
+    \item Let \(\Gamma \subset G\) be an arithmetic lattice defined by a \(\Q\)-structure on \(G\). Show that the commensurator of \(\Gamma\) in \(G\) is dense in \(G\).
+    \item Show that the Margulis function (the rate of divergence of nearby geodesics) for a compact negatively curved manifold equals the maximal Lyapunov exponent of the geodesic flow.
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Arithmetic lattice] A lattice \(\Gamma \subset G\) that is commensurable with \(\mathbf{G}(\Z)\) for some \(\Q\)-algebraic group \(\mathbf{G}\).
+    \item[Cusp] In a non-compact finite-volume locally symmetric space, a neighborhood of infinity corresponding to a rational parabolic subgroup.
+    \item[Expander graph] A finite graph in which every subset of vertices has many edges connecting to its complement, quantified by the expansion constant.
+    \item[Homogeneous dynamics] The study of actions of subgroups of a Lie group on a homogeneous space \(G/\Gamma\), particularly the ergodic theory of unipotent flows.
+    \item[Irreducible lattice] A lattice \(\Gamma \subset G\) such that the projection of \(\Gamma\) to any nontrivial factor of \(G\) is dense.
+    \item[Just infinite group] A group in which every nontrivial normal subgroup has finite index.
+    \item[Lattice] A discrete subgroup \(\Gamma \subset G\) such that \(G/\Gamma\) has finite volume.
+    \item[Margulis arithmeticity] Every irreducible lattice in a higher-rank semisimple Lie group is arithmetic.
+    \item[Margulis constant] The constant \(\varepsilon > 0\) in the Margulis lemma, depending only on the ambient Lie group.
+    \item[Margulis lemma] The statement that elements of a discrete group that move a point by a small amount generate a virtually nilpotent subgroup.
+    \item[Margulis superrigidity] The theorem that any Zariski-dense representation of a higher-rank irreducible lattice extends to a continuous representation of the ambient group.
+    \item[Property (T)] A property of locally compact groups: the trivial representation is isolated in the unitary dual. Equivalent to a spectral gap for the Laplacian on quotients.
+    \item[Ramanujan graph] An optimal expander graph whose spectral gap is as large as possible, meeting the Alon--Boppana bound.
+    \item[Ratner's theorem] The classification of ergodic invariant measures for unipotent flows on homogeneous spaces: every such measure is algebraic.
+    \item[Reduction theory] The study of fundamental domains for arithmetic groups, used to analyze the geometry of locally symmetric spaces near infinity.
+    \item[Reducible lattice] A lattice \(\Gamma \subset G_1 \times G_2\) that splits (up to finite index) as a product \(\Gamma_1 \times \Gamma_2\) of lattices in each factor.
+    \item[S-arithmetic lattice] A lattice in a finite product of groups over different local fields, obtained as the S-integer points of an algebraic group.
+    \item[Spectral gap] The difference between the smallest positive eigenvalue of the Laplacian and zero; a uniform spectral gap for a family of quotients is equivalent to expansion.
+    \item[Superrigidity] The property that any homomorphism of a lattice into a linear group extends to a homomorphism of the ambient group.
+    \item[Unipotent flow] The action of a one-parameter subgroup consisting of unipotent elements in a Lie group.
+    \item[\(Y\)-system] An Anosov flow or diffeomorphism; the term was used by Sinai and Margulis for systems with hyperbolic behavior.
+    \item[Zimmer program] A research program aiming to classify actions of higher-rank lattices on compact manifolds, inspired by Margulis's rigidity theorems.
+\end{description}

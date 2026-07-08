@@ -1,0 +1,239 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\F}{\mathbb{F}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\SL}{\operatorname{SL}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\Ind}{\operatorname{Ind}}
+\providecommand{\Rep}{\operatorname{Rep}}
+\providecommand{\Spec}{\operatorname{Spec}}
+
+\chapter{George Lusztig (2022)}
+
+\begin{quote}
+\it ``George Lusztig has been the dominant figure in the representation theory of reductive groups over finite fields for the past fifty years. His development of character sheaves, the theory of cells in Coxeter groups, and the geometric construction of quantum groups have transformed the field and created deep connections between representation theory, algebraic geometry, and combinatorics.'' --- Wolf Prize Citation, 2022
+\end{quote}
+
+\section{Main Contribution}
+
+George Lusztig (born 1946) is a Romanian--American mathematician whose work has fundamentally shaped representation theory, algebraic geometry, and combinatorics. He was awarded the Wolf Prize in Mathematics in 2022.
+
+The Wolf Prize citation reads: ``for his groundbreaking contributions to representation theory and to related areas.''
+
+Lusztig's core contributions include:
+\begin{itemize}
+    \item \textbf{Character Sheaves:} The development of the theory of character sheaves, a geometric approach to constructing characters of finite groups of Lie type, providing a uniform description of all irreducible characters.
+    \item \textbf{Lusztig--Kazhdan Theory:} The classification of irreducible representations of affine Hecke algebras and the establishment of the Kazhdan--Lusztig conjectures, later proved by Beilinson--Bernstein and Brylinski--Kashiwara.
+    \item \textbf{Cells in Coxeter Groups:} The theory of left, right, and two-sided cells in Coxeter groups, with applications to Hecke algebras, representation theory, and total positivity.
+    \item \textbf{Canonical Bases:} The construction of canonical bases for quantum groups and their classical limits, providing a deep connection between quantum groups and combinatorics.
+    \item \textbf{Representations of Finite Groups of Lie Type:} The classification and character formula for all irreducible representations of reductive groups over finite fields.
+    \item \textbf{Geometric Quantum Groups:} The Beilinson--Lusztig--MacPherson geometric realization of quantum $\GL_n$ using perverse sheaves on quiver varieties.
+    \item \textbf{Total Positivity:} The theory of totally positive matrices and its generalization to arbitrary Lie groups, with applications to cluster algebras.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{Representations of Finite Groups of Lie Type}
+
+Finite groups of Lie type (such as $\GL(n, \F_q)$, $\SL(n, \F_q)$, etc.) constitute most of the finite simple groups. Understanding their irreducible representations and characters was a central problem in group theory. The Deligne--Lusztig theory (1976) provided a construction of representations using l-adic cohomology of Deligne--Lusztig varieties, but the classification was not complete.
+
+Lusztig's character sheaves provided a uniform geometric framework that completed the classification.
+
+\subsection{Hecke Algebras and Kazhdan--Lusztig Conjectures}
+
+The Hecke algebra $H_q(W)$ of a Coxeter group $W$ is a deformation of the group algebra. The Kazhdan--Lusztig polynomials $P_{x,w}(q)$ encode subtle combinatorial information about the Bruhat order. The Kazhdan--Lusztig conjectures (proved later) relate these polynomials to the characters of Verma modules in representation theory.
+
+\subsection{Canonical Bases}
+
+Quantum groups $U_q(\mathfrak{g})$ have a distinguished basis (the canonical basis) with remarkable positivity properties. Lusztig's construction of this basis using perverse sheaves established deep connections between quantum groups, algebraic geometry, and combinatorics.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Character Sheaves}
+
+A character sheaf on a reductive group $G$ over a finite field is a complex of sheaves on $G$ that is an eigenobject for the Fourier transform. Lusztig showed that the characteristic functions of character sheaves (evaluated at Frobenius fixed points) give the irreducible characters of $G(\F_q)$. The approach uses:
+\begin{enumerate}
+    \item The geometry of the group $G$ and its flag variety.
+    \item The theory of perverse sheaves and l-adic cohomology.
+    \item The Fourier--Deligne transform on the group.
+\end{enumerate}
+
+\subsection{Kazhdan--Lusztig Theory}
+
+The Kazhdan--Lusztig polynomials $P_{x,w}(q)$ are defined recursively using the Hecke algebra relations. The key insight: these polynomials encode the local intersection cohomology of Schubert varieties in the flag variety. This connection between combinatorics (Hecke algebras) and geometry (Schubert varieties) was revolutionary.
+
+\subsection{Canonical Bases}
+
+Lusztig constructed the canonical basis for $U_q^+(\mathfrak{g})$ using the geometry of quiver varieties and the theory of perverse sheaves. The basis elements correspond to irreducible components of certain Lagrangian varieties, and their structure constants have remarkable positivity properties.
+
+\section{Mathematical Theory}
+
+\subsection{Character Sheaves}
+
+\begin{definition}[Character Sheaf]
+Let $G$ be a connected reductive group over $\F_q$. A \textbf{character sheaf} on $G$ is a simple perverse sheaf $\mathcal{A}$ on $G$ (up to shift) that is a Fourier--Deligne eigenobject: there exists a local system on the set of semisimple conjugacy classes such that $\mathcal{A}$ is an eigenobject under the Fourier transform.
+\end{definition}
+
+\begin{theorem}[Lusztig, 1980s]
+The irreducible characters of the finite group $G(\F_q)$ are given by the characteristic functions of character sheaves evaluated at Frobenius fixed points. More precisely, for each character sheaf $\mathcal{A}$, the function:
+\[
+\chi_{\mathcal{A}}(g) = \sum_i (-1)^i \tr(\Frob, \mathcal{H}^i(\mathcal{A})_g)
+\]
+is (up to sign and scaling) an irreducible character of $G(\F_q)$.
+\end{theorem}
+
+\subsection{Kazhdan--Lusztig Polynomials}
+
+\begin{definition}[Hecke Algebra]
+The \textbf{Hecke algebra} $H_q(W)$ of a Coxeter group $(W,S)$ has basis $\{T_w: w \in W\}$ with relations:
+\[
+T_s T_w = \begin{cases}
+T_{sw} & \text{if } \ell(sw) > \ell(w) \\
+q T_{sw} + (q-1) T_w & \text{if } \ell(sw) < \ell(w)
+\end{cases}
+\]
+\end{definition}
+
+\begin{definition}[Kazhdan--Lusztig Polynomials]
+For $x, w \in W$ with $x \leq w$ in the Bruhat order, the \textbf{Kazhdan--Lusztig polynomial} $P_{x,w}(q)$ is defined by:
+\[
+C_w = \sum_{x \leq w} (-1)^{\ell(w) - \ell(x)} q^{\ell(w)/2 - \ell(x)} P_{x,w}(q^{-1}) T_x
+\]
+where $C_w$ are the Kazhdan--Lusztig basis elements.
+\end{definition}
+
+\begin{theorem}[Kazhdan--Lusztig, 1979; proved 1981]
+The Kazhdan--Lusztig polynomial $P_{x,w}(q)$ evaluated at $q = 1$ gives the multiplicity of the Verma module $M_x$ in the Jordan--H\"older series of the Verma module $M_w$. Equivalently, $P_{x,w}(1)$ is the multiplicity of the simple module $L_x$ in $M_w$.
+\end{theorem}
+
+\subsection{Canonical Bases}
+
+\begin{definition}[Canonical Basis]
+For a semisimple Lie algebra $\mathfrak{g}$, the \textbf{canonical basis} $\mathbf{B}$ of $U_q^+(\mathfrak{g})$ is a basis with the properties:
+\begin{enumerate}
+    \item $\mathbf{B}$ is invariant under the bar involution.
+    \item $\mathbf{B}$ is compatible with the PBW decomposition.
+    \item Structure constants are in $\N[q, q^{-1}]$ (positivity).
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Lusztig, 1990]
+The canonical basis $\mathbf{B}$ is constructed geometrically using perverse sheaves on quiver varieties. Each basis element corresponds to an irreducible component of a Lagrangian variety in a quiver variety.
+\end{theorem}
+
+\subsection{Cells in Coxeter Groups}
+
+\begin{definition}[Cells]
+The \textbf{left cells} of a Coxeter group $W$ are the equivalence classes under the relation: $x \sim_L y$ if there exist Kazhdan--Lusztig basis elements $C_w$ such that $C_x$ and $C_y$ appear in the same left ideal. Similarly define right cells and two-sided cells.
+\end{definition}
+
+\begin{theorem}[Lusztig, 1980s]
+The two-sided cells of a Weyl group $W$ are in bijection with the unipotent classes of the corresponding algebraic group. Moreover, each left cell gives rise to a representation of $W$ (the cell representation).
+\end{theorem}
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Representation Theory:} Character sheaves provide the most complete and uniform approach to representations of finite groups of Lie type.
+    \item \textbf{Algebraic Geometry:} The connections between perverse sheaves and representation theory are fundamental.
+    \item \textbf{Combinatorics:} Kazhdan--Lusztig polynomials, cells, and canonical bases are central objects.
+    \item \textbf{Quantum Groups:} Lusztig's canonical basis is the definitive construction.
+    \item \textbf{Total Positivity:} Applications to cluster algebras and Teichm\"uller theory.
+\end{enumerate}
+
+\subsection{In Physics}
+
+\begin{enumerate}
+    \item \textbf{Quantum Field Theory:} Canonical bases and quantum groups appear in integrable systems and conformal field theory.
+    \item \textbf{Statistical Mechanics:} The Yang--Baxter equation and quantum groups.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What are character sheaves?}
+A geometric approach to the representation theory of finite groups of Lie type. Character sheaves are perverse sheaves on a reductive group whose characteristic functions give the irreducible characters of the finite group.
+
+\subsection*{Q2: What are Kazhdan--Lusztig polynomials?}
+Polynomials $P_{x,w}(q)$ associated to pairs of elements in a Coxeter group, defined using the Hecke algebra. They encode multiplicities in Verma modules and the intersection cohomology of Schubert varieties.
+
+\subsection*{Q3: What is the canonical basis?}
+A distinguished basis for quantum groups with positivity properties, constructed geometrically by Lusztig. It is fundamental to the theory of quantum groups and has connections to combinatorics and total positivity.
+
+\subsection*{Q4: What are cells in Coxeter groups?}
+Equivalence classes in a Coxeter group defined via the Kazhdan--Lusztig basis. They give rise to representations of the Weyl group and correspond to unipotent classes.
+
+\subsection*{Q5: What should an undergraduate study to understand Lusztig's work?}
+Representation theory (Lie algebras, finite groups), algebraic geometry (sheaves, cohomology), and combinatorics (Coxeter groups, Hecke algebras). Recommended: \textit{Representation Theory} (Humphreys), \textit{Introduction to Quantum Groups} (Kassel), and \textit{Lectures on Algebraic Geometry} (Harris).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Compute the Kazhdan--Lusztig polynomials for the symmetric group $S_3$.
+    \item Show that the Hecke algebra $H_q(S_n)$ specializes to $\C[S_n]$ when $q = 1$.
+    \item Compute the left cells of $S_3$ and describe the corresponding cell representations.
+    \item Show that the canonical basis for $U_q(\mathfrak{sl}_2)$ consists of elements $E^{(n)} = E^n/[n]_q!$.
+    \item Prove that a character sheaf on $GL(2)$ gives the characters of $GL(2, \F_q)$.
+    \item Show that the Kazhdan--Lusztig polynomials for the dihedral group $D_4$ are all $1$.
+    \item Compute the irreducible characters of $\SL(2, \F_q)$ using Deligne--Lusztig theory.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1946 & Born in Timi\c{s}oara, Romania \\ \hline
+1964 & Moves to Switzerland, then the United States \\ \hline
+1971 & Ph.D.\ from Princeton (advisor: William Browder) \\ \hline
+1974 | Professor at MIT \\ \hline
+1979 | Kazhdan--Lusztig polynomials \\ \hline
+1980s | Character sheaves \\ \hline
+1985 | Cole Prize of the AMS \\ \hline
+1990 | Canonical bases for quantum groups \\ \hline
+1998 | Brouwer Medal \\ \hline
+2002 | Steele Prize of the AMS \\ \hline
+2022 | Wolf Prize in Mathematics \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Canonical basis] A distinguished basis of $U_q^+(\mathfrak{g})$ with positivity properties.
+    \item[Cell] An equivalence class in a Coxeter group defined via the Kazhdan--Lusztig basis.
+    \item[Character sheaf] A perverse sheaf on a reductive group whose characteristic function gives an irreducible character.
+    \item[Coxeter group] A group with presentation generated by involutions with specified braid relations.
+    \item[Hecke algebra] A deformation of the group algebra of a Coxeter group.
+    \item[Kazhdan--Lusztig polynomial] A polynomial encoding intersection cohomology of Schubert varieties.
+    \item[Perverse sheaf] An object in the derived category of constructible sheaves satisfying support conditions.
+    \item[Quiver variety] A moduli space of representations of a quiver.
+    \item[Schubert variety] A subvariety of the flag variety defined by Bruhat order conditions.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item D.\ Kazhdan and G.\ Lusztig, \textit{Representations of Coxeter groups and Hecke algebras}, Invent.\ Math.\ 53 (1979), 165--184.
+    \item D.\ Kazhdan and G.\ Lusztig, \textit{Schubert varieties and Poincar\'e duality}, Proc.\ Symp.\ Pure Math.\ 36 (1980), 185--203.
+    \item G.\ Lusztig, \textit{Characters of Reductive Groups over a Finite Field}, Ann.\ Math.\ Studies 107, Princeton Univ.\ Press, 1984.
+    \item G.\ Lusztig, \textit{Introduction to Quantum Groups}, Birkh\"auser, 1993.
+    \item G.\ Lusztig, \textit{Canonical bases arising from quantized enveloping algebras}, J.\ Amer.\ Math.\ Soc.\ 3 (1990), 447--498.
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item R.\ W.\ Carter, \textit{Finite Groups of Lie Type}, Wiley, 1985.
+    \item S.\ Riche and G.\ Williamson, \textit{Tilting modules and the p-canonical basis}, Ast\'erisque 397, 2018.
+    \item A.\ A.\ Beilinson and J.\ Bernstein, \textit{A proof of the Kazhdan--Lusztig conjecture}, \textit{Advances in Soviet Math.} 16 (1993), 1--50.
+\end{enumerate}
+

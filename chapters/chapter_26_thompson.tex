@@ -1,0 +1,523 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\SO\relax
+\newcommand{\SO}{\operatorname{SO}}
+\let\SL\relax
+\newcommand{\SL}{\operatorname{SL}}
+\let\GL\relax
+\newcommand{\GL}{\operatorname{GL}}
+\let\Sp\relax
+\newcommand{\Sp}{\operatorname{Sp}}
+\let\SU\relax
+\newcommand{\SU}{\operatorname{SU}}
+\let\PSL\relax
+\newcommand{\PSL}{\operatorname{PSL}}
+\let\Aut\relax
+\newcommand{\Aut}{\operatorname{Aut}}
+\let\St\relax
+\newcommand{\St}{\operatorname{St}}
+\let\GV\relax
+\newcommand{\GV}{\operatorname{GV}}
+\let\E\relax
+\newcommand{\E}{\operatorname{E}}
+\let\F\relax
+\newcommand{\F}{\mathbb{F}}
+
+\chapter{John G. Thompson (1992)}
+
+\begin{quote}
+\it ``Thompson's work on the classification of finite simple groups is of the utmost profundity. His theorem with Feit that every finite group of odd order is solvable is one of the great landmarks of 20th-century mathematics. His N-group paper, which initiated the classification of finite simple groups, and his subsequent contributions to the completion of this monumental project, represent an achievement without precedent in the history of mathematics.'' --- Wolf Prize Citation
+\end{quote}
+
+John Griggs Thompson (born October 13, 1932) is one of the most important group theorists of the 20th century and a central figure in the classification of finite simple groups. The 1992 Wolf Prize in Mathematics (shared with Lennart Carleson) recognized his transformative contributions to finite group theory, most notably the Feit--Thompson theorem (the odd order theorem) and his pioneering work on the classification of finite simple groups. In 2008, he was awarded the Abel Prize jointly with Jacques Tits.
+
+Thompson's work revolutionized finite group theory. Before him, the classification of finite simple groups seemed an impossibly distant goal. His proof of the odd order theorem with Walter Feit marked the first major breakthrough. His subsequent N-group paper, spanning over 500 pages, established the structural framework for the entire classification program. Thompson introduced a wealth of new ideas --- the Thompson subgroup, the Thompson order formula, the theory of \(p\)-constraint and \(p\)-stability, and the study of quadratic pairs --- that became indispensable tools for generations of group theorists.
+
+\section{Early Life and Career}
+
+John G. Thompson was born on October 13, 1932, in Ottawa, Kansas. He showed an early aptitude for mathematics and pursued his undergraduate studies at Yale University, where he graduated in 1955. He then moved to the University of Chicago for graduate work, drawn by the department's extraordinary strength in algebra.
+
+At Chicago, Thompson came under the influence of Saunders Mac Lane and, most importantly, Richard Brauer, one of the founders of modern modular representation theory. Brauer's approach to finite groups --- using character theory and block theory to extract structural information --- profoundly shaped Thompson's mathematical outlook.
+
+Thompson completed his Ph.D. in 1959 under the supervision of Saunders Mac Lane. His thesis, \textit{A Proof that a Finite Group with a Fixed-Point-Free Automorphism of Prime Order is Nilpotent}, already showcased his characteristic combination of deep theoretical insight and computational power. He accepted a position at Harvard University, where he remained from 1959 to 1962, before moving to the University of Chicago. In 1968, he moved again to the University of Cambridge, where he spent the remainder of his career as the Rouse Ball Professor of Mathematics.
+
+\begin{center}
+\begin{tabular}{l l}
+1932 & Born in Ottawa, Kansas \\
+1955 & A.B., Yale University \\
+1959 & Ph.D., University of Chicago (advisor: Saunders Mac Lane) \\
+1959--1962 & Junior Fellow, Harvard University \\
+1962--1968 & Professor, University of Chicago \\
+1968--1993 & Rouse Ball Professor, University of Cambridge \\
+1993--present & Emeritus, University of Cambridge \\
+\end{tabular}
+\end{center}
+
+\section{The Feit--Thompson Theorem}
+
+The Feit--Thompson theorem, also known as the odd order theorem, is one of the most celebrated results in all of mathematics. The theorem was the subject of a 255-page proof published in 1963, which at the time was the longest mathematical proof ever published. The theorem states:
+
+\begin{theorem}[Feit--Thompson, 1963]
+Every finite group of odd order is solvable.
+\end{theorem}
+
+\begin{corollary}
+Every finite simple group has even order. Equivalently, the only finite simple groups of odd order are the cyclic groups of prime order.
+\end{corollary}
+
+This theorem was a watershed moment in group theory. Before its proof, the classification of finite simple groups seemed utterly intractable. The theorem itself was a necessary first step in the classification program, since it established a fundamental dichotomy: any non-abelian finite simple group must contain an element of order 2, and the structure of its 2-local subgroups would provide the leverage needed for classification.
+
+\subsection{Historical Context}
+
+Before Feit and Thompson, several partial results were known. Burnside's \(p^a q^b\) theorem (1904) showed that any group whose order has only two distinct prime factors is solvable. This had been proved using character theory, a technique that would prove essential for the Feit--Thompson proof as well.
+
+The odd order theorem had been conjectured for decades. Numerous mathematicians had attempted partial results: Brauer, Suzuki, and others had proved special cases under various additional hypotheses. What made the problem so difficult was the lack of a direct structural approach --- one could not simply analyze the group by induction without some global theoretical framework.
+
+Feit and Thompson's proof, published in the Pacific Journal of Mathematics in 1963, occupies an entire issue of the journal, running 255 pages. At the time, it was the longest mathematical proof ever published. The proof relies heavily on Brauer's modular character theory, which provides powerful constraints on the possible character tables of finite groups.
+
+\subsection{Outline of the Proof}
+
+The proof of the Feit--Thompson theorem proceeds by contradiction. Suppose \(G\) is a minimal counterexample: a finite group of odd order that is not solvable but every proper subgroup of \(G\) is solvable. The proof then derives a contradiction through an intricate analysis of the structure of \(G\). This is a classic minimal-counterexample argument, but its execution required the development of entirely new theoretical tools.
+
+The proof can be divided into several major parts:
+
+\begin{enumerate}
+\item \textbf{Reduction to a minimal counterexample.} One assumes \(G\) is a finite group of minimal odd order that is not solvable. The minimality forces every proper subgroup to be solvable. Such a group is called a \textit{minimal simple group}.
+
+\item \textbf{Character theory and local analysis.} Using Brauer's modular character theory, Feit and Thompson analyze the structure of the centralizers of involutions (elements of order 2). Although \(G\) has odd order, one considers a group \(H\) that is a minimal counterexample in a suitable extension, and the existence of involutions in related groups is exploited through character-theoretic methods. This part of the proof is extremely delicate, involving the manipulation of character tables and the use of exceptional character theory.
+
+\item \textbf{The Hall--Higman theorem and \(p\)-constraint.} The proof uses a strengthening of the Hall--Higman theorem, which bounds the nilpotence class of certain \(p\)-groups acting on modules in characteristic \(p\). The Hall--Higman theorem gives a bound on the nilpotence class of a \(p\)-group \(P\) acting faithfully on a vector space over a field of characteristic \(p\): if the action is quadratic (that is, \(P\) contains an element acting quadratically but not linearly), then the nilpotence class is bounded.
+
+\item \textbf{The Thompson subgroup and \(p\)-stability.} Thompson introduced the notion of \(p\)-stability and the Thompson subgroup \(J(P)\) of a \(p\)-group \(P\), which is the subgroup generated by all elementary abelian subgroups of maximal order. The Thompson subgroup plays a crucial role in controlling the fusion of elements in Sylow subgroups. For a \(p\)-stable group \(G\), the normalizer of the Thompson subgroup of a Sylow \(p\)-subgroup controls the \(p\)-fusion in \(G\).
+
+\item \textbf{The Bender method.} The final contradiction is obtained by a deep analysis of the maximal subgroups of \(G\), using the theory of strongly embedded subgroups and Bender's classification of groups with a strongly embedded subgroup. A strongly embedded subgroup is a proper subgroup that contains the normalizer of every nontrivial 2-subgroup; Bender classified the finite groups that possess such a subgroup.
+\end{enumerate}
+
+Each of these parts introduced techniques that would become foundational for the entire classification program.
+
+\subsection{Impact and Significance}
+
+The Feit--Thompson theorem had an immediate and profound impact. It established the viability of the classification program by demonstrating that even the most difficult structural problems in finite group theory could be solved through a combination of character theory and local group-theoretic analysis. The proof's length and complexity, rather than discouraging further work, inspired a generation of group theorists.
+
+The theorem also has important consequences beyond group theory. It implies that every finite division ring of odd order is a field (a result previously known as the Wedderburn little theorem for the odd case). It also has implications for the structure of finite simple groups in the classification program: it guarantees that every non-abelian finite simple group has even order, so the study of involutions is central.
+
+The Feit--Thompson proof introduced a methodological template that shaped the entire classification program. The combination of character theory with local group-theoretic analysis, the use of minimal counterexamples, and the systematic exploitation of centralizers of involutions became standard tools. Thompson's subsequent work on N-groups built directly on the foundations laid in the Feit--Thompson paper.
+
+\subsection{The Character-Theoretic Methods}
+
+The character theory used in the Feit--Thompson proof deserves special mention. Brauer's theory of modular characters (characters in characteristic \(p\)) provides a way to extract information about the structure of a finite group from its ordinary character table. In the Feit--Thompson proof, the following techniques play central roles:
+
+\begin{itemize}
+\item \textbf{Exceptional characters:} When a group has a conjugacy class with special fusion properties, one can construct exceptional characters that approximate the characters of the group and impose restrictions on the group structure.
+
+\item \textbf{Coherent sets of characters:} Feit and Thompson developed sophisticated methods for showing that certain collections of characters of subgroups can be extended coherently to characters of the whole group, producing contradictions when the group is assumed to be a minimal counterexample.
+
+\item \textbf{Block theory:} Brauer's theory of \(p\)-blocks decomposes the set of irreducible characters into blocks, each associated with a \(p\)-subgroup. The block containing the principal character carries structural information about the group, and the Feit--Thompson proof exploits this systematically.
+\end{itemize}
+
+The depth and intricacy of the character-theoretic arguments in the Feit--Thompson paper remain impressive even by modern standards. When the proof was first announced at the 1962 International Congress of Mathematicians in Stockholm, it was met with astonishment and acclaim.
+
+\section{Thompson's Theorem on Normal \(p\)-Complements}
+
+One of Thompson's earliest major results concerns the existence of normal \(p\)-complements in finite groups. A normal \(p\)-complement in a group \(G\) is a normal subgroup \(N\) such that \(G = N \rtimes P\) for some Sylow \(p\)-subgroup \(P\) of \(G\). The concept dates back to the work of Frobenius at the turn of the 20th century.
+
+\begin{definition}[Normal \(p\)-Complement]
+Let \(G\) be a finite group and let \(p\) be a prime dividing \(|G|\). A \textbf{normal \(p\)-complement} in \(G\) is a normal subgroup \(N\) of order coprime to \(p\) such that \(G = NP\) for some Sylow \(p\)-subgroup \(P\) of \(G\).
+\end{definition}
+
+\begin{theorem}[Thompson, 1960]
+Let \(G\) be a finite group and let \(p\) be an odd prime. If the centralizer of every element of order \(p\) in \(G\) has a normal \(p\)-complement, then \(G\) itself has a normal \(p\)-complement.
+\end{theorem}
+
+This theorem generalizes the classical Frobenius theorem on normal \(p\)-complements. The Frobenius theorem (also called the Frobenius normal \(p\)-complement theorem) gives a necessary and sufficient condition for the existence of a normal \(p\)-complement in terms of the fusion of elements in Sylow \(p\)-subgroups: if a Sylow \(p\)-subgroup \(P\) of \(G\) has the property that no non-identity element of \(P\) is conjugate to another element of \(P\) outside \(P\), then \(G\) has a normal \(p\)-complement.
+
+Thompson's theorem replaces a global condition with a local one: instead of checking fusion in the Sylow subgroup, one only needs to check the centralizers of elements of order \(p\). This local-to-global principle is characteristic of Thompson's approach to group theory.
+
+Thompson's theorem on normal \(p\)-complements is a cornerstone of the theory of \(p\)-groups and their embedding in finite groups. It is intimately connected with the theory of transfer and fusion, and it provides a powerful criterion for the existence of normal \(p\)-complements that is often easier to verify than Frobenius's original criterion.
+
+The theorem was later generalized by Thompson himself and by others, leading to the theory of \(N\)-groups and the concept of \(p\)-constraint. The idea of deducing global structural properties from local information about centralizers of elements of prime order is a recurring theme in Thompson's work.
+
+\section{The Classification of Finite Simple Groups}
+
+The classification of finite simple groups (CFSG) is one of the largest and most ambitious collaborative projects in the history of mathematics. It asserts that every finite simple group belongs to one of the following families:
+
+\begin{enumerate}
+\item The cyclic groups of prime order \(\Z/p\Z\).
+\item The alternating groups \(A_n\) for \(n \geq 5\).
+\item The groups of Lie type (including the classical groups \(\SL(n,q)\), \(\PSL(n,q)\), \(\Sp(2n,q)\), \(\SO(n,q)\), \(\SU(n,q)\), and the exceptional groups \(G_2(q)\), \(F_4(q)\), \(E_6(q)\), \(E_7(q)\), \(E_8(q)\), \({}^2B_2(q)\), \({}^2G_2(q)\), \({}^3D_4(q)\), \({}^2F_4(q)\)).
+\item The 26 sporadic groups.
+\end{enumerate}
+
+Thompson's work was instrumental in every stage of the classification, from the initial structural analysis to the final identification of the sporadic groups.
+
+\subsection{The N-Group Paper}
+
+In 1968, Thompson published a monumental series of papers titled \textit{Nonsolvable Finite Groups All of Whose Local Subgroups Are Solvable} (commonly called the N-group paper). This work, which appeared in six parts in the Bulletin of the American Mathematical Society and the Pacific Journal of Mathematics, spans over 500 pages.
+
+\begin{definition}[N-Group]
+A finite group \(G\) is called an \textbf{N-group} if every local subgroup of \(G\) (that is, the normalizer of every non-identity solvable subgroup of \(G\)) is solvable.
+\end{definition}
+
+The N-group paper classified all N-groups. This was the first major classification result of its kind and established the pattern for the entire CFSG program. The classification of N-groups involves the following steps:
+
+\begin{enumerate}
+\item \textbf{Reduction to simple N-groups.} Using the Feit--Thompson theorem and induction, one reduces to the case where \(G\) is a non-abelian finite simple N-group.
+
+\item \textbf{Analysis of the 2-local structure.} Using the Thompson subgroup and fusion arguments, one determines the possible structure of the Sylow 2-subgroups and their normalizers.
+
+\item \textbf{Identification of the possibilities.} The groups that appear are the alternating groups \(A_n\) for certain small \(n\), the groups of Lie type of small Lie rank over small fields, and the Mathieu groups.
+
+\item \textbf{Uniqueness theorems.} Thompson proved that the local data uniquely determine the group, establishing a pattern that would be repeated throughout the classification.
+\end{enumerate}
+
+The N-group paper introduced several concepts that became central to the classification:
+
+\begin{itemize}
+\item \textbf{The Thompson subgroup:} For a \(p\)-group \(P\), let \(\mathscr{A}(P)\) be the set of elementary abelian subgroups of \(P\) of maximal order. The Thompson subgroup is \(J(P) = \langle \mathscr{A}(P) \rangle\). This subgroup plays a key role in fusion analysis.
+
+\item \textbf{\(p\)-Stability:} A group \(G\) is \(p\)-stable if for every \(p\)-subgroup \(P\) and every element \(x\) of order \(p\) in \(N_G(P)\), the image of \(x\) in \(\Aut(P/\Phi(P))\) has no nontrivial fixed points on the natural module. This property is crucial for controlling the structure of \(p\)-local subgroups.
+
+\item \textbf{Signalizer functor methods:} Thompson developed techniques for analyzing the structure of groups by studying the centralizers of elements of prime order, leading to the theory of signalizer functors later formalized by Gorenstein and others.
+
+\item \textbf{Quadratic pairs:} A quadratic pair is a pair \((G,V)\) where \(V\) is a vector space over a field of characteristic \(p\) and \(G\) is a subgroup of \(\GL(V)\) with certain quadratic action properties. Thompson's analysis of quadratic pairs was essential for the classification of groups of Lie type.
+\end{itemize}
+
+\subsection{The Structure of the N-Group Paper}
+
+The N-group paper is organized into six parts, each building on the previous one:
+
+\begin{enumerate}
+\item \textbf{Part I} (Bulletin AMS, 1968) outlines the main results and provides an overview of the classification. It introduces the concept of N-groups and states the classification theorem.
+
+\item \textbf{Part II} (Pacific J. Math., 1970) develops the local analysis of N-groups. It contains the fundamental results on the structure of Sylow 2-subgroups and their normalizers in simple N-groups.
+
+\item \textbf{Part III} (Pacific J. Math., 1971) continues the analysis of 2-local structure and begins the identification of the possible simple N-groups.
+
+\item \textbf{Part IV} (Pacific J. Math., 1971) completes the treatment of N-groups with Sylow 2-subgroups of rank at most 2.
+
+\item \textbf{Part V} (Pacific J. Math., 1971) handles the case where the Sylow 2-subgroups have rank at least 3, using the theory of quadratic pairs.
+
+\item \textbf{Part VI} (Pacific J. Math., 1974) contains the final classification and the uniqueness theorems.
+\end{enumerate}
+
+The length and complexity of the N-group paper made it a forbidding work, but its influence was immense. Every subsequent classification result in the CFSG program followed the template established by Thompson.
+
+\subsection{The Concept of \(p\)-Constraint}
+
+A closely related notion introduced by Thompson is that of \(p\)-constraint. A finite group \(G\) is called \(p\)-constrained if
+
+\[
+C_G(O_p(G)) \subseteq O_p(G),
+\]
+
+where \(O_p(G)\) is the largest normal \(p\)-subgroup of \(G\). The property of \(p\)-constraint is essential for controlling the structure of \(p\)-local subgroups: if \(G\) is \(p\)-constrained, then the \(p\)-local subgroups have a well-behaved structure that can be analyzed using the Thompson subgroup and related methods.
+
+In the N-group paper, Thompson proved that any simple N-group is \(p\)-constrained for every odd prime \(p\). This result, together with the analysis of 2-constraint, provides the leverage needed to determine the structure of all \(p\)-local subgroups of an N-group.
+
+\subsection{The Signalizer Functor Method}
+
+One of Thompson's most innovative contributions is the signalizer functor method. Let \(G\) be a finite group and let \(\mathcal{E}\) be a collection of elementary abelian \(p\)-subgroups of \(G\). A signalizer functor on \(\mathcal{E}\) is a family of subgroups \(\theta(E) \subseteq O_{p'}(C_G(E))\) satisfying certain consistency conditions.
+
+Thompson used signalizer functors to construct large \(p'\)-subgroups of finite groups, which then provided structural information about the group. The method works as follows:
+
+\begin{enumerate}
+\item For each \(E \in \mathcal{E}\), define \(\theta(E)\) as the largest subgroup of \(C_G(E)\) of order coprime to \(p\).
+
+\item Show that the \(\theta(E)\) are consistent: \(\theta(E) \cap C_G(F) = \theta(F) \cap C_G(E)\) for all \(E,F \in \mathcal{E}\).
+
+\item The consistency implies that the subgroup \(\langle \theta(E) : E \in \mathcal{E} \rangle\) is a \(p'\)-group, and its normalizer provides structural information about \(G\).
+\end{enumerate}
+
+The signalizer functor method was later generalized and systematized by Gorenstein and Walter, and it became a central tool in the classification of finite simple groups.
+
+\section{The Thompson Order Formula}
+
+One of Thompson's most powerful tools is the Thompson order formula, which relates the order of a finite group to the orders of the centralizers of its elements of prime order. The formula is a consequence of the class equation and the structure of conjugacy classes.
+
+Let \(G\) be a finite group and let \(\pi\) be a set of primes. For each prime \(p \in \pi\), choose a set \(\mathcal{C}_p\) of representatives of conjugacy classes of elements of order \(p\) in \(G\). The Thompson order formula states:
+
+\[
+\frac{1}{|G|} = \sum_{p \in \pi} \sum_{x \in \mathcal{C}_p} \frac{1}{|C_G(x)|} - \sum_{\substack{p,q \in \pi \\ p < q}} \sum_{\substack{x \in \mathcal{C}_p \\ y \in \mathcal{C}_q \\ xy = yx}} \frac{1}{|C_G(x) \cap C_G(y)|} + \cdots
+\]
+
+More precisely, the formula expresses \(1/|G|\) as an alternating sum of terms involving centralizers of commuting elements. This formula is derived from the principle of inclusion--exclusion applied to the set of elements of \(G\) whose order is divisible only by primes in \(\pi\).
+
+The Thompson order formula has many applications. It is used to bound the order of a finite group in terms of the orders of centralizers of involutions, which is essential in the classification program. For example, if one can show that for every involution \(t \in G\) the centralizer \(C_G(t)\) has order at most some bound \(B\), and that the centralizers of commuting pairs of involutions also have orders bounded by a related function, then the Thompson order formula gives an upper bound for \(|G|\).
+
+In the Feit--Thompson theorem, this formula is used to analyze the group order under the assumption that all proper subgroups are solvable. The formula imposes strong arithmetic constraints that eventually lead to a contradiction.
+
+\section{The Thompson Sporadic Groups}
+
+In the early 1970s, as the classification program progressed, several previously unknown sporadic simple groups were discovered. Thompson made important contributions to this area, most notably the discovery of the Thompson sporadic group.
+
+\subsection{The Thompson Group \(Th\)}
+
+In 1973, Thompson discovered a new sporadic simple group, now denoted \(Th\) or sometimes \(F_3\) (following Fischer's notation). This group is one of the 26 sporadic simple groups and is the third largest, with order
+
+\[
+|Th| = 2^{15} \cdot 3^{10} \cdot 5^3 \cdot 7^2 \cdot 13 \cdot 19 \cdot 31 = 90,745,943,887,872,000.
+\]
+
+The Thompson group was discovered through Thompson's analysis of quadratic pairs. Thompson was studying the possible structure of a finite group \(G\) containing a 3-transposition involution with certain centralizer conditions. His calculations revealed a new simple group whose existence was confirmed by subsequent work of computer algebra systems and by Smith's construction.
+
+\begin{definition}[The Thompson Group \(Th\)]
+The Thompson group \(Th\) is a finite simple sporadic group of order
+\[
+|Th| = 2^{15} \cdot 3^{10} \cdot 5^3 \cdot 7^2 \cdot 13 \cdot 19 \cdot 31.
+\]
+It has a faithful 248-dimensional representation over the complex numbers, realized as a subgroup of the exceptional Lie group \(E_7(\mathbb{C})\).
+\end{definition}
+
+The connection with the Lie group \(E_7\) is particularly striking. Thompson observed that the order of \(Th\) is closely related to the order of the Weyl group of \(E_7\), and subsequent work showed that \(Th\) can be realized as a subgroup of \(E_7(\mathbb{C})\). This deep connection between sporadic finite groups and Lie theory remains an active area of research.
+
+The Thompson group has several remarkable properties:
+\begin{itemize}
+\item Its Schur multiplier is trivial.
+\item Its outer automorphism group is trivial.
+\item It contains several other sporadic groups as subgroups, including the Higman--Sims group and the Conway group \(Co_1\).
+\item The minimal degree of a faithful permutation representation is 143,127,000.
+\end{itemize}
+
+\subsection{Other Sporadic Group Connections}
+
+Thompson also contributed to the study of other sporadic groups. His work with Conway, Norton, and others on the Monster group and its representations laid the groundwork for monstrous moonshine. The Thompson group appears as a subquotient of the Monster, and its character table was computed using Thompson's methods.
+
+Thompson's work on quadratic pairs led to the discovery of several other sporadic groups by other mathematicians, including Fischer's groups and the Baby Monster. The classification of quadratic pairs (a project completed by Thompson and others) determined all finite groups generated by a conjugacy class of elements of order 3 with certain quadratic action properties, and this classification produced several sporadic groups as exceptional cases.
+
+\section{Contributions to the Inverse Galois Problem}
+
+The inverse Galois problem asks whether every finite group occurs as the Galois group of a Galois extension of the rational numbers \(\Q\). This is one of the central problems in number theory, dating back to the work of Galois himself.
+
+Thompson made significant contributions to this problem by showing that the Monster group and several other sporadic groups are realizable as Galois groups over \(\Q\).
+
+\begin{theorem}[Thompson, 1984]
+The Monster group \(M\) occurs as a Galois group over \(\Q\).
+\end{theorem}
+
+Thompson's approach used the theory of rigidity of group actions on the projective line. A group \(G\) is called \textit{rigid} if it has a generating triple \((x,y,z)\) of elements with \(xyz = 1\) that is rationally rigid in the sense of Belyi, Fried, and Matzat. The existence of a rigid triple for \(G\) implies, via Belyi's theorem and the theory of Hurwitz spaces, that \(G\) can be realized as a Galois group over \(\Q\).
+
+Thompson proved the rigidity of the Monster group by analyzing its character table and the structure of its conjugacy classes. His work inspired a wave of results showing that many of the sporadic groups are Galois groups over \(\Q\), including the Thompson group \(Th\) itself.
+
+The problem of realizing all finite simple groups as Galois groups over \(\Q\) remains open, but Thompson's results provided crucial evidence and techniques for this line of inquiry.
+
+\subsection{The Rigidity Method}
+
+Thompson's approach to the inverse Galois problem uses the concept of rigidity, which was developed by Belyi, Fried, Matzat, and Thompson himself. A group \(G\) is called \textit{rigid} if there exist conjugacy classes \(C_1, C_2, C_3\) of \(G\) and elements \(x_i \in C_i\) such that \(x_1 x_2 x_3 = 1\) and the following conditions hold:
+
+\begin{itemize}
+\item \textbf{Generation:} The elements \(x_1, x_2, x_3\) generate \(G\).
+\item \textbf{Rationality:} Each class \(C_i\) is rational, meaning it is closed under taking powers coprime to the order of its elements.
+\item \textbf{Rigidity:} The tuple \((x_1, x_2, x_3)\) is unique up to simultaneous conjugation; that is, if \((y_1, y_2, y_3)\) is another triple with \(y_i \in C_i\) and \(y_1 y_2 y_3 = 1\), then there exists \(g \in G\) such that \(y_i = g x_i g^{-1}\) for all \(i\).
+\end{itemize}
+
+When these conditions are met, a theorem of Belyi, Fried, and Thompson states that \(G\) occurs as a Galois group over \(\Q\). The existence of such rigid triples for the Monster group and the Thompson group was established through a deep analysis of their character tables and conjugacy class structure.
+
+\section{Later Career and Recognition}
+
+Thompson remained at Cambridge until his retirement in 1993. During his long career, he received numerous honors recognizing his transformative contributions to mathematics.
+
+\subsection{Honors and Awards}
+
+\begin{enumerate}
+\item \textbf{1965: Cole Prize in Algebra.} Awarded by the American Mathematical Society for his work on the Feit--Thompson theorem.
+
+\item \textbf{1992: Wolf Prize in Mathematics.} Shared with Lennart Carleson, for his fundamental contributions to finite group theory and the classification of finite simple groups.
+
+\item \textbf{2008: Abel Prize.} Shared with Jacques Tits, for his profound contributions to algebra, particularly the theory of finite simple groups.
+
+\item \textbf{Membership in academies:} National Academy of Sciences (US), Royal Society (UK), American Academy of Arts and Sciences, Norwegian Academy of Science and Letters.
+\end{enumerate}
+
+\subsection{The Abel Prize Citation}
+
+The 2008 Abel Prize citation reads:
+
+\begin{quote}
+\it ``Thompson and Tits are awarded the Abel Prize for their fundamental contributions to algebra, in particular for shaping modern group theory. Thompson's work has been of extraordinary depth and influence. His proof with Feit of the odd order theorem, his N-group paper, and his contributions to the classification of the finite simple groups have transformed the subject. His ideas, such as the Thompson subgroup and the Thompson order formula, are standard tools in the subject today.''
+\end{quote}
+
+\subsection{Doctoral Students}
+
+During his time at Cambridge, Thompson supervised numerous doctoral students, including Robert Curtis, John McKay, Stephen Smith, and others who went on to make significant contributions to group theory and representation theory. His influence extended not only through his own work but through the generations of mathematicians he trained.
+
+\subsection{Thompson's Mathematical Style}
+
+Thompson's mathematical style is characterized by several distinctive features. First, he has an extraordinary ability to work with concrete, complicated calculations while maintaining a clear vision of the overall structural picture. The Feit--Thompson proof and the N-group paper both involve thousands of intricate calculations, yet the logical structure of the arguments is always clear.
+
+Second, Thompson's work demonstrates a remarkable combination of theoretical depth and computational power. He was one of the first mathematicians to use computers extensively in the study of finite groups, developing algorithms for computing character tables and for constructing finite groups from local data. This computational approach, now standard in group theory, was pioneering in the 1960s and 1970s.
+
+Third, Thompson's papers are written in a dense, concentrated style that demands careful reading. He often leaves significant steps for the reader to fill in, and his arguments frequently require a deep understanding of several different areas of algebra simultaneously. Despite this difficulty, his papers are renowned for their conceptual clarity and the elegance of their overall structure.
+
+\subsection{The Thompson Philosophy of Local Analysis}
+
+A central theme in Thompson's work is the idea that the structure of a finite group is determined by the structure of its local subgroups --- the normalizers and centralizers of its \(p\)-subgroups. This philosophy, sometimes called the \textit{local group-theoretic approach}, was revolutionary when Thompson introduced it.
+
+Before Thompson, the study of finite groups was dominated by character theory and the theory of group extensions. Thompson showed that by systematically analyzing the way that \(p\)-subgroups embed in a finite group, one could extract enough information to determine the group's global structure. This local-to-global principle is the foundation of the entire classification program.
+
+\section{Impact and Legacy}
+
+Thompson's impact on mathematics is difficult to overstate. The classification of finite simple groups is one of the greatest achievements of 20th-century mathematics, and Thompson was its principal architect. His work provided the conceptual framework, the technical tools, and the inspiration for the entire program.
+
+The concepts he introduced --- the Thompson subgroup, \(p\)-stability, the Thompson order formula, the theory of quadratic pairs --- remain central to finite group theory and have found applications in many other areas of mathematics, including number theory, algebraic geometry, and representation theory.
+
+The classification of finite simple groups was completed (in its first form) in 1983, with the announcement by Gorenstein that the theorem had been proved. However, the proof relied on hundreds of papers by dozens of mathematicians, and the full proof was not published in a coherent form until the second-generation classification project led by Gorenstein, Lyons, and Solomon began in the 1990s.
+
+Thompson's role in this achievement cannot be overstated. He provided the initial breakthrough (the Feit--Thompson theorem), the structural framework (the N-group paper), and many of the essential tools (the Thompson subgroup, \(p\)-stability, the Thompson order formula, quadratic pairs). Without his contributions, the classification would likely still be unfinished.
+
+\subsection{Connections to Other Fields}
+
+Thompson's work has connections to many areas of mathematics beyond pure group theory:
+
+\begin{itemize}
+\item \textbf{Number theory:} The inverse Galois problem connects Thompson's work to arithmetic geometry and the theory of modular forms. The rigidity method he developed is now a standard tool in the field.
+
+\item \textbf{Algebraic geometry:} The classification of quadratic pairs involves the study of algebraic groups and their representations, connecting Thompson's work to the theory of Lie algebras and algebraic groups.
+
+\item \textbf{Mathematical physics:} The Monster group and its connections to the Virasoro algebra and conformal field theory (through monstrous moonshine) link Thompson's work to theoretical physics. The Thompson group itself appears in the study of certain vertex operator algebras.
+
+\item \textbf{Combinatorics:} The theory of fusion systems, which grew out of Thompson's work on fusion in Sylow subgroups, has become an important area of combinatorics and algebraic topology.
+\end{itemize}
+
+\subsection{The Thompson Subgroup}
+
+The Thompson subgroup \(J(P)\) of a \(p\)-group \(P\) is defined as follows:
+
+\begin{definition}[Thompson Subgroup]
+Let \(P\) be a finite \(p\)-group. Let \(\mathscr{A}(P)\) denote the set of elementary abelian subgroups of \(P\) of maximal possible order. The \textbf{Thompson subgroup} \(J(P)\) is the subgroup generated by all members of \(\mathscr{A}(P)\):
+\[
+J(P) = \langle A : A \in \mathscr{A}(P) \rangle.
+\]
+\end{definition}
+
+The Thompson subgroup plays a crucial role in the study of fusion in finite groups. A key theorem, often called the Thompson subgroup theorem, states that if \(G\) is a \(p\)-stable group with a Sylow \(p\)-subgroup \(P\), then \(N_G(J(P))\) controls the \(p\)-fusion in \(G\). More precisely, the map
+
+\[
+H^*(G, \F_p) \to H^*(N_G(J(P)), \F_p)
+\]
+
+is a monomorphism in cohomology, and the fusion of elements in \(P\) is controlled by the normalizer of \(J(P)\).
+
+\subsection{The Thompson Order Formula in Detail}
+
+Let \(G\) be a finite group and let \(\pi\) be a set of primes. For an element \(g \in G\), let \(\pi(g)\) denote the set of primes dividing the order of \(g\). Let \(\mathcal{S}\) be the set of elements of \(G\) such that \(\pi(g) \subseteq \pi\). Thompson's formula arises from applying the inclusion--exclusion principle to the characteristic function of \(\mathcal{S}\).
+
+The formula can be written as:
+
+\[
+\frac{|\mathcal{S}|}{|G|} = \sum_{n \geq 1} (-1)^{n+1} \sum_{\substack{p_1,\dots,p_n \in \pi \\ p_1 < \cdots < p_n}} \sum_{\substack{x_1,\dots,x_n \in G \\ |x_i| = p_i \\ x_i x_j = x_j x_i}} \frac{1}{|C_G(x_1) \cap \cdots \cap C_G(x_n)|}.
+\]
+
+If \(G\) has no elements whose order is divisible only by primes in \(\pi\) except the identity, then \(|\mathcal{S}| = 1\) and we obtain a nontrivial arithmetic identity. This identity imposes strong restrictions on the orders of centralizers and their intersections.
+
+In the Feit--Thompson proof, the set \(\pi\) is chosen to be the set of prime divisors of \(|G|\) that are not 2, and the identity is used to derive constraints on the structure of \(G\).
+
+\subsection{The Hall--Thompson Theorem}
+
+In joint work with P. Hall, Thompson proved a fundamental result about the structure of finite groups with a nilpotent maximal subgroup:
+
+\begin{theorem}[Hall--Thompson]
+Let \(G\) be a finite group with a nilpotent maximal subgroup \(M\). Then \(G\) is solvable.
+\end{theorem}
+
+This theorem is a key result in the theory of finite groups and has been used in many classification results. Its proof uses the Thompson order formula and the theory of \(p\)-constraint in an essential way.
+
+The theorem generalizes earlier work of H. Wielandt and others on groups with nilpotent subgroups. The Hall--Thompson theorem is particularly important because it shows that the existence of a single nilpotent maximal subgroup forces the entire group to be solvable, regardless of the group's size or complexity.
+
+\subsection{Thompson's Work on Fusion and Transfer}
+
+Thompson also made fundamental contributions to the theory of fusion and transfer in finite groups. The transfer homomorphism \(V_G^P: G \to P/P'\) maps a finite group \(G\) to the abelianization of a Sylow \(p\)-subgroup \(P\), and it provides a powerful tool for detecting normal \(p\)-complements.
+
+Thompson developed the theory of \textit{fusion-controlled transfer}, which shows that under suitable conditions the transfer map can be computed entirely in terms of the structure of the normalizer of the Thompson subgroup. This allowed him to prove the existence of normal \(p\)-complements under very general hypotheses.
+
+The concept of fusion itself --- the study of how elements of a Sylow \(p\)-subgroup become conjugate in the larger group --- was greatly advanced by Thompson's work. The Alperin--Goldschmidt fusion theorem, which describes the generation of all fusion in a finite group by fusion in certain local subgroups, builds on ideas that first appeared in Thompson's N-group paper.
+
+\subsection{Thompson's Work on the Character Tables of Finite Groups}
+
+Thompson also made important contributions to the character theory of finite groups. He developed methods for computing character tables of large finite groups, including the Monster and the Thompson group. His approach combined theoretical insights with computational techniques, and it established the foundations for the computational group theory that has become a major area of modern mathematics.
+
+In particular, Thompson's work on the character table of the Monster group, in collaboration with Conway, Norton, and others, revealed deep connections between the representation theory of the Monster and modular forms --- connections that became known as monstrous moonshine.
+
+\subsection{The Thompson Group in Monstrous Moonshine}
+
+The Thompson group \(Th\) plays a significant role in the theory of monstrous moonshine. The group appears as a subquotient of the Monster, and its McKay--Thompson series (the \(q\)-expansion of a certain modular function associated to conjugacy classes of the Thompson group) exhibit remarkable modular properties.
+
+The study of these series led to the development of generalized moonshine, connecting the representation theory of sporadic groups to the theory of modular forms and vertex operator algebras. The moonshine for the Thompson group is part of this larger picture, and it provides evidence for the deep and still mysterious connection between finite simple groups and modular forms.
+
+\section{Conclusion}
+
+John G. Thompson ranks among the greatest mathematicians of the 20th century. His work on the Feit--Thompson theorem, the N-group paper, and the classification of finite simple groups represents one of the most remarkable achievements in the history of mathematics. The tools he developed --- the Thompson subgroup, the Thompson order formula, \(p\)-stability, and the theory of quadratic pairs --- are fundamental to modern finite group theory.
+
+The Feit--Thompson theorem alone would have secured his place in mathematical history, but his subsequent work on the classification of finite simple groups was even more consequential. The N-group paper provided the blueprint for the entire classification, and his discovery of the Thompson sporadic group completed the roster of known finite simple groups.
+
+Thompson's work also connects group theory to other areas of mathematics: the inverse Galois problem, monstrous moonshine, and the theory of algebraic groups. These connections continue to generate new research and new insights.
+
+For his achievements, Thompson received the highest honors that mathematics can bestow: the Wolf Prize in 1992 and the Abel Prize in 2008. His legacy endures in the thriving field of finite group theory and in the generations of mathematicians he inspired.
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+\item Prove that a finite group of odd order cannot be simple unless it is cyclic of prime order. (This is an easy consequence of the Feit--Thompson theorem, but try to prove it directly using the class equation for a group of order \(p^a m\) with \(p\) the smallest prime divisor.)
+\item Let \(P\) be a \(p\)-group. Show that the Thompson subgroup \(J(P)\) is characteristic in \(P\).
+\item Let \(G\) be a finite group with a normal \(p\)-complement \(N\). Show that the Sylow \(p\)-subgroups of \(G\) are all conjugate in \(G\) and that \(G/N \cong P\) for any Sylow \(p\)-subgroup \(P\) of \(G\).
+\item Let \(G\) be a finite group and let \(p\) be an odd prime. If \(C_G(x)\) has a normal \(p\)-complement for every element \(x\) of order \(p\) in \(G\), prove that \(G\) has a normal \(p\)-complement. (This is Thompson's theorem; you may use the transfer homomorphism.)
+\item Let \(Th\) denote the Thompson group. Assuming that the Schur multiplier of \(Th\) is trivial, show that any central extension of \(Th\) splits.
+\item Let \(G\) be an N-group. Prove that every simple section of \(G\) is either a known simple group or an N-group itself.
+\item Let \(P\) be a Sylow 2-subgroup of the Thompson group \(Th\). Compute the order of \(P\) from the order formula for \(Th\).
+\item Show that the alternating group \(A_5\) is an N-group but not a solvable group. (This illustrates the nontriviality of Thompson's classification.)
+\item Let \(G\) be a minimal simple group (a non-abelian simple group all of whose proper subgroups are solvable). Show that the Sylow 2-subgroup of \(G\) has order at most 4. (This is a key step in the Feit--Thompson proof.)
+\item Prove that the odd order theorem implies that every finite division ring of odd order is a field.
+\item Let \(G\) be a finite group with a strongly embedded subgroup \(M\). Show that \(M\) contains all involutions of \(G\). (This is a key property used in Bender's theorem.)
+\item Let \(P\) be a finite \(p\)-group. Prove that \(J(P)\) is nontrivial whenever \(P\) is nontrivial.
+\item Let \(G\) be a minimal counterexample to the odd order theorem. Show that \(G\) has no proper subgroup of index less than some function of \(|G|\). (This is a necessary step in the Feit--Thompson character theory.)
+\item Let \(P\) be a Sylow \(p\)-subgroup of a finite group \(G\) and let \(J(P)\) be the Thompson subgroup. Show that if \(N_G(J(P))\) controls the \(p\)-fusion in \(G\), then the transfer map \(V_G^P\) is trivial.
+\item Prove that the Monster group is rigid by analyzing its character table and showing the existence of a suitable rigid triple of conjugacy classes. (This is a computational exercise using the known character table of the Monster.)
+\item Let \(G\) be a finite group and let \(p\) be a prime. Prove that if \(G\) is \(p\)-constrained and \(p\)-stable, then the normalizer of the Thompson subgroup of a Sylow \(p\)-subgroup controls the \(p\)-fusion in \(G\).
+\item Show that the alternating group \(A_7\) is an N-group. Classify the local subgroups of \(A_7\) and verify that each is solvable.
+\item Let \(V\) be a vector space over a field of characteristic \(p\) and let \(x \in \GL(V)\) be an element of order \(p\). Show that \(x\) acts quadratically on \(V\) (that is, \((x-1)^2 = 0\)) if and only if the Jordan blocks of \(x\) have size at most 2. This is the simplest example of a quadratic pair.
+\item Let \(Th\) be the Thompson group and let \(g \in Th\) be an element of order 3. Compute the order of the centralizer \(C_{Th}(g)\) using the character table of \(Th\).
+\item Show that the Thompson order formula reduces to the class equation when \(\pi\) consists of a single prime.
+\item Let \(G\) be a finite group with a strongly embedded subgroup \(M\). Prove that the number of involutions in \(G\) is equal to the number of involutions in \(M\).
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+\item[\(p\)-constraint] A property of finite groups that controls the structure of \(p\)-local subgroups; a group \(G\) is \(p\)-constrained if \(C_G(O_p(G)) \subseteq O_p(G)\).
+\item[\(p\)-stability] A property of a finite group \(G\) involving the action of elements of order \(p\) on the Frattini quotient of \(p\)-subgroups, crucial for controlling fusion.
+\item[CFSG] The classification of finite simple groups, the theorem that every finite simple group is cyclic, alternating, of Lie type, or sporadic.
+\item[Feit--Thompson theorem] The theorem that every finite group of odd order is solvable; also called the odd order theorem.
+\item[Frobenius complement] A normal subgroup \(N\) of a group \(G\) such that \(G = N \rtimes H\) with \(H\) acting fixed-point-freely on \(N\).
+\item[Inverse Galois problem] The problem of determining whether every finite group occurs as a Galois group of a Galois extension of \(\Q\).
+\item[Minimal simple group] A non-abelian finite simple group all of whose proper subgroups are solvable.
+\item[Monstrous moonshine] The unexpected connection between the Monster group and modular functions, first observed by McKay and Thompson.
+\item[N-group] A finite group in which every local subgroup is solvable.
+\item[Normal \(p\)-complement] A normal subgroup of order coprime to \(p\) that complements a Sylow \(p\)-subgroup.
+\item[Odd order theorem] Another name for the Feit--Thompson theorem.
+\item[Quadratic pair] A pair \((G,V)\) where \(V\) is a vector space over a field of characteristic \(p\) and \(G\) acts on \(V\) with certain quadratic properties.
+\item[Rigidity] A property of generating triples in a finite group that implies realizability as a Galois group over \(\Q\).
+\item[Sporadic group] One of the 26 finite simple groups that do not belong to the infinite families (cyclic, alternating, Lie type).
+\item[Strongly embedded subgroup] A proper subgroup \(M\) of a finite group \(G\) such that \(M\) contains the normalizer of every nontrivial 2-subgroup of \(G\).
+\item[Thompson group] The sporadic simple group \(Th\) discovered by John G. Thompson in 1973.
+\item[Thompson order formula] A formula expressing \(1/|G|\) as an alternating sum over centralizers of commuting elements of prime order.
+\item[Thompson subgroup] The subgroup \(J(P)\) generated by all elementary abelian subgroups of maximal order in a \(p\)-group \(P\).
+\item[Transfer] A homomorphism \(V_G^P: G \to P/P'\) that detects the existence of normal \(p\)-complements.
+\item[Fusion] The study of how elements of a Sylow \(p\)-subgroup become conjugate in the larger group; controlled by \(N_G(J(P))\) in \(p\)-stable groups.
+\item[Character theory] The study of group representations via their characters (traces), used extensively in the Feit--Thompson theorem.
+\item[Brauer's modular characters] Characters of a finite group over a field of characteristic \(p\), used to extract structural information.
+\item[Exceptional character] A character constructed from a conjugacy class with special fusion properties, used in the Feit--Thompson proof.
+\item[Signalizer functor] A consistent family of \(p'\)-subgroups associated to elementary abelian \(p\)-subgroups, used to construct large \(p'\)-subgroups.
+\item[Alperin--Goldschmidt theorem] A theorem describing the generation of fusion in a finite group by local subgroups, building on Thompson's ideas.
+\item[McKay--Thompson series] The \(q\)-expansions of modular functions associated to conjugacy classes of the Monster and other sporadic groups.
+\item[Monster group] The largest sporadic simple group, whose existence was predicted by Fischer and Griess; connected to Thompson's work on moonshine.
+\item[Weyl group] The group of symmetries of the root system of a Lie algebra; the order of the Weyl group of \(E_7\) is related to the order of the Thompson group.
+\end{description}

@@ -1,0 +1,551 @@
+\let\im\relax
+\newcommand{\im}{\operatorname{im}}
+\let\coker\relax
+\newcommand{\coker}{\operatorname{coker}}
+\let\Spec\relax
+\newcommand{\Spec}{\operatorname{Spec}}
+\let\Hom\relax
+\newcommand{\Hom}{\operatorname{Hom}}
+\let\Ext\relax
+\newcommand{\Ext}{\operatorname{Ext}}
+\let\Tor\relax
+\newcommand{\Tor}{\operatorname{Tor}}
+\let\Sh\relax
+\newcommand{\Sh}{\operatorname{Sh}}
+\let\sing\relax
+\newcommand{\sing}{\operatorname{sing}}
+\let\Ann\relax
+\newcommand{\Ann}{\operatorname{Ann}}
+\let\Supp\relax
+\newcommand{\Supp}{\operatorname{Supp}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\cF\relax
+\newcommand{\cF}{\mathcal{F}}
+\let\cG\relax
+\newcommand{\cG}{\mathcal{G}}
+\let\cU\relax
+\newcommand{\cU}{\mathcal{U}}
+\let\cV\relax
+\newcommand{\cV}{\mathcal{V}}
+\let\cA\relax
+\newcommand{\cA}{\mathcal{A}}
+\let\cB\relax
+\newcommand{\cB}{\mathcal{B}}
+
+\chapter{Henri Cartan (1980)}
+
+\begin{quote}
+\it ``Henri Cartan was the conscience of French mathematics. His clarity of thought, his insistence on rigor, and his dedication to the mathematical community set a standard that shaped generations. His seminar was the intellectual center of post-war mathematics.'' --- Jean-Pierre Serre
+\end{quote}
+
+Henri Cartan (1904--2008) lived to 104 and influenced mathematics for over 70 years. The son of the great geometer {\'E}lie Cartan, he forged his own path as one of the principal architects of modern algebraic topology, homological algebra, and the theory of functions of several complex variables. The 1980 Wolf Prize (shared with Andrey Kolmogorov) recognized his ``pioneering work in algebraic topology, complex variables, homological algebra and inspired leadership of a generation of mathematicians.''
+
+Cartan's greatest contribution may not be any single theorem but the intellectual infrastructure he built: his legendary S{\'e}minaire Cartan at the {\'E}cole Normale Sup{\'e}rieure, his role as a founding member of Bourbaki, and his mentorship of a generation of French mathematicians including Serre (Fields Medal 1954), Thom (Fields Medal 1958), and numerous others.
+
+\section{Main Contribution}
+
+Henri Cartan's work spans four major areas, each of which he transformed:
+
+\begin{itemize}
+    \item \textbf{Several Complex Variables:} Cartan's Theorems A and B on coherent analytic sheaves over Stein manifolds. Theorem A: the global sections of a coherent sheaf generate all stalks. Theorem B: $H^q(X, \cF) = 0$ for $q \geq 1$ for any coherent analytic sheaf $\cF$ on a Stein manifold $X$.
+    \item \textbf{Homological Algebra:} With Samuel Eilenberg, the foundational book ``Homological Algebra'' (1956), which systematized derived functors, projective and injective resolutions, and the theory of $\Ext$ and $\Tor$.
+    \item \textbf{Algebraic Topology:} The Cartan--Serre spectral sequence relating the cohomology of a space to that of its loop space; determination of the cohomology of Eilenberg--Mac Lane spaces; the Cartan--Chevalley theorem; the structure of the Steenrod algebra.
+    \item \textbf{Sheaf Theory:} The modern formulation of sheaves and sheaf cohomology, transforming Leray's original ideas into the powerful and flexible tool used today.
+    \item \textbf{Potential Theory:} The Cartan--Brelot theory of capacity and the fine topology.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{Several Complex Variables and Stein Manifolds}
+
+In one complex variable, the theory is mature and powerful. The Mittag-Leffler theorem allows prescribing principal parts of meromorphic functions, and the Weierstrass theorem allows prescribing zeros. In several variables, the analogous problems are:
+
+\begin{itemize}
+    \item \textbf{Cousin I (Additive problem):} Given local meromorphic functions with prescribed principal parts, can one find a global meromorphic function with those principal parts?
+    \item \textbf{Cousin II (Multiplicative problem):} Given local holomorphic functions with prescribed zeros, can one find a global holomorphic function with those zeros?
+\end{itemize}
+
+These are cohomological problems. The obstructions to solving Cousin I live in $H^1(X, \cO)$, and the obstructions to Cousin II live in $H^1(X, \cO^\times)$, where $\cO$ is the sheaf of holomorphic functions and $\cO^\times$ the sheaf of non-vanishing holomorphic functions.
+
+For domains in $\mathbb{C}^n$, the solution depends on the geometry of the domain. For a polydisk, both problems are solvable. For more general domains, obstructions arise. The key concept is that of a \textbf{domain of holomorphy}---a domain where all holomorphic functions that extend locally must extend globally. These are precisely the \textit{pseudoconvex domains}.
+
+Oka (1930s) proved the fundamental coherence theorem: the sheaf $\cO$ of holomorphic functions on $\mathbb{C}^n$ is coherent as a sheaf of rings. But the general theory of coherent sheaves on complex manifolds, and their cohomology, was not yet developed.
+
+\subsection{The Need for Homological Algebra}
+
+Before Cartan and Eilenberg, homological methods existed but were scattered across topology and algebra. The homology of groups was developed by Hopf and Eilenberg--Mac Lane. The cohomology of Lie algebras was studied by Chevalley and Eilenberg. The K{\"u}nneth theorem and the universal coefficient theorem gave relations between homology and cohomology, but they were proved in an ad hoc way for each category.
+
+The missing piece: a unified framework where all these theories are seen as instances of derived functors. Given a left exact functor $F: \cA \to \cB$ between abelian categories, one should be able to compute its right derived functors $R^i F$ using injective resolutions. Dually, right exact functors have left derived functors computed via projective resolutions.
+
+The problem: systematize this theory and show that the various constructions in topology and algebra (group cohomology, Lie algebra cohomology, sheaf cohomology) are all special cases.
+
+\subsection{The Cohomology of Eilenberg--Mac Lane Spaces}
+
+Eilenberg--Mac Lane spaces $K(\pi, n)$ are topological spaces whose only non-zero homotopy group is $\pi_n = \pi$. They are the building blocks of homotopy theory: every space can be built as a tower of fibrations with fibers being such spaces.
+
+The problem: compute the cohomology $H^*(K(\pi, n); \mathbb{Z}_p)$ for cyclic groups $\pi = \mathbb{Z}_p$. These cohomology groups carry the universal cohomology operations---the Steenrod algebra $A^p$ acts on the cohomology of any space, and its structure is determined by its action on $H^*(K(\mathbb{Z}_p, n))$.
+
+The calculation of $H^*(K(\mathbb{Z}_p, n))$ is the central problem of algebraic topology in the 1950s. Serre had computed it for $p=2$ and $n=1$. The general case required the full power of spectral sequences and the theory of cohomology operations.
+
+\subsection{The Cartan Seminar and Its Role}
+
+From 1948 to 1965, the S{\'e}minaire Cartan at ENS met annually with a fixed theme for the year. Each seminar produced a bound volume of carefully written expositions, often containing new results. The seminars covered:
+\begin{itemize}
+    \item Algebraic topology (1948--49, 1949--50, 1950--51)
+    \item Sheaf theory and several complex variables (1951--52)
+    \item Eilenberg--Mac Lane spaces (1954--55)
+    \item Homological algebra (1955--56)
+    \item Invariant theory (1957--58)
+\end{itemize}
+
+These seminars were instrumental in developing and disseminating the new ideas of algebraic topology and homological algebra.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Coherent Sheaves and Stein Manifolds}
+
+The key concept is the coherence of the structure sheaf $\cO$ on $\mathbb{C}^n$.
+
+\begin{definition}[Coherent Sheaf]
+A sheaf $\cF$ of $\cO$-modules is \textbf{coherent} if:
+\begin{enumerate}
+\item $\cF$ is locally finitely generated: for each $x \in X$, there exists a neighborhood $U$ and a surjection $\cO^p|_U \to \cF|_U \to 0$.
+\item For every open $U$ and every $f_1,\dots,f_p \in \cF(U)$, the sheaf of relations $\{(g_1,\dots,g_p) \in \cO^p : \sum g_i f_i = 0\}$ is locally finitely generated.
+\end{enumerate}
+\end{definition}
+
+Oka proved that $\cO$ itself is coherent on $\mathbb{C}^n$. Cartan realized that this is the right level of generality: many sheaves arising in complex analysis are coherent (sheaves of solutions to linear PDEs, ideal sheaves of analytic sets, etc.).
+
+A \textbf{Stein manifold} is a complex manifold $X$ satisfying:
+\begin{enumerate}
+\item $X$ is holomorphically convex: the holomorphically convex hull of any compact set is compact.
+\item Holomorphic functions separate points: for any distinct $x,y \in X$, there exists $f \in \cO(X)$ with $f(x) \neq f(y)$.
+\item $X$ has a countable basis of open sets.
+\end{enumerate}
+
+\begin{example}
+Any domain of holomorphy in $\mathbb{C}^n$ is a Stein manifold. $\mathbb{C}^n$ itself is Stein. Any non-compact Riemann surface is Stein.
+\end{example}
+
+\begin{theorem}[Cartan's Theorem A]
+Let $X$ be a Stein manifold and $\cF$ a coherent analytic sheaf on $X$. For every point $x \in X$, the stalk $\cF_x$ is generated by the global sections $\Gamma(X, \cF)$ as an $\cO_x$-module.
+\end{theorem}
+
+\begin{theorem}[Cartan's Theorem B]
+Let $X$ be a Stein manifold and $\cF$ a coherent analytic sheaf on $X$. Then:
+\[
+H^q(X, \cF) = 0 \quad \text{for all } q \geq 1.
+\]
+\end{theorem}
+
+These theorems solve the Cousin problems completely on Stein manifolds. Cousin I asks for a global meromorphic function with prescribed principal parts. The quotient sheaf $\cM / \cO$ (meromorphic modulo holomorphic) relates to $\cO$ via the short exact sequence $0 \to \cO \to \cM \to \cM/\cO \to 0$. Theorem B gives $H^1(X, \cO) = 0$, which helps solve the additive problem.
+
+For Cousin II, the relevant sheaf is $\cO^\times$, and the exponential sequence:
+\[
+0 \to \mathbb{Z} \to \cO \stackrel{\exp}{\to} \cO^\times \to 0
+\]
+connects line bundles (classified by $H^1(X, \cO^\times)$) to the cohomology of $\cO$.
+
+\subsection{Homological Algebra: The Cartan--Eilenberg Revolution}
+
+The key insight: replace ad hoc constructions by systematic homological algebra.
+
+\begin{definition}[Projective Resolution]
+A \textbf{projective resolution} of an object $A$ in an abelian category is an exact sequence:
+\[
+\cdots \to P_2 \to P_1 \to P_0 \to A \to 0
+\]
+where each $P_i$ is projective.
+\end{definition}
+
+\begin{definition}[Derived Functors]
+Given a right exact functor $F: \cA \to \cB$, the \textbf{left derived functors} $L_i F$ are defined by:
+\[
+(L_i F)(A) = H_i(F(P_\bullet))
+\]
+where $P_\bullet \to A$ is any projective resolution.
+\end{definition}
+
+For $\Tor_i(A,B) = L_i(-\otimes B)(A)$, and for $\Ext^i(A,B) = R^i \Hom(A,-)(B)$.
+
+\subsubsection*{Double Complexes}
+
+A double complex $C_{\bullet,\bullet}$ has two differentials $d^h: C_{p,q} \to C_{p-1,q}$ (horizontal) and $d^v: C_{p,q} \to C_{p,q-1}$ (vertical), satisfying $d^h \circ d^h = 0$, $d^v \circ d^v = 0$, and $d^h d^v + d^v d^h = 0$ (anticommutativity). The total complex is:
+\[
+(\text{Tot } C)_n = \bigoplus_{p+q=n} C_{p,q}, \quad D = d^h + d^v.
+\]
+
+Spectral sequences arise from filtering the total complex by rows or by columns. The two filtrations give two spectral sequences converging to the same limit---a fact that produces many non-trivial isomorphisms (e.g., the comparison of \v{C}ech and sheaf cohomology).
+
+The Cartan--Eilenberg book introduced several crucial ideas:
+\begin{itemize}
+    \item \textbf{Double complexes and spectral sequences:} Systematic use of spectral sequences to compute derived functors of composite functors. The Grothendieck spectral sequence: for left exact $F$ and $G$, $R^p(G \circ F) \Longrightarrow (R^p G)(R^q F)$.
+    \item \textbf{Resolutions:} Cartan--Eilenberg resolutions for chain complexes.
+    \item \textbf{Relative homological algebra:} A generalization where not all short exact sequences are allowed, but only those that split when restricted to a subring.
+\end{itemize}
+
+\subsection{The Cohomology of Eilenberg--Mac Lane Spaces}
+
+Cartan's approach used the \textit{Serre spectral sequence} in a systematic way. Let $K_n = K(\pi, n)$. Then there is a fibration:
+\[
+\Omega K_n \to PK_n \to K_n
+\]
+where $PK_n$ is contractible and $\Omega K_n = K(\pi, n-1)$.
+
+The Serre spectral sequence gives a relation between $H^*(K_n)$ and $H^*(K_{n-1})$. By iterating, one can compute $H^*(K_n)$ from $H^*(K_0) = H^*(\pi)$.
+
+But the extension problem---determining the differentials in this spectral sequence---requires additional structure. Cartan introduced the notion of \textit{acyclic models} and used the Steenrod algebra actions to determine the differentials completely.
+
+For $\pi = \mathbb{Z}_p$, the final result is:
+\[
+H^*(K(\mathbb{Z}_p, n); \mathbb{Z}_p) \cong \mathbb{Z}_p[\{x_I\}] / (x_I^p : \text{some generators})
+\]
+where the generators $x_I$ are indexed by admissible sequences of Steenrod operations.
+
+\subsection{Sheaf Theory: Modern Formulation}
+
+Leray's original theory of sheaves was difficult to understand. Cartan, together with his seminar, reformulated sheaf theory in the language that is essentially the one used today. The key steps:
+
+\begin{enumerate}
+    \item \textbf{Definition via stalks:} A sheaf is a topological space $\cF$ over $X$ with a local homeomorphism $\pi: \cF \to X$.
+    \item \textbf{Sections:} $\cF(U)$ is the set of continuous sections $s: U \to \cF$ of $\pi$.
+    \item \textbf{Gluing:} The sheaf condition is exactly that sections can be glued from local data.
+    \item \textbf{Cohomology:} Sheaf cohomology is defined via resolutions by fine sheaves (in the analytic case) or injective sheaves (in the general case).
+\end{enumerate}
+
+The Cartan seminar showed that sheaf cohomology unifies:
+\begin{itemize}
+    \item \v{C}ech cohomology (for paracompact spaces)
+    \item de Rham cohomology (via the de Rham complex of sheaves)
+    \item Dolbeault cohomology (via the Dolbeault-Grothendieck lemma)
+\end{itemize}
+
+\section{Mathematical Theory}
+
+\subsection{Cartan's Theorems A and B}
+
+Let $(X, \cO_X)$ be a complex manifold and $\cF$ a coherent $\cO_X$-module.
+
+\begin{definition}[Stein Manifold]
+A complex manifold $X$ is \textbf{Stein} if:
+\begin{enumerate}
+    \item For any $x \in X$, there exist $f_1,\dots,f_n \in \cO(X)$ that form a coordinate system at $x$.
+    \item $X$ is holomorphically convex: $\{x \in X : |f_i(x)| \leq C_i \text{ for all } i\}$ is compact for any $f_i$ and $C_i$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Cartan Theorem A]
+If $X$ is Stein and $\cF$ is coherent, then for every $x \in X$, the evaluation map:
+\[
+\Gamma(X, \cF) \to \cF_x
+\]
+is surjective. Equivalently, $\cF$ is generated by its global sections.
+\end{theorem}
+
+\begin{theorem}[Cartan Theorem B]
+If $X$ is Stein and $\cF$ is coherent, then:
+\[
+H^q(X, \cF) = 0 \quad \text{for all } q \geq 1.
+\]
+\end{theorem}
+
+\begin{corollary}[Cousin I on Stein Manifolds]
+On a Stein manifold, the additive Cousin problem is always solvable: given local meromorphic functions with prescribed principal parts, there exists a global meromorphic function with those principal parts.
+\end{corollary}
+
+\begin{corollary}[Cousin II on Stein Manifolds]
+On a Stein manifold, the multiplicative Cousin problem is solvable iff the corresponding line bundle is holomorphically trivial. The obstruction is the Chern class in $H^2(X, \mathbb{Z})$.
+\end{corollary}
+
+\subsection{Homological Algebra: Key Constructions}
+
+\begin{definition}[Projective Module]
+An $R$-module $P$ is \textbf{projective} if for every surjection $\pi: M \to N$ and every map $f: P \to N$, there exists a lift $\tilde{f}: P \to M$ such that $\pi \circ \tilde{f} = f$.
+\end{definition}
+
+\begin{definition}[Injective Module]
+An $R$-module $I$ is \textbf{injective} if for every injection $i: M \hookrightarrow N$ and every map $f: M \to I$, there exists an extension $\tilde{f}: N \to I$.
+\end{definition}
+
+\begin{theorem}[Cartan--Eilenberg Resolutions]
+Let $A_\bullet$ be a chain complex of $R$-modules. There exists a double complex $P_{\bullet,\bullet}$ of projective modules such that:
+\begin{enumerate}
+    \item $P_{\bullet,q} \to A_q$ is a projective resolution of $A_q$ for each $q$.
+    \item $\ker(P_{\bullet,q} \to P_{\bullet-1,q})$ maps surjectively to $\ker(A_q \to A_{q-1})$.
+\end{enumerate}
+Such a complex is called a \textbf{Cartan--Eilenberg resolution} and is used to compute hyperhomology and hyperderived functors.
+\end{theorem}
+
+\begin{theorem}[Grothendieck Spectral Sequence]
+Let $\cA, \cB, \cC$ be abelian categories with enough injectives, and let $F: \cA \to \cB$, $G: \cB \to \cC$ be left exact functors. Assume $F$ sends injectives to $G$-acyclic objects. Then there is a spectral sequence:
+\[
+E_2^{p,q} = (R^p G)(R^q F)(A) \Longrightarrow R^{p+q}(G \circ F)(A).
+\]
+\end{theorem}
+
+\begin{example}
+Let $G$ be a group, $A$ a $G$-module. Group cohomology $H^n(G, A) = \Ext^n_{\mathbb{Z}[G]}(\mathbb{Z}, A)$. Let $H \subset G$ be a subgroup. Then:
+\[
+\Ext^p_{\mathbb{Z}[G/H]}(\mathbb{Z}, \Ext^q_{\mathbb{Z}[H]}(\mathbb{Z}, A)) \Longrightarrow \Ext^{p+q}_{\mathbb{Z}[G]}(\mathbb{Z}, A).
+\]
+This is the Hochschild--Serre spectral sequence.
+\end{example}
+
+\subsection{Eilenberg--Mac Lane Spaces and the Steenrod Algebra}
+
+\begin{definition}[Eilenberg--Mac Lane Space]
+A $K(\pi, n)$ is a topological space $X$ such that:
+\[
+\pi_k(X) \cong \begin{cases} \pi & k = n, \\ 0 & k \neq n. \end{cases}
+\]
+Such a space is unique up to homotopy equivalence.
+\end{definition}
+
+\begin{theorem}[Cartan--Serre]
+The cohomology of $K(\mathbb{Z}_p, n)$ with coefficients in $\mathbb{Z}_p$ is a polynomial algebra (for $p$ odd) or a polynomial algebra truncated by $x^2 = 0$ (for $p = 2$) on generators $x_I$ indexed by admissible monomials in the Steenrod algebra.
+\end{theorem}
+
+The \textbf{Steenrod algebra} $A^p$ is the graded algebra of all stable cohomology operations for cohomology with $\mathbb{Z}_p$ coefficients. For $p=2$, it is generated by the Steenrod squares $Sq^i$ ($i \geq 1$) subject to the Adem relations.
+
+Cartan determined the structure of $A^p$ as a Hopf algebra, showing:
+\[
+A^p \cong \Lambda(\xi_1, \xi_2, \dots) \otimes \mathbb{Z}_p[\zeta_1, \zeta_2, \dots],
+\]
+an exterior algebra tensored with a polynomial algebra, with generators in specific degrees.
+
+\subsection{The Cartan Seminar and Its Methodology}
+
+The S{\'e}minaire Cartan had a unique format:
+\begin{itemize}
+    \item Each year had a single theme.
+    \item The first 3--4 sessions developed the necessary background.
+    \item The remaining sessions presented new results by the participants.
+    \item All talks were written up in detail and distributed as bound volumes.
+\end{itemize}
+
+This format was hugely influential. The volumes from 1948--49 (Algebraic Topology) and 1954--55 (Eilenberg--Mac Lane Spaces) are still consulted today. Many results first appeared in the Seminar: the Cartan--Serre spectral sequence, the construction of Eilenberg--Mac Lane spaces as simplicial sets, and the full description of $H^*(K(\mathbb{Z}_p, n))$.
+
+\section*{Potential Theory and Capacity}
+\addcontentsline{toc}{section}{Potential Theory and Capacity}
+
+In the 1940s, Cartan also made important contributions to potential theory, collaborating with Marcel Brelot. The central concept is \textbf{capacity}: a measure of the size of a set from the viewpoint of potential theory.
+
+For a compact set $K \subset \mathbb{R}^n$, the capacity $\text{cap}(K)$ can be defined as:
+\[
+\text{cap}(K) = \frac{1}{\inf\{\|f\|_{H^1} : f \geq 1 \text{ on } K\}},
+\]
+where the infimum is over functions in the Sobolev space $H^1(\mathbb{R}^n)$. Sets of capacity zero are ``negligible'' from this viewpoint---they cannot support non-zero measures with finite energy.
+
+Cartan introduced the \textbf{fine topology} on $\mathbb{R}^n$: the coarsest topology making all subharmonic functions continuous. This is finer than the Euclidean topology and plays a key role in nonlinear potential theory and the theory of Dirichlet forms.
+
+At age 100, Cartan was still active and published a paper correcting aspects of the theory of capacity in several complex variables, demonstrating his enduring intellectual vitality.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Pure Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Complex Analysis:} Cartan's Theorems A and B are the foundation of analytic geometry. They allow the transfer of techniques from algebraic geometry (coherent sheaves, cohomology) to complex analysis. Grauert's theory of coherent analytic sheaves, the solution of the Levi problem (every pseudoconvex domain is Stein), and the Remmert reduction all build on Cartan's work.
+    
+    \item \textbf{Algebraic Geometry:} The Cartan--Eilenberg book provided the language of derived functors that Grothendieck used to build the foundations of modern algebraic geometry. Grothendieck's Tohoku paper (1957) on abelian categories and the Grothendieck spectral sequence directly continues the Cartan--Eilenberg program.
+    
+    \item \textbf{Algebraic Topology:} The Cartan--Serre spectral sequence is a standard tool. The computation of $H^*(K(\pi, n))$ and the structure of the Steenrod algebra are essential for the Adams spectral sequence, which computes stable homotopy groups of spheres---one of the central objects of topology.
+    
+    \item \textbf{Homological Algebra:} The subject created by Cartan and Eilenberg is now fundamental throughout mathematics: in representation theory (Auslander--Reiten theory), commutative algebra (Koszul complexes, local cohomology), and algebraic topology.
+    
+    \item \textbf{Group Theory:} Group cohomology, systematized by Cartan and Eilenberg, is essential for the classification of finite simple groups, the theory of group extensions, and the cohomology of arithmetic groups.
+\end{enumerate}
+
+\subsection{In Physics}
+
+\begin{enumerate}
+    \item \textbf{Gauge Theory:} The cohomology of Lie algebras (Chevalley--Eilenberg cohomology) is central to the BRST quantization of gauge theories. The BRST operator $s$ satisfies $s^2 = 0$ and is exactly the differential in the Chevalley--Eilenberg complex.
+    \item \textbf{String Theory:} The cohomology of Eilenberg--Mac Lane spaces appears in the classification of background fields in string theory via the Sullivan--Quillen rational homotopy theory.
+    \item \textbf{Quantum Field Theory:} The homological algebra of Cartan and Eilenberg underlies the modern approach to anomalies, descent equations, and the Wess--Zumino consistency condition.
+\end{enumerate}
+
+\subsection{In Technology}
+
+The computational tools developed by Cartan---spectral sequences, sheaf cohomology, the Steenrod algebra---are now implemented in computer algebra systems like SageMath and Macaulay2, enabling algebraic computation in homological algebra and algebraic geometry.
+
+\subsection{Influence through Teaching and Mentoring}
+
+Cartan's students include:
+\begin{itemize}
+    \item Jean-Pierre Serre (Fields Medal 1954, Abel Prize 2003)
+    \item Ren\'{e} Thom (Fields Medal 1958)
+    \item Pierre Cartier
+    \item Jean-Louis Koszul
+    \item Roger Godement
+    \item Max Karoubi
+    \item Adrien Douady
+\end{itemize}
+
+Through Bourbaki, Cartan influenced the education of mathematicians worldwide. The Bourbaki volumes on set theory, algebra, topology, and Lie groups became standard references.
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is the difference between Cartan's Theorem A and Theorem B?}
+
+Theorem A says that on a Stein manifold, every coherent sheaf is generated by its global sections. In practical terms: given a local section at a point, you can find a global section that matches it near that point.
+
+Theorem B says that the higher cohomology of a coherent sheaf on a Stein manifold vanishes. In practical terms: the Cousin problems (constructing global meromorphic functions with given local data) always have solutions, and the obstructions that might exist on general complex manifolds disappear on Stein manifolds.
+
+Together they are the foundation of analytic geometry: Theorem A provides enough global sections to work locally, Theorem B ensures there are no cohomological obstructions to gluing.
+
+\subsection*{Q2: What is the Cartan--Serre spectral sequence?}
+
+The Cartan--Serre spectral sequence is the Serre spectral sequence for the path fibration $\Omega X \to PX \to X$, where $PX$ is the path space of $X$ (contractible) and $\Omega X$ is the loop space. It relates the cohomology of a space $X$ to that of its loop space $\Omega X$:
+
+\[
+E_2^{p,q} = H^p(X; H^q(\Omega X)) \Longrightarrow H^{p+q}(PX) = \begin{cases} \mathbb{Z} & p+q=0 \\ 0 & \text{otherwise} \end{cases}
+\]
+
+This is powerful because it allows inductive computation: if you know $H^*(\Omega X)$, you can compute $H^*(X)$, and vice versa. Cartan and Serre used it to compute the cohomology of Eilenberg--Mac Lane spaces by induction on $n$, starting from $K(\pi, 1)$ and climbing up.
+
+\subsection*{Q3: Why was Homological Algebra so important?}
+
+Before Cartan--Eilenberg, homological constructions were done separately for groups, Lie algebras, associative algebras, and topological spaces. The Cartan--Eilenberg book showed that all these are instances of derived functors in abelian categories. This unification:
+
+\begin{enumerate}
+\item Made the theory vastly more efficient---prove something once for abelian categories, and it applies everywhere.
+\item Revealed deep connections: for instance, that the cohomology of a Lie algebra is $\Ext_{U(\mathfrak{g})}(\mathbb{R}, \mathbb{R})$ and the cohomology of a group is $\Ext_{\mathbb{Z}[G]}(\mathbb{Z}, \mathbb{Z})$.
+\item Provided the language for modern algebraic geometry: sheaf cohomology, $\Ext$ and $\Tor$ for coherent sheaves, the whole Grothendieck machinery.
+\end{enumerate}
+
+The book is still in print and still used, more than 65 years after its first publication.
+
+\subsection*{Q4: What is the Steenrod algebra?}
+
+The Steenrod algebra $A^p$ is the set of all stable cohomology operations on mod $p$ cohomology. A cohomology operation is a natural transformation $\theta: H^n(X; \mathbb{Z}_p) \to H^{n+k}(X; \mathbb{Z}_p)$ for all $n$. It is ``stable'' if it commutes with the suspension isomorphism.
+
+For $p=2$, the operations are the Steenrod squares $Sq^i$. The Adem relations describe how products of Steenrod squares compose. The structure of the Steenrod algebra is a Hopf algebra, and Cartan determined it completely: it decomposes as a tensor product of an exterior algebra and a polynomial algebra on generators called the $\xi_i$ and $\zeta_i$.
+
+The Steenrod algebra acts on the cohomology of every topological space, and this action is one of the most powerful invariants in algebraic topology. The Adams spectral sequence, which computes stable homotopy groups, uses the Steenrod algebra as its $E_2$ term.
+
+\subsection*{Q5: What should an undergraduate study to understand Cartan's work?}
+
+\begin{enumerate}
+    \item \textbf{Homological Algebra:} Start with Weibel's ``An Introduction to Homological Algebra'' or the original Cartan--Eilenberg (challenging but rewarding).
+    \item \textbf{Algebraic Topology:} Hatcher's ``Algebraic Topology'' covers spectral sequences and cohomology operations.
+    \item \textbf{Complex Analysis:} Cartan's own ``Elementary Theory of Analytic Functions of One or Several Complex Variables'' is an excellent text.
+    \item \textbf{Sheaf Theory:} Bredon's ``Sheaf Theory'' or Warner's ``Foundations of Differentiable Manifolds and Lie Groups'' (which includes a concise treatment).
+    \item \textbf{Bourbaki:} The Bourbaki volumes on algebra and topology provide the systematic background.
+\end{enumerate}
+
+For undergraduates, start with the complex analysis book by Cartan himself---it is beautifully clear and you can see the master at work.
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item H.\ Cartan, \textit{Sur les matrices holomorphes des $n$ variables complexes}, C.\ R.\ Acad.\ Sci.\ Paris 229 (1949), 772--774.
+    \item H.\ Cartan, \textit{Ideaux et modules de fonctions analytiques de variables complexes}, Bull.\ Soc.\ Math.\ France 78 (1950), 29--64.
+    \item H.\ Cartan, \textit{Faisceaux analytiques sur les vari{\'e}t{\'e}s de Stein}, S{\'e}minaire Bourbaki, 1951.
+    \item H.\ Cartan and S.\ Eilenberg, \textit{Homological Algebra}, Princeton University Press, 1956.
+    \item H.\ Cartan and J.-P.\ Serre, \textit{Espaces fibr{\'e}s et groupes d'homotopie}, C.\ R.\ Acad.\ Sci.\ Paris 234 (1952), 288--290, 393--395.
+    \item H.\ Cartan, \textit{Th{\'e}orie {\'e}l{\'e}mentaire des fonctions analytiques d'une ou plusieurs variables complexes}, Hermann, 1961.
+    \item H.\ Cartan, \textit{Collected Works}, 3 vols., Springer, 1979.
+    \item H.\ Cartan and J.-P.\ Serre, \textit{S{\'e}minaire Cartan}, 12 vols., 1948--1965.
+\end{enumerate}
+
+\subsection*{Expositions and History}
+\begin{enumerate}
+    \item J.-P.\ Serre, \textit{Henri Cartan, 1904--2008}, Notices AMS 56 (2009), 466--471.
+    \item P.\ Cartier, \textit{Henri Cartan et le S{\'e}minaire Cartan}, Gazette des Math{\'e}maticiens 119 (2009), 7--14.
+    \item J.-P.\ Demailly, \textit{On the Mathematical Heritage of Henri Cartan}, S{\'e}minaire Bourbaki, 2009.
+    \item A.\ Borel, \textit{Henri Cartan}, in ``Collected Works, Vol.\ 1,'' Springer, 1979.
+    \item M.\ Karoubi, \textit{L'{\oe}uvre d'Henri Cartan en topologie alg{\'e}brique}, Gazette des Math{\'e}maticiens 119 (2009), 21--30.
+\end{enumerate}
+
+\subsection*{Textbooks}
+\begin{enumerate}
+    \item C.\ A.\ Weibel, \textit{An Introduction to Homological Algebra}, Cambridge University Press, 1994.
+    \item A.\ Hatcher, \textit{Algebraic Topology}, Cambridge University Press, 2002.
+    \item J.\ McCleary, \textit{A User's Guide to Spectral Sequences}, Cambridge University Press, 2001.
+    \item R.\ Godement, \textit{Topologie alg{\'e}brique et th{\'e}orie des faisceaux}, Hermann, 1958.
+    \item L.\ H\"{o}rmander, \textit{An Introduction to Complex Analysis in Several Variables}, North-Holland, 1973.
+    \item R.\ C.\ Gunning and H.\ Rossi, \textit{Analytic Functions of Several Complex Variables}, Prentice-Hall, 1965.
+    \item M.\ Atiyah, \textit{K-Theory}, Benjamin, 1967.
+    \item S.\ Mac Lane, \textit{Homology}, Springer, 1963.
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Abelian category] A category where morphisms can be added, kernels and cokernels exist, and every monomorphism is a kernel and every epimorphism is a cokernel.
+    \item[Acyclic model] A method in homological algebra for showing that certain resolutions are unique up to homotopy, using a distinguished set of ``model'' objects.
+    \item[Coherent sheaf] A sheaf of modules that is locally finitely presented; the kernel of any map between locally free sheaves of finite rank is coherent.
+    \item[Cousin problems] Problems of constructing global meromorphic functions with prescribed local data (zeros or principal parts).
+    \item[Derived functor] The $i$-th derived functor $R^i F$ of a left exact $F$ is the $i$-th cohomology of $F$ applied to an injective resolution.
+    \item[Dolbeault cohomology] Cohomology of the $\bar\partial$-complex on a complex manifold, computing $H^{p,q}_{\bar\partial}(X)$.
+    \item[Domain of holomorphy] A domain in $\mathbb{C}^n$ where every locally definable holomorphic function extends to the whole domain.
+    \item[Eilenberg--Mac Lane space] A space $K(\pi, n)$ with a single non-zero homotopy group $\pi$ in dimension $n$.
+    \item[Exponential sequence] The short exact sequence $0 \to \mathbb{Z} \to \mathcal{O} \to \mathcal{O}^\times \to 0$ relating additive and multiplicative holomorphic functions.
+    \item[Fine sheaf] A sheaf admitting partitions of unity; fine sheaves are acyclic (have vanishing higher cohomology).
+    \item[Hopf algebra] An algebra with compatible comultiplication, counit, and antipode; the cohomology of a topological group or $H$-space is a Hopf algebra.
+    \item[Injective resolution] An exact sequence $0 \to A \to I^0 \to I^1 \to \cdots$ where each $I^k$ is injective.
+    \item[Projective resolution] An exact sequence $\cdots \to P_1 \to P_0 \to A \to 0$ where each $P_i$ is projective.
+    \item[Spectral sequence] A bookkeeping device for computing homology or cohomology via successive approximations.
+    \item[Steenrod algebra] The graded Hopf algebra of stable cohomology operations for mod $p$ cohomology.
+    \item[Steenrod square] A cohomology operation $Sq^i: H^n(X; \mathbb{Z}_2) \to H^{n+i}(X; \mathbb{Z}_2)$ satisfying the Cartan formula and the Adem relations.
+    \item[Stein manifold] A complex manifold satisfying holomorphic convexity and separation of points by holomorphic functions.
+    \item[Stalk] The direct limit $\cF_x = \varinjlim_{U \ni x} \cF(U)$ of sections over neighborhoods of $x$.
+\end{description}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that $\mathbb{C}^n$ is a Stein manifold by verifying holomorphic convexity and separation of points.
+    \item Let $\cO$ be the sheaf of holomorphic functions on $\mathbb{C}$. Show that the exponential sequence $0 \to \mathbb{Z} \to \cO \to \cO^\times \to 0$ is exact.
+    \item Compute $H^1(\mathbb{C}^\times, \cO^\times)$ using the exponential sequence and the fact that $H^1(\mathbb{C}^\times, \cO) = 0$.
+    \item Let $F: \cA \to \cB$ and $G: \cB \to \cC$ be left exact functors between abelian categories with enough injectives. If $F$ sends injectives to $G$-acyclic objects, derive the Grothendieck spectral sequence.
+    \item Show that for a free abelian group $\mathbb{Z}^n$, $H^*(\mathbb{Z}^n, \mathbb{Z})$ is an exterior algebra on $n$ generators of degree 1.
+    \item Compute the Serre spectral sequence for the Hopf fibration $S^1 \to S^3 \to S^2$ and show it collapses at $E_2$.
+    \item Show that if $f: X \to Y$ is a covering map, then $H^q(X, \cF) \cong H^q(Y, f_*\cF)$ for any sheaf $\cF$ on $X$.
+    \item Prove that the structure sheaf $\cO$ on $\mathbb{C}^n$ is a coherent sheaf of rings.
+    \item Show that for a projective module $P$, the functor $\Hom(P, -)$ is exact.
+    \item Let $G$ be a finite group. Show that $H^n(G, M) = 0$ for all $n \geq 1$ and all $\mathbb{Q}[G]$-modules $M$.
+    \item Compute the Adem relation $Sq^1 Sq^2 + Sq^2 Sq^1 = 0$ in the Steenrod algebra $A^2$ by applying the relation to the class of degree 2 in $H^*(K(\mathbb{Z}_2, 1); \mathbb{Z}_2)$.
+    \item Let $X$ be a compact Riemann surface of genus $g$. Show that $H^1(X, \cO) \cong \mathbb{C}^g$ using the Dolbeault isomorphism and Hodge theory.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1904 & Born in Nancy, France (son of {\'E}lie Cartan) \\ \hline
+1923--1926 & Student at {\'E}cole Normale Sup{\'e}rieure \\ \hline
+1928 & PhD under Paul Montel on holomorphic functions \\ \hline
+1928--1929 & Professor at Lyc{\'e}e Malherbe, Caen \\ \hline
+1929--1931 & Professor at University of Lille \\ \hline
+1931--1940 & Professor at University of Strasbourg \\ \hline
+1934 & Founding member of Bourbaki \\ \hline
+1940--1965 & Professor at University of Paris (Sorbonne) and ENS \\ \hline
+1948--1965 & Directs S{\'e}minaire Cartan at ENS \\ \hline
+1949 & Cartan's Theorems A and B announced \\ \hline
+1952 & Cartan--Serre spectral sequence introduced \\ \hline
+1954--1955 & Seminar on Eilenberg--Mac Lane spaces; full computation of $H^*(K(\pi,n))$ \\ \hline
+1956 & \textit{Homological Algebra} published with Eilenberg \\ \hline
+1959 & {\'E}mile Picard Medal \\ \hline
+1961 & \textit{Elementary Theory of Analytic Functions} published \\ \hline
+1966--1970 & President of the International Mathematical Union \\ \hline
+1970--1975 & Professor at Universit{\'e} Paris-Sud (Orsay) \\ \hline
+1976 & CNRS Gold Medal \\ \hline
+1979 & Collected Works published in 3 volumes \\ \hline
+1980 & Wolf Prize in Mathematics (co-recipient with A.\ N.\ Kolmogorov) \\ \hline
+2008 & Dies in Paris at age 104 \\ \hline
+\end{tabular}

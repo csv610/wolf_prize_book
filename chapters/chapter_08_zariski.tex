@@ -1,0 +1,519 @@
+\let\Spec\relax
+\newcommand{\Spec}{\operatorname{Spec}}
+\let\MaxSpec\relax
+\newcommand{\MaxSpec}{\operatorname{MaxSpec}}
+\let\Proj\relax
+\newcommand{\Proj}{\operatorname{Proj}}
+\let\im\relax
+\newcommand{\im}{\operatorname{im}}
+\let\coker\relax
+\newcommand{\coker}{\operatorname{coker}}
+\let\trdeg\relax
+\newcommand{\trdeg}{\operatorname{trdeg}}
+\let\cha\relax
+\newcommand{\cha}{\operatorname{char}}
+\let\Sing\relax
+\newcommand{\Sing}{\operatorname{Sing}}
+\let\Bl\relax
+\newcommand{\Bl}{\operatorname{Bl}}
+\let\Pic\relax
+\newcommand{\Pic}{\operatorname{Pic}}
+\let\Div\relax
+\newcommand{\Div}{\operatorname{Div}}
+\let\Cl\relax
+\newcommand{\Cl}{\operatorname{Cl}}
+\let\Gal\relax
+\newcommand{\Gal}{\operatorname{Gal}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\A\relax
+\newcommand{\A}{\mathbb{A}}
+\let\cO\relax
+\newcommand{\cO}{\mathcal{O}}
+\let\cI\relax
+\newcommand{\cI}{\mathcal{I}}
+\let\cU\relax
+\newcommand{\cU}{\mathcal{U}}
+
+\chapter{Oscar Zariski (1981)}
+
+\begin{quote}
+\it ``Zariski was the great reformer of algebraic geometry. More than anyone else, he transformed the subject from a loosely argued, geometrically intuitive discipline into a rigorous algebraic science based on commutative algebra.'' --- David Mumford
+\end{quote}
+
+Oscar Zariski (1899--1986) was one of the most influential algebraic geometers of the 20th century. The 1981 Wolf Prize (shared with Lars Ahlfors) recognized him as ``the creator of the modern approach to algebraic geometry, by its fusion with commutative algebra.''
+
+Algebraic geometry before Zariski was a largely Italian subject, practiced by what came to be called the ``Italian school'' (Enriques, Castelnuovo, Severi). Their work was geometrically brilliant but often lacked rigorous foundations. They used concepts like ``generic point'' and ``general position'' without precise definitions, and many of their proofs relied on geometric intuition that did not transfer to fields of positive characteristic.
+
+Zariski saw that the key to rigor was commutative algebra. By translating geometric problems into algebraic ones---ideals in polynomial rings, integral closures of rings, valuations---he could make the Italian school's results rigorous and extend them to fields of arbitrary characteristic.
+
+\section{Main Contribution}
+
+Zariski's major achievements:
+
+\begin{itemize}
+    \item \textbf{Resolution of Singularities for Surfaces:} Zariski (1939) gave the first complete proof of resolution of singularities for algebraic surfaces over fields of characteristic zero, using valuation theory and the method of ``normalization followed by blowing up.''
+    \item \textbf{The Zariski Topology:} A topology on algebraic varieties where the closed sets are the algebraic subvarieties---now the fundamental topology of algebraic geometry.
+    \item \textbf{Zariski's Main Theorem:} A deep result about the structure of birational transformations that underlies much of modern algebraic geometry.
+    \item \textbf{Zariski's Connectedness Theorem:} The geometric fibers of a birational morphism are connected.
+    \item \textbf{Zariski--Nagata Purity Theorem:} The branch locus of a finite morphism between smooth varieties has pure codimension one.
+    \item \textbf{Algebraic Theory of Holomorphic Functions:} Zariski's theorem on the formal functions and the Zariski--Riemann space.
+    \item \textbf{Foundations of Algebraic Geometry:} His books ``Algebraic Surfaces'' (1935) and ``Commutative Algebra'' (with Pierre Samuel, 1958--60) transformed the subject.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Italian School and the Need for Rigor}
+
+The Italian school of algebraic geometry (1890--1920s) produced remarkable results: classification of algebraic surfaces, the Enriques--Kodaira classification, the theory of linear systems, and the theory of algebraic curves. However, their methods were often intuitive and lacked firm foundations.
+
+For example, the ``principle of conservation of number'' (the number of intersections of two algebraic cycles remains constant under continuous deformation) was used freely but without proofs. The concept of a ``generic point'' was not defined. The theory of linear systems relied on assumptions about ``general position'' that were not always justified.
+
+By 1930, several mathematicians (notably van der Waerden and Noether) were working to put algebraic geometry on a rigorous algebraic footing. Zariski emerged as the leader of this movement.
+
+\subsection{Resolution of Singularities}
+
+A singular point on an algebraic variety is a point where the variety is not locally a manifold---where the tangent space has higher dimension than the variety. For example, the curve $y^2 = x^3$ in $\mathbb{C}^2$ has a cusp at $(0,0)$.
+
+Resolution of singularities asks: given a singular algebraic variety, can we find a non-singular variety that maps birationally onto it? For curves, the normalization (taking the integral closure of the coordinate ring) resolves all singularities. For surfaces, the problem is harder.
+
+The Italian school (Castelnuovo, Enriques, Severi) had claimed proofs for surfaces, but Zariski found gaps in their arguments. The problem: give a rigorous proof of resolution of singularities for surfaces over fields of characteristic zero.
+
+\subsection{The Topology of Algebraic Varieties}
+
+In the 19th century, algebraic geometry was studied over $\mathbb{C}$ using the classical (Euclidean) topology. But algebraic properties---being a polynomial equation---are not inherently topological.
+
+The problem: find a topology for algebraic varieties that captures algebraic information. The Zariski topology replaces Euclidean open sets by the complements of algebraic sets. It is much coarser than the Euclidean topology but has the advantage of being defined purely algebraically and working over any field.
+
+\subsection{Birational Geometry and Factorization}
+
+Birational geometry studies algebraic varieties up to birational equivalence: two varieties are birationally equivalent if there exist rational maps between them that are inverses on dense open sets. This is the natural equivalence for algebraic varieties (like rational functions).
+
+The foundations of birational geometry in the Italian school relied on the concept of ``crepant'' transformations and the resolution of indeterminacies of rational maps. The problem: prove that any birational map between surfaces factors into a sequence of blow-ups and blow-downs (the weak factorization theorem for surfaces).
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Valuation Theory and Resolution}
+
+Zariski's approach to resolution of singularities used valuation theory. A valuation on a field $K$ is a map $v: K^\times \to \Gamma$ (to an ordered abelian group) satisfying $v(xy) = v(x) + v(y)$ and $v(x + y) \geq \min(v(x), v(y))$.
+
+The key insight: singularities of a variety correspond to valuations of its function field that are not realized by any smooth point on the variety. For a surface $S$, the resolution process proceeds as:
+
+\begin{enumerate}
+    \item \textbf{Normalization:} Replace $S$ by its normalization $S'$ (the integral closure of its coordinate ring in its function field). This resolves codimension-one singularities.
+    \item \textbf{Blowing up:} At singular points, perform a blow-up (replace the point by a projective line of tangent directions). This reduces the multiplicity of the singularity.
+    \item \textbf{Iterate:} Apply normalization and blow-up alternately until all singularities are resolved.
+\end{enumerate}
+
+The proof that this process terminates uses the concept of the \textit{multiplicity} of a singularity and the behavior of the \textit{discriminant} under blow-up. Zariski showed that each blow-up strictly decreases a certain numerical invariant (the multiplicity or the rank of the valuation), guaranteeing termination after finitely many steps.
+
+Resolution of singularities in characteristic zero for all dimensions was later proved by Hironaka (Fields Medal 1970), building on Zariski's methods.
+
+\subsection{The Zariski Topology}
+
+The idea: define closed sets as the zero sets of ideals. For an affine variety $V \subset \A^n_k$:
+\[
+Z(I) = \{x \in V : f(x) = 0 \text{ for all } f \in I\},
+\]
+where $I$ is an ideal in the coordinate ring $k[V]$.
+
+The Zariski topology:
+\begin{itemize}
+    \item Is $T_1$: points are closed.
+    \item Is not Hausdorff: non-trivial open sets are dense.
+    \item Has the property that irreducible closed sets correspond to prime ideals.
+    \item Works over any field, not just $\mathbb{C}$.
+\end{itemize}
+
+The Zariski topology is the essential topology of algebraic geometry. It is used in scheme theory (Grothendieck) where the points of $\Spec R$ are the prime ideals of $R$, and the closed sets are defined by ideals.
+
+\subsection{Zariski's Main Theorem}
+
+Zariski's Main Theorem (ZMT) is one of the deepest results in algebraic geometry. It concerns birational maps and their exceptional loci.
+
+\begin{theorem}[Zariski's Main Theorem]
+Let $f: X \to Y$ be a birational projective morphism between normal varieties over $\mathbb{C}$. If $y \in Y$ is a point where $f^{-1}(y)$ is finite, then the fiber $f^{-1}(y)$ consists of a single point.
+\end{theorem}
+
+In other words: if a birational map is quasi-finite (has finite fibers), then it is actually an open embedding on a neighborhood of each point. The map cannot collapse a positive-dimensional subvariety to a point while being finite elsewhere.
+
+This theorem is used to:
+\begin{itemize}
+    \item Understand the structure of birational maps (they factor through blow-ups).
+    \item Prove the connectedness theorem.
+    \item Prove the purity of the branch locus.
+\end{itemize}
+
+A modern formulation: if $A \subset B$ is an integral extension of rings with $A$ integrally closed and $B$ finitely generated over $A$, then the induced map $\Spec B \to \Spec A$ has finite fibers exactly over points where it is an isomorphism.
+
+\subsection{Zariski's Connectedness Theorem}
+
+\begin{theorem}[Zariski's Connectedness Theorem]
+Let $f: X \to Y$ be a proper birational morphism of normal varieties over $\mathbb{C}$. For any $y \in Y$, the fiber $f^{-1}(y)$ is connected.
+\end{theorem}
+
+This is a consequence of Zariski's Main Theorem and the Stein factorization: any proper morphism factors as $X \to Y' \to Y$ where $X \to Y'$ has connected fibers and $Y' \to Y$ is finite. If $f$ is birational and $Y$ is normal, then the finite part is an isomorphism, so the fibers are connected.
+
+\subsection{The Zariski--Nagata Purity Theorem and Applications}
+
+Let $f: X \to Y$ be a finite surjective morphism between smooth algebraic varieties. The \textbf{branch locus} $B \subset Y$ is the set of points where $f$ is not \'{e}tale (i.e., where the map fails to be a local isomorphism).
+
+\begin{theorem}[Zariski--Nagata Purity Theorem]
+The branch locus $B \subset Y$ has pure codimension one (i.e., every irreducible component of $B$ has codimension $1$ in $Y$).
+\end{theorem}
+
+This is a cornerstone of the theory of \'{e}tale morphisms and the theory of fundamental groups of algebraic varieties. It implies, for example, that the fundamental group of a smooth projective variety is determined by its codimension-one subvarieties.
+
+The theorem has several important consequences:
+\begin{itemize}
+    \item \textbf{Purity of the ramification locus:} For a finite map $f: X \to Y$ with $Y$ smooth, the set of points where $f$ is not \'{e}tale has pure codimension one in $X$.
+    \item \textbf{Algebraic fundamental group:} If $U = X \setminus D$ is the complement of a divisor $D$ in a smooth variety $X$, then the \'{e}tale fundamental group of $U$ is determined by the geometry of $D$.
+    \item \textbf{Unramified extensions:} A finite extension of function fields that is unramified outside a divisor of codimension $\geq 2$ is necessarily \'{e}tale---this is the purity theorem.
+\end{itemize}
+
+The purity theorem was generalized by Grothendieck in SGA 2, where it became the foundation of \'{e}tale cohomology.
+
+\subsection{The Zariski--Riemann Space}
+
+The \textbf{Zariski--Riemann space} $\langle K \rangle$ of a function field $K$ is the projective limit of all projective models of $K$. More precisely, consider the category of all projective normal varieties $X$ with function field $K$. The Zariski--Riemann space is:
+\[
+\langle K \rangle = \varprojlim X,
+\]
+where the limit is taken over all birational maps between models.
+
+This space has several remarkable properties:
+\begin{itemize}
+    \item It is a compact Hausdorff space (even though each $X$ is only quasi-compact in the Zariski topology).
+    \item Its points correspond to equivalence classes of valuations on $K$.
+    \item It encodes all birational information about $K$.
+\end{itemize}
+
+The Zariski--Riemann space was used by Zariski in his proof of resolution of singularities for surfaces. It has been revived in modern birational geometry as a tool for understanding the structure of birational transformations, and it appears in the theory of Berkovich spaces (non-archimedean analytic geometry).
+
+\section{Mathematical Theory}
+
+\subsection{The Zariski Topology}
+
+\begin{definition}[Zariski Topology]
+The \textbf{Zariski topology} on affine $n$-space $\A^n_k$ over a field $k$ has as closed sets the algebraic sets $Z(I) = \{x \in \A^n_k : f(x) = 0 \text{ for all } f \in I\}$ for ideals $I \subset k[x_1,\dots,x_n]$.
+\end{definition}
+
+\begin{definition}[Irreducible Closed Set]
+A closed set $V$ is \textbf{irreducible} if $V = V_1 \cup V_2$ with $V_1, V_2$ closed implies $V = V_1$ or $V = V_2$.
+\end{definition}
+
+\begin{theorem}[Correspondence]
+There is a bijection between irreducible closed subsets of $\A^n_k$ and prime ideals of the polynomial ring $k[x_1,\dots,x_n]$.
+\end{theorem}
+
+\begin{definition}[Scheme]
+The affine scheme $\Spec R$ for a commutative ring $R$ has:
+\begin{itemize}
+    \item Points: the prime ideals of $R$.
+    \item Topology: closed sets $V(\mathfrak{a}) = \{\mathfrak{p} \in \Spec R : \mathfrak{a} \subset \mathfrak{p}\}$.
+    \item Structure sheaf $\cO_{\Spec R}$: sections over $D(f)$ are $R_f$.
+\end{itemize}
+\end{definition}
+
+\subsection{Resolution of Singularities for Surfaces}
+
+Let $S$ be an algebraic surface over $\mathbb{C}$ with a singular point $p \in S$.
+
+\begin{definition}[Blow-up]
+The \textbf{blow-up} of $\A^2$ at the origin is:
+\[
+\Bl_{(0,0)} \A^2 = \{(x,y; [u:v]) \in \A^2 \times \mathbb{P}^1 : xv = yu\}.
+\]
+It replaces the origin with a $\mathbb{P}^1$ of tangent directions.
+\end{definition}
+
+\begin{theorem}[Zariski, 1939]
+Every algebraic surface over an algebraically closed field of characteristic zero admits a resolution of singularities: a proper birational morphism $\tilde S \to S$ from a non-singular surface $\tilde S$.
+\end{theorem}
+
+The proof proceeds by:
+\begin{enumerate}
+    \item Normalizing $S$ (taking integral closure of its local rings).
+    \item Blowing up the singular points.
+    \item Showing the multiplicity decreases at each step.
+    \item Using well-ordering to conclude termination.
+\end{enumerate}
+
+\begin{remark}
+Resolution of singularities in all dimensions was proved by Hironaka (1964). In positive characteristic, resolution is known for surfaces and threefolds (by Abhyankar, Cossart, Piltant, and others) but is open in general.
+\end{remark}
+
+\subsection{Zariski's Main Theorem}
+
+Let $f: X \to Y$ be a morphism of varieties. Let $\cO_{Y,y}$ be the local ring at $y \in Y$ and $\widehat{\cO}_{Y,y}$ its completion.
+
+\begin{theorem}[Zariski's Main Theorem --- Classical Form]
+Let $f: X \to Y$ be a birational projective morphism with $Y$ normal. If $y \in Y$ is a point such that $f^{-1}(y)$ is finite, then $f^{-1}(y)$ is a single point and $f$ is an isomorphism near $f^{-1}(y)$.
+\end{theorem}
+
+\begin{theorem}[Zariski's Main Theorem --- Modern Form]
+Let $A \subset B$ be an integral extension of rings with $A$ integrally closed in its field of fractions. Then $B$ is contained in the integral closure of $A$ in some finite extension of the fraction field.
+\end{theorem}
+
+\subsection{Formal Functions and the Zariski--Riemann Space}
+
+\begin{theorem}[Zariski's Theorem on Formal Functions]
+Let $f: X \to Y$ be a proper morphism of noetherian schemes, and let $\cF$ be a coherent sheaf on $X$. For any $y \in Y$, the completion of the stalk $(R^i f_* \cF)_y$ is isomorphic to the limit:
+\[
+\varprojlim_n H^i(f^{-1}(y_n), \cF|_{f^{-1}(y_n)}),
+\]
+where $y_n$ is the $n$-th infinitesimal neighborhood of $y$.
+\end{theorem}
+
+The \textbf{Zariski--Riemann space} of a function field $K$ is the projective limit of all projective models of $K$. It is a compact Hausdorff space that encodes all valuations of $K$ and has been used in resolution of singularities and in the study of birational geometry.
+
+\subsection{Zariski's Surface and the Zariski Conjecture}
+
+A \textbf{Zariski surface} is a surface in $\mathbb{P}^3$ defined by an equation of the form $z^n = f(x,y)$ where $f$ is a polynomial. Zariski used these to study the structure of fundamental groups of complements of plane curves.
+
+\begin{theorem}[Zariski's Theorem on $\pi_1$ of Curve Complements]
+The fundamental group $\pi_1(\mathbb{P}^2 \setminus C)$ of the complement of a plane curve $C$ depends only on the combinatorial type of the singularities of $C$.
+\end{theorem}
+
+Zariski also formulated a conjecture about the structure of the fundamental group of the complement of a nodal curve: it is abelian. This was proved much later by Fulton and Deligne.
+
+\subsection{The Riemann--Roch Theorem and Algebraic Surfaces}
+
+Riemann--Roch is the central tool in the theory of algebraic curves. For a divisor $D$ on a smooth projective curve $C$ of genus $g$:
+\[
+\ell(D) - \ell(K_C - D) = \deg D - g + 1,
+\]
+where $\ell(D) = \dim H^0(C, \cO(D))$ is the space of meromorphic functions with poles bounded by $D$, and $K_C$ is the canonical divisor.
+
+For surfaces, the analogous theorem was known in the Italian school (Castelnuovo, Enriques). Zariski reformulated it in purely algebraic terms. For a smooth projective surface $S$ with canonical divisor $K_S$:
+
+\[
+\chi(\cO_S(D)) = \frac{1}{2} D \cdot (D - K_S) + \chi(\cO_S),
+\]
+
+where $\chi(\cF) = \dim H^0 - \dim H^1 + \dim H^2$ is the Euler--Poincar{\'e} characteristic.
+
+This formula is the foundation of the classification of algebraic surfaces. The key invariants entering the classification are:
+\begin{itemize}
+    \item The \textbf{Kodaira dimension} $\kappa(S)$, determined by the growth of $\dim H^0(S, nK_S)$.
+    \item The \textbf{irregularity} $q = \dim H^1(S, \cO_S)$.
+    \item The \textbf{geometric genus} $p_g = \dim H^0(S, K_S)$.
+\end{itemize}
+
+Zariski's algebraic proof of the Riemann--Roch theorem for surfaces was a landmark achievement, as it avoided the transcendental methods (harmonic forms, Hodge theory) used in the classical proofs and worked in any characteristic.
+
+\subsection{Zariski's Work on Linear Systems}
+
+A \textbf{linear system} on a variety is a family of divisors parametrized by a projective space. Zariski's theory of linear systems provided rigorous foundations for the Italian school's work.
+
+\begin{theorem}[Zariski's Connectedness Theorem for Linear Systems]
+Let $|D|$ be a complete linear system on a normal projective variety $X$ over an algebraically closed field. If the base locus of $|D|$ has dimension at most $\dim X - 2$, then all members of $|D|$ are connected.
+\end{theorem}
+
+This theorem is used to prove that the general member of a linear system on a surface is irreducible, and it underlies the modern theory of linear systems in the minimal model program.
+
+Zariski also proved \textbf{Zariski's lemma} on differentials: if $k$ is a field, $K/k$ is a finitely generated field extension, and $\Omega_{K/k}^1 = 0$, then $K/k$ is finite (i.e., an algebraic extension). This result is fundamental in the theory of derivations and differentials in commutative algebra.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Pure Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Algebraic Geometry:} Zariski's fusion of algebraic geometry and commutative algebra created modern algebraic geometry. The Zariski topology is the foundation of scheme theory (Grothendieck). Zariski's Main Theorem is one of the most used theorems in the subject.
+    \item \textbf{Commutative Algebra:} The interaction with algebraic geometry drove much of 20th-century commutative algebra: the theory of integral closure, valuation rings, completions, and the homological conjectures.
+    \item \textbf{Singularity Theory:} Zariski's resolution of singularities for surfaces was the model for all subsequent work, including Hironaka's general resolution and the theory of toric resolutions.
+    \item \textbf{Topology:} The Zariski topology---despite being non-Hausdorff---is the correct topology for algebraic varieties. Its use in scheme theory extended to arithmetic geometry, where it is used daily in number theory.
+    \item \textbf{Arithmetic Geometry:} Zariski's techniques work over any field, making them essential for number-theoretic applications. The theory of integral models of varieties, reduction modulo primes, and the Langlands program all depend on the foundations Zariski built.
+\end{enumerate}
+
+\subsection{In Related Sciences}
+
+\begin{enumerate}
+    \item \textbf{String Theory:} The algebraic geometry of Calabi--Yau manifolds, central to string theory compactifications, uses the techniques Zariski pioneered.
+    \item \textbf{Coding Theory:} Algebraic geometry codes (Goppa codes) use curves over finite fields; the resolution of singularities is needed to construct smooth models.
+    \item \textbf{Robotics:} The kinematics of robot arms involves the solution of polynomial equations; algebraic geometry over $\mathbb{R}$ (real algebraic geometry) uses the Zariski topology and the techniques Zariski developed.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is the Zariski topology, and why is it so strange?}
+
+The Zariski topology on $\mathbb{C}^n$ defines closed sets as solution sets of polynomial equations. For example:
+\begin{itemize}
+    \item $\{(x,y) : y - x^2 = 0\}$ is closed (a parabola).
+    \item $\{(x,y) : x^2 + y^2 = 1\}$ is closed (a circle).
+    \item Any finite set is closed.
+\end{itemize}
+
+But note: the set $\{x \neq 0\}$ is not open in the Euclidean sense---it is open in the Zariski topology. And a non-empty Zariski-open set is always dense in the Euclidean topology (because polynomial equations have isolated zero sets).
+
+The Zariski topology is very coarse: it has fewer open sets than the Euclidean topology. For $\mathbb{C}^n$, the closed sets are exactly the algebraic sets. This topology is not Hausdorff: two distinct points can be separated by open sets only if they are separated by a polynomial equation.
+
+Why is it useful? Because it is defined purely algebraically (no limits, no analysis), and it works over any field---even finite fields. In scheme theory, the Zariski topology on $\Spec R$ (prime ideals of $R$) is the fundamental structure.
+
+\subsection*{Q2: What is resolution of singularities, and is it always possible?}
+
+A singularity is a point where an algebraic variety is not locally Euclidean (smooth). For example, the cone $x^2 + y^2 = z^2$ in $\mathbb{A}^3$ has a singular point at the origin---the vertex of the cone.
+
+Resolution of singularities means finding a smooth variety $\tilde X$ and a proper birational map $\tilde X \to X$ that is an isomorphism over the smooth locus of $X$. It ``resolves'' the singularities by replacing them with smooth points or with divisors.
+
+Zariski proved this is always possible for surfaces (dimension 2) over fields of characteristic zero. Hironaka (1964) proved it for all dimensions in characteristic zero. In positive characteristic:
+\begin{itemize}
+    \item Curves (dimension 1): always possible (normalization works).
+    \item Surfaces: proved by Abhyankar (1956).
+    \item Threefolds: proved by Cossart and Piltant (2008).
+    \item Higher dimensions: open.
+\end{itemize}
+
+Resolution is one of the deepest and most important results in algebraic geometry.
+
+\subsection*{Q3: What is Zariski's Main Theorem, and why is it so important?}
+
+Zariski's Main Theorem says: if a birational map is quasi-finite (has finite fibers), then it is actually an isomorphism onto an open subset. In other words, birational maps cannot be ``almost finite'' without being ``actually finite.''
+
+This is important because it controls the behavior of birational maps. For example, if $f: X \to Y$ is a birational map of normal varieties and some point $y$ has a finite preimage, then that preimage is a single point and $f$ is an isomorphism near there.
+
+Applications:
+\begin{itemize}
+    \item It proves that the exceptional locus of a birational map has pure codimension one (the components where $f$ is not an isomorphism are divisors).
+    \item It shows that Stein factorization of a proper birational map with normal target is an isomorphism.
+    \item It is used repeatedly in the minimal model program.
+\end{itemize}
+
+\subsection*{Q4: What is the difference between the Italian and the American schools of algebraic geometry?}
+
+The Italian school (Enriques, Castelnuovo, Severi) worked roughly 1890--1930. They used geometric intuition, transcendental methods, and ``generic'' arguments. Their results were often correct, but their proofs were not always rigorous by modern standards.
+
+Zariski founded what came to be called the American school (despite his Russian birth). The key differences:
+\begin{itemize}
+    \item \textbf{Methods:} Italian school used geometry and analysis; Zariski used commutative algebra.
+    \item \textbf{Fields:} Italian school worked over $\mathbb{C}$; Zariski worked over arbitrary fields.
+    \item \textbf{Foundations:} Italian school used intuitive notions like ``generic point''; Zariski introduced the Zariski topology, the theory of valuations, and the algebraization of geometry.
+    \item \textbf{Characteristic:} Italian school worked in characteristic zero; Zariski's methods allowed positive characteristic.
+\end{itemize}
+
+Zariski's approach won out. By 1960, algebraic geometry was essentially an algebraic subject, and the Italian school's methods had been replaced by the techniques Zariski pioneered and that Grothendieck brought to their ultimate development.
+
+\subsection*{Q5: What should an undergraduate study to understand Zariski's work?}
+
+\begin{enumerate}
+    \item \textbf{Commutative Algebra:} Atiyah--MacDonald's ``Introduction to Commutative Algebra'' covers the essentials (rings, ideals, modules, Noetherian rings, integral extensions, valuation rings).
+    \item \textbf{Algebraic Geometry:} Hartshorne's ``Algebraic Geometry'' (Chapter I covers varieties in the Zariski style) or Shafarevich's ``Basic Algebraic Geometry.''
+    \item \textbf{Elliptic Curves:} Silverman's ``The Arithmetic of Elliptic Curves'' for a concrete introduction to algebraic geometry over various fields.
+    \item \textbf{Topology:} A basic understanding of point-set topology is needed (open, closed, compact, Hausdorff).
+    \item \textbf{Number Theory:} Algebraic number theory (Neukirch) provides good examples of integral closures, valuations, and completions.
+\end{enumerate}
+
+For undergraduates, start with Atiyah--MacDonald and work through the first three chapters of Hartshorne.
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item O.\ Zariski, \textit{Algebraic Surfaces}, Springer, 1935 (2nd ed., 1971).
+    \item O.\ Zariski, \textit{The reduction of the singularities of an algebraic surface}, Ann.\ of Math.\ 40 (1939), 639--689.
+    \item O.\ Zariski, \textit{Foundations of a general theory of birational correspondences}, Trans.\ AMS 53 (1943), 490--542.
+    \item O.\ Zariski, \textit{The concept of a simple point of an abstract algebraic variety}, Trans.\ AMS 62 (1947), 1--55.
+    \item O.\ Zariski, \textit{Theory and applications of holomorphic functions on algebraic varieties over arbitrary ground fields}, Mem.\ AMS 5 (1951).
+    \item O.\ Zariski and P.\ Samuel, \textit{Commutative Algebra}, 2 vols., Van Nostrand, 1958--1960.
+    \item O.\ Zariski, \textit{Collected Papers}, 4 vols., MIT Press, 1972--1979.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item D.\ Mumford, \textit{Oscar Zariski (1899--1986)}, Notices AMS 33 (1986), 891--894.
+    \item M.\ Artin, \textit{Oscar Zariski}, Biographical Memoirs of the NAS, 1994.
+    \item H.\ Hironaka, \textit{On the work of Oscar Zariski}, in ``Zariski: Collected Papers, Vol.\ 1,'' MIT Press, 1972.
+    \item S.\ Kleiman, \textit{Zariski's work on resolution of singularities}, in ``Algebraic Geometry,'' Springer, 1991.
+\end{enumerate}
+
+\subsection*{Textbooks}
+\begin{enumerate}
+    \item M.\ F.\ Atiyah and I.\ G.\ MacDonald, \textit{Introduction to Commutative Algebra}, Addison-Wesley, 1969.
+    \item R.\ Hartshorne, \textit{Algebraic Geometry}, Springer, 1977.
+    \item I.\ R.\ Shafarevich, \textit{Basic Algebraic Geometry}, Springer, 1977.
+    \item D.\ Mumford, \textit{Algebraic Geometry I: Complex Projective Varieties}, Springer, 1976.
+    \item H.\ Matsumura, \textit{Commutative Algebra}, Benjamin, 1970.
+    \item J.\ Koll{\'a}r, \textit{Lectures on Resolution of Singularities}, Princeton University Press, 2007.
+    \item D.\ Eisenbud, \textit{Commutative Algebra with a View Toward Algebraic Geometry}, Springer, 1995.
+    \item J.\ Dieudonn{\'e}, \textit{History of Algebraic Geometry}, Wadsworth, 1985.
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Affine variety] The zero set of a collection of polynomials in $\A^n_k$; an affine scheme $\Spec(A)$ for a finitely generated $k$-algebra $A$.
+    \item[Birational map] A rational map with a rational inverse; two varieties birationally equivalent have isomorphic function fields.
+    \item[Blow-up] A modification replacing a point with the set of tangent directions through it.
+    \item[Branch locus] The set of points where a finite morphism is not \'{e}tale.
+    \item[Divisor] A formal linear combination of codimension-one subvarieties.
+    \item[\'{E}tale morphism] A smooth morphism of relative dimension zero; the algebraic analogue of a local isomorphism.
+    \item[Exceptional divisor] The preimage of the singular locus under a resolution.
+    \item[Integral closure] The set of elements of a field satisfying a monic polynomial equation with coefficients in a given ring.
+    \item[Irreducible] A topological space that cannot be written as the union of two proper closed subsets.
+    \item[Local ring] A ring with a unique maximal ideal; the stalk of the structure sheaf at a point.
+    \item[Minimal model program] The program to find a ``minimal'' birational model of any algebraic variety, using contractions and flips.
+    \item[Normal variety] A variety whose local rings are integrally closed in their fraction fields.
+    \item[Normalization] The map $\Spec \tilde R \to \Spec R$ where $\tilde R$ is the integral closure of $R$.
+    \item[Prime ideal] An ideal $\mathfrak{p} \subset R$ such that $ab \in \mathfrak{p}$ implies $a \in \mathfrak{p}$ or $b \in \mathfrak{p}$.
+    \item[Rational map] A map defined on a dense open subset of a variety, not necessarily everywhere.
+    \item[Resolution of singularities] A smooth variety $\tilde X$ with a proper birational map $\tilde X \to X$ that is an isomorphism over the smooth locus.
+    \item[Scheme] A locally ringed space locally isomorphic to $\Spec R$ for a commutative ring $R$.
+    \item[Singular point] A point where a variety is not locally Euclidean (the tangent space has higher dimension than expected).
+    \item[Stein factorization] The factorization $X \to Y' \to Y$ of a proper morphism where $X \to Y'$ has connected fibers and $Y' \to Y$ is finite.
+    \item[Valuation] A map $v: K^\times \to \Gamma$ satisfying $v(xy) = v(x) + v(y)$ and $v(x+y) \geq \min(v(x), v(y))$.
+    \item[Zariski topology] The topology on an algebraic variety where closed sets are algebraic subsets.
+\end{description}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the Zariski topology on $\A^1_k$ is the cofinite topology (closed sets are finite sets and the whole space).
+    \item Prove that $\A^1_k$ with the Zariski topology is not Hausdorff.
+    \item Show that the blow-up of $\A^2$ at the origin is covered by two affine charts, each isomorphic to $\A^2$.
+    \item Let $C: y^2 = x^3$ in $\A^2_k$. Normalize $C$ by taking the integral closure of $k[x,y]/(y^2 - x^3)$.
+    \item Show that the normalization of a curve is smooth in dimension one.
+    \item Let $f: \Spec B \to \Spec A$ be a finite morphism of affine curves. Prove that the fibers are finite sets.
+    \item Show that the Zariski topology on $\mathbb{P}^n_k$ is obtained by gluing the Zariski topologies on the standard affine charts $U_i \cong \A^n_k$.
+    \item Let $A \subset B$ be an integral extension of domains. Show that $\dim A = \dim B$ (Krull dimension).
+    \item Prove that $\Spec R$ is quasi-compact (every open cover has a finite subcover).
+    \item Let $X = \{x^2 + y^2 = z^2\} \subset \A^3$ be the cone. Show that the blow-up of $\A^3$ at the origin restricts to a resolution of $X$ with exceptional divisor $\mathbb{P}^1 \times \mathbb{P}^1$.
+    \item Show that the complement of a nodal plane cubic curve $\{y^2 = x(x-1)(x-\lambda)\} \subset \mathbb{P}^2$ has abelian fundamental group.
+    \item Prove that a dominant morphism of irreducible varieties induces an injection of function fields (the reverse direction of birational equivalence).
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1899 & Born in Kobryn, Russian Empire (now Belarus) \\ \hline
+1918--1920 & Studies at University of Kiev \\ \hline
+1920 & Emigrates to Italy; studies with Castelnuovo and Severi \\ \hline
+1925 & PhD from University of Rome under Castelnuovo \\ \hline
+1927 & Moves to the United States \\ \hline
+1929--1937 & Professor at Johns Hopkins University \\ \hline
+1935 & \textit{Algebraic Surfaces} published \\ \hline
+1939 & Resolution of singularities for surfaces \\ \hline
+1940 & Zariski topology introduced \\ \hline
+1943 & Zariski's Main Theorem \\ \hline
+1947 & Professor at Harvard University \\ \hline
+1951 & Theory of holomorphic functions on algebraic varieties \\ \hline
+1954--1955 | President of the American Mathematical Society \\ \hline
+1958--1960 & \textit{Commutative Algebra} (with Samuel) published \\ \hline
+1960 & Zariski--Nagata purity theorem \\ \hline
+1969 & Retires from Harvard \\ \hline
+1981 & Wolf Prize in Mathematics (co-recipient with L.\ Ahlfors) \\ \hline
+1986 & Dies in Brookline, Massachusetts \\ \hline
+\end{tabular}

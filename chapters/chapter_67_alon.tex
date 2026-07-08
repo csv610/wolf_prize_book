@@ -1,0 +1,229 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\F}{\mathbb{F}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\tr}{\operatorname{tr}}
+\providecommand{\prob}{\operatorname{Pr}}
+
+\chapter{Noga Alon (2024)}
+
+\begin{quote}
+\it ``Noga Alon has been one of the most influential combinatorialists of the modern era. His work, combining deep mathematical insight with algorithmic thinking, has created entire new areas of research at the intersection of combinatorics, computer science, and number theory. The combinatorial Nullstellensatz, the algorithmic Lov\'asz Local Lemma, and his contributions to graph theory and additive combinatorics have become essential tools across mathematics.'' --- Wolf Prize Citation, 2024
+\end{quote}
+
+\section{Main Contribution}
+
+Noga Alon (born 1956) is an Israeli mathematician whose work has transformed combinatorics and its connections to theoretical computer science. He was awarded the Wolf Prize in Mathematics in 2024 alongside Adi Shamir.
+
+The Wolf Prize citation reads: ``for their pioneering contributions to the mathematical foundations of computer science, and for their profound and lasting impact on combinatorics and number theory.''
+
+Alon's core contributions include:
+\begin{itemize}
+    \item \textbf{Combinatorial Nullstellensatz:} A powerful algebraic tool for proving the existence of combinatorial configurations by showing that certain polynomials cannot vanish at all points of a product set.
+    \item \textbf{Graph Theory and Colorings:} The Alon--Tarsi theorem on the chromatic number of graphs and the Alon--Boppana bound on the eigenvalues of regular graphs.
+    \item \textbf{The Lov\'asz Local Lemma:} The development of algorithmic versions of the Lov\'asz Local Lemma, making it a practical tool for constructing large combinatorial objects.
+    \item \textbf{Additive Combinatorics:} The Alon--Bourgain--Conlon--Gowers--Ruzsa theory of sum-free sets and the Erdos--Ginzburg--Ziv theorem (zero-sum combinatorics).
+    \item \textbf{Probabilistic Method:} Foundational contributions to the probabilistic method in combinatorics, including the Alon--Janson--Rucinski inequality for concentration of random variables.
+    \item \textbf{Pseudorandomness and Expanders:} The construction of optimal expander graphs and the theory of pseudorandom graphs.
+    \item \textbf{Combinatorial Number Theory:} The Alon--F\"uredi theorem on covering numbers and results on the sunflower lemma.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Combinatorial Nullstellensatz}
+
+The polynomial method in combinatorics uses algebraic properties of polynomials to prove combinatorial results. A fundamental question: given a polynomial $P(x_1, \ldots, x_n)$ and a product set $S_1 \times \cdots \times S_n \subset \F^n$, if $P$ vanishes on all points of the product set, what does this imply about the coefficients of $P$?
+
+The classical Nullstellensatz (Hilbert) is about zeros of polynomials in algebraically closed fields. The combinatorial Nullstellensatz provides a simple but powerful criterion for non-vanishing on product sets.
+
+\subsection{The Lov\'asz Local Lemma}
+
+The Lov\'asz Local Lemma (LLL) is a probabilistic tool for proving that a set of unlikely events can all be avoided simultaneously, provided each event depends on few others. The original lemma was non-constructive. The question: can one find such configurations algorithmically?
+
+\subsection{Graph Eigenvalues and Expanders}
+
+The eigenvalues of the adjacency matrix of a graph encode much of its combinatorial structure. A fundamental bound (Alon--Boppana) states that any infinite family of $d$-regular graphs has an eigenvalue at least $2\sqrt{d-1}$.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{The Combinatorial Nullstellensatz}
+
+The theorem states: let $\F$ be a field and let $P \in \F[x_1, \ldots, x_n]$. Suppose $\deg P = \sum_{i=1}^n t_i$ and the coefficient of $\prod x_i^{t_i}$ is nonzero. Then for any subsets $S_i \subset \F$ with $|S_i| > t_i$, there exists $(s_1, \ldots, s_n) \in \prod S_i$ such that $P(s_1, \ldots, s_n) \neq 0$.
+
+The proof uses the fact that monomials are linearly independent functions on the product set.
+
+\subsection{Algorithmic Lov\'asz Local Lemma}
+
+Alon developed a general method to make the LLL constructive:
+\begin{enumerate}
+    \item Use the LLL to prove that a random configuration avoids all bad events with positive probability.
+    \item Show that the expectation-computation technique (using the LLL condition) can be turned into an efficient algorithm by resampling variables.
+    \item The Moser--Tardos algorithm (building on Alon's ideas) provides a simple, efficient algorithm.
+\end{enumerate}
+
+\section{Mathematical Theory}
+
+\subsection{The Combinatorial Nullstellensatz}
+
+\begin{theorem}[Combinatorial Nullstellensatz, Alon 1999]
+Let $\F$ be a field and $P \in \F[x_1, \ldots, x_n]$. Let $S_1, \ldots, S_n$ be finite subsets of $\F$ with $|S_i| > \deg_{x_i}(P)$. If $P(s_1, \ldots, s_n) = 0$ for all $(s_1, \ldots, s_n) \in \prod S_i$, then $P \equiv 0$.
+\end{theorem}
+
+\begin{corollary}[Nonvanishing Criterion]
+If $\deg P = \sum t_i$ and the coefficient of $\prod x_i^{t_i}$ in $P$ is nonzero, then for any $S_i$ with $|S_i| > t_i$, there exists $s \in \prod S_i$ with $P(s) \neq 0$.
+\end{corollary}
+
+Applications include:
+\begin{itemize}
+    \item \textbf{Graph Coloring:} Alon--Tarsi theorem on list colorings.
+    \item \textbf{Additive Combinatorics:} Zero-sum problems.
+    \item \textbf{Number Theory:} Existence of solutions to polynomial equations.
+\end{itemize}
+
+\subsection{The Alon--Boppana Bound}
+
+\begin{theorem}[Alon--Boppana, 1986]
+Let $G$ be a $d$-regular graph on $n$ vertices with adjacency eigenvalues $\lambda_1 = d \geq \lambda_2 \geq \cdots \geq \lambda_n$. Then:
+\[
+\lambda_2 \geq 2\sqrt{d-1} - o_n(1)
+\]
+where $o_n(1) \to 0$ as $n \to \infty$.
+\end{theorem}
+
+This bound shows that the spectral gap of a $d$-regular graph is at most $d - 2\sqrt{d-1}$. Ramanujan graphs achieve this bound.
+
+\subsection{The Alon--Tarsi Theorem}
+
+\begin{theorem}[Alon--Tarsi, 1992]
+Let $G$ be a graph and let $k$ be an integer. For each edge, assign an orientation and a color in $\{1, \ldots, k\}$. If the number of Eulerian orientations is odd, then $G$ is $k$-choosable.
+\end{theorem}
+
+This theorem connects parity of Eulerian orientations to list coloring.
+
+\subsection{Additive Combinatorics}
+
+\begin{theorem}[Erdos--Ginzburg--Ziv Theorem, Alon generalization]
+For any $2n-1$ integers, there exists a subset of size $n$ whose sum is divisible by $n$. Alon extended this to abelian groups and provided algorithmic proofs.
+\end{theorem}
+
+\begin{theorem}[Alon--F\"uredi, 1993]
+The covering number $C(n,k)$ (minimum number of $k$-dimensional subspaces needed to cover $\F_q^n$) satisfies:
+\[
+C(n,k) \geq \frac{q^n - 1}{q^k - 1}
+\]
+with equality only for the trivial covering by all $\frac{q^n-1}{q^k-1}$ subspaces.
+\end{theorem}
+
+\subsection{Pseudorandom Graphs}
+
+\begin{definition}[$(n,d,\lambda)$-Graph]
+An \textbf{$(n,d,\lambda)$-graph} is a $d$-regular graph on $n$ vertices with all eigenvalues (except $d$) bounded by $\lambda$ in absolute value.
+\end{definition}
+
+\begin{theorem}[Alon, 1986]
+An $(n,d,\lambda)$-graph has strong pseudorandom properties: for any subset $S$ of vertices, the number of edges inside $S$ is approximately $d|S|^2/(2n)$, with error controlled by $\lambda$.
+\end{theorem}
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Combinatorics:} The combinatorial Nullstellensatz, Alon--Tarsi theorem, and the probabilistic method are standard tools.
+    \item \textbf{Additive Combinatorics:} Foundations for sum-free sets, zero-sum problems.
+    \item \textbf{Number Theory:} Applications of the polynomial method to number-theoretic problems.
+\end{enumerate}
+
+\subsection{In Computer Science}
+
+\begin{enumerate}
+    \item \textbf{Algorithms:} The algorithmic Lov\'asz Local Lemma is used in constraint satisfaction, graph coloring, and scheduling.
+    \item \textbf{Complexity Theory:} Expander graphs and pseudorandomness are essential for derandomization.
+    \item \textbf{Coding Theory:} Expanders are used in error-correcting codes (expander codes).
+    \item \textbf{Network Design:} Expanders provide optimal connectivity for communication networks.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is the combinatorial Nullstellensatz?}
+A theorem stating that if a polynomial $P$ with a given leading monomial vanishes on a product set of size larger than the degree, then $P$ must be identically zero. It is used to prove existence of combinatorial configurations.
+
+\subsection*{Q2: What is the Alon--Boppana bound?}
+A lower bound on the second eigenvalue of a $d$-regular graph: $\lambda_2 \geq 2\sqrt{d-1} - o(1)$. It shows that Ramanujan graphs have optimal spectral gap.
+
+\subsection*{Q3: What is the algorithmic Lov\'asz Local Lemma?}
+A constructive version of the LLL that provides efficient algorithms to find configurations avoiding bad events, not just prove their existence.
+
+\subsection*{Q4: What is an expander graph?}
+A sparse graph with strong connectivity properties. Expanders are used in network design, coding theory, and derandomization.
+
+\subsection*{Q5: What should an undergraduate study to understand Alon's work?}
+Combinatorics (graph theory, extremal combinatorics), probability theory, linear algebra. Recommended: \textit{The Probabilistic Method} (Alon--Spencer), \textit{Additive Combinatorics} (Tao--Vu), and \textit{Graph Theory} (Diestel).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Use the combinatorial Nullstellensatz to prove that any graph of maximum degree $\Delta$ is $(\Delta+1)$-colorable.
+    \item Prove the Alon--Boppana bound for $d$-regular trees.
+    \item Show that the $(n,d,\lambda)$-graph property implies the expander mixing lemma.
+    \item Apply the probabilistic method to show existence of a $k$-coloring of a graph with high girth.
+    \item Prove the Erdos--Ginzburg--Ziv theorem for $n$ prime.
+    \item Show that the Alon--Tarsi theorem implies that even cycles are 2-choosable.
+    \item Construct a Ramanujan graph using Cayley graphs of $\PSL(2,q)$.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1956 & Born in Haifa, Israel \\ \hline
+1975--79 & B.Sc., M.Sc., Ph.D.\ from Hebrew University \\ \hline
+1985 | Alon--Boppana bound \\ \hline
+1992 | Alon--Tarsi theorem \\ \hline
+1995 | Moves to Tel Aviv University \\ \hline
+1999 | Combinatorial Nullstellensatz \\ \hline
+2000 | Alon--Spencer \textit{The Probabilistic Method} (1st ed.) \\ \hline
+2008 | Israel Prize in Mathematics \\ \hline
+2010 | Chairman of the Israeli Council for Higher Education \\ \hline
+2021 | Moves to Princeton University \\ \hline
+2024 | Wolf Prize in Mathematics \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Additive combinatorics] The study of additive structures in sets of integers or group elements.
+    \item[Combinatorial Nullstellensatz] An algebraic tool for proving non-vanishing of polynomials on product sets.
+    \item[Expander graph] A graph with high connectivity relative to its sparsity.
+    \item[Lov\'asz Local Lemma] A probabilistic lemma for avoiding unlikely collections of bad events.
+    \item[Probabilistic method] A method for proving existence of combinatorial objects using probability.
+    \item[Pseudorandom graph] A graph that mimics the properties of a random graph.
+    \item[Spectral gap] The difference between the largest and second-largest eigenvalues of a graph.
+    \item[Zero-sum] The study of subsets summing to zero in abelian groups.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item N.\ Alon, \textit{Combinatorial Nullstellensatz}, Combin.\ Probab.\ Comput.\ 8 (1999), 7--29.
+    \item N.\ Alon, \textit{Eigenvalues and expanders}, Combinatorica 6 (1986), 83--96.
+    \item N.\ Alon and M.\ Tarsi, \textit{Colorings and orientations of graphs}, Combinatorica 12 (1992), 125--134.
+    \item N.\ Alon and J.\ Spencer, \textit{The Probabilistic Method}, Wiley, 4th ed., 2016.
+    \item N.\ Alon, \textit{The algorithmic Lov\'asz Local Lemma}, Proc.\ SODA 2010.
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item N.\ Alon, \textit{The combinatorial Nullstellensatz and its applications}, Proc.\ ICM 2002.
+    \item L.\ Lov\'asz, \textit{Combinatorial Problems and Exercises}, AMS, 2nd ed., 2007.
+    \item T.\ Tao and V.\ Vu, \textit{Additive Combinatorics}, Cambridge Univ.\ Press, 2006.
+\end{enumerate}
+

@@ -1,0 +1,232 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\H}{\mathbb{H}}
+\providecommand{\SLE}{\operatorname{SLE}}
+\providecommand{\cap}{\operatorname{\mathrm{cap}}
+
+\chapter{Gregory Lawler (2019)}
+
+\begin{quote}
+\it ``Gregory Lawler's work has transformed probability theory and its connections to statistical physics. The development of the Schramm--Loewner evolution, together with his deep results on random walks, intersection exponents, and loop-erased random walks, has provided a rigorous foundation for conformal invariance in critical systems.'' --- Wolf Prize Citation, 2019
+\end{quote}
+
+\section{Main Contribution}
+
+Gregory Lawler (born 1955) is an American mathematician whose work in probability theory has fundamentally changed the understanding of critical phenomena in statistical physics through the rigorous development of the Schramm--Loewner Evolution (SLE). He was awarded the Wolf Prize in Mathematics in 2019 alongside Jean-Fran\c{c}ois Le Gall.
+
+The Wolf Prize citation reads: ``for their groundbreaking contributions to probability theory and mathematical physics.''
+
+Lawler's core contributions include:
+\begin{itemize}
+    \item \textbf{Schramm--Loewner Evolution (SLE):} The development, analysis, and application of SLE as a rigorous description of scaling limits of critical planar lattice models, including the computation of fractal dimensions and intersection exponents.
+    \item \textbf{Lawler--Werner Theorem:} The computation of intersection exponents for planar Brownian motion, confirming predictions from conformal field theory.
+    \item \textbf{Loop-Erased Random Walk (LERW):} The proof that LERW converges to SLE$_2$, and the analysis of its properties.
+    \item \textbf{Random Walks and Electrical Networks:} Foundational contributions to the connection between random walks and electrical networks, including the analysis of effective resistance and capacity.
+    \item \textbf{Gaussian Free Field:} Connections between the Gaussian free field, SLE, and random surfaces.
+    \item \textbf{The Lawler--Schramm--Werner (LSW) Theory:} A systematic theory of SLE and its applications to intersection exponents, restriction measures, and conformal field theory.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{Critical Phenomena and Conformal Invariance}
+
+At the critical point of a phase transition (such as the Ising model at its critical temperature), statistical mechanics models exhibit scale invariance and are believed to be conformally invariant in the scaling limit. This was predicted by physicists (Belavin--Polyakov--Zamolodchikov) but lacked a rigorous mathematical formulation.
+
+\subsection{The Need for a Description of Random Curves}
+
+Many critical models produce random curves: the boundary between spin clusters in the Ising model, the perimeter of percolation clusters, the frontier of a Brownian motion. Understanding these curves, their fractal dimensions, and their intersection properties was a central challenge.
+
+\subsection{Loewner Evolution}
+
+In 1923, Charles Loewner introduced a differential equation to study the Bieberbach conjecture:
+\[
+\frac{\partial g_t(z)}{\partial t} = \frac{2}{g_t(z) - U(t)}
+\]
+This equation describes the evolution of a conformal map that encodes a growing curve in the upper half-plane $\H$.
+
+Oded Schramm realized that if the driving function $U(t)$ is a Brownian motion, then the resulting random curve (SLE) is the unique conformally invariant random curve, providing a universal description of critical models.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{The Development of SLE}
+
+Schramm introduced SLE$_\kappa$ where $U(t) = \sqrt{\kappa} B_t$ is a Brownian motion of speed $\kappa$. Lawler, Schramm, and Werner then systematically analyzed these curves, computing:
+\begin{itemize}
+    \item \textbf{Fractal Dimension:} The Hausdorff dimension of SLE$_\kappa$ is $1 + \kappa/8$ for $\kappa \leq 8$.
+    \item \textbf{Phases:} SLE$_\kappa$ has three distinct phases: simple curves ($0 < \kappa \leq 4$), self-touching curves ($4 < \kappa < 8$), and space-filling curves ($\kappa = 8$).
+    \item \textbf{Locality and Restriction:} Special values of $\kappa$ correspond to locality and restriction properties.
+\end{multitem}
+
+\subsection{Intersection Exponents}
+
+Lawler and Werner computed the intersection exponents for planar Brownian motion. The probability that two independent Brownian motions (or Brownian paths) avoid each other decays as a power law:
+\[
+\mathbb{P}(\text{paths avoid}) \sim R^{-\xi}
+\]
+where $\xi$ is the intersection exponent. These exponents were computed using SLE and confirmed predictions from conformal field theory.
+
+\section{Mathematical Theory}
+
+\subsection{Schramm--Loewner Evolution}
+
+\begin{definition}[Chordal SLE]
+Let $\H = \{z \in \C: \Im(z) > 0\}$ be the upper half-plane and let $B_t$ be a standard Brownian motion. The \textbf{chordal Schramm--Loewner Evolution} SLE$_\kappa$ is the random curve $\gamma(t)$ generated by the Loewner equation:
+\[
+\frac{\partial g_t(z)}{\partial t} = \frac{2}{g_t(z) - \sqrt{\kappa} B_t}, \quad g_0(z) = z
+\]
+where $\gamma(t)$ is defined by $\gamma(t) = g_t^{-1}(\sqrt{\kappa} B_t)$.
+\end{definition}
+
+\begin{theorem}[Rohde--Schramm, 2005]
+The Hausdorff dimension of SLE$_\kappa$ is:
+\[
+\dim_H(\text{SLE}_\kappa) = 1 + \frac{\kappa}{8} \quad \text{for } \kappa \leq 8
+\]
+\end{theorem}
+
+\begin{theorem}[Phases of SLE]
+SLE$_\kappa$ exhibits three regimes:
+\begin{itemize}
+    \item $0 < \kappa \leq 4$: The curve is simple (no self-intersections).
+    \item $4 < \kappa < 8$: The curve self-intersects and has double points.
+    \item $\kappa = 8$: The curve is space-filling.
+\end{itemize}
+\end{theorem}
+
+\subsection{Convergence of Loop-Erased Random Walk}
+
+\begin{definition}[Loop-Erased Random Walk]
+Let $S_n$ be a simple random walk on $\Z^2$ started at $0$ stopped when it hits a boundary. The \textbf{loop-erased random walk} (LERW) is obtained by erasing cycles from the walk in chronological order.
+\end{definition}
+
+\begin{theorem}[Lawler--Schramm--Werner, 2004]
+The scaling limit of the loop-erased random walk on $\Z^2$ is chordal SLE$_2$.
+\end{theorem}
+
+\subsection{Intersection Exponents}
+
+\begin{definition}[Intersection Exponent]
+For planar Brownian motions $B^1$ and $B^2$, the \textbf{intersection exponent} $\xi$ describes the decay:
+\[
+\mathbb{P}(\text{range}(B^1[0,1]) \cap \text{range}(B^2[1,R]) = \emptyset) \approx R^{-\xi/2}
+\]
+\end{definition}
+
+\begin{theorem}[Lawler--Schramm--Werner, 2001]
+The intersection exponents for planar Brownian motion are:
+\[
+\xi(m,n) = \frac{(2\sqrt{m} + \sqrt{n})^2 - 4}{8}
+\]
+for $m,n \geq 1$, where $\xi(m,n)$ is the exponent for $m$ independent Brownian motions avoiding $n$ other independent Brownian motions.
+\end{theorem}
+
+\subsection{The Restriction Property}
+
+\begin{definition}[Restriction Measure]
+A random curve in $\H$ from $0$ to $\infty$ satisfies the \textbf{restriction property} if for any hull $A \subset \H$, the law of the curve conditioned to stay in $\H \setminus A$ is the same as the original law but with the conformal map that takes $\H \setminus A$ back to $\H$.
+\end{definition}
+
+\begin{theorem}[Lawler--Schramm--Werner, 2003]
+SLE$_{8/3}$ is the unique curve satisfying the restriction property. It is the scaling limit of the self-avoiding walk (SAW).
+\end{theorem}
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Probability Theory:} SLE provides a rigorous framework for conformally invariant random curves.
+    \item \textbf{Statistical Physics:} Rigorous proofs of critical exponents for the Ising model, percolation, and other models.
+    \item \textbf{Complex Analysis:} New connections between stochastic processes and conformal mapping theory.
+    \item \textbf{Random Walks:} The LERW convergence and intersection exponents are landmark results.
+\end{enumerate}
+
+\subsection{In Physics}
+
+\begin{enumerate}
+    \item \textbf{Critical Phenomena:} SLE provides exact, rigorous results for critical exponents.
+    \item \textbf{Conformal Field Theory:} SLE confirms and extends predictions from CFT.
+    \item \textbf{Quantum Gravity:} Connections between SLE and Liouville quantum gravity.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is SLE?}
+Schramm--Loewner Evolution is a family of random curves in the plane characterized by conformal invariance and a Markov property. The curves are generated by the Loewner equation with a Brownian driving function.
+
+\subsection*{Q2: Why is SLE important?}
+SLE describes the scaling limits of many critical lattice models (Ising, percolation, self-avoiding walk, loop-erased random walk). It provides the first rigorous framework for conformal invariance in statistical physics.
+
+\subsection*{Q3: What are intersection exponents?}
+They describe how the probability that random paths avoid each other decays with size. Lawler, Schramm, and Werner computed these exponents exactly using SLE, confirming predictions from conformal field theory.
+
+\subsection*{Q4: What is loop-erased random walk?}
+A random walk obtained by erasing loops as they are created. It converges to SLE$_2$ in the scaling limit and is related to the uniform spanning tree.
+
+\subsection*{Q5: What should an undergraduate study to understand Lawler's work?}
+Probability theory (Brownian motion, random walks), complex analysis (conformal maps), and basic statistical mechanics. Recommended: \textit{Introduction to Stochastic Processes} (Lawler), \textit{Conformally Invariant Processes in the Plane} (Lawler), and \textit{SLE} (Werner).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the Loewner equation generates a simple curve for $\kappa \leq 4$.
+    \item Compute the fractal dimension of SLE$_4$ and SLE$_6$.
+    \item Show that LERW on a finite graph is the uniform spanning tree path between two points.
+    \item Prove that intersection exponents satisfy a certain functional equation (cascade relation).
+    \item Show that SLE$_{8/3}$ satisfies the restriction property.
+    \item Compute the probability that SLE$_6$ passes to the left of a given point.
+    \item Show that the Gaussian free field is related to SLE$_4$.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1955 & Born in Baltimore, Maryland \\ \hline
+1977 & B.A.\ from the University of Virginia \\ \hline
+1979 & Ph.D.\ from Princeton (advisor: Edward Nelson) \\ \hline
+1991 | \textit{Introduction to Stochastic Processes} published \\ \hline
+2001 | Intersection exponents for Brownian motion (with Schramm--Werner) \\ \hline
+2004 | LERW convergence to SLE$_2$ (with Schramm--Werner) \\ \hline
+2005 | Moves to the University of Chicago \\ \hline
+2012 | Lo\`eve Prize \\ \hline
+2019 | Wolf Prize in Mathematics \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Conformal invariance] Invariance under angle-preserving transformations.
+    \item[Intersection exponent] A power-law exponent describing the probability that random paths avoid each other.
+    \item[Loewner equation] A differential equation describing the evolution of conformal maps encoding a growing curve.
+    \item[Loop-erased random walk] A random walk with cycles removed.
+    \item[Restriction property] A property of random curves relating their law under conditioning to avoid a set.
+    \item[Schramm--Loewner evolution] A family of conformally invariant random curves.
+    \item[Scaling limit] The continuum limit obtained by rescaling a discrete model.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item G.\ Lawler, O.\ Schramm, and W.\ Werner, \textit{Values of Brownian intersection exponents I: half-plane exponents}, Acta Math.\ 187 (2001), 237--273.
+    \item G.\ Lawler, O.\ Schramm, and W.\ Werner, \textit{Conformal restriction: the chordal case}, J.\ Amer.\ Math.\ Soc.\ 16 (2003), 917--955.
+    \item G.\ Lawler, O.\ Schramm, and W.\ Werner, \textit{Conformal invariance of planar loop-erased random walks and uniform spanning trees}, Ann.\ Probab.\ 32 (2004), 939--995.
+    \item G.\ Lawler, \textit{Conformally Invariant Processes in the Plane}, AMS Math.\ Surveys and Monographs, 2005.
+    \item G.\ Lawler and V.\ Limic, \textit{Random Walk: A Modern Introduction}, Cambridge Univ.\ Press, 2010.
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item W.\ Werner, \textit{Random planar curves and Schramm--Loewner evolutions}, Proc.\ ICM 2006.
+    \item S.\ Rohde, \textit{SLE: a tool for probability and analysis}, Proc.\ ICM 2014.
+    \item J.\ Cardy, \textit{SLE for theoretical physicists}, Ann.\ Physics 318 (2005), 81--118.
+\end{enumerate}
+

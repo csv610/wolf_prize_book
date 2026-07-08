@@ -1,0 +1,275 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\cF}{\mathcal{F}}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\cG}{\mathcal{G}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\SL}{\operatorname{SL}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\End}{\operatorname{End}}
+
+\chapter{David B. Mumford (2008)}
+
+\begin{quote}
+\it ``David Mumford has been a tremendously successful multi-pronged attacker on problems of the existence and structure of varieties of moduli. His work in geometric invariant theory, the classification of algebraic surfaces, and his later contributions to computer vision and pattern theory represent an extraordinary breadth of mathematical vision.'' --- John Tate, 1974
+\end{quote}
+
+\section{Main Contribution}
+
+David Bryant Mumford (born 1937) is one of the most versatile mathematicians of the modern era, whose work spans pure algebraic geometry, computer vision, and pattern theory. He was awarded the Fields Medal in 1974 and the Wolf Prize in Mathematics in 2008, jointly with Pierre Deligne and Phillip Griffiths.
+
+The Wolf Prize citation reads: ``for his work on algebraic surfaces; on geometric invariant theory; and for laying the foundations of the modern algebraic theory of moduli of curves and theta functions.''
+
+Mumford's core contributions include:
+\begin{itemize}
+    \item \textbf{Geometric Invariant Theory (GIT):} A systematic framework for constructing quotients of algebraic varieties by group actions, which became the foundation of modern moduli theory.
+    \item \textbf{Moduli of Curves:} The construction of the moduli space $M_g$ of curves of genus $g$ as an algebraic variety, and the Deligne--Mumford compactification $\overline{M}_g$ via stable curves.
+    \item \textbf{Algebraic Surfaces:} The classification of algebraic surfaces in positive characteristic, extending the Enriques--Kodaira classification.
+    \item \textbf{Theta Functions:} An algebraic approach to the classical theory of theta functions, revealing their rich algebraic structure.
+    \item \textbf{Computer Vision:} The Mumford--Shah functional for image segmentation, and foundational contributions to pattern theory.
+    \item \textbf{The Red Book:} His influential lecture notes on schemes and varieties that educated a generation of algebraic geometers.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Moduli Problem}
+
+One of the oldest problems in algebraic geometry is to understand the set of all algebraic curves of a given genus. Riemann knew that curves of genus $g$ depend on $3g-3$ parameters (``moduli''), but making this intuition precise as a geometric object was a tremendous challenge.
+
+The naive approach---considering the set of all curves as a space---fails because curves have automorphisms. A family of curves can be isomorphic fiberwise without being trivial, so the quotient by the automorphism group is subtle. The central problem: construct an algebraic variety $M_g$ whose points correspond bijectively to isomorphism classes of smooth projective curves of genus $g$, and such that families of curves correspond to maps to $M_g$.
+
+\subsection{The Classification of Surfaces}
+
+The Enriques--Kodaira classification of complex algebraic surfaces was one of the crowning achievements of the Italian school of algebraic geometry and its postwar development by Kodaira and Spencer. However, this classification was only proven over the complex numbers. Extending it to fields of positive characteristic required fundamentally new ideas, since the behavior of canonical divisors and the Kodaira vanishing theorem changes dramatically in characteristic $p$.
+
+\subsection{Invariant Theory and Quotients}
+
+Geometric invariant theory addresses a classical problem: given an algebraic group $G$ acting on an algebraic variety $X$, when does the quotient $X/G$ exist as an algebraic variety? The Mumford--Hilbert theorem on invariants had established finite generation of invariant rings in characteristic zero, but constructing quotients in a geometric setting required a refined theory that distinguishes between ``stable'' and ``unstable'' points.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Geometric Invariant Theory}
+
+Mumford's key insight was to use the notion of \textbf{semi-stability} from invariant theory to solve the quotient problem. For a reductive group $G$ acting on a projective variety $X$ with a $G$-linearized ample line bundle $L$, a point $x \in X$ is called:
+\begin{itemize}
+    \item \textbf{Semi-stable} if there exists a $G$-invariant section $s \in H^0(X, L^n)^G$ with $s(x) \neq 0$.
+    \item \textbf{Stable} if its orbit is closed in the semi-stable locus and its stabilizer is finite.
+\end{itemize}
+
+The quotient $X/\!/G = \Proj(\bigoplus_{n \geq 0} H^0(X, L^n)^G)$ exists as a projective variety, and its points classify closed orbits of semi-stable points.
+
+\subsection{Tools and Techniques}
+
+\begin{itemize}
+    \item \textbf{The Hilbert--Mumford criterion:} A numerical criterion for semi-stability using one-parameter subgroups, reducing the problem to checking stability of points under $\mathbb{G}_m$-actions.
+    \item \textbf{Mumford's numerical criterion:} A point is stable if and only if every one-parameter subgroup has positive weight.
+    \item \textbf{Toroidal embeddings:} A theory of varieties defined by monomials, leading to resolution of singularities for toric varieties.
+\end{itemize}
+
+\subsection{The Deligne--Mumford Compactification}
+
+The moduli space of smooth curves $M_g$ is not compact. To study degenerations, Mumford and Deligne introduced the space $\overline{M}_g$ of \textbf{stable curves}---curves with at most nodal singularities and finite automorphism group. They proved that $\overline{M}_g$ is a smooth Deligne--Mumford stack, now one of the most important objects in algebraic geometry.
+
+\section{Mathematical Theory}
+
+\subsection{Geometric Invariant Theory}
+
+\begin{definition}[Reductive Group]
+An algebraic group $G$ over an algebraically closed field $k$ is \textbf{reductive} if its unipotent radical is trivial. Examples: $\GL_n$, $\SL_n$, $\mathrm{PGL}_n$.
+\end{definition}
+
+\begin{definition}[Stable and Semi-Stable Points]
+Let $G$ be a reductive group acting on a projective variety $X \subset \mathbb{P}^n$ with a $G$-linearization. A point $x \in X$ is:
+\begin{itemize}
+    \item \textbf{Semi-stable} if there exists a $G$-invariant homogeneous polynomial $f$ with $f(x) \neq 0$.
+    \item \textbf{Stable} if it is semi-stable and its orbit is closed in the semi-stable locus, with finite stabilizer.
+\end{itemize}
+\end{definition}
+
+\begin{theorem}[Hilbert--Mumford Criterion]
+A point $x \in X$ is semi-stable (resp.\ stable) if and only if for every one-parameter subgroup $\lambda: \mathbb{G}_m \to G$, the limit $\lim_{t \to 0} \lambda(t) \cdot x$ satisfies $\mu(x, \lambda) \geq 0$ (resp.\ $> 0$), where $\mu$ is the Mumford numerical function.
+\end{theorem}
+
+\begin{theorem}[Existence of Quotients]
+For a reductive group $G$ acting on a projective variety $X$, the GIT quotient $X/\!/G = \Proj(\bigoplus_{n \geq 0} H^0(X, L^n)^G)$ is a projective variety, and there is a $G$-invariant morphism $X^{ss} \to X/\!/G$ whose fibers are closed $G$-orbits.
+\end{theorem}
+
+\subsection{Moduli of Curves}
+
+\begin{definition}[Stable Curve]
+A \textbf{stable curve} of genus $g \geq 2$ over an algebraically closed field is a connected projective curve $C$ with at most ordinary double points (nodes) as singularities, such that $\omega_C$ is ample (equivalently, every smooth rational component meets the rest of the curve in at least $3$ points).
+\end{definition}
+
+\begin{theorem}[Deligne--Mumford, 1969]
+The moduli stack $\overline{\mathcal{M}}_g$ of stable curves of genus $g$ is a smooth, proper Deligne--Mumford stack of dimension $3g-3$. Its coarse moduli space $\overline{M}_g$ is a projective variety.
+\end{theorem}
+
+The boundary $\overline{M}_g \setminus M_g$ consists of nodal curves and decomposes into components $\Delta_0, \Delta_1, \dots, \Delta_{\lfloor g/2 \rfloor}$ corresponding to different types of degenerations.
+
+\begin{theorem}[Mumford's Vanishing Theorem]
+For a semi-ample line bundle $L$ on a proper algebraic variety $X$ of characteristic zero, $H^i(X, L^{\otimes n}) = 0$ for all $i > 0$ and $n \gg 0$.
+\end{theorem}
+
+\subsection{Classification of Surfaces in Positive Characteristic}
+
+Mumford, in collaboration with Enrico Bombieri, extended the Enriques--Kodaira classification of algebraic surfaces to fields of characteristic $p$. The four classes are:
+
+\begin{enumerate}
+    \item \textbf{Kodaira dimension $-\infty$:} Ruled surfaces (including $\mathbb{P}^1 \times C$ and $\mathbb{P}^2$).
+    \item \textbf{Kodaira dimension $0$:} K3 surfaces, abelian surfaces, hyperelliptic surfaces, Enriques surfaces.
+    \item \textbf{Kodaira dimension $1$:} Elliptic surfaces.
+    \item \textbf{Kodaira dimension $2$:} Surfaces of general type.
+\end{enumerate}
+
+In characteristic $p$, new phenomena appear: there exist ``non-classical'' Enriques surfaces and ``quasi-elliptic'' fibrations that do not occur in characteristic zero. Mumford's work using the Frobenius morphism and flat cohomology provided the tools needed for this classification.
+
+\subsection{Theta Functions and Abelian Varieties}
+
+Mumford's algebraic approach to theta functions showed that the classical analytic theory has a purely algebraic counterpart. The theta functions of an abelian variety satisfy functional equations encoded by the Heisenberg group:
+
+\begin{theorem}[Mumford's Theta Group]
+For an ample line bundle $L$ on an abelian variety $X$, the group of symmetries of the theta functions is a finite Heisenberg group, and the theta functions form an irreducible representation of this group. The equations defining abelian varieties can be written explicitly using theta functions.
+\end{theorem}
+
+\subsection{The Mumford--Shah Functional}
+
+In computer vision, Mumford and Shah proposed a variational approach to image segmentation:
+
+\begin{definition}[Mumford--Shah Functional]
+For an image $g \in L^\infty(\Omega)$ defined on a domain $\Omega \subset \R^2$, the Mumford--Shah functional is:
+\[
+E(u, K) = \int_{\Omega \setminus K} |\nabla u|^2 \, dx + \int_{\Omega} |u - g|^2 \, dx + \lambda \cdot \text{Length}(K)
+\]
+where $u$ is a piecewise smooth approximation to $g$, $K$ is the set of edges (discontinuities), and $\lambda > 0$ is a parameter.
+\end{definition}
+
+Minimizing this functional segments the image into regions separated by sharp boundaries, providing a rigorous mathematical foundation for image processing.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Moduli Theory:} GIT is the standard tool for constructing moduli spaces throughout algebraic geometry. Moduli spaces of curves, vector bundles, and maps are all constructed using Mumford's framework.
+    \item \textbf{Algebraic Stacks:} The Deligne--Mumford paper introduced algebraic stacks, now a central concept in algebraic geometry, arithmetic geometry, and the Langlands program.
+    \item \textbf{Invariant Theory:} The Hilbert--Mumford criterion provides an algorithmic approach to computing stability, with applications to computational algebraic geometry.
+    \item \textbf{Classification of Surfaces:} Mumford's work completed the classification of algebraic surfaces in all characteristics.
+    \item \textbf{Theta Functions:} His algebraic approach has applications to coding theory, cryptography, and the theory of integrable systems.
+\end{enumerate}
+
+\subsection{In Computer Science and Technology}
+
+\begin{enumerate}
+    \item \textbf{Image Segmentation:} The Mumford--Shah functional is a foundational approach in computer vision. Variants are used in medical imaging, robotics, and autonomous driving.
+    \item \textbf{Pattern Theory:} Mumford's later work on pattern theory and the stochastic analysis of real-world signals has influenced machine learning and artificial intelligence.
+    \item \textbf{Computational Algebraic Geometry:} His work on Castelnuovo--Mumford regularity provides complexity bounds for Gr\"obner basis algorithms.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is geometric invariant theory in simple terms?}
+Geometric invariant theory answers the question: given a group acting on a space, when can we form a sensible quotient? The key idea is to distinguish ``stable'' points (whose orbits are well-behaved) from ``unstable'' points (which must be discarded). The GIT quotient $X/\!/G$ is a projective variety whose points correspond to closed orbits of semi-stable points. This is essential for constructing moduli spaces, where the group of automorphisms must be quotiented out.
+
+\subsection*{Q2: What is the Deligne--Mumford compactification?}
+The moduli space $M_g$ of smooth curves is not compact---families of curves can degenerate to singular curves. Deligne and Mumford compactified $M_g$ by adding ``stable curves'' (curves with at most nodal singularities and finite automorphism group) at the boundary. The resulting space $\overline{M}_g$ is a smooth proper stack, making it possible to use intersection theory and cohomology to study moduli problems.
+
+\subsection*{Q3: Why is Mumford's work on theta functions important?}
+Mumford showed that theta functions---fundamental to the theory of abelian varieties---have a purely algebraic description. This made them accessible in positive characteristic and led to applications in coding theory (algebraic-geometric codes) and cryptography. The algebraic theory also reveals deep connections with representation theory of Heisenberg groups.
+
+\subsection*{Q4: How did Mumford transition from pure mathematics to computer vision?}
+Mumford moved from Harvard to Brown University in 1996 and shifted his focus to applied mathematics. He was motivated by the challenge of understanding how biological vision works and how to create mathematical models for image analysis. The Mumford--Shah functional exemplifies his approach: take a hard problem (image segmentation) and find a variational formulation that captures its essential features.
+
+\subsection*{Q5: What should an undergraduate study to understand Mumford's work?}
+For the algebraic geometry side: abstract algebra (groups, rings, fields), algebraic geometry (varieties, schemes, sheaves), and representation theory. For the computer vision side: real analysis, functional analysis, and variational calculus. Mumford's own \textit{The Red Book of Varieties and Schemes} is an excellent introduction to scheme theory, and \textit{Geometric Invariant Theory} (with Fogarty and Kirwan) is the standard reference.
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the moduli space $M_{1,1}$ of elliptic curves is isomorphic to $\mathbb{A}^1$ via the $j$-invariant, and that its Deligne--Mumford compactification is $\mathbb{P}^1$.
+    \item Let $\mathrm{PGL}(n)$ act on $\mathbb{P}^n$ by linear transformations. Determine the stable and semi-stable points using the Hilbert--Mumford criterion.
+    \item Prove that a stable curve of genus $g \geq 2$ has finite automorphism group.
+    \item Show that the Mumford--Shah functional is lower semi-continuous with respect to appropriate topologies on $u$ and $K$.
+    \item Let $A$ be an abelian variety and $L$ an ample line bundle. Show that the theta group of $(A, L)$ is a finite Heisenberg group.
+    \item Classify the possible configurations of rational components in a stable curve of genus $2$.
+    \item Show that the Hilbert--Mumford criterion implies that a point $x$ in $\mathbb{P}^n$ is $\SL_{n+1}$-stable if and only if it has no non-zero coordinates equal to zero.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1937 & Born in Worth, West Sussex, England \\ \hline
+1955--56 & Putnam Fellow at Harvard University \\ \hline
+1961 & Ph.D. from Harvard University (advisor: Oscar Zariski) \\ \hline
+1965 & Publishes \textit{Geometric Invariant Theory} \\ \hline
+1969 & Deligne--Mumford compactification of $M_g$ \\ \hline
+1974 | Fields Medal at the ICM in Vancouver \\ \hline
+1975 | Elected to the National Academy of Sciences \\ \hline
+1976 | Classification of surfaces in characteristic $p$ (with Bombieri) \\ \hline
+1987 | MacArthur Fellowship \\ \hline
+1989 | Mumford--Shah functional for image segmentation \\ \hline
+1995--1999 | President of the International Mathematical Union \\ \hline
+1996 | Moves to Brown University, shifts to applied mathematics \\ \hline
+2006 | Shaw Prize \\ \hline
+2007 | Steele Prize for Mathematical Exposition \\ \hline
+2008 | Wolf Prize in Mathematics (with Deligne and Griffiths) \\ \hline
+2010 | National Medal of Science \\ \hline
+2012 | BBVA Foundation Frontiers of Knowledge Award \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Castelnuovo--Mumford regularity] A cohomological condition bounding the degrees of generators and syzygies of a sheaf.
+    \item[Deligne--Mumford stack] An algebraic stack with finite diagonal, generalizing schemes to objects with automorphisms.
+    \item[GIT quotient] The projective variety $X/\!/G = \Proj(\bigoplus_{n \geq 0} H^0(X, L^n)^G)$ parametrizing closed $G$-orbits of semi-stable points.
+    \item[Hilbert--Mumford criterion] A numerical criterion for stability using one-parameter subgroups.
+    \item[Moduli space] A space whose points parametrize isomorphism classes of geometric objects (e.g., curves, vector bundles).
+    \item[Mumford--Shah functional] A variational energy for image segmentation combining smoothness, fidelity, and edge-length penalty.
+    \item[Stable curve] A nodal curve with finite automorphism group and ample canonical sheaf.
+    \item[Semi-stability] A condition on a point in a GIT problem ensuring it is not excluded from the quotient.
+    \item[Toric variety] An algebraic variety containing an algebraic torus as a dense open subset, with a torus action extending the group law.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item D.\ Mumford, \textit{Geometric Invariant Theory}, Springer-Verlag, 1965 (2nd ed.\ with J.\ Fogarty, 1982; 3rd ed.\ with F.\ Kirwan and J.\ Fogarty, 1994).
+    \item P.\ Deligne and D.\ Mumford, \textit{The irreducibility of the space of curves of given genus}, Publ.\ Math.\ IH\'ES 36 (1969), 75--109.
+    \item D.\ Mumford, \textit{Abelian Varieties}, Oxford Univ.\ Press, 1970.
+    \item D.\ Mumford, \textit{The Red Book of Varieties and Schemes}, Springer Lecture Notes 1358, 1999.
+    \item D.\ Mumford, \textit{Lectures on Curves on an Algebraic Surface}, Princeton Univ.\ Press, 1966.
+    \item D.\ Mumford and J.\ Shah, \textit{Optimal approximations by piecewise smooth functions and associated variational problems}, Comm.\ Pure Appl.\ Math.\ 42 (1989), 577--685.
+    \item E.\ Bombieri and D.\ Mumford, \textit{Enriques' classification of surfaces in char.\ p, I--III}, 1969--1976.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item J.\ Tate, \textit{The Work of David Mumford}, Proc.\ ICM Vancouver 1974.
+    \item M.\ Artin, \textit{David Mumford's Work on Algebraic Geometry}, Notices AMS 2010.
+    \item Wolf Foundation, \textit{Wolf Prize Citation 2008}.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item D.\ Mumford, J.\ Fogarty, and F.\ Kirwan, \textit{Geometric Invariant Theory}, 3rd ed., Springer, 1994.
+    \item J.\ Harris and I.\ Morrison, \textit{Moduli of Curves}, Springer, 1998.
+    \item D.\ Mumford, C.\ Series, and D.\ Wright, \textit{Indra's Pearls: The Vision of Felix Klein}, Cambridge Univ.\ Press, 2002.
+    \item D.\ Mumford and A.\ Desolneux, \textit{Pattern Theory: The Stochastic Analysis of Real-World Signals}, A K Peters, 2010.
+    \item R.\ Hartshorne, \textit{Algebraic Geometry}, Springer, 1977.
+\end{enumerate}
+

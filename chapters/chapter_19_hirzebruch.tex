@@ -1,0 +1,961 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\ch\relax
+\newcommand{\ch}{\operatorname{ch}}
+\let\Td\relax
+\newcommand{\Td}{\operatorname{Td}}
+\let\sign\relax
+\newcommand{\sign}{\operatorname{sign}}
+\let\cL\relax
+\newcommand{\cL}{\mathcal{L}}
+
+\chapter{Friedrich Hirzebruch (1988)}
+
+\begin{quote}
+\it ``Hirzebruch's work is a model of elegance and depth. His
+Hirzebruch--Riemann--Roch theorem and the Hirzebruch signature theorem
+are cornerstones of modern mathematics, linking analysis, topology, and
+algebraic geometry. His creation of the Max Planck Institute for
+Mathematics in Bonn established a world center for mathematical
+research.'' --- Wolf Prize Citation
+\end{quote}
+
+Friedrich Ernst Peter Hirzebruch (1927--2012) was one of the most
+influential mathematicians of the postwar era. His work bridges
+topology, algebraic geometry, and differential geometry with
+extraordinary clarity and power. The 1988 Wolf Prize in Mathematics
+(shared with Lars H\"ormander) recognized his fundamental contributions:
+the Hirzebruch--Riemann--Roch theorem, the Hirzebruch signature theorem,
+and his systematic development of multiplicative sequences and
+characteristic classes in algebraic geometry.
+
+Hirzebruch's mathematics is characterized by a rare synthesis of
+topological and algebraic methods. He transformed the classical
+Riemann--Roch problem from a theorem about curves into a general
+principle for complex manifolds, revealing the deep connection between
+the analysis of sheaf cohomology, the topology of characteristic
+classes, and the geometry of algebraic varieties. His 1956 book
+\textit{Neue topologische Methoden in der algebraischen Geometrie}
+became an instant classic and shaped the development of modern algebraic
+geometry.
+
+\section{Main Contribution}
+
+\begin{itemize}
+    \item \textbf{Hirzebruch--Riemann--Roch Theorem (1954):}
+    The generalization of the classical Riemann--Roch theorem from
+    algebraic curves to arbitrary compact complex manifolds. For a
+    holomorphic vector bundle \(E\) over a compact complex manifold
+    \(X\), the Euler characteristic \(\chi(X, E)\) is expressed as
+    \[
+    \chi(X, E) = \int_X \ch(E) \Td(TX),
+    \]
+    where \(\ch(E)\) is the Chern character of \(E\) and \(\Td(TX)\) is
+    the Todd class of the tangent bundle. This theorem unified sheaf
+    cohomology with characteristic class theory and paved the way for
+    the Atiyah--Singer index theorem.
+
+    \item \textbf{Hirzebruch Signature Theorem (1956):}
+    For a compact oriented smooth manifold \(M\) of dimension \(4k\),
+    the signature \(\tau(M)\) equals a certain polynomial in the
+    Pontryagin classes, expressed through the \(L\)-genus:
+    \[
+    \tau(M) = \int_M L(p_1, \dots, p_k).
+    \]
+    For a \(4\)-manifold this simplifies to
+    \(\tau(M) = \frac13 \int_M p_1(M)\). The signature theorem is one
+    of the most striking results connecting topology and analysis.
+
+    \item \textbf{Multiplicative Sequences:}
+    Hirzebruch developed the theory of multiplicative sequences of
+    polynomials, which associates to every power series
+    \(Q(x) = 1 + q_1 x + q_2 x^2 + \cdots\) a sequence of polynomials
+    \(K_n(p_1, \dots, p_n)\) such that the genus
+    \(\int_M K(p_1, \dots, p_k)\) is a multiplicative invariant. The
+    Todd genus arises from \(Q(x) = x/(1 - e^{-x})\), the \(L\)-genus
+    from \(Q(x) = \sqrt{x}/\tanh\sqrt{x}\), and the \(\hat{A}\)-genus
+    from \(Q(x) = \sqrt{x}/ \sinh\sqrt{x}\).
+
+    \item \textbf{Hirzebruch Surfaces:}
+    The ruled surfaces \(\Sigma_n = \mathbb{P}(\mathcal{O} \oplus
+    \mathcal{O}(-n))\) over \(\mathbb{P}^1\), now called Hirzebruch
+    surfaces. They provide fundamental examples in the classification
+    of algebraic surfaces, with \(\Sigma_0 = \mathbb{P}^1 \times
+    \mathbb{P}^1\) and \(\Sigma_1\) the blowup of \(\mathbb{P}^2\) at a
+    point.
+
+    \item \textbf{Topology of Algebraic Varieties:}
+    Systematic application of characteristic classes to algebraic
+    varieties, including the computation of Chern numbers, the study
+    of cobordism classes, and the development of Chern numbers for
+    algebraic surfaces.
+
+    \item \textbf{Max Planck Institute for Mathematics:}
+    In 1981, Hirzebruch founded the Max Planck Institute for
+    Mathematics in Bonn, which became a world center for research. The
+    institute's Hirzebruch Prize (established 2018) honors his legacy.
+
+    \item \textbf{Proportionality Principle and Index Theory:}
+    His work on the proportionality principle in complex geometry, the
+    relation between Chern and Pontryagin numbers, and the topology of
+    complex flag manifolds. His collaboration with Atiyah and others
+    on the index of elliptic operators and \(K\)-theory.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Classical Riemann--Roch Theorem}
+
+The Riemann--Roch theorem for algebraic curves is one of the most
+beautiful results of nineteenth-century mathematics. For a compact
+Riemann surface \(C\) of genus \(g\) and a divisor \(D\) on \(C\), the
+theorem states
+\[
+\ell(D) - \ell(K - D) = \deg D + 1 - g,
+\]
+where \(\ell(D)\) is the dimension of the space of meromorphic functions
+with poles bounded by \(D\) and \(K\) is the canonical divisor. In
+sheaf-theoretic language, this becomes
+\[
+\chi(C, \mathcal{O}(D)) = \deg D + 1 - g,
+\]
+where
+\(\chi(C, \mathcal{O}(D)) = \dim H^0(C, \mathcal{O}(D)) -
+\dim H^1(C, \mathcal{O}(D))\).
+
+The classical theorem was a powerful tool, but it was limited to curves.
+Mathematicians in the first half of the twentieth century sought
+generalizations to higher-dimensional algebraic varieties. The problem
+was: given a line bundle (or vector bundle) on a smooth projective
+variety, can one compute the Euler characteristic of its sheaf
+cohomology in terms of topological invariants?
+
+The difficulty lay in the fact that higher-dimensional varieties have
+many intermediate cohomology groups, and the alternating sum
+\[
+\chi(X, E) = \sum_{i=0}^{\dim X} (-1)^i \dim H^i(X, \mathcal{O}(E))
+\]
+must be expressed in terms of characteristic classes that capture the
+topology of both \(E\) and the tangent bundle \(TX\).
+
+\subsection{The Signature Problem}
+
+Parallel to the Riemann--Roch problem was the question of the signature
+of a manifold. For a compact oriented \(4k\)-dimensional manifold
+\(M\), the intersection form on the middle-dimensional cohomology
+\[
+Q_M: H^{2k}(M, \R) \times H^{2k}(M, \R) \to \R,
+\quad
+Q_M(\alpha, \beta) = \int_M \alpha \cup \beta
+\]
+is a symmetric bilinear form. Its signature \(\tau(M)\) is the number of
+positive eigenvalues minus the number of negative eigenvalues.
+
+It was observed that the signature behaves multiplicatively under
+coverings and satisfies a certain additivity property under cutting and
+pasting. These properties suggested that the signature should be
+expressible as a linear combination of Pontryagin numbers --- integrals
+of products of Pontryagin classes evaluated on the fundamental cycle.
+But what combination? Euler's theorem on the Euler characteristic as a
+sum of Betti numbers had a topological formula; the signature cried out
+for a similar expression.
+
+\subsection{Multiplicative Sequences and Genera}
+
+Hirzebruch's key insight came from the theory of multiplicative
+sequences. Suppose we want to construct an invariant \(I(M)\) of
+oriented closed manifolds that is:
+\begin{enumerate}
+    \item \textbf{Multiplicative:}
+    \(I(M_1 \times M_2) = I(M_1) \cdot I(M_2)\),
+    \item \textbf{Additive:}
+    \(I(M_1 \sqcup M_2) = I(M_1) + I(M_2)\),
+    \item \textbf{Cobordism invariant:}
+    if \(M = \partial W\), then \(I(M) = 0\).
+\end{enumerate}
+
+Such an invariant is called a \textit{genus}. Hirzebruch recognized that
+genera correspond precisely to multiplicative sequences of polynomials,
+and that each genus is determined by a power series. The key examples
+are:
+\begin{itemize}
+    \item The \textbf{Todd genus} \(\Td(X)\) of a complex manifold
+    \(X\), corresponding to \(Q(x) = x/(1 - e^{-x})\).
+    \item The \(L\)-{\bf genus} \(L(M)\) of an oriented manifold,
+    corresponding to \(Q(x) = \sqrt{x}/\tanh\sqrt{x}\).
+    \item The \(\hat{A}\)-{\bf genus} of a spin manifold, corresponding
+    to \(Q(x) = \sqrt{x}/\sinh\sqrt{x}\).
+\end{itemize}
+
+The signature theorem would be \(\tau(M) = L(M)[M]\), and the HRR
+theorem would be \(\chi(X, \mathcal{O}) = \Td(TX)[X]\) (the Todd genus).
+
+\section{How It Was Solved}
+
+\subsection{The Hirzebruch--Riemann--Roch Theorem (1954)}
+
+Hirzebruch's breakthrough in 1954 was to realize that the Chern
+character \(\ch(E)\) and the Todd class \(\Td(TX)\) are the correct
+cohomological ingredients. The Chern character of a vector bundle
+\(E\) is defined from the Chern classes via the formal factorization:
+if \(E\) splits formally into line bundles with Chern roots \(x_i\),
+then
+\[
+\ch(E) = \sum_{i=1}^{\rank E} e^{x_i}
+= \rank E + c_1(E) + \frac12(c_1^2 - 2c_2)(E)
++ \frac16(c_1^3 - 3c_1c_2 + 3c_3)(E) + \cdots.
+\]
+
+The Todd class of the tangent bundle \(TX\) is defined via the
+multiplicative sequence associated to \(Q(x) = x/(1 - e^{-x})\): if the
+Chern roots of \(TX\) are \(y_i\), then
+\[
+\Td(TX) = \prod_{i=1}^n \frac{y_i}{1 - e^{-y_i}}
+= 1 + \frac12 c_1 + \frac1{12}(c_1^2 + c_2) + \cdots.
+\]
+
+\begin{theorem}[Hirzebruch--Riemann--Roch, 1954]
+Let \(X\) be a compact complex manifold of dimension \(n\) and let
+\(E\) be a holomorphic vector bundle on \(X\). Then
+\[
+\chi(X, E) = \int_X \ch(E) \Td(TX),
+\]
+where \(\chi(X, E) = \sum_{i=0}^n (-1)^i \dim_{\C} H^i(X,
+\mathcal{O}(E))\) is the Euler characteristic, \(\ch(E)\) is the Chern
+character of \(E\), and \(\Td(TX)\) is the Todd class of the tangent
+bundle \(TX\). The integral denotes evaluation of the degree-\(2n\)
+component of the cohomology class on the fundamental cycle of \(X\).
+\end{theorem}
+
+\begin{example}[Riemann--Roch for Curves]
+For a compact Riemann surface \(C\) of genus \(g\) and a line bundle
+\(L = \mathcal{O}(D)\) of degree \(d\), we have
+\[
+\ch(L) = 1 + c_1(L) = 1 + d\,\omega,
+\]
+where \(\omega\) is the generator of \(H^2(C, \Z)\). The Todd class of
+\(TC\) is
+\[
+\Td(TC) = 1 + \frac12 c_1(TC) = 1 + (1 - g)\omega.
+\]
+Then
+\[
+\chi(C, L) = \int_C (1 + d\omega)(1 + (1-g)\omega)
+= \int_C (d + 1 - g)\omega = d + 1 - g,
+\]
+which is exactly the classical Riemann--Roch theorem.
+\end{example}
+
+\begin{example}[Projective Space]
+For \(X = \mathbb{P}^n\) with the hyperplane class
+\(h \in H^2(\mathbb{P}^n, \Z)\) and line bundle \(\mathcal{O}(d)\),
+we have
+\[
+\ch(\mathcal{O}(d)) = e^{dh},
+\qquad
+\Td(T\mathbb{P}^n) = \left(\frac{h}{1 - e^{-h}}\right)^{\!n+1}.
+\]
+The Euler characteristic is the coefficient of \(h^n\) in
+\(e^{dh} (h/(1 - e^{-h}))^{n+1}\), giving
+\[
+\chi(\mathbb{P}^n, \mathcal{O}(d)) = \binom{d + n}{n}
+\]
+for \(d \ge 0\).
+\end{example}
+
+Hirzebruch proved this theorem by using the splitting principle and the
+theory of multiplicative sequences. He reduced the general case to the
+case of line bundles over projective space by constructing a suitable
+embedding and using the fact that the Chern character and Todd class
+behave naturally under pushforward.
+
+The HRR theorem was a spectacular advance. It generalized a 1953 result
+of Kodaira and Spencer and immediately yielded many new computations.
+It also laid the groundwork for the Grothendieck--Riemann--Roch theorem
+(1958), which generalized HRR to proper morphisms of schemes, and for
+the Atiyah--Singer index theorem (1963), which unified HRR and the
+signature theorem under the umbrella of elliptic operators.
+
+\subsection{The Signature Theorem (1956)}
+
+The Hirzebruch signature theorem expresses the signature of a manifold
+in terms of its Pontryagin classes. For an oriented manifold \(M\), the
+Pontryagin classes \(p_i(M) \in H^{4i}(M, \Z)\) are characteristic
+classes that capture the topology of the tangent bundle.
+
+\begin{theorem}[Hirzebruch Signature Theorem, 1956]
+Let \(M\) be a compact oriented smooth manifold of dimension \(4k\).
+The signature \(\tau(M)\) is given by
+\[
+\tau(M) = \int_M L_k(p_1, \dots, p_k),
+\]
+where \(L_k\) is the \(k\)-th polynomial in the multiplicative sequence
+associated to the power series
+\[
+Q(x) = \frac{\sqrt{x}}{\tanh\sqrt{x}}
+= 1 + \frac13 x - \frac1{45} x^2 + \cdots.
+\]
+The first few \(L\)-polynomials are:
+\[
+\begin{aligned}
+L_1 &= \frac13 p_1,\\[2pt]
+L_2 &= \frac1{45}(7p_2 - p_1^2),\\[2pt]
+L_3 &= \frac1{945}(62p_3 - 13p_1 p_2 + 2p_1^3),\\[2pt]
+L_4 &= \frac1{14175}(381p_4 - 71p_1 p_3 - 19p_2^2 + 22p_1^2 p_2
+- 3p_1^4).
+\end{aligned}
+\]
+For a \(4\)-manifold, this reduces to
+\[
+\tau(M) = \frac13 \int_M p_1(M).
+\]
+\end{theorem}
+
+\begin{example}[Signature of Complex Projective Space]
+The complex projective plane \(\mathbb{CP}^2\) has
+\(p_1(\mathbb{CP}^2) = 3h^2\) where \(h\) generates
+\(H^2(\mathbb{CP}^2, \Z)\). Then
+\[
+\tau(\mathbb{CP}^2) = \frac13 \int_{\mathbb{CP}^2} 3h^2 = 1.
+\]
+The intersection form on \(H^2(\mathbb{CP}^2, \R)\) is positive definite
+of rank 1, so \(\tau = 1\) as expected.
+\end{example}
+
+\begin{example}[Signature of a K3 Surface]
+A K3 surface is a compact complex surface with \(c_1 = 0\). Its
+signature is \(\tau = -16\), and the signature theorem gives
+\[
+-16 = \frac13 \int p_1,
+\]
+relating the signature, Euler characteristic \(e = 24\), and the first
+Pontryagin class.
+\end{example}
+
+The signature theorem was proven by applying the theory of
+multiplicative sequences to the Pontryagin classes. Hirzebruch used the
+fact that the signature is a genus --- a multiplicative, additive,
+cobordism-invariant function on oriented manifolds --- and showed that
+any genus must be a linear combination of Pontryagin numbers, with
+coefficients determined by the corresponding multiplicative sequence.
+
+\subsection{Multiplicative Sequences}
+
+The theory of multiplicative sequences is one of Hirzebruch's most
+enduring contributions. It provides a systematic method for
+constructing characteristic numbers.
+
+\begin{definition}[Multiplicative Sequence]
+Let \(Q(x) = 1 + q_1 x + q_2 x^2 + \cdots\) be a formal power series
+with \(q_k \in \Q\). The associated \textbf{multiplicative sequence}
+\(\{K_n\}\) is defined by the formal factorization
+\[
+\sum_{n=0}^\infty K_n(p_1, \dots, p_n) t^n
+= \prod_{i=1}^\infty Q(x_i t),
+\]
+where \(p_k\) is the \(k\)-th elementary symmetric function in the
+variables \(x_i\). The polynomials \(K_n\) are homogeneous of weight
+\(n\) (where \(p_k\) has weight \(k\)).
+\end{definition}
+
+\begin{theorem}[Hirzebruch, 1956]
+Every genus (multiplicative, additive, cobordism-invariant function) on
+oriented manifolds is given by evaluating an \(L\)-polynomial on the
+fundamental class. On complex manifolds, every multiplicative invariant
+is given by evaluating a Todd-type polynomial on the Chern classes. The
+correspondence between power series and genera is bijective:
+\[
+Q(x) \longleftrightarrow \text{genus } \text{gen}_Q(M)
+= \int_M K_Q(p_1, \dots, p_k).
+\]
+\end{theorem}
+
+The key examples are:
+
+\[
+\begin{array}{l|l|l}
+\textbf{Genus} & \textbf{Power series } Q(x) & \textbf{Application}
+\\ \hline
+\text{Todd genus} & x/(1 - e^{-x}) & \text{Complex manifolds, HRR}
+\\
+L\text{-genus} & \sqrt{x}/\tanh\sqrt{x} & \text{Signature theorem}
+\\
+\hat{A}\text{-genus} & \sqrt{x}/\sinh\sqrt{x} & \text{Spin manifolds}
+\\
+\text{Euler characteristic} & x/\tanh x & \text{Euler class}
+\end{array}
+\]
+
+\subsection{Hirzebruch Surfaces}
+
+The Hirzebruch surfaces, introduced by Hirzebruch in the 1950s, are a
+family of complex surfaces that serve as fundamental examples in
+algebraic geometry.
+
+\begin{definition}[Hirzebruch Surface]
+For \(n \ge 0\), the Hirzebruch surface \(\Sigma_n\) is the projective
+bundle
+\[
+\Sigma_n = \mathbb{P}\bigl(\mathcal{O}_{\mathbb{P}^1}
+\oplus \mathcal{O}_{\mathbb{P}^1}(-n)\bigr)
+\]
+over \(\mathbb{P}^1\). Equivalently, it is the total space of a
+\(\mathbb{P}^1\)-bundle over \(\mathbb{P}^1\).
+\end{definition}
+
+These surfaces have the following properties:
+\begin{itemize}
+    \item \(\Sigma_0 = \mathbb{P}^1 \times \mathbb{P}^1\), the quadric
+    surface.
+    \item \(\Sigma_1\) is isomorphic to the blowup of \(\mathbb{P}^2\)
+    at a point.
+    \item For \(n \ge 2\), \(\Sigma_n\) is not isomorphic to a blowup
+    of \(\mathbb{P}^2\) but is a ruled surface with a unique section
+    of self-intersection \(-n\).
+    \item All \(\Sigma_n\) are rational surfaces, diffeomorphic to each
+    other for fixed parity of \(n\).
+    \item The Chern numbers are \(c_1^2(\Sigma_n) = 8\) and
+    \(c_2(\Sigma_n) = 4\) for all \(n\).
+\end{itemize}
+
+Hirzebruch surfaces play an important role in:
+\begin{enumerate}
+    \item \textbf{Classification of algebraic surfaces:} They are the
+    minimal rational surfaces (together with \(\mathbb{P}^2\)).
+    \item \textbf{The geography of surfaces:} They lie on the Noether
+    line \(c_1^2 = 2c_2 - 4\).
+    \item \textbf{Toric geometry:} Each \(\Sigma_n\) is a toric variety.
+    \item \textbf{Symplectic geometry:} They provide fundamental
+    examples in the study of symplectic 4-manifolds.
+\end{enumerate}
+
+\section{Mathematical Theory}
+
+\subsection{The Chern Character}
+
+Let \(E\) be a complex vector bundle of rank \(r\) over a smooth
+manifold \(X\). The total Chern class is
+\[
+c(E) = 1 + c_1(E) + c_2(E) + \cdots + c_r(E)
+\in H^{\bullet}(X, \Z).
+\]
+The splitting principle allows us to write
+\(c(E) = \prod_{i=1}^r (1 + x_i)\) where the formal Chern roots \(x_i\)
+lie in \(H^2(X, \Z)\) after passing to a suitable flag manifold.
+
+\begin{definition}[Chern Character]
+The \textbf{Chern character} of \(E\) is
+\[
+\ch(E) = \sum_{i=1}^r e^{x_i}
+= r + \sum_{i=1}^r x_i + \frac12 \sum_{i=1}^r x_i^2 + \cdots
+\in H^{\bullet}(X, \Q).
+\]
+In terms of Chern classes, the first few terms are:
+\[
+\begin{aligned}
+\ch_0(E) &= r,\\
+\ch_1(E) &= c_1(E),\\
+\ch_2(E) &= \tfrac12\bigl(c_1(E)^2 - 2c_2(E)\bigr),\\
+\ch_3(E) &= \tfrac16\bigl(c_1(E)^3 - 3c_1(E)c_2(E)
++ 3c_3(E)\bigr).
+\end{aligned}
+\]
+\end{definition}
+
+The Chern character is a ring homomorphism from \(K\)-theory to
+cohomology:
+\[
+\ch(E \oplus F) = \ch(E) + \ch(F),\qquad
+\ch(E \otimes F) = \ch(E)\,\ch(F).
+\]
+
+\subsection{The Todd Class}
+
+\begin{definition}[Todd Class]
+The \textbf{Todd class} of a complex vector bundle \(E\) with Chern
+roots \(x_i\) is
+\[
+\Td(E) = \prod_{i=1}^r \frac{x_i}{1 - e^{-x_i}}
+\in H^{\bullet}(X, \Q).
+\]
+The first few terms in terms of Chern classes are:
+\[
+\begin{aligned}
+\Td_0 &= 1,\\
+\Td_1 &= \tfrac12 c_1,\\
+\Td_2 &= \tfrac1{12}(c_1^2 + c_2),\\
+\Td_3 &= \tfrac1{24} c_1 c_2,\\
+\Td_4 &= \tfrac1{720}(-c_1^4 + 4c_1^2 c_2 + 3c_2^2
++ c_1 c_3 - c_4).
+\end{aligned}
+\]
+\end{definition}
+
+The Todd class is multiplicative:
+\(\Td(E \oplus F) = \Td(E) \Td(F)\). For a complex manifold \(X\), the
+Todd genus \(\Td(X) = \int_X \Td(TX)\) equals the arithmetic genus
+\(\chi(X, \mathcal{O}_X)\) by the HRR theorem.
+
+\subsection{The Hirzebruch--Riemann--Roch Theorem in Detail}
+
+For a compact complex manifold \(X\) of dimension \(n\) and a
+holomorphic vector bundle \(E\), the Euler characteristic can be
+expanded in terms of the degree-\(2n\) component:
+\[
+\chi(X, E) = \int_X \bigl[\ch(E) \Td(TX)\bigr]_{2n}.
+\]
+
+\begin{example}[Chern Numbers of a Surface]
+For a complex surface \(S\) with Chern classes \(c_1, c_2\) and a line
+bundle \(L\) with \(c_1(L) = D\), the HRR theorem gives
+\[
+\chi(S, L) = \frac12 D^2 + \frac12 D \cdot c_1
++ \frac1{12}(c_1^2 + c_2).
+\]
+When \(L = \mathcal{O}_S\), we recover the Noether formula
+\[
+\chi(S, \mathcal{O}_S) = \frac1{12}(c_1^2 + c_2).
+\]
+\end{example}
+
+The HRR theorem was generalized by Grothendieck in 1958 to the
+Grothendieck--Riemann--Roch (GRR) theorem for proper morphisms
+\(f: X \to Y\):
+\[
+\ch(f_! E) \Td(TY) = f_*(\ch(E) \Td(TX)),
+\]
+where \(f_!\) denotes the direct image in \(K\)-theory and \(f_*\) the
+pushforward in cohomology. The GRR theorem is a central tool in modern
+algebraic geometry, used to study moduli spaces, intersection theory,
+and the geometry of families.
+
+\subsection{The Signature Theorem and the \(L\)-Genus}
+
+The \(L\)-genus is defined via the multiplicative sequence associated
+to \(Q(x) = \sqrt{x}/\tanh\sqrt{x}\). Its expansion is
+\[
+\frac{\sqrt{x}}{\tanh\sqrt{x}}
+= 1 + \sum_{k=1}^\infty \frac{2^{2k} B_{2k}}{(2k)!} x^k,
+\]
+where \(B_{2k}\) are Bernoulli numbers. The first Bernoulli numbers are
+\(B_2 = 1/6\), \(B_4 = -1/30\), \(B_6 = 1/42\), giving the coefficients
+\(1/3, -1/45, 2/945, \dots\) in the \(L\)-polynomials.
+
+\begin{theorem}[Signature Theorem, Equivalent Form]
+For a compact oriented \(4k\)-manifold \(M\),
+\[
+\tau(M) = \int_M L_k(p_1, \dots, p_k)
+= L_k(p_1, \dots, p_k)[M].
+\]
+In particular, the signature is a rational linear combination of
+Pontryagin numbers.
+\end{theorem}
+
+The signature theorem has important consequences:
+\begin{itemize}
+    \item The signature of a \(4k\)-dimensional manifold is an integer,
+    so the Pontryagin numbers must satisfy certain integrality
+    conditions --- the famous Hirzebruch integrality theorems.
+    \item For a \(4\)-manifold, \(\int_M p_1(M)\) must be divisible by
+    \(3\).
+    \item The theorem implies that the signature is a cobordism
+    invariant, and the \(L\)-genus is a ring homomorphism from the
+    oriented cobordism ring to \(\Q\).
+\end{itemize}
+
+\subsection{The Proportionality Principle}
+
+One of Hirzebruch's deep insights was the proportionality principle:
+for compact quotients of symmetric spaces, the characteristic numbers
+are proportional to those of the corresponding compact dual symmetric
+space.
+
+Let \(G/K\) be a Hermitian symmetric space of compact type and
+\(\Gamma \backslash G/K\) a compact quotient of the non-compact dual.
+Then Hirzebruch showed
+\[
+\frac{c_n(\Gamma \backslash G/K)}{\operatorname{Vol}(\Gamma \backslash G/K)}
+= \frac{c_n(G/K)}{\operatorname{Vol}(G/K)},
+\]
+where \(c_n\) denotes any Chern number. This principle connects the
+topology of locally symmetric spaces to their volumes and has deep
+applications in the theory of automorphic forms.
+
+\subsection{Connections to the Atiyah--Singer Index Theorem}
+
+The Atiyah--Singer index theorem (1963) unified the HRR theorem and the
+signature theorem as special cases of a single principle: the index of
+an elliptic operator on a compact manifold equals a topological
+invariant expressed in terms of characteristic classes.
+
+Specifically:
+\begin{itemize}
+    \item The HRR theorem is the index theorem for the
+    \(\bar\partial\)-operator on a complex manifold:
+    \(\operatorname{Ind}(\bar\partial_E) = \chi(X, E)
+    = \int_X \ch(E) \Td(TX)\).
+    \item The signature theorem is the index theorem for the signature
+    operator \(d + d^*\) on a Riemannian manifold:
+    \(\operatorname{Ind}(\text{signature operator}) = \tau(M)
+    = \int_M L(p_1, \dots, p_k)\).
+    \item The \(\hat{A}\)-genus appears as the index of the Dirac
+    operator on a spin manifold.
+\end{itemize}
+
+Hirzebruch's work provided the essential blueprint for the index
+theorem, and Atiyah and Singer explicitly credit Hirzebruch's
+formulations as the inspiration for their general theory.
+
+\subsection{Hirzebruch Surfaces: Further Details}
+
+The Hirzebruch surface \(\Sigma_n\) can be described explicitly. Let
+\(H\) be the divisor class of a fiber of the projection
+\(\pi: \Sigma_n \to \mathbb{P}^1\) and let \(E\) be the class of the
+section with self-intersection \(-n\) (the exceptional section). Then
+the intersection pairing is
+\[
+E^2 = -n,\quad E \cdot H = 1,\quad H^2 = 0.
+\]
+The canonical divisor is \(K_{\Sigma_n} = -2E - (n+2)H\), and the Chern
+numbers are
+\[
+c_1(\Sigma_n)^2 = 8,\quad c_2(\Sigma_n) = 4.
+\]
+
+The Hirzebruch surfaces have been generalized to higher dimensions: the
+so-called Hirzebruch--Grothendieck manifolds
+\(\mathbb{P}(\mathcal{O} \oplus \mathcal{O}(-n_1)
+\oplus \cdots \oplus \mathcal{O}(-n_k))\) over \(\mathbb{P}^1\), and
+more generally projective bundles over arbitrary bases.
+
+\section{Impact}
+
+\subsection{Algebraic Geometry}
+
+The Hirzebruch--Riemann--Roch theorem transformed algebraic geometry.
+Before 1954, computations of sheaf cohomology on higher-dimensional
+varieties were extremely difficult. After HRR, the Euler characteristic
+of any vector bundle could be computed mechanically from its Chern
+classes.
+
+The theorem was essential for:
+\begin{itemize}
+    \item \textbf{Classification of algebraic surfaces:} Kodaira's
+    classification used HRR to compute invariants.
+    \item \textbf{Moduli spaces:} The dimension and properties of
+    moduli spaces of curves and vector bundles depend on HRR-type
+    computations. For example, the dimension of the moduli space
+    \(\mathcal{M}_g\) of curves of genus \(g\) is \(3g-3\), computed by
+    Riemann--Roch.
+    \item \textbf{Intersection theory:} HRR is the foundation for the
+    Riemann--Roch theorem on algebraic varieties, generalized by
+    Grothendieck and later by Fulton and MacPherson.
+    \item \textbf{Mirror symmetry:} The HRR theorem underpins
+    computations in string theory and the study of Calabi--Yau
+    manifolds.
+\end{itemize}
+
+\subsection{Topology}
+
+The signature theorem and the theory of multiplicative sequences had a
+profound impact on topology:
+\begin{itemize}
+    \item \textbf{Cobordism theory:} Hirzebruch's genera provided
+    invariants that distinguish cobordism classes. Thom's cobordism
+    theory combined with Hirzebruch's work to compute the cobordism
+    ring.
+    \item \textbf{Characteristic classes:} Hirzebruch's systematic
+    treatment made characteristic classes a standard tool in topology.
+    \item \textbf{Integrality theorems:} The Hirzebruch integrality
+    theorems (e.g., the \(\hat{A}\)-genus of a spin manifold is an
+    integer) are fundamental in the study of manifolds with special
+    holonomy.
+    \item \textbf{Index theory:} Hirzebruch's work directly motivated
+    the Atiyah--Singer index theorem.
+\end{itemize}
+
+\subsection{The Max Planck Institute for Mathematics and the Hirzebruch Prize}
+
+In 1981, Hirzebruch founded the Max Planck Institute for Mathematics
+(MPIM) in Bonn. Under his directorship (1981--1994), the institute
+became a world leader in mathematics, hosting thousands of visitors and
+fostering collaborations across all fields of pure mathematics.
+
+The MPIM established the \textbf{Hirzebruch Prize} in 2018, awarded
+biennially to young mathematicians for outstanding contributions to
+mathematics. The prize is a fitting tribute to Hirzebruch's vision of
+mathematics as a collaborative, international enterprise.
+
+\subsection{Mathematical Physics}
+
+Hirzebruch's work has deep connections to physics:
+\begin{itemize}
+    \item The HRR theorem is used in string theory to compute the
+    number of massless modes in compactifications.
+    \item The signature theorem governs anomalies in quantum field
+    theory.
+    \item Hirzebruch surfaces appear as examples in gauge theory and
+    mirror symmetry.
+    \item The \(\hat{A}\)-genus appears in the Green--Schwarz anomaly
+    cancellation mechanism.
+\end{itemize}
+
+\section{Frequently Asked Questions}
+
+\subsection*{Q1: What is the Hirzebruch--Riemann--Roch theorem, and why is it important?}
+
+The Hirzebruch--Riemann--Roch theorem computes the Euler characteristic
+\(\chi(X, E) = \sum (-1)^i \dim H^i(X, \mathcal{O}(E))\) of a
+holomorphic vector bundle \(E\) on a compact complex manifold \(X\) as
+\(\int_X \ch(E) \Td(TX)\). It is important because it reduces a
+difficult analytic problem (computing sheaf cohomology dimensions) to a
+mechanical topological computation (integrating characteristic
+classes). It was the first general Riemann--Roch theorem in higher
+dimensions and inspired the Grothendieck--Riemann--Roch theorem and the
+Atiyah--Singer index theorem.
+
+\subsection*{Q2: Who was Todd, and why is the Todd class named after him?}
+
+J. A. Todd (1908--1994) was a British algebraic geometer who studied
+invariants of algebraic varieties. In the 1930s, he introduced certain
+polynomials (now called Todd polynomials) that arise in the study of
+Chern classes. Hirzebruch recognized that these polynomials are exactly
+the multiplicative sequence associated to \(x/(1-e^{-x})\), and named
+the resulting characteristic class the Todd class in Todd's honor.
+
+\subsection*{Q3: How does the signature theorem relate to the index theorem?}
+
+The signature \(\tau(M)\) of a \(4k\)-manifold is the index of a
+certain elliptic operator called the signature operator. The Hirzebruch
+signature theorem is therefore a special case of the Atiyah--Singer
+index theorem. Conversely, Hirzebruch's formulation of the signature as
+an integral of the \(L\)-genus provided the model that Atiyah and
+Singer generalized to arbitrary elliptic operators.
+
+\subsection*{Q4: What are Hirzebruch surfaces used for?}
+
+Hirzebruch surfaces \(\Sigma_n\) appear in many contexts: they are the
+building blocks of rational surfaces in the Enriques--Kodaira
+classification; they are the complete smooth toric surfaces; they
+provide counterexamples and test cases in the study of algebraic
+surfaces; and they appear in symplectic geometry as fundamental examples of
+symplectic 4-manifolds with \(b^+ = 1\).
+
+\subsection*{Q5: What is a multiplicative sequence in simple terms?}
+
+A multiplicative sequence is a way to convert a power series
+\(Q(x)\) into a sequence of polynomials \(K_n(p_1, \dots, p_n)\) with
+the property that if a manifold decomposes as a product, the genus
+\(\int_M K(p_1, \dots, p_k)\) factors as the product of the genera of
+the factors. The Todd genus and \(L\)-genus are the most famous
+examples.
+
+\subsection*{Q6: What open problems are related to Hirzebruch's work?}
+
+Several deep problems remain:
+\begin{enumerate}
+    \item \textbf{Generalized Riemann--Roch:} The full implications of
+    the Grothendieck--Riemann--Roch theorem for motivic cohomology and
+    algebraic \(K\)-theory are still being explored.
+    \item \textbf{Classification of surfaces:} The complete
+    classification of algebraic surfaces of general type involves
+    subtle Chern number inequalities that extend Hirzebruch's work.
+    \item \textbf{Index theorem for singular spaces:} Generalizing the
+    index theorem (and HRR) to singular varieties is an active area.
+    \item \textbf{Quantum field theory:} The role of Hirzebruch's genera
+    in anomalies, topological field theories, and string theory
+    continues to develop.
+\end{enumerate}
+
+\section{Timeline}
+
+\[
+\begin{array}{l|l}
+\textbf{Year} & \textbf{Event} \\ \hline
+1927 & \text{Born on October 17 in Breslau, Germany (now Wroc\l aw, Poland)} \\
+1945--1947 & \text{Prisoner of war in the Soviet Union} \\
+1947--1950 & \text{Studies mathematics at the University of M\"unster} \\
+1950 & \text{Ph.D.\ at the University of M\"unster under Heinz Hopf} \\
+1952 & \text{Habilitation at the University of M\"unster} \\
+1954 & \text{Hirzebruch--Riemann--Roch theorem published} \\
+1955 & \text{Visiting the Institute for Advanced Study, Princeton} \\
+1956 & \text{Book \textit{Neue topologische Methoden in der
+algebraischen Geometrie} appears} \\
+1957--1958 & \text{Member of the Institute for Advanced Study, Princeton} \\
+1960 & \text{Professor at the University of Bonn} \\
+1960s & \text{Hirzebruch surfaces introduced; work on algebraic
+surfaces and characteristic classes} \\
+1967 & \text{Signature theorem and multiplicative sequences fully developed} \\
+1970s & \text{Work on topology of algebraic varieties, the proportionality
+principle, and index theory} \\
+1981 & \text{Founds the Max Planck Institute for Mathematics in Bonn} \\
+1988 & \text{Awarded the Wolf Prize in Mathematics (shared with
+Lars H\"ormander)} \\
+1990s & \text{Continued work on algebraic geometry and topology} \\
+2012 & \text{Passes away on May 27 in Bad Honnef, Germany} \\
+2018 & \text{MPIM establishes the Hirzebruch Prize}
+\end{array}
+\]
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Let \(C\) be a compact Riemann surface of genus \(g\) and let
+    \(L\) be a line bundle of degree \(d\). Use the Hirzebruch--Riemann--
+    Roch theorem to compute \(\chi(C, L)\). Show that you recover the
+    classical Riemann--Roch theorem by noting that
+    \(\chi(C, L) = \ell(L) - \ell(K \otimes L^{-1})\).
+
+    \item Compute the Euler characteristic
+    \(\chi(\mathbb{CP}^n, \mathcal{O}(d))\) using HRR and verify the
+    formula \(\binom{d+n}{n}\) for \(d \ge 0\). What happens when
+    \(d < 0\)?
+
+    \item For the complex projective plane \(\mathbb{CP}^2\), compute
+    the Todd class \(\Td(T\mathbb{CP}^2)\) and verify that
+    \(\chi(\mathbb{CP}^2, \mathcal{O}) = 1\).
+
+    \item Show that the signature of \(\mathbb{CP}^2\) is \(1\) using
+    the Hirzebruch signature theorem. Compute the signature of
+    \(\mathbb{CP}^1 \times \mathbb{CP}^1\) using the product formula.
+
+    \item Let \(M\) be a compact oriented \(4\)-manifold with
+    \(p_1(M) = 0\). What does the signature theorem say about
+    \(\tau(M)\)? Give an example of such a manifold.
+
+    \item Verify that the power series \(Q(x) = x/(1 - e^{-x})\) gives
+    the first Todd polynomials:
+    \[
+    \Td_1 = \frac12 c_1,\quad
+    \Td_2 = \frac1{12}(c_1^2 + c_2).
+    \]
+    (Hint: expand \(\prod_i Q(x_i)\) and express in elementary symmetric
+    functions.)
+
+    \item Prove that the Hirzebruch surface \(\Sigma_1\) is isomorphic
+    to the blowup of \(\mathbb{P}^2\) at a point. Show that
+    \(c_1^2(\Sigma_1) = 8\) and \(c_2(\Sigma_1) = 4\).
+
+    \item For the Hirzebruch surface \(\Sigma_n\), compute the canonical
+    divisor \(K_{\Sigma_n}\) and verify the adjunction formula.
+
+    \item Let \(X\) be a compact complex surface. Use HRR to prove the
+    Noether formula:
+    \[
+    \chi(X, \mathcal{O}_X) = \frac1{12}(c_1(X)^2 + c_2(X)).
+    \]
+
+    \item Show that the Todd genus of a Calabi--Yau threefold
+    (\(c_1 = 0\)) is \(0\). What does HRR give for
+    \(\chi(X, \mathcal{O}_X)\)?
+
+    \item Let \(Q(x) = 1 + q_1 x + q_2 x^2 + \cdots\) be a power
+    series. Show that the associated multiplicative sequence
+    \(\{K_n\}\) satisfies
+    \[
+    K_n(p_1, \dots, p_n) = \sum_{m_1 + 2m_2 + \cdots + nm_n = n}
+    \frac{q_1^{m_1} q_2^{m_2} \cdots q_n^{m_n}}{m_1! m_2! \cdots m_n!}
+    p_1^{m_1} p_2^{m_2} \cdots p_n^{m_n}.
+    \]
+
+    \item The Hirzebruch--Riemann--Roch theorem can be applied to
+    compute the arithmetic genus of a complete intersection. Compute
+    \(\chi(X, \mathcal{O}_X)\) for a smooth hypersurface of degree
+    \(d\) in \(\mathbb{CP}^n\).
+
+    \item Research the Grothendieck--Riemann--Roch theorem. Explain
+    how it generalizes HRR to proper morphisms \(f: X \to Y\) and why
+    the term \(\Td(TY)\) appears on the left-hand side.
+
+    \item The Hirzebruch prize was established in 2018. Find the list
+    of recipients and describe their research areas. How does the
+    prize reflect Hirzebruch's mathematical values?
+
+    \item Let \(M\) be a \(4k\)-dimensional spin manifold. Show that
+    the \(\hat{A}\)-genus is an integer. Use the signature theorem and
+    the relation between \(L\)-genus and \(\hat{A}\)-genus:
+    \[
+    L = 2^{2k} \hat{A}(p_1/2, p_2/2, \dots),
+    \]
+    though the precise relation involves the power series
+    \(\sqrt{x}/\sinh\sqrt{x}\).
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Arithmetic genus] The Euler characteristic
+    \(\chi(X, \mathcal{O}_X) = \sum (-1)^i \dim H^i(X,
+    \mathcal{O}_X)\) of the structure sheaf of a complex manifold.
+    \item[Bernoulli numbers] Rational numbers \(B_n\) defined by
+    \(x/(e^x - 1) = \sum_{n=0}^\infty B_n x^n / n!\).
+    \item[Chern character] A ring homomorphism from \(K\)-theory to
+    cohomology given by \(\ch(E) = \sum e^{x_i}\) where \(x_i\) are
+    Chern roots.
+    \item[Chern class] A characteristic class \(c_i(E) \in H^{2i}(X,
+    \Z)\) measuring the twisting of a complex vector bundle.
+    \item[Chern number] An integer obtained by integrating a product
+    of Chern classes over the fundamental class of a manifold.
+    \item[Cobordism] Two manifolds are cobordant if their disjoint
+    union bounds a third manifold.
+    \item[Euler characteristic] The alternating sum of Betti numbers
+    \(\chi(M) = \sum (-1)^i \dim H^i(M, \R)\).
+    \item[Genus] A multiplicative, additive cobordism invariant of
+    manifolds, typically expressed as \(\int_M K(p_1, \dots, p_k)\).
+    \item[Grothendieck--Riemann--Roch] A generalization of HRR to
+    proper morphisms, relating the pushforward of the Chern character
+    to the Chern character of the direct image.
+    \item[Hirzebruch surface] The projective bundle
+    \(\Sigma_n = \mathbb{P}(\mathcal{O} \oplus \mathcal{O}(-n))\) over
+    \(\mathbb{P}^1\).
+    \item[Hirzebruch--Riemann--Roch theorem] The formula
+    \(\chi(X, E) = \int_X \ch(E) \Td(TX)\) for a holomorphic vector
+    bundle on a compact complex manifold.
+    \item[Hirzebruch signature theorem] The formula
+    \(\tau(M) = \int_M L(p_1, \dots, p_k)\) for a \(4k\)-manifold.
+    \item[Index theorem] The Atiyah--Singer theorem: the index of an
+    elliptic operator equals a topological expression in
+    characteristic classes.
+    \item[\(K\)-theory] The Grothendieck group of vector bundles over
+    a space, with addition given by direct sum.
+    \item[\(L\)-genus] The multiplicative sequence associated to
+    \(\sqrt{x}/\tanh\sqrt{x}\), giving the signature of a manifold.
+    \item[Multiplicative sequence] A sequence of polynomials
+    \(K_n(p_1, \dots, p_n)\) satisfying \(K(p+q) = K(p) K(q)\) under
+    the natural product of characteristic classes.
+    \item[Noether formula] The relation
+    \(\chi(S, \mathcal{O}_S) = (c_1^2 + c_2)/12\) for a complex
+    surface.
+    \item[Pontryagin class] A characteristic class
+    \(p_i(M) \in H^{4i}(M, \Z)\) of an oriented real vector bundle,
+    obtained from Chern classes of the complexification.
+    \item[Pontryagin number] An integer obtained by integrating a
+    product of Pontryagin classes over the fundamental class of an
+    oriented manifold.
+    \item[Proportionality principle] The principle that Chern numbers
+    of compact locally symmetric spaces are proportional to those of
+    the compact dual.
+    \item[Signature] The number of positive minus negative eigenvalues
+    of the intersection form on the middle cohomology of a
+    \(4k\)-manifold.
+    \item[Splitting principle] The principle that for computations
+    with characteristic classes, one may assume a vector bundle
+    splits as a sum of line bundles.
+    \item[Todd class] The multiplicative sequence associated to
+    \(x/(1 - e^{-x})\), used in the HRR theorem.
+    \item[Todd genus] The integer \(\int_X \Td(TX)\) for a complex
+    manifold \(X\), equal to the arithmetic genus.
+    \item[\(\hat{A}\)-genus] The multiplicative sequence associated to
+    \(\sqrt{x}/\sinh\sqrt{x}\), giving the index of the Dirac operator
+    on a spin manifold.
+\end{description}

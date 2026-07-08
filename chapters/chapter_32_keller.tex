@@ -1,0 +1,672 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\SO\relax
+\newcommand{\SO}{\operatorname{SO}}
+\let\SL\relax
+\newcommand{\SL}{\operatorname{SL}}
+\let\GL\relax
+\newcommand{\GL}{\operatorname{GL}}
+\let\St\relax
+\newcommand{\St}{\operatorname{St}}
+\let\GV\relax
+\newcommand{\GV}{\operatorname{GV}}
+\let\E\relax
+\newcommand{\E}{\operatorname{E}}
+
+\chapter{Joseph Keller (1996/97)}
+
+\begin{quote}
+\it ``Keller's work is distinguished by its remarkable breadth and depth, ranging from the diffraction of waves and fluid dynamics to biology and the mathematics of sports. He has made fundamental contributions to the geometric theory of diffraction, the theory of wave propagation, the Keller--Box method for boundary-layer flows, the Keller--Segel model for chemotaxis, and the effective properties of random media. His work exemplifies the power of mathematics to illuminate the physical world.'' --- Wolf Prize Citation
+\end{quote}
+
+Joseph Bishop Keller (July 31, 1923 -- September 7, 2016) was one of the most versatile and influential applied mathematicians of the 20th century. The 1996/97 Wolf Prize in Mathematics (shared with Yakov G.\ Sinai) recognized his fundamental contributions across an extraordinarily wide range of fields: wave propagation, diffraction theory, fluid dynamics, mathematical biology, random media, and the mathematics of sports.
+
+Keller's mathematical style is characterized by a deep physical intuition, a mastery of asymptotic methods, and a willingness to apply mathematics to any problem that caught his interest. He made contributions to nearly every branch of applied mathematics, often creating entire new subfields. His work on the geometric theory of diffraction (GTD) revolutionized the computation of wave fields in the presence of obstacles. The Keller--Box method became a standard numerical technique for boundary-layer flows. The Keller--Segel model is the fundamental mathematical model for chemotaxis in biology. His work on random media laid the foundations for the modern theory of composite materials. Even his work on the mathematics of sports --- the optimal bat swing, the trajectory of a boomerang, the aerodynamics of a Frisbee --- is characteristically insightful and has become part of the folklore of applied mathematics.
+
+\section{Biographical Sketch}
+
+\subsection{Early Life and Education}
+
+Joseph Bishop Keller was born on July 31, 1923, in Paterson, New Jersey, to Isaac Keller and Esther (Bishop) Keller. His father was a teacher, and the family valued education highly. Young Joseph showed an early aptitude for mathematics and physics.
+
+He entered New York University (NYU) in 1940, where he studied mathematics and physics. His undergraduate studies were interrupted by World War II, during which he served in the U.S.\ Army Air Forces from 1943 to 1946, working on weather prediction and operational research. After the war, he returned to NYU to complete his studies.
+
+Keller received his B.A.\ in 1944 and his M.A.\ in 1946, both from NYU. He continued at NYU for his doctoral work, under the supervision of Richard Courant and James Serrin. His 1948 PhD thesis, titled \textit{The Reflection and Transmission of Sound by a Moving Medium}, already showed the characteristic combination of mathematical rigor and physical application that would define his career.
+
+\subsection{Career at NYU and Stanford}
+
+Keller joined the faculty of the Courant Institute of Mathematical Sciences at NYU immediately after completing his PhD. He rose through the ranks rapidly: instructor (1948--1950), assistant professor (1950--1954), associate professor (1954--1959), and full professor (1959--1979). At the Courant Institute, he found a stimulating environment that valued the application of mathematics to real-world problems, and he flourished there for over three decades.
+
+Keller's collaboration with colleagues at Courant --- including Courant himself, Fritz John, Peter Lax, Louis Nirenberg, and Cathleen Morawetz --- deeply influenced his work. The Courant Institute's philosophy of applying rigorous mathematics to problems from physics, engineering, and other sciences was perfectly suited to Keller's temperament.
+
+In 1979, Keller moved to Stanford University as a professor of mathematics and the chair of the Department of Mathematics (1979--1986). At Stanford, he continued his prolific research career, supervising numerous PhD students and continuing to produce influential work until well into his 80s.
+
+Keller received many honors. He was elected to the National Academy of Sciences (1972), the American Academy of Arts and Sciences (1974), and the American Philosophical Society (2004). He received the National Medal of Science from President Ronald Reagan in 1988. The Wolf Prize in Mathematics in 1996/97 was the capstone of a career that had already been recognized with virtually every major award in applied mathematics.
+
+\subsection{Keller as a Mentor}
+
+Keller supervised over 50 PhD students during his career, many of whom became leading figures in applied mathematics. His mentoring style emphasized intellectual independence, physical intuition, and the importance of choosing problems that mattered. He was famous for his ability to find deep mathematics in everyday phenomena: the shape of a falling leaf, the flight of a boomerang, the bounce of a ball.
+
+His students included such notable figures as George Papanicolaou (Stanford, known for work on random media and wave propagation), David McLaughlin (NYU, nonlinear waves), and many others who spread Keller's influence across applied mathematics.
+
+\section{Geometric Theory of Diffraction}
+
+\subsection{Motivation: Limits of Geometrical Optics}
+
+Geometrical optics describes the propagation of light (and more generally, waves) by rays that travel in straight lines, reflecting and refracting according to Snell's law. This approximation works well when the wavelength is much smaller than typical obstacle dimensions. However, geometrical optics fails in several important situations:
+
+\begin{enumerate}
+  \item \textbf{Shadow regions:} Geometrical optics predicts complete darkness behind an opaque obstacle, but physical waves diffract around edges and corners, producing nonzero fields in shadow regions.
+  \item \textbf{Caustics:} Geometrical optics predicts infinite intensity at caustics (focal points), a physical impossibility.
+  \item \textbf{Edge effects:} Geometrical optics does not account for the scattering from edges, tips, and vertices.
+\end{enumerate}
+
+Keller set out to extend geometrical optics to include diffraction effects systematically, creating what he called the \textbf{geometric theory of diffraction} (GTD). This theory, developed primarily in the 1950s, is one of the most important contributions to wave theory since the work of Huygens, Fresnel, and Kirchhoff.
+
+\subsection{Diffracted Rays}
+
+The central idea of GTD is to augment the rays of geometrical optics with a new class of rays: \textbf{diffracted rays}. These are generated when an incident ray strikes an edge, a corner, or a vertex of an obstacle. At such a point, a cone of diffracted rays emerges, with the edge as its axis. The angle of the diffracted cone relative to the edge is determined by a generalization of Snell's law known as \textbf{Keller's law of edge diffraction}.
+
+\begin{definition}[Keller's Law of Edge Diffraction]
+Let an incident ray strike a straight edge at an angle \(\beta_0\) measured from the edge. The diffracted rays lie on a cone with half-angle \(\beta_0\) whose axis is the edge. In particular, if the incident ray is normal to the edge (\(\beta_0 = \pi/2\)), the diffracted rays form a plane fan perpendicular to the edge.
+\end{definition}
+
+The amplitude of each diffracted ray is determined by a \textbf{diffraction coefficient}, which Keller derived from asymptotic solutions of canonical problems: diffraction by a half-plane (the Sommerfeld problem), diffraction by a wedge, and diffraction by a cylinder. These canonical solutions provide the local behavior of the field near the edge, and their asymptotic form gives the diffraction coefficient.
+
+\subsection{The Diffraction Coefficient}
+
+For a straight edge, Keller derived the diffraction coefficient
+\[
+D(\theta, \theta_0; \beta_0) = \frac{e^{-i\pi/4}}{2\sqrt{2\pi k}\, \sin\beta_0}
+\left[\frac{1}{\cos\frac{\theta-\theta_0}{2}} \mp \frac{1}{\sin\frac{\theta+\theta_0}{2}}\right],
+\]
+where \(k = 2\pi/\lambda\) is the wavenumber, \(\theta_0\) is the angle of incidence measured from the normal to the edge, \(\theta\) is the observation angle, and the sign depends on the boundary conditions (soft or hard surface). This coefficient describes the amplitude and phase of the diffracted field in the far field.
+
+The total field predicted by GTD is then the sum of the geometrical optics field (incident plus reflected rays, when present) and the diffracted field contributed by all diffracted rays reaching the observation point.
+
+\subsection{The Geometrical Theory of Diffraction (Formal Statement)}
+
+Keller's GTD can be summarized in the following form. For a time-harmonic wave field \(u(x)e^{-i\omega t}\) satisfying the Helmholtz equation
+\[
+\Delta u + k^2 n^2(x) u = 0,
+\]
+where \(k = \omega/c\) is the free-space wavenumber and \(n(x)\) is the refractive index, the GTD approximation is
+\[
+u(x) \sim \sum_j A_j(x) e^{ikS_j(x)},
+\]
+where the sum extends over all rays (both geometrical and diffracted) passing through \(x\). The phase \(S_j(x)\) satisfies the eikonal equation
+\[
+|\nabla S_j|^2 = n^2(x),
+\]
+and the amplitude \(A_j(x)\) satisfies the transport equation
+\[
+2\nabla S_j \cdot \nabla A_j + A_j \Delta S_j = 0.
+\]
+
+The novel element is the inclusion of diffracted rays, which originate at edges, vertices, or points of grazing incidence. The initial amplitudes of these rays are determined by diffraction coefficients derived from canonical problems.
+
+\begin{theorem}[Keller's GTD Principle, 1957]
+The asymptotic solution of the Helmholtz equation in the short-wavelength limit \(k \to \infty\) can be expressed as a sum of contributions from geometrical rays (direct, reflected, refracted) and diffracted rays (edge-diffracted, vertex-diffracted, surface-diffracted). The diffracted rays satisfy Fermat's principle extended to include edges and vertices as possible endpoints of the ray path.
+\end{theorem}
+
+\subsection{Uniform Theory of Diffraction}
+
+A limitation of the original GTD is that it fails near caustics (where the ray approximation gives infinite field) and near shadow boundaries (where the geometrical optics field changes discontinuously). These deficiencies were addressed by the \textbf{uniform theory of diffraction} (UTD), developed by Kouyoumjian and Pathak (1974) and others, which uses transition functions (Fresnel integrals) to smooth the transition across shadow boundaries. The UTD retains the ray structure of GTD but uses uniform asymptotic expansions that remain finite everywhere.
+
+Keller's GTD also stimulated the development of the \textbf{parabolic equation method} for diffraction problems (introduced by Leontovich and Fock) and the \textbf{Gaussian beam summation method} (Popov, Babich, and others), which represent the wave field as a superposition of Gaussian beams propagating along rays.
+
+\subsection{Applications of GTD}
+
+The geometric theory of diffraction has found widespread application in:
+
+\begin{itemize}
+  \item \textbf{Radar cross-section prediction:} GTD is used to compute the scattering of electromagnetic waves from aircraft, ships, and other complex targets.
+  \item \textbf{Antenna design:} The radiation patterns of antennas mounted on complex structures (aircraft fuselages, satellite bodies) are computed using GTD.
+  \item \textbf{Seismic wave propagation:} GTD describes the propagation of elastic waves through geological structures, accounting for diffraction from faults and interfaces.
+  \item \textbf{Acoustics:} The scattering of sound by obstacles (buildings, barriers, submarine hulls) is analyzed using GTD.
+  \item \textbf{Optics:} GTD is used in the design of optical systems where diffraction effects matter, such as laser beam propagation and optical scattering.
+\end{itemize}
+
+\section{Wave Propagation in Random Media}
+
+\subsection{Effective Properties of Composite Materials}
+
+Beginning in the 1960s and continuing through the 1980s, Keller made fundamental contributions to the theory of wave propagation in random media and the determination of effective properties of composite materials. The central problem is: given a material whose properties vary randomly on a microscale, what are the effective (macroscopic) properties?
+
+Consider a composite material consisting of two or more phases with different electrical conductivity, elastic stiffness, or dielectric constant. The problem is to determine the effective conductivity \(\sigma^*\) (or effective elastic modulus \(E^*\), or effective dielectric constant \(\varepsilon^*\)) such that on a macroscopic scale, the material behaves as a homogeneous medium.
+
+Keller (1964) established rigorous bounds on the effective conductivity of statistically isotropic composites. For a two-phase composite with conductivities \(\sigma_1\) and \(\sigma_2\) and volume fractions \(f_1\) and \(f_2 = 1 - f_1\), the effective conductivity satisfies
+\[
+\frac{1}{\sigma^*} \leq \frac{f_1}{\sigma_1} + \frac{f_2}{\sigma_2},
+\]
+and
+\[
+\sigma^* \leq f_1\sigma_1 + f_2\sigma_2,
+\]
+with the upper and lower bounds corresponding respectively to layering parallel and perpendicular to the applied field.
+
+Keller also derived the fundamental duality relation for two-dimensional composites:
+\begin{theorem}[Keller's Duality, 1964]
+For a two-phase composite in two dimensions, if the phases are interchanged, the effective conductivity transforms as
+\[
+\sigma^*(\sigma_1, \sigma_2) \sigma^*(\sigma_2, \sigma_1) = \sigma_1 \sigma_2.
+\]
+\end{theorem}
+This duality relation is a powerful tool: it relates the effective conductivity of a composite to that of the complementary composite where the roles of the phases are exchanged. It implies that if the composite is symmetric under phase interchange, then \(\sigma^* = \sqrt{\sigma_1 \sigma_2}\). This relation was later generalized to other transport properties (thermal conductivity, dielectric constant, magnetic permeability).
+
+\subsection{Wave Propagation in Random Media}
+
+Keller (1960--1964) also developed the theory of wave propagation in random media. Consider the wave equation
+\[
+\nabla^2 u + k^2(1 + \mu(x)) u = 0,
+\]
+where \(\mu(x)\) is a random field with zero mean \(\langle \mu(x) \rangle = 0\) and prescribed correlation function
+\[
+R(x, y) = \langle \mu(x) \mu(y) \rangle.
+\]
+The angle brackets denote ensemble averaging. The problem is to determine the average (coherent) field \(\langle u \rangle\) and the intensity \(\langle |u|^2 \rangle\).
+
+Keller used the method of \textbf{smoothing} or the \textbf{Dyson equation} to derive a closed equation for the mean field:
+\[
+\nabla^2 \langle u \rangle + k^2 \langle u \rangle + k^4 \int R(x, y) G_0(x - y) \langle u(y) \rangle\, dy = 0,
+\]
+where \(G_0\) is the free-space Green's function. This nonlocal equation can be analyzed in various limits:
+
+\begin{itemize}
+  \item \textbf{Weak fluctuations} (\(\langle \mu^2 \rangle \ll 1\)): The mean field propagates with a modified wavenumber \(k_{\text{eff}} = k + \delta k\), where the correction \(\delta k\) is given by a integral of the correlation function.
+  \item \textbf{Large-scale fluctuations} (correlation length \(\ell \gg \lambda\)): The dominant effect is the forward-scattering of waves, leading to phase fluctuations that accumulate along the propagation path.
+  \item \textbf{Small-scale fluctuations} (\(\ell \ll \lambda\)): The random medium behaves as an effectively homogeneous medium with a modified refractive index determined by the variance of the fluctuations.
+\end{itemize}
+
+Keller's work on random media laid the mathematical foundations for the theory of wave propagation in turbulent atmospheres (astronomical seeing, laser propagation), the propagation of acoustic waves in the ocean (where temperature and salinity fluctuations create a random medium), and the theory of seismic wave propagation in heterogeneous geological formations.
+
+\subsection{The Keller Matrix Formulation for Periodic Media}
+
+For periodic media, Keller (with various collaborators) developed the \textbf{matrix formulation} for computing band structures of waves in periodic composites --- what is now called photonic, phononic, or elastic band structure. This work anticipated the modern field of photonic crystals by several decades.
+
+Consider a periodic medium characterized by a spatially varying wave speed \(c(x + d) = c(x)\). The wave equation reduces to a Floquet--Bloch eigenvalue problem:
+\[
+\nabla^2 u + \frac{\omega^2}{c^2(x)} u = 0, \qquad u(x) = e^{i K \cdot x} v(x),\quad v(x+d) = v(x).
+\]
+Keller developed asymptotic and numerical methods for computing the dispersion relation \(\omega(K)\), showing that periodic media exhibit frequency band gaps --- ranges of frequency where wave propagation is forbidden. This is now a central topic in condensed matter physics and engineering.
+
+\section{The Keller--Box Method for Boundary-Layer Flows}
+
+\subsection{The Boundary-Layer Equations}
+
+In fluid dynamics, the boundary layer is the thin region adjacent to a solid surface where viscous effects are concentrated. For high-Reynolds-number flow past a body, Prandtl (1904) derived the boundary-layer equations:
+\[
+u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} = U\frac{dU}{dx} + \nu \frac{\partial^2 u}{\partial y^2},
+\]
+\[
+\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0,
+\]
+where \(u(x, y)\) is the streamwise velocity, \(v(x, y)\) is the normal velocity, \(U(x)\) is the external (inviscid) flow velocity, and \(\nu\) is the kinematic viscosity. The boundary conditions are \(u = v = 0\) at \(y = 0\) (no slip) and \(u \to U(x)\) as \(y \to \infty\) (matching with the external flow).
+
+These equations are parabolic in the streamwise direction \(x\), meaning they can be marched forward in space from an initial condition. The numerical solution of the boundary-layer equations requires a method that can handle the steep gradients near the wall and the parabolic nature of the equations.
+
+\subsection{The Keller--Box Scheme}
+
+Keller (with his student T.\ Cebeci and others) developed the \textbf{Keller--Box method} (also called the \textbf{box method} or the \textbf{Keller--Cebeci method}) in the 1970s as a robust and efficient numerical scheme for solving the boundary-layer equations. The method is a finite-difference scheme with the following key features:
+
+\begin{enumerate}
+  \item \textbf{Second-order accuracy} in both the streamwise and normal directions.
+  \item \textbf{Implicit formulation}, allowing large step sizes in the streamwise direction without numerical instability.
+  \item \textbf{Block tridiagonal structure}, which can be solved efficiently using the Thomas algorithm.
+  \item \textbf{Adaptive gridding} to concentrate points near the wall where gradients are largest.
+\end{enumerate}
+
+The discretization proceeds as follows. The boundary-layer equations are first written as a first-order system. Introducing \(w = \partial u/\partial y\), the momentum equation becomes
+\[
+u \frac{\partial u}{\partial x} + v w = U\frac{dU}{dx} + \nu \frac{\partial w}{\partial y},
+\]
+and the continuity equation remains
+\[
+\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0.
+\]
+
+The computational domain is discretized on a rectangular grid with points \((x_i, y_j)\). The box scheme uses centered differences about the midpoint \((x_{i-1/2}, y_{j-1/2})\) of a cell. For a generic variable \(f\), the difference approximations are:
+\[
+f_{j-1/2}^{i-1/2} = \frac{1}{4}\left(f_j^i + f_{j-1}^i + f_j^{i-1} + f_{j-1}^{i-1}\right),
+\]
+\[
+\left.\frac{\partial f}{\partial x}\right|_{j-1/2}^{i-1/2} = \frac{1}{2\Delta x}\left(f_j^i - f_j^{i-1} + f_{j-1}^i - f_{j-1}^{i-1}\right),
+\]
+\[
+\left.\frac{\partial f}{\partial y}\right|_{j-1/2}^{i-1/2} = \frac{1}{2\Delta y_{j-1/2}}\left(f_j^{i-1/2} - f_{j-1}^{i-1/2}\right),
+\]
+where \(\Delta y_{j-1/2} = y_j - y_{j-1}\).
+
+\begin{theorem}[Accuracy of the Keller--Box Method]
+The Keller--Box scheme is unconditionally stable for the linearized boundary-layer equations and is second-order accurate in both the streamwise and normal directions.
+\end{theorem}
+
+\subsection{Applications and Extensions}
+
+The Keller--Box method became a standard tool in computational fluid dynamics (CFD) and was widely used for:
+
+\begin{itemize}
+  \item \textbf{Aerodynamic design:} Computing boundary layers on airfoils, wings, and fuselages.
+  \item \textbf{Turbulent boundary layers:} With algebraic or differential turbulence models (e.g., the Cebeci--Smith model), the method handles turbulent flows.
+  \item \textbf{Heat transfer:} The method extends naturally to the thermal boundary layer (the energy equation).
+  \item \textbf{Reacting flows:} Combustion and chemically reacting boundary layers can be treated by adding species transport equations.
+  \item \textbf{Magnetohydrodynamic (MHD) boundary layers:} The method generalizes to conducting fluids in magnetic fields.
+\end{itemize}
+
+The Keller--Box method is notable for its robustness: it works well for flows with separation, adverse pressure gradients, and strong wall heating or cooling. It has been implemented in dozens of CFD codes and is still used today for boundary-layer calculations.
+
+\section{The Keller--Segel Model for Chemotaxis}
+
+\subsection{Biological Motivation}
+
+Chemotaxis is the directed movement of cells or organisms in response to chemical gradients in their environment. It plays a fundamental role in many biological processes:
+
+\begin{itemize}
+  \item \textbf{Slime mold aggregation:} The amoeba \textit{Dictyostelium discoideum} aggregates by chemotaxis toward cyclic AMP (cAMP).
+  \item \textbf{Bacterial chemotaxis:} \textit{E. coli} swims toward nutrients and away from toxins.
+  \item \textbf{Wound healing:} Immune cells migrate toward wound sites by chemotaxis.
+  \item \textbf{Cancer metastasis:} Tumor cells use chemotaxis to invade surrounding tissue and metastasize.
+  \item \textbf{Embryonic development:} Cell migration during morphogenesis is guided by chemical gradients.
+\end{itemize}
+
+In 1970, Keller and his colleague Lee A.\ Segel published a seminal paper introducing a mathematical model for chemotaxis that became the foundation of the field.
+
+\subsection{The Keller--Segel Equations}
+
+The Keller--Segel model describes the evolution of the cell density \(\rho(x, t)\) and the chemoattractant concentration \(c(x, t)\). In its simplest form, the equations are:
+\[
+\frac{\partial \rho}{\partial t} = D_\rho \nabla^2 \rho - \chi \nabla \cdot (\rho \nabla c),
+\]
+\[
+\frac{\partial c}{\partial t} = D_c \nabla^2 c + \alpha \rho - \beta c.
+\]
+
+The first equation describes cell motion as the sum of random diffusion (term \(D_\rho \nabla^2 \rho\)) and directed chemotactic drift (term \(-\chi \nabla \cdot (\rho \nabla c)\)), where \(\chi\) is the chemotactic sensitivity coefficient. Cells move up the gradient of the chemoattractant.
+
+The second equation describes the evolution of the chemoattractant: it diffuses (term \(D_c \nabla^2 c\)), is produced by the cells (term \(\alpha \rho\)), and decays (term \(-\beta c\)).
+
+\subsection{Mathematical Analysis}
+
+The Keller--Segel system exhibits a rich variety of mathematical phenomena. The most striking is \textbf{chemotactic collapse}: under certain conditions, the cell density can become arbitrarily large in finite time, forming a singularity that models the aggregation of cells into a tight cluster.
+
+The critical dimension for the Keller--Segel model is \(d = 2\). In one dimension, solutions exist globally for all initial data. In two dimensions, there is a critical mass threshold: if the total cell mass \(M = \int \rho\, dx\) is below a critical value \(M_c = 8\pi D_c/\chi\), solutions exist globally; if \(M > M_c\), finite-time blowup occurs. In three dimensions, blowup can occur for any positive mass.
+
+\begin{theorem}[Critical Mass for Keller--Segel, 1990s]
+Consider the Keller--Segel system in \(\R^2\) with \(D_\rho = D_c = 1\), \(\alpha = 1\), \(\beta = 0\). There exists a critical mass \(M_c = 8\pi/\chi\) such that:
+\begin{itemize}
+  \item If \(M < M_c\), the solution exists globally and remains bounded.
+  \item If \(M > M_c\), the solution blows up in finite time (there exists \(T < \infty\) such that \(\|\rho(t)\|_\infty \to \infty\) as \(t \to T^-\)).
+  \item If \(M = M_c\), there exist stationary solutions (balanced aggregation).
+\end{itemize}
+\end{theorem}
+
+The blowup solutions exhibit self-similar behavior, with the cell density forming a Dirac delta singularity at the collapse point. This models the formation of a tight aggregate of cells, as observed in slime mold aggregation experiments.
+
+The Keller--Segel model has been extended in many directions:
+\begin{itemize}
+  \item \textbf{Volume-filling effects:} Cells cannot occupy the same space, leading to a modified diffusion term that prevents blowup.
+  \item \textbf{Signal-dependent sensitivity:} The chemotactic sensitivity \(\chi(c)\) depends on the concentration of the attractant, often following a receptor-binding law (Weber--Fechner law).
+  \item \textbf{Multiple species:} Competition and cooperation between multiple cell types can be modeled with coupled Keller--Segel systems.
+  \item \textbf{External fields:} Flow, electric fields, or gravitational fields can be coupled with the chemotaxis system.
+\end{itemize}
+
+\subsection{Significance}
+
+The Keller--Segel model is one of the most important and most studied models in mathematical biology. It has inspired an enormous literature on the mathematics of pattern formation, aggregation, and self-organization. The model is a canonical example of a system that generates spontaneous pattern formation through the interaction of diffusive and attractive forces, and it has become a standard test problem for the theory of nonlinear partial differential equations.
+
+\section{The KZK Equation for Nonlinear Acoustics}
+
+\subsection{Background}
+
+Nonlinear acoustics studies the propagation of finite-amplitude sound waves, where the wave speed depends on the local pressure. In such waves, the waveform distorts as it propagates, gradually steepening until shock waves form. The classical model for this process is Burgers' equation:
+\[
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} = \nu \frac{\partial^2 u}{\partial x^2},
+\]
+where \(u\) is the particle velocity and \(\nu\) is the viscosity.
+
+For directional sound beams (such as those produced by ultrasound transducers), one needs a model that accounts for:
+\begin{itemize}
+  \item Nonlinearity (finite-amplitude effects).
+  \item Diffraction (the spreading of the beam).
+  \item Absorption (viscous and thermal losses).
+  \item Dispersion (if present).
+\end{itemize}
+
+\subsection{Derivation of the KZK Equation}
+
+The KZK equation (derived independently by Kuznetsov, Zabolotskaya, and Khokhlov in the 1970s, with significant contributions from Keller's group) describes the propagation of nonlinear acoustic beams. In its standard form, it reads:
+\[
+\frac{\partial^2 p}{\partial z \partial \tau} = \frac{c_0}{2} \nabla_\perp^2 p + \frac{\beta}{2\rho_0 c_0^3} \frac{\partial^2 p^2}{\partial \tau^2} + \frac{\delta}{2c_0^3} \frac{\partial^3 p}{\partial \tau^3},
+\]
+where:
+\begin{itemize}
+  \item \(p\) is the acoustic pressure,
+  \item \(z\) is the propagation direction,
+  \item \(\tau = t - z/c_0\) is the retarded time,
+  \item \(\nabla_\perp^2 = \partial^2/\partial x^2 + \partial^2/\partial y^2\) is the Laplacian in the transverse directions,
+  \item \(c_0\) is the small-signal sound speed,
+  \item \(\rho_0\) is the ambient density,
+  \item \(\beta\) is the coefficient of nonlinearity,
+  \item \(\delta\) is the sound diffusivity (accounting for absorption).
+\end{itemize}
+
+The three terms on the right-hand side represent, respectively:
+\begin{enumerate}
+  \item \textbf{Diffraction:} The Laplacian term accounts for the spreading of the beam.
+  \item \textbf{Nonlinearity:} The quadratic term accounts for finite-amplitude effects.
+  \item \textbf{Absorption:} The third-derivative term accounts for thermoviscous absorption.
+\end{enumerate}
+
+Keller and his collaborators (notably, his student David Blackstock and colleague Mark Hamilton) contributed to the mathematical analysis and numerical solution of the KZK equation.
+
+\subsection{Keller's Contributions to the KZK Equation}
+
+Keller's group developed several key contributions to the KZK equation:
+
+\paragraph{Asymptotic analysis of shock formation.} Using matched asymptotic expansions, Keller analyzed the nonlinear distortion of finite-amplitude sound beams, determining the location and strength of shock waves that form in the focal region of a transducer.
+
+\paragraph{Numerical methods.} The time-domain solution of the KZK equation is computationally challenging because of the mixed derivative \(\partial^2 p/(\partial z \partial \tau)\). Keller and collaborators developed efficient numerical schemes based on the method of fractional steps (operator splitting), where the propagation over each step is split into separate diffraction, nonlinear, and absorption substeps.
+
+\paragraph{The KZK equation in the frequency domain.} For periodic waveforms, the KZK equation can be transformed into an infinite system of coupled ordinary differential equations for the harmonic amplitudes using the Fourier series expansion:
+\[
+p(z, \tau, r) = \sum_{n=-\infty}^\infty p_n(z, r) e^{i n \omega \tau}.
+\]
+Keller's group analyzed the truncation and convergence of this system and developed the spectral method for its numerical solution.
+
+\subsection{Applications}
+
+The KZK equation is the standard model for high-intensity focused ultrasound (HIFU), used in medical therapy for tissue ablation, hemostasis, and tumor treatment. It is also used in:
+\begin{itemize}
+  \item \textbf{Medical ultrasound imaging:} Understanding nonlinear propagation improves image quality in diagnostic ultrasound.
+  \item \textbf{Sonar and underwater acoustics:} Finite-amplitude effects matter in high-power sonar systems.
+  \item \textbf{Non-destructive testing:} Nonlinear acoustic techniques detect material defects.
+  \item \textbf{Aeroacoustics:} Jet noise and sonic boom propagation involve nonlinear acoustics.
+\end{itemize}
+
+\section{Keller's Model for Nerve Impulse Propagation}
+
+\subsection{The Hodgkin--Huxley Model}
+
+The propagation of nerve impulses (action potentials) along axons is a fundamental phenomenon in neurobiology. The Hodgkin--Huxley model (1952) describes the electrical activity of a nerve membrane through a system of nonlinear ordinary differential equations:
+\[
+C\frac{dV}{dt} = I_{\text{ext}} - g_{\text{Na}} m^3 h (V - V_{\text{Na}}) - g_{\text{K}} n^4 (V - V_{\text{K}}) - g_L (V - V_L),
+\]
+with additional equations for the gating variables \(m, n, h\). While extremely successful, the Hodgkin--Huxley model is complex and requires numerical solution.
+
+\subsection{Keller's Simplified Model}
+
+Keller (with his student John Rinzel and others) developed simplified mathematical models for nerve impulse propagation that capture the essential nonlinear wave phenomena while remaining analytically tractable.
+
+The simplest of these is the \textbf{Keller--Rinzel model}, which reduces the dynamics to a FitzHugh--Nagumo type system:
+\[
+\frac{\partial V}{\partial t} = D \frac{\partial^2 V}{\partial x^2} + f(V) - W,
+\]
+\[
+\frac{\partial W}{\partial t} = \varepsilon (V - \gamma W),
+\]
+where \(V(x, t)\) is the membrane potential, \(W(x, t)\) is a recovery variable, \(f(V)\) is a cubic nonlinearity modeling the sodium current, and \(D, \varepsilon, \gamma\) are parameters.
+
+Keller analyzed this system using phase-plane methods and singular perturbation theory. In the limit \(\varepsilon \to 0\) (slow recovery), the system supports traveling pulse solutions --- solitary waves of excitation that propagate along the nerve fiber without decay. These pulses represent action potentials.
+
+\begin{theorem}[Existence of Traveling Pulses, Keller--Rinzel]
+For the Keller--Rinzel model with cubic nonlinearity \(f(V) = V(V-a)(1-V)\), there exists a unique speed \(c\) and a traveling wave solution
+\[
+V(x, t) = \phi(x - ct), \quad W(x, t) = \psi(x - ct)
+\]
+that represents a propagating nerve impulse. The speed \(c\) is determined by the condition that the solution has a saddle--saddle connection in the phase plane.
+\end{theorem}
+
+Keller also studied the propagation of \textbf{wave trains} (periodic sequences of pulses), the interaction of colliding pulses, and the effect of inhomogeneities (myelinated segments, branch points) on impulse propagation. His work bridged the gap between the detailed biophysical Hodgkin--Huxley model and the abstract mathematical theory of excitable media.
+
+\subsection{The Bistable Equation}
+
+A related model studied by Keller is the \textbf{bistable equation}:
+\[
+\frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2} + f(u),
+\]
+where \(f(u)\) is a bistable nonlinearity (e.g., \(f(u) = u(1-u)(u-a)\) with \(0 < a < 1\)). This equation supports traveling front solutions that represent the transition between two stable states (e.g., the depolarized and resting states of a nerve membrane).
+
+Keller proved the existence, uniqueness, and stability of traveling front solutions for the bistable equation and determined the propagation speed:
+\[
+c = \frac{\int_0^1 f(u)\, du}{\int_{-\infty}^\infty (\phi'(z))^2\, dz},
+\]
+where \(\phi(z)\) is the front profile. This formula connects the speed directly to the net driving force \(\int f\, du\) and the front energy \(\int (\phi')^2\, dz\).
+
+\section{Keller's Work on Cell Biology}
+
+\subsection{Models for Cilia and Flagella}
+
+Keller made contributions to the mechanics of cilia and flagella --- the hair-like appendages that propel sperm cells, create fluid flows in respiratory tracts, and move microorganisms. The problem is to understand how the internal structure of these organelles (the axoneme, consisting of microtubules arranged in a \(9+2\) pattern, driven by dynein motor proteins) produces coordinated bending motions.
+
+Keller (with his student Charles Brokaw and others) developed mathematical models for flagellar motion based on the balance of elastic, viscous, and active forces. The flagellum is modeled as an elastic beam immersed in a viscous fluid (low Reynolds number regime), with internal bending moments generated by the dynein motors.
+
+The governing equation is a force balance:
+\[
+\frac{\partial^2}{\partial s^2}\left(EI\frac{\partial^2 y}{\partial s^2}\right) - \frac{\partial}{\partial s}\left(T\frac{\partial y}{\partial s}\right) + C_N \frac{\partial y}{\partial t} = 0,
+\]
+where \(s\) is the arclength along the flagellum, \(y(s, t)\) is the lateral displacement, \(EI\) is the bending stiffness, \(T\) is the axial tension, and \(C_N\) is the normal drag coefficient.
+
+Keller showed how the periodic activity of the dynein motors leads to the propagation of bending waves along the flagellum, producing propulsive thrust. His models correctly predicted the relationship between wave frequency, wave amplitude, and swimming speed observed in sperm cells and microorganisms.
+
+\subsection{Models for Cell Mechanics}
+
+Keller also studied the mechanics of cell membranes and the deformation of cells under external forces. With his student R.\ S.\ Chadwick, he developed models for the response of red blood cells to shear flow, incorporating the viscoelastic properties of the cell membrane and the cytoskeleton.
+
+The model treats the cell as a viscous liquid droplet surrounded by an elastic membrane. The membrane is modeled as a thin shell with bending and stretching stiffness, governed by the equations of shell theory:
+\[
+\nabla \cdot \boldsymbol{\sigma} + \mathbf{f} = 0,
+\]
+where \(\boldsymbol{\sigma}\) is the stress tensor in the membrane and \(\mathbf{f}\) includes the forces from the internal and external fluids. The fluid motion inside and outside the cell is governed by the Stokes equations (low Reynolds number).
+
+This work provided the first quantitative understanding of how red blood cells deform to pass through capillaries narrower than their diameter, a phenomenon essential for microcirculation in the circulatory system.
+
+\section{The Mathematics of Sports}
+
+\subsection{The Optimal Bat Swing}
+
+One of Keller's most charming and insightful papers addresses a question of interest to every baseball player: what is the optimal way to swing a bat? Keller (1976, with his son John B.\ Keller) modeled the bat as a rigid rod and the ball as a point mass, determining the angular velocity of the bat as a function of the batter's muscular effort.
+
+The model treats the bat as a rigid body of length \(L\) and mass \(M\) rotating about the batter's hands. The angular acceleration is determined by the applied torque \(\tau(t)\) and the moment of inertia \(I\):
+\[
+I \frac{d^2\theta}{dt^2} = \tau(t).
+\]
+The batter produces a torque that is a function of the muscle force and the angle. Keller assumed that the muscle force has a maximum value, and the batter's strategy is to maximize the speed of the bat at impact subject to physiological constraints.
+
+The key result is that the optimal strategy is to apply maximum torque until the bat reaches a certain position and then completely relax, allowing the bat to coast. This is a classic "bang--bang" control problem. The optimal swing is one where the batter applies maximum effort in the first phase and then lets the bat swing freely through the second phase.
+
+Keller also analyzed the "sweet spot" of the bat --- the point on the bat where the impact with the ball produces no reactive impulse at the hands. This is determined by the balance of linear and angular momentum during the collision:
+\[
+M_{\text{ball}} v_{\text{ball}} + M_{\text{bat}} v_{\text{bat}} = M_{\text{ball}} v'_{\text{ball}} + M_{\text{bat}} v'_{\text{bat}},
+\]
+\[
+I \omega + M_{\text{ball}} v_{\text{ball}} d = I \omega' + M_{\text{ball}} v'_{\text{ball}} d,
+\]
+where \(d\) is the distance from the hands to the impact point. The sweet spot corresponds to the value of \(d\) for which the impulse at the hands vanishes.
+
+\subsection{The Boomerang}
+
+Keller also analyzed the aerodynamics of the boomerang, explaining how its distinctive curved flight path arises from gyroscopic precession. The boomerang's cross-section (asymmetric, like an airfoil) generates lift, while its spinning motion creates a gyroscopic torque that causes the plane of rotation to precess, producing the characteristic circular flight path.
+
+The equations of motion for a boomerang combine rigid-body dynamics (Euler's equations for a spinning body) with aerodynamic forces (lift and drag). The angular momentum \(\mathbf{L} = I \boldsymbol{\omega}\) precesses under the action of the aerodynamic torque \(\boldsymbol{\tau}\):
+\[
+\frac{d\mathbf{L}}{dt} = \boldsymbol{\tau}.
+\]
+For a boomerang spinning with angular velocity \(\boldsymbol{\omega}\) and moving with velocity \(\mathbf{v}\), the lift force is perpendicular to both the plane of rotation and the velocity. This lift creates a torque that causes the spin axis to precess, and the boomerang follows a nearly circular path, returning to the thrower.
+
+\subsection{Other Contributions to Sports Mathematics}
+
+Keller's work on the mathematics of sports also includes:
+
+\begin{itemize}
+  \item \textbf{The trajectory of a tennis ball:} Analysis of the optimal angle and spin for serves and groundstrokes, accounting for aerodynamic drag and the Magnus effect.
+  \item \textbf{The flight of a Frisbee:} A model for the aerodynamics of a spinning disk, predicting its trajectory as a function of initial velocity, spin, and angle of attack.
+  \item \textbf{The bounce of a ball:} The coefficient of restitution as a function of impact speed, and the trajectory of a bouncing ball (useful for understanding the game of basketball and soccer).
+  \item \textbf{The long jump:} Optimization of the run-up speed and take-off angle.
+  \item \textbf{Running:} The energetics of running, including the optimal pacing strategy for distance races.
+\end{itemize}
+
+This work exemplifies Keller's belief that any phenomenon, no matter how mundane, could be the subject of fruitful mathematical analysis. His papers on sports have become classics of the genre and are widely read by mathematicians, physicists, and sports enthusiasts alike.
+
+\section{Impact and Legacy}
+
+\subsection{Wave Propagation and Diffraction}
+
+Keller's geometric theory of diffraction is one of the most important contributions to wave theory since the work of Sommerfeld and Lamb. It is used routinely in antenna design, radar cross-section prediction, acoustics, and optics. The theory has been extended and refined by generations of researchers (the uniform theory of diffraction, the parabolic equation method, Gaussian beam methods) but Keller's fundamental insight --- that diffraction can be described by augmenting the rays of geometrical optics with diffracted rays --- remains the foundation.
+
+\subsection{Computational Fluid Dynamics}
+
+The Keller--Box method became a standard numerical technique for boundary-layer calculations. It is used in aerospace engineering, turbomachinery design, and many other areas. The method's robustness and accuracy have made it a workhorse of computational fluid dynamics.
+
+\subsection{Mathematical Biology}
+
+The Keller--Segel model is the foundation of the mathematical theory of chemotaxis. It has inspired an enormous literature on the mathematics of aggregation, pattern formation, and self-organization. The model is a staple of graduate courses in mathematical biology and continues to produce new mathematical insights through the study of its singularities, pattern formation, and multiscale behavior.
+
+Keller's work on nerve impulse propagation, cilia and flagella, and cell mechanics also made significant contributions to mathematical biology, bringing the tools of asymptotic analysis and nonlinear dynamics to bear on fundamental biological problems.
+
+\subsection{Random Media}
+
+Keller's work on the effective properties of composites and wave propagation in random media laid the foundations for the modern theory of heterogeneous materials. His duality relation for two-dimensional composites is a classic result in the theory of homogenization. His work on wave propagation in random media is essential for understanding the propagation of light through turbulent atmospheres, sound through the ocean, and seismic waves through the earth.
+
+\subsection{Style of Applied Mathematics}
+
+Perhaps Keller's greatest legacy is his style of applied mathematics. He believed that mathematics should be used to understand the world, and he was never afraid to apply the most sophisticated mathematical tools to problems that others might consider too messy or too mundane. His approach combined:
+
+\begin{itemize}
+  \item \textbf{Physical intuition:} A deep understanding of the underlying physics guided his mathematical modeling.
+  \item \textbf{Mathematical rigor:} His methods were always mathematically sound, even when dealing with the most complicated physical problems.
+  \item \textbf{Asymptotic mastery:} He was one of the great practitioners of asymptotic analysis, using matched asymptotic expansions, boundary-layer theory, and WKB methods to extract simple answers from complex equations.
+  \item \textbf{Breadth of vision:} He applied mathematics to an astonishing range of fields, from quantum mechanics to baseball.
+\end{itemize}
+
+\subsection{The Keller School}
+
+Keller's influence extends through his many students and collaborators. His approach to applied mathematics --- asking fundamental questions, using the right mathematical tools, and never losing sight of the physical problem --- has been passed down through generations of applied mathematicians. Many of his students became leaders in their own right, spreading Keller's philosophy across the globe.
+
+\section{Frequently Asked Questions}
+
+\subsection*{Q1: What is the geometric theory of diffraction in simple terms?}
+
+The geometric theory of diffraction (GTD) extends the ray model of geometrical optics to include diffraction. In ordinary geometrical optics, when a ray hits an edge or corner, it stops. In GTD, each edge generates a new family of diffracted rays that spread out in all directions, carrying a fraction of the incident wave energy into the shadow region. The amplitude of each diffracted ray is given by a diffraction coefficient derived from the solution of a canonical problem (like diffraction by a half-plane).
+
+\subsection*{Q2: Why is the Keller--Segel model important?}
+
+The Keller--Segel model is important because it is the fundamental mathematical model for chemotaxis --- the directed movement of cells in response to chemical signals. It exhibits a rich variety of mathematical phenomena, including finite-time blowup (chemotactic collapse) that models cell aggregation. The model is used to study slime mold aggregation, bacterial pattern formation, tumor growth, and many other biological processes.
+
+\subsection*{Q3: What is the Keller--Box method?}
+
+The Keller--Box method is an implicit finite-difference scheme for solving the boundary-layer equations in fluid dynamics. It is second-order accurate in both the streamwise and normal directions and unconditionally stable for the linearized equations. The method uses centered differences at the midpoint of each grid cell and results in a block tridiagonal system that can be solved efficiently.
+
+\subsection*{Q4: What is the KZK equation used for?}
+
+The KZK (Kuznetsov--Zabolotskaya--Khokhlov) equation describes the propagation of finite-amplitude sound beams, accounting for nonlinearity, diffraction, and absorption. It is the standard model for high-intensity focused ultrasound (HIFU) used in medical therapy, as well as for diagnostic ultrasound, sonar, and non-destructive testing.
+
+\subsection*{Q5: How did Keller combine so many different fields?}
+
+Keller had a rare combination of physical intuition, mathematical skill, and intellectual curiosity. He believed that the same mathematical tools --- asymptotic analysis, perturbation methods, conservation laws --- could be applied to problems in any field. He read widely across science and engineering and was always on the lookout for interesting problems where mathematics could make a difference.
+
+\subsection*{Q6: What is Keller's duality relation?}
+
+Keller's duality relation states that for a two-dimensional composite material, if you swap the two phases, the effective conductivities satisfy \(\sigma^*(\sigma_1, \sigma_2) \, \sigma^*(\sigma_2, \sigma_1) = \sigma_1 \sigma_2\). This is a powerful result that relates the effective conductivity of a composite to that of a complementary composite. If the composite is symmetric under phase interchange, it implies \(\sigma^* = \sqrt{\sigma_1 \sigma_2}\).
+
+\subsection*{Q7: What did Keller contribute to the mathematics of sports?}
+
+Keller analyzed the optimal baseball swing (a bang--bang control problem: maximum torque then coast), the aerodynamics of the boomerang (gyroscopic precession produces the circular flight path), the trajectory of a Frisbee, the bounce of a ball, and the optimal strategy for running a race. These papers are classics of applied mathematics and are admired for showing how sophisticated mathematics can illuminate everyday phenomena.
+
+\subsection*{Q8: What are the major open problems related to Keller's work?}
+
+Several deep problems remain:
+\begin{enumerate}
+  \item \textbf{Global regularity for the Keller--Segel system in 3D:} The question of whether blowup can be prevented by nonlinear diffusion or other regularization mechanisms is an active area of research.
+  \item \textbf{Closure of the Dyson equation for random media:} Finding accurate closures for wave propagation in strongly scattering random media remains a challenge.
+  \item \textbf{Extension of GTD to complex geometries:} While GTD works well for simple edges and corners, extending it to fully general curved geometries with multiple interactions is an ongoing problem.
+  \item \textbf{Effective properties of nonlinear composites:} The theory of effective properties is well-developed for linear transport, but nonlinear composites (including those with large deformations) are much less understood.
+\end{enumerate}
+
+\section{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1923 & Born on July 31 in Paterson, New Jersey, USA \\ \hline
+1940 & Entered New York University \\ \hline
+1943--1946 & Served in U.S.\ Army Air Forces \\ \hline
+1946 & M.A.\ in Mathematics, New York University \\ \hline
+1948 & Ph.D.\ in Mathematics, New York University (advisor: Richard Courant) \\ \hline
+1948 & Joined the faculty at the Courant Institute, NYU \\ \hline
+1950s & Development of the geometric theory of diffraction \\ \hline
+1960s & Work on boundary-layer flows and the Keller--Box method \\ \hline
+1964 & Publication of duality relation for composite materials \\ \hline
+1970 & Publication of the Keller--Segel model for chemotaxis \\ \hline
+1970s & Work on nerve impulse propagation and mathematical biology \\ \hline
+1976 & Analysis of the optimal baseball swing \\ \hline
+1979 & Moved to Stanford University as Professor of Mathematics \\ \hline
+1980s & Work on random media and wave propagation in composites \\ \hline
+1988 & Awarded the National Medal of Science \\ \hline
+1996/97 & Awarded the Wolf Prize in Mathematics (shared with Yakov G.\ Sinai) \\ \hline
+2016 & Died on September 7 in Stanford, California, USA \\ \hline
+\end{tabular}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+  \item Derive the eikonal equation \(|\nabla S|^2 = n^2(x)\) from the Helmholtz equation by assuming a WKB ansatz \(u \sim A(x) e^{ikS(x)}\) and taking the limit \(k \to \infty\).
+  \item For a half-plane diffraction problem (Sommerfeld), derive the leading-order asymptotic form of the diffracted field in the shadow region using Keller's GTD.
+  \item Consider a two-phase composite in 2D with conductivities \(\sigma_1 = 1\) (volume fraction \(f\)) and \(\sigma_2 = 100\) (volume fraction \(1-f\)). Compute the effective conductivity bounds and plot them as a function of \(f\).
+  \item Verify Keller's duality relation: show that if \(\sigma^*(\sigma_1, \sigma_2)\) is the effective conductivity of a 2D composite, then \(\sigma^*(\sigma_1, \sigma_2) \sigma^*(\sigma_2, \sigma_1) = \sigma_1 \sigma_2\). (Hint: consider rotating the applied field by 90 degrees.)
+  \item For the bistable equation \(\partial_t u = \partial_x^2 u + f(u)\) with \(f(u) = u(1-u)(u-a)\), show that there exists a traveling front solution \(u(x, t) = \phi(x - ct)\) with speed \(c = (1-2a)/\sqrt{2}\).
+  \item Consider the Keller--Segel model in one dimension with \(D_\rho = D_c = 1\), \(\chi = 1\), \(\alpha = 1\), \(\beta = 0\). Show that the total cell mass \(M = \int \rho\, dx\) is conserved.
+  \item Derive the optimal bat swing as a bang--bang control problem: given a bat of moment of inertia \(I\) and maximum applied torque \(\tau_{\max}\), find the control \(\tau(t) \in [-\tau_{\max}, \tau_{\max}]\) that maximizes the bat speed at impact.
+  \item For a two-phase composite with conductivities \(\sigma_1\) and \(\sigma_2\), show that the effective conductivity \(\sigma^*\) satisfies the arithmetic and harmonic mean bounds from Keller's 1964 paper.
+  \item Show that the Keller--Box method with centered differences is second-order accurate in both \(x\) and \(y\) for the linearized boundary-layer equation.
+  \item For the Keller--Rinzel model, show that in the limit \(\varepsilon \to 0\), a traveling pulse solution can be constructed by patching together a fast wave (the front) and a slow recovery (the back).
+  \item Consider a randomly layered medium where the refractive index varies only in the \(z\)-direction as \(n^2(z) = 1 + \mu(z)\) with a stationary random process \(\mu(z)\). Derive the effective wavenumber using Keller's smoothing method.
+  \item For an acoustic beam described by the KZK equation, derive the operator splitting (fractional step) method and show that it is first-order accurate in the step size.
+  \item Model the trajectory of a Frisbee: write the equations of motion for a spinning disk under gravity, lift, and drag. Show that the lift-to-drag ratio determines the range.
+  \item For the Keller--Segel model in \(\R^2\), compute the critical mass \(M_c\) by analyzing the stationary solutions of the reduced system.
+  \item Analyze the sound field near a caustic using the uniform theory of diffraction (UTD). Show that the field is given by an Airy function rather than a ray sum.
+  \item For a flagellum with bending stiffness \(EI\) and normal drag \(C_N\), derive the dispersion relation for bending waves: \(\omega = (EI/C_N)^{1/2} k^2\).
+  \item Extend the Keller--Box method to the thermal boundary layer: derive the energy equation and discretize it using the box scheme.
+  \item Consider the boomerang as a rigid body with angular momentum \(\mathbf{L}\). Show that under the action of lift, the spin axis precesses, producing the circular flight path.
+  \item For the Hodgkin--Huxley model, derive the condition for traveling wave solutions and show that the propagation speed depends on the maximum sodium conductance.
+  \item Prove that for the Keller--Segel model in \(\R^2\) with subcritical mass, solutions exist globally and asymptotically approach a self-similar diffusion profile.
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+  \item[Boundary layer] The thin region adjacent to a solid surface in a viscous fluid flow where viscous effects are concentrated.
+  \item[Bistable equation] A reaction-diffusion equation \(\partial_t u = \partial_x^2 u + f(u)\) where \(f\) has three zeros (two stable, one unstable), supporting traveling front solutions.
+  \item[Caustic] A curve or surface where the ray approximation of geometrical optics predicts infinite intensity, formed by the envelope of rays.
+  \item[Chemotaxis] The directed movement of cells or organisms in response to chemical gradients.
+  \item[Composite material] A material consisting of two or more distinct phases with different physical properties.
+  \item[Diffracted ray] A ray generated when an incident ray strikes an edge, corner, or vertex, spreading wave energy into shadow regions.
+  \item[Diffraction coefficient] The amplitude factor for a diffracted ray, derived from the asymptotic solution of a canonical diffraction problem.
+  \item[Duality relation] Keller's result that for 2D composites, \(\sigma^*(\sigma_1, \sigma_2) \sigma^*(\sigma_2, \sigma_1) = \sigma_1 \sigma_2\).
+  \item[Effective conductivity] The macroscopic conductivity of a heterogeneous material when viewed as a homogeneous medium.
+  \item[Fermat's principle] The principle that light (or wave) rays follow paths of extremal optical path length; extended by Keller to include diffracted rays.
+  \item[FitzHugh--Nagumo model] A simplified model for excitable media, reducing the Hodgkin--Huxley equations to two variables.
+  \item[Geometric theory of diffraction (GTD)] Keller's extension of geometrical optics that includes diffracted rays to account for diffraction effects.
+  \item[Hodgkin--Huxley model] The biophysical model for the generation and propagation of action potentials in nerve fibers.
+  \item[Homogenization] The mathematical theory of computing effective properties of heterogeneous materials.
+  \item[Keller--Box method] An implicit finite-difference scheme for solving boundary-layer equations, second-order accurate in both directions.
+  \item[Keller--Segel model] The system of PDEs \(\partial_t \rho = D_\rho \nabla^2 \rho - \chi \nabla \cdot (\rho \nabla c)\), \(\partial_t c = D_c \nabla^2 c + \alpha \rho - \beta c\) modeling chemotaxis.
+  \item[KZK equation] The Kuznetsov--Zabolotskaya--Khokhlov equation for nonlinear acoustic beam propagation.
+  \item[Magnus effect] The generation of lift on a spinning sphere or cylinder in a fluid flow, responsible for curveballs in baseball.
+  \item[Matched asymptotic expansions] A perturbation method for problems with multiple scales, used to connect inner and outer expansions.
+  \item[Photonic crystal] A periodic optical medium with a photonic band gap, analogous to electronic band gaps in semiconductors.
+  \item[Random medium] A material whose properties vary randomly in space, giving rise to scattering and attenuation of waves.
+  \item[Smoothing method] A perturbative technique for computing mean fields in random media through the Dyson equation.
+  \item[Traveling wave] A solution of the form \(u(x,t) = \phi(x - ct)\) representing a wave propagating at constant speed \(c\).
+  \item[Uniform theory of diffraction (UTD)] An extension of GTD that remains finite at shadow boundaries and caustics using Fresnel integrals.
+  \item[WKB method] The Wentzel--Kramers--Brillouin asymptotic method for solving linear differential equations with a small parameter.
+\end{description}

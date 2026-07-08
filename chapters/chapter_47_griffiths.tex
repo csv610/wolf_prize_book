@@ -1,0 +1,323 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\cF}{\mathcal{F}}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\SL}{\operatorname{SL}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Gr}{\operatorname{Gr}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\End}{\operatorname{End}}
+
+\chapter{Phillip A. Griffiths (2008)}
+
+\begin{quote}
+\it ``Griffiths' work has transformed the field of transcendental algebraic geometry. His theory of variations of Hodge structure is a central tool in modern algebraic geometry, and his work on algebraic cycles, period mappings, and the geometry of differential systems has had a profound and lasting impact.'' --- Wolf Prize Citation
+\end{quote}
+
+\section{Main Contribution}
+
+Phillip Augustus Griffiths (born 1938) is one of the leading figures in complex algebraic geometry and differential geometry of the late 20th and early 21st centuries. He received the Wolf Prize in Mathematics in 2008, jointly with Pierre Deligne and David Mumford.
+
+The Wolf Prize citation reads: ``for his work on variations of Hodge structures; the theory of periods of abelian integrals; and for his contributions to complex differential geometry.''
+
+Griffiths' core contributions include:
+\begin{itemize}
+    \item \textbf{Variations of Hodge Structure:} The theory of how Hodge structures deform in families of algebraic varieties, now a central tool in algebraic geometry, arithmetic geometry, and complex analysis.
+    \item \textbf{Period Mappings:} The study of how periods of integrals on algebraic manifolds vary, connecting complex analysis, algebraic geometry, and differential geometry.
+    \item \textbf{Algebraic Cycles:} Foundational work on the geometry and Hodge theory of algebraic cycles, including the Griffiths Abel--Jacobi map and the theory of intermediate Jacobians.
+    \item \textbf{Exterior Differential Systems:} Deep contributions to the theory of exterior differential systems and their applications to partial differential equations, in collaboration with Chern, Bryant, and others.
+    \item \textbf{Complex Differential Geometry:} Work on homogeneous complex manifolds, the geometry of vector bundles, and the theory of residues in algebraic geometry.
+    \item \textbf{Mathematical Pedagogy:} Co-author with Joe Harris of \textit{Principles of Algebraic Geometry}, one of the most influential textbooks in the field.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Need for a Transcendental Theory}
+
+Algebraic geometry in the 20th century developed along two parallel tracks. The algebraic track, championed by Zariski, Weil, and Grothendieck, used purely algebraic methods (commutative algebra, schemes, \'etale cohomology). The transcendental track, rooted in the work of Riemann, used complex analysis, differential geometry, and topology.
+
+By the 1960s, the algebraic approach had achieved spectacular successes, but many deep questions about algebraic varieties required transcendental methods. The periods of integrals on algebraic varieties---numbers obtained by integrating differential forms over cycles---encode profound information about the variety's geometry. Understanding how these periods vary in families was a fundamental problem.
+
+\subsection{Hodge Theory Before Griffiths}
+
+Hodge theory, developed by W.\ V.\ D.\ Hodge in the 1930s and 1940s, provides a decomposition of the cohomology of a compact K\"ahler manifold:
+\[
+H^k(X, \C) = \bigoplus_{p+q=k} H^{p,q}(X)
+\]
+where $H^{p,q}$ consists of cohomology classes represented by forms of type $(p,q)$. This decomposition varies holomorphically in families, but the precise nature of this variation was not understood.
+
+Kodaira and Spencer had developed deformation theory for complex manifolds, showing that first-order deformations are classified by $H^1(X, T_X)$. However, the relationship between deformations of the complex structure and the resulting changes in Hodge structure remained mysterious.
+
+\subsection{The Period Problem}
+
+Given a family $\pi: \mathcal{X} \to B$ of algebraic varieties, one can consider the \textit{period map} $\Phi: B \to D$ sending each point $b \in B$ to the Hodge structure on $H^k(X_b, \C)$. The image lies in a classifying space $D$ of Hodge structures (a Griffiths period domain).
+
+The fundamental problems were:
+\begin{enumerate}
+    \item What are the geometric properties of the period map? Is it holomorphic? What are its differential properties?
+    \item What constraints does the geometry of the family impose on the variation of Hodge structure?
+    \item Can one reconstruct the family from the period map? (A Torelli-type problem.)
+    \item How do algebraic cycles interact with the Hodge structures of their ambient varieties?
+\end{enumerate}
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{The Key Insight: Infinitesimal Variation}
+
+Griffiths' fundamental insight was to study the \textit{infinitesimal} variation of Hodge structure. Given a family of varieties, the derivative of the period map at a point $b \in B$ can be expressed in terms of a natural bilinear map:
+\[
+\nabla: T_b B \to \bigoplus_p \Hom(H^{p,q}(X_b), H^{p-1,q+1}(X_b))
+\]
+This map---now called the \textbf{Gauss--Manin connection} after its generalization by Manin---encodes how Hodge pieces rotate under deformation.
+
+The infinitesimal variation satisfies a remarkable property: it is essentially given by the \textit{cup product with the Kodaira--Spencer class}. More precisely, if $\kappa \in H^1(X_b, T_{X_b})$ is the Kodaira--Spencer class of a deformation, then the induced map on Hodge structures is the composition:
+\[
+H^{p,q}(X_b) \xrightarrow{\cup \kappa} H^{p-1,q+1}(X_b)
+\]
+This is the \textbf{Griffiths transversality} condition.
+
+\subsection{Tools and Techniques}
+
+The tools Griffiths used include:
+\begin{itemize}
+    \item \textbf{K\"ahler geometry:} The Hodge decomposition and the hard Lefschetz theorem.
+    \item \textbf{Spectral sequences:} The Hodge-to-de Rham spectral sequence and its behavior in families.
+    \item \textbf{Linear algebra of Hodge structures:} The notion of polarized Hodge structures and their classifying spaces.
+    \item \textbf{The Kodaira--Spencer theory:} Deformation theory of complex structures.
+    \item \textbf{Complex analysis:} Several complex variables, domains of holomorphy.
+\end{itemize}
+
+\subsection{Intermediate Jacobians and Algebraic Cycles}
+
+A second major contribution was the theory of \textbf{intermediate Jacobians}. For a smooth projective variety $X$, the $k$-th intermediate Jacobian is:
+\[
+J^k(X) = \frac{H^{2k-1}(X, \C)}{F^k H^{2k-1}(X, \C) \oplus H^{2k-1}(X, \Z)}
+\]
+where $F^k$ is the Hodge filtration. These are complex tori that parametrize certain cohomology classes.
+
+Griffiths showed that algebraic cycles of codimension $k$ on $X$ give rise to points on $J^k(X)$ via the \textbf{Abel--Jacobi map}:
+\[
+\Phi: Z^k(X)_{\hom} \to J^k(X)
+\]
+This map sends a cycle homologous to zero to an Abel--Jacobi invariant, generalizing the classical theory for curves to higher dimensions.
+
+\section{Mathematical Theory}
+
+\subsection{Variations of Hodge Structure}
+
+\begin{definition}[Polarized Hodge Structure]
+A \textbf{polarized Hodge structure of weight $k$} consists of:
+\begin{enumerate}
+    \item A free $\Z$-module $H_\Z$ of finite rank.
+    \item A Hodge decomposition $H_\C = \bigoplus_{p+q=k} H^{p,q}$ with $\overline{H^{p,q}} = H^{q,p}$.
+    \item A bilinear form $Q: H_\Z \otimes H_\Z \to \Z$ that is $(-1)^k$-symmetric and satisfies the Hodge--Riemann bilinear relations.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Variation of Hodge Structure]
+A \textbf{variation of Hodge structure} (VHS) on a complex manifold $B$ consists of:
+\begin{enumerate}
+    \item A local system $\mathbf{H}_\Z$ of free $\Z$-modules on $B$.
+    \item A Hodge filtration $\mathcal{F}^\bullet$ of $\mathcal{H} = \mathbf{H}_\Z \otimes \cO_B$ by holomorphic subbundles, satisfying $\mathcal{F}^{p+1} \subset \mathcal{F}^p$.
+    \item The \textbf{Griffiths transversality} condition: $\nabla \mathcal{F}^p \subset \mathcal{F}^{p-1} \otimes \Omega_B^1$, where $\nabla$ is the Gauss--Manin connection.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Griffiths, 1968]
+For a smooth projective family $\pi: \mathcal{X} \to B$, the local system $R^k\pi_*\Z$ underlies a polarizable variation of Hodge structure on $B \setminus \Delta$ (where $\Delta$ is the discriminant locus).
+\end{theorem}
+
+This theorem provides the rigorous foundation for studying how Hodge structures vary in families.
+
+\begin{theorem}[Griffiths Transversality]
+The Hodge filtration $\mathcal{F}^\bullet$ of a geometric variation of Hodge structure satisfies:
+\[
+\nabla \mathcal{F}^p \subset \mathcal{F}^{p-1} \otimes \Omega_B^1
+\]
+This is the key differential condition constraining the period map.
+\end{theorem}
+
+\subsection{Period Domains and the Period Map}
+
+\begin{definition}[Period Domain]
+Let $H_\Z$ be a lattice with a polarizing form $Q$, and let $\{h^{p,q}\}$ be Hodge numbers. The \textbf{period domain} $D$ is the set of all Hodge filtrations $F^\bullet$ on $H_\C$ with the given Hodge numbers, satisfying the Hodge--Riemann bilinear relations.
+\end{definition}
+
+$D$ is a homogeneous complex manifold: $D = G/V$, where $G$ is the real Lie group of automorphisms of $(H_\R, Q)$ and $V$ is a compact subgroup.
+
+\begin{definition}[Period Map]
+Given a family $\pi: \mathcal{X} \to B$, the \textbf{period map} is the holomorphic map:
+\[
+\Phi: B \setminus \Delta \to \Gamma \backslash D
+\]
+where $\Gamma$ is the monodromy group (the image of $\pi_1(B \setminus \Delta)$ in $\Aut(H_\Z, Q)$).
+\end{definition}
+
+\begin{theorem}[Schwarz--Carlson--Griffiths]
+The period map is \textbf{horizontal}: its derivative at every point takes values in the horizontal tangent bundle $T^h D \subset T D$, which encodes the Griffiths transversality condition.
+\end{theorem}
+
+\subsection{Intermediate Jacobians and the Abel--Jacobi Map}
+
+\begin{definition}[Intermediate Jacobian]
+For a smooth projective variety $X$, the $k$-th \textbf{intermediate Jacobian} is:
+\[
+J^k(X) = H^{2k-1}(X, \C) / (F^k H^{2k-1}(X, \C) \oplus H^{2k-1}(X, \Z))
+\]
+This is a complex torus of dimension equal to the $(k-1, k)$ Hodge number.
+\end{definition}
+
+For $k = 1$, $J^1(X) = \Pic^0(X)$ is the Jacobian of $X$ when $X$ is a curve, and the Picard variety in general. For $k = \dim X$, $J^{\dim X}(X)$ is the Albanese variety.
+
+\begin{definition}[Griffiths Abel--Jacobi Map]
+Let $Z^k(X)_{\hom}$ be the group of algebraic cycles of codimension $k$ on $X$ that are homologous to zero. The \textbf{Abel--Jacobi map} is:
+\[
+\Phi^k: Z^k(X)_{\hom} \to J^k(X)
+\]
+defined by integrating over a chain bounding the cycle.
+\end{definition}
+
+\begin{theorem}[Griffiths, 1969]
+For a general variety $X$, the Abel--Jacobi map $\Phi^k$ is not surjective for $k > 1$. The image is a proper subgroup of $J^k(X)$, reflecting the transcendental constraints on algebraic cycles.
+\end{theorem}
+
+This result showed that the Hodge conjecture---which predicts that all Hodge classes come from algebraic cycles---is a very subtle statement about the interplay between periods and cycles.
+
+\subsection{The Residue Calculus}
+
+Griffiths developed a powerful calculus of residues for algebraic varieties. Given a smooth projective variety $X$ and a normal crossing divisor $D \subset X$, the Poincar\'e residue map:
+\[
+\Res: H^0(X, \Omega_X^p(\log D)) \to H^0(D, \Omega_D^{p-1})
+\]
+relates logarithmic forms on $X$ to ordinary forms on $D$. Griffiths showed that this calculus extends to the cohomology level and provides a geometric description of the Hodge filtration on open varieties.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Algebraic Geometry:} The theory of variations of Hodge structure is now a central tool. It is essential for understanding moduli spaces, the geometry of families, and the arithmetic of algebraic varieties.
+    \item \textbf{Arithmetic Geometry:} VHS underlies the theory of Shimura varieties and the Langlands program. The work of Deligne, Faltings, and others on the Weil conjectures and modularity uses Griffiths' framework.
+    \item \textbf{Complex Analysis:} Period domains are now a standard object of study, with applications to several complex variables and the theory of automorphic forms.
+    \item \textbf{Differential Geometry:} The Griffiths transversality condition inspired the theory of harmonic maps and the study of geometric structures on moduli spaces.
+    \item \textbf{Hodge Theory:} The development of mixed Hodge structures by Deligne was deeply influenced by Griffiths' work on variations.
+\end{enumerate}
+
+\subsection{In Physics}
+
+\begin{enumerate}
+    \item \textbf{String Theory:} Variations of Hodge structure appear in compactifications of string theory, particularly in the study of Calabi--Yau manifolds and mirror symmetry. Periods of Calabi--Yau manifolds satisfy Picard--Fuchs equations, which are central to mirror symmetry computations.
+    \item \textbf{Integrable Systems:} The Griffiths--Hitchin approach to integrable systems uses the geometry of period maps and spectral curves.
+\end{enumerate}
+
+\subsection{In Pedagogy}
+
+The textbook \textit{Principles of Algebraic Geometry} (with Joe Harris) trained a generation of algebraic geometers. It remains one of the most widely used references in the field, bridging the gap between complex analysis, differential geometry, and algebraic geometry.
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is a variation of Hodge structure in simple terms?}
+A variation of Hodge structure describes how the Hodge decomposition changes as we vary a complex algebraic variety in a family. As you deform a variety, its cohomology changes, and the Hodge pieces $H^{p,q}$ rotate. Griffiths showed that this rotation must satisfy a precise differential condition (transversality), which constrains which families of Hodge structures can actually arise from geometry.
+
+\subsection*{Q2: Why are period maps important?}
+Period maps connect the deformation theory of complex structures (Kodaira--Spencer) to the linear algebra of Hodge structures. They provide a powerful tool for proving global results about moduli spaces, such as the global Torelli theorem (which says that a variety is determined by its Hodge structure in many cases). Period maps also play a crucial role in the study of Shimura varieties and the Langlands program.
+
+\subsection*{Q3: What is the Griffiths intermediate Jacobian?}
+The intermediate Jacobian $J^k(X)$ is a complex torus built from the odd cohomology of $X$. It receives algebraic cycles via the Abel--Jacobi map. For curves ($k=1$), it is the classical Jacobian, which completely determines the curve (Torelli theorem). For higher dimensions, intermediate Jacobians are more subtle: they detect only a part of the information carried by algebraic cycles, and Griffiths showed that the Abel--Jacobi map is generally not surjective.
+
+\subsection*{Q4: How is Griffiths' work related to the Hodge conjecture?}
+The Hodge conjecture asks whether every Hodge class (a cohomology class of type $(p,p)$) is a linear combination of classes of algebraic cycles. Griffiths' work on intermediate Jacobians and the Abel--Jacobi map showed that the situation is subtle: there are many Hodge classes, and algebraic cycles account for only a small fraction of them in a precise sense. This suggests that the Hodge conjecture, if true, must involve deep arithmetic information beyond transcendental methods.
+
+\subsection*{Q5: What should an undergraduate study to understand Griffiths' work?}
+A strong foundation includes: complex analysis (several variables), differential geometry (Riemannian and Hermitian), algebraic topology (cohomology, spectral sequences), algebraic geometry (varieties, sheaves, schemes), and Hodge theory. The books \textit{Principles of Algebraic Geometry} (Griffiths--Harris), \textit{Hodge Theory and Complex Algebraic Geometry} (Voisin), and \textit{Complex Geometry} (Huybrechts) are recommended.
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the Hodge numbers $h^{p,q}$ of a compact K\"ahler manifold satisfy $h^{p,q} = h^{q,p}$ and $h^{p,q} = h^{n-p,n-q}$ where $n = \dim_\C X$.
+    \item Verify that the Griffiths transversality condition $\nabla \mathcal{F}^p \subset \mathcal{F}^{p-1} \otimes \Omega_B^1$ is equivalent to the vanishing of the $(0,2)$ part of the curvature of the Gauss--Manin connection.
+    \item For an elliptic curve $E = \C / (\Z \oplus \tau \Z)$, compute the period matrix and show that the period map from the upper half-plane to the Siegel upper half-space is holomorphic and satisfies transversality.
+    \item Let $X$ be a smooth projective curve of genus $g$. Show that $J^1(X)$ is isomorphic to the Jacobian $\Pic^0(X)$ and that the Abel--Jacobi map is an isomorphism.
+    \item Prove that the intermediate Jacobian $J^k(X)$ is a complex torus. Compute its dimension in terms of Hodge numbers.
+    \item Show that if $X$ is a Calabi--Yau threefold, then the Griffiths transversality condition for the variation of $H^3(X)$ forces the period map to satisfy the Picard--Fuchs equation.
+    \item Let $D$ be a period domain for weight $k$ Hodge structures. Show that the horizontal tangent bundle $T^h D$ is a subbundle of $T D$ of codimension $\sum_{p} \dim \Hom(H^{p+1,q-1}, H^{p,q})$.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1938 & Born in Raleigh, North Carolina \\ \hline
+1959 & B.S. from Wake Forest College \\ \hline
+1962 & Ph.D. from Princeton University (advisor: D.\ C.\ Spencer) \\ \hline
+1962--1967 & Professor at UC Berkeley \\ \hline
+1966 & Publishes the residue calculus in algebraic geometry \\ \hline
+1967--1972 & Professor at Princeton University \\ \hline
+1968 & Develops the theory of variations of Hodge structure \\ \hline
+1972--1983 & Professor at Harvard University \\ \hline
+1978 & Publishes \textit{Principles of Algebraic Geometry} with Joe Harris \\ \hline
+1983--1991 & Provost and James B.\ Duke Professor at Duke University \\ \hline
+1991--2003 & Director of the Institute for Advanced Study \\ \hline
+2008 & Wolf Prize in Mathematics (with Deligne and Mumford) \\ \hline
+2008 & Brouwer Medal \\ \hline
+2012 | Elected Fellow of the American Mathematical Society \\ \hline
+2014 | Chern Medal \\ \hline
+2014 | Leroy P.\ Steele Prize for Lifetime Achievement \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Abel--Jacobi map] A map from algebraic cycles homologous to zero to a complex torus (intermediate Jacobian), generalizing the classical map from degree-zero divisors to the Jacobian of a curve.
+    \item[Gauss--Manin connection] A flat connection on the cohomology bundle of a family of varieties, encoding how cohomology classes change under deformation.
+    \item[Griffiths transversality] The condition $\nabla \mathcal{F}^p \subset \mathcal{F}^{p-1} \otimes \Omega^1$ for a variation of Hodge structure, constraining the period map.
+    \item[Hodge decomposition] The decomposition $H^k(X,\C) = \bigoplus_{p+q=k} H^{p,q}(X)$ for a compact K\"ahler manifold.
+    \item[Hodge filtration] The decreasing filtration $F^p = \bigoplus_{r \geq p} H^{r,k-r}$.
+    \item[Intermediate Jacobian] A complex torus $J^k(X)$ constructed from $H^{2k-1}(X)$ and the Hodge filtration.
+    \item[Period domain] A classifying space for Hodge structures with fixed Hodge numbers and polarization.
+    \item[Period map] A holomorphic map from a parameter space to a period domain (or its quotient), sending each variety to its Hodge structure.
+    \item[Polarization] A bilinear form on a Hodge structure satisfying the Hodge--Riemann bilinear relations.
+    \item[Variation of Hodge structure] A local system plus Hodge filtration varying holomorphically and satisfying Griffiths transversality.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item P.\ A.\ Griffiths, \textit{Periods of integrals on algebraic manifolds}, Bull.\ Amer.\ Math.\ Soc.\ 76 (1970), 228--296.
+    \item P.\ A.\ Griffiths, \textit{Periods of integrals on algebraic manifolds, I, II}, Amer.\ J.\ Math.\ 90 (1968), 568--626, 805--865.
+    \item P.\ A.\ Griffiths, \textit{On the periods of certain rational integrals, I, II}, Ann.\ of Math.\ 90 (1969), 460--495, 496--541.
+    \item P.\ A.\ Griffiths, \textit{Infinitesimal variation of Hodge structure}, in ``Algebraic Geometry,'' Oxford Univ.\ Press, 1969, pp.\ 115--127.
+    \item P.\ A.\ Griffiths and J.\ Harris, \textit{Principles of Algebraic Geometry}, Wiley, 1978.
+    \item P.\ Deligne, P.\ Griffiths, J.\ Morgan, and D.\ Sullivan, \textit{Real homotopy theory of K\"ahler manifolds}, Invent.\ Math.\ 29 (1975), 245--274.
+    \item S.\ S.\ Chern and P.\ A.\ Griffiths, \textit{Abel's theorem and webs}, Jahresber.\ D.\ M.\ V.\ 80 (1978), 13--110.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item M.\ Green, \textit{The Work of Phillip Griffiths}, in ``The Selected Works of Phillip A.\ Griffiths,'' Amer.\ Math.\ Soc., 2003.
+    \item Institute for Advanced Study, \textit{Phillip A.\ Griffiths --- Biographical Sketch}, IAS Website.
+    \item Wolf Foundation, \textit{Wolf Prize Citation 2008}.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item P.\ Griffiths and J.\ Harris, \textit{Principles of Algebraic Geometry}, Wiley, 1978.
+    \item C.\ Voisin, \textit{Hodge Theory and Complex Algebraic Geometry}, Vols.\ 1--2, Cambridge Univ.\ Press, 2002.
+    \item D.\ Huybrechts, \textit{Complex Geometry}, Springer, 2005.
+    \item J.\ Carlson, S.\ M\"uller-Stach, and C.\ Peters, \textit{Period Mappings and Period Domains}, Cambridge Univ.\ Press, 2003.
+    \item P.\ Deligne, \textit{Travaux de Griffiths}, S\'eminaire Bourbaki, 1969/70.
+\end{enumerate}
+

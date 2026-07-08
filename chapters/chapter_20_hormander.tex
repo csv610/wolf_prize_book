@@ -1,0 +1,1179 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\WF\relax
+\newcommand{\WF}{\operatorname{WF}}
+\let\singsupp\relax
+\newcommand{\singsupp}{\operatorname{singsupp}}
+
+\chapter{Lars H\"{o}rmander (1988)}
+
+\begin{quote}
+\it ``H\"ormander's profound and wide-ranging contributions to the modern
+theory of linear partial differential equations have transformed the
+subject. His monumental four-volume treatise \textit{The Analysis of Linear
+Partial Differential Operators} is the definitive account of the field,
+synthesizing pseudodifferential operators, Fourier integral operators,
+and microlocal analysis into a unified theory of unprecedented power and
+elegance.'' --- Wolf Prize Citation
+\end{quote}
+
+Lars H\"ormander (1931--2012) was the preeminent analyst of partial
+differential equations in the second half of the twentieth century. The
+1988 Wolf Prize in Mathematics (shared with Friedrich Hirzebruch)
+recognized his transformation of the theory of linear PDEs through the
+development of microlocal analysis, pseudodifferential operators,
+Fourier integral operators, and the systematic study of local solvability
+and hypoellipticity. His four-volume magnum opus, \textit{The Analysis of
+Linear Partial Differential Operators} (1983--1985), remains the
+definitive reference and the crowning achievement of the field.
+
+H\"ormander's work is characterized by extraordinary technical mastery,
+an insistence on the most general formulations, and a drive to reduce
+the local theory of linear PDEs to algebraic and geometric conditions
+that can be verified by computation. Before H\"ormander, the theory of
+linear PDEs was a collection of specialized results for different types
+of equations (elliptic, hyperbolic, parabolic). After H\"ormander, it
+became a unified subject based on the microlocal analysis of singularities,
+where the symbol of an operator and the geometry of its characteristic
+set determine the behavior of solutions.
+
+\section{Main Contribution}
+
+\begin{itemize}
+    \item \textbf{Pseudodifferential Operators (1965--1971):} H\"ormander
+    developed the complete theory of pseudodifferential operators,
+    generalizing differential operators to operators with symbols that
+    are smooth functions on the cotangent bundle. He classified operators
+    by their symbol classes \(S^m_{\rho,\delta}\) and established their
+    algebraic and analytic properties, including composition rules,
+    parametrices, and \(L^2\) boundedness. This theory provides a unified
+    framework for constructing approximate inverses (parametrices) of
+    elliptic and hypoelliptic operators.
+    \item \textbf{Fourier Integral Operators (1971):} H\"ormander
+    generalized pseudodifferential operators to Fourier integral
+    operators, which are oscillatory integrals whose phase functions are
+    not necessarily linear. These operators are the natural tools for
+    solving hyperbolic equations and describing the propagation of
+    singularities. The Fourier integral operator calculus is the
+    rigorous mathematical foundation for geometrical optics.
+    \item \textbf{Wave Front Sets and Microlocal Analysis (1970--1971):}
+    H\"ormander introduced the concept of the wave front set
+    \(\WF(u)\) of a distribution \(u\), which refines the notion of
+    singular support by recording not only \textit{where} a distribution
+    is singular but also \textit{which frequencies} cause the
+    singularity. This is the central concept of microlocal analysis, the
+    study of distributions and PDEs in the cotangent bundle.
+    \item \textbf{Propagation of Singularities (1970--1971):}
+    H\"ormander proved that for a real principal-type operator \(P\),
+    the wave front set of a solution \(u\) to \(Pu = f\) propagates along
+    the bicharacteristics of the principal symbol. This theorem
+    generalizes the classical fact that singularities of solutions of
+    the wave equation travel along light rays.
+    \item \textbf{H\"ormander Condition for Local Solvability (1960s):}
+    H\"ormander gave a necessary and sufficient condition for a linear
+    partial differential operator to be locally solvable: the principal
+    symbol must not change sign when crossing a characteristic surface
+    of double multiplicity. This resolved a long-standing problem
+    originating from Hans Lewy's 1957 example of a non-solvable
+    equation.
+    \item \textbf{Hypoellipticity (1960s):} H\"ormander characterized
+    hypoelliptic operators --- operators \(P\) such that \(Pu \in
+    C^\infty\) implies \(u \in C^\infty\) --- in terms of a condition on
+    the iterated commutators of the vector fields defining \(P\). This
+    is the fundamental theorem on sums of squares of vector fields.
+    \item \textbf{H\"ormander Spaces (1960s):} H\"ormander introduced
+    the function spaces \(B_{p,k}\) and \(H_{(s)}\) (Sobolev spaces with
+    variable order of regularity), providing the functional-analytic
+    framework for the sharp regularity theory of linear PDEs. These
+    spaces are now called H\"ormander spaces or H\"ormander--Ljubich
+    spaces.
+    \item \textbf{Four-Volume Treatise (1983--1985):} \textit{The
+    Analysis of Linear Partial Differential Operators} (Volumes 1--4)
+    is the definitive treatment of the subject, synthesizing every major
+    development from distribution theory through Fourier integral
+    operators into a coherent, self-contained exposition.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Solvability Crisis}
+
+In 1957, Hans Lewy shocked the mathematical world by exhibiting a linear
+partial differential equation with smooth coefficients that has no
+solution --- even in the sense of distributions --- for any choice of
+smooth right-hand side. The equation was
+\[
+L u = \frac{\partial u}{\partial x_1} + i \frac{\partial u}{\partial x_2}
+- 2i(x_1 + i x_2) \frac{\partial u}{\partial x_3} = f.
+\]
+Lewy showed that for most smooth \(f\), there is no distribution \(u\)
+satisfying \(Lu = f\) in any open set.
+
+This discovery shattered the long-held belief that every linear PDE with
+smooth coefficients has solutions, at least locally. The problem of
+characterizing which operators are \textit{locally solvable} --- for
+which every smooth right-hand side admits a local distribution
+solution --- became one of the central problems of linear PDE theory.
+
+\subsection{The Elliptic Paradigm and Its Limits}
+
+Before H\"ormander's work, the theory of linear PDEs was organized
+around the classification into elliptic, hyperbolic, and parabolic
+types. Elliptic operators (like the Laplacian) have the best properties:
+solutions are smooth wherever the coefficients and right-hand side are
+smooth, and parametrices (approximate inverses) can be constructed using
+the theory of singular integrals. Hyperbolic operators (the wave
+operator) propagate singularities along characteristics. Parabolic
+operators (the heat operator) instantaneously smooth solutions.
+
+These classifications, however, were based on the principal part of the
+operator and its algebraic properties. They did not capture finer
+phenomena: there exist operators that are neither elliptic nor
+hypoelliptic in the classical sense, yet have interesting regularity
+properties. The need for a more refined, microlocal approach --- one
+that examines operators and their solutions in phase space (position
+and frequency simultaneously) --- became increasingly clear.
+
+\subsection{The Problem of Singularities}
+
+A fundamental question in linear PDE theory is: given an operator \(P\)
+and a solution \(u\) to \(Pu = f\), how are the singularities of \(u\)
+related to those of \(f\) and the geometry of the operator? For
+elliptic operators, \(\singsupp(u) = \singsupp(f)\) (elliptic regularity).
+For the wave equation, singularities propagate along light rays. But
+what about general operators?
+
+This question requires a precise language for describing singularities.
+The classical notion of singular support --- the complement of the set
+where a distribution is smooth --- is too coarse. It tells us
+\textit{where} the singularities are, but not \textit{what direction}
+they come from. A theory of \textit{directional} or
+\textit{microlocal} singularities was needed.
+
+\subsection{The Challenge of Hypoellipticity}
+
+An operator \(P\) is called \textit{hypoelliptic} if \(Pu \in C^\infty\)
+implies \(u \in C^\infty\). Elliptic operators are hypoelliptic, but the
+converse is false. The classic example is the heat operator
+\(\partial_t - \partial_x^2\), which is not elliptic but is hypoelliptic
+(it smooths initial data instantaneously).
+
+The problem of characterizing hypoellipticity in geometric terms was
+open. The Kolmogorov--Fokker--Planck equation,
+\[
+\partial_t u - \partial_x^2 u - x \partial_y u = 0,
+\]
+is hypoelliptic even though its symbol vanishes on a large set.
+Understanding why requires analyzing the commutation relations of the
+vector fields involved.
+
+\section{How It Was Solved}
+
+\subsection{The H\"ormander Condition for Local Solvability}
+
+Let \(P(x,D)\) be a linear partial differential operator of order \(m\)
+with smooth coefficients and principal symbol \(p_m(x,\xi)\). The
+operator is of \textit{principal type} if \(dp_m \neq 0\) whenever
+\(p_m = 0\) and \(\xi \neq 0\).
+
+\begin{definition}[Local Solvability]
+An operator \(P\) is \textbf{locally solvable} at a point \(x_0\) if
+there exists a neighborhood \(\Omega\) of \(x_0\) such that for every
+\(f \in C_0^\infty(\Omega)\), there exists a distribution
+\(u \in \mathcal{D}'(\Omega)\) satisfying \(Pu = f\) in \(\Omega\).
+\end{definition}
+
+\begin{theorem}[H\"ormander's Local Solvability Condition, 1960]
+Let \(P\) be a linear partial differential operator of principal type
+with smooth coefficients. Then \(P\) is locally solvable at \(x_0\) if
+and only if the following condition holds: for every characteristic
+point \((x_0, \xi^0)\) with \(p_m(x_0, \xi^0) = 0\), \(\xi^0 \neq 0\),
+and for every real-valued function \(\phi\) such that \(\phi(x_0) = 0\),
+\(d\phi(x_0) = \xi^0\), the function
+\[
+\tau \mapsto \overline{p_m(x, \xi + i\tau\,d\phi(x))}
+\]
+does not change sign as \(\tau\) passes through zero for \(x\) near
+\(x_0\) and \(\xi\) near \(\xi^0\).
+\end{theorem}
+
+In simpler language, the condition requires that when the operator is
+written in a coordinate system where one coordinate is the
+characteristic direction, the principal symbol must not change sign
+when the frequency variable corresponding to that direction crosses the
+characteristic surface. This condition is often expressed as: \(p_m\)
+must satisfy the \textit{sign condition} that for every real zero
+\((x,\xi)\) of \(p_m\), the imaginary part of \(p_m\) (when the
+frequency is given a small imaginary increment) does not vanish to
+infinite order.
+
+This theorem resolved the problem raised by Lewy's example: Lewy's
+operator fails the sign condition, which is why it has no local
+solutions. For operators with real principal symbols (such as elliptic,
+hyperbolic, and parabolic operators), the condition is automatically
+satisfied, confirming that these operators are locally solvable.
+
+\subsection{Wave Front Sets and Microlocal Regularity}
+
+H\"ormander's microlocal analysis begins with a precise notion of
+directional singularities. The key idea is to examine a distribution
+not just in physical space but in the cotangent bundle \(T^*X\) of a
+manifold \(X\), where the fiber directions represent frequencies.
+
+\begin{definition}[Wave Front Set]
+Let \(u \in \mathcal{D}'(X)\) be a distribution on an open set
+\(X \subset \R^n\). A point \((x_0, \xi_0) \in T^*X \setminus 0\) is
+called a \textbf{regular direction} for \(u\) if there exists a
+cutoff function \(\phi \in C_0^\infty(X)\) with \(\phi(x_0) \neq 0\)
+and a conic neighborhood \(\Gamma\) of \(\xi_0\) such that
+\[
+|\widehat{\phi u}(\xi)| \leq C_N (1+|\xi|)^{-N}
+\]
+for all \(N\) and all \(\xi \in \Gamma\). The \textbf{wave front set}
+\(\WF(u) \subset T^*X \setminus 0\) is the complement of the set of
+regular directions.
+\end{definition}
+
+In other words, \((x_0, \xi_0) \notin \WF(u)\) means that near \(x_0\),
+the distribution \(u\) is smooth in the direction \(\xi_0\). The wave
+front set refines the singular support:
+\[
+\pi(\WF(u)) = \singsupp(u),
+\]
+where \(\pi: T^*X \to X\) is the projection.
+
+\begin{example}[Wave Front Set of the Delta Function]
+The Dirac delta \(\delta_0\) at the origin in \(\R^n\) has
+\[
+\WF(\delta_0) = \{(0, \xi) : \xi \in \R^n \setminus 0\},
+\]
+since \(\widehat{\phi\delta_0}(\xi) = \phi(0)\) does not decay in any
+direction.
+\end{example}
+
+\begin{example}[Wave Front Set of a Step Function]
+The Heaviside function \(H(x_1)\) on \(\R^n\) has
+\[
+\WF(H) = \{(x, \xi) : x_1 = 0, \xi_1 \neq 0, \xi_2 = \cdots = \xi_n = 0\},
+\]
+reflecting that the singularity has a specific direction (normal to
+the discontinuity).
+\end{example}
+
+The wave front set is the natural language for describing operations on
+distributions. The product \(uv\) of two distributions is well-defined
+if \(\WF(u) + \WF(v)\) does not contain any zero fibers (H\"ormander's
+criterion for multiplication of distributions).
+
+\subsection{Propagation of Singularities}
+
+The most celebrated theorem in microlocal analysis describes how
+singularities move under the action of a differential operator.
+
+Let \(P\) be a pseudodifferential operator of order \(m\) with principal
+symbol \(p_m(x,\xi)\) which is real-valued and homogeneous of degree
+\(m\) in \(\xi\). The \textit{characteristic set} is
+\[
+\Sigma = \{(x,\xi) \in T^*X \setminus 0 : p_m(x,\xi) = 0\}.
+\]
+The \textit{Hamilton vector field} of \(p_m\) is
+\[
+H_{p_m} = \sum_{j=1}^n \left(\frac{\partial p_m}{\partial \xi_j}
+\frac{\partial}{\partial x_j} - \frac{\partial p_m}{\partial x_j}
+\frac{\partial}{\partial \xi_j}\right).
+\]
+The integral curves of \(H_{p_m}\) on \(\Sigma\) are called
+\textit{bicharacteristics}.
+
+\begin{theorem}[Propagation of Singularities, H\"ormander 1970--1971]
+Let \(P\) be a pseudodifferential operator of real principal type on a
+manifold \(X\). Suppose \(u \in \mathcal{D}'(X)\) satisfies
+\(Pu = f\) with \(f\) smooth. Then the wave front set of \(u\) is
+contained in the characteristic set \(\Sigma\) and is invariant under
+the Hamilton flow:
+\[
+\WF(u) \setminus \WF(f) \subset \Sigma,
+\]
+and for every bicharacteristic curve \(\gamma\) of \(p_m\),
+\[
+\gamma \cap (\WF(u) \setminus \WF(f)) \neq \varnothing
+\;\Longrightarrow\; \gamma \subset \WF(u) \setminus \WF(f).
+\]
+In particular, if \(u\) is smooth at one point of a bicharacteristic,
+it is smooth along the entire bicharacteristic, modulo the smoothing
+effect of the right-hand side.
+\end{theorem}
+
+This theorem generalizes the classical fact that for the wave equation
+\(\square u = 0\), singularities propagate along light rays. For the
+wave operator \(\square\), the principal symbol is
+\(p_2(x,\xi) = \xi_0^2 - |\xi'|^2\), the characteristic set is the
+light cone, and the bicharacteristics are precisely the light rays.
+
+\begin{proof}[Idea of Proof]
+The proof uses the calculus of pseudodifferential operators and
+microlocal parametrices. One constructs a microlocal inverse (a
+parametrix) for \(P\) near a non-characteristic point, then analyzes
+its action on the wave front set. Near a characteristic point, one
+factors \(P\) into first-order factors and uses energy estimates along
+bicharacteristics. The key technical ingredient is the construction of
+a pseudodifferential operator \(A\) whose symbol is supported near a
+bicharacteristic segment, such that \([P, A]\) is of lower order,
+allowing one to localize the propagation estimate.
+\end{proof}
+
+\subsection{Pseudodifferential Operators}
+
+A pseudodifferential operator is a generalization of a differential
+operator that allows the symbol to be a smooth function on the
+cotangent bundle rather than a polynomial in \(\xi\).
+
+\begin{definition}[Symbol Class \(S^m_{\rho,\delta}\)]
+For \(m \in \R\) and \(0 \leq \delta < \rho \leq 1\), the symbol class
+\(S^m_{\rho,\delta}(\R^n \times \R^n)\) consists of smooth functions
+\(a(x,\xi)\) such that for all multi-indices \(\alpha, \beta\),
+\[
+|\partial_x^\beta \partial_\xi^\alpha a(x,\xi)|
+\leq C_{\alpha,\beta} (1+|\xi|)^{m - \rho|\alpha| + \delta|\beta|}.
+\]
+The class \(S^m_{1,0}\) is the most commonly used, often denoted simply
+by \(S^m\).
+\end{definition}
+
+A pseudodifferential operator \(a(x,D)\) with symbol \(a(x,\xi)\) acts
+on a Schwarz function \(u\) by the oscillatory integral
+\[
+a(x,D) u(x) = (2\pi)^{-n} \int_{\R^n} e^{i x \cdot \xi}
+a(x,\xi) \hat u(\xi) \,d\xi.
+\]
+
+\begin{theorem}[Composition of Pseudodifferential Operators, H\"ormander 1965]
+If \(a \in S^{m_1}_{\rho,\delta}\) and \(b \in S^{m_2}_{\rho,\delta}\),
+then the composition \(a(x,D) \circ b(x,D)\) is a pseudodifferential
+operator with symbol \(c \in S^{m_1+m_2}_{\rho,\delta}\) given by the
+asymptotic expansion
+\[
+c(x,\xi) \sim \sum_{\alpha} \frac{1}{\alpha!}
+\partial_\xi^\alpha a(x,\xi) \, D_x^\alpha b(x,\xi),
+\]
+where \(D_x = -i\partial_x\).
+\end{theorem}
+
+This composition formula is fundamental. Its leading term is simply the
+product of symbols, and the lower-order terms involve derivatives of the
+symbols. The proof uses the stationary phase method and the theory of
+oscillatory integrals.
+
+The existence of parametrices for elliptic operators follows directly:
+if \(p_m(x,\xi)\) is the principal symbol of an elliptic operator \(P\),
+then \(a(x,\xi) = 1/p_m(x,\xi)\) is a symbol of class \(S^{-m}\), and
+\(a(x,D)\) is a parametrix for \(P\), meaning \(P \circ a(x,D) = I + R\)
+where \(R\) is a smoothing operator.
+
+\subsection{Fourier Integral Operators}
+
+Fourier integral operators generalize pseudodifferential operators by
+allowing more general phase functions. While a pseudodifferential
+operator has phase function \(\phi(x,\xi) = x \cdot \xi\), a Fourier
+integral operator allows any phase function that satisfies certain
+non-degeneracy conditions.
+
+\begin{definition}[Fourier Integral Operator]
+A Fourier integral operator \(A\) is defined by
+\[
+A u(x) = (2\pi)^{-n} \iint_{\R^n \times \R^N}
+e^{i\phi(x,\theta)} a(x,\theta) \hat u(\xi) \,d\xi\,d\theta,
+\]
+or more generally by
+\[
+A u(x) = \int_{\R^N} e^{i\phi(x,\theta)} a(x,\theta) \hat u(\xi) \,d\theta,
+\]
+where \(\phi\) is a non-degenerate phase function and
+\(a \in S^m_{\rho,\delta}\) is a symbol. The operator \(A\) is
+associated with a canonical relation \(\Lambda \subset T^*X \times T^*Y\)
+given by
+\[
+\Lambda = \{(x, d_x\phi, y, -d_y\phi) : d_\theta\phi = 0\}.
+\]
+\end{definition}
+
+Fourier integral operators are the natural tools for solving hyperbolic
+equations. The solution operator for the wave equation,
+\[
+u(t, x) = \int_{\R^n} e^{i(x \cdot \xi \pm t|\xi|)}
+\hat u_0(\xi) \,d\xi + \text{(lower order terms)},
+\]
+is a Fourier integral operator whose canonical relation is the
+bicharacteristic flow of the wave operator.
+
+\begin{theorem}[Composition of Fourier Integral Operators, H\"ormander 1971]
+Fourier integral operators are closed under composition when the
+canonical relations are composable. If \(A\) and \(B\) are Fourier
+integral operators associated with canonical relations \(\Lambda_A\)
+and \(\Lambda_B\), then \(A \circ B\) (when defined) is a Fourier
+integral operator associated with the composition
+\[
+\Lambda_{A \circ B} = \Lambda_A \circ \Lambda_B,
+\]
+provided the composition is clean (a transversality condition on the
+intersection of the two relations).
+\end{theorem}
+
+The theory of Fourier integral operators provides a rigorous foundation
+for geometrical optics and the WKB method. The leading term of the
+oscillatory integral solution corresponds to the transport equation
+along rays, while the lower-order terms account for diffraction and
+other wave phenomena.
+
+\subsection{Hypoellipticity and Sums of Squares}
+
+An operator \(P\) is hypoelliptic if \(Pu \in C^\infty\) forces
+\(u \in C^\infty\). Equivalently, the singular support of \(u\) equals
+the singular support of \(Pu\). H\"ormander gave a geometric condition
+for hypoellipticity in terms of vector fields.
+
+\begin{definition}[H\"ormander's Condition on Vector Fields]
+Let \(X_1, \ldots, X_k\) be smooth vector fields on an open set
+\(\Omega \subset \R^n\). These vector fields satisfy
+\textbf{H\"ormander's condition} of step \(r\) if the Lie brackets
+\[
+\{X_{i_1}, [X_{i_2}, [\cdots, X_{i_j}]\cdots] : 1 \leq j \leq r\}
+\]
+span the tangent space at every point.
+\end{definition}
+
+\begin{theorem}[H\"ormander's Hypoellipticity Theorem, 1967]
+Let \(X_0, X_1, \ldots, X_k\) be smooth vector fields satisfying
+H\"ormander's condition on an open set \(\Omega \subset \R^n\). Then
+the operator
+\[
+P = X_0 + \sum_{j=1}^k X_j^2
+\]
+is hypoelliptic. More precisely, if \(u\) is a distribution on
+\(\Omega\) and \(Pu \in H^s_{\text{loc}}(\Omega)\), then
+\(u \in H^{s+\varepsilon}_{\text{loc}}(\Omega)\) for some
+\(\varepsilon > 0\) depending on the step of the bracket condition.
+\end{theorem}
+
+This theorem explains the hypoellipticity of the heat operator
+\(\partial_t - \partial_x^2\): the vector fields \(X_0 = \partial_t\) and
+\(X_1 = \partial_x\) bracket to zero (they commute), so the step is 1.
+For the Kolmogorov equation \(\partial_t - \partial_x^2 - x\partial_y\),
+the vector fields are
+\[
+X_0 = \partial_t, \quad X_1 = \partial_x, \quad X_2 = x\partial_y,
+\]
+and their commutator is \([X_1, X_2] = \partial_y\), which together with
+\(X_1, X_2\) spans three directions, giving hypoellipticity with
+step 2.
+
+More generally, if the operator is of the form
+\[
+P = \sum_{j=1}^k X_j^2 + X_0 + c,
+\]
+and the Lie algebra generated by the vector fields has full rank at
+every point, then \(P\) is hypoelliptic with a loss of derivatives
+determined by the step of the Lie algebra. This result is sometimes
+called the \textit{sum of squares theorem}.
+
+\subsection{H\"ormander Spaces}
+
+H\"ormander introduced function spaces that allow the order of
+regularity to vary from point to point and from direction to direction.
+These are Sobolev spaces with variable order.
+
+\begin{definition}[H\"ormander Space \(H_{(s)}\)]
+Let \(s : T^*X \to \R\) be a real-valued function on the cotangent
+bundle that is smooth and homogeneous of degree 0 in the fiber
+variables. The H\"ormander space \(H_{(s)}(X)\) consists of
+distributions \(u\) on \(X\) such that
+\[
+\|u\|_{(s)}^2 = \int_{T^*X} (1+|\xi|^2)^{s(x,\xi)} |\hat u(\xi)|^2
+\,dx\,d\xi < \infty,
+\]
+in a suitable local coordinate system. Equivalently,
+\(u \in H_{(s)}\) if the pseudodifferential operator with symbol
+\((1+|\xi|^2)^{s(x,\xi)/2}\) maps \(u\) into \(L^2\).
+\end{definition}
+
+These spaces are natural for describing the regularity of solutions to
+operators whose symbol changes type. For example, the Tricomi operator
+\(x_1 \partial_1^2 + \partial_2^2\) (which changes from elliptic to
+hyperbolic across \(x_1 = 0\)) has regularity properties that are best
+described using H\"ormander spaces with a variable order \(s(x,\xi)\)
+that depends on the position relative to the sonic line.
+
+The general theory of H\"ormander spaces includes embedding theorems,
+trace theorems, and interpolation properties analogous to those for
+standard Sobolev spaces, but with the flexibility to capture the
+microlocal regularity of solutions near points where the operator
+degenerates.
+
+\subsection{The H\"ormander Condition for Hyperbolic Operators}
+
+For hyperbolic operators, H\"ormander established the sharp conditions
+for well-posedness of the Cauchy problem. Consider a hyperbolic operator
+of order \(m\),
+\[
+P(t,x, D_t, D_x) = D_t^m + \sum_{j=1}^m a_j(t,x,D_x) D_t^{m-j},
+\]
+where the \(a_j\) are pseudodifferential operators of order \(j\).
+
+\begin{condition}[Levi Condition]
+For the Cauchy problem for a hyperbolic operator with smooth
+coefficients to be well-posed in \(C^\infty\), the lower-order terms
+must satisfy a condition (the Levi condition) relative to the
+characteristic roots. If the characteristic roots \(\lambda_j\) have
+multiplicities, the subprincipal symbol must vanish on the
+characteristic set to sufficiently high order.
+\end{condition}
+
+H\"ormander's analysis revealed the precise relationship between the
+multiplicity of the characteristic roots and the number of derivatives
+that can be lost in the energy estimates. This work completed the
+theory of hyperbolic equations that had been developed by
+Petrowsky, Leray, and others.
+
+\subsection{The General Theory of Linear PDEs}
+
+The crowning achievement of H\"ormander's work is the unified treatment
+of linear PDEs that emerged from his four-volume treatise. The
+organizing principle is the \textit{microlocal} viewpoint: every linear
+PDE can be analyzed by examining its symbol in the cotangent bundle,
+and the fundamental objects are not the operators themselves but their
+wave front relations.
+
+\begin{definition}[Wave Front Relation of an Operator]
+For a linear operator \(A: \mathcal{D}'(Y) \to \mathcal{D}'(X)\), the
+\textbf{wave front relation} \(\WF'(A) \subset T^*X \times T^*Y\) is
+the set of pairs \(((x,\xi), (y,\eta))\) such that \((x,\xi)\) is in
+the wave front set of the distribution kernel of \(A\) at \((x,y)\)
+with respect to the variable \(\xi\) and \(-\eta\). For a
+pseudodifferential operator, \(\WF'(A)\) is contained in the diagonal.
+For a Fourier integral operator, \(\WF'(A)\) is the canonical relation.
+\end{definition}
+
+The calculus of wave front relations allows one to compute the
+microlocal effect of compositions, inverses, and adjoints of linear
+operators. This is the language in which the propagation of
+singularities theorem is most naturally expressed: if \(P\) is a
+pseudodifferential operator and \(A\) is a microlocal parametrix, then
+\(\WF'(A)\) is precisely the flow-out of the characteristic set under
+the Hamilton vector field.
+
+\section{Mathematical Theory}
+
+\subsection{Microlocal Parametrices}
+
+The fundamental construction in microlocal analysis is the parametric
+--- an approximate inverse that is a pseudodifferential or Fourier
+integral operator. For an elliptic operator \(P\) of order \(m\), the
+parametrix \(Q\) is a pseudodifferential operator of order \(-m\) such
+that
+\[
+Q P = I + R, \qquad P Q = I + S,
+\]
+where \(R\) and \(S\) are smoothing operators (their distribution
+kernels are smooth). The existence of such a parametrix proves elliptic
+regularity: if \(Pu \in C^\infty\), then \(u = Q(Pu) - Ru \in C^\infty\),
+since \(Q\) preserves smoothness and \(R\) is smoothing.
+
+For operators of real principal type, the parametrix is a Fourier
+integral operator whose canonical relation is the bicharacteristic
+flow. The construction proceeds by:
+
+\begin{enumerate}
+\item Factor the operator into first-order factors near a characteristic
+point, using the Malgrange preparation theorem.
+\item Solve a transport equation along the bicharacteristics.
+\item Sum the resulting oscillatory integrals using the stationary
+phase method.
+\end{enumerate}
+
+The parametrix construction is the mathematical implementation of the
+WKB method: the phase function satisfies the eikonal equation
+\(p_m(x, d\phi) = 0\), and the amplitude satisfies the transport
+equation \(T a = 0\), where \(T\) is a first-order differential operator
+along the bicharacteristic flow.
+
+\subsection{Sharp Regularity: H\"ormander's Theorems}
+
+The sharpest results on the regularity of solutions to linear PDEs are
+expressed in terms of Sobolev spaces \(H^s\). For elliptic operators of
+order \(m\),
+\[
+u \in H^s_{\text{loc}} \;\Longrightarrow\; Pu \in H^{s-m}_{\text{loc}},
+\]
+and conversely, if \(Pu \in H^{s-m}_{\text{loc}}\) and \(u \in
+H^{-\infty}_{\text{loc}}\), then \(u \in H^{s}_{\text{loc}}\).
+
+For operators of real principal type, the regularity propagation
+theorem takes the form: if \(Pu \in H^{s-m+1}_{\text{loc}}\) and
+\(u \in H^t_{\text{loc}}\) for some \(t\), then
+\(u \in H^{s}_{\text{loc}}\) microlocally along bicharacteristics, with
+a loss of regularity depending on the geometry of the characteristic
+set.
+
+\begin{theorem}[Sharp Propagation, H\"ormander]
+Let \(P\) be a pseudodifferential operator of order \(m\) with real
+principal symbol \(p_m\). Suppose that \(u \in \mathcal{D}'(X)\)
+satisfies \(Pu \in H^{s}_{\text{loc}}\). Then
+\[
+\WF^{s+m-1}(u) \setminus \WF^{s}(Pu) \subset \Sigma,
+\]
+and this set is invariant under the Hamilton flow,
+where \(\WF^{s}(u)\) denotes the \(H^s\)-wave front set (the set of
+directions in which \(u\) is not microlocally in \(H^s\)).
+\end{theorem}
+
+This theorem gives the exact loss of derivatives: one derivative is
+lost relative to the elliptic case, reflecting the fact that
+non-elliptic operators cannot fully control the regularity in all
+directions simultaneously.
+
+\subsection{The H\"ormander--Weinstein Parametrix}
+
+A particularly elegant construction is the
+H\"ormander--Weinstein parametrix for the Cauchy problem for strictly
+hyperbolic equations. Consider
+\[
+\partial_t^2 u - c(x)^2 \Delta u = 0, \quad u(0) = u_0,
+\partial_t u(0) = u_1.
+\]
+The solution operator can be written as a sum of two Fourier integral
+operators:
+\[
+u(t) = A_+(t) u_0 + A_-(t) u_0 + B_+(t) u_1 + B_-(t) u_1,
+\]
+where each operator has phase function \(\phi_\pm(t,x,\xi) = x\cdot\xi
+\pm t c(x)|\xi|\) and amplitude satisfying a transport equation.
+
+The key observation is that the contribution from each characteristic
+root can be treated separately, and the total solution is the sum of
+these microlocal contributions. This decomposition is the rigorous
+version of the method of characteristics for linear hyperbolic
+equations and is the starting point for the modern theory of
+diffraction and parametrices for non-smooth coefficients.
+
+\subsection{Pseudodifferential Boundary Problems}
+
+H\"ormander also made fundamental contributions to the theory of
+boundary value problems for pseudodifferential operators. The
+classical theory of elliptic boundary problems (the
+Shapiro--Lopatinskii condition) was extended to systems and to
+non-elliptic operators.
+
+\begin{definition}[Shapiro--Lopatinskii Condition]
+Let \(P\) be an elliptic operator on a domain \(\Omega\) with boundary
+\(\partial\Omega\). A boundary operator \(B\) satisfies the
+\textbf{Shapiro--Lopatinskii condition} if for every boundary point
+and every interior direction, the ordinary differential equation
+obtained by freezing coefficients and Fourier-transforming in the
+tangential directions has a unique bounded solution satisfying the
+transformed boundary condition.
+\end{definition}
+
+H\"ormander systematized the theory of pseudodifferential operators on
+manifolds with boundary, showing that the boundary value problem can be
+reduced to a pseudodifferential equation on the boundary (the
+Calder\'on projector), and that the Shapiro--Lopatinskii condition is
+equivalent to the ellipticity of this boundary operator.
+
+\subsection{The Method of Stationary Phase}
+
+A crucial technical tool in H\"ormander's work is the method of
+stationary phase, which provides the asymptotic expansion of
+oscillatory integrals.
+
+\begin{theorem}[Stationary Phase, H\"ormander]
+Let \(\phi\) be a smooth, real-valued phase function with a
+non-degenerate critical point at \(x_0\) (so \(\nabla\phi(x_0) = 0\)
+and \(\det \phi''(x_0) \neq 0\)), and let \(a\) be a smooth amplitude
+with compact support. Then as \(\lambda \to \infty\),
+\[
+\int e^{i\lambda \phi(x)} a(x) \,dx \sim
+\left(\frac{2\pi}{\lambda}\right)^{n/2}
+\frac{e^{i\lambda \phi(x_0) + i\pi\sigma/4}}{\sqrt{|\det\phi''(x_0)|}}
+\sum_{j=0}^\infty \lambda^{-j} L_j a(x_0),
+\]
+where \(\sigma\) is the signature of \(\phi''(x_0)\) and \(L_j\) are
+linear differential operators of order \(2j\).
+\end{theorem}
+
+This expansion is the workhorse of microlocal analysis. It is used to:
+\begin{itemize}
+    \item Compute the composition of pseudodifferential operators.
+    \item Derive the asymptotics of Fourier integral operators.
+    \item Estimate the kernel of parametrices near the diagonal.
+    \item Prove the propagation of singularities via the
+    construction of microlocal parametrices.
+\end{itemize}
+
+\section{Impact}
+
+\subsection{The Foundation of Microlocal Analysis}
+
+H\"ormander's work created the field of microlocal analysis, which is
+now the standard language for the study of linear PDEs. Every
+contemporary paper in the analysis of PDEs uses the vocabulary he
+introduced: wave front sets, pseudodifferential operators, Fourier
+integral operators, symbol classes, and microlocal regularity.
+
+The theory has been extended to:
+\begin{itemize}
+    \item Complex analysis: the microlocal theory of the
+    \(\overline{\partial}\)-operator and CR manifolds.
+    \item Spectral theory: the study of eigenvalues and resonances
+    via microlocal methods.
+    \item Nonlinear PDEs: paradifferential operators (Bony) and
+    microlocal analysis of nonlinear equations.
+    \item Geometry: the index theorem for elliptic operators and
+    the analysis of the Dirac operator.
+    \item Inverse problems: boundary rigidity, electrical impedance
+    tomography, and the Calder\'on problem.
+\end{itemize}
+
+\subsection{The Four-Volume Treatise}
+
+H\"ormander's \textit{The Analysis of Linear Partial Differential
+Operators} (Springer, four volumes, 1983--1985) is universally
+regarded as the definitive reference. It has been described as
+``the Bible of linear PDE theory'' and remains the standard citation
+for every major result in the field.
+
+\begin{itemize}
+    \item \textbf{Volume 1: Distribution Theory and Fourier Analysis.}
+    The foundational volume covers the theory of distributions,
+    Fourier transforms, Sobolev spaces, and the basics of linear PDEs.
+    It contains the classic exposition of the theory of distributions
+    with H\"ormander's signature precision.
+    \item \textbf{Volume 2: Differential Operators with Constant
+    Coefficients.} The second volume treats constant-coefficient
+    operators completely: fundamental solutions, existence theorems,
+    the Ehrenpreis--Malgrange theorem on the existence of fundamental
+    solutions, and the theory of convolution equations.
+    \item \textbf{Volume 3: Pseudodifferential Operators.} The third
+    volume develops the calculus of pseudodifferential operators,
+    including the symbol classes \(S^m_{\rho,\delta}\), the sharp
+    G\r{a}rding inequality, the Fefferman--Phong inequality, and the
+    spectral theory of elliptic operators.
+    \item \textbf{Volume 4: Fourier Integral Operators.} The final
+    volume presents the theory of Fourier integral operators, the
+    propagation of singularities, the local solvability condition,
+    and the Cauchy problem for hyperbolic equations.
+\end{itemize}
+
+The treatise is remarkable for its completeness and for the uniformity
+of its presentation: every result is proved from first principles, and
+the exposition follows a single, coherent point of view.
+
+\subsection{Applications to Other Fields}
+
+H\"ormander's techniques have found applications far beyond their
+original context:
+
+\begin{itemize}
+    \item \textbf{Seismic imaging:} Fourier integral operators are used
+    in the Kirchhoff migration method for imaging the Earth's interior
+    from seismic data.
+    \item \textbf{Medical imaging:} The theory of the Radon transform
+    and its generalizations uses H\"ormander's results on Fourier
+    integral operators and the analysis of singularities.
+    \item \textbf{Quantum mechanics:} The semiclassical limit of quantum
+    mechanics is described by Fourier integral operators and the
+    WKB method, both systematized by H\"ormander.
+    \item \textbf{Optics:} Geometrical optics is the leading-order
+    approximation of Fourier integral operators, and diffraction
+    theory corresponds to the lower-order terms.
+    \item \textbf{Control theory:} The H\"ormander condition on vector
+    fields appears in the study of controllability and the
+    Chow--Rashevskii theorem on accessibility of non-holonomic systems.
+\end{itemize}
+
+\subsection{H\"ormander's Influence on Mathematics}
+
+H\"ormander was not only a great researcher but also a great teacher.
+His monographs and textbooks shaped generations of analysts:
+\begin{itemize}
+    \item \textit{Linear Partial Differential Operators} (1963) was the
+    first systematic treatment of the subject and won the Fields Medal
+    in 1962 (H\"ormander was one of the youngest Fields medalists).
+    \item The four-volume treatise (1983--1985) remains the definitive
+    reference for the entire field.
+    \item His lecture notes and seminar presentations set the standard
+    for clarity and rigor.
+\end{itemize}
+
+Many of H\"ormander's students and collaborators became leading figures
+in analysis, including Richard Melrose, Andr\'as Vasy, and Maciej
+Zworski. The H\"ormander tradition in microlocal analysis continues at
+Lund, Stanford, MIT, and Berkeley.
+
+\subsection{Undergraduate Education}
+
+While H\"ormander's work is at the research frontier, many of his ideas
+now appear in the advanced undergraduate curriculum:
+\begin{itemize}
+    \item The concept of pseudodifferential operators is introduced in
+    courses on Fourier analysis and linear PDEs.
+    \item The method of stationary phase is taught in asymptotics and
+    applied mathematics courses.
+    \item Wave front sets and the propagation of singularities appear
+    in advanced PDE courses and mathematical physics.
+    \item The H\"ormander condition for hypoellipticity is covered in
+    courses on stochastic analysis and control theory.
+    \item H\"ormander spaces are used in the theory of function spaces
+    and interpolation theory.
+\end{itemize}
+
+\section{Frequently Asked Questions}
+
+\subsection*{Q1: What is microlocal analysis?}
+
+Microlocal analysis is the study of distributions and partial
+differential equations in the cotangent bundle \(T^*X\) of a manifold
+\(X\), where points represent both a position \(x\) and a direction
+(frequency) \(\xi\). The key insight is that many properties of PDEs
+(ellipticity, hyperbolicity, propagation of singularities) are
+\textit{microlocal}: they depend on the behavior of the operator's
+symbol in a conic neighborhood of a point in \(T^*X\). The wave front
+set \(\WF(u)\) is the microlocal version of the singular support, and
+the propagation theorem states that singularities move along
+bicharacteristics --- the integral curves of the Hamilton vector field
+of the principal symbol.
+
+\subsection*{Q2: What is the H\"ormander condition for local
+solvability?}
+
+The H\"ormander condition characterizes when a linear PDE
+\(Pu = f\) has a local solution for every smooth right-hand side \(f\).
+It requires that the principal symbol \(p_m(x,\xi)\) does not change
+sign when the frequency variable crosses the characteristic surface in
+a complex direction. Lewy's famous non-solvable operator fails this
+condition: its symbol changes sign, which causes the obstruction to
+solvability. For operators with real principal symbols (including all
+classical types), the condition holds automatically, explaining why
+these operators are always locally solvable.
+
+\subsection*{Q3: How are pseudodifferential operators and Fourier
+integral operators related?}
+
+A pseudodifferential operator is a special case of a Fourier integral
+operator where the phase function is the linear phase
+\(\phi(x,\xi) = x \cdot \xi\). Pseudodifferential operators have the
+property that their kernels are smooth away from the diagonal; they
+correspond to canonical relations that are contained in the diagonal of
+\(T^*X \times T^*Y\). Fourier integral operators generalize this by
+allowing arbitrary non-degenerate phase functions; their canonical
+relations are Lagrangian submanifolds of the cotangent bundle. The
+solution operator for the wave equation is a Fourier integral operator
+(not a pseudodifferential operator) because it propagates singularities
+along non-trivial bicharacteristics.
+
+\subsection*{Q4: What does the propagation of singularities theorem
+say intuitively?}
+
+The theorem says that if a function \(u\) satisfies a linear PDE
+\(Pu = f\) where \(f\) is smooth, then any singularity of \(u\) must
+travel along the characteristic curves of the operator. For the wave
+equation, this says that disturbances travel along light rays. For the
+Schr\"odinger equation, singularities propagate along classical
+trajectories determined by the Hamiltonian \(|\xi|^2\). The theorem is
+the rigorous mathematical formulation of the fact that
+high-frequency waves follow rays, which is the fundamental principle of
+geometrical optics.
+
+\subsection*{Q5: What is the H\"ormander condition for
+hypoellipticity?}
+
+An operator \(P\) is hypoelliptic if \(Pu \in C^\infty\) forces
+\(u \in C^\infty\). The H\"ormander condition gives a sufficient
+condition for operators of the form \(\sum X_j^2 + X_0 + c\), where
+\(X_j\) are vector fields: if the Lie algebra generated by the vector
+fields has full rank at every point (the brackets of the vector fields
+span the tangent space), then the operator is hypoelliptic. This
+explains why the heat equation and the Kolmogorov equation are
+hypoelliptic even though they are not elliptic: the vector fields
+\(\partial_x\) and \(x\partial_y\) have a non-trivial commutator
+\(\partial_y\) that supplies the missing direction.
+
+\subsection*{Q6: What are H\"ormander spaces?}
+
+H\"ormander spaces are Sobolev spaces with variable order of
+regularity. While the standard Sobolev space \(H^s\) measures
+regularity by a fixed number of derivatives, a H\"ormander space
+\(H_{(s)}\) allows the number of derivatives to vary with position and
+direction. This is natural for operators that change type (like the
+Tricomi equation, which is elliptic on one side of a curve and
+hyperbolic on the other) or for operators whose symbol degenerates in
+specific directions.
+
+\subsection*{Q7: What are the main open problems related to
+H\"ormander's work?}
+
+Several deep problems remain:
+\begin{enumerate}
+    \item \textbf{The strong H\"ormander condition:} Characterizing
+    hypoellipticity for general pseudodifferential operators (not just
+    sums of squares) in terms of the principal and subprincipal symbols.
+    \item \textbf{The Lax--Mizohata condition:} Understanding the
+    precise relationship between the H\"ormander condition for local
+    solvability and the existence of smooth solutions for non-linear
+    equations.
+    \item \textbf{Nonlinear microlocal analysis:} Extending the full
+    machinery of Fourier integral operators to nonlinear PDEs (the
+    program of paradifferential operators and microlocal analysis for
+    non-smooth coefficients).
+    \item \textbf{Global propagation:} Understanding the propagation
+    of singularities on manifolds with boundary and on non-compact
+    manifolds, particularly for operators with trapping.
+    \item \textbf{Spectral asymptotics:} Sharp estimates on the
+    distribution of eigenvalues of non-self-adjoint pseudodifferential
+    operators.
+\end{enumerate}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item L.\ H\"ormander, \textit{Linear Partial Differential
+    Operators}, Springer, 1963. (Fields Medal monograph.)
+    \item L.\ H\"ormander, \textit{Pseudo-differential operators and
+    hypoelliptic equations}, Proc.\ Symp.\ Pure Math.\ 10 (1967),
+    138--183. (The foundational paper on pseudodifferential operators.)
+    \item L.\ H\"ormander, \textit{Fourier integral operators I},
+    Acta Math.\ 127 (1971), 79--183. (The creation of Fourier integral
+    operator theory.)
+    \item L.\ H\"ormander, \textit{The Analysis of Linear Partial
+    Differential Operators}, Volumes I--IV, Springer, 1983--1985.
+    \item L.\ H\"ormander, \textit{On the existence and the regularity
+    of solutions of linear pseudo-differential equations}, Enseign.
+    Math.\ 17 (1971), 99--163. (The propagation of singularities.)
+    \item L.\ H\"ormander, \textit{Hypoelliptic second order
+    differential equations}, Acta Math.\ 119 (1967), 147--171.
+    (The sum-of-squares theorem.)
+    \item L.\ H\"ormander, \textit{Differential equations without
+    solutions}, Math.\ Ann.\ 140 (1960), 169--173. (The local
+    solvability condition.)
+\end{enumerate}
+
+\subsection*{Biographies and Surveys}
+\begin{enumerate}
+    \item S.\ M.\ Salamon, \textit{Lars H\"ormander (1931--2012)},
+    Biographical Memoirs of Fellows of the Royal Society 60 (2014),
+    235--256.
+    \item R.\ B.\ Melrose, \textit{The work of Lars H\"ormander},
+    Notices AMS 60 (2013), 720--725.
+    \item M.\ Zworski, \textit{Lars H\"ormander --- a biography},
+    European Math.\ Soc.\ Newsletter 89 (2013), 18--22.
+    \item R.\ B.\ Melrose, \textit{Microlocal analysis and the work of
+    Lars H\"ormander}, Proc.\ Int.\ Cong.\ Math.\ 2014, 69--86.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item M.\ E.\ Taylor, \textit{Pseudodifferential Operators},
+    Princeton University Press, 1981.
+    \item F.\ Treves, \textit{Introduction to Pseudodifferential and
+    Fourier Integral Operators}, Plenum Press, 1980.
+    \item J.\ J.\ Duistermaat, \textit{Fourier Integral Operators},
+    Birkh\"auser, 1996.
+    \item A.\ Grigis and J.\ Sj\"ostrand, \textit{Microlocal Analysis
+    for Differential Operators}, Cambridge University Press, 1994.
+    \item M.\ Zworski, \textit{Semiclassical Analysis}, AMS, 2012.
+    \item L.\ C.\ Evans, \textit{Partial Differential Equations},
+    2nd ed., AMS, 2010.
+    \item G.\ B.\ Folland, \textit{Introduction to Partial Differential
+    Equations}, 2nd ed., Princeton University Press, 1995.
+    \item S.\ Alinhac and P.\ G\'erard, \textit{Pseudo-differential
+    Operators and the Nash--Moser Theorem}, AMS, 2007.
+    \item N.\ Lerner, \textit{Metrics on the Phase Space and
+    Non-Selfadjoint Pseudo-Differential Operators}, Birkh\"auser, 2010.
+\end{enumerate}
+
+\section{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1931 & Born on January 24 in Mj\"allby, Blekinge, Sweden \\ \hline
+1955 & Ph.D.\ in Mathematics, Lund University (advisor: Marcel Riesz) \\ \hline
+1956--1957 & Postdoctoral visits to Stockholm and the United States \\
+\hline
+1957 & Appointed Docent at Lund University \\ \hline
+1960 & H\"ormander condition for local solvability published \\
+\hline
+1962 & Awarded the Fields Medal at the ICM in Stockholm \\
+& (the youngest Fields medalist at age 31) \\ \hline
+1963 & Published \textit{Linear Partial Differential Operators} \\
+\hline
+1963--1965 & Visiting Professor at Stanford University and the Institute
+for Advanced Study, Princeton \\ \hline
+1964 & Appointed Professor at the University of Lund \\ \hline
+1967 & H\"ormander's hypoellipticity theorem (sums of squares) \\
+\hline
+1968 & Elected to the Royal Swedish Academy of Sciences \\ \hline
+1970--1971 & Theory of Fourier integral operators and propagation
+of singularities \\ \hline
+1971 & Pseudodifferential operator theory fully developed \\ \hline
+1974 & Elected to the French Academy of Sciences \\ \hline
+1975 & H\"ormander's results on the Levi condition for hyperbolic
+operators \\ \hline
+1979 & Elected to the American Academy of Arts and Sciences
+(foreign honorary member) \\ \hline
+1980s & Continued work on the spectral theory of pseudodifferential
+operators \\ \hline
+1983--1985 & Publication of \textit{The Analysis of Linear Partial
+Differential Operators} (four volumes) \\
+\hline
+1988 & Awarded the Wolf Prize in Mathematics (shared with
+Friedrich Hirzebruch) \\ \hline
+1996 & Retired from the University of Lund; appointed Professor
+Emeritus \\ \hline
+2006 & Awarded the Steele Prize for Mathematical Exposition
+(American Mathematical Society) \\ \hline
+2012 & Died on November 25 in Lund, Sweden, at age 81 \\ \hline
+\end{tabular}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Let \(u\) be the characteristic function of the unit ball in
+    \(\R^3\). Compute \(\WF(u)\). Show that the singularities occur
+    only at the boundary and that the wave front set consists of
+    conormal directions to the sphere.
+    \item Prove that for the Dirac delta \(\delta_0\) on \(\R^n\),
+    \(\WF(\delta_0) = \{(0,\xi): \xi \neq 0\}\). Show that if a
+    distribution has \(\WF(u) = \varnothing\), then \(u \in C^\infty\).
+    \item Let \(P = -\partial_x^2 - \partial_y^2\) be the Laplacian on
+    \(\R^2\). Compute the principal symbol \(p_2(x,y,\xi,\eta)\) and
+    the Hamilton vector field \(H_{p_2}\). Show that the
+    bicharacteristics are the straight lines \(\xi =\) constant,
+    \(\eta =\) constant.
+    \item For the wave operator \(\square = \partial_t^2 - \partial_x^2\)
+    on \(\R^2\), compute the principal symbol and the bicharacteristics.
+    Show that the propagation of singularities theorem recovers the
+    fact that solutions travel along light cones.
+    \item Verify that Lewy's operator
+    \[
+    L = \frac{\partial}{\partial x_1} + i\frac{\partial}{\partial x_2}
+    - 2i(x_1 + i x_2) \frac{\partial}{\partial x_3}
+    \]
+    has principal symbol \(p_1(x,\xi) = \xi_1 + i\xi_2 - 2i(x_1 + i x_2)\xi_3\).
+    Show that the H\"ormander sign condition fails at the origin,
+    explaining why \(L\) is not locally solvable.
+    \item Let \(X_1 = \partial_x\) and \(X_2 = x\partial_y\) on \(\R^2\).
+    Compute their commutator \([X_1, X_2]\). Show that the operator
+    \(P = X_1^2 + X_2^2\) satisfies H\"ormander's condition and is
+    therefore hypoelliptic.
+    \item Prove that if \(a \in S^{m_1}\) and \(b \in S^{m_2}\), then
+    the composition symbol \(c(x,\xi) = a(x,D) b(x,\xi)\) (where
+    \(b(x,\xi)\) acts on \(a\)) belongs to \(S^{m_1+m_2}\) and has
+    leading term \(a(x,\xi) b(x,\xi)\).
+    \item Implement the stationary phase method for the one-dimensional
+    integral
+    \[
+    I(\lambda) = \int_{-1}^1 e^{i\lambda x^2} \,dx.
+    \]
+    Compute the asymptotic expansion as \(\lambda \to \infty\) and
+    compare with the exact evaluation in terms of Fresnel integrals.
+    \item Prove that the heat operator \(\partial_t - \partial_x^2\)
+    on \(\R^2\) is hypoelliptic by verifying H\"ormander's condition
+    for the vector fields \(X_0 = \partial_t\) and \(X_1 = \partial_x\).
+    \item Let \(u\) be a distribution and let \(\phi \in C_0^\infty\).
+    Show that \(\WF(\phi u) \subset \WF(u)\) and that
+    \(\WF(u) = \bigcup_\phi \WF(\phi u)\) (where the union is over a
+    partition of unity).
+    \item For the Schr\"odinger operator \(i\partial_t + \Delta\) on
+    \(\R^{1+n}\), compute the principal symbol and the bicharacteristics.
+    Show that singularities propagate along straight lines in the
+    spatial variables.
+    \item Derive the composition formula for two pseudodifferential
+    operators whose symbols are independent of \(x\) (so-called
+    Fourier multipliers). Show that in this case the composition is
+    exact (the asymptotic expansion terminates at the first term).
+    \item Let \(P\) be an elliptic operator on a compact manifold.
+    Construct a parametrix \(Q\) of order \(-m\) such that
+    \(P Q = I + R\) where \(R\) has a smooth kernel. Use this to prove
+    the elliptic regularity theorem.
+    \item Show that H\"ormander's condition for local solvability is
+    equivalent to the condition that the principal symbol \(p_m\)
+    does not vanish on the characteristic set to infinite order when
+    the frequency is perturbed in a complex direction normal to the
+    characteristic surface.
+    \item (Project) Read H\"ormander's original 1971 paper on Fourier
+    integral operators and write a summary of the main theorems. Focus
+    on the construction of the parametrix for operators of real
+    principal type.
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Bicharacteristic] An integral curve of the Hamilton vector
+    field \(H_{p_m}\) on the characteristic set \(\Sigma = \{p_m = 0\}\).
+    \item[Canonical relation] A Lagrangian submanifold of
+    \(T^*X \times T^*Y\) describing the wave front set of the kernel of
+    a Fourier integral operator.
+    \item[Characteristic set] The set \(\{(x,\xi) \in T^*X \setminus 0
+    : p_m(x,\xi) = 0\}\) where the principal symbol vanishes.
+    \item[Elliptic operator] An operator whose principal symbol vanishes
+    only at \(\xi = 0\); equivalently, \(|p_m(x,\xi)| \geq C|\xi|^m\)
+    for large \(|\xi|\).
+    \item[Fourier integral operator] An operator defined by an
+    oscillatory integral with a non-degenerate phase function,
+    generalizing pseudodifferential operators.
+    \item[Hamilton vector field] The vector field
+    \(H_p = \sum (\partial_{\xi_j} p \,\partial_{x_j} - \partial_{x_j} p
+    \,\partial_{\xi_j})\).
+    \item[Hypoelliptic operator] An operator \(P\) such that
+    \(Pu \in C^\infty\) implies \(u \in C^\infty\).
+    \item[H\"ormander condition] The condition on iterated commutators
+    of vector fields that guarantees hypoellipticity of
+    \(\sum X_j^2 + X_0\).
+    \item[H\"ormander space] A Sobolev space with variable order of
+    regularity, denoted \(H_{(s)}\) where \(s = s(x,\xi)\).
+    \item[Levi condition] A condition on the lower-order terms of a
+    hyperbolic operator ensuring well-posedness of the Cauchy problem.
+    \item[Local solvability] The property that \(Pu = f\) has a
+    solution for every smooth \(f\) in a neighborhood.
+    \item[Microlocal analysis] The study of distributions and PDEs in
+    the cotangent bundle, analyzing singularities by position and
+    frequency simultaneously.
+    \item[Parametrix] An approximate inverse of a differential or
+    pseudodifferential operator, modulo smoothing operators.
+    \item[Principal symbol] The highest-order part of the symbol of a
+    differential operator, capturing its essential microlocal behavior.
+    \item[Propagation of singularities] The theorem that \(\WF(u)\)
+    is invariant under the Hamilton flow for solutions of \(Pu = f\)
+    with \(f\) smooth.
+    \item[Pseudodifferential operator] An operator defined by
+    \((2\pi)^{-n} \int e^{ix\cdot\xi} a(x,\xi) \hat u(\xi) \,d\xi\)
+    where the symbol \(a(x,\xi)\) is a smooth function of moderate
+    growth.
+    \item[Shapiro--Lopatinskii condition] The necessary and sufficient
+    condition for an elliptic boundary value problem to be Fredholm.
+    \item[Stationary phase] The asymptotic expansion of oscillatory
+    integrals \(\int e^{i\lambda\phi(x)} a(x)\,dx\) as
+    \(\lambda \to \infty\) in terms of critical points of \(\phi\).
+    \item[Sum of squares] An operator of the form
+    \(\sum_{j=1}^k X_j^2 + X_0 + c\), studied by H\"ormander for
+    hypoellipticity.
+    \item[Symbol class] The space \(S^m_{\rho,\delta}\) of symbols
+    satisfying symbol estimates with decay order \(m\) and smoothness
+    indices \(\rho, \delta\).
+    \item[Wave front set] The set \(\WF(u) \subset T^*X \setminus 0\)
+    recording the singular directions of a distribution \(u\) at each
+    point.
+    \item[WKB method] The Wentzel--Kramers--Brillouin approximation,
+    a semiclassical method for constructing approximate solutions of
+    PDEs using oscillatory exponentials and transport equations.
+\end{description}

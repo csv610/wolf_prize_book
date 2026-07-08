@@ -1,0 +1,221 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+
+\chapter{Jean-Fran\c{c}ois Le Gall (2019)}
+
+\begin{quote}
+\it ``Jean-Fran\c cois Le Gall has made transformative contributions to probability theory. His work on the Brownian snake, random trees, and random maps has revealed profound connections between stochastic processes and geometry. The construction of the Brownian map is one of the most remarkable achievements in modern probability.'' --- Wolf Prize Citation, 2019
+\end{quote}
+
+\section{Main Contribution}
+
+Jean-Fran\c{c}ois Le Gall (born 1959) is a French mathematician whose work in probability theory has opened new connections between stochastic processes, geometry, and combinatorics. He was awarded the Wolf Prize in Mathematics in 2019 alongside Gregory Lawler.
+
+The Wolf Prize citation reads: ``for their groundbreaking contributions to probability theory and mathematical physics.''
+
+Le Gall's core contributions include:
+\begin{itemize}
+    \item \textbf{The Brownian Map:} The construction and proof that the scaling limit of random planar maps (random surfaces discretized by polygons) is a universal continuum random surface called the Brownian map, which is homeomorphic to the 2-sphere.
+    \item \textbf{The Brownian Snake:} A path-valued stochastic process that describes the genealogy of the continuum random tree and encodes the distances in the Brownian map.
+    \item \textbf{The Continuum Random Tree (CRT):} Foundational work on the CRT as a universal scaling limit for random trees, now a fundamental object in probability.
+    \item \textbf{Superprocesses:} Deep results on measure-valued branching processes (Dawson--Watanabe superprocesses), including connections to partial differential equations.
+    \item \textbf{Stochastic Calculus:} The Le Gall--Yor theorem on the representation of Bessel processes and the study of stochastic differential equations.
+    \item \textbf{Random Fractals:} The computation of the Hausdorff dimension of the trace of the Brownian snake and related random sets.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{Random Planar Maps}
+
+A planar map is a graph embedded in the sphere. Random planar maps, sampled uniformly from all maps of a given size, were studied in theoretical physics as models of random surfaces (2D quantum gravity).
+
+The fundamental question: what does a large random planar map look like at large scales? Does it have a continuum limit (scaling limit) analogous to the convergence of simple random walk to Brownian motion?
+
+\subsection{The Brownian Snake and Genealogies}
+
+The Brownian snake is a stochastic process whose state is a finite path (a continuous function from $[0,t]$ to $\R$). It was introduced to describe the genealogy of the branching process known as the ``super-Brownian motion.'' The snake encodes the entire family tree: the paths represent the spatial trajectories of individuals in the population.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{The Construction of the Brownian Map}
+
+The Brownian map is constructed from two independent objects:
+\begin{enumerate}
+    \item A continuum random tree (the CRT) encoded by a normalized Brownian excursion.
+    \item A random ``label'' or ``height'' function on the tree, given by the Brownian snake.
+\end{enumerate}
+
+The key insight: the Brownian map is a quotient of the CRT by an equivalence relation that identifies points with the same label and the same distance structure. Le Gall proved that this metric space is homeomorphic to the 2-sphere and has Hausdorff dimension 4.
+
+\subsection{Tools and Techniques}
+
+\begin{itemize}
+    \item \textbf{Excursion Theory:} The Brownian excursion describes the contour of the CRT.
+    \item \textbf{The Brownian Snake:} Labels are assigned to tree points using the snake process.
+    \item \textbf{Gromov--Hausdorff Convergence:} The space of compact metric spaces with the Gromov--Hausdorff topology provides the framework for convergence.
+    \item \textbf{Combinatorial Enumeration:} Exact formulas for the number of planar maps (Tutte's formulas) provide the discrete input.
+    \item \textbf{Scaling Limits:} Convergence in distribution of rescaled discrete objects to continuous limits.
+\end{itemize}
+
+\section{Mathematical Theory}
+
+\subsection{The Continuum Random Tree}
+
+\begin{definition}[Continuum Random Tree]
+The \textbf{continuum random tree} (CRT) is a random compact metric tree encoded by a normalized Brownian excursion $(e_t)_{0 \leq t \leq 1}$:
+\[
+d_e(s,t) = e_s + e_t - 2 \inf_{u \in [s,t]} e_u
+\]
+The tree is $\mathcal{T}_e = [0,1]/\sim$ where $s \sim t$ if $d_e(s,t) = 0$.
+\end{definition}
+
+\begin{theorem}[Aldous, 1991; Le Gall, 1993]
+The CRT is the universal scaling limit of many families of random trees, including uniform random plane trees, random binary trees, and Galton--Watson trees conditioned on total size.
+\end{theorem}
+
+\subsection{The Brownian Snake}
+
+\begin{definition}[Brownian Snake]
+The \textbf{Brownian snake} is a continuous stochastic process $(W_s)_{s \geq 0}$ where each $W_s$ is a finite path (a continuous function $[0,\zeta_s] \to \R$). The process is characterized by:
+\begin{enumerate}
+    \item The lifetime process $(\zeta_s)_{s \geq 0}$ is a reflected Brownian motion.
+    \item Conditionally on $\zeta$, the spatial motion is a Markov process: when $\zeta$ increases, the path is extended by a Brownian motion; when $\zeta$ decreases, the path is erased from the tip.
+\end{enumerate}
+\end{definition}
+
+\subsection{The Brownian Map}
+
+\begin{definition}[Brownian Map]
+The \textbf{Brownian map} is the random metric space $(\mathcal{S}_L, D_L)$ obtained by:
+\begin{enumerate}
+    \item Taking the CRT $\mathcal{T}_e$ with labels $(Z_v)_{v \in \mathcal{T}_e}$ from the Brownian snake.
+    \item Defining the pseudometric:
+    \[
+    D^*(x,y) = \inf_{x = v_0, v_1, \ldots, v_k = y} \sum_{i=0}^{k-1} d(x_i, x_{i+1})^{\natural}
+    \]
+    where $d(x,y)^{\natural} = Z_x + Z_y - 2\max_{w \in [x,y]} Z_w$.
+    \item Taking the quotient $\mathcal{S}_L = \mathcal{T}_e / \sim$ where $x \sim y$ if $D^*(x,y) = 0$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Le Gall, 2007; Le Gall--Paul, 2008]
+Let $M_n$ be a uniformly random quadrangulation of the sphere with $n$ faces, viewed as a metric space with distances rescaled by $n^{-1/4}$. Then as $n \to \infty$:
+\[
+M_n \xrightarrow{d} \mathcal{S}_L
+\]
+in the Gromov--Hausdorff sense, where $\mathcal{S}_L$ is the Brownian map. Moreover, $\mathcal{S}_L$ is almost surely homeomorphic to the 2-sphere and has Hausdorff dimension 4.
+\end{theorem}
+
+\subsection{Super-Brownian Motion}
+
+\begin{definition}[Super-Brownian Motion]
+\textbf{Super-Brownian motion} $(X_t)_{t \geq 0}$ is a measure-valued Markov process where $X_t$ is a random finite measure on $\R^d$. It satisfies the branching property: the total mass $M_t = X_t(\R^d)$ is a continuous-state branching process.
+\end{definition}
+
+Le Gall established the deep connection between super-Brownian motion and the nonlinear PDE:
+\[
+\partial_t u = \frac{1}{2}\Delta u + \beta u^2
+\]
+through the Brownian snake representation.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Random Geometry:} The Brownian map is the universal continuum limit of random planar maps, providing the mathematical foundation for 2D quantum gravity.
+    \item \textbf{Probability Theory:} The Brownian snake and CRT have become standard tools.
+    \item \textbf{Combinatorics:} Connections between planar map enumeration and random matrix theory.
+    \item \textbf{Stochastic Processes:} The Le Gall--Yor theorem and results on Bessel processes are standard.
+\end{enumerate}
+
+\subsection{In Physics}
+
+\begin{enumerate}
+    \item \textbf{Quantum Gravity:} Random planar maps are models of Euclidean quantum gravity in two dimensions.
+    \item \textbf{String Theory:} The continuum limit of random surfaces connects to string theory.
+    \item \textbf{Statistical Mechanics:} Random maps are related to the Ising model, percolation, and other models.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is the Brownian map?}
+The Brownian map is the universal continuum random surface that arises as the scaling limit of large random planar maps. It is homeomorphic to the 2-sphere and has Hausdorff dimension 4.
+
+\subsection*{Q2: What is the Brownian snake?}
+A stochastic process whose state is a finite Brownian path. It encodes the genealogy and spatial motion of a branching population and is the key tool for constructing the Brownian map.
+
+\subsection*{Q3: What is the continuum random tree?}
+A random metric tree that arises as the scaling limit of random discrete trees. It is encoded by a Brownian excursion and is the tree structure underlying the Brownian map.
+
+\subsection*{Q4: What are random planar maps used for?}
+They are discrete models of random surfaces. In physics, they model 2D quantum gravity. In probability, they are the discrete objects whose scaling limit is the Brownian map.
+
+\subsection*{Q5: What should an undergraduate study to understand Le Gall's work?}
+Probability theory (stochastic processes, Brownian motion, martingales), measure theory, and basic topology. Recommended: \textit{Brownian Motion and Stochastic Calculus} (Karatzas--Shreve), \textit{Random Trees} (Evans), and \textit{Brownian Maps} (Le Gall).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the CRT encoded by a Brownian excursion is a random metric tree.
+    \item Compute the Hausdorff dimension of the Brownian snake path.
+    \item Show that the number of planar quadrangulations with $n$ faces grows as $c \cdot 12^n n^{-7/2}$.
+    \item Prove that the Brownian map is a geodesic metric space.
+    \item Compute the spectral dimension of the CRT.
+    \item Show that super-Brownian motion satisfies the branching property.
+    \item Prove that the Brownian map has Hausdorff dimension 4.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1959 & Born in Morlaix, France \\ \hline
+1982 & \'Ecole Normale Sup\'erieure \\ \hline
+1987 & Ph.D.\ from Universit\'e Paris VI (Pierre et Marie Curie) \\ \hline
+1993 | Professor at Universit\'e Paris-Sud (Orsay) \\ \hline
+1999 | Brownian snake and superprocesses monograph \\ \hline
+2005 | Moves to Universit\'e Paris-Saclay \\ \hline
+2007 | Construction of the Brownian map \\ \hline
+2008 | Brownian map is the sphere (with Paul) \\ \hline
+2013 | Lo\`eve Prize \\ \hline
+2019 | Wolf Prize in Mathematics \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Brownian map] The universal continuum random surface, limit of random planar maps.
+    \item[Brownian snake] A path-valued process encoding the genealogy of branching processes.
+    \item[Continuum random tree] A random metric tree encoded by a Brownian excursion.
+    \item[Gromov--Hausdorff convergence] A notion of convergence for metric spaces.
+    \item[Planar map] A graph embedded in the sphere, considered up to homeomorphism.
+    \item[Quadrangulation] A planar map whose faces are all quadrilaterals.
+    \item[Scaling limit] The continuum limit of a rescaled discrete random object.
+    \item[Superprocess] A measure-valued branching process.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item J.-F.\ Le Gall, \textit{The Brownian map is the scaling limit of uniform random plane quadrangulations}, Acta Math.\ 210 (2013), 319--401.
+    \item J.-F.\ Le Gall, \textit{The topological structure of scaling limits of random planar maps}, Invent.\ Math.\ 169 (2007), 621--670.
+    \item J.-F.\ Le Gall, \textit{Spatial Branching Processes, Random Snakes, and Partial Differential Equations}, Lectures in Math.\ ETH Z\"urich, Birkh\"auser, 1999.
+    \item J.-F.\ Le Gall and Y.\ Le Jan, \textit{Branching processes in L\'evy processes: the exploration process}, Ann.\ Probab.\ 26 (1998), 213--252.
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item J.-F.\ Le Gall, \textit{Random geometry on the sphere}, Proc.\ ICM 2014.
+    \item J.-F.\ Le Gall, \textit{Brownian motion, random trees, and random surfaces}, lecture notes, 2011.
+    \item G.\ Miermont, \textit{Aspects of random maps}, lecture notes, 2014.
+\end{enumerate}
+

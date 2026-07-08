@@ -1,0 +1,549 @@
+\let\im\relax
+\newcommand{\im}{\operatorname{im}}
+\let\End\relax
+\newcommand{\End}{\operatorname{End}}
+\let\Ker\relax
+\newcommand{\Ker}{\operatorname{Ker}}
+\let\Aut\relax
+\newcommand{\Aut}{\operatorname{Aut}}
+\let\Hom\relax
+\newcommand{\Hom}{\operatorname{Hom}}
+\let\Ext\relax
+\newcommand{\Ext}{\operatorname{Ext}}
+\let\Tor\relax
+\newcommand{\Tor}{\operatorname{Tor}}
+\let\Coker\relax
+\newcommand{\Coker}{\operatorname{Coker}}
+\let\Sing\relax
+\newcommand{\Sing}{\operatorname{Sing}}
+\let\Spec\relax
+\newcommand{\Spec}{\operatorname{Spec}}
+\let\Ch\relax
+\newcommand{\Ch}{\operatorname{Ch}}
+\let\Ho\relax
+\newcommand{\Ho}{\operatorname{Ho}}
+\let\id\relax
+\newcommand{\id}{\operatorname{id}}
+\let\Nat\relax
+\newcommand{\Nat}{\operatorname{Nat}}
+\let\sgn\relax
+\newcommand{\sgn}{\operatorname{sgn}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+
+\chapter{Samuel Eilenberg (1986)}
+
+\begin{quote}
+\it ``You see, I'm an algebraic topologist. I don't really care what the homology groups are. I want to know what they mean, how they behave, how they relate to each other. The actual numbers are not important.'' --- Samuel Eilenberg
+\end{quote}
+
+\section{Main Contribution}
+
+Samuel Eilenberg (1913--1998) was a Polish--American mathematician who, together with Saunders Mac Lane, invented category theory, and together with Norman Steenrod, axiomatized homology theory. His work reshaped the foundations of algebraic topology and homological algebra, introducing language and tools that are now indispensable in every branch of pure mathematics.
+
+The Wolf Prize citation reads: ``for his outstanding contributions to algebraic topology and homological algebra.'' This succinct phrase understates a career that gave mathematics the Eilenberg--Mac Lane spaces $K(G,n)$, the Eilenberg--Steenrod axioms, the Eilenberg--Zilber theorem, the Eilenberg--Moore spectral sequence, and---with Mac Lane---the categories, functors, and natural transformations that unify modern mathematics.
+
+Eilenberg's core contributions include:
+\begin{itemize}
+    \item \textbf{Eilenberg--Mac Lane Spaces:} For any group $G$ and integer $n \geq 1$, the space $K(G,n)$ whose only non-vanishing homotopy group is $\pi_n(K(G,n)) \cong G$. These spaces represent cohomology: $H^n(X; G) \cong [X, K(G,n)]$.
+    \item \textbf{Eilenberg--Steenrod Axioms:} The first formal axiomatization of homology theory, proving that homology is uniquely determined by a small set of axioms.
+    \item \textbf{Category Theory:} The 1945 paper ``General Theory of Natural Equivalences'' with Mac Lane introduced categories, functors, and natural transformations.
+    \item \textbf{Eilenberg--Zilber Theorem:}$H_*(X \times Y) \cong H_*(X) \otimes H_*(Y)$ via the Alexander--Whitney and shuffle maps.
+    \item \textbf{Eilenberg--Moore Spectral Sequence:} A spectral sequence for the homology of fiber spaces, computed from the fiber and base.
+    \item \textbf{Homological Algebra:} With Cartan, the foundational text \textit{Homological Algebra} (1956) that systematized derived functors, resolutions, and spectral sequences.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Chaos of Pre-War Algebraic Topology}
+
+In the 1930s and early 1940s, algebraic topology was a burgeoning but chaotic field. Several different homology theories existed:
+\begin{itemize}
+    \item Simplicial homology (Poincar\'e, Brouwer)
+    \item Singular homology (Lefschetz)
+    \item \v{C}ech homology (\v{C}ech, Alexandroff)
+    \item Cellular homology (developed from CW complexes)
+\end{itemize}
+
+Each theory had its own definitions, its own proofs, and its own domain of applicability. It was not at all obvious that they gave the same answer for spaces where they were all defined. Moreover, the proofs of basic results---like the homology of a product space---were long, computational, and specific to each theory. The driving problem was: can we strip away the technical details and identify the essential properties that any homology theory must satisfy?
+
+\subsection{The Need for a General Theory of Naturality}
+
+Research papers in the 1930s were also full of ad hoc constructions: a ``natural'' isomorphism here, a ``natural'' transformation there. Terms like ``natural'' were used informally, but no one had defined what naturality actually meant. When Eilenberg and Mac Lane studied universal coefficient theorems and the homology of product spaces, they kept encountering the same phenomenon: certain maps and isomorphisms did not depend on arbitrary choices. They realized that a precise definition of ``natural'' was needed---and that this definition required a new mathematical language.
+
+\subsection{The Cohomology of Groups and the Quest for Classifying Spaces}
+
+Heinz Hopf and others had observed that the homology of a group $G$ (defined via the homology of $BG$, the classifying space) could be computed algebraically from $G$ alone. Eilenberg and Mac Lane sought a space whose homotopy groups vanish except in one dimension, where the group is $G$. Such a space would serve as a universal recipient for cohomology: by pulling back the fundamental class, every cohomology class on $X$ would correspond to a homotopy class of maps $X \to K(G,n)$. This insight connected homotopy theory with cohomology in a tight and beautiful way.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{The Eilenberg--Steenrod Axioms}
+
+Eilenberg and Steenrod identified five axioms that any homology theory must satisfy:
+\begin{enumerate}
+    \item \textbf{Homotopy invariance:} Homotopic maps induce equal maps on homology.
+    \item \textbf{Excision:}$H_*(X, A) \cong H_*(X\setminus U, A\setminus U)$ when $\overline{U} \subset \operatorname{int} A$.
+    \item \textbf{Dimension:}$H_*(pt) = 0$ for $* \neq 0$.
+    \item \textbf{Additivity:} Disjoint unions give direct sums.
+    \item \textbf{Exactness:} The long exact sequence of a pair $(X,A)$.
+\end{enumerate}
+
+\textbf{The key intuition:} Rather than proving that two competing homology theories agree on every space, one need only check that both satisfy the five axioms. Since the axioms uniquely determine the homology groups of any reasonable space, the two theories must coincide. This replaced combinatorial detail with conceptual clarity.
+
+\subsection{Categories, Functors, and Natural Transformations}
+
+Eilenberg and Mac Lane began with the observation that many mathematical constructions are \textit{functorial}: they assign to each object (e.g., a topological space $X$) another object (e.g., its homology $H_n(X)$), and to each map between objects a corresponding map between the assigned objects. They defined a \textbf{category} as a collection of objects and arrows (morphisms) satisfying associativity and identity laws. A \textbf{functor} is a morphism between categories. A \textbf{natural transformation} is a family of maps between functors that commutes with the action of morphisms.
+
+\textbf{The key insight:} The word ``natural'' in ordinary mathematical English had a precise translation: a natural transformation. When a mathematician says ``there is a natural isomorphism $V \cong V^{**}$ for finite-dimensional vector spaces,'' they mean that this isomorphism is a natural transformation between the identity functor and the double-dual functor---it is defined uniformly without choosing bases.
+
+\subsection{Eilenberg--Mac Lane Spaces $K(G,n)$}
+
+The space $K(G,n)$ is characterized by:
+\[
+\pi_k(K(G,n)) \cong 
+\begin{cases}
+G & k = n, \\
+0 & k \neq n.
+\end{cases}
+\]
+Eilenberg and Mac Lane constructed these spaces using a simplicial model: the nerve of a group $G$ gives $K(G,1)$, and iterated classifying spaces give $K(G,n)$.
+
+\textbf{The key intuition:} Cohomology classes of degree $n$ on $X$ with coefficients in $G$ correspond to homotopy classes of maps $X \to K(G,n)$. This reduces the computation of cohomology to homotopy theory:
+\[
+H^n(X; G) \cong [X, K(G,n)].
+\]
+This representability theorem is a precursor to Brown's representability theorem and the general theory of spectra.
+
+\subsection{The Eilenberg--Zilber Theorem}
+
+The computation of $H_*(X \times Y)$ from $H_*(X)$ and $H_*(Y)$ required a chain-level formula. The Eilenberg--Zilber theorem provides a natural chain homotopy equivalence:
+\[
+S_*(X \times Y) \simeq S_*(X) \otimes S_*(Y),
+\]
+given by the Alexander--Whitney map $AW$ and the shuffle map $\nabla$, which are mutual inverses up to chain homotopy.
+
+\textbf{The key intuition:} The diagonal approximation $\Delta: X \to X \times X$ induces a coproduct on $S_*(X)$, making homology into a coalgebra. The shuffle map encodes the combinatorial decomposition of a product of simplices into smaller simplices.
+
+\subsection{The Eilenberg--Moore Spectral Sequence}
+
+For a fiber bundle $F \to E \to B$, the Eilenberg--Moore spectral sequence computes $H^*(E)$ from $H^*(F)$ and $H^*(B)$ in situations where the Serre spectral sequence is inefficient. Its $E_2$ page:
+\[
+E_2^{*,*} = \Tor^{H^*(B)}_{*,*}(H^*(E), H^*(F))
+\]
+converges to $H^*(E)$. This is particularly powerful when the base is a classifying space $BG$.
+
+\section{Mathematical Theory}
+
+\subsection{Categories and Functors}
+
+\begin{definition}[Category]
+A \textbf{category} $\mathcal{C}$ consists of:
+\begin{enumerate}
+    \item A class $\operatorname{Ob}(\mathcal{C})$ of \textbf{objects}.
+    \item For each pair $A,B \in \operatorname{Ob}(\mathcal{C})$, a set $\Hom_{\mathcal{C}}(A,B)$ of \textbf{morphisms} (or arrows).
+    \item For each $A \in \operatorname{Ob}(\mathcal{C})$, an identity morphism $\id_A \in \Hom(A,A)$.
+    \item Composition $\circ: \Hom(B,C) \times \Hom(A,B) \to \Hom(A,C)$ that is associative and unital.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+\textbf{Set:} objects are sets, morphisms are functions.\\
+\textbf{Top:} objects are topological spaces, morphisms are continuous maps.\\
+\textbf{Grp:} objects are groups, morphisms are group homomorphisms.\\
+\textbf{Vect$_k$:} objects are vector spaces over $k$, morphisms are linear maps.
+\end{example}
+
+\begin{definition}[Functor]
+A \textbf{covariant functor} $F: \mathcal{C} \to \mathcal{D}$ assigns to each object $A \in \mathcal{C}$ an object $F(A) \in \mathcal{D}$, and to each morphism $f: A \to B$ a morphism $F(f): F(A) \to F(B)$, such that $F(\id_A) = \id_{F(A)}$ and $F(g \circ f) = F(g) \circ F(f)$. A \textbf{contravariant functor} reverses the direction of morphisms.
+\end{definition}
+
+\begin{definition}[Natural Transformation]
+Let $F,G: \mathcal{C} \to \mathcal{D}$ be functors. A \textbf{natural transformation} $\eta: F \Rightarrow G$ is a family of morphisms $\eta_A: F(A) \to G(A)$, one for each $A \in \mathcal{C}$, such that for every $f: A \to B$, the following diagram commutes:
+\[
+\begin{CD}
+F(A) @>{F(f)}>> F(B) \\
+@V{\eta_A}VV @VV{\eta_B}V \\
+G(A) @>>{G(f)}> G(B)
+\end{CD}
+\]
+A natural transformation in which each $\eta_A$ is an isomorphism is called a \textbf{natural isomorphism}.
+\end{definition}
+
+\begin{theorem}[Yoneda Lemma]
+For any category $\mathcal{C}$, object $A \in \mathcal{C}$, and functor $F: \mathcal{C} \to \textbf{Set}$, there is a bijection:
+\[
+\Nat(\Hom(A,-),\; F) \cong F(A)
+\]
+that is natural in both $A$ and $F$.
+\end{theorem}
+
+The Yoneda lemma is the single most important result in category theory. It says that an object is determined up to isomorphism by its functor of points.
+
+\subsection{Eilenberg--Steenrod Axioms}
+
+\begin{definition}[Homology Theory]
+A \textbf{homology theory} on the category of topological pairs $(X,A)$ consists of:
+\begin{itemize}
+    \item Functors $h_n: \textbf{TopPair} \to \textbf{Ab}$ for each $n \in \Z$.
+    \item A natural transformation $\partial: h_n(X,A) \to h_{n-1}(A,\varnothing)$ (the boundary map).
+\end{itemize}
+satisfying the following axioms:
+\end{definition}
+
+\begin{enumerate}
+    \item \textbf{Homotopy:} If $f \simeq g: (X,A) \to (Y,B)$ are homotopic maps of pairs, then $h_n(f) = h_n(g)$ for all $n$.
+    \item \textbf{Excision:} For $U \subset A$ with $\overline{U} \subset \operatorname{int} A$, the inclusion $(X\setminus U, A\setminus U) \hookrightarrow (X,A)$ induces an isomorphism $h_*(X\setminus U, A\setminus U) \cong h_*(X,A)$.
+    \item \textbf{Dimension:} For the one-point space $P$, $h_n(P) = 0$ for all $n \neq 0$.
+    \item \textbf{Additivity:} For a disjoint union $X = \bigsqcup_\alpha X_\alpha$, the inclusions $X_\alpha \to X$ induce an isomorphism $\bigoplus_\alpha h_*(X_\alpha) \cong h_*(X)$.
+    \item \textbf{Exactness:} The sequence
+    \[
+    \cdots \to h_n(A) \xrightarrow{i_*} h_n(X) \xrightarrow{j_*} h_n(X,A) \xrightarrow{\partial} h_{n-1}(A) \to \cdots
+    \]
+    is exact, where $i: A \to X$ and $j: (X,\varnothing) \to (X,A)$ are inclusions.
+\end{enumerate}
+
+\begin{theorem}[Uniqueness of Homology]
+Any two homology theories satisfying the Eilenberg--Steenrod axioms and sharing the same coefficient group $h_0(P) = G$ are naturally isomorphic on the category of finite CW complexes.
+\end{theorem}
+
+This theorem liberated algebraic topology from dependency on specific constructions. A typical application: to prove that singular homology and cellular homology coincide for CW complexes, one simply verifies that both satisfy the axioms.
+
+\subsection{Eilenberg--Mac Lane Spaces}
+
+\begin{definition}[$K(G,n)$ Space]
+For a group $G$ and integer $n \geq 1$, an \textbf{Eilenberg--Mac Lane space} $K(G,n)$ is a topological space with:
+\[
+\pi_k(K(G,n)) \cong 
+\begin{cases}
+G & k = n, \\
+0 & k \neq n.
+\end{cases}
+\]
+\end{definition}
+
+\begin{theorem}[Existence and Uniqueness]
+For any group $G$ (abelian if $n \geq 2$) and $n \geq 1$, a $K(G,n)$ space exists and is unique up to homotopy equivalence.
+\end{theorem}
+
+\begin{proof}[Sketch]
+Construct $K(G,1)$ as the classifying space $BG$ of the group $G$ (the nerve of $G$ as a category). Its universal cover is contractible, so $\pi_1(BG) \cong G$ and $\pi_k(BG) = 0$ for $k > 1$. For higher $n$, take the classifying space of the $(n-1)$-loop space: $K(G,n) = B(K(G,n-1))$.
+\end{proof}
+
+The fundamental property:
+
+\begin{theorem}[Representability of Cohomology]
+For any CW complex $X$, there is a natural isomorphism:
+\[
+H^n(X; G) \cong [X, K(G,n)]
+\]
+where $[X,Y]$ denotes homotopy classes of maps $X \to Y$.
+\end{theorem}
+
+This turns cohomology into a representable functor. The isomorphism is given by pulling back the fundamental class $\iota_n \in H^n(K(G,n); G)$:
+\[
+[f] \mapsto f^*(\iota_n).
+\]
+
+\begin{theorem}[Hurewicz Theorem for $K(G,n)$]
+The Hurewicz homomorphism $\pi_n(K(G,n)) \to H_n(K(G,n); \Z)$ is the abelianization map $G \to G^{\mathrm{ab}}$. In particular, $H_n(K(G,n); \Z) \cong G^{\mathrm{ab}}$.
+\end{theorem}
+
+\begin{example}
+$K(\Z,1) \cong S^1$, and $H^1(X;\Z) \cong [X, S^1]$.
+\end{example}
+
+\begin{example}
+$K(\Z,2) \cong \mathbb{C}P^\infty$, the infinite complex projective space. This gives $H^2(X;\Z) \cong [X, \mathbb{C}P^\infty]$, which classifies complex line bundles via the first Chern class.
+\end{example}
+
+\subsection{The Eilenberg--Zilber Theorem}
+
+Let $S_*(X)$ denote the singular chain complex of $X$.
+
+\begin{definition}[Alexander--Whitney Map]
+The \textbf{Alexander--Whitney map} $AW: S_n(X \times Y) \to \bigoplus_{p+q=n} S_p(X) \otimes S_q(Y)$ is:
+\[
+AW(\sigma) = \sum_{p+q=n} d_{p+1}\cdots d_n(\sigma) \otimes d_0^q(\sigma)
+\]
+where $\sigma: \Delta^n \to X \times Y$ is a singular $n$-simplex, $\Delta^n$ is the standard $n$-simplex, and $d_i$ are face maps.
+\end{definition}
+
+\begin{definition}[Shuffle Map]
+The \textbf{shuffle map} (or Eilenberg--Zilber map) $\nabla: S_p(X) \otimes S_q(Y) \to S_{p+q}(X \times Y)$ is:
+\[
+\nabla(\sigma \otimes \tau) = \sum_{(\alpha,\beta)} \sgn(\alpha,\beta) (\sigma \circ \pi_X \times \tau \circ \pi_Y) \circ s_{\alpha,\beta}
+\]
+where the sum is over all $(p,q)$-shuffles and $s_{\alpha,\beta}$ is a certain subdivision of $\Delta^{p+q}$.
+\end{definition}
+
+\begin{theorem}[Eilenberg--Zilber]
+The Alexander--Whitney map $AW$ and the shuffle map $\nabla$ are mutually inverse chain homotopy equivalences:
+\[
+\nabla \circ AW \simeq \id_{S_*(X \times Y)}, \quad AW \circ \nabla \simeq \id_{S_*(X) \otimes S_*(Y)}.
+\]
+Consequently, $H_*(X \times Y) \cong H_*(X) \otimes H_*(Y)$ as graded abelian groups.
+\end{theorem}
+
+\begin{corollary}[K\"unneth Theorem]
+If $H_*(X)$ and $H_*(Y)$ are free abelian groups in each degree, there is a short exact sequence:
+\[
+0 \to \bigoplus_{p+q=n} H_p(X) \otimes H_q(Y) \to H_n(X \times Y) \to \bigoplus_{p+q=n-1} \Tor(H_p(X), H_q(Y)) \to 0
+\]
+that splits (but not naturally).
+\end{corollary}
+
+\subsection{The Eilenberg--Moore Spectral Sequence}
+
+Let $B$ be a simply connected space, and let $F \to E \xrightarrow{\pi} B$ be a fibration. The \textbf{Eilenberg--Moore spectral sequence} is a cohomology spectral sequence with:
+\[
+E_2^{p,q} = \Tor^{H^*(B)}_{-p,q}(H^*(E), H^*(F))
+\]
+converging to $H^*(F)$ (under suitable finiteness conditions).
+
+\begin{theorem}[Eilenberg--Moore]
+For a pullback diagram:
+\[
+\begin{CD}
+F @>>> E \\
+@VVV @VV{\pi}V \\
+* @>>> B
+\end{CD}
+\]
+there is a natural isomorphism of graded $H^*(B)$-modules:
+\[
+H^*(F) \cong \Tor^{H^*(B)}(H^*(E), H^*(*)).
+\]
+In particular, when $E$ is contractible (so $E \simeq *$ and $F \simeq \Omega B$), we have:
+\[
+H^*(\Omega B) \cong \Tor^{H^*(B)}(H^*(*), H^*(*)) = \Tor^{H^*(B)}(\Z,\Z).
+\]
+\end{theorem}
+
+\begin{example}
+For $B = K(\Z,2) \cong \mathbb{C}P^\infty$, we have $H^*(B) \cong \Z[x]$ with $|x| = 2$. Then $\Omega B \cong K(\Z,1) \cong S^1$, and:
+\[
+H^*(S^1) \cong \Tor^{\Z[x]}(\Z,\Z) \cong \Lambda[y]
+\]
+where $|y| = 1$, consistent with $H^*(S^1) \cong \Z[y]/(y^2)$.
+\end{example}
+
+\subsection{Homological Algebra and Derived Functors}
+
+\begin{definition}[Projective Resolution]
+A \textbf{projective resolution} of an $R$-module $M$ is an exact sequence:
+\[
+\cdots \to P_2 \to P_1 \to P_0 \to M \to 0
+\]
+where each $P_i$ is projective. The \textbf{derived functor} $\Ext_R^n(M,-)$ is the $n$-th homology of the chain complex $\Hom_R(P_*, N)$.
+\end{definition}
+
+Cartan and Eilenberg's \textit{Homological Algebra} (1956) systematized this material. They introduced:
+\begin{itemize}
+    \item Derived functors $\Ext$ and $\Tor$.
+    \item The five lemma, snake lemma, and diagram chasing as formal techniques.
+    \item Spectral sequences as a computational tool.
+    \item The theory of $\delta$-functors and acyclic resolutions.
+\end{itemize}
+
+\begin{theorem}[Comparison Theorem for Resolutions]
+Given a map $f: M \to N$ and projective resolutions $P_* \to M$, $Q_* \to N$, there exists a unique (up to chain homotopy) chain map lifting $f$.
+\end{theorem}
+
+\begin{theorem}[Universal Coefficient Theorem]
+For a chain complex $C_*$ of free abelian groups:
+\[
+0 \to H_n(C) \otimes G \to H_n(C \otimes G) \to \Tor(H_{n-1}(C), G) \to 0
+\]
+is exact and splits.
+\end{theorem}
+
+\begin{theorem}[Universal Coefficient Theorem for Cohomology]
+For a chain complex $C_*$ of free abelian groups:
+\[
+0 \to \Ext(H_{n-1}(C), G) \to H^n(C; G) \to \Hom(H_n(C), G) \to 0
+\]
+is exact and splits.
+\end{theorem}
+
+\subsection{The Eilenberg Swindle}
+
+A characteristic example of Eilenberg's geometric approach to algebra is the \textbf{Eilenberg swindle}, a trick used in algebraic $K$-theory. For a projective module $P$ with $P \oplus Q \cong R^n$, one writes:
+\[
+P \oplus (P \oplus Q) \oplus (P \oplus Q) \oplus \cdots \cong P \oplus (R^n) \oplus (R^n) \oplus \cdots \cong R^n \oplus (R^n) \oplus \cdots
+\]
+and also:
+\[
+Q \oplus (P \oplus Q) \oplus (P \oplus Q) \oplus \cdots \cong Q \oplus (R^n) \oplus (R^n) \oplus \cdots \cong R^n \oplus (R^n) \oplus \cdots
+\]
+Hence $P$ and $Q$ are stably isomorphic, implying that every projective module is stably free. This is the starting point for the study of $K_0$ of a ring.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Category Theory:} Eilenberg and Mac Lane's creation has become the universal language of modern mathematics. It is essential in algebraic geometry (sheaf theory, schemes), algebraic topology (spectra, derived categories), representation theory (quivers, tensor categories), logic (topoi, categorical logic), and computer science (type theory, functional programming).
+    
+    \item \textbf{Algebraic Topology:} The Eilenberg--Steenrod axioms made algebraic topology into a deductive science. Every new homology theory---\v{C}ech, simplicial, singular, cellular, \'etale, Floer, Khovanov---must satisfy these axioms. The Eilenberg--Zilber theorem and the K\"unneth formula are daily tools. The Eilenberg--Moore spectral sequence is essential for computing cohomology of loop spaces and homogeneous spaces.
+    
+    \item \textbf{Homological Algebra:} Cartan--Eilenberg's book \textit{Homological Algebra} created the field. Derived functors are now fundamental in algebraic geometry (sheaf cohomology), representation theory (Hochschild cohomology), commutative algebra (Tor and Ext for local rings), and mathematical physics (BRST cohomology).
+    
+    \item \textbf{Classifying Spaces:} The spaces $K(G,n)$ are the building blocks of homotopy theory. Postnikov towers express any space as a fibered product of Eilenberg--Mac Lane spaces. The theory of spectra (stable homotopy theory) builds on $K(G,n)$ as the suspension spectrum of a generalized cohomology theory.
+    
+    \item \textbf{Algebraic $K$-Theory:} The Eilenberg swindle is a foundational trick in $K$-theory, used to prove that the Grothendieck group of a triangulated category is well-defined.
+\end{enumerate}
+
+\subsection{In Other Sciences}
+
+\begin{enumerate}
+    \item \textbf{Theoretical Computer Science:} Category theory is the basis for functional programming (Haskell's monads, functors, and natural transformations), type theory (categorical semantics), and the theory of computation (domain theory). The slogan ``A monad is a monoid in the category of endofunctors'' comes directly from Eilenberg and Mac Lane.
+    
+    \item \textbf{Mathematical Physics:} Homological algebra appears in topological quantum field theory (Fukaya categories, Floer homology), string theory (derived categories of coherent sheaves), and gauge theory (BRST quantization as derived functors).
+    
+    \item \textbf{Quantum Topology:} Khovanov homology (a categorification of the Jones polynomial) and Heegaard Floer homology are new homology theories that extend Eilenberg's program to knot theory and low-dimensional topology.
+\end{enumerate}
+
+\subsection{The Eilenberg--Mac Lane Collaboration}
+
+Eilenberg met Saunders Mac Lane at the University of Michigan in the early 1940s. Their collaboration produced five joint papers between 1942 and 1950 that founded category theory and transformed algebraic topology. They would work by correspondence (Eilenberg at Michigan/Columbia, Mac Lane at Harvard/Chicago) and in intense face-to-face sessions. Their partnership was remarkably symmetric: Mac Lane brought expertise in group theory and universal algebra, Eilenberg brought geometry and topology.
+
+The 1945 paper ``General Theory of Natural Equivalences'' is one of the most influential papers in 20th-century mathematics. It begins with the observation that ``the notion of natural transformation is the central concept of the whole subject'' and proceeds to define categories and functors as preparatory concepts. This was a radical inversion of the usual mathematical hierarchy: the most abstract notion (natural transformation) came first, and the more concrete notions (functor, category) were introduced to support it.
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What are Eilenberg--Mac Lane spaces and why are they important?}
+
+A $K(G,n)$ is a space whose only non-zero homotopy group is $\pi_n \cong G$. They are important because they \textit{classify} cohomology: every cohomology class $H^n(X; G)$ corresponds to a homotopy class of maps $X \to K(G,n)$. This allows one to study cohomology using homotopy theory, and vice versa. They are also the building blocks of Postnikov towers, which decompose any space into a tower of $K(\pi_n,n)$ fibrations.
+
+\subsection*{Q2: Did Eilenberg and Mac Lane invent category theory just to formalize the word ``natural''?}
+
+Essentially yes. The 1945 paper states explicitly: ``In the present paper we introduce the notions of category and functor, and then proceed to the definition of natural equivalence, which is our primary concern.'' The word ``natural'' had been used informally for decades; Eilenberg and Mac Lane gave it a precise meaning, and in doing so created a new branch of mathematics.
+
+\subsection*{Q3: What is the Eilenberg swindle?}
+
+The Eilenberg swindle is an infinite-dimensional trick used to prove that every projective module over a ring $R$ is stably free, by writing the module as an infinite direct sum and rearranging the terms. It shows that $K_0(R) = 0$ for any ring where every finitely generated projective module is free. The ``swindle'' is that it only works because the infinite direct sum is isomorphic to itself shifted, which is impossible in finite dimensions.
+
+\subsection*{Q4: What is the difference between the Serre and Eilenberg--Moore spectral sequences?}
+
+The Serre spectral sequence computes $H_*(E)$ from $H_*(B)$ and $H_*(F)$ for a fibration $F \to E \to B$, with $E_2^{p,q} = H_p(B; H_q(F))$. The Eilenberg--Moore spectral sequence computes $H^*(F)$ from $H^*(B)$ and $H^*(E)$, with $E_2^{*,*} = \Tor^{H^*(B)}(H^*(E), H^*(F))$. Serre's goes from base and fiber to total space; Eilenberg--Moore goes from base and total space to fiber. Eilenberg--Moore is especially useful when the fiber is complicated (like a loop space) and the base is a classifying space.
+
+\subsection*{Q5: What should an undergraduate study to understand Eilenberg's work?}
+
+A strong path includes:
+\begin{enumerate}
+    \item \textbf{General Topology:} Point-set topology, compactness, connectedness, homotopy.
+    \item \textbf{Abstract Algebra:} Groups, modules, exact sequences, tensor products.
+    \item \textbf{Algebraic Topology:} Fundamental group, covering spaces, homology (simplicial and singular), cohomology.
+    \item \textbf{Homological Algebra:} Chain complexes, resolutions, derived functors $\Ext$ and $\Tor$.
+    \item \textbf{Category Theory:} Categories, functors, natural transformations, Yoneda lemma.
+    \item \textbf{Spectral Sequences:} Filtrations, exact couples, the Serre and Eilenberg--Moore spectral sequences.
+\end{enumerate}
+
+Standard textbooks: Hatcher's \textit{Algebraic Topology}, Weibel's \textit{An Introduction to Homological Algebra}, Mac Lane's \textit{Categories for the Working Mathematician}.
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that $H_n(X \times Y) \cong H_n(X) \otimes H_n(Y)$ when both $X$ and $Y$ are $0$-dimensional CW complexes.
+    \item Let $G$ be an abelian group. Prove that $K(G,1)$ exists as the classifying space $BG$, and compute $\pi_1(BG)$.
+    \item Verify that singular homology satisfies the Eilenberg--Steenrod axioms. Which axiom is the most difficult to verify?
+    \item For a finite group $G$, show that $H_n(K(G,1); \Z)$ is torsion for $n \geq 1$.
+    \item Use the Eilenberg--Zilber theorem to prove the K\"unneth formula for spaces with finitely generated homology.
+    \item Compute $\Tor^{\Z[x]}(\Z,\Z)$ where $|x| = 2$ and $H^*(B) = \Z[x]$. Show that it recovers $H^*(S^1)$.
+    \item Prove the Yoneda lemma: $\Nat(\Hom(A,-), F) \cong F(A)$ for a small category.
+    \item Let $F: \mathcal{C} \to \mathcal{D}$ be a functor. Show that $F$ is an equivalence of categories iff it is fully faithful and essentially surjective.
+    \item Compute $\Ext_{\Z}^n(\Z/m\Z, \Z)$ for all $n \geq 0$.
+    \item Show that the Eilenberg swindle implies that every finitely generated projective module over a local ring is free.
+    \item Prove that if $A_* \to B_* \to C_*$ is a short exact sequence of chain complexes, there is a long exact sequence of homology groups.
+    \item Show that $K(\Z,2) \cong \mathbb{C}P^\infty$ and use this to prove that $H^2(X;\Z) \cong [X, \mathbb{C}P^\infty]$ classifies complex line bundles.
+    \item For a triple $(X,A,B)$ with $B \subset A \subset X$, derive the long exact sequence of the triple using the Eilenberg--Steenrod axioms.
+    \item Prove the five lemma: if the rows of a commutative ladder diagram of abelian groups are exact and four of the five vertical arrows are isomorphisms, then the fifth is also an isomorphism.
+    \item Show that the Alexander--Whitney map and the shuffle map are chain homotopy inverses for $X = Y = \Delta^1$.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1913 & Born in Warsaw, Poland (then Russian Empire) \\ \hline
+1936 & Ph.D.\ from University of Warsaw under Kazimierz Kuratowski \\ \hline
+1936--1937 & Rockefeller Fellow at Princeton University \\ \hline
+1938 & Returns to US, joins University of Michigan (instructor) \\ \hline
+1940 & Begins collaboration with Saunders Mac Lane \\ \hline
+1942 & Eilenberg--Steenrod axioms for homology \\ \hline
+1945 & ``General Theory of Natural Equivalences'' (categories, functors, natural transformations) \\ \hline
+1946 & Professor at Columbia University (until 1982) \\ \hline
+1950 & Eilenberg--Mac Lane spaces $K(G,n)$ constructed \\ \hline
+1952 & \textit{Foundations of Algebraic Topology} (with Steenrod) published \\ \hline
+1953 & Eilenberg--Zilber theorem published \\ \hline
+1956 & \textit{Homological Algebra} (with Cartan) published \\ \hline
+1960s & Eilenberg--Moore spectral sequence developed \\ \hline
+1963 & Elected to National Academy of Sciences \\ \hline
+1966 & Chairs Columbia Mathematics Department \\ \hline
+1970s & Work on algebraic automata theory \\ \hline
+1982 & Retires from Columbia, joins Columbia as professor emeritus \\ \hline
+1986 & Wolf Prize in Mathematics (shared with Atle Selberg) \\ \hline
+1998 & Dies in New York City \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Alexander--Whitney map] A natural chain map $S_*(X \times Y) \to S_*(X) \otimes S_*(Y)$ used in the Eilenberg--Zilber theorem.
+    \item[Category] A mathematical structure consisting of objects and morphisms with composition.
+    \item[Derived functor] The $n$-th homology of a projective resolution; $\Ext$ and $\Tor$ are the primary examples.
+    \item[Eilenberg--Mac Lane space] A space $K(G,n)$ whose only non-vanishing homotopy group is $\pi_n \cong G$.
+    \item[Eilenberg--Moore spectral sequence] A spectral sequence computing $H^*(F)$ from $H^*(B)$ and $H^*(E)$ for a fibration $F \to E \to B$.
+    \item[Eilenberg--Steenrod axioms] A set of five axioms that uniquely determine a homology theory on CW complexes.
+    \item[Eilenberg--Zilber theorem] $S_*(X \times Y) \simeq S_*(X) \otimes S_*(Y)$ via chain homotopy equivalences.
+    \item[Functor] A map between categories preserving composition and identities.
+    \item[K\"unneth theorem] A formula for $H_*(X \times Y)$ in terms of $H_*(X)$ and $H_*(Y)$ with Tor correction.
+    \item[Natural transformation] A family of maps between functors commuting with all morphisms.
+    \item[Spectral sequence] A bookkeeping device for computing homology via successive approximations.
+    \item[Yoneda lemma] The fundamental result that $\Nat(\Hom(A,-), F) \cong F(A)$.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item S.\ Eilenberg and N.\ Steenrod, \textit{Foundations of Algebraic Topology}, Princeton University Press, 1952.
+    \item S.\ Eilenberg and S.\ Mac Lane, \textit{General theory of natural equivalences}, Trans.\ AMS 58 (1945), 231--294.
+    \item S.\ Eilenberg and S.\ Mac Lane, \textit{Relations between homology and homotopy groups of spaces}, Ann.\ Math.\ 46 (1945), 480--509.
+    \item S.\ Eilenberg and S.\ Mac Lane, \textit{Homology of spaces with operators I}, Trans.\ AMS 61 (1947), 378--415.
+    \item S.\ Eilenberg and J.\ A.\ Zilber, \textit{On products of complexes}, Amer.\ J.\ Math.\ 75 (1953), 200--204.
+    \item H.\ Cartan and S.\ Eilenberg, \textit{Homological Algebra}, Princeton University Press, 1956.
+    \item S.\ Eilenberg and J.\ C.\ Moore, \textit{Limits and spectral sequences}, Topology 1 (1962), 1--23.
+    \item S.\ Eilenberg and J.\ C.\ Moore, \textit{Homology and fibrations I}, Comment.\ Math.\ Helv.\ 40 (1966), 199--236.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item H.\ Bass, \textit{Samuel Eilenberg (1913--1998)}, Notices of the AMS 45(10) (1998), 1344--1352.
+    \item S.\ Mac Lane, \textit{Samuel Eilenberg: A biographical memoir}, Biographical Memoirs of the National Academy of Sciences, 2000.
+    \item P.\ Freyd, \textit{Remembering Samuel Eilenberg}, Theory and Applications of Categories 5(3) (1999), 1--8.
+    \item J.\ C.\ Moore, \textit{Samuel Eilenberg (1913--1998)}, Nature 393 (1998), 540.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item A.\ Hatcher, \textit{Algebraic Topology}, Cambridge University Press, 2002.
+    \item C.\ A.\ Weibel, \textit{An Introduction to Homological Algebra}, Cambridge University Press, 1994.
+    \item S.\ Mac Lane, \textit{Categories for the Working Mathematician} (2nd ed.), Springer, 1998.
+    \item E.\ H.\ Spanier, \textit{Algebraic Topology}, Springer, 1966 (corrected reprint 1994).
+    \item J.\ McCleary, \textit{A User's Guide to Spectral Sequences} (2nd ed.), Cambridge University Press, 2001.
+    \item J.\ P.\ May, \textit{A Concise Course in Algebraic Topology}, University of Chicago Press, 1999.
+    \item S.\ Mac Lane, \textit{Mathematics: Form and Function}, Springer, 1986.
+\end{enumerate}

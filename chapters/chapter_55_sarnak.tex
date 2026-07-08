@@ -1,0 +1,236 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\SL}{\operatorname{SL}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\tr}{\operatorname{tr}}
+
+\chapter{Peter Sarnak (2014)}
+
+\begin{quote}
+\it ``Peter Sarnak has made profound contributions to number theory, analysis, and geometry. His work, which combines deep insights from these fields, has opened up new directions and solved long-standing problems. He is a mathematician of exceptional breadth and power.'' --- Wolf Prize Citation, 2014
+\end{quote}
+
+\section{Main Contribution}
+
+Peter Sarnak (born 1953) is a South African--American mathematician whose work bridges number theory, spectral geometry, and analysis. He was awarded the Wolf Prize in Mathematics in 2014.
+
+The Wolf Prize citation reads: ``for his deep contributions to analysis, number theory, geometry, and to the integration of these subjects.''
+
+Sarnak's core contributions include:
+\begin{itemize}
+    \item \textbf{Random Matrix Theory and L-Functions:} Pioneering work (with Katz and others) on the connection between the statistics of zeros of L-functions and random matrix ensembles, providing compelling evidence for the Riemann Hypothesis and its generalizations.
+    \item \textbf{Sarnak's Conjecture:} The conjecture that the M\"obius function $\mu(n)$ is orthogonal to any deterministic zero-entropy sequence, a far-reaching generalization of Chowla's conjecture connecting to dynamics.
+    \item \textbf{Analysis on Symmetric Spaces:} Foundational work on the spectral theory of the Laplacian on locally symmetric spaces, including the Phillips--Sarnak theorem on the non-existence of cusp forms.
+    \item \textbf{Arithmetic Groups and Homogeneous Dynamics:} Applications of homogeneous dynamics to counting lattice points, Diophantine approximation, and the solution of the Oppenheim conjecture (with Margulis and others).
+    \item \textbf{Extremal Regular Graphs:} The construction of Ramanujan graphs (with Lubotzky and Phillips), which are optimal expander graphs with deep number-theoretic properties.
+    \item \textbf{The Selberg Eigenvalue Conjecture:} Progress toward and insights into Selberg's conjecture that the smallest non-zero eigenvalue of the Laplacian on congruence quotients is at least $1/4$.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{Connecting Number Theory and Random Matrices}
+
+In the 1970s, Montgomery studied the pair correlation of zeros of the Riemann zeta function and discovered that it matches the pair correlation of eigenvalues of random Hermitian matrices from the Gaussian Unitary Ensemble (GUE). This suggested a deep connection between number theory and random matrix theory.
+
+Sarnak, together with Katz and others, developed this connection systematically, computing the distribution of zeros for families of L-functions (Dirichlet L-functions, elliptic curve L-functions, etc.) and showing they correspond to eigenvalues of random matrices from classical groups (unitary, symplectic, orthogonal).
+
+\subsection{The M\"obius Randomness Principle}
+
+The M\"obius function $\mu(n)$ (which is $0$ if $n$ has a squared prime factor, $(-1)^k$ if $n$ is a product of $k$ distinct primes) appears to behave randomly. The Chowla conjecture says that the sequence $(\mu(n))$ is completely random (all correlations vanish). Sarnak's conjecture generalizes this: $\mu$ is orthogonal to any deterministic sequence of zero entropy.
+
+\subsection{Spectral Theory on Locally Symmetric Spaces}
+
+The Laplacian on a hyperbolic surface $\Gamma \backslash \H^2$ has both discrete spectrum (cusp forms) and continuous spectrum (Eisenstein series). Understanding this spectrum, especially the existence of cusp forms for general congruence subgroups, is a deep problem with connections to number theory.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Ramanujan Graphs}
+
+The construction of Ramanujan graphs by Lubotzky--Phillips--Sarnak uses deep number theory:
+\begin{enumerate}
+    \item For a fixed prime $p \equiv 1 \mod 4$, consider quaternion algebras over $\Q$.
+    \item The Ramanujan graph $X^{p,q}$ is constructed as the Cayley graph of $\PSL(2,q)$ with a specific set of $p+1$ generators derived from integral quaternions of norm $p$.
+    \item The spectrum of the adjacency matrix satisfies the Ramanujan bound because of the Ramanujan conjecture (proved by Deligne) for modular forms of weight 2.
+\end{enumerate}
+
+\subsection{The Phillips--Sarnak Theorem}
+
+This theorem shows that for generic deformations of a hyperbolic surface, the cusp forms disappear and the spectrum becomes purely continuous. The proof uses deformation theory of automorphic forms, the Maass--Selberg relations, and the theory of resonances.
+
+\subsection{Random Matrix Theory in Number Theory}
+
+The approach combines:
+\begin{itemize}
+    \item The explicit formula connecting zeros of L-functions to sums over primes.
+    \item The Katz--Sarnak philosophy that the statistics of zeros in a family are governed by the symmetry type of that family (unitary, symplectic, or orthogonal).
+    \item Moment calculations using character sums and equidistribution theorems.
+\end{itemize}
+
+\section{Mathematical Theory}
+
+\subsection{Ramanujan Graphs}
+
+\begin{definition}[Ramanujan Graph]
+A $k$-regular graph $G$ is \textbf{Ramanujan} if every eigenvalue $\lambda$ of its adjacency matrix satisfies either $|\lambda| = k$ or $|\lambda| \leq 2\sqrt{k-1}$.
+\end{definition}
+
+The bound $2\sqrt{k-1}$ is the optimal spectral gap, matching the Alon--Boppana bound.
+
+\begin{theorem}[Lubotzky--Phillips--Sarnak, 1988]
+For any prime $p \equiv 1 \mod 4$ and any prime $q \neq p$ with $q \equiv 1 \mod 4$ and $(\frac{p}{q}) = 1$, the graph $X^{p,q}$ is a $(p+1)$-regular Ramanujan graph on $q(q^2-1)/2$ vertices.
+\end{theorem}
+
+\subsection{Sarnak's Conjecture}
+
+\begin{definition}[M\"obius Function]
+The \textbf{M\"obius function} $\mu: \N \to \{-1, 0, 1\}$ is defined by:
+\[
+\mu(n) = \begin{cases}
+0 & \text{if } n \text{ has a squared prime factor}, \\
+(-1)^k & \text{if } n \text{ is a product of } k \text{ distinct primes}.
+\end{cases}
+\end{definition}
+
+\begin{conjecture}[Sarnak's Conjecture, 2010]
+Let $T: X \to X$ be a deterministic topological dynamical system with zero topological entropy. Then for any $x \in X$ and any continuous $f: X \to \R$:
+\[
+\frac{1}{N} \sum_{n \leq N} f(T^n x) \,\mu(n) \to 0
+\]
+as $N \to \infty$.
+\end{conjecture}
+
+This implies Chowla's conjecture on correlations of $\mu$ and has connections to the Mobius Randomness Principle: the sequence $\mu(n)$ does not correlate with any deterministic low-complexity sequence.
+
+\subsection{The Phillips--Sarnak Theorem}
+
+\begin{theorem}[Phillips--Sarnak, 1985]
+For a generic (non-arithmetic) finite-area hyperbolic surface, the continuous spectrum of the Laplacian is all that exists: there are no cusp forms (eigenfunctions) in the discrete spectrum beyond those forced by symmetry.
+\end{theorem}
+
+\begin{corollary}
+Congruence arithmetic surfaces are exceptional: they admit infinitely many cusp forms. For generic surfaces, cusp forms do not survive deformation.
+\end{corollary}
+
+\subsection{Katz--Sarnak Philosophy}
+
+\begin{theorem}[Katz--Sarnak, 1999]
+For a family of L-functions with a given symmetry type $G$ (where $G$ is one of $\U(N)$, $\Sp}(2N)$, or $\O(N)$), the distribution of low-lying zeros (suitably normalized) coincides with the distribution of eigenvalues near $1$ for $G$.
+\end{theorem}
+
+This includes:
+\begin{itemize}
+    \item Dirichlet L-functions: unitary symmetry.
+    \item Elliptic curve L-functions: orthogonal symmetry (even or odd).
+    \item Maass form L-functions: symplectic symmetry.
+\end{itemize}
+
+\subsection{The Selberg Eigenvalue Problem}
+
+\begin{theorem}[Selberg, 1965]
+For congruence subgroups $\Gamma(N) \subset \SL(2,\Z)$, the smallest non-zero eigenvalue of the Laplacian on $\Gamma(N) \backslash \H^2$ satisfies $\lambda_1 \geq 3/16$.
+\end{theorem}
+
+Sarnak has made significant contributions to understanding the optimality of this bound, relating it to the Ramanujan conjecture for modular forms and to properties of automorphic representations.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Number Theory:} Random matrix theory provides new insights into the distribution of primes and zeros of L-functions.
+    \item \textbf{Spectral Geometry:} The Phillips--Sarnak theorem revolutionized understanding of the spectral theory on non-compact symmetric spaces.
+    \item \textbf{Combinatorics and Computer Science:} Ramanujan graphs are optimal expanders used in network design, error-correcting codes, and derandomization.
+    \item \textbf{Dynamics:} Sarnak's conjecture connects number theory to ergodic theory and dynamical systems.
+\end{enumerate}
+
+\subsection{In Computer Science}
+
+\begin{enumerate}
+    \item \textbf{Expanders:} Ramanujan graphs are optimal expanders, used in network theory, coding theory, and cryptography.
+    \item \textbf{Pseudorandomness:} Sarnak's conjecture on Mobius randomness has implications for pseudorandom number generation.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is a Ramanujan graph?}
+A regular graph with optimal expansion properties. Its non-trivial eigenvalues are bounded by $2\sqrt{k-1}$, which is the smallest possible, giving the best possible spectral gap for a $k$-regular graph.
+
+\subsection*{Q2: What is Sarnak's conjecture?}
+It states that the M\"obius function $\mu(n)$ is uncorrelated with any deterministic sequence of zero topological entropy. This implies that $\mu$ is as random as possible while still being deterministic.
+
+\subsection*{Q3: What is the connection between number theory and random matrices?}
+The zeros of L-functions (which encode arithmetic information about primes) behave statistically like the eigenvalues of large random matrices from classical groups. This suggests a deep, not yet fully understood, connection.
+
+\subsection*{Q4: What is the Phillips--Sarnak theorem?}
+It shows that most hyperbolic surfaces have no cusp forms — only continuous spectrum. Congruence arithmetic surfaces are exceptional in having infinitely many cusp forms.
+
+\subsection*{Q5: What should an undergraduate study to understand Sarnak's work?}
+Number theory (analytic, algebraic, modular forms), spectral geometry (Laplacians on manifolds), and random matrix theory. Recommended: \textit{Introduction to Analytic Number Theory} (Iwaniec--Kowalski), \textit{Spectral Theory of Automorphic Forms} (Iwaniec), and \textit{Random Matrices} (Mehta).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the eigenvalues of a $k$-regular graph are bounded between $-k$ and $k$.
+    \item Compute the pair correlation of eigenvalues of a GUE random matrix in the large $N$ limit.
+    \item Prove that the eigenvalues of a Ramanujan graph satisfy the Alon--Boppana bound.
+    \item Show that $\sum_{n \leq x} \mu(n) = o(x)$ is equivalent to the Prime Number Theorem.
+    \item Compute the spectrum of the Lubotzky--Phillips--Sarnak graph $X^{5,3}$ explicitly.
+    \item Derive the explicit formula relating zeros of the Riemann zeta function to sums over primes.
+    \item Show that the Laplacian on a compact hyperbolic surface has discrete spectrum.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1953 & Born in Johannesburg, South Africa \\ \hline
+1974 & B.Sc.\ (Hons) from University of the Witwatersrand \\ \hline
+1976 & M.A.\ from the College of Wooster (Honorary) \\ \hline
+1980 & Ph.D.\ from Stanford (advisor: Paul Cohen) \\ \hline
+1988 | Ramanujan graphs (with Lubotzky and Phillips) \\ \hline
+1993 | Moves to the Institute for Advanced Study (IAS) \\ \hline
+1999 | \textit{Random Matrices, Frobenius Eigenvalues, and Monodromy} (with Katz) \\ \hline
+2010 | Sarnak's conjecture on Mobius randomness \\ \hline
+2014 | Wolf Prize in Mathematics \\ \hline
+2015 | Appointed Charles Simonyi Professor at the IAS \\ \hline
+2022 | Sylvester Medal of the Royal Society \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Cusp form] An eigenfunction of the Laplacian on a locally symmetric space that decays rapidly in the cusps.
+    \item[Expander graph] A sparse graph with strong connectivity properties.
+    \item[L-function] A Dirichlet series with Euler product that encodes arithmetic information.
+    \item[M\"obius function] A multiplicative function $\mu(n)$ that encodes the prime factorization parity.
+    \item[Ramanujan graph] A regular graph with optimal spectral gap.
+    \item[Random matrix theory] The study of eigenvalues of random matrices and their distributions.
+    \item[Spectral gap] The difference between the largest and second-largest eigenvalues of the adjacency matrix.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item A.\ Lubotzky, R.\ Phillips, and P.\ Sarnak, \textit{Ramanujan graphs}, Combinatorica 8 (1988), 261--277.
+    \item N.\ Katz and P.\ Sarnak, \textit{Random Matrices, Frobenius Eigenvalues, and Monodromy}, AMS Colloquium Publ., 1999.
+    \item R.\ Phillips and P.\ Sarnak, \textit{On cusp forms for co-finite subgroups of $\PSL(2,\R)$}, Invent.\ Math.\ 80 (1985), 339--364.
+    \item P.\ Sarnak, \textit{Some Applications of Modular Forms}, Cambridge Univ.\ Press, 1990.
+    \item P.\ Sarnak, \textit{M\"obius randomness and dynamics}, Notices S.\ Afr.\ Math.\ Soc.\ 2012.
+    \item P.\ Sarnak, \textit{Spectral theory of the Laplacian on locally symmetric spaces}, Proc.\ ICM 1990.
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item P.\ Sarnak, \textit{What is a Ramanujan graph?}, Notices AMS 60 (2013), 1382--1383.
+    \item P.\ Sarnak and A.\ Ubis, \textit{The horizontality of the distribution of primes}, J.\ Amer.\ Math.\ Soc.\ 2014.
+    \item P.\ Bourgade and J.\ Keating, \textit{Random matrices and L-functions}, Phys.\ Rep.\ 2013.
+\end{enumerate}
+

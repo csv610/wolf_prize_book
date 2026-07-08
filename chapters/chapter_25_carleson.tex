@@ -1,0 +1,510 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\D\relax
+\newcommand{\D}{\mathbb{D}}
+\let\T\relax
+\newcommand{\T}{\mathbb{T}}
+\let\SO\relax
+\newcommand{\SO}{\operatorname{SO}}
+\let\SL\relax
+\newcommand{\SL}{\operatorname{SL}}
+\let\GL\relax
+\newcommand{\GL}{\operatorname{GL}}
+\let\St\relax
+\newcommand{\St}{\operatorname{St}}
+\let\GV\relax
+\newcommand{\GV}{\operatorname{GV}}
+\let\E\relax
+\newcommand{\E}{\operatorname{E}}
+\let\supp\relax
+\newcommand{\supp}{\operatorname{supp}}
+\let\diam\relax
+\newcommand{\diam}{\operatorname{diam}}
+\let\dist\relax
+\newcommand{\dist}{\operatorname{dist}}
+\let\Lip\relax
+\newcommand{\Lip}{\operatorname{Lip}}
+\let\Hol\relax
+\newcommand{\Hol}{\operatorname{Hol}}
+\let\Log\relax
+\newcommand{\Log}{\operatorname{Log}}
+\let\Area\relax
+\newcommand{\Area}{\operatorname{Area}}
+\let\vol\relax
+\newcommand{\vol}{\operatorname{vol}}
+\let\Aut\relax
+\newcommand{\Aut}{\operatorname{Aut}}
+
+\chapter{Lennart Carleson (1992)}
+
+\begin{quote}
+\it ``Carleson's work is distinguished by its extraordinary technical power and its deep originality. He solved problems that had resisted the efforts of the best mathematicians for decades, most famously Luzin's conjecture on the almost everywhere convergence of Fourier series of \(L^2\) functions. His creation of Carleson measures and his proof of the corona theorem transformed complex analysis and harmonic analysis forever. He is one of the great problem-solvers of modern mathematics.'' --- Wolf Prize Citation
+\end{quote}
+
+Lennart Carleson (born March 18, 1928) is one of the most influential analysts of the 20th century. The 1992 Wolf Prize in Mathematics (shared with John G. Thompson) recognized his fundamental contributions to harmonic analysis, complex analysis, and the theory of Fourier series. Carleson is best known for three monumental achievements: his proof of the almost everywhere convergence of Fourier series for \(L^2\) functions (solving a problem posed by Luzin in 1915), his creation of the theory of Carleson measures for Hardy spaces, and his proof of the corona theorem for the algebra \(H^\infty\) of bounded analytic functions on the unit disk. Each of these results opened entirely new directions in analysis.
+
+Carleson's mathematical style is characterized by extraordinary technical mastery, the ability to construct intricate combinatorial estimates, and a keen instinct for the right abstraction. His work bridges pure and applied mathematics: Carleson measures appear in control theory, operator theory, and partial differential equations, while his Fourier series methods have influenced signal processing and data analysis. He supervised many students who became leading mathematicians, and he served as the editor of Acta Mathematica for two decades, maintaining its reputation as one of the world's premier mathematics journals.
+
+\section{Early Life and Career}
+
+Lennart Carleson was born on March 18, 1928, in Stockholm, Sweden. He showed early mathematical talent and entered Uppsala University, where he studied under the supervision of Trygve Nagell, a noted number theorist. Carleson received his PhD from Uppsala University in 1950 at the young age of 22. His doctoral thesis, on the theory of almost periodic functions and analytic continuation, already showed the combination of hard analysis and complex function theory that would characterize his career.
+
+After completing his PhD, Carleson spent time at Harvard University as a postdoctoral fellow from 1950 to 1951, where he was exposed to the vibrant American school of analysis. He then returned to Sweden and took a position at Uppsala University. In 1954, he was appointed Professor of Mathematics at Uppsala, a position he held until 1956. He then moved to the Royal Institute of Technology (KTH) in Stockholm, where he served as Professor of Mathematics from 1956 to 1991.
+
+During the 1950s, Carleson worked on various problems in complex analysis, including the theory of conformal mappings, boundary behavior of analytic functions, and interpolation problems. His early work established him as a leading figure in classical analysis. In the 1960s, he turned his attention to the most famous open problem in harmonic analysis: Luzin's conjecture on the convergence of Fourier series.
+
+Throughout his career, Carleson maintained deep connections with the international mathematical community. He served as the editor of Acta Mathematica from 1970 to 1990, significantly enhancing the journal's reputation. He also played a key role in organizing the International Congress of Mathematicians in Stockholm in 1962. He was awarded the Wolf Prize in 1992, the Abel Prize in 2006, and numerous other honors including membership in the Royal Swedish Academy of Sciences, the Royal Society, the French Academy of Sciences, and the National Academy of Sciences of the United States.
+
+\section{Complex Analysis and Early Work}
+
+\subsection{Conformal Mappings and Boundary Behavior}
+
+Carleson's early work in the 1950s focused on the boundary behavior of conformal mappings. A central theme in complex analysis is the study of how a conformal map \(\varphi: \D \to \Omega\) from the unit disk to a simply connected domain behaves as the variable approaches the boundary \(\partial \D\). Carleson made fundamental contributions to understanding the relationship between the geometry of \(\Omega\) and the regularity of \(\varphi\) on the boundary.
+
+One of his important early results concerned the convergence of conformal mappings on the boundary for domains with rough boundaries. He proved sharp estimates for the modulus of continuity of a conformal map in terms of the geometry of the target domain. These results refined the classical work of Carath\'eodory, Koebe, and Lindel\"of and provided tools that would later prove essential in his attack on the corona problem.
+
+\subsection{Interpolation in \(H^\infty\)}
+
+The algebra \(H^\infty\) consists of all bounded analytic functions on the unit disk \(\D = \{z \in \C : |z| < 1\}\), equipped with the supremum norm
+\[
+\|f\|_\infty = \sup_{|z| < 1} |f(z)|.
+\]
+This Banach algebra is central to complex analysis and operator theory. A fundamental problem in the subject is the interpolation problem: given a sequence of points \(\{z_n\} \subset \D\) and a sequence of complex values \(\{w_n\}\), when does there exist a function \(f \in H^\infty\) such that \(f(z_n) = w_n\) for all \(n\)?
+
+\begin{definition}
+A sequence \(\{z_n\} \subset \D\) is called an \textbf{interpolating sequence} for \(H^\infty\) if for every bounded sequence \(\{w_n\}\) there exists a function \(f \in H^\infty\) with \(f(z_n) = w_n\).
+\end{definition}
+
+Carleson gave a complete characterization of interpolating sequences for \(H^\infty\) in a landmark 1958 paper.
+
+\begin{theorem}[Carleson's Interpolation Theorem, 1958]
+A sequence \(\{z_n\} \subset \D\) is an interpolating sequence for \(H^\infty\) if and only if there exists a constant \(\delta > 0\) such that the \textbf{separation condition}
+\[
+\prod_{k \neq n} \left|\frac{z_k - z_n}{1 - \overline{z_k}z_n}\right| \geq \delta > 0
+\]
+holds for all \(n\). Equivalently,
+\[
+\inf_n \prod_{k \neq n} \Bigl|\frac{z_k - z_n}{1 - \overline{z_k}z_n}\Bigr| > 0.
+\]
+\end{theorem}
+
+This condition is called \textbf{Carleson's condition} or the \textbf{uniform separation condition}. It says that the points are well-separated in the hyperbolic metric of the disk. The proof introduced a constructive method using infinite products --- what are now called Carleson products --- of the form
+\[
+B(z) = \prod_n \frac{\overline{z_n}}{|z_n|} \frac{z_n - z}{1 - \overline{z_n}z}.
+\]
+These products are Blaschke products whose zeros are the interpolating sequence.
+
+The interpolation theorem was a breakthrough because it gave a complete, checkable geometric condition for a fundamental function-theoretic problem. Moreover, the tools Carleson developed --- the use of Blaschke products, the separation condition, and the estimates on products --- would reappear in a more sophisticated form in his proof of the corona theorem.
+
+\subsection{Mergelyan's Theorem and Approximation}
+
+Carleson also made contributions to approximation theory, particularly concerning Mergelyan's theorem on uniform approximation of analytic functions by polynomials on compact sets. He gave a simplified proof of Mergelyan's theorem and extended it to certain classes of non-polynomial approximation. These results, while less famous than his later work, demonstrated his mastery of classical function theory.
+
+\section{Carleson's Theorem on Fourier Series}
+
+\subsection{Historical Background}
+
+The theory of Fourier series is one of the oldest and most central subjects in analysis. For a function \(f \in L^1[-\pi,\pi]\), the Fourier series is
+\[
+f(x) \sim \sum_{n=-\infty}^\infty \widehat{f}(n) e^{inx}, \qquad \widehat{f}(n) = \frac{1}{2\pi} \int_{-\pi}^\pi f(t) e^{-int}\,dt.
+\]
+The partial sums are
+\[
+S_N(f)(x) = \sum_{|n| \leq N} \widehat{f}(n) e^{inx}.
+\]
+A fundamental question, going back to Dirichlet and Riemann in the 19th century, is: for which functions \(f\) does the Fourier series converge pointwise, and in what sense?
+
+In 1915, Nikolai Luzin posed the following problem: does the Fourier series of every function \(f \in L^2[-\pi,\pi]\) converge almost everywhere? This became known as \textbf{Luzin's conjecture}. The \(L^2\) space is natural because Plancherel's theorem gives \(\sum |\widehat{f}(n)|^2 = \|f\|_2^2\), so the Fourier coefficients are square-summable. However, square-summability of coefficients does not directly imply pointwise convergence of the series.
+
+Important partial results were obtained by many mathematicians. Kolmogorov (1923) shocked the mathematical world by constructing an \(L^1\) function whose Fourier series diverges almost everywhere --- in fact, diverges everywhere. But the \(L^2\) case remained open. Zygmund and Calder\'on made progress on related questions. Littlewood and Paley developed their dyadic decomposition methods. Men'shov showed that for any measurable function, there exists a Fourier series converging to it almost everywhere. But the fundamental question --- does every \(L^2\) function have an almost everywhere convergent Fourier series? --- remained unanswered for over fifty years.
+
+\subsection{Statement of Carleson's Theorem}
+
+In 1966, Carleson stunned the mathematical world by proving Luzin's conjecture.
+
+\begin{theorem}[Carleson's Theorem, 1966]
+For every function \(f \in L^2[-\pi,\pi]\), the partial sums \(S_N(f)(x)\) of its Fourier series converge to \(f(x)\) for almost every \(x \in [-\pi,\pi]\). That is,
+\[
+\lim_{N \to \infty} S_N(f)(x) = f(x) \quad \text{a.e.}
+\]
+\end{theorem}
+
+This result was completely unexpected. Many leading analysts believed that the conjecture might be false, and some had even claimed to have constructed counterexamples. Carleson's proof was a technical tour de force, running over 50 pages in Acta Mathematica and involving intricate combinatorial estimates, maximal function arguments, and a deep understanding of the structure of \(L^2\) functions.
+
+\subsection{Sketch of the Proof}
+
+Carleson's proof is based on the study of the maximal partial sum operator
+\[
+S_* f(x) = \sup_{N \geq 0} |S_N(f)(x)|.
+\]
+The theorem follows if one can prove that \(S_*\) is of weak type \((2,2)\): there exists a constant \(C > 0\) such that for all \(\lambda > 0\),
+\[
+|\{x : S_* f(x) > \lambda\}| \leq \frac{C}{\lambda^2} \|f\|_2^2.
+\]
+This is because the almost everywhere convergence of a sequence of operators follows from the boundedness of the maximal operator combined with the convergence on a dense subset (the Banach principle, due to Banach and Saks).
+
+The key difficulty is that the partial sum operator \(S_N\) is the convolution with the Dirichlet kernel
+\[
+D_N(t) = \frac{\sin((N+\frac12)t)}{\sin(t/2)},
+\]
+which is not integrable uniformly in \(N\). The \(L^1\) norm of \(D_N\) grows like \(\log N\), so the maximal function does not satisfy a simple \(L^p\) bound by standard methods.
+
+Carleson's breakthrough was to decompose the function \(f\) into dyadic frequency pieces and to control the partial sums through a sophisticated stopping-time argument. He introduced what is now called the \textbf{Carleson maximal operator}
+\[
+C f(x) = \sup_{n \in \Z} \left| \int_{-\pi}^\pi f(t) e^{i n (x-t)} \frac{dt}{x-t} \right|,
+\]
+where the integral is interpreted as a principal value. The main step is to prove that \(C\) is bounded on \(L^2\).
+
+Carleson's proof uses a decomposition of \(f\) into a sum of functions each supported on a frequency interval of dyadic length. The partial sum operator at frequency \(N\) is controlled by a tree-like structure on these dyadic intervals, and the maximal function is bounded using a subtle combinatorial estimate known as \textbf{Carleson's estimate}.
+
+The proof was later simplified by Charles Fefferman (1971), who gave a cleaner exposition using the notion of \textbf{Carleson measures} and a more systematic use of the Calder\'on--Zygmund decomposition. Fefferman's work showed that Carleson's theorem fits naturally into the theory of singular integrals.
+
+\subsection{Extension to \(L^p\) and Significance}
+
+Shortly after Carleson's proof, Richard Hunt (1968) extended the result to all \(L^p\) spaces for \(p > 1\):
+
+\begin{theorem}[Hunt's Theorem, 1968]
+For every \(f \in L^p[-\pi,\pi]\) with \(1 < p \leq \infty\), the Fourier series of \(f\) converges almost everywhere.
+\end{theorem}
+
+For \(p = 1\), the result fails (Kolmogorov's counterexample). For \(p = 2\), Carleson's theorem is optimal in the scale of \(L^p\) spaces for the a.e. convergence of Fourier series.
+
+The Carleson--Hunt theorem is one of the crowning achievements of 20th-century analysis. It completed a program of research that had occupied the best analysts for over a century. Moreover, the methods developed in the proof --- maximal functions, dyadic decompositions, stopping times, and the delicate interplay between time and frequency --- became fundamental tools in harmonic analysis.
+
+The theorem also has profound implications for the theory of orthogonal series, the boundary behavior of analytic functions, and the theory of singular integrals. Carleson's proof introduced the idea of \textbf{time-frequency analysis}, which was later systematized into the theory of wavelets and the more general theory of \textbf{modulation-invariant} or \textbf{bilinear Hilbert transform} estimates.
+
+\begin{remark}
+Carleson's theorem stimulated the development of the entire modern theory of \textbf{pointwise convergence} of partial sums of orthogonal expansions. It led to deep results about the convergence of wavelet expansions, the convergence of eigenfunction expansions for differential operators, and the Carleson problem for the Schr\"odinger equation.
+\end{remark}
+
+\section{Carleson Measures}
+
+\subsection{Motivation and Definition}
+
+In the course of his work on interpolation and the corona theorem, Carleson introduced a class of measures on the unit disk that now bear his name. These \textbf{Carleson measures} have become a fundamental tool in complex analysis, harmonic analysis, operator theory, and partial differential equations.
+
+Let \(\D = \{z \in \C : |z| < 1\}\) be the unit disk. For a point \(z \in \D\) and a number \(h > 0\), the \textbf{Carleson square} (or Carleson box) is the set
+\[
+S(\theta, h) = \{re^{it} \in \D : 1-h \leq r < 1, |t-\theta| < h\}.
+\]
+
+\begin{definition}
+A positive Borel measure \(\mu\) on the unit disk \(\D\) is called a \textbf{Carleson measure} if there exists a constant \(C > 0\) such that for every Carleson square \(S(\theta, h)\),
+\[
+\mu(S(\theta, h)) \leq C h.
+\]
+The smallest such constant \(C\) is called the \textbf{Carleson norm} of \(\mu\).
+\end{definition}
+
+The condition says that the measure of a Carleson square is bounded by a constant times its ``height'' (the distance from the square to the boundary). This is a scale-invariant condition that reflects the hyperbolic geometry of the disk.
+
+\subsection{Characterization of Carleson Measures}
+
+The fundamental result about Carleson measures is their characterization in terms of the Hardy space \(H^2\). The Hardy space \(H^2\) consists of analytic functions \(f(z) = \sum_{n=0}^\infty a_n z^n\) on \(\D\) with
+\[
+\|f\|_{H^2}^2 = \sum_{n=0}^\infty |a_n|^2 < \infty.
+\]
+Equivalently, \(f \in H^2\) if and only if the boundary values \(f(e^{i\theta}) = \lim_{r \to 1^-} f(re^{i\theta})\) exist almost everywhere and belong to \(L^2(\T)\), with \(\|f\|_{H^2} = \|f\|_{L^2(\T)}\).
+
+\begin{theorem}[Carleson's Embedding Theorem]
+A positive measure \(\mu\) on \(\D\) is a Carleson measure if and only if there exists a constant \(C > 0\) such that for all \(f \in H^2\),
+\[
+\int_\D |f(z)|^2 \,d\mu(z) \leq C \|f\|_{H^2}^2.
+\]
+\end{theorem}
+
+This theorem says that the inclusion map \(H^2 \hookrightarrow L^2(\D, \mu)\) is bounded exactly when \(\mu\) is a Carleson measure. The proof uses the reproducing kernel of \(H^2\) and the geometry of Carleson squares.
+
+\begin{example}
+The Lebesgue area measure \(dA = \frac{1}{\pi}\,dx\,dy\) on \(\D\) is not a Carleson measure, since \(\Area(S(\theta, h)) \sim h^2\) while the Carleson condition requires \(\mu(S(\theta, h)) = O(h)\). However, the measure \(d\mu(z) = (1-|z|^2)^{-1}\,dA(z)\) is a Carleson measure. More generally, for any \(\alpha > -1\), the measure \(d\mu_\alpha(z) = (1-|z|^2)^{\alpha}\,dA(z)\) is a Carleson measure if and only if \(\alpha \geq 0\).
+\end{example}
+
+\subsection{The Role of Carleson Measures in the Corona Theorem}
+
+Carleson measures play a crucial role in the proof of the corona theorem. The corona problem reduces to solving certain \(\overline{\partial}\)-equations with estimates. The key estimate involves the boundedness of the \(\overline{\partial}\)-operator with respect to a Carleson measure. Specifically, one needs to solve
+\[
+\overline{\partial} u_j = \sum_k b_{jk} \frac{\partial \varphi_k}{\partial \overline{z}},
+\]
+where the right-hand side satisfies Carleson measure estimates that guarantee the solution \(u_j\) is bounded.
+
+The theory of Carleson measures was later systematized and generalized by many authors. Lennart Carleson's student, Peter Jones, used Carleson measures extensively in his work on interpolation and \(H^p\) spaces. The concept of \textbf{vanishing Carleson measures} (those for which \(\mu(S(\theta, h))/h \to 0\) as \(h \to 0\)) characterizes compactness of the embedding \(H^2 \hookrightarrow L^2(\D, \mu)\).
+
+\subsection{Carleson Measures and BMO}
+
+Carleson measures are intimately connected with the space of functions of bounded mean oscillation (BMO). A locally integrable function \(f\) on \(\T\) has bounded mean oscillation if
+\[
+\|f\|_{BMO} = \sup_I \frac{1}{|I|} \int_I |f(x) - f_I|\,dx < \infty,
+\]
+where \(I\) ranges over all intervals on \(\T\) and \(f_I\) is the average of \(f\) over \(I\).
+
+Fefferman proved that BMO is the dual of the Hardy space \(H^1\). The connection with Carleson measures comes from the \textbf{Littlewood--Paley characterization}: a function \(f\) on \(\T\) has an extension to \(\D\) given by the Poisson integral or the \textbf{Lusin area integral}, and \(f \in BMO\) if and only if the measure \(|\nabla u(z)|^2 (1-|z|^2)\,dA(z)\) is a Carleson measure.
+
+Thus Carleson measures provide a geometric bridge between function theory on the disk and harmonic analysis on the circle. This perspective has been enormously influential in the study of Hardy spaces, BMO, and weighted norm inequalities.
+
+\section{The Corona Theorem}
+
+\subsection{The Maximal Ideal Space of \(H^\infty\)}
+
+The algebra \(H^\infty\) of bounded analytic functions on the unit disk is a commutative Banach algebra with identity (the constant function 1). For such algebras, the \textbf{Gelfand theory} provides a correspondence between the algebra and its space of maximal ideals. The \textbf{maximal ideal space} \(\mathfrak{M}(H^\infty)\) is the set of all nonzero multiplicative linear functionals \(\varphi: H^\infty \to \C\).
+
+Every point \(z \in \D\) defines an evaluation functional \(\varphi_z(f) = f(z)\), giving an embedding \(\D \hookrightarrow \mathfrak{M}(H^\infty)\). A fundamental question is: which multiplicative linear functionals arise as point evaluations? In other words, is \(\D\) dense in \(\mathfrak{M}(H^\infty)\)?
+
+If \(\D\) were not dense in \(\mathfrak{M}(H^\infty)\), there would exist a functional \(\varphi \in \mathfrak{M}(H^\infty)\) that is not a limit of point evaluations. This would mean that there exists a neighborhood in the maximal ideal space that does not intersect \(\D\), which would be a ``corona'' surrounding the disk. The problem of whether such a corona can exist is known as the \textbf{corona problem}.
+
+More concretely, the corona problem can be reformulated in terms of function theory. Let \(f_1, \dots, f_n \in H^\infty\) be functions satisfying the \textbf{corona condition}
+\[
+|f_1(z)| + \cdots + |f_n(z)| \geq \delta > 0 \quad \text{for all } z \in \D.
+\]
+This condition says that the functions have no common zero in \(\D\). The question is: does there exist functions \(g_1, \dots, g_n \in H^\infty\) such that
+\[
+f_1(z) g_1(z) + \cdots + f_n(z) g_n(z) = 1 \quad \text{for all } z \in \D?
+\]
+If such \(g_j\) exist, then the algebra \(H^\infty\) is said to be \textbf{corona-free}: the unit disk is dense in the maximal ideal space, because any proper ideal would be contained in the kernel of some evaluation functional.
+
+\subsection{Statement of the Corona Theorem}
+
+In 1967, one year after his proof of Carleson's theorem, Carleson proved the corona theorem.
+
+\begin{theorem}[Carleson's Corona Theorem, 1967]
+Let \(f_1, \dots, f_n \in H^\infty(\D)\) satisfy the corona condition
+\[
+|f_1(z)| + \cdots + |f_n(z)| \geq \delta > 0 \quad \text{for all } z \in \D.
+\]
+Then there exist functions \(g_1, \dots, g_n \in H^\infty(\D)\) such that
+\[
+f_1(z) g_1(z) + \cdots + f_n(z) g_n(z) = 1 \quad \text{for all } z \in \D.
+\]
+Moreover, there exists a constant \(C(n, \delta)\) (depending only on \(n\) and \(\delta\)) such that \(\|g_j\|_\infty \leq C(n, \delta)\).
+
+Equivalently, the unit disk \(\D\) is dense in the maximal ideal space of \(H^\infty\): there are no nontrivial corona.
+\end{theorem}
+
+The corona theorem is one of the deepest results in complex analysis. It says that the Gelfand transform \(\widehat{f}(\varphi) = \varphi(f)\) gives an isometric isomorphism between \(H^\infty\) and the algebra of continuous functions on \(\mathfrak{M}(H^\infty)\). Moreover, the maximal ideal space is enormous --- it contains not only the disk but also a complicated ``boundary'' consisting of functionals arising from limits along nontangential approaches to the boundary of \(\D\). Yet no new maximal ideals appear: every multiplicative linear functional is a limit of evaluation functionals.
+
+\subsection{Outline of the Proof}
+
+Carleson's proof of the corona theorem is extraordinarily intricate. It uses the following key steps:
+
+\begin{enumerate}
+    \item \textbf{Reduction to a \(\overline{\partial}\)-problem:} Using a partition of unity on the disk, one constructs smooth functions \(\varphi_j\) such that \(\sum_j f_j \varphi_j = 1\) and each \(\varphi_j\) has compact support. The goal is to find corrections \(u_j \in C^\infty(\overline{\D})\) such that \(g_j = \varphi_j + u_j\) are analytic (i.e., \(\overline{\partial} g_j = 0\)) and bounded. This gives the system
+    \[
+    \sum_j f_j u_j = 0, \qquad \overline{\partial} u_j = -\overline{\partial} \varphi_j.
+    \]
+    
+    \item \textbf{Construction of a \(\overline{\partial}\)-solution:} The equation \(\overline{\partial} u = \nu\) on \(\D\) can be solved using the Cauchy--Green formula:
+    \[
+    u(z) = \frac{1}{2\pi i} \iint_\D \frac{\nu(\zeta)}{\zeta - z} \,d\zeta \wedge d\overline{\zeta}.
+    \]
+    The crucial estimate is to show that if \(\nu\) satisfies certain Carleson measure conditions, then the solution \(u\) is bounded.
+    
+    \item \textbf{Carleson measure estimates:} Carleson showed that the right-hand side \(\overline{\partial} \varphi_j\) defines a Carleson measure through the construction of a partition of unity satisfying \(\overline{\partial}\)-estimates. This uses \textbf{Wolff's lemma} (a geometric covering lemma for the disk) and the theory of \textbf{Carleson measures} developed by Carleson.
+    
+    \item \textbf{Iteration:} The construction is performed iteratively, ensuring that at each step the corrections remain bounded. The final functions \(g_j\) are obtained as limits of the iterative process.
+\end{enumerate}
+
+The complete proof was published in Carleson's landmark 1967 paper in the Annals of Mathematics. The proof was later simplified by Thomas Wolff (1980), who used a more direct approach based on the \(\overline{\partial}\)-method and Carleson measures. Wolff's proof is now the standard exposition.
+
+\subsection{Consequences and Generalizations}
+
+The corona theorem has profound consequences:
+
+\begin{itemize}
+    \item \textbf{Functional calculus:} The Gelfand correspondence shows that every element of \(H^\infty\) can be identified with a continuous function on the maximal ideal space. This allows the application of Banach algebra techniques to problems in function theory.
+    
+    \item \textbf{Interpolation:} The corona theorem is closely related to Carleson's interpolation theorem. Together, they give a complete description of the ideal structure of \(H^\infty\).
+    
+    \item \textbf{Operator theory:} The corona theorem is essential in the theory of Toeplitz operators. The invertibility of a Toeplitz operator \(T_\varphi\) on \(H^2\) is related to the corona condition for the symbol \(\varphi\).
+    
+    \item \textbf{Control theory:} The corona theorem appears in the study of stabilization of linear systems, where it guarantees the existence of bounded solutions to certain Bezout equations.
+\end{itemize}
+
+Generalizations of the corona theorem have been proved for certain domains in \(\C^n\) (Varopoulos, 1970s), for the algebra of bounded holomorphic functions on Riemann surfaces, and for certain Banach algebras of analytic functions. However, the corona theorem remains open for the unit ball in \(\C^n\) and for general Domains of Holomorphy in several complex variables. The infinite-dimensional case (the corona problem for the algebra \(H^\infty(\D)\) with infinitely many generators) is also open.
+
+\begin{remark}
+The corona theorem is known to fail for some algebras of analytic functions. For example, the algebra of bounded analytic functions on the punctured disk has a nontrivial corona. The difficulty of the corona problem in several variables is related to the geometric complexity of the boundary of the domain.
+\end{remark}
+
+\section{Further Contributions to Harmonic Analysis}
+
+\subsection{The Carleson--Hunt Theorem and Singular Integrals}
+
+Carleson's work on Fourier series convergence led to fundamental developments in the theory of singular integrals. The Carleson maximal operator is a singular integral operator of a new type --- it involves oscillations that are not present in the classical Calder\'on--Zygmund operators. The boundedness of the Carleson maximal operator on \(L^2\) required entirely new methods.
+
+These methods were later extended by many mathematicians. Charles Fefferman's study of the Carleson operator led to his work on the multiplier problem for the ball and the development of the theory of \textbf{bilinear Hilbert transforms}. Lacey and Thiele (1996) proved the boundedness of the bilinear Hilbert transform using time-frequency analysis that traces its origins to Carleson's proof.
+
+\subsection{Littlewood--Paley Theory and Dyadic Analysis}
+
+Carleson's proof made essential use of dyadic decompositions of the frequency axis. This dyadic viewpoint, systematized by Littlewood and Paley, decomposes a function into pieces supported on frequency intervals of the form \([2^k, 2^{k+1}]\). Carleson showed how to organize these pieces in a tree structure and to estimate their interactions.
+
+The dyadic approach proved enormously influential. It led to the development of \textbf{wavelet theory} (where functions are decomposed into time-frequency atoms at dyadic scales) and to the theory of \textbf{para-differential operators} (where nonlinear operations are linearized by dyadic decompositions).
+
+\subsection{Weighted Norm Inequalities}
+
+Carleson's work on measures and interpolation contributed to the development of weighted norm inequalities. The theory of \(A_p\) weights, developed by Muckenhoupt, Hunt, and Wheeden, characterizes those weights \(w\) for which the Hardy--Littlewood maximal function is bounded on \(L^p(w)\). Carleson measures provide a geometric way to understand these weights through the \textbf{Muckenhoupt condition}
+\[
+\sup_I \left(\frac{1}{|I|} \int_I w\right) \left(\frac{1}{|I|} \int_I w^{-1/(p-1)}\right)^{p-1} < \infty.
+\]
+The connection between Carleson measures and \(A_p\) weights was clarified by the work of Fefferman, Kenig, and others.
+
+\subsection{Complex Analysis and PDEs}
+
+Carleson's techniques have found applications in partial differential equations. The \textbf{Carleson measure condition} appears naturally in the study of the Schr\"odinger equation, where it characterizes the well-posedness of the initial value problem in certain function spaces. The Strichartz estimates for the Schr\"odinger and wave equations can be interpreted as Carleson measure estimates.
+
+Carleson himself worked on the Korteweg--de Vries equation and other nonlinear dispersive equations in his later career. His work on the convergence of Fourier series also found application in the study of the nonlinear Schr\"odinger equation, where the Carleson operator controls the convergence of the linear evolution.
+
+\section{Impact and Legacy}
+
+\subsection{The Carleson Revolution in Analysis}
+
+Carleson's three great results --- the Fourier series theorem, Carleson measures, and the corona theorem --- transformed analysis. Before Carleson, complex analysis and harmonic analysis were largely separate fields. After Carleson, the deep connections between them became clear: Carleson measures provided the geometric language to describe function-theoretic properties, while the \(\overline{\partial}\)-methods of the corona theorem showed how to solve analytic problems using harmonic analysis.
+
+Carleson's work also transformed the study of the algebra \(H^\infty\). The corona theorem and interpolation theorem gave a complete picture of the ideal structure of this fundamental Banach algebra. The discovery that \(H^\infty\) has a rich maximal ideal space, and that this space can be studied using function-theoretic methods, opened a new chapter in commutative Banach algebra theory.
+
+\subsection{Carleson Measures in Mathematics and Engineering}
+
+Carleson measures have become ubiquitous in analysis. They appear in:
+\begin{itemize}
+    \item \textbf{Operator theory:} The characterization of Toeplitz operators with bounded symbol, the theory of model spaces, and the study of composition operators on Hardy spaces all involve Carleson measures.
+    \item \textbf{Control theory:} The Carleson measure condition characterizes when a linear system is stabilizable by a bounded controller.
+    \item \textbf{PDEs:} Carleson measures characterize the trace spaces of solutions to elliptic equations and the well-posedness of dispersive equations.
+    \item \textbf{Harmonic analysis:} The theory of weighted norm inequalities, BMO, and the theory of tent spaces are built around Carleson measures.
+\end{itemize}
+
+\subsection{The Abel Prize and Later Recognition}
+
+Carleson was awarded the Wolf Prize in 1992, sharing it with John G. Thompson. In 2006, he received the Abel Prize from the Norwegian Academy of Science and Letters, with the citation emphasizing his ``profound and seminal contributions to harmonic analysis and the theory of smooth dynamical systems.'' He was the first Swedish mathematician to receive the Abel Prize.
+
+Carleson has received numerous other honors, including the Leroy P. Steele Prize for Seminal Contribution to Research (1984), and membership in the Royal Society, the French Academy of Sciences, and the National Academy of Sciences of the United States. The Swedish government has also recognized him with the Royal Order of the Polar Star.
+
+\subsection{Students and Collaborators}
+
+Carleson supervised many doctoral students who went on to become leading mathematicians. His most famous student is perhaps Peter Jones, who made fundamental contributions to complex analysis, harmonic analysis, and interpolation theory. Other notable students include Svante Janson, Johan Kjellberg, and Jan-Olov Str\"omberg. Carleson also collaborated extensively with Lennart Bondesson, John Benedetto, and others.
+
+As editor of Acta Mathematica from 1970 to 1990, Carleson shaped the direction of mathematical research. He maintained exceptionally high standards, publishing only papers of the highest quality. Many of the most important results in analysis and related fields appeared in Acta Mathematica during his tenure.
+
+\subsection{Continuing Influence}
+
+Carleson's work continues to shape mathematical research. The study of pointwise convergence of Fourier series remains active, with recent work on the Carleson problem for the Schr\"odinger equation (due to Bourgain, Du, Guth, and others) and for more general orthogonal expansions. The corona problem for several complex variables remains one of the major open problems in the field. Carleson measures are now a standard tool in many areas of analysis, and their theory continues to be developed.
+
+The methods Carleson introduced --- time-frequency analysis, dyadic decompositions, Carleson measures, and the \(\overline{\partial}\)-approach to corona --- have become part of the standard toolkit of every working analyst. His work stands as a monument to the power of combining deep insight with extraordinary technical skill.
+
+\section{Frequently Asked Questions}
+
+\subsection*{Q1: What exactly is Luzin's conjecture?}
+
+Luzin's conjecture (also called Luzin's problem) was the question whether the Fourier series of every function \(f \in L^2[-\pi,\pi]\) converges to \(f(x)\) for almost every \(x\). This was posed by Nikolai Luzin in 1915 in his doctoral dissertation. Since Plancherel's theorem guarantees that \(\sum |\widehat{f}(n)|^2 < \infty\) for \(L^2\) functions, the problem was to determine whether the partial sums \(S_N(f)(x) = \sum_{|n| \leq N} \widehat{f}(n) e^{inx}\) converge pointwise almost everywhere. Carleson proved the conjecture in 1966.
+
+\subsection*{Q2: What is a Carleson measure in simple terms?}
+
+A Carleson measure on the unit disk is a measure that does not put too much mass near the boundary. Specifically, for any region that looks like a box of height \(h\) extending from the boundary, the measure of that box cannot exceed \(C h\). This condition is the right one to guarantee that the inclusion of the Hardy space \(H^2\) into \(L^2\) of the measure is bounded. Carleson measures are the natural geometric way to describe the boundary behavior of analytic functions.
+
+\subsection*{Q3: What does the corona theorem mean geometrically?}
+
+The corona theorem says that the unit disk \(\D\) is dense in the maximal ideal space of \(H^\infty\). This means that every multiplicative linear functional on \(H^\infty\) is a limit of evaluation functionals at points of the disk. In other words, there is no geometric ``corona'' surrounding the disk in the space of all maximal ideals. Equivalently, if a set of bounded analytic functions has no common zero in the disk, then they generate the unit ideal of the algebra \(H^\infty\).
+
+\subsection*{Q4: How are Carleson's interpolation theorem and corona theorem related?}
+
+Both theorems concern the ideal structure of \(H^\infty\). The interpolation theorem characterizes when a given set of points is a set of interpolation --- that is, when the ideal of functions vanishing at those points is complemented. The corona theorem characterizes when finitely many functions generate the unit ideal. Together, they give a complete description of the closed ideals of \(H^\infty\) (in the case of finitely generated ideals). Both theorems use Blaschke products and Carleson measures as their primary technical tools.
+
+\subsection*{Q5: Is the corona theorem true for other domains?}
+
+The corona theorem is true for the unit disk and for finitely connected planar domains. It is also true for the algebra of bounded analytic functions on a Riemann surface of finite type. However, it is false for the punctured disk (the disk with a point removed). The corona problem for the unit ball in \(\C^n\) and for general domains of holomorphy in several complex variables remains one of the most important open problems in analysis. Major progress was made by the work of Varopoulos, Sibony, and others, but a complete solution is still lacking.
+
+\subsection*{Q6: What are Carleson's main contributions after the 1960s?}
+
+In the 1970s and 1980s, Carleson worked on several areas beyond harmonic and complex analysis. He made contributions to the theory of dynamical systems, particularly the study of Julia sets and the Mandelbrot set. He also worked on the Korteweg--de Vries equation and other nonlinear dispersive partial differential equations. His later work included studies of the boundary behavior of analytic functions, the theory of composition operators, and problems in mathematical physics. Throughout his career, he continued to refine and extend his earlier results.
+
+\subsection*{Q7: Why is Carleson's proof of the Fourier series theorem considered so difficult?}
+
+The difficulty lies in the fact that the Dirichlet kernel \(D_N(t) = \sin((N+1/2)t)/\sin(t/2)\) is not uniformly integrable in \(N\) --- its \(L^1\) norm grows like \(\log N\). Classical methods based on the Hardy--Littlewood maximal function do not suffice to control the partial sums. Carleson had to develop a completely new approach based on decomposing the function into dyadic frequency bands and controlling their interactions through a sophisticated tree structure and stopping-time arguments. The proof runs over 50 pages and involves estimates at multiple scales that must be carefully orchestrated.
+
+\section{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1928 & Born on March 18 in Stockholm, Sweden \\ \hline
+1950 & Ph.D. in Mathematics, Uppsala University (advisor: Trygve Nagell) \\ \hline
+1950--1951 & Postdoctoral fellow at Harvard University \\ \hline
+1954 & Professor of Mathematics at Uppsala University \\ \hline
+1956 & Moved to the Royal Institute of Technology (KTH), Stockholm \\ \hline
+1958 & Carleson's interpolation theorem: characterization of interpolating sequences for \(H^\infty\) \\ \hline
+1962 & Served on the Organizing Committee for the ICM in Stockholm \\ \hline
+1966 & Carleson's theorem: Fourier series of every \(L^2\) function converges almost everywhere (Luzin's conjecture) \\ \hline
+1967 & Carleson's corona theorem: the unit disk is dense in the maximal ideal space of \(H^\infty\) \\ \hline
+1968 & Hunt's extension of Carleson's theorem to \(L^p\) for \(p > 1\) \\ \hline
+1970--1990 & Editor of Acta Mathematica \\ \hline
+1970s & Development of Carleson measures; applications to interpolation and function theory \\ \hline
+1978 & Member of the Royal Swedish Academy of Sciences \\ \hline
+1984 & Leroy P. Steele Prize for Seminal Contribution to Research \\ \hline
+1992 & Awarded the Wolf Prize in Mathematics (shared with John G. Thompson) \\ \hline
+1993 & Foreign Member of the Royal Society (London) \\ \hline
+2006 & Awarded the Abel Prize from the Norwegian Academy of Science and Letters \\ \hline
+\end{tabular}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the \(L^1\) norm of the Dirichlet kernel \(D_N(t) = \frac{\sin((N+1/2)t)}{\sin(t/2)}\) grows like \(\frac{4}{\pi^2} \log N\) as \(N \to \infty\). Specifically, prove that \(\|D_N\|_1 = \frac{1}{2\pi} \int_{-\pi}^\pi |D_N(t)|\,dt \sim \frac{4}{\pi^2} \log N\).
+    \item Prove that if the maximal partial sum operator \(S_*\) is of weak type \((2,2)\) (i.e., \(|\{x : S_* f(x) > \lambda\}| \leq C \|f\|_2^2/\lambda^2\)), then the Fourier series of every \(L^2\) function converges almost everywhere. (This is the Banach principle.)
+    \item Let \(\{z_n\} \subset \D\) be a sequence. Prove that if \(\sum (1-|z_n|) < \infty\), then the Blaschke product \(B(z) = \prod_n \frac{\overline{z_n}}{|z_n|} \frac{z_n - z}{1 - \overline{z_n}z}\) converges uniformly on compact subsets of \(\D\).
+    \item Show that the measure \(d\mu(z) = (1-|z|^2)^{-1}\,dA(z)\) on \(\D\) is a Carleson measure. Compute its Carleson norm. (Here \(dA\) is area measure normalized so that Area\((\D) = 1\).)
+    \item Prove that if \(\mu\) is a Carleson measure, then so is the measure \(|\mu|\) defined by \(d|\mu|(z) = (1-|z|^2)\,d\mu(z)\).
+    \item Let \(f(z) = \sum_{n=0}^\infty a_n z^n \in H^2\). Show that \(\|f\|_{H^2}^2 = \sum |a_n|^2 = \sup_{0<r<1} \frac{1}{2\pi} \int_0^{2\pi} |f(re^{i\theta})|^2\,d\theta\).
+    \item Prove Carleson's interpolation theorem for the special case of a sequence \(\{z_n\}\) satisfying \(|z_n| \leq r < 1\) (i.e., the points stay away from the boundary). Show that in this case, every bounded sequence is interpolated.
+    \item Let \(\{f_j\}\) be a finite set of functions in \(H^\infty\) satisfying the corona condition \(\sum |f_j(z)| \geq \delta > 0\) on \(\D\). Show that there exist functions \(g_j\) in \(L^\infty(\D, \overline{\partial})\) (smooth solutions to the inhomogeneous Cauchy--Riemann equation) such that \(\overline{\partial} g_j = 0\) on \(\D\) and \(\sum f_j g_j = 1\).
+    \item Compute the Fourier series of the function \(f(x) = \log|x|\) on \([-\pi,\pi]\). Show that \(f \in L^2[-\pi,\pi]\) but not in \(L^\infty\). By Carleson's theorem, its Fourier series converges almost everywhere.
+    \item Let \(\mu\) be a positive measure on \(\D\). Prove that if \(\mu\) is a Carleson measure with Carleson norm \(C\), then for every Carleson square \(S\), we have \(\mu(S) \leq C |S|\), where \(|S|\) is the arc length of the base of the square.
+    \item Show that the Carleson measure condition is equivalent to the condition that there exists a constant \(C > 0\) such that for every \(z \in \D\),
+    \[
+    \iint_\D \frac{(1-|z|^2)(1-|w|^2)}{|1-\overline{w}z|^2}\,d\mu(w) \leq C (1-|z|^2).
+    \]
+    (This is the reproducing kernel characterization.)
+    \item Prove that if \(f \in H^\infty\), then the measure \(d\mu_f = |f'(z)|^2 (1-|z|^2)\,dA(z)\) is a Carleson measure. (This is related to the Bloch space.)
+    \item Show that the corona theorem for two functions \(f_1, f_2 \in H^\infty\) can be reduced to the case where one of the functions is a Blaschke product.
+    \item Let \(\{z_n\}\) be an interpolating sequence for \(H^\infty\) with separation constant \(\delta\). Prove that \(\sum (1-|z_n|) < \infty\) if and only if the Blaschke product with zeros \(\{z_n\}\) converges.
+    \item Prove that the measure \(d\mu(z) = \chi_{S(\theta, h)}(z)\,dA(z)\) (the area measure restricted to a Carleson square) has Carleson norm at most \(2h\).
+    \item Let \(f \in L^2[-\pi,\pi]\). Prove that the Fej\'er means \(\sigma_N(f)(x) = \frac{1}{N} \sum_{k=0}^{N-1} S_k(f)(x)\) converge to \(f(x)\) almost everywhere. (This is easier than Carleson's theorem and follows from the boundedness of the Fej\'er kernel.)
+    \item Let \(\varphi: \D \to \D\) be an analytic self-map of the disk. Show that the composition operator \(C_\varphi: H^2 \to H^2\) defined by \(C_\varphi f = f \circ \varphi\) is bounded. Show that \(C_\varphi\) is bounded on \(H^2\) if and only if the measure \(\mu_\varphi\) defined by \(\mu_\varphi(E) = m(\varphi^{-1}(E) \cap \T)\) is a Carleson measure, where \(m\) is Lebesgue measure on \(\T\).
+    \item Prove the corona theorem for the special case of two functions \(f_1, f_2 \in H^\infty\) with \(f_1\) a bounded function that is bounded away from zero: \(|f_1(z)| \geq \delta > 0\) for all \(z \in \D\).
+    \item Show that the maximal ideal space \(\mathfrak{M}(H^\infty)\) is connected. (This follows from the corona theorem and the fact that \(\D\) is connected and dense in \(\mathfrak{M}(H^\infty)\).)
+    \item Let \(f \in L^p(\T)\) with \(p > 1\). Using Hunt's theorem and the Banach principle, show that the partial sums of the Fourier series of \(f\) converge almost everywhere.
+    \item Prove that the Carleson measure norm of a measure \(\mu\) is the supremum of \(\mu(S(\theta, h))/h\) over all Carleson squares. Show that this is equivalent to the optimal constant in the embedding \(H^2 \hookrightarrow L^2(\mu)\).
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Blaschke product] An infinite product \(\prod_n \frac{\overline{z_n}}{|z_n|} \frac{z_n - z}{1 - \overline{z_n}z}\) that converges when \(\sum (1-|z_n|) < \infty\) and defines a bounded analytic function with zeros at \(\{z_n\}\).
+    \item[Carleson measure] A measure \(\mu\) on \(\D\) such that \(\mu(S(\theta, h)) \leq C h\) for all Carleson squares; equivalently, the embedding \(H^2 \hookrightarrow L^2(\mu)\) is bounded.
+    \item[Carleson operator] The maximal partial sum operator \(C f(x) = \sup_n |S_n(f)(x)|\) for Fourier series.
+    \item[Carleson square] A set \(S(\theta, h) = \{re^{it} \in \D : r \geq 1-h, |t-\theta| \leq h\}\).
+    \item[Carleson's theorem] The Fourier series of every \(L^2\) function converges almost everywhere.
+    \item[Corona condition] A finite set \(\{f_j\} \subset H^\infty\) satisfies \(\sum |f_j(z)| \geq \delta > 0\) for all \(z \in \D\).
+    \item[Corona problem] The question of whether \(\D\) is dense in the maximal ideal space of \(H^\infty\).
+    \item[Corona theorem] Carleson's proof that the corona problem has an affirmative answer: finitely many functions satisfying the corona condition generate the unit ideal.
+    \item[Dirichlet kernel] \(D_N(t) = \frac{\sin((N+1/2)t)}{\sin(t/2)}\), the kernel of the partial sum operator for Fourier series.
+    \item[Dyadic decomposition] A decomposition of the frequency axis into intervals \([2^k, 2^{k+1}]\) to analyze functions at different scales.
+    \item[Gelfand transform] The map from a commutative Banach algebra \(A\) to the algebra of continuous functions on its maximal ideal space given by \(\widehat{a}(\varphi) = \varphi(a)\).
+    \item[\(H^\infty\)] The Banach algebra of bounded analytic functions on the unit disk, with the supremum norm.
+    \item[Hardy space \(H^2\)] The Hilbert space of analytic functions \(f(z) = \sum a_n z^n\) with \(\sum |a_n|^2 < \infty\).
+    \item[Interpolating sequence] A sequence \(\{z_n\} \subset \D\) such that every bounded sequence \(\{w_n\}\) can be realized as \(f(z_n)\) for some \(f \in H^\infty\).
+    \item[Luzin's conjecture] The 1915 problem (proved by Carleson in 1966) asking whether every \(L^2\) function has an almost everywhere convergent Fourier series.
+    \item[Maximal ideal space] The set \(\mathfrak{M}(A)\) of nonzero multiplicative linear functionals on a commutative Banach algebra \(A\).
+    \item[Plancherel's theorem] For \(f \in L^2(\T)\), \(\sum |\widehat{f}(n)|^2 = \|f\|_2^2\).
+    \item[Stopping time] An algorithmic rule for deciding when to stop a dyadic decomposition based on the size of function values.
+    \item[Time-frequency analysis] The study of operators that involve both time and frequency localization, central to Carleson's proof.
+    \item[\(\overline{\partial}\)-method] A technique for solving analytic problems by solving the inhomogeneous Cauchy--Riemann equation with estimates.
+    \item[Weak type \((p,q)\)] An operator \(T\) satisfies \(|\{x : |T f(x)| > \lambda\}| \leq C \|f\|_p^q / \lambda^q\).
+    \item[Wolff's lemma] A geometric covering lemma for the disk used in simplified proofs of the corona theorem.
+\end{description}

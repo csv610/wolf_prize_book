@@ -1,0 +1,506 @@
+\let\im\relax
+\newcommand{\im}{\operatorname{im}}
+\let\coker\relax
+\newcommand{\coker}{\operatorname{coker}}
+\let\Spec\relax
+\newcommand{\Spec}{\operatorname{Spec}}
+\let\Proj\relax
+\newcommand{\Proj}{\operatorname{Proj}}
+\let\Pic\relax
+\newcommand{\Pic}{\operatorname{Pic}}
+\let\Div\relax
+\newcommand{\Div}{\operatorname{Div}}
+\let\Gal\relax
+\newcommand{\Gal}{\operatorname{Gal}}
+\let\Frob\relax
+\newcommand{\Frob}{\operatorname{Frob}}
+\let\Cl\relax
+\newcommand{\Cl}{\operatorname{Cl}}
+\let\SL\relax
+\newcommand{\SL}{\operatorname{SL}}
+\let\GL\relax
+\newcommand{\GL}{\operatorname{GL}}
+\let\Sp\relax
+\newcommand{\Sp}{\operatorname{Sp}}
+\let\Sym\relax
+\newcommand{\Sym}{\operatorname{Sym}}
+\let\Norm\relax
+\newcommand{\Norm}{\operatorname{Norm}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\F\relax
+\newcommand{\F}{\mathbb{F}}
+\let\A\relax
+\newcommand{\A}{\mathbb{A}}
+\let\cL\relax
+\newcommand{\cL}{\mathcal{L}}
+\let\cO\relax
+\newcommand{\cO}{\mathcal{O}}
+
+\chapter{Andr\'{e} Weil (1979)}
+
+\begin{quote}
+\it ``Weil's work is characterized by its breadth, depth, and the search for the underlying unity in mathematics. He was the great synthesizer, who saw in number theory and algebraic geometry the same deep structures, and built the bridges that later generations would travel.'' --- Armand Borel
+\end{quote}
+
+Andr\'{e} Weil (1906--1998) was one of the most influential mathematicians of the 20th century. The 1979 Wolf Prize (shared with Jean Leray) recognized a lifetime of contributions that transformed algebraic geometry, number theory, and their synthesis. Weil's work is distinguished by its extraordinary breadth: he made fundamental contributions to algebraic geometry (the Weil conjectures, foundations of abstract varieties), number theory (Riemann hypothesis for curves, class field theory, the Weil representation), topology (the Lefschetz fixed point formula), and the history of mathematics.
+
+At the center of Weil's vision was the idea that number theory and algebraic geometry are two faces of the same subject. This vision---often called ``arithmetic geometry''---would eventually be realized through %\\'{e}tale
+cohomology and the resolution of the Weil conjectures by Deligne, and it underpins the whole of modern algebraic number theory.
+
+\section{Main Contribution}
+
+The Wolf Prize citation reads: ``for his contributions to the theory of numbers, theory of several complex variables and theory of algebraic geometry.''
+
+His major achievements:
+
+\begin{itemize}
+    \item \textbf{The Weil Conjectures (1949):} A set of conjectures describing the zeta function of an algebraic variety over a finite field, including an analogue of the Riemann hypothesis. These conjectures drove the development of modern algebraic geometry for 25 years.
+    \item \textbf{The Riemann Hypothesis for Curves (1940):} The first complete proof of the Riemann hypothesis for function fields---the analogue of the classical Riemann hypothesis for curves over finite fields.
+    \item \textbf{Foundations of Algebraic Geometry (1946):} The ``Foundations of Algebraic Geometry'' (Weil's book), which gave the first rigorous treatment of algebraic geometry over arbitrary fields, using the concept of abstract algebraic varieties.
+    \item \textbf{Class Field Theory:} Systematic treatment of class field theory using idele groups; the ``Tate--Weil'' approach to $L$-functions.
+    \item \textbf{The Weil Representation:} A representation of the symplectic group arising from the theory of theta functions, with applications to the theory of automorphic forms.
+    \item \textbf{Uniformization of Varieties:} The Mordell--Weil theorem (with Mordell) on the finiteness of the group of rational points on elliptic curves.
+    \item \textbf{History of Mathematics:} Authoritative works on the history of number theory from Hammurabi to Legendre.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Riemann Hypothesis for Curves}
+
+The classical Riemann hypothesis states that all non-trivial zeros of the Riemann zeta function $\zeta(s) = \sum_{n=1}^\infty n^{-s}$ lie on the line $\Re(s) = 1/2$. This remains the most famous open problem in mathematics.
+
+But there is an analogue: for a curve $C$ over a finite field $\F_q$, one can define a zeta function:
+\[
+Z_C(t) = \exp\left( \sum_{n=1}^\infty \frac{N_n}{n} t^n \right),
+\]
+where $N_n$ is the number of points on $C$ over the extension field $\F_{q^n}$. Emil Artin (in his 1921 thesis) observed empirically that the zeros of $Z_C(q^{-s})$ seem to lie on the line $\Re(s) = 1/2$.
+
+Why should a function defined by counting points on a curve over a finite field satisfy a Riemann hypothesis? The analogy between number fields (like $\mathbb{Q}$) and function fields (like $\F_q(C)$) was well known, but proving it required new ideas.
+
+The problem: prove that $Z_C(t)$ is a rational function of $t$, that it satisfies a functional equation, and that its zeros lie on the circle $|t| = q^{-1/2}$.
+
+\subsection{The Weil Conjectures}
+
+Weil asked: what about higher-dimensional varieties? Let $V$ be a smooth projective variety over $\F_q$. Define the zeta function:
+\[
+\zeta_V(s) = \exp\left( \sum_{n=1}^\infty \frac{|V(\F_{q^n})|}{n} q^{-ns} \right)
+\]
+
+Weil conjectured (1949) that:
+\begin{enumerate}
+    \item \textbf{Rationality:} $\zeta_V(s)$ is a rational function of $q^{-s}$.
+    \item \textbf{Functional equation:} $\zeta_V(s)$ satisfies a functional equation relating $s$ to $\dim V - s$.
+    \item \textbf{Riemann hypothesis:} The zeros and poles of $\zeta_V(s)$ lie on lines $\Re(s) = k/2$ for integers $k$.
+    \item \textbf{Relation to cohomology:} The Betti numbers of $V$ (as if it were a complex manifold) appear in the expression for $\zeta_V(s)$.
+\end{enumerate}
+
+The last conjecture was the boldest: Weil conjectured that there must exist a cohomology theory for varieties over finite fields that behaves like singular cohomology for complex manifolds. Such a theory would automatically prove the rationality and functional equation (via the Lefschetz fixed point formula) and would make the Riemann hypothesis a statement about the eigenvalues of the Frobenius endomorphism acting on cohomology.
+
+\subsection{The Mordell Conjecture and Mordell--Weil Theorem}
+
+In 1922, Mordell proved that the group $\mathbb{Q}$-rational points $E(\mathbb{Q})$ on an elliptic curve $E/\mathbb{Q}$ is finitely generated. This was one of the first deep results in arithmetic geometry.
+
+Weil generalized this to curves of genus $\geq 1$ over number fields:
+\begin{theorem}[Mordell--Weil]
+Let $C$ be a smooth projective curve of genus $g \geq 1$ over a number field $K$. If $C$ has a $K$-rational point, then the group $C(K)$ of $K$-rational points on its Jacobian variety is finitely generated.
+\end{theorem}
+
+This theorem requires the theory of heights (a measure of the arithmetic complexity of a point) and the construction of the Jacobian variety, which Weil himself built using his new foundations of algebraic geometry.
+
+\subsection{Class Field Theory}
+
+Class field theory describes the abelian extensions of number fields---the largest abelian Galois extensions---in terms of the arithmetic of the field. For $\mathbb{Q}$, the Kronecker--Weber theorem says that every abelian extension of $\mathbb{Q}$ is contained in a cyclotomic field $\mathbb{Q}(\zeta_n)$. For general number fields, the description is more complicated and involves the idele group.
+
+The challenge: give a unified, systematic treatment of class field theory in terms of idele groups and Galois cohomology. This was the ``Tate--Weil'' approach, fully developed by Weil and later systematized by Tate in his thesis.
+
+\subsection{Geometry of Numbers and the Weil Representation}
+
+Theta functions are modular forms with an elegant transformation law under $SL(2,\mathbb{Z})$:
+\[
+\theta(z) = \sum_{n \in \mathbb{Z}} e^{\pi i n^2 z}, \quad \theta(-1/z) = \sqrt{-iz} \; \theta(z).
+\]
+
+Weil discovered that the transformation formula for $\theta$ is a manifestation of an infinite-dimensional representation of the symplectic group---the metaplectic representation (now called the Weil representation). This connects representation theory, modular forms, and the theory of quadratic forms.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{The Riemann Hypothesis for Curves}
+
+Weil proved the Riemann hypothesis for curves over finite fields using intersection theory on the product surface $C \times C$. The key insight:
+
+Let $C$ be a smooth projective curve over $\F_q$ of genus $g$. Consider the Frobenius endomorphism $\Frob: C \to C$ (raising coordinates to the $q$-th power). The number of $\Fq$-rational points is the number of fixed points of $\Frob$.
+
+Weil considered the diagonal $\Delta \subset C \times C$ and the graph $\Gamma_\Frob \subset C \times C$ of the Frobenius. The intersection number $\Delta \cdot \Gamma_\Frob$ equals the number of fixed points of $\Frob$, which is $N_1$, the number of $\Fq$-points.
+
+More generally, for $n \geq 1$, the number $N_n$ of $\F_{q^n}$-rational points is the intersection number of $\Delta$ with the graph of $\Frob^n$.
+
+By the Hodge index theorem (for surfaces), the intersection pairing on the N\'eron--Severi group of $C \times C$ has signature $(1, \rho - 1)$. Applying this to the classes $\Delta$ and $\Gamma_\Frob$ gives an inequality that, when combined with the functional equation, forces the eigenvalues of Frobenius acting on the Jacobian to have absolute value $q^{1/2}$.
+
+The proof uses:
+\begin{itemize}
+    \item Intersection theory on algebraic surfaces (the first rigorous development of which Weil had to create).
+    \item The Hodge index theorem (the signature of the intersection pairing).
+    \item The theory of the Jacobian variety of a curve.
+    \item Castelnuovo's inequality and other results from classical algebraic geometry.
+\end{itemize}
+
+\subsection{The Weil Conjectures and the Search for a Cohomology Theory}
+
+Weil's conjectures were motivated by a simple but profound analogy with the Lefschetz fixed point theorem. For a smooth compact complex manifold $V$, the number of fixed points of a map $f: V \to V$ with transverse fixed points is:
+\[
+\#\text{Fix}(f) = \sum_{i=0}^{2\dim V} (-1)^i \tr(f^*|_{H^i(V)}).
+\]
+
+For a variety $V$ over $\F_q$, the Frobenius morphism $\Frob$ acts on $V$, and the $\F_{q^n}$-rational points are exactly the fixed points of $\Frob^n$:
+\[
+|V(\F_{q^n})| = \#\text{Fix}(\Frob^n).
+\]
+
+If there existed a cohomology theory $H^*(V)$ for varieties over finite fields---analogous to singular cohomology for complex manifolds---then by the Lefschetz fixed point formula:
+\[
+|V(\F_{q^n})| = \sum_{i=0}^{2\dim V} (-1)^i \tr(\Frob^n |_{H^i(V)}),
+\]
+and the zeta function would be:
+\[
+\zeta_V(s) = \prod_{i=0}^{2\dim V} \det(1 - q^{-s} \Frob|_{H^i(V)})^{(-1)^{i+1}}.
+\]
+
+This would immediately give rationality and the functional equation (by Poincar\'{e} duality). The Riemann hypothesis would follow if the eigenvalues of $\Frob$ on $H^i(V)$ had absolute value $q^{i/2}$.
+
+The required cohomology theory---\'{e}tale cohomology---was created by Grothendieck and his school in the 1960s, specifically to prove the Weil conjectures. Deligne completed the proof of the last conjecture (the Riemann hypothesis) in 1974.
+
+\subsection{Abstract Varieties and the Foundations}
+
+Before Weil, algebraic geometry was mostly a European subject, studied over the complex numbers using transcendental methods (analytic topology, Riemann surfaces) or over algebraically closed fields of characteristic zero. Weil needed a theory that worked over arbitrary fields, including finite fields and number fields.
+
+His book ``Foundations of Algebraic Geometry'' (1946) introduced:
+\begin{itemize}
+    \item \textbf{Abstract algebraic varieties:} Defined by gluing affine varieties along open sets, analogous to the definition of a manifold.
+    \item \textbf{Generic points:} Using universal domains (large algebraically closed fields) to define points that behave like ``generic'' points of subvarieties.
+    \item \textbf{Intersection theory:} A rigorous theory of intersection multiplicities, essential for his proof of the Riemann hypothesis.
+    \item \textbf{Divisors and linear systems:} Over arbitrary fields, with applications to the theory of curves and Jacobians.
+\end{itemize}
+
+These foundations were later supplanted by Grothendieck's scheme theory (which is more general and more natural), but Weil's work was the bridge from the classical Italian school to modern algebraic geometry.
+
+\subsection{The Weil Representation}
+
+The Weil representation arises from the theory of theta functions. Let $V$ be a symplectic vector space over $\mathbb{Q}$ with symplectic form $\omega$. The Heisenberg group $H(V) = V \times \mathbb{C}^\times$ has a unique irreducible unitary representation with central character given by multiplication---the Schr\"{o}dinger representation.
+
+The symplectic group $Sp(V)$ acts on $H(V)$ by automorphisms, and by the Stone--von Neumann theorem, the Schr\"{o}dinger representation extends projectively to $Sp(V)$. This gives a genuine representation of the metaplectic group $Mp(V)$ (a double cover of $Sp(V)$), called the Weil representation.
+
+This representation has deep applications:
+\begin{itemize}
+    \item Theta functions appear as matrix coefficients of the Weil representation.
+    \item The transformation laws of theta series under modular groups become representation-theoretic statements.
+    \item The Langlands program for $Sp(2n)$ uses the Weil representation to construct automorphic forms (the ``theta correspondence'').
+    \item In quantum mechanics, the Weil representation is the mathematical framework for the metaplectic correction in geometric quantization.
+\end{itemize}
+
+\section{Mathematical Theory}
+
+\subsection{Zeta Functions of Curves over Finite Fields}
+
+Let $C$ be a smooth projective curve of genus $g$ over $\F_q$. The zeta function is:
+\[
+Z_C(t) = \frac{P_1(t)}{(1-t)(1-qt)},
+\]
+where $P_1(t) = \prod_{j=1}^{2g} (1 - \alpha_j t)$ is a polynomial of degree $2g$ with integer coefficients.
+
+\begin{theorem}[Weil, 1940]
+For a smooth projective curve $C$ of genus $g$ over $\F_q$:
+\begin{enumerate}
+    \item \textbf{Rationality:} $Z_C(t)$ is a rational function of $t$.
+    \item \textbf{Functional equation:} $Z_C(1/qt) = q^{1-g} t^{2-2g} Z_C(t)$.
+    \item \textbf{Riemann hypothesis:} $|\alpha_j| = q^{1/2}$ for all $j$.
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}[Hasse--Weil bound]
+For a smooth projective curve of genus $g$ over $\F_q$:
+\[
+|N_1 - (q+1)| \leq 2g \sqrt{q},
+\]
+where $N_1$ is the number of $\F_q$-rational points.
+\end{corollary}
+
+For an elliptic curve ($g=1$), this gives $|N_1 - (q+1)| \leq 2\sqrt{q}$, a result first proved by Hasse (1933) using different methods.
+
+\subsection{The Weil Conjectures}
+
+\begin{theorem}[Weil Conjectures --- now theorems]
+Let $V$ be a smooth projective variety of dimension $d$ over $\F_q$. Then:
+\begin{enumerate}
+    \item \textbf{Rationality:} $\zeta_V(s)$ is a rational function of $q^{-s}$.
+    \item \textbf{Functional equation:} $\zeta_V(s) = \pm q^{d\chi/2} q^{-d s} \zeta_V(d-s)$, where $\chi$ is the Euler characteristic.
+    \item \textbf{Riemann hypothesis:} Write $\zeta_V(s) = \prod_{i=0}^{2d} P_i(q^{-s})^{(-1)^{i+1}}$ with $P_i(t) \in \mathbb{Z}[t]$. Then the complex roots of $P_i(t)$ have absolute value $q^{-i/2}$.
+    \item \textbf{Betti numbers:} $\deg P_i(t) = b_i$, the $i$-th Betti number of $V$ in any smooth complex lift of $V$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Sketch]
+\begin{enumerate}
+    \item Grothendieck (1964): Constructed \'{e}tale cohomology $H_{\'{e}t}^i(V_{\overline{\F}_q}, \mathbb{Q}_l)$ and used the Lefschetz fixed point formula to express $|V(\F_{q^n})|$ as an alternating sum of traces of Frobenius, giving rationality.
+    \item Grothendieck (1965): Poincar\'{e} duality in \'{e}tale cohomology gives the functional equation.
+    \item Deligne (1974): Proved the Riemann hypothesis by studying the action of Frobenius on cohomology, using delicate arguments involving Lefschetz pencils and the hard Lefschetz theorem.
+\end{enumerate}
+\end{proof}
+
+\subsection{The Mordell--Weil Theorem}
+
+Let $C$ be a smooth projective curve of genus $g \geq 1$ over a number field $K$, with a $K$-rational point. The Jacobian $J(C)$ is an abelian variety of dimension $g$ parametrizing divisor classes of degree zero on $C$.
+
+\begin{theorem}[Mordell--Weil]
+$J(C)(K)$, the group of $K$-rational points of $J(C)$, is a finitely generated abelian group.
+\end{theorem}
+
+The proof uses:
+\begin{itemize}
+    \item The theory of heights: a quadratic form $\hat{h}: J(C)(K) \to \mathbb{R}$ (the N\'{e}ron--Tate height).
+    \item The descent argument: showing $J(C)(K)/nJ(C)(K)$ is finite for some $n \geq 2$.
+    \item The weak Mordell--Weil theorem: $J(C)(K)/nJ(C)(K)$ is finite, proved using Galois cohomology and Kummer theory.
+    \item The existence of the Jacobian variety (built by Weil).
+\end{itemize}
+
+\subsection{Class Field Theory and Ideles}
+
+Let $K$ be a number field. The idele group $\mathbb{A}_K^\times$ is the restricted direct product of $K_v^\times$ over all places $v$ of $K$.
+
+\begin{theorem}[Global Class Field Theory]
+There is a canonical isomorphism:
+\[
+\widehat{K^\times \backslash \mathbb{A}_K^\times} \cong \Gal(K^{\text{ab}}/K),
+\]
+where $\widehat{\cdot}$ denotes profinite completion and $K^{\text{ab}}$ is the maximal abelian extension of $K$.
+\end{theorem}
+
+Weil's contribution was to develop class field theory from the point of view of the idele group, making the theory more systematic and paving the way for the Langlands program.
+
+\subsection{The Weil Representation}
+
+Let $(V, \omega)$ be a symplectic vector space over $\mathbb{Q}$ of dimension $2n$. The Weil representation is a unitary representation $\pi$ of the metaplectic group $Mp(V)$ on $L^2(V/\mathbb{Z})$.
+
+For $V = \mathbb{Q}^2$, the Weil representation gives:
+\begin{itemize}
+    \item The standard representation of $SL(2,\mathbb{R})$ on $L^2(\mathbb{R})$ via:
+    \[
+    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \cdot f(x) = \frac{1}{\sqrt{|cx + d|}} f\left(\frac{ax + b}{cx + d}\right)
+    \]
+    \item The transformation law for the classical theta function.
+\end{itemize}
+
+\begin{theorem}[Weil, 1964]
+The Weil representation of $Mp(V)$ extends to an automorphic representation of $Mp(\mathbb{A})$, and its matrix coefficients produce theta series that are Siegel modular forms.
+\end{theorem}
+
+\section{Impact on Science and Technology}
+
+\subsection{In Pure Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Arithmetic Geometry:} The Weil conjectures defined the research program for algebraic geometry for a generation. Their proof by Grothendieck and Deligne required the creation of \'{e}tale cohomology, the theory of motives, and the entire infrastructure of modern algebraic geometry.
+    
+    \item \textbf{Number Theory:} The Hasse--Weil bound for curves is a fundamental tool in computational number theory and cryptography. The Mordell--Weil theorem is the starting point for the study of rational points on abelian varieties, which is central to the Birch and Swinnerton-Dyer conjecture (another Clay Millennium Problem).
+    
+    \item \textbf{Automorphic Forms:} The Weil representation connects theta functions, modular forms, and the representation theory of symplectic groups. The theta correspondence (the Howe duality conjecture, proved by Waldspurger) is a central tool in the Langlands program.
+    
+    \item \textbf{Algebraic Geometry Foundations:} Weil's ``Foundations'' was the standard reference for the subject until Grothendieck's {\'E}l\'{e}ments de G\'{e}om\'{e}trie Alg\'{e}brique. His construction of the Jacobian variety remains the standard approach.
+    
+    \item \textbf{History of Mathematics:} Weil's works on the history of number theory---from his edition of Fermat's works to his studies of Babylonian mathematics---are authoritative contributions to mathematical history.
+\end{enumerate}
+
+\subsection{In Applied Fields}
+
+\begin{enumerate}
+    \item \textbf{Cryptography:} Elliptic curve cryptography (ECC) relies on the group of rational points on elliptic curves over finite fields. The security of ECC depends on the hardness of the discrete log problem in these groups, whose structure is described by the Mordell--Weil theorem and the Hasse--Weil bound.
+    
+    \item \textbf{Error-Correcting Codes:} Algebraic geometry codes (Goppa codes, Tsfasman--Vl\u{a}du\c{t}--Zink codes) use curves with many rational points over finite fields. The Hasse--Weil bound and its improvements (the Drinfeld--Vl\u{a}du\c{t} bound) determine the optimal parameters of such codes.
+    
+    \item \textbf{Quantum Computing:} The Weil representation appears in the theory of quantum error correction and in the mathematical foundations of topological quantum computing.
+\end{enumerate}
+
+\subsection{Personal Influence}
+
+Weil was also a primary founder of the Bourbaki group, which shaped the development of modern mathematics through its systematic treatises. His memoirs---especially his fictional account of a journey to Srinagar, Kashmir, where the Weil conjectures were first presented---are celebrated for their literary quality and mathematical insight.
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What exactly are the Weil Conjectures, and why were they so important?}
+
+The Weil Conjectures are a set of four statements about the zeta function of a smooth projective variety over a finite field: rationality, functional equation, an analogue of the Riemann hypothesis, and a connection to Betti numbers (topological invariants of the corresponding complex manifold).
+
+They were revolutionary for several reasons. First, they suggested that varieties over finite fields have a hidden topological structure, analogous to the singular cohomology of complex manifolds. Second, this structure could explain the pattern of point counts over extensions of the finite field. Third, proving the conjectures required the creation of entirely new mathematical tools---\'{e}tale cohomology and the theory of motives---which have become central to algebraic geometry and number theory.
+
+The fourth conjecture (about Betti numbers) was the most surprising: it predicted that the topological invariants of a variety defined purely algebraically over a finite field should match the ordinary topological invariants of the corresponding complex variety. This deep connection between arithmetic and topology is one of the most beautiful discoveries in mathematics.
+
+\subsection*{Q2: What is the Riemann hypothesis for curves over finite fields, and how does it differ from the original?}
+
+The classical Riemann hypothesis (still unproven) concerns the zeros of $\zeta(s) = \sum n^{-s}$:
+\[
+\zeta(\rho) = 0 \text{ and } 0 < \Re(\rho) < 1 \implies \Re(\rho) = 1/2.
+\]
+
+The analogue for curves over finite fields replaces the integers $\mathbb{Z}$ with the polynomial ring $\F_q[t]$, and the field $\mathbb{Q}$ with the function field $\F_q(C)$. The zeta function of a curve counts ideals in the coordinate ring---equivalently, points on the curve.
+
+Weil proved this analogue in 1940. The result is not a special case of the classical hypothesis but a parallel statement in a different mathematical universe. Its proof gave enormous confidence that the original Riemann hypothesis is true, and the methods developed for the function field case have inspired approaches to the classical case.
+
+\subsection*{Q3: What is the Mordell--Weil theorem, and why is it important?}
+
+The Mordell--Weil theorem says that the group of rational points on an abelian variety (e.g., the Jacobian of an algebraic curve) is finitely generated. This means there exists a finite set of rational points such that every rational point can be expressed as a sum of these generators (using the group law on the abelian variety).
+
+This is important because it reduces the study of an infinite set (all rational points) to a finite set (the generators). For elliptic curves, it means $E(\mathbb{Q}) \cong \mathbb{Z}^r \oplus T$, where $T$ is a finite torsion group. The rank $r$ is a fundamental invariant of the curve, but it is notoriously hard to compute---there is no known algorithm guaranteed to determine the rank of an elliptic curve.
+
+The Birch and Swinnerton-Dyer conjecture relates $r$ to the behavior of the $L$-function $L(E,s)$ at $s=1$: $r = \text{ord}_{s=1} L(E,s)$. This is one of the Clay Millennium Problems.
+
+\subsection*{Q4: What is the Weil representation, and why should I care?}
+
+The Weil representation is a unitary representation of the metaplectic group $Mp(2n)$---a double cover of the symplectic group $Sp(2n)$. It generalizes the transformation law of the theta function and provides a representation-theoretic framework for the theory of theta series.
+
+You should care because:
+\begin{itemize}
+    \item It is the mathematical foundation of the ``theta correspondence'' (Howe duality), which relates automorphic forms on dual reductive pairs---a central tool in the Langlands program.
+    \item In quantum mechanics, it is the representation of the metaplectic group on the Hilbert space $L^2(\mathbb{R}^n)$ that implements the symmetries of the canonical commutation relations.
+    \item In number theory, it produces theta series that are modular forms, and its algebraic aspects (over finite fields) are used in the construction of representations of finite groups of Lie type.
+\end{itemize}
+
+\subsection*{Q5: What should I study to understand Weil's work?}
+
+\begin{enumerate}
+    \item \textbf{Algebraic Number Theory:} Algebraic integers, ideals, class groups, $L$-functions (e.g., Neukirch or Lang).
+    \item \textbf{Algebraic Geometry:} Varieties, schemes, sheaves, cohomology. Start with the affine case and build up (Hartshorne is the standard reference).
+    \item \textbf{Elliptic Curves:} The group law, the Mordell--Weil theorem, heights (Silverman).
+    \item \textbf{Curves over Finite Fields:} The Hasse--Weil bound, zeta functions, the Riemann hypothesis for curves.
+    \item \textbf{Representation Theory:} Lie groups, the metaplectic group, the oscillator representation (Howe, Lion--Vergne).
+    \item \textbf{Complex Analysis:} Theta functions, modular forms, automorphic forms.
+\end{enumerate}
+
+For undergraduates, Silverman's ``The Arithmetic of Elliptic Curves'' and ``A Friendly Introduction to Number Theory'' are excellent starting points. Weil's own ``Number Theory: An Approach through History'' is a beautifully written historical survey.
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item A.\ Weil, \textit{Sur les fonctions alg\'{e}briques \`{a} corps de constantes finis}, C.\ R.\ Acad.\ Sci.\ Paris 210 (1940), 592--594.
+    \item A.\ Weil, \textit{On the Riemann hypothesis for function fields}, Proc.\ Nat.\ Acad.\ Sci.\ USA 27 (1941), 345--347.
+    \item A.\ Weil, \textit{Foundations of Algebraic Geometry}, AMS Colloquium Publ.\ 29, 1946.
+    \item A.\ Weil, \textit{Numbers of solutions of equations in finite fields}, Bull.\ AMS 55 (1949), 497--508.
+    \item A.\ Weil, \textit{Sur la th\'{e}orie des corps de classes}, J.\ Math.\ Soc.\ Japan 3 (1951), 1--31.
+    \item A.\ Weil, \textit{Sur certaines groupes d'op\'{e}rateurs unitaires}, Acta Math.\ 111 (1964), 143--211.
+    \item A.\ Weil, \textit{Basic Number Theory}, Springer, 1967.
+    \item A.\ Weil, \textit{Collected Papers}, 3 vols., Springer, 1979--1980.
+\end{enumerate}
+
+\subsection*{Expositions of the Weil Conjectures}
+\begin{enumerate}
+    \item P.\ Deligne, \textit{La conjecture de Weil}, Publ.\ Math.\ IH\'{E}S 43 (1974), 273--307.
+    \item P.\ Deligne, \textit{La conjecture de Weil II}, Publ.\ Math.\ IH\'{E}S 52 (1980), 137--252.
+    \item J.\ Milne, \textit{Etale Cohomology}, Princeton University Press, 1980.
+    \item E.\ Freitag and R.\ Kiehl, \textit{Etale Cohomology and the Weil Conjecture}, Springer, 1988.
+    \item M.\ Hindry and J.\ H.\ Silverman, \textit{Diophantine Geometry}, Springer, 2000.
+\end{enumerate}
+
+\subsection*{Biographies and History}
+\begin{enumerate}
+    \item A.\ Borel, \textit{Andr\'{e} Weil and Algebraic Geometry}, Notices AMS 46 (1999), 426--431.
+    \item A.\ Weil, \textit{Souvenirs d'apprentissage}, Birkh\"{a}user, 1991 (English: \textit{The Apprenticeship of a Mathematician}, Birkh\"{a}user, 1992).
+    \item S.\ Lang, \textit{Andr\'{e} Weil}, in ``The Mathematical Intelligencer'' 17 (1995), 41--44.
+    \item C.\ Chevalley and A.\ Weil, \textit{La formation du groupe Bourbaki}, in ``Bourbaki: Une histoire du groupe,'' 1995.
+    \item J.\ Dieudonn\'{e}, \textit{The Work of Andr\'{e} Weil}, in ``Weil: Collected Papers, Vol.\ 1,'' Springer, 1979.
+\end{enumerate}
+
+\subsection*{Textbooks}
+\begin{enumerate}
+    \item R.\ Hartshorne, \textit{Algebraic Geometry}, Springer, 1977.
+    \item J.\ H.\ Silverman, \textit{The Arithmetic of Elliptic Curves}, Springer, 1986.
+    \item J.-P.\ Serre, \textit{Cours d'arithm\'{e}tique}, Presses Universitaires de France, 1970.
+    \item S.\ Lang, \textit{Algebraic Number Theory}, Springer, 1970.
+    \item N.\ Koblitz, \textit{Introduction to Elliptic Curves and Modular Forms}, Springer, 1984.
+    \item R.\ Howe, \textit{$\theta$-Series and Invariant Theory}, Proc.\ Symp.\ Pure Math.\ 33 (1979), 275--285.
+    \item G.\ Lion and M.\ Vergne, \textit{The Weil Representation, Maslov Index, and Theta Series}, Birkh\"{a}user, 1980.
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Abelian variety] A projective algebraic group; a higher-dimensional generalization of an elliptic curve.
+    \item[Betti number] The rank of the $i$-th singular cohomology group of a topological space; a topological invariant.
+    \item[Class field theory] The description of abelian extensions of number fields in terms of the arithmetic of the field.
+    \item[Divisor] A formal sum of points on a curve (or subvarieties of codimension one on a general variety).
+    \item[Elliptic curve] A smooth projective curve of genus 1 with a distinguished rational point.
+    \item[{\'E}tale cohomology] A cohomology theory for algebraic varieties satisfying the Weil conjectures, constructed by Grothendieck.
+    \item[Finite field] A field with finitely many elements; denoted $\F_q$ where $q = p^n$ is a prime power.
+    \item[Frobenius morphism] The map $x \mapsto x^q$ on a variety over $\F_q$; its fixed points are the $\F_q$-rational points.
+    \item[Function field] The field of rational functions on an algebraic curve; analogous to a number field.
+    \item[Genus] Topological invariant of a curve; the number of holes in the associated Riemann surface.
+    \item[Idele] A unit in the adele ring; $\mathbb{A}_K^\times$ is the group of ideles of a number field $K$.
+    \item[Jacobian variety] An abelian variety parametrizing divisor classes of degree zero on a curve.
+    \item[Lefschetz fixed point formula] A formula expressing the number of fixed points of a map as an alternating sum of traces on cohomology.
+    \item[Metaplectic group] A double cover of the symplectic group; the domain of the Weil representation.
+    \item[Motive] A universal cohomology theory conjectured to exist, of which all concrete cohomology theories are realizations.
+    \item[N\'{e}ron--Severi group] The group of divisors modulo algebraic equivalence on an algebraic surface.
+    \item[Rational point] A point on a variety $V$ defined over a field $K$; an element of $V(K)$.
+    \item[Scheme] The modern foundational object in algebraic geometry, generalizing Weil's abstract varieties.
+    \item[Theta function] A series of the form $\sum_{n \in \mathbb{Z}} q^{n^2}$; a modular form encoding representation numbers of quadratic forms.
+    \item[Zeta function of a variety] An exponential generating function encoding the point counts over all finite extensions of $\F_q$.
+\end{description}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Let $C: y^2 = x^3 - x$ over $\F_3$. Compute the number of $\F_3$-rational points and verify the Hasse--Weil bound.
+    \item Show that for an elliptic curve $E$ over $\F_q$, the zeta function satisfies $Z_E(t) = \frac{1 - a_1 t + q t^2}{(1-t)(1-qt)}$ where $a_1 = q + 1 - N_1$.
+    \item Prove that if $E$ is an elliptic curve over $\F_q$, then $|a_1| \leq 2\sqrt{q}$ (the Hasse bound) by computing the positivity of the intersection pairing $\Delta \cdot \Gamma_F$ on $E \times E$.
+    \item Let $\Q$ be the rational numbers. Show that the idele group $\mathbb{A}_\Q^\times$ is $\mathbb{R}_{>0} \times \widehat{\mathbb{Z}}^\times \times \prod_p \mathbb{Z}_p^\times$ modulo discrete embeddings.
+    \item Show that for a smooth projective curve $C$ of genus $g$ over $\mathbb{C}$, $b_0 = b_2 = 1$ and $b_1 = 2g$.
+    \item State the Mordell--Weil theorem for an elliptic curve $E/\Q$ and show that $E(\Q)/2E(\Q)$ is finite using elementary descent.
+    \item Let $\F_q$ be a finite field. Define the Frobenius morphism $\Frob: \mathbb{P}^1_{\F_q} \to \mathbb{P}^1_{\F_q}$. Compute the number of fixed points of $\Frob^n$ directly.
+    \item Prove the functional equation for the zeta function of $\mathbb{P}^1$ over $\F_q$.
+    \item Show that the Weil representation for $SL(2,\mathbb{R})$ acting on $L^2(\mathbb{R})$ is given by:
+    \[
+    \begin{pmatrix} a & 0 \\ 0 & a^{-1} \end{pmatrix} \cdot f(x) = |a|^{1/2} f(ax), \quad \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} \cdot f(x) = \hat{f}(x),
+    \]
+    where $\hat{f}$ is the Fourier transform.
+    \item Let $C$ be a curve of genus $2$ over $\F_2$ with $N_1 = 5$. Compute $N_2$ and $N_3$ using the Weil conjectures.
+    \item Show that the group $E(\mathbb{Q})_{\text{tors}}$ of torsion points on an elliptic curve $E/\mathbb{Q}$ is finite (Mazur's theorem classifies the possibilities, but just prove finiteness using basic height theory).
+    \item Compute the zeta function of $\mathbb{P}^n$ over $\F_q$ and verify the Weil conjectures for it explicitly.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1906 & Born in Paris, France (brother of philosopher Simone Weil) \\ \hline
+1922--1925 & Studies at {\'E}cole Normale Sup{\'e}rieure, Lyc\'{e}e Louis-le-Grand \\ \hline
+1926--1927 & Studies in G\"{o}ttingen with Emmy Noether, Hermann Weyl, and Edmund Landau \\ \hline
+1928 & PhD from Universit\'{e} de Paris \\ \hline
+1930--1932 & Professor at Aligarh Muslim University, India \\ \hline
+1933--1939 & Professor at Universit\'{e} de Strasbourg \\ \hline
+1934 & Founding member of Bourbaki \\ \hline
+1937--1939 & Visit to Leningrad (collaboration with Soviet mathematicians) \\ \hline
+1940 & Flees to Finland; arrested as a spy; released through Mittag-Leffler's influence \\ \hline
+1941--1945 | Professor at Haverford College and Swarthmore College, USA \\ \hline
+1940--1941 & Proves Riemann hypothesis for curves over finite fields \\ \hline
+1946 & \textit{Foundations of Algebraic Geometry} published \\ \hline
+1947--1958 & Professor at University of Chicago \\ \hline
+1949 & The Weil Conjectures announced in the Bulletin of the AMS \\ \hline
+1951 & Work on class field theory and ideles \\ \hline
+1958--1976 & Professor at the Institute for Advanced Study, Princeton \\ \hline
+1964 & Weil representation introduced \\ \hline
+1974 & Deligne proves the last of the Weil Conjectures \\ \hline
+1979 & Wolf Prize in Mathematics (co-recipient with J.\ Leray) \\ \hline
+1992 & Publishes memoir \textit{The Apprenticeship of a Mathematician} \\ \hline
+1998 & Dies in Princeton, New Jersey \\ \hline
+\end{tabular}

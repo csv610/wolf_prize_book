@@ -1,0 +1,258 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\A}{\mathbb{A}}
+\providecommand{\P}{\mathbb{P}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Spf}{\operatorname{Spf}}
+\providecommand{\Et}{\operatorname{Et}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Br}{\operatorname{Br}}
+\providecommand{\Pic}{\operatorname{Pic}}
+
+\chapter{Michael Artin (2013)}
+
+\begin{quote}
+\it ``Michael Artin has been a central figure in algebraic geometry for more than fifty years. His work, together with that of Grothendieck, laid the foundations for the modern theory of \'etale cohomology and algebraic spaces. His ideas on approximation, representability, and noncommutative geometry continue to shape the field.'' --- Wolf Prize Citation, 2013
+\end{quote}
+
+\section{Main Contribution}
+
+Michael Artin (born 1934) is an American mathematician who has been a central figure in algebraic geometry since the 1960s. He was awarded the Wolf Prize in Mathematics in 2013 alongside George Mostow.
+
+The Wolf Prize citation reads: ``for his fundamental contributions to algebraic geometry, noncommutative algebra, and representation theory.''
+
+Artin's core contributions include:
+\begin{itemize}
+    \item \textbf{Artin Approximation Theorem:} A foundational result that solutions to systems of polynomial equations over formal power series rings can be approximated by algebraic (convergent) solutions.
+    \item \textbf{\'Etale Cohomology:} With Grothendieck, Artin developed \'etale cohomology and proved the comparison theorems relating \'etale cohomology to classical cohomology.
+    \item \textbf{Algebraic Spaces and Stacks:} Artin introduced algebraic spaces (generalizations of schemes) and proved the fundamental representability theorems for algebraic stacks.
+    \item \textbf{Artin--Rees Lemma:} A key lemma in commutative algebra about the adic topology of modules.
+    \item \textbf{Noncommutative Algebraic Geometry:} A pioneer in developing noncommutative geometry through Artin--Schelter regular algebras and the classification of noncommutative surfaces.
+    \item \textbf{Artin's Axioms:} A set of necessary and sufficient conditions for a functor to be representable by an algebraic stack.
+    \item \textbf{Artin--Mazur Etale Homotopy:} A homotopy-theoretic framework for algebraic varieties.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Need for a New Cohomology Theory}
+
+In the 1950s and 60s, algebraic geometry over fields of positive characteristic lacked a suitable cohomology theory. The Zariski topology is too coarse, and classical singular cohomology does not exist for varieties over finite fields. The Weil conjectures demanded a cohomology theory over finite fields with good properties (finite-dimensional, Poincar\'e duality, Lefschetz trace formula).
+
+Grothendieck's answer: \'etale cohomology. Artin was the principal collaborator who helped develop and prove the fundamental theorems of this theory.
+
+\subsection{The Approximation Problem}
+
+When studying local properties of algebraic varieties, one often works with power series rings $\hat{\mathcal{O}}_{X,x}$. A fundamental question: given a solution to equations over the completion, can it be approximated by a solution over the original local ring? This is critical for understanding the relationship between formal and algebraic geometry.
+
+\subsection{The Representability Question}
+
+A central problem in moduli theory: given a functor $F: \mathrm{Sch}^{\mathrm{op}} \to \mathrm{Set}$ (e.g., the moduli functor for curves or vector bundles), when is it representable by a scheme or an algebraic space? Artin's theorems provided the definitive answer.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Artin Approximation}
+
+The theorem states:
+
+\begin{theorem}[Artin Approximation, 1969]
+Let $R$ be a local ring essentially of finite type over a field or an excellent Dedekind domain. Let $f(x,y) = 0$ be a system of polynomial equations over $R$. If there exists a formal solution $\hat{y} \in \hat{R}^n$ to $f(x, \hat{y}) = 0$, then for any integer $c$, there exists an algebraic solution $y \in R^n$ such that $y \equiv \hat{y} \pmod{\mathfrak{m}^c}$.
+\end{theorem}
+
+The proof uses the method of successive approximation combined with the implicit function theorem and the structure of excellent rings. A key insight: the obstruction to approximating lies in certain Ext groups that vanish for smooth morphisms.
+
+\subsection{\'Etale Cohomology}
+
+Artin and Grothendieck developed \'etale cohomology as a Grothendieck topology (the \'etale site). The key theorems:
+\begin{itemize}
+    \item \textbf{Comparison Theorem:} For a variety over $\C$, \'etale cohomology with coefficients in $\Z/\ell^n\Z$ agrees with singular cohomology in the analytic topology.
+    \item \textbf{Poincar\'e Duality:} For a smooth proper variety of dimension $d$, $H^i_{\et}(X, \Z/\ell^n\Z) \times H^{2d-i}_{\et}(X, \Z/\ell^n\Z(d)) \to \Z/\ell^n\Z$.
+    \item \textbf{Lefschetz Trace Formula:} For a finite field $\F_q$, $\#X(\F_q) = \sum_i (-1)^i \tr(\Frob^* | H^i_{\et}(X, \Q_\ell))$.
+\end{itemize}
+
+These theorems were essential for Deligne's proof of the Weil conjectures.
+
+\subsection{Algebraic Spaces and Stacks}
+
+Artin realized that many moduli problems that are not representable by schemes are nevertheless representable by algebraic spaces, which are quotients of schemes by \'etale equivalence relations. He then went further to define algebraic stacks.
+
+\begin{definition}[Algebraic Stack]
+An \textbf{algebraic stack} is a stack in groupoids over the \'etale site such that:
+\begin{enumerate}
+    \item The diagonal $\mathcal{X} \to \mathcal{X} \times \mathcal{X}$ is representable, quasi-compact, and separated.
+    \item There exists a smooth surjective morphism $U \to \mathcal{X}$ from a scheme $U$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Artin's Representability Theorem, 1974]
+A functor $F: \mathrm{Sch}^{\mathrm{op}} \to \mathrm{Set}$ is representable by an algebraic space if and only if it satisfies a list of axioms:
+\begin{itemize}
+    \item $F$ is a sheaf for the \'etale topology.
+    \item $F$ is locally of finite presentation.
+    \item $F$ is effective (formal completeness).
+    \item $F$ satisfies the open immersion condition.
+    \item $F$ satisfies the conditions of Schlessinger's theorem (existence of deformation theory and tangent-obstruction theory).
+\end{itemize}
+\end{theorem}
+
+\section{Mathematical Theory}
+
+\subsection{\'Etale Cohomology}
+
+\begin{definition}[\'Etale Morphism]
+A morphism of schemes $f: X \to Y$ is \textbf{\'etale} if it is flat and unramified. Intuitively, it is the algebraic analogue of a local isomorphism in the analytic topology.
+\end{definition}
+
+\begin{definition}[\'Etale Site]
+The \textbf{\'etale site} $X_{\et}$ is the category of \'etale $X$-schemes, with coverings given by surjective families of \'etale morphisms.
+\end{definition}
+
+\begin{theorem}[Comparison Theorem, Artin 1965]
+Let $X$ be a smooth projective variety over $\C$. Then there is a natural isomorphism:
+\[
+H^i_{\et}(X, \Z/\ell^n\Z) \cong H^i(X^{\mathrm{an}}, \Z/\ell^n\Z)
+\]
+where $X^{\mathrm{an}}$ is the associated complex analytic space.
+\end{theorem}
+
+\subsection{Algebraic Spaces}
+
+\begin{definition}[Algebraic Space]
+An \textbf{algebraic space} is a functor $F: \mathrm{Sch}^{\mathrm{op}} \to \mathrm{Set}$ that is a sheaf in the \'etale topology and such that there exists a scheme $U$ and an \'etale surjection $U \to F$ with $U \times_F U \to U \times U$ being quasi-compact.
+\end{definition}
+
+Algebraic spaces form a category intermediate between schemes and algebraic stacks. Every algebraic space has a well-behaved theory of quasi-coherent sheaves and cohomology.
+
+\subsection{Noncommutative Projective Geometry}
+
+\begin{definition}[Artin--Schelter Regular Algebra]
+A graded algebra $A = \bigoplus_{i \geq 0} A_i$ (with $A_0 = k$) is \textbf{Artin--Schelter regular} of dimension $d$ if:
+\begin{enumerate}
+    \item $\mathrm{gldim}(A) = d < \infty$.
+    \item $\Ext^i_A(k, A) = 0$ for $i \neq d$.
+    \item $\Ext^d_A(k, A) \cong k(\ell)$ for some shift $\ell$.
+    \item $A$ has polynomial growth ($\dim A_i$ grows polynomially).
+\end{enumerate}
+\end{definition}
+
+These algebras are the noncommutative analogues of polynomial rings and are the building blocks of noncommutative projective geometry. Artin, together with Tate and Van den Bergh, classified all Artin--Schelter regular algebras of dimension 3.
+
+\subsection{Artin--Mazur \'Etale Homotopy}
+
+\begin{definition}[\'Etale Homotopy Type]
+The \textbf{\'etale homotopy type} of a scheme $X$ is a pro-simplicial set constructed from the \'etale hypercoverings of $X$. It encodes the \'etale cohomology groups and the structure of the \'etale fundamental group.
+\end{definition}
+
+Artin and Mazur showed that this construction recovers the profinite fundamental group and, for varieties over $\C$, the profinite completion of the usual homotopy type.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Arithmetic Geometry:} \'Etale cohomology is the central tool for studying the arithmetic of varieties over finite fields and number fields.
+    \item \textbf{Moduli Theory:} Artin's representability theorems make the rigorous study of moduli spaces and stacks possible.
+    \item \textbf{Noncommutative Geometry:} Artin--Schelter algebras are the foundation of noncommutative projective geometry.
+    \item \textbf{Hodge Theory:} The comparison theorems linking algebraic and analytic cohomology.
+    \item \textbf{Singularity Theory:} The Artin approximation theorem is a standard tool for studying deformations of singularities.
+\end{enumerate}
+
+\subsection{In Physics}
+
+\begin{enumerate}
+    \item \textbf{String Theory:} Algebraic stacks appear in string compactifications and the study of moduli of bundles.
+    \item \textbf{Conformal Field Theory:} Noncommutative algebras (including Artin--Schelter algebras) appear in chiral algebras and vertex operator algebras.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is the Artin approximation theorem?}
+It says that a formal solution to a system of polynomial equations over a complete local ring can be approximated, to any order, by an algebraic solution over the original ring. It is the key to transferring results from formal geometry to algebraic geometry.
+
+\subsection*{Q2: What is \'etale cohomology?}
+A cohomology theory for algebraic varieties defined using the \'etale topology. It satisfies analogues of all the classical Eilenberg--Steenrod axioms (including Poincar\'e duality and the Lefschetz trace formula) and is the basis for proving the Weil conjectures.
+
+\subsection*{Q3: What is an algebraic stack?}
+A generalization of a scheme that allows points to have automorphism groups. Stacks are essential for studying moduli problems (e.g., moduli of curves, vector bundles) where objects can have nontrivial symmetries.
+
+\subsection*{Q4: What is the difference between a scheme and an algebraic space?}
+An algebraic space is a functor that is an \'etale sheaf and admits an \'etale cover by a scheme. Unlike schemes, algebraic spaces need not be locally affine in the Zariski topology, giving more flexibility for quotients and moduli.
+
+\subsection*{Q5: What should an undergraduate study to understand Artin's work?}
+Algebraic geometry (Hartshorne), commutative algebra (Matsumura), and category theory (sheaves, Grothendieck topologies). Homological algebra is also essential. Recommended: \textit{Algebraic Geometry} (Hartshorne), \textit{The Rising Sea} (Vakil), and \textit{Lectures on \'Etale Cohomology} (Milne).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the \'etale site on $\Spec k$ recovers the Galois cohomology of $k$.
+    \item Prove that any \'etale morphism of curves is unramified.
+    \item State and prove the Artin--Rees lemma for finitely generated modules over a Noetherian ring.
+    \item Classify Artin--Schelter regular algebras of dimension 2.
+    \item Show that the moduli stack $\mathcal{M}_g$ of genus $g$ curves is an algebraic stack.
+    \item Prove that an algebraic space that is a scheme in a neighborhood of every point is a scheme.
+    \item Compute $H^1_{\et}(\Spec \F_q, \mu_n)$ and relate it to Kummer theory.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1934 & Born in Hamburg, Germany, to Emil Artin \\ \hline
+1952 & Moves to the United States \\ \hline
+1955 & B.A.\ from Princeton University \\ \hline
+1960 & Ph.D.\ from Harvard (advisor: Oscar Zariski) \\ \hline
+1965 | Comparison theorem for \'etale cohomology \\ \hline
+1968 | \'Etale homotopy (with Barry Mazur) \\ \hline
+1969 | Artin approximation theorem \\ \hline
+1971 | Professor at MIT \\ \hline
+1974 | Representability theorem for algebraic spaces \\ \hline
+1975 | Steele Prize of the AMS \\ \hline
+1987 | Artin--Schelter regular algebras \\ \hline
+1990 | Classification of noncommutative surfaces (with Stafford) \\ \hline
+1992 | President of the AMS \\ \hline
+2002 | Moves to emeritus at MIT \\ \hline
+2013 | Wolf Prize in Mathematics \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Algebraic stack] A categorical generalization of schemes where points may have automorphisms.
+    \item[Algebraic space] A quotient of a scheme by an \'etale equivalence relation, more general than a scheme.
+    \item[Artin approximation] The ability to approximate formal solutions by algebraic solutions.
+    \item[Artin--Schelter algebra] A noncommutative graded algebra satisfying certain regularity conditions.
+    \item[\'Etale cohomology] A Weil cohomology theory based on the \'etale topology.
+    \item[\'Etale morphism] The algebraic analogue of a local isomorphism (covering space in the \'etale topology).
+    \item[Grothendieck topology] A generalization of the notion of a topology where one specifies coverings rather than open sets.
+    \item[Moduli space] A space whose points correspond to isomorphism classes of geometric objects.
+    \item[Scheme] The central object of algebraic geometry, generalizing varieties.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item M.\ Artin, \textit{Algebraic approximation of structures over complete local rings}, Publ.\ Math.\ IH\'ES 36 (1969), 23--58.
+    \item M.\ Artin, A.\ Grothendieck, and J.-L.\ Verdier, \textit{Th\'eorie des Topos et Cohomologie \'Etale des Sch\'emas} (SGA 4), Lecture Notes in Math.\ 269, 270, 305, Springer, 1972--73.
+    \item M.\ Artin, \textit{Algebraic Spaces}, Yale Univ.\ Press, 1971.
+    \item M.\ Artin, \textit{Versal deformations and algebraic stacks}, Invent.\ Math.\ 27 (1974), 165--189.
+    \item M.\ Artin and B.\ Mazur, \textit{Etale Homotopy}, Lecture Notes in Math.\ 100, Springer, 1969.
+    \item M.\ Artin and W.\ Schelter, \textit{Graded algebras of global dimension 3}, Adv.\ Math.\ 66 (1987), 171--216.
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item \textit{The Grothendieck Festschrift}, Volumes I--III, Birkh\"auser, 1990 (contains many articles on Artin's work).
+    \item J.\ S.\ Milne, \textit{Lectures on \'Etale Cohomology}, available online.
+    \item M.\ Olsson, \textit{Algebraic Spaces and Stacks}, AMS Colloquium Publ., 2016.
+\end{enumerate}
+

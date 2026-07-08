@@ -1,0 +1,661 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+
+\chapter{Peter Lax (1987)}
+
+\begin{quote}
+\it ``Lax's work spans a remarkable range of mathematical subjects, from the theory of partial differential equations to numerical analysis, from scattering theory to integrable systems. His contributions have the rare quality of being simultaneously deep and useful --- they advance pure mathematics while providing concrete tools for scientists and engineers.'' --- Wolf Prize Citation
+\end{quote}
+
+Peter David Lax (born 1926) is one of the most influential mathematicians of the 20th century. The 1987 Wolf Prize in Mathematics (shared with Kiyoshi It\^{o}) recognized his fundamental contributions to the theory of partial differential equations, numerical analysis, scattering theory, and integrable systems. His name appears across mathematics in a remarkable variety of contexts: the Lax--Milgram theorem (functional analysis), the Lax equivalence theorem (numerical analysis), the Lax--Wendroff scheme (computational fluid dynamics), the Lax--Friedrichs scheme, the Lax entropy condition (conservation laws), Lax--Phillips scattering theory, and Lax pairs (integrable systems). Few mathematicians have left their mark on so many different fields.
+
+Lax's work is characterized by a deep geometric intuition, a preference for concrete problems arising from physics and engineering, and an extraordinary ability to find the right level of abstraction. His contributions unite analysis, geometry, and computation in ways that continue to shape modern applied mathematics.
+
+\section{Main Contribution}
+
+\begin{itemize}
+    \item \textbf{Lax--Milgram Theorem (1954):} A generalization of the Riesz representation theorem to bilinear forms on Hilbert spaces, providing a unified framework for proving existence and uniqueness of weak solutions to elliptic partial differential equations. It is the cornerstone of the finite element method.
+    \item \textbf{Lax Equivalence Theorem (1954):} A fundamental result in numerical analysis: for a consistent finite-difference approximation to a linear well-posed initial-value problem, stability is necessary and sufficient for convergence. This theorem (``consistency + stability = convergence'') provides the intellectual foundation for all numerical methods for PDEs.
+    \item \textbf{Lax--Friedrichs and Lax--Wendroff Schemes (1950s--1960s):} Two of the most important numerical methods for hyperbolic conservation laws. The Lax--Friedrichs scheme is a monotone, first-order method; the Lax--Wendroff scheme is a second-order method derived from Taylor expansion. The Lax--Wendroff theorem establishes that conservative numerical methods that converge to weak solutions must converge to entropy solutions.
+    \item \textbf{Lax Entropy Condition (1971):} A selection criterion for physically relevant weak solutions of hyperbolic conservation laws. It requires that admissible shock waves have characteristic lines converging into the shock, ensuring that the solution satisfies the second law of thermodynamics.
+    \item \textbf{Lax--Phillips Scattering Theory (1967):} A comprehensive framework for scattering theory in terms of translation representations and semigroups of operators. It unifies quantum scattering, wave propagation, and acoustics into a single abstract theory.
+    \item \textbf{Lax Pairs (1968):} A formulation of integrable nonlinear PDEs as compatibility conditions of a pair of linear operators:
+    \[
+    \frac{dL}{dt} = [L, M] = LM - ML,
+    \]
+    where \(L\) and \(M\) are linear differential operators (a Lax pair). This discovery revealed the hidden linear structure of the Korteweg--de Vries (KdV) equation and launched the modern theory of integrable systems.
+    \item \textbf{Contributions to Shock Wave Theory:} Fundamental analysis of weak solutions of hyperbolic conservation laws, including decay estimates, existence and uniqueness of entropy solutions, and the structure of Riemann problems.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Need for Weak Solutions}
+
+Hyperbolic conservation laws are partial differential equations of the form
+\[
+u_t + \dv{}{x} f(u) = 0,
+\]
+which express the conservation of some quantity \(u(x,t)\) with flux \(f(u)\). The canonical example is the inviscid Burgers equation
+\[
+u_t + u u_x = 0.
+\]
+
+Even for smooth initial data, solutions of nonlinear hyperbolic equations develop discontinuities (shock waves) in finite time. This means classical solutions --- functions that are continuously differentiable --- do not exist globally. The concept of \textit{weak solutions} (solutions in the sense of distributions) was introduced to handle these discontinuities, but weak solutions are not unique. Additional selection criteria --- entropy conditions --- are needed to pick the physically correct solution.
+
+The numerical computation of shock waves posed an even more acute problem. Early finite-difference schemes produced oscillations near shocks or smeared them out. A systematic theory of numerical methods for conservation laws was needed, and Lax provided it.
+
+\subsection{The Problem of Scattering}
+
+Scattering theory studies how waves (acoustic, electromagnetic, quantum mechanical) interact with obstacles or potentials. The fundamental question is: given an incoming wave long before it interacts with a scatterer, what is the outgoing wave long after? In quantum mechanics, this is the problem of determining the scattering matrix (S-matrix) from the Hamiltonian.
+
+Traditional approaches treated each physical setting separately. Lax and Phillips sought a unified, abstract framework that would capture the common mathematical structure of all scattering phenomena.
+
+\subsection{The Puzzle of Integrable Systems}
+
+The Korteweg--de Vries (KdV) equation,
+\[
+u_t - 6 u u_x + u_{xxx} = 0,
+\]
+was derived in 1895 to model shallow-water waves. Numerical experiments in the 1950s (by Fermi, Pasta, Ulam, and Tsingou) revealed surprising recurrences that suggested hidden structure. In 1965, Zabusky and Kruskal discovered that the KdV equation has \textit{soliton} solutions --- localized waves that pass through each other without change of shape or speed. This particle-like behavior was mysterious: nonlinear equations typically produce complex, chaotic interactions, not elastic collisions.
+
+The problem was to understand the mathematical structure underlying these phenomena. What makes some nonlinear equations ``integrable'' while most are not? The answer came from Lax's concept of a Lax pair.
+
+\subsection{The Finite Element Revolution}
+
+Engineers in the 1950s were developing numerical methods for structural analysis that involved minimizing energy over piecewise-polynomial spaces (the direct stiffness method). Mathematicians recognized that these methods were approximations of the weak formulation of elliptic PDEs. The Lax--Milgram theorem provided the rigorous functional-analytic foundation: it guarantees that if a bilinear form is continuous and coercive, then the variational problem has a unique solution. This theorem is the mathematical justification for the finite element method.
+
+\section{How It Was Solved}
+
+\subsection{The Lax Equivalence Theorem}
+
+The Lax equivalence theorem addresses the following setting. Consider a well-posed linear initial-value problem
+\[
+\frac{du}{dt} = A u, \quad u(0) = u_0,
+\]
+where \(A\) is a linear operator on a Banach space. Approximate this by a family of finite-difference operators \(C(\Delta t, \Delta x)\) with step sizes \(\Delta t\) and \(\Delta x\).
+
+\begin{definition}[Consistency]
+A finite-difference scheme is \textbf{consistent} with the PDE if, for any smooth solution \(u\),
+\[
+\frac{C(\Delta t, \Delta x) u - u}{\Delta t} - A u \to 0
+\]
+as \(\Delta t, \Delta x \to 0\) in an appropriate sense.
+\end{definition}
+
+\begin{definition}[Stability]
+A scheme is \textbf{stable} if there exist constants \(\Delta t_0, \Delta x_0 > 0\) such that for all \(0 < \Delta t \leq \Delta t_0\) and \(0 < \Delta x \leq \Delta x_0\),
+\[
+\|C(\Delta t, \Delta x)^n\| \leq K e^{\alpha n \Delta t}
+\]
+for some constants \(K, \alpha\) independent of the mesh sizes.
+\end{definition}
+
+\begin{theorem}[Lax Equivalence Theorem, 1954]
+For a consistent finite-difference approximation to a well-posed linear initial-value problem, stability is necessary and sufficient for convergence. More precisely:
+\[
+\text{consistency} \;+\; \text{stability} \;\Longleftrightarrow\; \text{convergence}.
+\]
+\end{theorem}
+
+\begin{proof}[Sketch]
+Let \(u(t)\) be the exact solution and \(v^n\) the numerical solution at time \(t_n = n \Delta t\). Define the error \(e^n = v^n - u(n\Delta t)\). The consistency condition gives that the local truncation error \(\tau^n = C u(n\Delta t) - u((n+1)\Delta t)\) satisfies \(\tau^n / \Delta t \to 0\). The recurrence for the error is
+\[
+e^{n+1} = C e^n + \tau^n.
+\]
+Iterating and using stability,
+\[
+\|e^n\| \leq \|C^n\|\,\|e^0\| + \sum_{k=0}^{n-1} \|C^{n-1-k}\|\,\|\tau^k\|.
+\]
+With \(e^0 = 0\) and \(\|\tau^k\| \leq \varepsilon \Delta t\) for sufficiently small mesh sizes, we obtain \(\|e^n\| \leq K T \varepsilon \to 0\). Conversely, if the scheme converges, it must be stable; otherwise one could construct an initial condition that leads to divergence.
+\end{proof}
+
+This theorem liberated numerical analysis: it meant that one can study stability (a much easier problem, often solved by Fourier analysis via the von Neumann condition) with the confidence that convergence follows automatically.
+
+\subsection{The Lax--Milgram Theorem}
+
+Consider an elliptic boundary-value problem such as Poisson's equation:
+\[
+-\nabla^2 u = f \text{ in } \Omega, \qquad u|_{\partial\Omega} = 0.
+\]
+The classical approach seeks a twice-differentiable solution. The weak formulation multiplies by a test function \(v\) and integrates by parts:
+\[
+\int_\Omega \nabla u \cdot \nabla v \,dx = \int_\Omega f v \,dx.
+\]
+
+Lax and Milgram recognized that this is a problem about bilinear forms on Hilbert spaces.
+
+\begin{definition}[Coercive Bilinear Form]
+A bilinear form \(B: H \times H \to \R\) on a Hilbert space \(H\) is \textbf{coercive} (or \(H\)-elliptic) if there exists a constant \(\alpha > 0\) such that
+\[
+B(u, u) \geq \alpha \|u\|_H^2 \quad \text{for all } u \in H.
+\]
+\end{definition}
+
+\begin{theorem}[Lax--Milgram, 1954]
+Let \(H\) be a real Hilbert space and let \(B: H \times H \to \R\) be a bilinear form satisfying:
+\begin{enumerate}
+    \item \textbf{Continuity:} There exists \(M > 0\) such that \(|B(u,v)| \leq M\|u\|\,\|v\|\) for all \(u, v \in H\).
+    \item \textbf{Coercivity:} There exists \(\alpha > 0\) such that \(B(u,u) \geq \alpha \|u\|^2\) for all \(u \in H\).
+\end{enumerate}
+Then for any bounded linear functional \(L: H \to \R\), there exists a unique \(u \in H\) such that
+\[
+B(u, v) = L(v) \quad \text{for all } v \in H.
+\]
+Moreover, the solution depends continuously on \(L\):
+\[
+\|u\| \leq \frac{1}{\alpha} \|L\|.
+\]
+\end{theorem}
+
+\begin{proof}[Sketch]
+By the Riesz representation theorem, there exists \(f \in H\) such that \(L(v) = \langle f, v \rangle\) for all \(v \in H\). For each fixed \(u\), the map \(v \mapsto B(u,v)\) is a bounded linear functional, so there exists an operator \(A: H \to H\) such that
+\[
+B(u,v) = \langle A u, v \rangle \quad \text{for all } v \in H.
+\]
+The operator \(A\) is bounded (by \(M\)) and coercive (\(\langle A u, u \rangle \geq \alpha \|u\|^2\)). The Lax--Milgram theorem is therefore equivalent to proving that a bounded, coercive linear operator on a Hilbert space is invertible with \(\|A^{-1}\| \leq 1/\alpha\). This follows from the fact that the range of \(A\) is closed (by coercivity) and dense (because if \(w \perp \text{Range}(A)\), then \(\alpha\|w\|^2 \leq \langle A w, w \rangle = 0\)).
+\end{proof}
+
+The Lax--Milgram theorem is the mathematical foundation of the finite element method. When solving Poisson's equation, one takes \(H = H_0^1(\Omega)\) (the Sobolev space of functions vanishing on the boundary) and
+\[
+B(u,v) = \int_\Omega \nabla u \cdot \nabla v \,dx,
+\qquad
+L(v) = \int_\Omega f v \,dx.
+\]
+The bilinear form is continuous by the Cauchy--Schwarz inequality and coercive by the Poincar\'e inequality. The Galerkin method (and its practical implementation, the finite element method) replaces \(H\) by a finite-dimensional subspace \(H_h\) and solves the same problem in that subspace. The Lax--Milgram theorem guarantees that the discrete problem has a unique solution, and C\'ea's lemma bounds the error in terms of the best approximation error.
+
+\subsection{The Lax Entropy Condition}
+
+For a scalar conservation law \(u_t + f(u)_x = 0\), weak solutions are not unique. For example, the Burgers equation \(u_t + (u^2/2)_x = 0\) with the Riemann data
+\[
+u(x,0) = \begin{cases}
+0 & x < 0,\\
+1 & x > 0,
+\end{cases}
+\]
+has infinitely many weak solutions. Only one of them is physically correct: the shock wave that propagates at speed \(s = (f(u_R) - f(u_L))/(u_R - u_L) = 1/2\).
+
+Lax introduced an entropy condition that selects the physically admissible solution. The idea is based on the behavior of characteristics.
+
+\begin{condition}[Lax Entropy Condition, 1971]
+An admissible shock connecting a left state \(u_L\) to a right state \(u_R\) with speed \(s\) must satisfy
+\[
+f'(u_L) > s > f'(u_R).
+\]
+In other words, characteristics from the left and right must converge into the shock. A shock that violates this condition (with characteristics diverging from the shock) is an \textit{expansion shock} and is physically inadmissible.
+\end{condition}
+
+This condition can be understood physically: the entropy of the system must increase across a shock. For a convex flux (\(f''(u) > 0\)), the Lax entropy condition simplifies to \(u_L > u_R\), meaning that the solution must be decreasing across the shock.
+
+\begin{theorem}[Lax, 1971]
+For a scalar conservation law with convex flux, the Lax entropy condition selects a unique weak solution. This solution satisfies the entropy inequality
+\[
+\eta(u)_t + q(u)_x \leq 0
+\]
+in the sense of distributions for every convex entropy function \(\eta\) with corresponding entropy flux \(q\) satisfying \(q' = \eta' f'\).
+\end{theorem}
+
+The Lax entropy condition is closely related to the vanishing viscosity method: the admissible solution is the limit of solutions of the parabolic regularization
+\[
+u_t + f(u)_x = \varepsilon u_{xx}
+\]
+as \(\varepsilon \to 0^+\). This selection principle is now standard in the theory of hyperbolic conservation laws.
+
+\subsection{Lax Pairs and Integrable Systems}
+
+The KdV equation
+\[
+u_t - 6uu_x + u_{xxx} = 0
+\]
+appeared to be an ordinary nonlinear PDE until Lax revealed its hidden linear structure. He introduced two linear differential operators:
+\[
+L = -\partial_x^2 + u(x,t), \qquad
+M = -4\partial_x^3 + 3(u \partial_x + \partial_x u).
+\]
+
+Here \(L\) is the Schr\"odinger operator with potential \(u(x,t)\), and \(M\) is a skew-symmetric operator.
+
+\begin{definition}[Lax Pair]
+A pair of linear operators \((L, M)\) is called a \textbf{Lax pair} for a nonlinear evolution equation \(u_t = K(u)\) if the equation is equivalent to the operator equation
+\[
+\frac{dL}{dt} = [L, M] = LM - ML.
+\]
+\end{definition}
+
+\begin{theorem}[Lax, 1968]
+The KdV equation \(u_t - 6uu_x + u_{xxx} = 0\) is equivalent to the Lax equation
+\[
+\frac{dL}{dt} = [L, M],
+\]
+where \(L = -\partial_x^2 + u\) and \(M = -4\partial_x^3 + 3(u \partial_x + \partial_x u)\).
+\end{theorem}
+
+\begin{proof}[Verification]
+Compute \(L_t = u_t\) (since \(-\partial_x^2\) is time-independent). Then
+\[
+[L, M] = [-\partial_x^2 + u, -4\partial_x^3 + 3(u\partial_x + \partial_x u)].
+\]
+A lengthy but straightforward calculation yields
+\[
+[L, M] = -u_{xxx} + 6uu_x.
+\]
+Thus \(L_t = [L, M]\) is exactly \(u_t = u_{xxx} - 6uu_x\), which is the KdV equation (up to sign).
+\end{proof}
+
+The significance of the Lax pair is profound. Since \(dL/dt = [L, M]\), the operators \(L(t)\) and \(L(0)\) are unitarily equivalent: there exists a unitary operator \(U(t)\) such that
+\[
+L(t) = U(t)^{-1} L(0) U(t).
+\]
+Consequently, the spectrum of \(L\) is invariant under the evolution. The eigenvalues of the Schr\"odinger operator \(L\) are constants of motion for the KdV equation. This explains soliton behavior: each bound state of \(L\) corresponds to a soliton, and the scattering data of \(L\) evolve in a simple linear fashion.
+
+The Lax pair formulation led to the solution of the KdV equation via the inverse scattering transform:
+\begin{enumerate}
+    \item \textbf{Forward scattering:} Given \(u(x,0)\), compute the scattering data of \(L(0)\) (reflection coefficient, bound-state eigenvalues, normalization constants).
+    \item \textbf{Time evolution:} The scattering data evolve linearly in time.
+    \item \textbf{Inverse scattering:} Reconstruct \(u(x,t)\) from the evolved scattering data via the Gelfand--Levitan--Marchenko integral equation.
+\end{enumerate}
+
+This three-step procedure is the nonlinear analogue of the Fourier transform method for linear PDEs. Lax pairs were subsequently found for many other integrable systems, including the nonlinear Schr\"odinger equation, the sine-Gordon equation, and the Toda lattice.
+
+\subsection{The Lax--Wendroff Scheme and Theorem}
+
+The Lax--Wendroff scheme is a second-order accurate finite-difference method for hyperbolic conservation laws. Consider \(u_t + f(u)_x = 0\). The idea is to use a Taylor expansion in time:
+\[
+u(x, t + \Delta t) = u + \Delta t\, u_t + \frac12 \Delta t^2\, u_{tt} + O(\Delta t^3).
+\]
+Using the PDE, \(u_t = -f_x\) and \(u_{tt} = -(f_t)_x = -(f'(u) u_t)_x = (f'(u) f_x)_x\). The resulting numerical scheme is
+\[
+u_j^{n+1} = u_j^n - \frac{\Delta t}{2\Delta x}(f_{j+1}^n - f_{j-1}^n) + \frac12 \frac{\Delta t^2}{\Delta x^2}\bigl(A_{j+1/2}(f_{j+1}^n - f_j^n) - A_{j-1/2}(f_j^n - f_{j-1}^n)\bigr),
+\]
+where \(A_{j+1/2} = f'\bigl((u_j + u_{j+1})/2\bigr)\).
+
+\begin{theorem}[Lax--Wendroff, 1960]
+If a conservative numerical method of the form
+\[
+u_j^{n+1} = u_j^n - \frac{\Delta t}{\Delta x}\bigl(g_{j+1/2}^n - g_{j-1/2}^n\bigr)
+\]
+converges boundedly almost everywhere to some function \(u(x,t)\), then \(u\) is a weak solution of the conservation law \(u_t + f(u)_x = 0\).
+\end{theorem}
+
+This theorem is fundamental because it establishes that any convergent conservative method automatically yields a weak solution. Combined with an entropy condition, the numerical solution converges to the physically correct entropy solution.
+
+\subsection{Lax--Phillips Scattering Theory}
+
+Scattering theory studies the asymptotic behavior of waves. Lax and Phillips developed a general framework based on translation representations.
+
+Consider a wave equation
+\[
+u_{tt} = c(x)^2 \nabla^2 u
+\]
+in an exterior domain with an obstacle. The energy of the solution is
+\[
+E(t) = \frac12 \int \bigl(u_t^2 + c(x)^2 |\nabla u|^2\bigr)\,dx,
+\]
+which is conserved. The key objects in the Lax--Phillips theory are the \textit{incoming} and \textit{outgoing} subspaces, \(\mathcal{D}_-\) and \(\mathcal{D}_+\), consisting of solutions whose energy is concentrated near the obstacle at past and future infinity, respectively.
+
+\begin{theorem}[Lax--Phillips, 1967]
+The scattering matrix \(S(\sigma)\) is the operator that maps incoming asymptotic data to outgoing asymptotic data. It can be expressed as
+\[
+S(\sigma) = I - 2\pi i\, \mathcal{F}(\sigma),
+\]
+where \(\mathcal{F}\) is the Fourier transform of the Lax--Phillips semigroup
+\[
+Z(t) = P_+ U(t) P_-,
+\]
+with \(P_\pm\) being projections onto the orthogonal complements of \(\mathcal{D}_\pm\) and \(U(t)\) the unitary group of wave propagation.
+\end{theorem}
+
+The Lax--Phillips semigroup \(Z(t)\) describes the part of the wave that is ``trapped'' between interactions with the scatterer. Its spectrum determines the resonances of the scattering system. This framework unifies quantum scattering, acoustic scattering, and electromagnetic scattering into a single mathematical theory.
+
+\section{Mathematical Theory}
+
+\subsection{Weak Solutions and Conservation Laws}
+
+\begin{definition}[Weak Solution]
+A bounded measurable function \(u(x,t)\) is a \textbf{weak solution} of \(u_t + f(u)_x = 0\) with initial data \(u(x,0) = u_0(x)\) if for all test functions \(\phi \in C_0^\infty(\R \times [0,\infty))\),
+\[
+\int_0^\infty \int_{-\infty}^\infty \bigl(u \phi_t + f(u) \phi_x\bigr)\,dx\,dt + \int_{-\infty}^\infty u_0(x) \phi(x,0)\,dx = 0.
+\]
+\end{definition}
+
+\begin{definition}[Riemann Problem]
+The \textbf{Riemann problem} for a conservation law is the initial-value problem with piecewise constant data:
+\[
+u(x,0) = \begin{cases}
+u_L & x < 0,\\
+u_R & x > 0.
+\end{cases}
+\]
+The solution consists of shock waves, rarefaction waves, and contact discontinuities.
+\end{definition}
+
+The Lax entropy condition selects the correct shock among all weak solutions of the Riemann problem. For a system of conservation laws
+\[
+\vb{u}_t + \vb{f}(\vb{u})_x = 0,
+\]
+with the flux Jacobian \(\vb{f}'\) having real eigenvalues \(\lambda_1(\vb{u}) < \cdots < \lambda_n(\vb{u})\), the entropy condition for a \(k\)-shock connecting \(\vb{u}_L\) to \(\vb{u}_R\) is
+\[
+\lambda_k(\vb{u}_L) > s > \lambda_k(\vb{u}_R),
+\]
+where \(s\) is the shock speed. The characteristic field is called \textit{genuinely nonlinear} if \(\nabla \lambda_k \cdot \vb{r}_k \neq 0\) (where \(\vb{r}_k\) is the right eigenvector) and \textit{linearly degenerate} if \(\nabla \lambda_k \cdot \vb{r}_k = 0\).
+
+\subsection{The Lax--Milgram Theorem and Elliptic PDEs}
+
+The Lax--Milgram theorem is the starting point for the modern theory of elliptic boundary-value problems. It applies to second-order elliptic operators in divergence form:
+\[
+Lu = -\sum_{i,j=1}^n \partial_i (a_{ij}(x) \partial_j u) + \sum_{i=1}^n b_i(x) \partial_i u + c(x) u.
+\]
+
+\begin{definition}[Sobolev Space \(H_0^1(\Omega)\)]
+The space \(H_0^1(\Omega)\) is the completion of \(C_0^\infty(\Omega)\) in the norm
+\[
+\|u\|_{H^1} = \left(\int_\Omega |u|^2 + |\nabla u|^2 \,dx\right)^{1/2}.
+\]
+\end{definition}
+
+The weak formulation of \(Lu = f\) with homogeneous Dirichlet boundary conditions is: find \(u \in H_0^1(\Omega)\) such that
+\[
+B(u,v) = \int_\Omega f v \,dx \quad \text{for all } v \in H_0^1(\Omega),
+\]
+where
+\[
+B(u,v) = \int_\Omega \left(\sum_{i,j} a_{ij} \partial_j u \,\partial_i v + \sum_i b_i \partial_i u \, v + c u v\right) dx.
+\]
+
+If the coefficients satisfy the ellipticity condition
+\[
+\sum_{i,j} a_{ij}(x) \xi_i \xi_j \geq \alpha |\xi|^2 \quad \text{for all } \xi \in \R^n,
+\]
+then \(B\) is coercive on \(H_0^1(\Omega)\) (possibly after a shift) and the Lax--Milgram theorem guarantees a unique weak solution.
+
+\subsection{The Lax--Friedrichs Scheme}
+
+The Lax--Friedrichs scheme is a first-order finite-difference method for \(u_t + f(u)_x = 0\):
+\[
+u_j^{n+1} = \frac12 (u_{j+1}^n + u_{j-1}^n) - \frac{\Delta t}{2\Delta x}\bigl(f(u_{j+1}^n) - f(u_{j-1}^n)\bigr).
+\]
+
+This scheme replaces \(u_j^n\) by the average of its neighbors before applying the flux difference. The method is stable under the Courant--Friedrichs--Lewy (CFL) condition
+\[
+\frac{\Delta t}{\Delta x} \max_u |f'(u)| \leq 1.
+\]
+
+The Lax--Friedrichs scheme is monotone and satisfies a discrete entropy inequality, making it convergent to the entropy solution. However, it is highly diffusive (first-order accuracy) and smears contacts and shocks over several grid cells.
+
+\subsection{Lax Pairs for Other Integrable Systems}
+
+The discovery of the Lax pair for KdV opened the floodgates. Lax pairs were found for many other equations:
+
+\begin{example}[Nonlinear Schr\"odinger Equation]
+The equation \(i u_t + u_{xx} + 2|u|^2 u = 0\) has the Lax pair
+\[
+L = i\begin{pmatrix}
+\partial_x & -u^* \\
+u & -\partial_x
+\end{pmatrix},
+\qquad
+M = i\begin{pmatrix}
+-2|u|^2 + \partial_x^2 & -u_x^* - 2u^* \partial_x \\
+u_x - 2u \partial_x & 2|u|^2 - \partial_x^2
+\end{pmatrix}.
+\]
+Here \(L_t = [L, M]\) reproduces the NLS equation.
+\end{example}
+
+\begin{example}[Sine-Gordon Equation]
+The equation \(u_{tt} - u_{xx} + \sin u = 0\) can be written as a Lax pair using the AKNS (Ablowitz--Kaup--Newell--Segur) formalism, with
+\[
+L = i\begin{pmatrix}
+\partial_x & -\frac12 u_t - \frac12 u_x \\
+\frac12 u_t - \frac12 u_x & -\partial_x
+\end{pmatrix},
+\]
+and a corresponding \(M\) operator. The Lax equation yields the sine-Gordon equation.
+\end{example}
+
+The general AKNS framework unified the search for Lax pairs. For a \(2 \times 2\) system
+\[
+\Psi_x = P \Psi, \qquad \Psi_t = Q \Psi,
+\]
+the compatibility condition \(\Psi_{xt} = \Psi_{tx}\) gives the zero-curvature equation
+\[
+P_t - Q_x + [P, Q] = 0,
+\]
+which is equivalent to the Lax equation.
+
+\subsection{The Lax--Wendroff Theorem and Entropy}
+
+The Lax--Wendroff theorem states that conservative numerical methods converge to weak solutions. However, they may converge to the wrong weak solution (e.g., an expansion shock). For convergence to the entropy solution, the numerical flux must satisfy an entropy inequality.
+
+\begin{theorem}[Lax--Wendroff, 1960 + Entropy]
+If a conservative numerical method satisfies a discrete entropy inequality
+\[
+\eta(u_j^{n+1}) \leq \eta(u_j^n) - \frac{\Delta t}{\Delta x} \bigl(Q_{j+1/2}^n - Q_{j-1/2}^n\bigr)
+\]
+for some consistent entropy flux \(Q\), then the limit of the numerical solution is an entropy solution of the conservation law.
+\end{theorem}
+
+This result is the numerical analogue of the vanishing viscosity method. Monotone schemes (like Lax--Friedrichs) automatically satisfy discrete entropy inequalities, which is why they converge to entropy solutions.
+
+\section{Impact}
+
+\subsection{Numerical Analysis and Scientific Computing}
+
+The Lax equivalence theorem is the foundational result of numerical analysis. Every numerical analyst learns ``consistency + stability = convergence'' as the first principle of finite-difference methods. This theorem freed researchers to analyze stability (which can be checked by von Neumann analysis or energy methods) without worrying about convergence itself.
+
+The Lax--Wendroff scheme was one of the first high-resolution methods for hyperbolic PDEs. It inspired the development of modern shock-capturing schemes, including the Godunov method, MUSCL (Monotone Upstream-centered Schemes for Conservation Laws), ENO (Essentially Non-Oscillatory), and WENO (Weighted Essentially Non-Oscillatory) schemes. These methods are used in every computational fluid dynamics code, from aircraft design to weather prediction.
+
+The Lax--Friedrichs scheme, despite its simplicity, remains the benchmark for new numerical methods. Its monotonicity property and entropy stability make it the gold standard for robust shock capturing.
+
+\subsection{Partial Differential Equations}
+
+The Lax--Milgram theorem transformed the study of elliptic PDEs. It provided the foundation for the theory of weak solutions and Sobolev spaces. The finite element method, which dominates structural mechanics, heat transfer, and electromagnetics, rests on the Lax--Milgram theorem through the Galerkin approximation.
+
+The Lax entropy condition is essential in gas dynamics, where it identifies admissible shock waves. It is taught in every course on conservation laws and is implemented in every numerical code for compressible flow.
+
+Lax's work on hyperbolic systems established the existence and uniqueness theory for \(2 \times 2\) systems and introduced the random choice method (with Glimm) for proving existence of solutions to systems of conservation laws.
+
+\subsection{Integrable Systems and Soliton Theory}
+
+The concept of Lax pairs revolutionized the study of nonlinear waves. It revealed that integrable PDEs are not isolated curiosities but form a rich class with deep connections to algebraic geometry, representation theory, and quantum field theory.
+
+The inverse scattering transform, made possible by the Lax pair formulation, is the nonlinear analogue of the Fourier transform. It has been applied to:
+\begin{itemize}
+    \item \textbf{Water waves:} The KdV equation models shallow-water waves; solitons explain the persistence of tsunamis and tidal bores.
+    \item \textbf{Optical fibers:} The nonlinear Schr\"odinger equation governs pulse propagation; solitons enable long-distance optical communication.
+    \item \textbf{Plasma physics:} The KdV equation describes ion-acoustic waves in plasmas.
+    \item \textbf{Bose--Einstein condensates:} The Gross--Pitaevskii equation (a variant of NLS) models quantum condensates.
+\end{itemize}
+
+The Lax pair idea inspired the theory of quantum integrable systems (the Yang--Baxter equation, Bethe ansatz) and the development of the algebraic geometry of solitons (Riemann--Hilbert problems, theta functions).
+
+\subsection{Scattering Theory}
+
+The Lax--Phillips framework unified scattering theory across physics. It has been applied to:
+\begin{itemize}
+    \item \textbf{Quantum mechanics:} Resonance phenomena in nuclear and atomic physics.
+    \item \textbf{Acoustics:} Sound propagation in inhomogeneous media with obstacles.
+    \item \textbf{Electromagnetics:} Radar cross-section analysis and antenna design.
+    \item \textbf{Seismology:} Wave propagation in the Earth's interior.
+\end{itemize}
+
+The theory also found unexpected applications in automorphic forms and number theory, where the Lax--Phillips approach relates to the Selberg trace formula and the theory of resonances for locally symmetric spaces.
+
+\subsection{Undergraduate Education}
+
+Many of Lax's contributions are now part of the standard undergraduate curriculum:
+\begin{itemize}
+    \item The Lax--Milgram theorem is taught in functional analysis and PDE courses.
+    \item The Lax equivalence theorem appears in numerical analysis courses.
+    \item The Lax--Wendroff scheme is covered in computational fluid dynamics.
+    \item Lax pairs are introduced in courses on integrable systems and solitons.
+    \item The Lax entropy condition is standard in conservation law theory.
+\end{itemize}
+
+Lax's textbooks, particularly \textit{Hyperbolic Systems of Conservation Laws and the Mathematical Theory of Shock Waves} and \textit{Scattering Theory} (with Phillips), remain definitive references.
+
+\section{Frequently Asked Questions}
+
+\subsection*{Q1: What is the Lax equivalence theorem and why is it important?}
+
+The Lax equivalence theorem states: for a consistent finite-difference approximation to a well-posed linear initial-value problem, stability is equivalent to convergence. This is important because stability can be checked by Fourier analysis (the von Neumann condition) or energy estimates, independent of the specific initial data. Once consistency and stability are verified, convergence follows automatically. This theorem provides the theoretical foundation for essentially all numerical methods for PDEs.
+
+\subsection*{Q2: What is the difference between the Lax--Milgram theorem and the Riesz representation theorem?}
+
+The Riesz representation theorem says every bounded linear functional on a Hilbert space can be represented as an inner product with a unique vector. The Lax--Milgram theorem generalizes this from inner products to bilinear forms. For a symmetric, coercive bilinear form, the two are equivalent (the bilinear form defines an equivalent inner product). For non-symmetric forms, the Lax--Milgram theorem is strictly more general and is essential for convection--diffusion equations and other problems where the operator is not self-adjoint.
+
+\subsection*{Q3: How does a Lax pair make a nonlinear PDE solvable?}
+
+A Lax pair \((L,M)\) reveals that the nonlinear evolution is equivalent to an isospectral deformation of the operator \(L\): the spectrum of \(L\) is invariant in time. The scattering data of \(L\) (eigenvalues, reflection coefficient) evolve linearly. This reduces the nonlinear PDE to three linear steps: (1) solve the forward scattering problem for the initial data, (2) evolve the scattering data linearly, (3) solve the inverse scattering problem to reconstruct the solution. This is exactly analogous to using the Fourier transform to solve a linear PDE.
+
+\subsection*{Q4: Why is an entropy condition necessary for conservation laws?}
+
+Weak solutions of conservation laws are not unique. The entropy condition selects the physically correct solution that satisfies the second law of thermodynamics (entropy must increase across shocks). Without it, one could have expansion shocks (where the solution jumps from a low state to a high state), which would violate the laws of physics. The Lax entropy condition \(f'(u_L) > s > f'(u_R)\) ensures that characteristics converge into the shock, which corresponds to entropy production.
+
+\subsection*{Q5: How did Lax's work influence the finite element method?}
+
+The Lax--Milgram theorem provides the theoretical justification for the finite element method. The theorem guarantees that the variational problem \(B(u,v) = L(v)\) has a unique solution in a Hilbert space. The finite element method replaces the infinite-dimensional space with a finite-dimensional subspace (piecewise polynomials on a mesh). C\'ea's lemma then bounds the finite element error by the best approximation error, which can be estimated using interpolation theory. Every finite element analysis textbook begins with the Lax--Milgram theorem.
+
+\subsection*{Q6: What are the main open problems related to Lax's work?}
+
+Several deep problems remain:
+\begin{enumerate}
+    \item \textbf{Multi-dimensional conservation laws:} The existence and uniqueness theory for entropy solutions of multi-dimensional systems (like the Euler equations of gas dynamics) is incomplete.
+    \item \textbf{Integrable systems in higher dimensions:} Finding Lax pairs and solving integrable PDEs in more than one space dimension (the KP equation is a partial success, but the general theory is open).
+    \item \textbf{Classification of Lax pairs:} There is no general method to determine whether a given PDE admits a Lax pair or to find one systematically.
+    \item \textbf{Nonlinear scattering theory:} Extending the Lax--Phillips framework to fully nonlinear wave equations.
+    \item \textbf{Adaptive numerical methods:} Theoretical understanding of adaptive mesh refinement for hyperbolic conservation laws with rigorous error bounds.
+\end{enumerate}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item P.\ D.\ Lax and A.\ N.\ Milgram, \textit{Parabolic equations}, in ``Contributions to the Theory of Partial Differential Equations,'' Annals of Mathematics Studies 33, Princeton University Press, 1954, pp.\ 167--190. (The Lax--Milgram theorem.)
+    \item P.\ D.\ Lax, \textit{Weak solutions of nonlinear hyperbolic equations and their numerical computation}, Comm.\ Pure Appl.\ Math.\ 7 (1954), 159--193. (The Lax equivalence theorem.)
+    \item P.\ D.\ Lax and B.\ Wendroff, \textit{Systems of conservation laws}, Comm.\ Pure Appl.\ Math.\ 13 (1960), 217--237. (The Lax--Wendroff scheme and theorem.)
+    \item P.\ D.\ Lax, \textit{Integrals of nonlinear equations of evolution and solitary waves}, Comm.\ Pure Appl.\ Math.\ 21 (1968), 467--490. (Lax pairs for the KdV equation.)
+    \item P.\ D.\ Lax, \textit{Shock waves and entropy}, in ``Contributions to Nonlinear Functional Analysis,'' Academic Press, 1971, pp.\ 603--634. (The Lax entropy condition.)
+    \item P.\ D.\ Lax and R.\ S.\ Phillips, \textit{Scattering Theory}, Pure and Applied Mathematics 26, Academic Press, 1967. (Lax--Phillips scattering theory.)
+    \item P.\ D.\ Lax, \textit{Hyperbolic Systems of Conservation Laws and the Mathematical Theory of Shock Waves}, CBMS-NSF Regional Conference Series 11, SIAM, 1973.
+    \item P.\ D.\ Lax, \textit{Functional Analysis}, Wiley-Interscience, 2002.
+\end{enumerate}
+
+\subsection*{Biographies and Surveys}
+\begin{enumerate}
+    \item C.\ S.\ Morawetz, \textit{Peter Lax}, in ``Wolf Prize in Mathematics,'' Vol.\ 2, World Scientific, 2001, pp.\ 689--693.
+    \item J.\ Glimm, \textit{The work of Peter Lax}, in ``Selected Papers of Peter Lax,'' Springer, 2005.
+    \item C.\ S.\ Morawetz, \textit{Peter Lax --- a biography}, Notices AMS 60 (2013), 426--431.
+    \item P.\ D.\ Lax, \textit{Mathematics and physics}, Bull.\ Amer.\ Math.\ Soc.\ 45 (2008), 147--160. (A personal account of his work.)
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item L.\ C.\ Evans, \textit{Partial Differential Equations}, 2nd ed., AMS, 2010.
+    \item R.\ J.\ LeVeque, \textit{Numerical Methods for Conservation Laws}, 2nd ed., Birkh\"auser, 1992.
+    \item R.\ J.\ LeVeque, \textit{Finite Volume Methods for Hyperbolic Problems}, Cambridge University Press, 2002.
+    \item J.\ W.\ Thomas, \textit{Numerical Partial Differential Equations: Finite Difference Methods}, Springer, 1995.
+    \item G.\ B.\ Whitham, \textit{Linear and Nonlinear Waves}, Wiley-Interscience, 1974.
+    \item M.\ J.\ Ablowitz and H.\ Segur, \textit{Solitons and the Inverse Scattering Transform}, SIAM, 1981.
+    \item L.\ D.\ Faddeev and L.\ A.\ Takhtajan, \textit{Hamiltonian Methods in the Theory of Solitons}, Springer, 1987.
+    \item S.\ C.\ Brenner and L.\ R.\ Scott, \textit{The Mathematical Theory of Finite Element Methods}, 3rd ed., Springer, 2008.
+    \item A.\ Bressan, \textit{Hyperbolic Systems of Conservation Laws: The One-Dimensional Cauchy Problem}, Oxford University Press, 2000.
+\end{enumerate}
+
+\section{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1926 & Born on May 1 in Budapest, Hungary \\ \hline
+1941 & Fled Nazi persecution; emigrated to the United States \\ \hline
+1945--1947 & Served in the U.S.\ Army, working at Los Alamos National Laboratory \\ \hline
+1948 & Ph.D.\ in Mathematics, New York University (advisor: K.\ O.\ Friedrichs) \\ \hline
+1951 & Appointed Professor at NYU (Courant Institute of Mathematical Sciences) \\ \hline
+1954 & Lax--Milgram theorem and Lax equivalence theorem published \\ \hline
+1954 & Lax--Friedrichs scheme introduced \\ \hline
+1957 & Elected to the American Academy of Arts and Sciences \\ \hline
+1960 & Lax--Wendroff scheme and theorem published with Burton Wendroff \\ \hline
+1966 & Elected to the National Academy of Sciences \\ \hline
+1968 & Lax pairs for the KdV equation published; beginning of modern soliton theory \\ \hline
+1971 & Lax entropy condition for hyperbolic conservation laws \\ \hline
+1972 & Lax--Phillips scattering theory published (book with Ralph Phillips) \\ \hline
+1972--1980 & Director of the Courant Institute of Mathematical Sciences, NYU \\ \hline
+1973 & Published ``Hyperbolic Systems of Conservation Laws and the Mathematical Theory of Shock Waves'' \\ \hline
+1980s & Lax pairs developed for many other integrable systems; continued work on shock waves \\ \hline
+1986 & Awarded the National Medal of Science (U.S.) \\ \hline
+1987 & Awarded the Wolf Prize in Mathematics (shared with Kiyoshi It\^{o}) \\ \hline
+2005 & Awarded the Abel Prize from the Norwegian Academy of Science and Letters \\ \hline
+2013 & Celebrated 60 years on the faculty at NYU \\ \hline
+\end{tabular}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Let \(H = L^2(0,1)\) and define \(B(u,v) = \int_0^1 u'(x) v'(x) \,dx\) on \(H_0^1(0,1)\). Verify the continuity and coercivity of \(B\), and find the unique weak solution of \(-u'' = f\) for \(f \equiv 1\) using the Lax--Milgram theorem.
+    \item Prove that the Lax--Friedrichs scheme is monotone: if \(u_j^n \geq v_j^n\) for all \(j\), then \(u_j^{n+1} \geq v_j^{n+1}\) for all \(j\), provided the CFL condition holds.
+    \item Derive the Lax--Wendroff scheme by starting from the Taylor expansion
+    \[
+    u(x, t + \Delta t) = u - \Delta t\, f_x + \frac12 \Delta t^2\, (f'(u) f_x)_x + O(\Delta t^3)
+    \]
+    and approximating the spatial derivatives by central differences.
+    \item Consider the Burgers equation \(u_t + (u^2/2)_x = 0\) with Riemann data \(u_L = 1, u_R = 0\). Show that the shock with speed \(s = 1/2\) satisfies the Lax entropy condition, while the rarefaction wave connecting \(u_L\) to \(u_R\) does not correspond to a single discontinuity.
+    \item For the KdV equation, verify directly that the Lax pair \((L, M)\) with \(L = -\partial_x^2 + u\) and \(M = -4\partial_x^3 + 3(u\partial_x + \partial_x u)\) satisfies \(L_t = [L, M]\) if and only if \(u_t = u_{xxx} - 6uu_x\).
+    \item Show that the spectrum of \(L(t) = -\partial_x^2 + u(x,t)\) is independent of time when \(u\) evolves by the KdV equation. (Hint: use the Lax pair to show that \(L(t)\) is unitarily equivalent to \(L(0)\).)
+    \item For the scalar conservation law \(u_t + f(u)_x = 0\) with convex flux, prove that the Lax entropy condition \(f'(u_L) > s > f'(u_R)\) is equivalent to the Oleinik entropy condition:
+    \[
+    \frac{f(u) - f(u_L)}{u - u_L} \geq s \geq \frac{f(u) - f(u_R)}{u - u_R}
+    \]
+    for all \(u\) between \(u_L\) and \(u_R\).
+    \item Implement the Lax--Friedrichs scheme for the inviscid Burgers equation with initial data \(u(x,0) = \sin(\pi x)\) on \([-1,1]\) with periodic boundary conditions. Compute the numerical solution at \(t = 0.5\) using \(\Delta x = 0.01\) and \(\Delta t = 0.005\). Observe the formation of a shock.
+    \item Prove that the Lax--Milgram theorem implies the existence and uniqueness of weak solutions for the convection--diffusion equation
+    \[
+    -\varepsilon u'' + b u' = f, \quad u(0) = u(1) = 0,
+    \]
+    where \(\varepsilon > 0\) and \(b\) is a constant.
+    \item For the nonlinear Schr\"odinger equation \(i u_t + u_{xx} + 2|u|^2 u = 0\), verify that the given Lax pair satisfies the zero-curvature condition \(P_t - Q_x + [P,Q] = 0\).
+    \item Let \(B(u,v)\) be a continuous, coercive bilinear form on a Hilbert space \(H\). Prove that the solution operator \(L \mapsto u\) is linear and continuous from \(H'\) to \(H\) with norm \(\|u\| \leq \|L\|/\alpha\).
+    \item Show that the Lax equivalence theorem fails for nonlinear problems by constructing a consistent, stable finite-difference scheme for Burgers equation that does not converge to the entropy solution.
+    \item Derive the Lax--Phillips semigroup \(Z(t) = P_+ U(t) P_-\) and show that it is a strongly continuous semigroup of contractions on the orthogonal complement of \(\mathcal{D}_+ \oplus \mathcal{D}_-\).
+    \item Prove that the one-soliton solution of the KdV equation,
+    \[
+    u(x,t) = -2\kappa^2 \operatorname{sech}^2(\kappa(x - 4\kappa^2 t - x_0)),
+    \]
+    satisfies the Lax pair condition. Show that the Schr\"odinger operator with this potential has exactly one bound state at energy \(E = -\kappa^2\).
+    \item Consider the Lax--Wendroff theorem. Construct a sequence of numerical solutions that converge boundedly to a weak solution that is not an entropy solution, illustrating the necessity of the discrete entropy inequality.
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[CFL condition] The Courant--Friedrichs--Lewy condition, \(\Delta t |f'(u)| / \Delta x \leq 1\), necessary for stability of explicit schemes for hyperbolic PDEs.
+    \item[Coercive bilinear form] A bilinear form \(B\) satisfying \(B(u,u) \geq \alpha \|u\|^2\) for some \(\alpha > 0\).
+    \item[Conservation law] A PDE of the form \(u_t + f(u)_x = 0\) expressing conservation of the quantity \(u\).
+    \item[Consistency] A numerical scheme is consistent if its local truncation error vanishes as the mesh is refined.
+    \item[Convergence] A numerical scheme converges if its solution approaches the exact PDE solution as mesh parameters go to zero.
+    \item[Entropy condition] A selection criterion that identifies physically admissible weak solutions of conservation laws.
+    \item[Finite element method] A numerical method that approximates solutions of PDEs by minimizing energy or residual over finite-dimensional subspaces of piecewise polynomials.
+    \item[Inverse scattering transform] A method for solving integrable nonlinear PDEs by linearizing them via a Lax pair and the Gelfand--Levitan--Marchenko equation.
+    \item[Isospectral deformation] An evolution of an operator that preserves its spectrum; the defining property of Lax pairs.
+    \item[Lax equivalence theorem] Consistency \(+\) stability \(\Longleftrightarrow\) convergence for linear numerical schemes.
+    \item[Lax pair] A pair of operators \((L,M)\) such that \(L_t = [L,M]\) reproduces a nonlinear PDE.
+    \item[Lax--Friedrichs scheme] A first-order, monotone finite-difference scheme for conservation laws using spatial averaging.
+    \item[Lax--Milgram theorem] A theorem guaranteeing unique solvability of variational problems with continuous, coercive bilinear forms.
+    \item[Lax--Phillips semigroup] The semigroup \(Z(t) = P_+ U(t) P_-\) describing the trapped part of a scattering wave.
+    \item[Lax--Wendroff scheme] A second-order accurate finite-difference scheme for hyperbolic conservation laws.
+    \item[Monotone scheme] A numerical scheme that preserves ordering of solutions; it converges to entropy solutions.
+    \item[Riemann problem] The initial-value problem for a conservation law with piecewise constant initial data separated by a single discontinuity.
+    \item[Scattering matrix] The operator mapping incoming asymptotic data to outgoing asymptotic data in a scattering process.
+    \item[Shock wave] A propagating discontinuity in the solution of a hyperbolic conservation law.
+    \item[Sobolev space] The space \(H^k(\Omega)\) of functions whose weak derivatives up to order \(k\) are in \(L^2(\Omega)\).
+    \item[Soliton] A localized, particle-like wave that maintains its shape upon interaction with other solitons.
+    \item[Stability] A numerical scheme is stable if the norm of its solution operator is uniformly bounded independent of mesh size.
+    \item[Weak solution] A solution of a PDE in the sense of distributions, allowing discontinuities.
+\end{description}

@@ -1,0 +1,529 @@
+\let\im\relax
+\newcommand{\im}{\operatorname{im}}
+\let\coker\relax
+\newcommand{\coker}{\operatorname{coker}}
+\let\Spec\relax
+\newcommand{\Spec}{\operatorname{Spec}}
+\let\Supp\relax
+\newcommand{\Supp}{\operatorname{Supp}}
+\let\sing\relax
+\newcommand{\sing}{\operatorname{sing}}
+\let\divg\relax
+\newcommand{\divg}{\operatorname{div}}
+\let\Sh\relax
+\newcommand{\Sh}{\operatorname{Sh}}
+\let\res\relax
+\newcommand{\res}{\operatorname{res}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\cF\relax
+\newcommand{\cF}{\mathcal{F}}
+\let\cG\relax
+\newcommand{\cG}{\mathcal{G}}
+\let\cU\relax
+\newcommand{\cU}{\mathcal{U}}
+\let\cV\relax
+\newcommand{\cV}{\mathcal{V}}
+\let\cO\relax
+\newcommand{\cO}{\mathcal{O}}
+
+\chapter{Jean Leray (1979)}
+
+\begin{quote}
+\it ``The problems of the universe are not solved by formulas or by numbers, but by the awakening of the spirit to a consciousness of the truth.'' --- Jean Leray, citing an unnamed philosopher in his Coll{\`e}ge de France lectures
+\end{quote}
+
+Jean Leray (1906--1998) is one of the rare mathematicians who made fundamental, field-defining contributions in two completely separate areas: partial differential equations and algebraic topology. The 1979 Wolf Prize was awarded jointly to Leray and Andr\'{e} Weil ``for their contributions to the development of mathematics in this century.''
+
+Leray's career has a dramatic arc. Before World War II, he was a rising star in analysis---his 1934 paper on the Navier--Stokes equations founded the modern theory of weak solutions, and his collaboration with Juliusz Schauder created topological methods for infinite-dimensional problems. During the war, captured and held in Oflag XVIIA in Austria, he reinvented himself as a topologist, concealing his expertise in applied mathematics to avoid being forced into war work. In five years of captivity he invented sheaf theory, sheaf cohomology, and spectral sequences---three of the most powerful tools in modern mathematics. After the war he returned to analysis, producing deep work in several complex variables.
+
+\section{Main Contribution}
+
+The Wolf Prize citation highlights Leray's contributions across three areas:
+
+\begin{itemize}
+\item \textbf{Partial Differential Equations:} The existence of weak (``turbulent'') solutions to the Navier--Stokes equations; the Leray--Schauder fixed-point theorem for nonlinear PDEs; foundational results on hyperbolic systems.
+\item \textbf{Algebraic Topology:} The invention of sheaves and sheaf cohomology; the Leray spectral sequence for computing the cohomology of a map; the Leray covering theorem (acyclic covers).
+\item \textbf{Several Complex Variables:} The theory of residues in several variables; the Leray--Koppelman formula; results on the Cauchy--Riemann equations and domains of holomorphy.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Navier--Stokes Equations}
+
+How does a fluid move? The Navier--Stokes equations, dating to the 1820s, describe the velocity $u(x,t)$ and pressure $p(x,t)$ of an incompressible viscous fluid:
+
+\begin{align*}
+\frac{\partial u}{\partial t} + (u \cdot \nabla) u - \nu \Delta u + \nabla p &= 0, \\
+\nabla \cdot u &= 0,
+\end{align*}
+
+where $\nu > 0$ is the kinematic viscosity. Despite their practical importance---they govern everything from blood flow to weather to aircraft design---the equations present formidable mathematical difficulties.
+
+The nonlinear term $(u \cdot \nabla) u$ is the source of the trouble. An intuitive way to see why: consider two parcels of fluid near each other. The velocity of one parcel ``advects'' the other, creating a feedback loop. This nonlinearity can transfer energy from large scales to small scales, producing the cascade that characterizes turbulence.
+
+By 1934, mathematicians knew that solutions exist for short times if the initial data is smooth (the Cauchy--Kovalevskaya theorem), but nothing was known about long-time existence. The physical phenomenon of turbulence suggested that solutions might develop singularities---points where the velocity becomes infinite in finite time.
+
+The central question: given smooth initial data, do solutions of the Navier--Stokes equations exist for all time, or can they develop singularities in finite time? This is now one of the Clay Millennium Problems, carrying a \$1 million prize.
+
+\subsection{Fixed-Point Methods for PDEs}
+
+Imagine solving an equation like:
+\[
+-\Delta u = f(u),
+\]
+where $f$ is nonlinear. One approach is to rewrite it as $u = T(u)$ where $T$ is a nonlinear integral operator, and then seek a fixed point of $T$. In finite dimensions, Brouwer's fixed point theorem guarantees that any continuous map from a closed ball to itself has a fixed point.
+
+The challenge: function spaces like $C^0(\Omega)$ or $L^2(\Omega)$ are infinite-dimensional. Brouwer's theorem does not apply. Schauder had generalized the fixed-point theorem to Banach spaces for compact maps, but a systematic degree theory---necessary for showing existence and counting solutions---was missing.
+
+\subsection{The Cohomology of Fiber Spaces}
+
+Given a continuous map $\pi: E \to B$, how can we compute the cohomology $H^*(E)$ from information about the base $B$ and the fibers $\pi^{-1}(b)$? This is the problem of computing the cohomology of a ``fiber space'' (a structure more general than a fiber bundle).
+
+In the simplest case---a product $E = B \times F$---the K{\"u}nneth theorem tells us that $H^n(E) \cong \bigoplus_{p+q=n} H^p(B) \otimes H^q(F)$. But for non-trivial fibrations, interactions between the base and fiber create more complicated structures. For example, in the Hopf fibration $S^3 \to S^2$, the fiber $S^1$ ``twists'' around the base, and the cohomology groups do not decompose as a simple tensor product.
+
+Leray needed a new language to handle such problems---one that could track how local cohomology data on the base glues together to produce global cohomology of the total space.
+
+\subsection{Several Complex Variables}
+
+In one complex variable, the theory of residues is clean: for a meromorphic function $f$ on a domain in $\mathbb{C}$, the residue theorem expresses contour integrals in terms of residues at isolated poles. In several variables, a function can have singularities along higher-dimensional analytic sets, and the notion of a ``residue'' is more subtle. Leray developed a general theory of residues for differential forms on complex manifolds with singularities along hypersurfaces.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Weak Solutions for Navier--Stokes}
+
+Leray's fundamental insight was to lower the differentiability requirements. Instead of requiring $u$ to be twice differentiable (so that $\Delta u$ makes sense pointwise), multiply the Navier--Stokes equations by a smooth test function $\phi$ and integrate by parts:
+
+\[
+\int u \cdot \frac{\partial \phi}{\partial t} + \int (u \cdot \nabla) u \cdot \phi + \nu \int \nabla u : \nabla \phi = 0
+\]
+
+This equation makes sense even when $u$ is only mildly regular---specifically, when $u$ is in $L^2$ and its first derivatives are in $L^2$ (the Sobolev space $H^1$).
+
+Leray constructed solutions by a three-step process:
+
+\begin{enumerate}
+\item \textbf{Regularization:} Replace the nonlinear term $(u \cdot \nabla) u$ with a mollified version $(u_\epsilon \cdot \nabla) u_\epsilon$ where $u_\epsilon$ is smoothed by convolution. This produces a family of approximate problems that are more manageable.
+\item \textbf{A priori estimates:} Prove energy estimates that are uniform in the regularization parameter. The key estimate comes from the energy identity:
+\[
+\frac{1}{2}\frac{d}{dt} \int |u|^2 + \nu \int |\nabla u|^2 = 0,
+\]
+which follows from multiplying the equation by $u$ and integrating. This gives uniform bounds on $\|u(t)\|_{L^2}$ and $\int_0^T \|\nabla u(t)\|_{L^2}^2 dt$.
+\item \textbf{Compactness:} Use the uniform estimates and weak compactness to extract a subsequence that converges to a solution of the original equation. This is where the Leray--Schauder degree or Galerkin approximation enters.
+\end{enumerate}
+
+The resulting ``Leray--Hopf weak solution'' satisfies:
+\begin{itemize}
+\item $u \in L^\infty(0,T; L^2) \cap L^2(0,T; H^1)$
+\item The Navier--Stokes equations hold in the sense of distributions
+\item The energy inequality holds:
+\[
+\frac{1}{2}\|u(t)\|_2^2 + \nu \int_0^t \|\nabla u(s)\|_2^2 ds \leq \frac{1}{2}\|u_0\|_2^2
+\]
+\end{itemize}
+
+Leray also showed that such weak solutions are smooth except possibly on a set of times of Hausdorff dimension at most $1/2$. This is still the best general result about the size of the singular set for 3D Navier--Stokes.
+
+\subsection{The Leray--Schauder Degree}
+
+The Leray--Schauder degree generalizes the winding number of a map to infinite-dimensional Banach spaces. For a map $F = I - T$ where $T$ is compact, define:
+
+\[
+\deg(I - T, \Omega, y) = \deg(I - T_n, \Omega_n, y)
+\]
+
+where $T_n$ is a finite-dimensional approximation to $T$ (using the compactness!) and $\deg$ on the right is the Brouwer degree in finite dimensions.
+
+The key properties:
+\begin{itemize}
+\item \textbf{Existence:} If $\deg(I - T, \Omega, y) \neq 0$, then $x - T(x) = y$ has a solution in $\Omega$.
+\item \textbf{Homotopy invariance:} If $H(t,x) = x - T_t(x)$ is a continuous family of compact perturbations with no zeros on $\partial\Omega$, then $\deg(H(t,\cdot),\Omega,0)$ is constant in $t$.
+\item \textbf{Normalization:} $\deg(I, \Omega, y) = 1$ if $y \in \Omega$.
+\end{itemize}
+
+These properties allow one to prove existence of solutions to nonlinear PDEs by constructing a homotopy from a simple problem (with known solutions) to the desired problem, while ensuring that no solutions escape the domain along the way.
+
+\begin{theorem}[Leray--Schauder Fixed Point Theorem]
+Let $X$ be a Banach space, $T: X \to X$ a compact operator. If there exists $R > 0$ such that every solution of $x = \lambda T(x)$ with $\lambda \in [0,1]$ satisfies $\|x\| \leq R$, then $T$ has a fixed point.
+\end{theorem}
+
+\subsection{Sheaves and Their Cohomology}
+
+The intuition behind sheaves: a sheaf is a way of keeping track of data that varies from point to point, with the requirement that local data can be ``glued'' to produce global data when it agrees on overlaps.
+
+\begin{definition}[Presheaf]
+A \textbf{presheaf} $\cF$ on a topological space $X$ assigns to each open set $U \subset X$ an abelian group $\cF(U)$ (sections over $U$), and to each inclusion $V \subset U$ a restriction map $\rho_{UV}: \cF(U) \to \cF(V)$, satisfying:
+\begin{enumerate}
+\item $\rho_{UU} = \text{id}$
+\item $\rho_{VW} \circ \rho_{UV} = \rho_{UW}$ for $W \subset V \subset U$
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Sheaf]
+A presheaf $\cF$ is a \textbf{sheaf} if for any open cover $\{U_i\}$ of $U \subset X$:
+\begin{enumerate}
+\item (Locality) If $s,t \in \cF(U)$ and $s|_{U_i} = t|_{U_i}$ for all $i$, then $s = t$.
+\item (Gluing) If $s_i \in \cF(U_i)$ satisfy $s_i|_{U_i \cap U_j} = s_j|_{U_i \cap U_j}$ for all $i,j$, then there exists $s \in \cF(U)$ with $s|_{U_i} = s_i$.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+The sheaf $\cO$ of holomorphic functions on $\mathbb{C}$: $\cO(U) = \{f: U \to \mathbb{C} \text{ holomorphic}\}$. The identity theorem guarantees uniqueness of gluing, and analytic continuation provides existence.
+\end{example}
+
+\begin{example}
+Constant sheaf $\underline{\mathbb{Z}}$: $\underline{\mathbb{Z}}(U) = \{ \text{locally constant functions } f: U \to \mathbb{Z}\}$.
+\end{example}
+
+Sheaf cohomology $H^q(X, \cF)$ measures the obstruction to gluing local sections into global sections. The zeroth cohomology $H^0(X, \cF) = \cF(X)$ is the global sections. Higher cohomology groups capture more subtle obstructions.
+
+\begin{theorem}[Leray's Theorem on Acyclic Covers]
+Let $\cU = \{U_i\}$ be an open cover of $X$ such that $H^q(U_{i_1} \cap \cdots \cap U_{i_k}, \cF) = 0$ for all $q \geq 1$ and all intersections. Then the \v{C}ech cohomology $\check{H}^*(\cU, \cF)$ is isomorphic to the sheaf cohomology $H^*(X, \cF)$.
+\end{theorem}
+
+This theorem provides a practical method for computing sheaf cohomology: find a cover on which $\cF$ is acyclic (e.g., Stein manifolds for $\cO$, or contractible open sets for constant sheaves).
+
+\subsection{The Leray Spectral Sequence}
+
+A spectral sequence is a bookkeeping device for approximating the homology or cohomology of a complicated object from simpler pieces. Leray's original formulation was for the cohomology of a continuous map $\pi: E \to B$.
+
+The idea: filter the cohomology of $E$ by the ``stage'' at which cohomology classes appear when moving from local to global. The $E_2$ page of the Leray spectral sequence is:
+\[
+E_2^{p,q} = H^p(B; R^q \pi_* \cF),
+\]
+where $R^q \pi_* \cF$ are the higher direct image sheaves (the sheafification of $U \mapsto H^q(\pi^{-1}(U), \cF)$). The spectral sequence converges to $H^{p+q}(E, \cF)$.
+
+For a fibration $F \hookrightarrow E \to B$ with simply connected base, the spectral sequence simplifies to:
+\[
+E_2^{p,q} = H^p(B; H^q(F)) \Longrightarrow H^{p+q}(E).
+\]
+
+\begin{example}[Cohomology of the Hopf Fibration]
+For $S^3 \to S^2$ with fiber $S^1$:
+\[
+E_2^{p,q} = H^p(S^2; H^q(S^1)) = 
+\begin{cases}
+\mathbb{Z} & (p,q) = (0,0), (2,0), (0,1), (2,1),\\
+0 & \text{otherwise.}
+\end{cases}
+\]
+The differential $d_2: E_2^{0,1} \to E_2^{2,0}$ is an isomorphism (reflecting the non-triviality of the fibration), so:
+\[
+H^n(S^3) = 
+\begin{cases}
+\mathbb{Z} & n = 0,3,\\
+0 & \text{otherwise.}
+\end{cases}
+\]
+\end{example}
+
+\subsection{Residue Theory in Several Variables}
+
+For a differential form $\omega$ with a pole along a hypersurface $S \subset X$, Leray defined the residue $\res_S(\omega)$ as a current (distribution-valued differential form) supported on $S$. The fundamental formula is:
+
+\[
+\int_X \omega = 2\pi i \int_S \res_S(\omega),
+\]
+
+for a suitable class of forms. This generalizes the one-variable residue theorem.
+
+The Leray--Koppelman formula provides an explicit integral representation for holomorphic functions on domains in $\mathbb{C}^n$, generalizing the Cauchy integral formula:
+
+\[
+f(z) = \frac{(n-1)!}{(2\pi i)^n} \int_{\partial\Omega} \frac{f(\zeta) \sum_{j=1}^n (-1)^{j-1} (\bar\zeta_j - \bar z_j) d\bar\zeta_{[j]} \wedge d\zeta}{[(\zeta_1 - z_1)(\bar\zeta_1 - \bar z_1) + \cdots + (\zeta_n - z_n)(\bar\zeta_n - \bar z_n)]^n}
+\]
+
+This formula works for domains that are strictly pseudoconvex (a class of domains with strongly Levi-convex boundary).
+
+\section{Mathematical Theory}
+
+\subsection{The Navier--Stokes Equations: Technical Results}
+
+Let $\Omega \subset \mathbb{R}^3$ be a domain (possibly all of $\mathbb{R}^3$). Define the space of divergence-free vector fields:
+
+\[
+V = \{u \in C_c^\infty(\Omega)^3 : \nabla \cdot u = 0\}^{\text{closure in } H^1}
+\]
+
+\begin{theorem}[Leray, 1934]
+Let $u_0 \in L^2(\Omega)^3$ with $\nabla \cdot u_0 = 0$. Then there exists a global weak solution of the Navier--Stokes equations satisfying:
+\begin{enumerate}
+\item $u \in L^\infty(0,\infty; L^2) \cap L^2_{\text{loc}}(0,\infty; H^1)$
+\item $\nabla \cdot u(t) = 0$ for almost every $t$
+\item For all test functions $\phi \in C_c^\infty([0,\infty) \times \Omega)^3$ with $\nabla \cdot \phi = 0$:
+\[
+\int_0^\infty \int_\Omega \left( -u \cdot \frac{\partial \phi}{\partial t} + (u \otimes u) : \nabla \phi - \nu \nabla u : \nabla \phi \right) = \int_\Omega u_0 \cdot \phi(0)
+\]
+\item The energy inequality holds for all $t \geq 0$:
+\[
+\frac{1}{2}\|u(t)\|_{L^2}^2 + \nu \int_0^t \|\nabla u(s)\|_{L^2}^2 ds \leq \frac{1}{2}\|u_0\|_{L^2}^2
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Partial Regularity]
+The set $\Sigma \subset (0,\infty)$ of times at which $u$ is not smooth has Hausdorff dimension at most $1/2$.
+\end{theorem}
+
+\begin{remark}
+It remains an open problem whether smooth solutions exist globally in 3D, or whether finite-time blow-up can occur. This is the Navier--Stokes existence and smoothness problem, one of the seven Clay Millennium Problems. Leray's weak solutions are the best general existence result we have.
+\end{remark}
+
+\subsection{Sheaf Cohomology and Algebraic Topology}
+
+\begin{definition}[Fine Sheaf]
+A sheaf $\cF$ is \textbf{fine} if it admits a partition of unity: for any open cover $\{U_i\}$, there exist sheaf morphisms $\eta_i: \cF \to \cF$ such that $\Supp(\eta_i) \subset U_i$ and $\sum \eta_i = \text{id}$.
+\end{definition}
+
+\begin{theorem}[Leray's Acyclic Cover Theorem]
+If $\cU = \{U_i\}$ is an open cover of $X$ such that for all $\alpha_0,\dots,\alpha_q$:
+\[
+H^p(U_{\alpha_0} \cap \cdots \cap U_{\alpha_q}, \cF) = 0 \quad \text{for all } p \geq 1,
+\]
+then the \v{C}ech cohomology $\check{H}^q(\cU, \cF)$ is naturally isomorphic to the sheaf cohomology $H^q(X, \cF)$.
+\end{theorem}
+
+\begin{proposition}[Comparison with Singular Cohomology]
+For a paracompact Hausdorff space $X$ and the constant sheaf $\underline{\mathbb{Z}}$:
+\[
+H^q(X, \underline{\mathbb{Z}}) \cong H^q_{\text{sing}}(X; \mathbb{Z})
+\]
+\end{proposition}
+
+This isomorphism means that sheaf cohomology unifies many previously distinct cohomology theories: singular, de Rham, \v{C}ech, and Alexander--Spanier cohomology are all special cases.
+
+\subsection{Convergence of Spectral Sequences}
+
+\begin{definition}[Spectral Sequence]
+A \textbf{spectral sequence} consists of a sequence of bigraded abelian groups $\{E_r^{p,q}\}_{r \geq 0}$ together with differentials:
+\[
+d_r: E_r^{p,q} \to E_r^{p+r, q-r+1}
+\]
+satisfying $d_r \circ d_r = 0$, and isomorphisms:
+\[
+E_{r+1}^{p,q} \cong \frac{\ker(d_r: E_r^{p,q} \to E_r^{p+r,q-r+1})}{\im(d_r: E_r^{p-r,q+r-1} \to E_r^{p,q})}
+\]
+\end{definition}
+
+For the Leray spectral sequence of a map $\pi: E \to B$:
+\[
+E_2^{p,q} = H^p(B; R^q \pi_* \cF) \Longrightarrow H^{p+q}(E; \cF)
+\]
+
+The convergence means there is a filtration on $H^n(E; \cF)$ whose associated graded pieces are $E_\infty^{p,n-p}$.
+
+\subsection{Residues in Several Complex Variables}
+
+\begin{definition}[Leray Residue]
+Let $X$ be a complex manifold and $S \subset X$ a smooth hypersurface defined locally by $s = 0$. For a meromorphic $n$-form $\omega = \alpha \wedge \frac{ds}{s} + \beta$ with $\alpha$ and $\beta$ holomorphic, the \textbf{Leray residue} is:
+\[
+\res_S(\omega) = \alpha|_S,
+\]
+which is a holomorphic $(n-1)$-form on $S$.
+\end{definition}
+
+\begin{theorem}[Leray Residue Theorem]
+For a compact complex manifold $X$ and a meromorphic $n$-form $\omega$ with polar locus $S$:
+\[
+\int_X \omega = 2\pi i \int_S \res_S(\omega)
+\]
+where the right-hand side includes contributions from all components of $S$.
+\end{theorem}
+
+\section{Impact on Science and Technology}
+
+\subsection{In Partial Differential Equations}
+
+\begin{enumerate}
+\item \textbf{Fluid Dynamics:} The Leray--Hopf weak solution is the starting point for all rigorous studies of the Navier--Stokes equations. Every paper on global existence for Navier--Stokes in the past 90 years builds on Leray's framework.
+\item \textbf{Nonlinear Analysis:} The Leray--Schauder degree is a standard tool for proving existence of solutions to nonlinear PDEs. It is used in elliptic PDE theory, geometric analysis, and the calculus of variations.
+\item \textbf{Sobolev Spaces:} Leray's use of integrated quantities and weak derivatives anticipated the systematic theory of Sobolev spaces developed by Sobolev (1938) and Schwartz (1945).
+\end{enumerate}
+
+\subsection{In Algebraic Topology and Geometry}
+
+\begin{enumerate}
+\item \textbf{Algebraic Geometry:} Sheaf cohomology is the essential language of modern algebraic geometry (Grothendieck's revolution). The entire theory of schemes, coherent cohomology, and the Grothendieck--Riemann--Roch theorem depends on sheaf theory.
+\item \textbf{Homological Algebra:} Spectral sequences are everywhere---they are used to compute everything from the cohomology of Lie algebras to the Adams spectral sequence in stable homotopy theory.
+\item \textbf{Hodge Theory:} The decomposition of cohomology of complex manifolds into $(p,q)$-components rests on sheaf theory and spectral sequences.
+\end{enumerate}
+
+\subsection{In Several Complex Variables}
+
+Leray's residue theory and integral representations are fundamental tools in complex analysis. The Leray--Koppelman formula provides explicit integral kernels for solving the $\bar\partial$-equation, and his work on residues is essential for intersection theory in complex geometry.
+
+\subsection{Impact on Applied Fields}
+
+\begin{enumerate}
+\item \textbf{Computational Fluid Dynamics:} Every numerical simulation of fluid flow---from weather prediction to aircraft design---implicitly relies on the functional analysis framework that Leray pioneered. The finite element and spectral methods used in CFD are refinements of the approximation techniques Leray introduced.
+\item \textbf{Image Processing:} The total variation methods used in denoising and image restoration (the ROF model) use weak formulations of PDEs in Sobolev spaces, following Leray's approach.
+\item \textbf{Biology and Medicine:} Models of blood flow, respiratory mechanics, and tumor growth use the Navier--Stokes equations as a starting point, relying on Leray's existence theory.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What exactly is a ``weak solution,'' and why is it important?}
+
+A weak solution is a function that satisfies a differential equation in an averaged sense, tested against smooth functions. For Navier--Stokes, instead of requiring that $\partial_t u + (u \cdot \nabla)u - \nu\Delta u + \nabla p = 0$ pointwise, we require:
+
+\[
+\int (u \cdot \partial_t \phi + (u \otimes u):\nabla\phi + \nu \nabla u:\nabla\phi) = 0
+\]
+
+for all smooth, divergence-free test functions $\phi$ with compact support.
+
+This matters because: (1) many physically relevant solutions are not smooth (e.g., turbulent flows); (2) proving existence of classical solutions is often impossible; (3) weak solutions provide a framework for approximation by numerical methods. The trade-off is that weak solutions may not be unique---proving uniqueness for 3D Navier--Stokes weak solutions is an open problem (and part of the Millennium Prize).
+
+\subsection*{Q2: Did Leray really invent both sheaves and spectral sequences in a POW camp?}
+
+Yes. Leray was captured in 1940 and spent five years in Oflag XVIIA in Austria. He concealed his expertise in applied mathematics (fearing he would be forced into war work) and turned to pure topology. Working with other captive mathematicians, he essentially founded a university in the camp. His results on sheaves and spectral sequences appeared in short notes in the Comptes Rendus immediately after the war (1945--1946). The full development took years more and was carried forward by Henri Cartan, Jean-Louis Koszul, and Jean-Pierre Serre, who transformed Leray's ideas into the modern formalism we use today.
+
+\subsection*{Q3: What is the difference between a sheaf and a spectral sequence?}
+
+These are fundamentally different objects, though both invented by Leray:
+
+A \textbf{sheaf} encodes local-to-global data. Think of a sheaf as a recipe: on every open set, you have a set of ``sections'' (think: functions defined on that open set), and these sections can be uniquely glued when they agree on overlaps. The sheaf condition captures exactly what it means to piece local information into global information.
+
+A \textbf{spectral sequence} is a computational device---a bookkeeping tool for approximating the homology or cohomology of a complex object through a sequence of ``pages.'' Starting from an initial approximation (the $E_2$ page), you compute differentials, take homology, and get a better approximation, repeating until convergence.
+
+Leray combined them: given a map $\pi: E \to B$, the sheaf $R^q\pi_*\cF$ encodes the cohomology of the fibers varying over the base, and a spectral sequence uses this to compute the cohomology of $E$.
+
+\subsection*{Q4: Will we ever know whether 3D Navier--Stokes solutions blow up?}
+
+This is arguably the most famous open problem in mathematics. The conventional wisdom among analysts is mixed: some believe that finite-time blow-up occurs (perhaps through vortex stretching), while others suspect that solutions remain smooth forever. The Clay Mathematics Institute listed it as one of seven Millennium Problems in 2000, and it remains unsolved.
+
+What we know: (1) Solutions exist globally for 2D Navier--Stokes; (2) For 3D, there are conditional regularity criteria---if certain quantities remain bounded, then solutions stay smooth; (3) Leray's weak solutions exist globally but may not be unique or smooth. The partial regularity result (singular set has dimension at most $1/2$) suggests that if singularities form, they are isolated in time.
+
+The problem is intimately connected to understanding turbulence. Leray himself believed that singularities are generically absent, calling the smooth solutions ``laminar'' and reserving the term ``turbulent'' for the weak solutions that might develop singularities.
+
+\subsection*{Q5: Why are sheaves so important in modern mathematics?}
+
+Sheaves provide the right language for any situation where local data must be assembled into global data. Grothendieck recognized their fundamental role and rebuilt algebraic geometry on a sheaf-theoretic foundation. Today sheaves are central to:
+
+\begin{itemize}
+\item Algebraic geometry (structure sheaves, coherent sheaves, schemes)
+\item Complex analysis (sheaf of holomorphic functions, $\bar\partial$-cohomology)
+\item Topology (local systems, intersection cohomology, perverse sheaves)
+\item PDE theory (sheaves of solutions to differential equations)
+\item Number theory (\'{e}tale sheaves, $l$-adic cohomology)
+\item Representation theory ($\mathcal{D}$-modules, microlocal analysis)
+\end{itemize}
+
+The abstraction level is high, but the core insight is simple and powerful. Henri Cartan said: ``Leray's sheaf theory is one of the greatest inventions of twentieth-century mathematics.''
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item J.\ Leray, \textit{Sur le mouvement d'un liquide visqueux emplissant l'espace}, Acta Math.\ 63 (1934), 193--248.
+    \item J.\ Leray and J.\ Schauder, \textit{Topologie et {\'e}quations fonctionnelles}, Ann.\ Sci.\ {\'E}c.\ Norm.\ Sup.\ 51 (1934), 45--78.
+    \item J.\ Leray, \textit{L'anneau spectral et l'anneau filtr{\'e} d'homologie d'un espace localement compact et d'une application continue}, J.\ Math.\ Pures Appl.\ 29 (1950), 1--139.
+    \item J.\ Leray, \textit{Le calcul des r{\'e}sidus et ses applications {\`a} la th{\'e}orie des fonctions}, Bull.\ Soc.\ Math.\ France 87 (1959), 97--139.
+    \item J.\ Leray, \textit{Le calcul diff{\'e}rentiel et int{\'e}gral sur une vari{\'e}t{\'e} analytique complexe}, Bull.\ Soc.\ Math.\ France 87 (1959), 293--327.
+    \item J.\ Leray, \textit{S{\'e}minaire sur les {\'e}quations aux d{\'e}riv{\'e}es partielles}, Coll{\`e}ge de France, 1950--1978.
+    \item J.\ Leray, \textit{Selected Papers}, 3 vols., Springer, 1997--1998.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item A.\ Borel, \textit{Jean Leray and Algebraic Topology}, in ``Jean Leray, Selected Papers, Vol.\ 1,'' Springer, 1997.
+    \item P.\ Lax, \textit{Jean Leray and Partial Differential Equations}, in ``Jean Leray, Selected Papers, Vol.\ 2,'' Springer, 1997.
+    \item G.\ Henkin, \textit{Jean Leray and Several Complex Variables}, in ``Jean Leray, Selected Papers, Vol.\ 3,'' Springer, 1998.
+    \item H.\ Miller, \textit{Leray in Oflag XVIIA: The Origins of Sheaf Theory, Sheaf Cohomology, and Spectral Sequences}, Gaz.\ Math.\ 84 (2000), 17--34.
+    \item J.\ Dieudonn{\'e}, \textit{Jean Leray}, in ``A History of Algebraic and Differential Topology,'' Birkh\"{a}user, 1989.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item R.\ Temam, \textit{Navier--Stokes Equations: Theory and Numerical Analysis}, North-Holland, 1977.
+    \item L.\ C.\ Evans, \textit{Partial Differential Equations}, AMS, 1998.
+    \item C.\ Godbillon, \textit{El{\'e}ments de topologie alg{\'e}brique}, Hermann, 1971.
+    \item R.\ Bott and L.\ W.\ Tu, \textit{Differential Forms in Algebraic Topology}, Springer, 1982.
+    \item J.\ McCleary, \textit{A User's Guide to Spectral Sequences}, Cambridge University Press, 2001.
+    \item C.\ A.\ Weibel, \textit{An Introduction to Homological Algebra}, Cambridge University Press, 1994.
+    \item P.\ Griffiths and J.\ Harris, \textit{Principles of Algebraic Geometry}, Wiley, 1978.
+    \item L.\ H\"{o}rmander, \textit{An Introduction to Complex Analysis in Several Variables}, North-Holland, 1973.
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Abelian group] A group whose operation is commutative: $a + b = b + a$.
+    \item[Acyclic cover] An open cover whose every finite intersection has vanishing higher cohomology.
+    \item[Banach space] A complete normed vector space (e.g., $L^p$, $C^0$).
+    \item[Brouwer degree] An integer invariant of a continuous map $f: S^n \to S^n$ counting how many times it wraps the sphere around itself.
+    \item[Compact operator] A linear operator that maps bounded sets to precompact sets (sets whose closure is compact).
+    \item[{\v C}ech cohomology] A cohomology theory for topological spaces computed from open covers; with enough structure, it agrees with sheaf cohomology.
+    \item[Differential form] An expression of the form $\omega = \sum f_{i_1\dots i_k} dx^{i_1} \wedge \cdots \wedge dx^{i_k}$, integrable over $k$-dimensional submanifolds.
+    \item[Direct image sheaf] For a map $\pi: E \to B$ and a sheaf $\cF$ on $E$, $\pi_* \cF(U) = \cF(\pi^{-1}(U))$.
+    \item[Fibration] A continuous map with the homotopy lifting property; all fibers are homotopy equivalent.
+    \item[Hausdorff dimension] A measure of the ``size'' of a set; integer for manifolds, fractional for fractals.
+    \item[Hopf fibration] The map $S^3 \to S^2$ with fiber $S^1$, exhibiting $S^3$ as a non-trivial circle bundle over $S^2$.
+    \item[K{\"u}nneth theorem] A formula for the cohomology of a product space: $H^n(X \times Y) \cong \bigoplus_{p+q=n} H^p(X) \otimes H^q(Y)$.
+    \item[Leray--Schauder degree] A generalization of the Brouwer degree to compact perturbations of the identity in Banach spaces.
+    \item[Mollification] Smoothing a function by convolution with a smooth, compactly supported approximate identity.
+    \item[Pseudoconvex domain] A domain in $\mathbb{C}^n$ that is a domain of holomorphy; equivalently, whose boundary is Levi-convex.
+    \item[Sheaf] A structure on a topological space encoding local-to-global data via sections and glueing conditions.
+    \item[Sobolev space] The space $W^{k,p}$ of functions whose weak derivatives up to order $k$ belong to $L^p$.
+    \item[Spectral sequence] A bookkeeping device for computing homology or cohomology via successive approximations.
+    \item[Test function] A smooth, compactly supported function used to define weak solutions.
+    \item[Turbulence] A chaotic, seemingly random state of fluid flow characterized by eddies across multiple scales.
+    \item[Weak derivative] A generalization of derivative defined via integration by parts against test functions.
+    \item[Weak solution] A function satisfying a differential equation in the sense of distributions (tested against smooth functions).
+\end{description}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Derive the energy identity for the Navier--Stokes equations: multiply $\partial_t u + (u \cdot \nabla)u - \nu \Delta u + \nabla p = 0$ by $u$, integrate over $\Omega$, and use $\nabla \cdot u = 0$ to show:
+    \[
+    \frac{1}{2}\frac{d}{dt}\|u\|_2^2 + \nu\|\nabla u\|_2^2 = 0.
+    \]
+    \item Show that the constant presheaf $\underline{\mathbb{Z}}$, with $\underline{\mathbb{Z}}(U) = \mathbb{Z}$ for all non-empty $U$ and identity restrictions, is \textit{not} a sheaf. Then modify it to the sheaf of locally constant $\mathbb{Z}$-valued functions.
+    \item Compute the \v{C}ech cohomology $\check{H}^1(\mathcal{U}, \underline{\mathbb{Z}})$ for the open cover $\mathcal{U} = \{U_0, U_1\}$ of $S^1$ where $U_0, U_1$ are arcs covering $S^1$ with two connected intersection components.
+    \item Verify that the Leray spectral sequence for a product $E = B \times F$ collapses at $E_2$, recovering the K{\"u}nneth theorem.
+    \item Prove the Leray--Schauder fixed point theorem from the homotopy invariance property of the degree.
+    \item Show that if $\cF$ is a fine sheaf on a paracompact space, then $H^q(X, \cF) = 0$ for all $q \geq 1$.
+    \item Let $X = \mathbb{C}$ and $\cO$ be the sheaf of holomorphic functions. Show that $H^1(\mathbb{C}, \cO) = 0$ (this is the Mittag-Leffler theorem in sheaf language).
+    \item For the map $\pi: \mathbb{R}^2 \to \mathbb{R}$ given by $\pi(x,y) = x$, compute $R^q \pi_* \underline{\mathbb{Z}}$. What sheaves on $\mathbb{R}$ do you obtain?
+    \item Write the Leray--Schauder degree for $T: \mathbb{R}^n \to \mathbb{R}^n$ where $T$ is smooth and compact (bounded image). Show it agrees with the topological degree of $I - T$.
+    \item Let $f(z) = \frac{1}{2\pi i}\int_{\gamma} \frac{f(\zeta)}{\zeta - z}d\zeta$ be the Cauchy formula. Generalize to the case where $\gamma$ varies smoothly with $z$ to obtain the Leray--Koppelman formula in $\mathbb{C}^n$.
+    \item Show that every solution $(u,p)$ of the stationary Navier--Stokes equations $-\nu \Delta u + (u \cdot \nabla)u + \nabla p = f$ with $u|_{\partial\Omega} = 0$ satisfies $\nu \|\nabla u\|_2^2 \leq \|f\|_{H^{-1}}\|u\|_{H^1}$.
+    \item Consider the Leray spectral sequence for the fibration $S^1 \to S^1 \times S^1 \to S^1$ (projection onto the first factor). Show it collapses at $E_2$.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1906 & Born in Nantes, France \\ \hline
+1926--1929 & Student at {\'E}cole Normale Sup{\'e}rieure \\ \hline
+1933 & PhD under Henri Villat \\ \hline
+1934 & Paper on Navier--Stokes weak solutions; paper with Schauder on topological degree \\ \hline
+1938--1939 & Professor at University of Nancy; Malaxa Prize with Schauder \\ \hline
+1940 & Captured by Germans; sent to Oflag XVIIA in Austria \\ \hline
+1940--1945 & Prisoner of war; invents sheaf theory and spectral sequences \\ \hline
+1945 & Liberation; professor at University of Paris \\ \hline
+1945--1946 & Publishes first notes on spectral sequences and sheaves \\ \hline
+1947 & Professor at Coll{\`e}ge de France (until 1978) \\ \hline
+1950 & Major memoir on the spectral ring and filtered homology \\ \hline
+1950s & Returns to PDEs; work on hyperbolic systems \\ \hline
+1959 & Theory of residues in several complex variables \\ \hline
+1971 & Feltrinelli Prize \\ \hline
+1978 & Retires from Coll{\`e}ge de France \\ \hline
+1979 & Wolf Prize in Mathematics (co-recipient with A.\ Weil) \\ \hline
+1988 & Lomonosov Gold Medal \\ \hline
+1998 & Dies in La Baule, France \\ \hline
+\end{tabular}

@@ -1,0 +1,635 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\F\relax
+\newcommand{\F}{\mathbb{F}}
+\let\A\relax
+\newcommand{\A}{\mathbb{A}}
+\let\G\relax
+\newcommand{\G}{\mathbb{G}}
+\let\Spec\relax
+\newcommand{\Spec}{\operatorname{Spec}}
+\let\Proj\relax
+\newcommand{\Proj}{\operatorname{Proj}}
+\let\Gal\relax
+\newcommand{\Gal}{\operatorname{Gal}}
+\let\GL\relax
+\newcommand{\GL}{\operatorname{GL}}
+\let\SL\relax
+\newcommand{\SL}{\operatorname{SL}}
+\let\SO\relax
+\newcommand{\SO}{\operatorname{SO}}
+\let\PGL\relax
+\newcommand{\PGL}{\operatorname{PGL}}
+\let\Hom\relax
+\newcommand{\Hom}{\operatorname{Hom}}
+\let\Ext\relax
+\newcommand{\Ext}{\operatorname{Ext}}
+\let\End\relax
+\newcommand{\End}{\operatorname{End}}
+\let\Aut\relax
+\newcommand{\Aut}{\operatorname{Aut}}
+\let\Pic\relax
+\newcommand{\Pic}{\operatorname{Pic}}
+\let\Sym\relax
+\newcommand{\Sym}{\operatorname{Sym}}
+\let\Lie\relax
+\newcommand{\Lie}{\operatorname{Lie}}
+\let\ad\relax
+\newcommand{\ad}{\operatorname{ad}}
+\let\Gr\relax
+\newcommand{\Gr}{\operatorname{Gr}}
+\let\Fil\relax
+\newcommand{\Fil}{\operatorname{Fil}}
+\let\W\relax
+\newcommand{\W}{\operatorname{W}}
+\let\M\relax
+\newcommand{\M}{\operatorname{M}}
+\let\Frob\relax
+\newcommand{\Frob}{\operatorname{Frob}}
+
+\chapter{Pierre Deligne (2008)}
+
+\begin{quote}
+\it ``Deligne's work has transformed algebraic geometry and number theory. His proof of the Weil conjectures, his development of mixed Hodge theory, his construction of Deligne--Mumford stacks, his profound contributions to the theory of tensor categories, and his work on the Langlands program represent some of the deepest and most influential mathematics of the twentieth century. He has shaped the way we think about the fundamental structures of algebraic geometry.'' --- Wolf Prize Citation
+\end{quote}
+
+Pierre Deligne (born October 3, 1944) is one of the most profound and influential mathematicians alive. The 2008 Wolf Prize in Mathematics (shared with Phillip Griffiths and David Mumford) recognized his transformative contributions to algebraic geometry, number theory, and representation theory. Earlier, in 1978, he received the Fields Medal at the International Congress of Mathematicians in Helsinki for his proof of the third and most difficult of the Weil conjectures: the Riemann hypothesis for varieties over finite fields. In 2013, he was awarded the Abel Prize for his lifetime of achievement.
+
+Deligne's mathematical style is characterized by extraordinary depth, technical mastery, and an uncanny ability to find the correct level of generality for solving deep problems. His work bridges algebraic geometry, number theory, topology, and representation theory. His name appears throughout modern mathematics: Deligne cohomology, Deligne--Mumford stacks, the Deligne splitting, Deligne's theorem on tensor categories, Deligne's proof of the Ramanujan conjecture, the Weil--Deligne theorem, Deligne--Lusztig theory, and Deligne's work on the Langlands correspondence.
+
+\section{Early Life and Career}
+
+Pierre Deligne was born on October 3, 1944, in Etterbeek, Brussels, Belgium, during the final months of World War II. He showed exceptional mathematical talent from an early age. He entered the Universit\'e Libre de Bruxelles in 1962, where he studied under the guidance of Jacques Tits. He completed his Licence (Bachelor's degree) in 1966 and his Doctorat (PhD) in 1968.
+
+Deligne's early work was deeply influenced by the Bourbaki tradition and by the revolutionary ideas of Grothendieck, who was then leading the S\'eminaire de G\'eom\'etrie Alg\'ebrique (SGA) at the Institut des Hautes \'Etudes Scientifiques (IH\'ES) in Bures-sur-Yvette, France. Deligne moved to IH\'ES in 1965 and became one of Grothendieck's most brilliant students. He was a key participant in the SGA seminars, contributing to the foundational work on \'etale cohomology, the theory of schemes, and the cohomology of algebraic varieties.
+
+In 1968, Deligne published his first major work, a proof of the Weil conjectures for K3 surfaces, which already displayed his technical virtuosity. He completed his formal doctoral thesis, \textit{Th\'eor\`eme de Lefschetz et crit\`eres de d\'eg\'en\'erescence de suites spectrales}, in 1972 under the supervision of Grothendieck at the Universit\'e Paris-Sud in Orsay. This work contained foundational results on the degeneration of spectral sequences and the hard Lefschetz theorem, which would be essential for his later proof of the Weil conjectures.
+
+Deligne remained at IH\'ES for most of his career, becoming a permanent professor in 1970. In 1984, he moved to the Institute for Advanced Study in Princeton, New Jersey, where he is now Professor Emeritus. Over his career, he has received the Fields Medal (1978), the Wolf Prize (2008), the Abel Prize (2013), and numerous other honors including the Crafoord Prize (1988), the Balzan Prize (2004), and membership in the French Academy of Sciences, the US National Academy of Sciences, and the Royal Society.
+
+\section{The Weil Conjectures}
+
+The Weil conjectures, formulated by Andr\'e Weil in 1949, are among the most important problems in algebraic geometry. They predict deep relationships between the topology of algebraic varieties over finite fields and their zeta functions, analogous to the Riemann hypothesis for number fields.
+
+\subsection{The Zeta Function of a Variety over a Finite Field}
+
+Let \(X\) be a smooth projective variety of dimension \(n\) defined over a finite field \(\F_q\). For each integer \(m \geq 1\), let \(N_m = |X(\F_{q^m})|\) be the number of points of \(X\) over the extension field \(\F_{q^m}\). The \textbf{zeta function} of \(X\) is defined by the formal power series
+\[
+Z(X, t) = \exp\!\left( \sum_{m=1}^\infty \frac{N_m}{m} t^m \right).
+\]
+
+Weil observed that for curves and abelian varieties, the zeta function satisfies a remarkable set of properties that parallel the behavior of the Riemann zeta function.
+
+\begin{theorem}[Weil Conjectures, 1949]
+Let \(X\) be a smooth projective variety of dimension \(n\) over \(\F_q\). The zeta function \(Z(X, t)\) satisfies:
+\begin{enumerate}
+    \item \textbf{(Rationality)} \(Z(X, t)\) is a rational function of \(t\).
+    \item \textbf{(Functional equation)} There exists an integer \(\chi = \chi(X)\) (the Euler characteristic) such that
+    \[
+    Z\!\left( X, \frac{1}{q^n t} \right) = \pm q^{n\chi/2} t^\chi \, Z(X, t).
+    \]
+    \item \textbf{(Riemann hypothesis)} The zeta function factors as
+    \[
+    Z(X, t) = \frac{P_1(t) P_3(t) \cdots P_{2n-1}(t)}{P_0(t) P_2(t) \cdots P_{2n}(t)},
+    \]
+    where each \(P_i(t) \in \Z[t]\) and the reciprocal roots of \(P_i\) are algebraic integers of absolute value \(q^{-i/2}\). Equivalently,
+    \[
+    P_i(t) = \prod_{j=1}^{b_i} (1 - \alpha_{i,j} t), \qquad |\alpha_{i,j}| = q^{i/2}.
+    \]
+    \item \textbf{(Betti numbers)} The degree of \(P_i(t)\) equals the \(i\)-th Betti number \(b_i = \dim_{\Q_l} H^i_{\text{\'et}}(X_{\overline{\F}_q}, \Q_l)\) of \(X\) as a complex algebraic variety.
+\end{enumerate}
+\end{theorem}
+
+The first two conjectures (rationality and functional equation) were proved by Dwork in 1960 using \(p\)-adic methods, and later by Grothendieck and his school (1964--1967) using the newly developed theory of \'etale cohomology. The third conjecture, the Riemann hypothesis, was the deepest and resisted all attempts until Deligne's breakthrough.
+
+\subsection{\'Etale Cohomology and the Weil Conjectures}
+
+Grothendieck's revolutionary insight was that the Weil conjectures could be understood cohomologically. He developed \'etale cohomology, a Weil cohomology theory for algebraic varieties over arbitrary fields, designed to mimic the properties of singular cohomology for complex manifolds.
+
+For a variety \(X\) over a field \(k\), the \'etale cohomology groups \(H^i_{\text{\'et}}(X_{\overline{k}}, \Q_l)\) are vector spaces over \(\Q_l\) (for a prime \(l \neq \text{char}(k)\)) that satisfy the Eilenberg--Steenrod axioms for a cohomology theory. Moreover, they carry an action of the absolute Galois group \(G_k = \Gal(\overline{k}/k)\).
+
+When \(X\) is defined over \(\F_q\), the geometric Frobenius endomorphism \(\Frob: X_{\overline{\F}_q} \to X_{\overline{\F}_q}\) induces a linear map
+\[
+\Frob^*: H^i_{\text{\'et}}(X_{\overline{\F}_q}, \Q_l) \longrightarrow H^i_{\text{\'et}}(X_{\overline{\F}_q}, \Q_l).
+\]
+
+Grothendieck proved the Lefschetz trace formula for \'etale cohomology:
+\[
+|X(\F_{q^m})| = \sum_{i=0}^{2n} (-1)^i \, \operatorname{Tr}\!\bigl( (\Frob^*)^m \big|_{H^i_{\text{\'et}}(X_{\overline{\F}_q}, \Q_l)} \bigr).
+\]
+
+From this, it follows that the zeta function can be expressed as an alternating product of characteristic polynomials:
+\[
+Z(X, t) = \prod_{i=0}^{2n} P_i(t)^{(-1)^{i+1}}, \qquad
+P_i(t) = \det\!\bigl( 1 - t \Frob^* \big|_{H^i_{\text{\'et}}(X_{\overline{\F}_q}, \Q_l)} \bigr).
+\]
+
+This gives the rationality and functional equation. The Riemann hypothesis becomes the statement that all eigenvalues \(\alpha\) of \(\Frob^*\) on \(H^i_{\text{\'et}}(X_{\overline{\F}_q}, \Q_l)\) satisfy \(|\alpha| = q^{i/2}\) under any embedding \(\overline{\Q}_l \hookrightarrow \C\).
+
+\subsection{Deligne's Proof of the Riemann Hypothesis}
+
+Deligne's proof of the Riemann hypothesis for varieties over finite fields was published in two landmark papers: \textit{La conjecture de Weil I} (1974) and \textit{La conjecture de Weil II} (1980). The proof is a masterpiece of algebraic geometry, combining the theory of Lefschetz pencils, the theory of weights, and the geometry of families of varieties.
+
+\subsubsection{The First Paper: Weil I (1974)}
+
+In \textit{Weil I}, Deligne proved the Riemann hypothesis for smooth projective varieties over finite fields. The key idea was to reduce to the case of curves and then apply a geometric argument using Lefschetz pencils.
+
+A \textbf{Lefschetz pencil} is a one-parameter family of hyperplane sections of a projective variety. For a smooth projective variety \(X \subset \P^N\), a general pencil of hyperplanes \(\{H_t\}_{t \in \P^1}\) gives a family of hyperplane sections \(X_t = X \cap H_t\). The generic member \(X_t\) is smooth, while finitely many members have a single ordinary double point.
+
+Deligne's strategy was to use the relative cohomology of the Lefschetz pencil to relate the eigenvalues of Frobenius on \(X\) to those on the smooth members \(X_t\). By induction on dimension, one could then deduce the Riemann hypothesis from the case of curves, which had already been proved by Weil in 1948.
+
+The critical technical innovation was the notion of \textbf{weights}. Deligne showed that for a smooth projective variety over \(\F_q\), the eigenvalues of Frobenius on \(H^i\) are algebraic numbers all of whose complex embeddings have absolute value \(q^{i/2}\). He introduced the concept of a \textbf{pure} sheaf of weight \(i\) and proved that the cohomology of a smooth projective variety is pure of weight \(i\).
+
+\subsubsection{The Second Paper: Weil II (1980)}
+
+In \textit{Weil II}, Deligne vastly generalized the results of \textit{Weil I}. He proved the Riemann hypothesis for arbitrary (not necessarily projective) varieties over finite fields, and more generally, for constructible \(\overline{\Q}_l\)-sheaves. This required the development of the full theory of weights for lisse and constructible sheaves.
+
+\begin{theorem}[Deligne, Weil II, 1980]
+Let \(X\) be a separated scheme of finite type over \(\F_q\). Let \(\mathcal{F}\) be a constructible \(\overline{\Q}_l\)-sheaf on \(X\) that is \textbf{pure of weight \(w\)} (i.e., for every closed point \(x \in X\), the eigenvalues of Frobenius at \(x\) acting on \(\mathcal{F}_x\) are algebraic numbers all of whose complex embeddings have absolute value \(q^{w/2}\)). Then the cohomology groups \(H^i_c(X_{\overline{\F}_q}, \mathcal{F})\) are mixed of weight \(\leq i + w\), and if \(X\) is smooth and \(\mathcal{F}\) is lisse, the compactly supported cohomology is pure of weight \(i + w\).
+\end{theorem}
+
+This theorem is the foundational result of the theory of weights. It implies:
+\begin{itemize}
+    \item The Riemann hypothesis for all varieties over finite fields.
+    \item The hard Lefschetz theorem for \'etale cohomology.
+    \item The semisimplicity of the Frobenius action on \'etale cohomology.
+    \item The independence of \(l\) of the Betti numbers (the Betti numbers of the \'etale cohomology are independent of the auxiliary prime \(l\)).
+\end{itemize}
+
+The proof of \textit{Weil II} introduced several profound techniques:
+\begin{enumerate}
+    \item \textbf{The theory of perverse sheaves} (in its nascent form): Deligne used the interplay between direct images, nearby cycles, and vanishing cycles to control the weights of cohomology.
+    \item \textbf{Deligne's semicontinuity theorem}: The weights of the cohomology of a family vary semicontinuously in the family.
+    \item \textbf{The theory of determinant weights}: Deligne introduced a method to bound the weights of cohomology using the determinant of the Frobenius action.
+\end{enumerate}
+
+\subsection{Significance of the Weil Conjectures}
+
+Deligne's proof of the Weil conjectures is one of the crowning achievements of twentieth-century mathematics. It completed the program initiated by Weil and pursued by Grothendieck, establishing \'etale cohomology as one of the most powerful tools in algebraic geometry.
+
+The consequences are far-reaching:
+\begin{itemize}
+    \item \textbf{The Ramanujan--Petersson conjecture}: As we will discuss below, Deligne used the Weil conjectures to prove the Ramanujan conjecture for cusp forms of weight \(\geq 2\).
+    \item \textbf{The hard Lefschetz theorem}: Deligne's proof gave the first proof of the hard Lefschetz theorem in characteristic \(p\).
+    \item \textbf{The theory of motives}: The Weil conjectures provide essential evidence for the theory of motives, which posits a universal cohomology theory underlying all Weil cohomologies.
+    \item \textbf{Langlands program}: The theory of weights is essential for constructing and studying Galois representations associated to automorphic forms.
+\end{itemize}
+
+\section{Mixed Hodge Theory}
+
+In the late 1960s and early 1970s, Deligne developed the theory of mixed Hodge structures, a profound generalization of classical Hodge theory that applies to arbitrary (possibly singular and non-compact) algebraic varieties over \(\C\).
+
+\subsection{Classical Hodge Theory}
+
+For a compact K\"ahler manifold \(X\), classical Hodge theory (due to Hodge, Kodaira, and others) gives a decomposition of the cohomology:
+\[
+H^k(X, \C) = \bigoplus_{p+q=k} H^{p,q}(X),
+\]
+where \(H^{p,q}(X)\) is the space of harmonic forms of type \((p,q)\). This decomposition is functorial and satisfies \(H^{p,q} = \overline{H^{q,p}}\). Moreover, there is a decreasing Hodge filtration
+\[
+F^p H^k(X, \C) = \bigoplus_{r \geq p} H^{r,k-r}(X)
+\]
+that varies holomorphically in families.
+
+A \textbf{pure Hodge structure of weight \(k\)} is a finite-dimensional \(\Q\)-vector space \(V\) together with a decomposition
+\[
+V \otimes \C = \bigoplus_{p+q=k} V^{p,q}
+\]
+satisfying \(V^{p,q} = \overline{V^{q,p}}\). The \textbf{Hodge filtration} is \(F^p V_\C = \bigoplus_{r \geq p} V^{r, k-r}\).
+
+\subsection{Mixed Hodge Structures}
+
+Deligne's key insight was that the cohomology of an arbitrary algebraic variety (not necessarily smooth or projective) admits a canonical mixed Hodge structure, generalizing the pure Hodge structure of classical Hodge theory.
+
+\begin{definition}[Mixed Hodge Structure]
+A \textbf{mixed Hodge structure} is a triple \((V, W_\bullet, F^\bullet)\) consisting of:
+\begin{enumerate}
+    \item A finite-dimensional \(\Q\)-vector space \(V\).
+    \item An increasing filtration \(W_\bullet\) on \(V\) (the \textbf{weight filtration}) defined over \(\Q\):
+    \[
+    0 = W_{-1} V \subseteq W_0 V \subseteq \cdots \subseteq W_{2k} V = V.
+    \]
+    \item A decreasing filtration \(F^\bullet\) on \(V_\C = V \otimes \C\) (the \textbf{Hodge filtration}) such that for each \(m\), the graded piece \(\Gr^W_m V = W_m V / W_{m-1} V\) carries a pure Hodge structure of weight \(m\) induced by \(F^\bullet\).
+\end{enumerate}
+\end{definition}
+
+The weight filtration measures how far the cohomology is from being pure, while the Hodge filtration encodes the complex-analytic structure.
+
+\begin{theorem}[Deligne, 1971--1974]
+Let \(X\) be a separated scheme of finite type over \(\C\). The cohomology groups \(H^k(X, \Q)\) carry a canonical mixed Hodge structure, functorial in \(X\). Moreover:
+\begin{enumerate}
+    \item If \(X\) is smooth and projective, the mixed Hodge structure on \(H^k(X, \Q)\) is pure of weight \(k\), recovering the classical Hodge decomposition.
+    \item If \(X\) is smooth (not necessarily projective), the weight filtration satisfies \(W_{k-1} H^k(X, \Q) = 0\) and \(W_k H^k(X, \Q) = H^k(X, \Q)\). The \(k\)-th cohomology of a smooth variety is thus of weight \(\geq k\).
+    \item If \(X\) is projective (not necessarily smooth), the cohomology is of weight \(\leq k\).
+\end{enumerate}
+\end{theorem}
+
+\subsection{Construction via Simplicial Resolution}
+
+Deligne's construction of the mixed Hodge structure uses hypercoverings and the logarithmic de Rham complex. For a singular or non-compact variety \(X\), one constructs a smooth simplicial scheme \(X_\bullet \to X\) (a hyperresolution) that resolves the singularities in a functorial way. The cohomology of \(X\) is computed by the cohomology of a cosimplicial complex of differential forms with logarithmic poles along the divisors at infinity.
+
+For a smooth variety \(U\) that is not projective, one can embed it as an open subset of a smooth projective variety \(X\) such that \(D = X \setminus U\) is a divisor with simple normal crossings. The cohomology of \(U\) is computed by the complex \(\Omega_X^\bullet(\log D)\) of differential forms on \(X\) with logarithmic poles along \(D\). The weight filtration is induced by the number of components of \(D\) used, and the Hodge filtration is given by the truncation of the complex.
+
+\subsection{The Deligne Splitting}
+
+One of Deligne's most beautiful contributions to Hodge theory is the \textbf{Deligne splitting} (also called the \textbf{Deligne--Hodge decomposition}). For any mixed Hodge structure \((V, W_\bullet, F^\bullet)\), there is a canonical bigrading
+\[
+V_\C = \bigoplus_{p,q} I^{p,q}
+\]
+with the following properties:
+\begin{enumerate}
+    \item The filtration \(F^\bullet\) is given by \(F^p V_\C = \bigoplus_{r \geq p} I^{r,s}\).
+    \item The weight filtration is given by \(W_m V_\C = \bigoplus_{p+q \leq m} I^{p,q}\).
+    \item Complex conjugation satisfies \(\overline{I^{p,q}} \equiv I^{q,p} \mod \bigoplus_{r < p, s < q} I^{r,s}\).
+\end{enumerate}
+
+The Deligne splitting is not canonical in the strictest sense (it depends on a choice of a splitting of the weight filtration compatible with the Hodge filtration), but there is a canonical \textbf{bigrading up to the action of a nilpotent operator}. This bigrading is closely related to the theory of \(tt^*\)-geometry and the work of Cecotti--Vafa on supersymmetric quantum field theory.
+
+\subsection{Applications of Mixed Hodge Theory}
+
+Mixed Hodge theory has numerous applications throughout algebraic geometry:
+\begin{itemize}
+    \item \textbf{Invariants of singularities}: The mixed Hodge structure on the cohomology of a singular variety encodes information about the singularities, including the Milnor number, the intersection cohomology, and the Hodge numbers of a resolution.
+    \item \textbf{The hard Lefschetz theorem}: Deligne proved the hard Lefschetz theorem for the cohomology of projective varieties using mixed Hodge theory.
+    \item \textbf{Beilinson's conjectures}: Mixed Hodge theory provides the cohomological framework for Beilinson's conjectures on special values of \(L\)-functions.
+    \item \textbf{Mixed motives}: The theory of mixed Hodge structures is a crucial model for the conjectural theory of mixed motives.
+    \item \textbf{Arithmetic geometry}: Over number fields, there is a corresponding theory of mixed \(\Q_p\)-adic Hodge structures (Fontaine--Messing, Faltings, et al.) that plays a central role in \(p\)-adic Hodge theory and the proof of the Fontaine--Mazur conjecture.
+\end{itemize}
+
+\section{Deligne--Mumford Stacks}
+
+In 1969, Deligne and David Mumford published their seminal paper \textit{The irreducibility of the space of curves of given genus}, which introduced the theory of algebraic stacks (now called Deligne--Mumford stacks) and proved that the moduli space \(\M_g\) of smooth curves of genus \(g\) is irreducible in any characteristic.
+
+\subsection{The Moduli Problem for Curves}
+
+The moduli space \(\M_g\) is the space that parameterizes isomorphism classes of smooth projective curves of genus \(g\). A fundamental problem in algebraic geometry is to understand the structure of \(\M_g\): is it an algebraic variety? What is its dimension? Is it irreducible?
+
+The naive approach of constructing \(\M_g\) as a fine moduli space fails because curves can have automorphisms. A fine moduli space would require a universal family, but the presence of automorphisms prevents the existence of a universal family (since a curve with nontrivial automorphisms would give a non-trivial family over a point). This is the problem of \textbf{moduli of curves with automorphisms}.
+
+\subsection{The Definition of Deligne--Mumford Stacks}
+
+To solve this problem, Deligne and Mumford introduced the notion of an \textbf{algebraic stack} (now called a Deligne--Mumford stack), which generalizes the notion of a scheme by incorporating automorphism groups.
+
+\begin{definition}[Deligne--Mumford Stack]
+A \textbf{Deligne--Mumford stack} is a stack in groupoids over the category of schemes (with the \'etale topology) whose diagonal is representable, quasi-compact, and separated, and which admits an \'etale surjection from a scheme.
+\end{definition}
+
+More concretely, a Deligne--Mumford stack \(\mathcal{X}\) is a categorical framework where each point (object) has an automorphism group (possibly nontrivial), and the structure is locally modeled on a scheme by \'etale charts. The key properties are:
+\begin{enumerate}
+    \item \textbf{Stackiness}: Points can have nontrivial automorphisms, and the stack keeps track of these automorphisms.
+    \item \textbf{\'Etale local structure}: There exists a scheme \(U\) and an \'etale surjective map \(U \to \mathcal{X}\).
+    \item \textbf{Representable diagonal}: The diagonal \(\mathcal{X} \to \mathcal{X} \times \mathcal{X}\) is representable, ensuring that morphisms to \(\mathcal{X}\) are well-behaved.
+\end{enumerate}
+
+\subsection{The Moduli Stack \(\M_g\)}
+
+Deligne and Mumford constructed the moduli stack \(\M_g\) of smooth curves of genus \(g\) as a Deligne--Mumford stack, proving that it is smooth, irreducible, and of dimension \(3g-3\) for \(g \geq 2\). They also constructed the compactification \(\overline{\M}_g\) (now called the Deligne--Mumford compactification), which adds the boundary of stable curves with nodal singularities.
+
+\begin{definition}[Stable Curve]
+A \textbf{stable curve} of genus \(g \geq 2\) is a connected, reduced, projective curve \(C\) of arithmetic genus \(g\) with at most ordinary double points (nodes) as singularities, such that every rational component of the normalization meets the other components in at least three points.
+\end{definition}
+
+The condition that rational components meet the rest of the curve in at least three points ensures that the automorphism group of a stable curve is finite, which is essential for the moduli problem to be well-behaved.
+
+\begin{theorem}[Deligne--Mumford, 1969]
+The moduli stack \(\overline{\M}_g\) of stable curves of genus \(g\) is a smooth, proper, irreducible Deligne--Mumford stack of dimension \(3g-3\). Its interior \(\M_g\) (the locus of smooth curves) is a smooth Deligne--Mumford stack of the same dimension.
+\end{theorem}
+
+\subsection{Irreducibility in Characteristic \(p\)}
+
+One of the main results of the Deligne--Mumford paper was the proof that \(\M_g\) is irreducible over any algebraically closed field, resolving a long-standing problem.
+
+\begin{theorem}[Deligne--Mumford, 1969]
+For any algebraically closed field \(k\) and any integer \(g \geq 2\), the moduli space \(\M_g\) of smooth curves of genus \(g\) over \(k\) is irreducible.
+\end{theorem}
+
+The proof proceeds by showing that the moduli stack \(\M_g\) is smooth and connected (hence irreducible). Smoothness is proved using deformation theory: the tangent space to \(\M_g\) at a curve \(C\) is \(H^1(C, T_C)\), and obstructions lie in \(H^2(C, T_C) = 0\) for curves. Connectedness is proved by showing that any curve can be degenerated to a stable curve and then to a curve in a fixed irreducible family (e.g., the family of plane curves of a given degree).
+
+\subsection{Impact of Deligne--Mumford Stacks}
+
+The theory of Deligne--Mumford stacks revolutionized algebraic geometry:
+\begin{itemize}
+    \item \textbf{Moduli problems:} Stacks provide the correct framework for moduli problems with automorphisms, including moduli of curves, vector bundles, and maps.
+    \item \textbf{The Keel--Mori theorem:} The coarse moduli space of a Deligne--Mumford stack exists as an algebraic space, bridging the gap between stacks and schemes.
+    \item \textbf{The minimal model program:} The Deligne--Mumford compactification \(\overline{\M}_g\) is the prototype for compactifications of moduli spaces in higher dimensions.
+    \item \textbf{Mirror symmetry:} The moduli stack of stable maps (Kontsevich's moduli space) is essential for Gromov--Witten theory and the enumerative geometry of rational curves.
+\end{itemize}
+
+\section{Tensor Categories and Tannakian Formalism}
+
+Deligne made fundamental contributions to the theory of tensor categories, developing the Tannakian formalism and proving deep results about the classification of tensor categories.
+
+\subsection{Tensor Categories}
+
+A \textbf{tensor category} (or symmetric monoidal category) is a category \(\mathcal{C}\) equipped with a bifunctor \(\otimes: \mathcal{C} \times \mathcal{C} \to \mathcal{C}\), a unit object \(\mathbf{1}\), and associativity and commutativity constraints satisfying the Mac Lane coherence conditions. A tensor category is \textbf{rigid} if every object has a dual.
+
+\begin{example}[Representations of a Group]
+The category \(\Rep_k(G)\) of finite-dimensional representations of an affine group scheme \(G\) over a field \(k\) is a rigid tensor category. The tensor product is the usual tensor product of representations, the unit object is the trivial representation, and the dual of a representation \(V\) is the contragredient representation \(V^*\).
+\end{example}
+
+\subsection{Tannakian Categories}
+
+A \textbf{Tannakian category} over a field \(k\) is a rigid abelian tensor category \(\mathcal{C}\) equipped with a fiber functor \(\omega: \mathcal{C} \to \Vec_k\) to the category of finite-dimensional vector spaces over \(k\), satisfying certain exactness and faithfulness conditions.
+
+\begin{definition}[Tannakian Category]
+A neutral Tannakian category over a field \(k\) is a pair \((\mathcal{C}, \omega)\) where:
+\begin{enumerate}
+    \item \(\mathcal{C}\) is a rigid abelian \(k\)-linear tensor category.
+    \item \(\omega: \mathcal{C} \to \Vec_k\) is an exact, faithful \(k\)-linear tensor functor (the \textbf{fiber functor}).
+    \item \(\End(\omega) = k\) (i.e., the only endomorphisms of \(\omega\) are scalars).
+\end{enumerate}
+\end{definition}
+
+The fundamental theorem of Tannakian categories states that every neutral Tannakian category is equivalent to the category of representations of an affine group scheme.
+
+\begin{theorem}[Tannaka--Grothendieck--Saavedra--Deligne]
+Let \((\mathcal{C}, \omega)\) be a neutral Tannakian category over a field \(k\). Then the functor
+\[
+\Aut^\otimes(\omega)(R) = \text{group of tensor automorphisms of } \omega \otimes R
+\]
+is representable by an affine group scheme \(G = \underline{\Aut}^\otimes(\omega)\) over \(k\), and the natural functor
+\[
+\mathcal{C} \longrightarrow \Rep_k(G), \qquad X \mapsto \omega(X)
+\]
+is an equivalence of tensor categories.
+\end{theorem}
+
+This theorem shows that Tannakian categories are precisely the categories of representations of affine group schemes. The group scheme \(G\) is recovered as the automorphism group of the fiber functor.
+
+\subsection{Deligne's Classification of Tensor Categories}
+
+Deligne proved a remarkable classification of tensor categories in terms of their growth rates. For a tensor category \(\mathcal{C}\), define the \textbf{Frobenius--Perron dimension} of an object \(X\) as the largest eigenvalue of the operator of tensoring with \(X\) on the Grothendieck ring. Deligne showed that tensor categories of subexponential growth are essentially of Tannakian type.
+
+\begin{theorem}[Deligne, 1990]
+Let \(\mathcal{C}\) be a rigid tensor category over an algebraically closed field of characteristic zero. If there exists an object \(X \in \mathcal{C}\) such that \(\text{length}(X^{\otimes n})\) grows at most exponentially in \(n\), then \(\mathcal{C}\) is a \textbf{pro-Tannakian} category: it admits an embedding into the category of representations of an affine group scheme.
+\end{theorem}
+
+More precisely, Deligne proved:
+
+\begin{theorem}[Deligne's Theorem on Tensor Categories]
+Let \(\mathcal{C}\) be a symmetric tensor category over an algebraically closed field \(k\) of characteristic zero. Suppose that for every object \(X \in \mathcal{C}\), the length of \(X^{\otimes n}\) is bounded by a polynomial in \(n\). Then \(\mathcal{C}\) is Tannakian: it admits a fiber functor to \(\Vec_k\).
+\end{theorem}
+
+This theorem has profound implications: it shows that many tensor categories that arise in geometry and representation theory are actually categories of representations. For example, Deligne used this to prove that the category of perverse sheaves on a variety with a given stratification is Tannakian.
+
+\subsection{Applications of Tannakian Categories}
+
+The Tannakian formalism has numerous applications:
+\begin{itemize}
+    \item \textbf{Motives:} The category of pure motives (conjecturally) is a Tannakian category, with the fiber functor given by any Weil cohomology theory. The associated group scheme is the motivic Galois group.
+    \item \textbf{Differential Galois theory:} The category of differential modules over a differential field is Tannakian, and the associated group scheme is the differential Galois group.
+    \item \textbf{Quantum groups:} The category of representations of a quantum group at a root of unity is a braided tensor category that is not symmetric; it gives a non-Tannakian example.
+    \item \textbf{Vertex operator algebras:} Deligne's work on tensor categories has applications to the theory of vertex operator algebras and conformal field theory.
+\end{itemize}
+
+\section{The Langlands Program and the Ramanujan Conjecture}
+
+Deligne made profound contributions to the Langlands program, most notably his proof of the Ramanujan conjecture for cusp forms of weight \(\geq 2\) and his construction of Galois representations associated to modular forms.
+
+\subsection{The Ramanujan Conjecture}
+
+The classical Ramanujan conjecture, formulated by Srinivasa Ramanujan in 1916, concerns the Fourier coefficients of the discriminant modular form:
+\[
+\Delta(q) = q \prod_{n=1}^\infty (1-q^n)^{24} = \sum_{n=1}^\infty \tau(n) q^n.
+\]
+
+Ramanujan conjectured that for all primes \(p\),
+\[
+|\tau(p)| \leq 2 p^{11/2}.
+\]
+
+More generally, for a cusp form \(f\) of weight \(k\) for \(\SL(2,\Z)\) with Fourier expansion
+\[
+f(z) = \sum_{n=1}^\infty a_n e^{2\pi i n z},
+\]
+the Ramanujan--Petersson conjecture states that
+\[
+|a_p| \leq 2 p^{(k-1)/2}
+\]
+for all primes \(p\).
+
+\subsection{Petersson's Generalization and Eichler--Shimura Theory}
+
+The Ramanujan conjecture was generalized by Petersson to arbitrary cusp forms. The connection with algebraic geometry was made by Eichler and Shimura, who associated to each cusp form of weight \(k \geq 2\) a compatible system of 2-dimensional \(l\)-adic Galois representations:
+\[
+\rho_{f,l}: \Gal(\overline{\Q}/\Q) \longrightarrow \GL_2(\overline{\Q}_l).
+\]
+
+For a prime \(p\) at which \(f\) is unramified, the trace of \(\rho_{f,l}(\Frob_p)\) equals the Fourier coefficient \(a_p\), and the determinant is \(p^{k-1}\). The Ramanujan--Petersson conjecture is then equivalent to the statement that the eigenvalues of \(\rho_{f,l}(\Frob_p)\) have absolute value \(p^{(k-1)/2}\).
+
+\subsection{Deligne's Proof of the Ramanujan Conjecture}
+
+Deligne's proof of the Ramanujan conjecture for cusp forms of weight \(k \geq 2\) was a spectacular application of his proof of the Weil conjectures. The key insight is that the Galois representation \(\rho_{f,l}\) can be realized in the \(l\)-adic cohomology of certain algebraic varieties, and the Ramanujan bound follows from the purity of cohomology.
+
+\begin{theorem}[Deligne, 1974]
+Let \(f\) be a cuspidal Hecke eigenform of weight \(k \geq 2\) for \(\SL(2,\Z)\). Then for every prime \(p\),
+\[
+|a_p(f)| \leq 2 p^{(k-1)/2}.
+\]
+\end{theorem}
+
+The proof proceeds as follows:
+\begin{enumerate}
+    \item By the Eichler--Shimura construction, there exists a compatible system of 2-dimensional \(l\)-adic Galois representations \(\rho_{f,l}\) attached to \(f\).
+    \item For \(k \geq 2\), these representations can be realized in the \'etale cohomology of a Kuga--Sato variety, which is a certain smooth projective variety obtained as a fiber product of universal elliptic curves over the modular curve.
+    \item By the Weil conjectures (Deligne's theorem), the eigenvalues of Frobenius on the cohomology of a smooth projective variety are pure: they have absolute value \(q^{w/2}\) for some weight \(w\).
+    \item The representation \(\rho_{f,l}\) occurs in the cohomology of the Kuga--Sato variety with a specific weight, giving the bound \(|\alpha_p| = p^{(k-1)/2}\) for the eigenvalues of \(\rho_{f,l}(\Frob_p)\).
+    \item Since \(a_p = \alpha_p + \beta_p\) and \(\alpha_p \beta_p = p^{k-1}\), we obtain \(|a_p| \leq 2 p^{(k-1)/2}\).
+\end{enumerate}
+
+Deligne's proof works for all cusp forms of weight \(k \geq 2\) that are eigenforms for the Hecke operators. The case of weight 1 was later proved by Deligne and Serre using modular forms mod \(p\) and the theory of Galois representations.
+
+\subsection{Construction of Galois Representations for Modular Forms}
+
+In a landmark 1973 paper (written jointly with Serre), \textit{Formes modulaires de poids 1}, Deligne and Serre constructed Galois representations for cusp forms of weight 1, proving the Artin conjecture for the corresponding 2-dimensional Artin representations.
+
+For a cusp form of weight \(k \geq 2\), the Galois representation \(\rho_{f,l}\) is constructed from the theory of modular curves. Let \(Y(N)\) be the modular curve of level \(N\), parameterizing elliptic curves with level \(N\) structure. The Jacobian \(J(N)\) of the modular curve \(X(N)\) admits a decomposition into factors corresponding to Hecke eigenforms. The Tate module \(T_l J(N)\) gives an \(l\)-adic representation of the absolute Galois group of \(\Q\), and the system of Hecke eigenvalues determines a direct summand corresponding to \(f\).
+
+Deligne's construction is the foundation of the Langlands program for \(\GL(2)\) over \(\Q\). It has been vastly generalized by Wiles, Taylor, and others in the proof of Fermat's Last Theorem and the modularity theorem.
+
+\subsection{Deligne--Lusztig Theory}
+
+In 1976, Deligne and George Lusztig published their seminal paper \textit{Representations of reductive groups over finite fields}, which created the theory of Deligne--Lusztig representations.
+
+Let \(G\) be a connected reductive algebraic group defined over a finite field \(\F_q\), with Frobenius endomorphism \(F: G \to G\). The Deligne--Lusztig theory constructs virtual representations of the finite group \(G(\F_q)\) from the \(l\)-adic cohomology of Deligne--Lusztig varieties:
+\[
+X(w) = \{ g \in G / B : g^{-1} F(g) \in B w B \},
+\]
+where \(B\) is a Borel subgroup and \(w\) is an element of the Weyl group.
+
+The cohomology groups \(H^i_c(X(w), \overline{\Q}_l)\) carry an action of \(G(\F_q) \times \langle F \rangle\), and the virtual representation
+\[
+R_{T,\theta} = \sum_i (-1)^i H^i_c(X(w), \overline{\Q}_l)
+\]
+gives a generalized character of \(G(\F_q)\) associated to a torus \(T\) and a character \(\theta: T(\F_q) \to \overline{\Q}_l^\times\).
+
+The Deligne--Lusztig theory provides the foundation for the representation theory of finite groups of Lie type. It gives a construction of all irreducible representations of \(G(\F_q)\) and allows the computation of character tables, including the exotic cuspidal representations that do not arise from parabolic induction.
+
+\section{Other Major Contributions}
+
+\subsection{Deligne Cohomology}
+
+Deligne cohomology is a cohomology theory that combines holomorphic differential forms with integral cohomology, providing a natural home for the Chern classes of holomorphic vector bundles and for the regulator maps in algebraic \(K\)-theory.
+
+For a complex manifold \(X\), the \textbf{Deligne cohomology} group \(H^p_{\mathcal{D}}(X, \Z(q))\) is defined as the hypercohomology of the complex
+\[
+\Z(q) \longrightarrow \mathcal{O}_X \longrightarrow \Omega^1_X \longrightarrow \cdots \longrightarrow \Omega^{q-1}_X.
+\]
+
+Deligne cohomology sits in exact sequences relating it to Hodge theory and to ordinary cohomology:
+\[
+0 \longrightarrow J^q H^{2q-1}(X, \C) \longrightarrow H^{2q}_{\mathcal{D}}(X, \Z(q)) \longrightarrow H^{2q}(X, \Z) \cap F^q H^{2q}(X, \C) \longrightarrow 0,
+\]
+where \(J^q\) is the intermediate Jacobian. The Chern class of a holomorphic vector bundle takes values in \(H^{2}_{\mathcal{D}}(X, \Z(1)) \cong \Pic(X)\), and the Beilinson regulator maps from \(K\)-theory to Deligne cohomology.
+
+\subsection{The Weil--Deligne Theorem}
+
+The Weil--Deligne theorem (proved by Deligne in 1973) classifies the possible actions of Frobenius on the \'etale cohomology of varieties over local fields. It gives a bijection between isomorphism classes of Frobenius-semisimple \(l\)-adic representations of the Weil group of a local field and isomorphism classes of certain data (the Weil--Deligne representation).
+
+\begin{definition}[Weil--Deligne Representation]
+A \textbf{Weil--Deligne representation} of the Weil group \(W_K\) of a local field \(K\) is a pair \((\rho, N)\) where:
+\begin{enumerate}
+    \item \(\rho: W_K \to \GL(V)\) is a representation on a finite-dimensional \(\overline{\Q}_l\)-vector space \(V\) that is continuous when restricted to the inertia subgroup.
+    \item \(N: V \to V\) is a nilpotent operator satisfying \(\rho(g) N \rho(g)^{-1} = \|g\| N\) for all \(g \in W_K\), where \(\|g\| = q^{-v(g)}\) for \(g \in W_K\) with valuation \(v(g)\).
+\end{enumerate}
+\end{definition}
+
+The Weil--Deligne theorem is essential for the local Langlands correspondence, relating representations of the Weil group to representations of \(\GL_n(K)\).
+
+\subsection{The Deligne--Rapoport Compactification}
+
+In joint work with Michael Rapoport, Deligne studied the arithmetic of modular curves, constructing the integral models of modular curves and their compactifications. The \textbf{Deligne--Rapoport compactification} of the modular curve \(Y(N)\) over \(\Z\) provides a proper, regular model of the modular curve, essential for the arithmetic theory of modular forms.
+
+\section{Legacy and Impact}
+
+\subsection{Algebraic Geometry and Number Theory}
+
+Deligne's proof of the Weil conjectures is one of the greatest achievements in the history of mathematics, completing the program initiated by Weil and establishing \'etale cohomology as a fundamental tool. The theory of weights that he developed in \textit{Weil II} permeates modern arithmetic geometry and lies at the heart of the Langlands program.
+
+\subsection{Hodge Theory}
+
+Mixed Hodge theory, created by Deligne, is an essential tool in algebraic geometry, singularity theory, and the theory of motives. The canonical mixed Hodge structure on the cohomology of algebraic varieties is the foundation for the study of period maps, variations of Hodge structure, and the Torelli problem.
+
+\subsection{Moduli Theory}
+
+The theory of Deligne--Mumford stacks provided the correct framework for moduli problems with automorphisms. The Deligne--Mumford compactification \(\overline{\M}_g\) is the model for compactifications of moduli spaces in algebraic geometry, and the theory of stacks has become indispensable in enumerative geometry, Gromov--Witten theory, and derived algebraic geometry.
+
+\subsection{Tannakian Categories}
+
+Deligne's work on Tannakian categories and his classification of tensor categories revealed the deep connection between tensor categories and affine group schemes. This work is fundamental to the theory of motives, quantum groups, and the study of fusion categories in mathematical physics.
+
+\subsection{The Langlands Program}
+
+Deligne's proof of the Ramanujan conjecture and his construction of Galois representations for modular forms are foundational results in the Langlands program. The Deligne--Lusztig theory revolutionized the representation theory of finite groups of Lie type and is essential for the local Langlands correspondence.
+
+\subsection{Recognition}
+
+Deligne has received the highest honors in mathematics: the Fields Medal (1978), the Wolf Prize (2008, shared with Griffiths and Mumford), and the Abel Prize (2013). He is a member of the French Academy of Sciences, the US National Academy of Sciences, the Royal Society, and numerous other academies. His work continues to inspire generations of mathematicians and shapes the development of algebraic geometry, number theory, and representation theory.
+
+\section{Frequently Asked Questions}
+
+\subsection*{Q1: What exactly did Deligne prove about the Weil conjectures?}
+
+Deligne proved the third and most difficult Weil conjecture: the Riemann hypothesis for varieties over finite fields. This states that the eigenvalues of the Frobenius endomorphism on the \(i\)-th \'etale cohomology group of a smooth projective variety over \(\F_q\) are algebraic numbers of absolute value \(q^{i/2}\). He proved this in two papers (1974 and 1980), with the second paper vastly generalizing the result to arbitrary constructible \(l\)-adic sheaves.
+
+\subsection*{Q2: What is a mixed Hodge structure?}
+
+A mixed Hodge structure is a generalization of the classical Hodge decomposition on the cohomology of compact K\"ahler manifolds to arbitrary (possibly singular and non-compact) algebraic varieties. It consists of a weight filtration (measuring how far from being smooth and projective the variety is) and a Hodge filtration (encoding the complex-analytic structure), such that each graded piece of the weight filtration carries a pure Hodge structure.
+
+\subsection*{Q3: Why are Deligne--Mumford stacks important?}
+
+Deligne--Mumford stacks solve the fundamental problem of moduli theory: the presence of automorphisms prevents moduli spaces from being fine (i.e., having a universal family). Stacks incorporate automorphisms into the structure, allowing a universal family to exist. The Deligne--Mumford compactification \(\overline{\M}_g\) of the moduli space of curves is the canonical compactification using stable curves with nodes.
+
+\subsection*{Q4: What is the Tannakian formalism?}
+
+The Tannakian formalism states that any neutral Tannakian category (a rigid abelian tensor category with a fiber functor to vector spaces) is equivalent to the category of finite-dimensional representations of an affine group scheme. This provides a bridge between tensor categories and group theory: the group scheme is recovered as the automorphism group of the fiber functor.
+
+\subsection*{Q5: How did Deligne prove the Ramanujan conjecture?}
+
+Deligne proved that the Fourier coefficients \(a_p\) of a cuspidal Hecke eigenform of weight \(k \geq 2\) satisfy \(|a_p| \leq 2 p^{(k-1)/2}\). The proof uses the Eichler--Shimura construction to associate a 2-dimensional Galois representation to the modular form, realizes this representation in the cohomology of a Kuga--Sato variety, and then applies his proof of the Weil conjectures (the Riemann hypothesis) to bound the eigenvalues.
+
+\subsection*{Q6: What was Deligne's role in the development of the Langlands program?}
+
+Deligne's proof of the Ramanujan conjecture was a milestone in the Langlands program, as it confirmed the expected bounds for the Fourier coefficients of modular forms predicted by the Langlands philosophy. His construction of Galois representations attached to modular forms (with Serre for weight 1) provided the essential link between automorphic forms and Galois representations. The Deligne--Lusztig theory of representations of finite reductive groups is foundational for the local Langlands correspondence.
+
+\section{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1944 & Born on October 3 in Etterbeek, Brussels, Belgium \\ \hline
+1962 & Entered the Universit\'e Libre de Bruxelles \\ \hline
+1965 & Joined the IH\'ES at Bures-sur-Yvette, France \\ \hline
+1968 & Licence and early work on Weil conjectures for K3 surfaces \\ \hline
+1969 & Deligne--Mumford paper on stacks and irreducibility of \(\M_g\) \\ \hline
+1972 & PhD thesis under Grothendieck at Universit\'e Paris-Sud, Orsay \\ \hline
+1973 & Weil I: proof of the Riemann hypothesis for varieties over finite fields \\ \hline
+1973 & Deligne--Serre: construction of Galois representations for weight 1 forms \\ \hline
+1974 & Proof of the Ramanujan conjecture for cusp forms of weight \(k \geq 2\) \\ \hline
+1976 & Deligne--Lusztig theory of representations of finite groups of Lie type \\ \hline
+1978 & Awarded the Fields Medal at the ICM in Helsinki \\ \hline
+1980 & Weil II: the general theory of weights for \(l\)-adic sheaves \\ \hline
+1980s & Mixed Hodge theory and its applications \\ \hline
+1984 & Moved to the Institute for Advanced Study, Princeton \\ \hline
+1988 & Awarded the Crafoord Prize \\ \hline
+1990s & Work on Tannakian categories and tensor categories \\ \hline
+2004 & Awarded the Balzan Prize \\ \hline
+2008 & Awarded the Wolf Prize in Mathematics (shared with Griffiths and Mumford) \\ \hline
+2013 & Awarded the Abel Prize from the Norwegian Academy of Science and Letters \\ \hline
+\end{tabular}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Let \(X\) be a smooth projective curve of genus \(g\) over \(\F_q\). Show that the zeta function of \(X\) is
+    \[
+    Z(X, t) = \frac{P_1(t)}{(1-t)(1-qt)},
+    \]
+    where \(P_1(t) = \prod_{i=1}^{2g} (1 - \alpha_i t)\) and \(|\alpha_i| = q^{1/2}\). Conclude that \(|X(\F_{q^m})| = q^m + 1 - \sum \alpha_i^m\).
+    \item Prove that for a smooth projective variety \(X\) over \(\F_q\), the functional equation for the zeta function is equivalent to Poincar\'e duality for \'etale cohomology.
+    \item Let \(X\) be a smooth projective surface over \(\F_q\). Show that the zeta function takes the form
+    \[
+    Z(X, t) = \frac{P_1(t) P_3(t)}{P_0(t) P_2(t) P_4(t)},
+    \]
+    where each \(P_i\) has degree \(b_i\), and the Riemann hypothesis gives bounds on the reciprocal roots.
+    \item Show that the category \(\Rep_k(G)\) of finite-dimensional representations of an affine group scheme \(G\) over a field \(k\) is a neutral Tannakian category with fiber functor given by the forgetful functor.
+    \item Prove that the Deligne--Mumford compactification \(\overline{\M}_g\) is proper by showing that any family of smooth curves over a punctured disk can be extended to a family of stable curves after a finite base change.
+    \item Let \(V\) be a pure Hodge structure of weight \(k\). Show that the Hodge decomposition \(V_\C = \bigoplus_{p+q=k} V^{p,q}\) determines and is determined by the Hodge filtration \(F^p V_\C = \bigoplus_{r \geq p} V^{r,k-r}\).
+    \item For a smooth variety \(U = X \setminus D\) where \(D\) is a divisor with simple normal crossings, show that the cohomology of \(U\) is computed by the complex \(\Omega_X^\bullet(\log D)\).
+    \item Verify that for the modular discriminant \(\Delta(q) = q \prod (1-q^n)^{24}\), the Ramanujan conjecture for weight 12 gives \(|\tau(p)| \leq 2 p^{11/2}\).
+    \item Let \(f\) be a cusp form of weight \(k \geq 2\). Show that the associated Galois representation \(\rho_{f,l}\) is unramified outside \(lN\) where \(N\) is the level, and that for \(p \nmid lN\), \(\operatorname{Tr} \rho_{f,l}(\Frob_p) = a_p\).
+    \item Prove that a Deligne--Mumford stack with trivial automorphism groups is an algebraic space.
+    \item Let \(\mathcal{C}\) be a Tannakian category with fiber functor \(\omega\). Show that the group scheme \(\underline{\Aut}^\otimes(\omega)\) is affine.
+    \item For a smooth projective variety \(X\) over \(\C\), show that the Hodge numbers satisfy \(h^{p,q} = h^{q,p}\) and \(h^{p,q} = h^{n-p,n-q}\) (Hodge symmetry and Serre duality).
+    \item Let \(X\) be a smooth quasi-projective variety. Use Deligne's mixed Hodge theory to show that the weight filtration on \(H^k(X, \Q)\) satisfies \(W_{k-1} = 0\) and \(W_k = H^k\).
+    \item Show that the zeta function of a smooth projective curve \(X\) of genus \(g\) over \(\F_q\) satisfies the Riemann hypothesis if and only if the eigenvalues of Frobenius on \(H^1_{\text{\'et}}(X_{\overline{\F}_q}, \Q_l)\) have absolute value \(q^{1/2}\).
+    \item Let \(\mathcal{C}\) be a rigid tensor category over a field \(k\). Show that the endomorphism algebra of the unit object \(\mathbf{1}\) is a field extension of \(k\).
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[\'Etale cohomology] A Weil cohomology theory for algebraic varieties over arbitrary fields, developed by Grothendieck and his school, satisfying the Eilenberg--Steenrod axioms.
+    \item[Frobenius endomorphism] The map \(\Frob: X \to X\) raising coordinates to the \(q\)-th power on a variety over \(\F_q\), inducing the action on \'etale cohomology whose eigenvalues are the subject of the Riemann hypothesis.
+    \item[Lefschetz pencil] A one-parameter family of hyperplane sections of a projective variety used in the inductive proof of the Weil conjectures.
+    \item[Mixed Hodge structure] A pair of filtrations (weight and Hodge) on the cohomology of an algebraic variety, generalizing the pure Hodge structure of classical Hodge theory.
+    \item[Deligne splitting] A canonical bigrading of the complexified cohomology refining the weight and Hodge filtrations.
+    \item[Deligne--Mumford stack] An algebraic stack with finite automorphism groups, used to parameterize moduli problems with automorphisms.
+    \item[Stable curve] A curve with at most nodal singularities and finite automorphism group, used to compactify the moduli space of smooth curves.
+    \item[Tannakian category] A rigid abelian tensor category admitting a fiber functor to vector spaces, equivalent to the category of representations of an affine group scheme.
+    \item[Weights] The property that Frobenius eigenvalues on the \(i\)-th cohomology of a smooth projective variety have absolute value \(q^{i/2}\); generalized to arbitrary sheaves by Deligne.
+    \item[Weil--Deligne representation] A representation of the Weil group of a local field together with a nilpotent operator, classifying \(l\)-adic representations of the Galois group.
+    \item[Deligne--Lusztig variety] An \(l\)-adic cohomology space used to construct representations of finite groups of Lie type.
+    \item[Ramanujan conjecture] The bound \(|a_p| \leq 2 p^{(k-1)/2}\) for the Fourier coefficients of cuspidal Hecke eigenforms of weight \(k\).
+    \item[Kuga--Sato variety] A fiber product of universal elliptic curves over a modular curve, whose cohomology realizes the Galois representations attached to modular forms.
+    \item[Deligne cohomology] A cohomology theory combining holomorphic differential forms with integral cohomology, used for Chern classes and regulators.
+    \item[Fiber functor] An exact faithful tensor functor from a Tannakian category to vector spaces, whose automorphism group recovers the underlying group scheme.
+\end{description}

@@ -1,0 +1,495 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\F\relax
+\newcommand{\F}{\mathbb{F}}
+\let\A\relax
+\newcommand{\A}{\mathbb{A}}
+\let\G\relax
+\newcommand{\G}{\mathbb{G}}
+\let\SO\relax
+\newcommand{\SO}{\operatorname{SO}}
+\let\SL\relax
+\newcommand{\SL}{\operatorname{SL}}
+\let\GL\relax
+\newcommand{\GL}{\operatorname{GL}}
+\let\St\relax
+\newcommand{\St}{\operatorname{St}}
+\let\GV\relax
+\newcommand{\GV}{\operatorname{GV}}
+\let\E\relax
+\newcommand{\E}{\operatorname{E}}
+\let\Gal\relax
+\newcommand{\Gal}{\operatorname{Gal}}
+\let\PGL\relax
+\newcommand{\PGL}{\operatorname{PGL}}
+\let\PSL\relax
+\newcommand{\PSL}{\operatorname{PSL}}
+\let\Sp\relax
+\newcommand{\Sp}{\operatorname{Sp}}
+\let\SU\relax
+\newcommand{\SU}{\operatorname{SU}}
+\let\Aut\relax
+\newcommand{\Aut}{\operatorname{Aut}}
+\let\Ad\relax
+\newcommand{\Ad}{\operatorname{Ad}}
+\let\ad\relax
+\newcommand{\ad}{\operatorname{ad}}
+\let\Ind\relax
+\newcommand{\Ind}{\operatorname{Ind}}
+\let\cInd\relax
+\newcommand{\cInd}{\operatorname{cInd}}
+\let\Hom\relax
+\newcommand{\Hom}{\operatorname{Hom}}
+\let\End\relax
+\newcommand{\End}{\operatorname{End}}
+\let\Spec\relax
+\newcommand{\Spec}{\operatorname{Spec}}
+\let\Sht\relax
+\newcommand{\Sht}{\operatorname{Sht}}
+\let\Bun\relax
+\newcommand{\Bun}{\operatorname{Bun}}
+\let\Coh\relax
+\newcommand{\Coh}{\operatorname{Coh}}
+\let\Gr\relax
+\newcommand{\Gr}{\operatorname{Gr}}
+\let\Perv\relax
+\newcommand{\Perv}{\operatorname{Perv}}
+\let\Rep\relax
+\newcommand{\Rep}{\operatorname{Rep}}
+
+\chapter{Robert Langlands (1995/96)}
+
+\section{Biographical Sketch}
+
+Robert Phelan Langlands was born on October 6, 1936, in New Westminster, British Columbia, Canada. He grew up in a small town near Vancouver, showing an early aptitude for mathematics. Langlands attended the University of British Columbia for his undergraduate studies, earning a B.A. in 1957 and an M.A. in 1958. He then moved to Yale University, where he completed his Ph.D.\ in 1960 under the supervision of Cassius Ionescu-Tulcea, with a dissertation on the theory of Lie groups.
+
+After brief positions at Princeton University and the University of California, Berkeley, Langlands joined the faculty at Yale in 1962. In 1967, he wrote the famous letter to Andr\'{e} Weil that would lay the foundation for what became known as the Langlands program. This letter, now legendary in mathematics, outlined a sweeping vision connecting number theory, harmonic analysis, and representation theory.
+
+Langlands moved to the Institute for Advanced Study in Princeton in 1972, where he remained for the rest of his career. He was appointed Professor Emeritus at IAS in 2006 but continued to pursue active research well into his later years.
+
+Langlands's early work focused on the representation theory of Lie groups and the theory of automorphic forms. His Ph.D.\ thesis dealt with the representation theory of the Lorentz group, foreshadowing his deep interest in the interplay between group representations and analysis. During his time at Princeton and Berkeley in the early 1960s, he became deeply familiar with the work of Harish-Chandra on harmonic analysis on semisimple Lie groups and with Selberg's trace formula.
+
+The monumental scope of his contributions has been recognized by numerous honors. He received the Wolf Prize in Mathematics in 1995/96, sharing it with Andrew Wiles ``for his extraordinary achievements in number theory and related fields.'' For the precise citation: Langlands was awarded the prize ``for his pioneering work and extraordinary insights in the fields of number theory, automorphic forms, and representation theory.'' In 2018, he was awarded the Abel Prize by the Norwegian Academy of Sciences and Letters, ``for his visionary program connecting representation theory to number theory.''
+
+\section{The Letter to Weil --- Birth of a Program}
+
+The year 1967 marks a pivotal moment in the history of mathematics. Langlands, then a young professor at Princeton, wrote a remarkable letter to Andr\'{e} Weil. The letter, dated March 23, 1967, begins with characteristic modesty:
+
+\begin{quote}
+``Dear Professor Weil, I am enclosing a manuscript with some ideas that have been running through my head. I would be grateful if you could tell me whether they are completely idiotic.''
+\end{quote}
+
+They were not idiotic. In this letter, Langlands proposed a vast generalization of class field theory --- itself one of the great achievements of twentieth-century mathematics. Class field theory describes the abelian extensions of number fields via the reciprocity law. Langlands envisioned a non-abelian analogue, connecting Galois representations on the one hand and automorphic representations on the other.
+
+The core insight is deceptively simple. Let \(F\) be a number field and let \(\overline{F}\) be an algebraic closure. The absolute Galois group \(\Gal(\overline{F}/F)\) is a profinite group encoding the arithmetic of \(F\). Its finite-dimensional representations over \(\C\) or \(\overline{\Q}_\ell\) are objects of central importance. On the other hand, let \(\mathbb{A}_F\) be the adele ring of \(F\) and let \(G\) be a reductive algebraic group over \(F\). The group \(G(\mathbb{A}_F)\) acts by right translation on the space \(L^2(G(F)\backslash G(\mathbb{A}_F))\), and the irreducible constituents of this representation are called automorphic representations.
+
+The Langlands correspondence predicts a bijection between certain \(n\)-dimensional Galois representations of \(\Gal(\overline{F}/F)\) and certain automorphic representations of \(\GL(n,\mathbb{A}_F)\). More generally, for any reductive group \(G\), the automorphic representations of \(G\) should correspond to homomorphisms of the conjectural Langlands group \(L_F\) into the Langlands dual group \({}^L G\).
+
+This vision unified seemingly disparate fields: algebraic number theory, the theory of automorphic forms, harmonic analysis on reductive groups, and the representation theory of \(p\)-adic and real Lie groups.
+
+Weil, recognizing the potential significance of the ideas, encouraged Langlands to develop them further. Over the following decades, what began as a letter grew into one of the most ambitious and influential research programs in the history of mathematics. The program has come to encompass not only the original conjectures but also a vast network of interconnected problems, techniques, and results that continue to drive mathematical research today.
+
+The letter itself, now available in facsimile in Langlands's collected works, shows the characteristic breadth of its author's thinking. It contains not only the seeds of the Langlands correspondence but also early formulations of the functoriality principle and the relationship between automorphic forms and Galois representations. Many specific conjectures that Langlands wrote in that letter remain open today, testifying to the remarkable depth of his vision.
+
+\section{Automorphic Forms and Representations}
+
+To make the discussion precise, we must first understand automorphic forms. Classical automorphic forms are functions on the upper half-plane \(\mathfrak{H} = \{z \in \C : \Im(z) > 0\}\) that are invariant under a discrete subgroup \(\Gamma \subset \SL(2,\R)\). The prototypical example is the modular group \(\Gamma = \SL(2,\Z)\).
+
+\begin{definition}
+A function \(f : \mathfrak{H} \to \C\) is a modular form of weight \(k\) for \(\SL(2,\Z)\) if:
+\begin{enumerate}
+\item \(f\) is holomorphic on \(\mathfrak{H}\);
+\item \(f(\gamma z) = (cz + d)^k f(z)\) for all \(\gamma = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \SL(2,\Z)\);
+\item \(f\) is holomorphic at the cusp (has a Fourier expansion \(f(z) = \sum_{n=0}^\infty a_n e^{2\pi i n z}\)).
+\end{enumerate}
+A cusp form additionally satisfies \(a_0 = 0\).
+\end{definition}
+
+The modern, representation-theoretic viewpoint replaces these classical automorphic forms with automorphic representations. This perspective, pioneered by Gelfand, Piatetski-Shapiro, and later Langlands, considers the action of the adelic group \(G(\mathbb{A}_F)\) on the space of square-integrable functions on \(G(F)\backslash G(\mathbb{A}_F)\). The space decomposes as a direct integral of irreducible unitary representations, and those occurring discretely are of particular interest.
+
+\begin{definition}
+Let \(F\) be a number field and \(G\) a reductive algebraic group over \(F\). An automorphic representation \(\pi\) of \(G(\mathbb{A}_F)\) is an irreducible representation of \(G(\mathbb{A}_F)\) that is isomorphic to a subquotient of the space of automorphic forms on \(G(F)\backslash G(\mathbb{A}_F)\).
+\end{definition}
+
+The great advantage of the adelic approach is that the representation \(\pi\) factors as a restricted tensor product of local representations:
+\[
+\pi \cong \bigotimes_v' \pi_v,
+\]
+where \(v\) runs over the places of \(F\), and each \(\pi_v\) is an irreducible representation of \(G(F_v)\). For almost all finite places \(v\), the local representation \(\pi_v\) is unramified, meaning it contains a vector fixed by a hyperspecial maximal compact subgroup \(K_v \subset G(F_v)\).
+
+The decomposition \(\pi \cong \bigotimes_v' \pi_v\) is the starting point for the local-global principle that pervades the Langlands program. Each local component \(\pi_v\) is an irreducible admissible representation of \(G(F_v)\). Over the Archimedean places \(F_v \cong \R\) or \(\C\), these are representations of real Lie groups, classified by the Langlands classification for real groups. Over non-Archimedean places, the representation theory of \(p\)-adic groups comes into play.
+
+\begin{definition}
+Let \(F_v\) be a local field and \(G\) a reductive group over \(F_v\). An admissible representation \(\pi_v\) of \(G(F_v)\) is a representation such that for every open compact subgroup \(K \subset G(F_v)\), the space of \(K\)-fixed vectors \(\pi_v^K\) is finite-dimensional.
+\end{definition}
+
+The condition of admissibility ensures that representations have well-defined characters and Harish-Chandra's theory of orbital integrals applies. For unramified representations, the space \(\pi_v^{K_v}\) is one-dimensional, spanned by a distinguished vector called the spherical vector.
+
+\section{The Satake Isomorphism}
+
+The study of unramified representations is governed by the Satake isomorphism, a fundamental result that links the representation theory of \(p\)-adic groups to the geometry of their Langlands dual groups.
+
+\begin{theorem}[Satake Isomorphism]
+Let \(G\) be a connected reductive group over a non-Archimedean local field \(F\). Let \(K = G(\mathcal{O}_F)\) be a hyperspecial maximal compact subgroup. The spherical Hecke algebra \(\mathcal{H}(G,K) = C_c^\infty(K\backslash G(F)/K)\) is a commutative algebra under convolution. The Satake isomorphism gives an isomorphism of \(\C\)-algebras
+\[
+\mathcal{H}(G,K) \cong \C[X_*(T)]^{W},
+\]
+where \(T\) is a maximal torus in \(G\), \(X_*(T)\) is its cocharacter lattice, and \(W\) is the Weyl group.
+\end{theorem}
+
+The right-hand side is naturally identified with the algebra of regular functions on the complex dual torus \(\widehat{T}(\C)\) modulo the Weyl group, which is precisely the algebra of regular functions on the quotient \(\widehat{T}(\C)/W\). This quotient parametrizes semisimple conjugacy classes in the Langlands dual group \({}^L G^\circ = \widehat{G}(\C)\).
+
+Equivalently, the Satake isomorphism provides a bijection between unramified representations of \(G(F)\) and semisimple conjugacy classes in \(\widehat{G}(\C)\). For an unramified representation \(\pi_v\), the corresponding conjugacy class is denoted by \(s(\pi_v)\) and is called the Satake parameter of \(\pi_v\).
+
+\begin{definition}
+The Langlands dual group \({}^L G\) is the semidirect product
+\[
+{}^L G = \widehat{G}(\C) \rtimes \Gal(\overline{F}/F),
+\]
+where \(\widehat{G}\) is the complex reductive group whose root datum is dual to that of \(G\).
+\end{definition}
+
+For example, if \(G = \GL(n)\), then \(\widehat{G} = \GL(n,\C)\) and the action of the Galois group is trivial. If \(G = \SL(n)\), then \(\widehat{G} = \PGL(n,\C)\). The dual group encodes the harmonic analysis of \(G\) in a profound way: the representation theory of \(G(F_v)\) for each place \(v\) is reflected in the structure of \(\widehat{G}\).
+
+\section{Langlands L-Functions}
+
+One of the central objects in the Langlands program is the L-function attached to an automorphic representation. These are Dirichlet series with Euler products that generalize the classical Riemann zeta function and Dirichlet L-functions.
+
+\begin{definition}
+Let \(\pi = \bigotimes_v' \pi_v\) be an automorphic representation of \(\GL(n,\mathbb{A}_F)\) and let \(r : \GL(n,\C) \to \GL(V)\) be a finite-dimensional representation. The Langlands L-function attached to \(\pi\) and \(r\) is defined as the Euler product
+\[
+L(s,\pi,r) = \prod_v L(s,\pi_v,r),
+\]
+where for each finite place \(v\) where \(\pi_v\) is unramified, we have
+\[
+L(s,\pi_v,r) = \det\left(1 - r(s(\pi_v)) q_v^{-s}\right)^{-1},
+\]
+with \(q_v\) the cardinality of the residue field of \(F_v\) and \(s(\pi_v) \in \GL(n,\C)\) the Satake parameter.
+\end{definition}
+
+For ramified places, the local factors are more complicated and are defined using the theory of the local Langlands correspondence. These L-functions are conjectured to satisfy:
+\begin{itemize}
+\item Meromorphic continuation to the entire complex plane;
+\item A functional equation relating \(L(s,\pi,r)\) to \(L(1-s,\widetilde{\pi},r)\), where \(\widetilde{\pi}\) is the contragredient;
+\item Riemann hypothesis for suitable choices of \(\pi\) and \(r\).
+\end{itemize}
+
+The Langlands L-functions play a role analogous to that of Artin L-functions in algebraic number theory. The Artin conjecture states that the L-function of any nontrivial irreducible Galois representation is entire. Langlands proposed that every Artin L-function should equal the L-function of some automorphic representation, thereby proving the Artin conjecture.
+
+\subsection{The Langlands Conjecture on Functoriality}
+
+The Functoriality Conjecture is the central organizing principle of the Langlands program. It predicts that homomorphisms between Langlands dual groups give rise to transfers of automorphic representations.
+
+\begin{conjecture}[Langlands Functoriality]
+Let \(G\) and \(H\) be reductive groups over a number field \(F\) and let \(\phi : {}^L H \to {}^L G\) be an \(L\)-homomorphism (a continuous homomorphism commuting with the projection to \(\Gal(\overline{F}/F)\)). Then for every automorphic representation \(\pi\) of \(H(\mathbb{A}_F)\), there exists an automorphic representation \(\Pi = \phi_*(\pi)\) of \(G(\mathbb{A}_F)\), called the Langlands functorial transfer, such that for all places \(v\) where both representations are unramified,
+\[
+s(\Pi_v) = \phi(s(\pi_v))
+\]
+and for all representations \(r : {}^L G \to \GL(V)\),
+\[
+L(s,\Pi,r) = L(s,\pi,r \circ \phi).
+\]
+\end{conjecture}
+
+This conjecture encompasses almost all known relationships between automorphic forms. Notable special cases include:
+\begin{itemize}
+\item Taking \(H = \{e\}\) and \(\phi : \Gal(\overline{F}/F) \to {}^L G\) recovers the Langlands correspondence: Galois representations give rise to automorphic representations.
+\item Taking \(H = \GL(m)\), \(G = \GL(n)\) with an appropriate embedding gives the Rankin--Selberg L-function.
+\item Taking \(\phi\) to be the natural embedding \({}^L G \hookrightarrow {}^L \GL(n)\) coming from a faithful representation of \(\widehat{G}\) gives the principle of analytic continuation via automorphic forms.
+\item Base change and automorphic induction are special cases corresponding to restriction and induction on the Galois side.
+\end{itemize}
+
+Despite decades of effort, the full Functoriality Conjecture remains open. However, many important cases have been established, notably by Langlands himself, by Arthur, Clozel, Harris, Taylor, and many others. The proof of the modularity of elliptic curves (the Shimura--Taniyama--Weil conjecture) by Wiles, Taylor, Breuil, Conrad, Diamond, and Taylor can be viewed as a special case of functoriality for \(\GL(2)\).
+
+\section{The Langlands Correspondence for \(\GL(2)\)}
+
+The simplest nontrivial case of the Langlands correspondence is for \(\GL(2)\) over \(\Q\). This case was largely established by Langlands himself in his 1970s work and was later refined by Carayol, Deligne, and others.
+
+\begin{theorem}[Langlands Correspondence for \(\GL(2)\) over \(\Q\)]
+There is a bijection between:
+\begin{enumerate}
+\item Irreducible two-dimensional complex representations \(\rho : \Gal(\overline{\Q}/\Q) \to \GL(2,\C)\) with Artin conductor \(N(\rho)\) and determinant \(\chi_\rho\), up to equivalence; and
+\item Cuspidal automorphic representations \(\pi = \bigotimes_p' \pi_p\) of \(\GL(2,\mathbb{A}_\Q)\) with conductor \(N(\pi)\) and central character \(\omega_\pi\), up to equivalence,
+\end{enumerate}
+such that for all places \(p\) (including the Archimedean place \(\infty\)),
+\[
+L(s,\pi_p) = L(s,\rho_p)
+\]
+as local L-functions. Equivalently, the global L-functions satisfy
+\[
+L(s,\pi) = L(s,\rho).
+\]
+\end{theorem}
+
+This theorem realizes two-dimensional Artin L-functions as automorphic L-functions, thereby proving the Artin conjecture for two-dimensional representations. The proof uses the trace formula, the theory of base change, and the representation theory of \(\GL(2)\).
+
+More precisely, the correspondence proceeds through the following steps:
+\begin{enumerate}
+\item Given a Galois representation \(\rho\), Langlands constructs a compatible system of local representations \(\rho_p\) for each prime \(p\).
+\item Using the local Langlands correspondence for \(\GL(2)\) over \(\Q_p\) (which he also established), each \(\rho_p\) corresponds to an irreducible admissible representation \(\pi_p\) of \(\GL(2,\Q_p)\).
+\item The global automorphic representation \(\pi\) is assembled from these local data via the restricted tensor product.
+\item The cuspidality of \(\pi\) follows from the irreducibility of \(\rho\).
+\end{enumerate}
+
+The correspondence for \(\GL(2)\) has been generalized significantly. The work of Drinfeld established the correspondence for \(\GL(2)\) over function fields, introducing geometric methods that would later blossom into the geometric Langlands program. The case of \(\GL(n)\) over number fields was proved by Harris, Taylor, and Henniart, building on the work of many mathematicians.
+
+\subsection{The Local Langlands Correspondence}
+
+A crucial ingredient in the global Langlands correspondence is its local analogue. The local Langlands correspondence, formulated in the 1970s and 1980s by Langlands and others, relates the representation theory of reductive groups over local fields to the Galois theory of those fields.
+
+While the global correspondence connects automorphic representations of \(G(\mathbb{A}_F)\) to homomorphisms of the conjectural Langlands group \(L_F\), the local correspondence connects representations of \(G(F_v)\) for a single local field to homomorphisms of the Weil--Deligne group \(WD(F_v)\). The local correspondence is expected to be compatible with the global one: for a global automorphic representation \(\pi = \bigotimes_v' \pi_v\), the local component \(\pi_v\) at each place should correspond to the restriction of the global Galois representation to the decomposition group at \(v\).
+
+\begin{conjecture}[Local Langlands Correspondence]
+Let \(F\) be a local field and let \(G\) be a reductive algebraic group over \(F\). There exists a natural bijection between:
+\begin{enumerate}
+\item Irreducible admissible representations \(\pi\) of \(G(F)\); and
+\item Homomorphisms \(\phi : WD(F) \to {}^L G\) (called Langlands parameters), where \(WD(F)\) is the Weil--Deligne group of \(F\),
+\end{enumerate}
+such that invariants of the representation (central character, L-functions, epsilon-factors) correspond to invariants of the parameter.
+\end{conjecture}
+
+For \(G = \GL(n)\), the local Langlands correspondence was proved by Harris, Taylor, and Henniart around 2000. The proof uses global methods: one realizes local representations as components of global automorphic representations and then applies the global Langlands correspondence. This strategy, known as the ``global-to-local'' approach, is a hallmark of work in the Langlands program.
+
+The local correspondence is a vital tool for understanding the local factors that appear in the Euler products defining global L-functions. It also provides the essential link between the Satake parameters of unramified representations and the Frobenius eigenvalues of Galois representations, which is what makes the matching of L-functions possible.
+
+\section{The Langlands--Shahidi Method}
+
+The Langlands--Shahidi method is a powerful technique for constructing and analyzing L-functions attached to automorphic representations. It uses the theory of Eisenstein series and intertwining operators to define L-functions in great generality.
+
+\begin{definition}
+Let \(P = MN\) be a parabolic subgroup of a reductive group \(G\) over a number field \(F\), with Levi factor \(M\) and unipotent radical \(N\). Let \(\pi\) be a cuspidal automorphic representation of \(M(\mathbb{A}_F)\). The Eisenstein series attached to \(\pi\) is
+\[
+E(g,s,\pi) = \sum_{\gamma \in P(F)\backslash G(F)} e^{\langle \lambda(s) + \rho_P, H_P(\gamma g) \rangle} \phi_\pi(\gamma g),
+\]
+where \(\phi_\pi\) is a section of the induced representation \(\Ind_{P(\mathbb{A}_F)}^{G(\mathbb{A}_F)} (\pi \otimes e^{\langle \lambda(s), H_P(\cdot) \rangle})\), and \(\rho_P\) is half the sum of positive roots in \(N\).
+\end{definition}
+
+The Eisenstein series has meromorphic continuation and satisfies a functional equation. The constant term of the Eisenstein series involves intertwining operators
+\[
+M(w,s,\pi) : \Ind_{P}^{G} (\pi_s) \to \Ind_{w P w^{-1}}^{G} (w\pi_s)
+\]
+for each Weyl group element \(w\). These intertwining operators can be normalized by local factors, and these normalization factors are precisely the Langlands L-functions.
+
+\begin{theorem}[Langlands--Shahidi Method]
+Let \(G\) be a quasi-split reductive group over a local field \(F_v\) and let \(P = MN\) be a maximal parabolic subgroup. For a tempered representation \(\pi_v\) of \(M(F_v)\) and an irreducible constituent \(r\) of the adjoint action of \({}^L M\) on the Lie algebra of \({}^L N\), the normalizing factor of the intertwining operator \(M(w,s,\pi_v)\) is
+\[
+r_v(s,\pi_v) = \frac{L(s,\pi_v,r)}{L(s+1,\pi_v,r) \varepsilon(s,\pi_v,r)},
+\]
+where \(L(s,\pi_v,r)\) and \(\varepsilon(s,\pi_v,r)\) are the local Langlands L-function and epsilon-factor attached to \(\pi_v\) and \(r\).
+\end{theorem}
+
+The Langlands--Shahidi method has been used to establish the meromorphic continuation and functional equation for many families of L-functions, including:
+\begin{itemize}
+\item Tensor product L-functions for \(\GL(m) \times \GL(n)\);
+\item Symmetric power L-functions for \(\GL(2)\);
+\item L-functions for classical groups attached to external and internal twists;
+\item L-functions appearing in the constant terms of Eisenstein series on exceptional groups.
+\end{itemize}
+
+This method, along with the Rankin--Selberg method, provides one of the two primary approaches to the analytic theory of automorphic L-functions.
+
+\section{Langlands Classification}
+
+The Langlands classification is a fundamental result describing all irreducible admissible representations of reductive groups over local fields, both Archimedean and non-Archimedean.
+
+\begin{theorem}[Langlands Classification]
+Let \(F\) be a local field of characteristic zero and let \(G\) be a connected reductive algebraic group over \(F\). Every irreducible admissible representation \(\pi\) of \(G(F)\) can be realized as the unique irreducible quotient of a parabolically induced representation
+\[
+\Ind_{P}^{G} (\sigma \otimes \nu^{\lambda}),
+\]
+where:
+\begin{enumerate}
+\item \(P = MN\) is a parabolic subgroup of \(G\);
+\item \(\sigma\) is an irreducible tempered representation of \(M(F)\);
+\item \(\lambda\) is a strictly positive element in the dual of the Lie algebra of the split component of \(M\);
+\item \(\nu^{\lambda}\) is a character of \(M(F)\) corresponding to \(\lambda\).
+\end{enumerate}
+\end{theorem}
+
+This classification is the non-commutative analogue of the Jordan decomposition for matrices: every irreducible representation is built from tempered representations (the ``compact'' building blocks) by inducing and taking the unique irreducible quotient.
+
+In more detail, the classification proceeds in three steps:
+\begin{enumerate}
+\item \textbf{Tempered representations} are classified via the Harish-Chandra--Schmid theorem for real groups and via the work of Lusztig for \(p\)-adic groups. These are the representations whose matrix coefficients are in \(L^{2+\varepsilon}(G)\) for all \(\varepsilon > 0\).
+\item \textbf{Discrete series representations} are a subset of tempered representations that are square-integrable modulo the center. They are parameterized by elliptic Langlands parameters and are the fundamental building blocks.
+\item \textbf{General admissible representations} are then obtained as Langlands quotients of parabolically induced representations from discrete series with positive exponents.
+\end{enumerate}
+
+For real groups, the Langlands classification specializes to the Langlands--Knapp--Zuckerman classification, which describes irreducible representations of real reductive Lie groups in terms of the parameters of the Langlands dual group. This classification is essential for understanding Archimedean local factors in the theory of automorphic L-functions.
+
+The Langlands classification has profound implications for harmonic analysis. It implies that the unitary dual of a reductive \(p\)-adic group is parametrized by the set of Langlands parameters: homomorphisms
+\[
+\phi : WD(F) \to {}^L G,
+\]
+where \(WD(F)\) is the Weil--Deligne group of \(F\). The local Langlands correspondence conjectures that this parametrization is bijective when the image is appropriately constrained, and this has been established for many groups, including \(\GL(n)\) by Harris, Taylor, and Henniart.
+
+\section{The Geometric Langlands Program}
+
+In the 1980s, Drinfeld proposed a geometric reformulation of the Langlands program. This version, developed extensively by Drinfeld, Laumon, and later Beilinson and Drinfeld, replaces number fields with curves over finite fields and then with Riemann surfaces.
+
+Let \(X\) be a smooth projective curve over a finite field \(\F_q\). The Langlands correspondence for \(\GL(n)\) over the function field of \(X\) was proved by Drinfeld for \(n=2\) and by Lafforgue for general \(n\). This version admits a geometric reinterpretation: the Galois representations correspond to \(\ell\)-adic sheaves on the curve \(X\) (or more precisely, on the moduli space of bundles on \(X\)), while automorphic forms correspond to functions on the set of \(\F_q\)-points of the moduli stack \(\Bun_n\) of rank \(n\) vector bundles on \(X\).
+
+The geometric Langlands program, as formulated by Beilinson and Drinfeld, replaces sheaves of sets with sheaves of categories. The statement is:
+
+\begin{conjecture}[Geometric Langlands Correspondence]
+Let \(X\) be a smooth projective algebraic curve over \(\C\) and let \(G\) be a reductive algebraic group. There exists an equivalence of derived categories
+\[
+\Coh(\operatorname{LocSys}_{{}^L G}(X)) \cong D(\Bun_G(X)),
+\]
+where:
+\begin{itemize}
+\item \(\operatorname{LocSys}_{{}^L G}(X)\) is the moduli stack of \({}^L G\)-local systems on \(X\);
+\item \(\Bun_G(X)\) is the moduli stack of principal \(G\)-bundles on \(X\);
+\item \(\Coh\) denotes the category of coherent sheaves;
+\item \(D(\Bun_G(X))\) denotes the derived category of \(\mathcal{D}\)-modules on \(\Bun_G(X)\).
+\end{itemize}
+\end{conjecture}
+
+This conjecture has been largely proved for \(\GL(n)\) by Gaitsgory and his collaborators in a monumental series of works spanning two decades. The program also connects to conformal field theory, where the moduli space of bundles on a Riemann surface emerges as a key object in the geometric realization of the Weil representation.
+
+The geometric Langlands program has opened deep connections with:
+\begin{itemize}
+\item \textbf{Quantum field theory}: Kapustin and Witten interpreted geometric Langlands duality as electric-magnetic duality in four-dimensional supersymmetric gauge theory. This connection provided new insights into the structure of the correspondence.
+\item \textbf{Hitchin integrable systems}: The Hitchin fibration on the moduli space of Higgs bundles provides a classical limit of the geometric Langlands correspondence.
+\item \textbf{Representation theory of affine Lie algebras}: The geometric Satake equivalence relates spherical Hecke algebras to the representation theory of the Langlands dual group.
+\end{itemize}
+
+The geometric Satake isomorphism deserves special mention. It is the geometric counterpart of the Satake isomorphism discussed earlier, relating the category of spherical perverse sheaves on the affine Grassmannian to the category of representations of the Langlands dual group.
+
+\begin{theorem}[Geometric Satake Equivalence]
+Let \(G\) be a reductive group over \(\C\) and let \(\Gr_G = G(\C((t)))/G(\C[[t]])\) be the affine Grassmannian. There is an equivalence of tensor categories
+\[
+\Perv_{G(\C[[t]])}(\Gr_G) \cong \Rep({}^L G),
+\]
+where the left side is the category of \(G(\C[[t]])\)-equivariant perverse sheaves on \(\Gr_G\) and the right side is the category of finite-dimensional representations of the Langlands dual group.
+\end{theorem}
+
+This result, proved by Mirkovi\'{c} and Vilonen, is a cornerstone of the geometric program. It shows that the dual group emerges naturally from the geometry of the affine Grassmannian, without any reference to root data.
+
+\section{The Trace Formula and Endoscopy}
+
+The Arthur--Selberg trace formula is another essential tool in the Langlands program. It relates geometric and spectral information on the space \(G(F)\backslash G(\mathbb{A}_F)\).
+
+\begin{theorem}[Arthur--Selberg Trace Formula]
+For a reductive group \(G\) over a number field \(F\) and a suitable test function \(f\) on \(G(\mathbb{A}_F)\), we have an equality
+\[
+\sum_{\gamma} J_\gamma(f) = \sum_{\pi} J_\pi(f),
+\]
+where the left sum is over conjugacy classes \(\gamma\) in \(G(F)\) (geometric side) and the right sum is over automorphic representations \(\pi\) of \(G(\mathbb{A}_F)\) (spectral side), with \(J_\gamma\) and \(J_\pi\) being distributions determined by orbital integrals and characters respectively.
+\end{theorem}
+
+The left-hand side of the trace formula decomposes into contributions from semisimple conjugacy classes and unipotent classes, each involving weighted orbital integrals. The right-hand side decomposes into contributions from discrete series, the continuous spectrum, and the residual spectrum. The comparison of the geometric and spectral sides yields deep arithmetic information.
+
+The trace formula has been instrumental in establishing cases of functoriality. Arthur used it to prove the classification of automorphic representations of classical groups, establishing the Langlands functoriality from classical groups to \(\GL(n)\). The stabilized trace formula, developed by Arthur, Clozel, Labesse, and others, is essential for comparing trace formulas for different groups, which is the mechanism for proving functoriality. The stabilization process involves writing the trace formula for \(G\) as a sum of stable trace formulas for its endoscopic groups \(H\), each of which is simpler and easier to compare with other groups.
+
+A critical input for the stabilization of the trace formula was the proof of the fundamental lemma by Laumon, Ngo Bao Chau, and Waldspurger. The fundamental lemma is a combinatorial identity relating orbital integrals on a group \(G\) to orbital integrals on its endoscopic groups \(H\). The proof by Ng\^{o} Bao Ch\^{a}u, for which he received the Fields Medal in 2010, used advanced algebraic geometry, including the deformation theory of Hitchin fibrations on the moduli space of Higgs bundles. This achievement was the culmination of a decades-long effort by many mathematicians and opened the door to Arthur's monumental classification of automorphic representations of classical groups.
+
+Endoscopy is a theory that reconciles the discrepancy between the geometric sides of trace formulas for different groups. An endoscopic group is a smaller group \(H\) whose conjugacy classes correspond to certain conjugacy classes in \(G\) that are not stably conjugate. The fundamental lemma, conjectured by Langlands and proved by Laumon, Ngo Bao Chau, Waldspurger, and others, is a key identity of orbital integrals needed for the comparison of trace formulas. Its proof earned Ngo the Fields Medal in 2010.
+
+\section{Langlands's Impact on Modern Mathematics}
+
+The Langlands program has grown to become one of the most active and influential research areas in mathematics. Its tentacles reach into nearly every branch of pure mathematics:
+
+\begin{description}
+\item[Number theory] The proof of Fermat's Last Theorem by Wiles is fundamentally a consequence of the Langlands program for \(\GL(2)\). The Sato--Tate conjecture, proved by Clozel, Harris, Shepherd-Barron, and Taylor, is another triumph.
+\item[Arithmetic geometry] The theory of motives, as envisioned by Grothendieck, is deeply intertwined with the Langlands program. The Fontaine--Mazur conjecture and the Birch--Swinnerton-Dyer conjecture both touch on aspects of the correspondence.
+\item[Representation theory] The classification of unitary representations of real and p-adic groups, the Kazhdan--Lusztig conjectures, and the theory of characters all connect to the Langlands program.
+\item[Harmonic analysis] The Plancherel formula for reductive groups and the theory of orbital integrals are fundamental tools with deep connections to the trace formula.
+\item[Physics] As noted, the geometric Langlands correspondence has deep connections with supersymmetric gauge theory, and the S-duality of \(\mathcal{N}=4\) super Yang--Mills theory is physically equivalent to the geometric Langlands correspondence.
+\end{description}
+
+Several Fields Medals have been awarded for work directly related to the Langlands program: Drinfeld (1990), Lafforgue (2002), Ng\^{o} Bao Ch\^{a}u (2010), and Scholze (2018) all made contributions central to the program. The Abel Prize to Langlands himself in 2018, and to Wiles in 2016, further underscore the significance of this body of ideas.
+
+\section{Timeline and Milestones}
+
+\begin{description}
+\item[1936] Born October 6 in New Westminster, British Columbia, Canada.
+\item[1957] B.A.\ from the University of British Columbia.
+\item[1958] M.A.\ from the University of British Columbia.
+\item[1960] Ph.D.\ from Yale University under Cassius Ionescu-Tulcea.
+\item[1962-1967] Assistant then Associate Professor at Yale University.
+\item[1967] Writes the famous letter to Andr\'{e} Weil outlining the Langlands program.
+\item[1967-1968] Visits the Institute for Advanced Study.
+\item[1970] Formulates the principle of functoriality for automorphic forms.
+\item[1971] Publishes the Langlands--Shahidi method for L-functions.
+\item[1972] Appointed Professor at the Institute for Advanced Study, Princeton.
+\item[1973] Publishes ``On the Functional Equation of Artin's L-Functions'' and ``Automorphic Representations and L-Functions''.
+\item[1970s] Develops the Langlands classification for representations of real reductive groups and the Langlands correspondence for \(\GL(2)\).
+\item[1980s] Works on the Arthur--Langlands trace formula and endoscopy.
+\item[1989] Publishes ``Representations of Algebraic Groups'' (with Kottwitz and Shelstad).
+\item[1995/96] Awarded the Wolf Prize in Mathematics (shared with Andrew Wiles).
+\item[2006] Named Professor Emeritus at the Institute for Advanced Study.
+\item[2018] Awarded the Abel Prize by the Norwegian Academy of Sciences and Letters.
+\end{description}
+
+\section{The Enduring Legacy}
+
+The Langlands program remains largely conjectural, yet its influence cannot be overstated. It provides a unifying vision for much of mathematics, connecting number theory, representation theory, algebraic geometry, and even mathematical physics.
+
+Perhaps the most striking feature of the Langlands program is its universality. The same structures --- L-functions, dual groups, automorphic representations --- appear in contexts as diverse as the arithmetic of elliptic curves, the spectral theory of hyperbolic manifolds, the representation theory of p-adic groups, the geometry of moduli spaces, and the quantum field theory of strings and branes. This suggests that the Langlands program is capturing something fundamental about the mathematical structure of the universe.
+
+The recent proof of the fundamental lemma by Ng\^{o} and the stabilization of the trace formula by Arthur have provided powerful new tools. The geometric Langlands program continues to develop rapidly, with new connections to quantum field theory and derived algebraic geometry emerging regularly. Scholze's theory of perfectoid spaces and his work with Fargues on the geometrization of the local Langlands correspondence represent a major new direction that reinterprets the entire local Langlands program through the lens of geometric Langlands over the Fargues--Fontaine curve.
+
+Beyond number theory, the influence of Langlands's ideas continues to expand. In mathematical physics, the connection between geometric Langlands and S-duality in \(\mathcal{N}=4\) super Yang--Mills theory, discovered by Kapustin and Witten, has led to a deeper understanding of both subjects. In representation theory, the affine Hecke algebras and Kazhdan--Lusztig theory that emerged from the study of Hecke algebras in the Langlands program have found applications far beyond their original context. In arithmetic geometry, the Fontaine--Mazur conjecture --- itself deeply inspired by the Langlands program --- continues to guide research on the relationship between geometric and arithmetic Galois representations.
+
+A particularly active area of current research is the p-adic Langlands program, initiated by work of Breuil, Colmez, Berger, and others. While the classical Langlands correspondence uses complex coefficients, the p-adic version uses p-adic coefficients and is closely related to the theory of \((\phi,\Gamma)\)-modules and the cohomology of Shimura varieties. This program has had spectacular applications to the Fontaine--Mazur conjecture and the Breuil--M\'{e}zard conjecture.
+
+Langlands himself remains an active figure in mathematics. His work continues to shape the research agenda of number theorists and representation theorists worldwide. The program that began with a letter to Weil in 1967 has grown into a rich and multifaceted research program that will occupy mathematicians for generations to come.
+
+In the words of the Norwegian Academy of Sciences and Letters: ``Robert Langlands has been awarded the Abel Prize for his visionary program connecting representation theory to number theory. His program---the Langlands program---weaves together deep results in number theory, representation theory, and algebraic geometry, and has led to spectacular applications.''
+
+\section*{Glossary}
+
+\begin{description}
+\item[Adeles] The restricted product \(\mathbb{A}_F = \prod_v' F_v\) of all completions of a number field \(F\), a locally compact ring that unifies local and global phenomena.
+\item[Affine Grassmannian] The quotient \(\Gr_G = G(\C((t)))/G(\C[[t]])\), an ind-scheme whose geometry encodes the representation theory of the Langlands dual group.
+\item[Arthur--Selberg trace formula] An identity relating sums over conjugacy classes of a reductive group to sums over its automorphic representations.
+\item[Automorphic form] A smooth, slowly increasing function on \(G(F)\backslash G(\mathbb{A}_F)\) that generates an irreducible representation under right translation.
+\item[Automorphic representation] An irreducible component of the space of automorphic forms, factoring as a restricted tensor product of local representations.
+\item[Base change] A transfer of automorphic representations from a number field \(F\) to a finite extension \(E\), corresponding to restriction of Galois representations.
+\item[Cusp form] An automorphic form whose constant terms along parabolic subgroups vanish.
+\item[Dual group] The complex reductive group \(\widehat{G}\) whose root datum is dual to that of a reductive group \(G\). Together with the Galois group it forms the Langlands dual group \({}^L G\).
+\item[Eisenstein series] An automorphic form on \(G(\mathbb{A}_F)\) constructed from a cusp form on a Levi subgroup by parabolic induction.
+\item[Endoscopy] A theory comparing the trace formulas of a group \(G\) and its endoscopic groups \(H\) to isolate stable conjugacy classes.
+\item[Functoriality] The principle that a homomorphism of Langlands dual groups transfers automorphic representations between the corresponding groups.
+\item[Fundamental lemma] An identity of orbital integrals required for the stabilization of the trace formula, proved by Ng\^{o} and others.
+\item[Geometric Langlands] A reformulation of the Langlands correspondence as an equivalence of derived categories between coherent sheaves on the moduli of local systems and \(\mathcal{D}\)-modules on the moduli of bundles.
+\item[Hecke algebra] The convolution algebra of bi-\(K\)-invariant compactly supported functions on a \(p\)-adic group, acting on spherical vectors of admissible representations.
+\item[Intertwining operator] An operator between induced representations that realizes the action of the Weyl group on the space of Eisenstein series.
+\item[L-function] An Euler product attached to an automorphic representation or Galois representation, generalizing the Riemann zeta function.
+\item[Langlands classification] A description of all irreducible admissible representations as Langlands quotients of parabolically induced tempered representations.
+\item[Langlands correspondence] A conjectural bijection between Galois representations and automorphic representations, generalizing class field theory.
+\item[Langlands dual group] The semidirect product \({}^L G = \widehat{G}(\C) \rtimes \Gal(\overline{F}/F)\) of the dual group with the Galois group.
+\item[Local Langlands correspondence] A bijection between irreducible admissible representations of \(G(F_v)\) and homomorphisms of the Weil--Deligne group into \({}^L G\).
+\item[Parabolic subgroup] A subgroup of a reductive group containing a Borel subgroup, used for induction constructions of representations.
+\item[Satake isomorphism] An isomorphism between the spherical Hecke algebra and the algebra of regular functions on the dual torus modulo the Weyl group.
+\item[Satake parameter] A semisimple conjugacy class in the Langlands dual group attached to an unramified local representation.
+\item[Tempered representation] A representation whose matrix coefficients are in \(L^{2+\varepsilon}(G)\) for all \(\varepsilon > 0\), forming the building blocks of harmonic analysis.
+\item[Trace formula] An identity of distributions on a reductive group equating a sum over conjugacy classes with a sum over representations.
+\item[Unramified representation] A local representation of \(G(F_v)\) containing a nonzero vector fixed by a hyperspecial maximal compact subgroup.
+\item[Weil--Deligne group] An extension of the Weil group by \(\C\) used to parametrize representations of p-adic groups in the local Langlands correspondence.
+\item[Admissible representation] A representation of a \(p\)-adic group whose space of vectors fixed by any open compact subgroup is finite-dimensional.
+\item[Artin conductor] An integer attached to a Galois representation that measures its ramification; it appears as the conductor of the corresponding automorphic representation.
+\item[Central character] The character of the center of a group obtained by restricting an irreducible representation to the center.
+\item[Conductor] An integer invariant of an automorphic representation or Galois representation that encodes its ramification data.
+\item[Discrete series] Square-integrable irreducible representations modulo the center, forming the building blocks of the Langlands classification.
+\item[Eisenstein series] An automorphic form on \(G(\mathbb{A}_F)\) constructed by parabolic induction from a cusp form on a Levi subgroup.
+\item[Endoscopic group] A group \(H\) whose conjugacy classes correspond to certain stable conjugacy classes in \(G\), used in the comparison of trace formulas.
+\item[Frobenius element] A distinguished conjugacy class in the Galois group of a local field, whose eigenvalues encode arithmetic information.
+\item[Langlands parameter] A homomorphism of the Weil--Deligne group into the Langlands dual group, parametrizing an irreducible admissible representation.
+\item[Levi subgroup] A reductive quotient of a parabolic subgroup, playing the role of the ``maximal reductive part'' in parabolic induction.
+\item[Modular form] A holomorphic function on the upper half-plane satisfying certain transformation and growth conditions, the classical precursor to automorphic forms.
+\item[Orbital integral] An integral over a conjugacy class in a \(p\)-adic group, used in the geometric side of the trace formula.
+\item[Reciprocity law] A fundamental principle in number theory, generalized by class field theory and vastly extended by the Langlands program.
+\item[Restricted tensor product] A tensor product of local representations in which almost all factors contain a distinguished unramified vector.
+\item[Stable conjugacy] An equivalence relation on conjugacy classes that is coarser than rational conjugacy but finer than geometric conjugacy, used in endoscopy.
+\item[Unipotent representation] A representation whose Langlands parameter factors through a homomorphism from \(\SL(2,\C)\) to the dual group, corresponding to Arthur parameters.
+\end{description}

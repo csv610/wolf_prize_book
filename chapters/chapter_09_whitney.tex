@@ -1,0 +1,483 @@
+\let\im\relax
+\newcommand{\im}{\operatorname{im}}
+\let\Sing\relax
+\newcommand{\Sing}{\operatorname{Sing}}
+\let\Ker\relax
+\newcommand{\Ker}{\operatorname{Ker}}
+\let\Coker\relax
+\newcommand{\Coker}{\operatorname{Coker}}
+\let\Gr\relax
+\newcommand{\Gr}{\operatorname{Gr}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\cU\relax
+\newcommand{\cU}{\mathcal{U}}
+
+\chapter{Hassler Whitney (1982)}
+
+\begin{quote}
+\it ``Whitney was one of the founders of modern differential topology. His work is characterized by an extraordinary geometric imagination combined with complete rigor. He saw structures where others saw only chaos.'' --- John Milnor
+\end{quote}
+
+Hassler Whitney (1907--1989) was an American mathematician who transformed differential topology, singularity theory, and geometric measure theory. The 1982 Wolf Prize (shared with Mark Krein) recognized his ``fundamental work in algebraic topology, differential geometry and differential topology.''
+
+Whitney's early career was in graph theory (he solved the four-color problem for Hamiltonian graphs and made fundamental contributions to matroid theory). He then shifted to topology, where his achievements include: the Whitney embedding and immersion theorems (showing every smooth manifold embeds in Euclidean space), the definition of Stiefel--Whitney characteristic classes, the theory of differentiable mappings (Whitney stratification, the Whitney umbrella), and the Whitney extension theorem.
+
+\section{Main Contribution}
+
+\begin{itemize}
+    \item \textbf{Embedding and Immersion Theorems:} Every smooth $m$-dimensional manifold embeds in $\mathbb{R}^{2m}$ and immerses in $\mathbb{R}^{2m-1}$. These are optimal bounds.
+    \item \textbf{Characteristic Classes:} The Stiefel--Whitney classes $w_i(E) \in H^i(B; \mathbb{Z}_2)$ for real vector bundles, their properties (Whitney sum formula), and their application to the existence of non-vanishing vector fields on spheres.
+    \item \textbf{Singularity Theory:} The classification of stable singularities of maps between manifolds; the Whitney umbrella; Whitney stratifications of algebraic and analytic varieties.
+    \item \textbf{Geometric Measure Theory:} The Whitney extension theorem (extending smooth functions from closed subsets); the Whitney covering lemma; the theory of integration over chains.
+    \item \textbf{Algebraic Topology:} The cup product in cohomology; the Whitney duality theorem; the definition of the tangent bundle of a smooth manifold.
+    \item \textbf{Graph Theory:} Whitney's theorem on the 4-color problem for Hamiltonian graphs; the definition of matroids (independence structures).
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{Embedding Manifolds in Euclidean Space}
+
+Riemann defined manifolds abstractly---as spaces that are locally Euclidean---without requiring them to be subsets of $\mathbb{R}^n$. But by the 1930s, it was still unknown whether every abstract smooth manifold could be embedded (i.e., realized as a smooth submanifold) in some Euclidean space.
+
+The Whitney embedding theorem asks: given a smooth $m$-dimensional manifold $M$, what is the smallest $N$ such that there exists a smooth embedding $M \hookrightarrow \mathbb{R}^N$? Similarly, for immersions (where the map is allowed to have self-intersections but must have injective derivative), what is the smallest $N$?
+
+The problem requires understanding the topology of the manifold and the geometry of its tangent bundle. The key tools are the general position argument (perturbing a map to eliminate self-intersections) and the theory of vector bundles.
+
+\subsection{Characteristic Classes and the Hopf--Whitney Problem}
+
+Given a real vector bundle $E$ over a space $B$, can we detect whether $E$ is trivial? More generally, can we compute invariants of $E$ that are sensitive to the twisting of the bundle?
+
+The simplest example: the tangent bundle $TS^2$ of the $2$-sphere. The hairy ball theorem says there is no non-vanishing vector field on $S^2$, which means $TS^2$ is not trivial. But can we prove this with cohomological invariants, and can we generalize to higher dimensions?
+
+The Hopf--Whitney problem: for which spheres $S^n$ does there exist a non-vanishing vector field? Equivalently, when is the tangent bundle $TS^n$ trivial? This is detected by characteristic classes.
+
+\subsection{Singularities of Smooth Maps}
+
+Consider a smooth map $f: \mathbb{R}^m \to \mathbb{R}^n$. At a generic point, $f$ is a submersion (if $m \geq n$) or an immersion (if $m \leq n$). But at some points $\text{---}$the singularities $\text{---}$the derivative fails to have maximal rank.
+
+What do singularities look like? For maps $\mathbb{R}^2 \to \mathbb{R}^2$, a generic singularity is a fold (like $f(x,y) = (x^2, y)$) or a cusp (like $f(x,y) = (x^3 + xy, y)$). For maps $\mathbb{R}^2 \to \mathbb{R}^3$, the Whitney umbrella $f(x,y) = (x, y, xy)$ is a canonical singularity.
+
+The problem: classify the stable singularities of smooth maps between manifolds of given dimensions. This is closely related to Thom's catastrophe theory.
+
+\subsection{Whitney Stratification}
+
+An algebraic variety can have a complicated singular locus. For example, the variety $xy = 0$ in $\mathbb{R}^3$ consists of two planes intersecting along a line. Even more complex singularities appear in the study of algebraic surfaces.
+
+The problem: decompose a singular space into a finite union of smooth manifolds (strata) that fit together in a nice way (Whitney conditions). This decomposition is essential for understanding the topology and geometry of singular spaces.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{The Embedding Theorem}
+
+Whitney's proof of the embedding theorem proceeds in two stages:
+
+\begin{enumerate}
+    \item \textbf{Immersion in $\mathbb{R}^{2m-1}$:} Start with any smooth map $f: M \to \mathbb{R}^{2m}$ (e.g., coordinate charts patched together via a partition of unity). The derivative $df$ is an $m \times (2m-1)$ matrix; by general position, we can perturb $f$ to be an immersion (injective derivative) using a transversality argument.
+    \item \textbf{Eliminating Self-intersections:} Now project to $\mathbb{R}^{2m-1}$. Immersions in $\mathbb{R}^{2m-1}$ may have isolated double points. By the Whitney trick, these double points can be cancelled in pairs by deforming the immersion through a ``handle''. The key insight: when $2m-1 \geq 2m$, double points are the only possible self-intersections, and they can be removed.
+\end{enumerate}
+
+For embeddings in $\mathbb{R}^{2m}$, the idea is similar but one needs the extra dimension to eliminate triple points as well.
+
+The immersion theorem in $\mathbb{R}^{2m-1}$ is optimal: $\mathbb{RP}^m$ cannot be immersed in $\mathbb{R}^{2m-2}$ when $m$ is a power of $2$.
+
+\subsection{Stiefel--Whitney Classes}
+
+Whitney defined characteristic classes $w_i(E) \in H^i(B; \mathbb{Z}_2)$ for a real vector bundle $E \to B$. The total Stiefel--Whitney class is:
+\[
+w(E) = 1 + w_1(E) + w_2(E) + \cdots \in H^*(B; \mathbb{Z}_2).
+\]
+
+The key properties:
+\begin{itemize}
+    \item \textbf{Whitney sum formula:} $w(E \oplus F) = w(E) \cup w(F)$ (cup product in cohomology).
+    \item \textbf{Naturality:} $w(f^*E) = f^*w(E)$ for pullback bundles.
+    \item \textbf{Triviality:} If $E$ is trivial, then $w_i(E) = 0$ for all $i \geq 1$.
+\end{itemize}
+
+For the tangent bundle $TS^n$, one computes:
+\[
+w(TS^n) = 1 + (1 + (-1)^n) [S^n]^*
+\]
+which shows that $TS^n$ is non-trivial unless $n = 1, 3, 7$ (the parallelizable spheres). This is the solution to the Hopf--Whitney problem: $S^n$ has a non-vanishing vector field iff $n$ is odd (a result that can also be proved via the Euler characteristic and Poincar{\'e}--Hopf).
+
+\subsection{Whitney Stratifications}
+
+A Whitney stratification of a singular space $X$ is a decomposition $X = \bigcup_{i=1}^k S_i$ into smooth submanifolds (strata) satisfying:
+\begin{itemize}
+    \item \textbf{Frontier condition:} $\partial S_i \subset S_j$ for some $j < i$.
+    \item \textbf{Whitney condition (a):} If $x_n \in S_i$, $x_n \to y \in S_j$, and $T_{x_n}S_i$ converges to a plane $\tau$, then $T_y S_j \subset \tau$.
+    \item \textbf{Whitney condition (b):} A more technical condition about the relative position of approaching points and tangent planes.
+\end{itemize}
+
+These conditions guarantee that the stratification has ``nice'' tubular neighborhoods and that topological invariants can be computed by summing contributions from each stratum.
+
+Every algebraic and analytic variety admits a Whitney stratification (a theorem of Whitney himself for analytic varieties, generalized by \L ojasiewicz, Hironaka, and others).
+
+\subsection{The Whitney Umbrella}
+
+The Whitney umbrella is the surface in $\mathbb{R}^3$ defined by $x^2 = y^2 z$:
+\[
+\{(x,y,z) : x^2 = y^2 z\}.
+\]
+For $z > 0$, the surface has two sheets meeting along the line $x = y = 0$ (the ``handle''). For $z < 0$, the surface is empty except for the line itself. At the origin, the singularity is the most degenerate point of the handle.
+
+This surface is the canonical model for the generic singularity of a map $\mathbb{R}^2 \to \mathbb{R}^3$. Whitney showed that any stable map from a surface to $\mathbb{R}^3$ has singularities that are locally diffeomorphic to either fold points or Whitney umbrellas.
+
+\section{Mathematical Theory}
+
+\subsection{The Whitney Embedding Theorem}
+
+\begin{definition}[Embedding]
+A smooth map $f: M \to N$ is an \textbf{embedding} if $f$ is injective and $df_p: T_pM \to T_{f(p)}N$ is injective for all $p \in M$.
+\end{definition}
+
+\begin{definition}[Immersion]
+A smooth map $f: M \to N$ is an \textbf{immersion} if $df_p$ is injective for all $p \in M$.
+\end{definition}
+
+\begin{theorem}[Whitney Embedding Theorem, 1936]
+Every smooth $m$-dimensional manifold can be embedded in $\mathbb{R}^{2m}$.
+\end{theorem}
+
+\begin{theorem}[Whitney Immersion Theorem]
+Every smooth $m$-dimensional manifold can be immersed in $\mathbb{R}^{2m-1}$.
+\end{theorem}
+
+\begin{proof}[Sketch of Embedding]
+\begin{enumerate}
+    \item Cover $M$ by finitely many charts $\phi_i: U_i \to \mathbb{R}^m$ with compact closures.
+    \item Use a partition of unity $\rho_i$ to define $f = (\rho_1 \phi_1, \dots, \rho_k \phi_k, \rho_1, \dots, \rho_k): M \to \mathbb{R}^{k(m+1)}$.
+    \item Apply Sard's theorem and the general position argument to project to lower dimensions while preserving injectivity of the map and its derivative.
+    \item Stop at $\mathbb{R}^{2m}$ when further projection would create self-intersections.
+\end{enumerate}
+\end{proof}
+
+\subsection{Stiefel--Whitney Classes}
+
+Let $E \to B$ be a real vector bundle of rank $n$.
+
+\begin{definition}[Stiefel--Whitney Classes]
+There exist characteristic classes $w_i(E) \in H^i(B; \mathbb{Z}_2)$ for $i = 0,1,\dots,n$, satisfying:
+\begin{enumerate}
+    \item $w_0(E) = 1$.
+    \item \textbf{Naturality:} $w_i(f^*E) = f^*w_i(E)$.
+    \item \textbf{Whitney sum formula:} $w(E \oplus F) = w(E) \cup w(F)$.
+    \item \textbf{Normalization:} $w_1(\gamma^1) \neq 0$ for the tautological line bundle $\gamma^1 \to \mathbb{RP}^1$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Non-vanishing Vector Fields on Spheres]
+$S^n$ has a non-vanishing vector field if and only if $n$ is odd. Moreover, the maximum number of linearly independent vector fields on $S^n$ is related to the Radon--Hurwitz numbers, determined by Adams using $K$-theory.
+\end{theorem}
+
+\begin{theorem}[Whitney Duality]
+For a smooth manifold $M \subset \mathbb{R}^N$, let $TM$ be the tangent bundle and $NM$ the normal bundle. Then:
+\[
+w(TM) \cup w(NM) = 1,
+\]
+since $TM \oplus NM \cong \mathbb{R}^N$ is trivial.
+\end{theorem}
+
+\subsection{Whitney Stratifications}
+
+\begin{definition}[Whitney Stratification]
+A \textbf{Whitney stratification} of a closed subset $X \subset \mathbb{R}^n$ is a locally finite partition $X = \bigsqcup S_\alpha$ into smooth submanifolds satisfying:
+\begin{enumerate}
+    \item \textbf{Frontier condition:} If $S_\alpha \cap \bar S_\beta \neq \emptyset$, then $S_\alpha \subset \bar S_\beta$.
+    \item \textbf{Whitney condition (a):} For $x_i \in S_\beta$ converging to $y \in S_\alpha$, if $T_{x_i}S_\beta$ converges to $\tau$, then $T_yS_\alpha \subset \tau$.
+    \item \textbf{Whitney condition (b):} For $x_i \in S_\beta$ and $y_i \in S_\alpha$ converging to $y$, if the secant lines $\ell_i = \overline{x_i y_i}$ converge to a line $\ell$ and $T_{x_i}S_\beta$ converge to $\tau$, then $\ell \subset \tau$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Existence of Whitney Stratifications]
+Every algebraic or analytic variety admits a Whitney stratification.
+\end{theorem}
+
+Whitney stratifications are essential for:
+\begin{itemize}
+    \item Morse theory on singular spaces (the theory of stratified Morse functions, developed by Goresky and MacPherson).
+    \item Intersection homology (the signature theorem for singular varieties).
+    \item The theory of perverse sheaves and the Riemann--Hilbert correspondence.
+\end{itemize}
+
+\subsection{The Whitney Extension Theorem}
+
+\begin{theorem}[Whitney Extension Theorem]
+Let $K \subset \mathbb{R}^n$ be a closed set. Suppose we are given a collection of functions $f^{(J)}$ on $K$ for all multi-indices $J$ with $|J| \leq m$, satisfying consistency conditions (Taylor series compatibility). Then there exists a $C^m$ function $F: \mathbb{R}^n \to \mathbb{R}$ such that $\partial^J F|_K = f^{(J)}$ for all $|J| \leq m$.
+\end{theorem}
+
+This theorem is fundamental in analysis: it tells us exactly when a function defined on a closed subset can be extended smoothly to all of $\mathbb{R}^n$.
+
+\subsection{The Cup Product in Cohomology}
+
+Whitney gave the first geometric definition of the cup product in singular cohomology. For a topological space $X$, the cup product:
+\[
+\smile: H^i(X) \times H^j(X) \to H^{i+j}(X)
+\]
+is defined on the cochain level by:
+\[
+(\phi \smile \psi)(\sigma) = \phi(\sigma|_{[e_0,\dots,e_i]}) \cdot \psi(\sigma|_{[e_i,\dots,e_{i+j}]}),
+\]
+where $\sigma$ is a singular simplex and the restriction is to the front and back faces.
+
+Whitney also proved that the cup product makes $H^*(X)$ into a graded commutative ring: $\phi \smile \psi = (-1)^{ij} \psi \smile \phi$.
+
+\subsection{Graph Theory and Matroids}
+
+Before his topological work, Whitney made fundamental contributions to graph theory and combinatorics.
+
+A \textbf{matroid} is a pair $(E, \mathcal{I})$ where $E$ is a finite set and $\mathcal{I}$ is a collection of subsets (called independent sets) satisfying:
+\begin{enumerate}
+    \item $\emptyset \in \mathcal{I}$.
+    \item If $A \subset B$ and $B \in \mathcal{I}$, then $A \in \mathcal{I}$.
+    \item If $A, B \in \mathcal{I}$ with $|A| < |B|$, then there exists $x \in B \setminus A$ such that $A \cup \{x\} \in \mathcal{I}$.
+\end{enumerate}
+
+Whitney introduced matroids in 1935 as an abstraction of linear independence in vector spaces and cycle independence in graphs. A graph gives a matroid where the independent sets are the forests (acyclic subgraphs). The concept unified many different notions of ``independence'' occurring across mathematics and has since become fundamental in combinatorial optimization (the greedy algorithm works precisely for matroid optimization problems).
+
+\begin{theorem}[Whitney's 2-Isomorphism Theorem]
+Two graphs have isomorphic cycle matroids if and only if they are related by a sequence of vertex identifications and Whitney 2-switches.
+\end{theorem}
+
+Whitney also solved the four-color problem for Hamiltonian planar graphs: a Hamiltonian planar graph can be 4-colored by a simple argument using Kempe chains. Specifically, if a planar graph has a Hamiltonian cycle, the interior of the cycle forms a planar map that can be 2-colored (by the Jordan curve theorem and the fact that the interior regions form a bipartite graph in the dual), and the exterior can similarly be 2-colored. Combining these gives a 4-coloring. This result prefigured the eventual proof of the four-color theorem (Appel--Haken, 1976), which required checking thousands of cases by computer.
+
+In matroid theory, Whitney proved the \textbf{Whitney inequality}: for a matroid $M$ on $n$ elements with rank $r$, the number of bases is at most $\binom{n}{r}$, with equality for the uniform matroid $U_{r,n}$.
+
+\subsection{The Whitney Covering Lemma}
+
+In geometric measure theory, the \textbf{Whitney covering lemma} provides a decomposition of an open set in $\mathbb{R}^n$ into a collection of disjoint dyadic cubes with controlled geometry.
+
+\begin{theorem}[Whitney Covering Lemma]
+Let $U \subset \mathbb{R}^n$ be a non-empty open set with $U \neq \mathbb{R}^n$. There exists a collection of closed dyadic cubes $\{Q_i\}$ such that:
+\begin{enumerate}
+    \item $\bigcup_i Q_i = U$ and the interiors are disjoint.
+    \item $\operatorname{diam}(Q_i) \leq \operatorname{dist}(Q_i, \mathbb{R}^n \setminus U) \leq 4 \operatorname{diam}(Q_i)$.
+    \item The cubes have disjoint interiors and their side lengths are powers of $2$.
+\end{enumerate}
+\end{theorem}
+
+This decomposition is essential in harmonic analysis (Calder{\'o}n--Zygmund theory), potential theory, and the study of function spaces. It allows one to reduce problems on arbitrary open sets to problems on cubes.
+
+\subsection{Integration Theory and Chains}
+
+Whitney also developed a theory of integration over chains in Euclidean space that generalized both the Riemann--Stieltjes integral and Lebesgue integration. His book ``Geometric Integration Theory'' (1957) introduced:
+\begin{itemize}
+    \item \textbf{Flat chains:} A generalization of currents, representing $k$-dimensional surfaces with integer coefficients.
+    \item \textbf{Flat cochains:} The dual objects, generalizing differential forms.
+    \item \textbf{The deformation theorem:} Approximating chains by polyhedral chains.
+    \item \textbf{The isoperimetric inequality for chains:} A fundamental estimate relating the mass of a chain to the mass of its boundary.
+\end{itemize}
+
+This work was a precursor to the theory of currents (de Rham, Federer--Fleming) and has applications in the calculus of variations, minimal surfaces, and geometric measure theory.
+
+\subsection{The Whitney--Pontryagin Theorem on Spin Structures}
+
+A \textbf{spin structure} on an oriented Riemannian manifold $M$ is a lift of the structure group of the tangent bundle from $SO(n)$ to $Spin(n)$, the double cover. The obstruction to the existence of a spin structure is the second Stiefel--Whitney class: $M$ admits a spin structure if and only if $w_2(TM) = 0$.
+
+Whitney's work with Pontryagin established that for an $n$-dimensional manifold:
+\begin{itemize}
+    \item The Stiefel--Whitney classes $w_i(TM)$ are the complete set of obstructions to orientability ($w_1$) and to the existence of a spin structure ($w_2$).
+    \item The spin condition $w_2 = 0$ is equivalent to the existence of a global trivialization of the tangent bundle over the 2-skeleton.
+    \item Spin manifolds admit Dirac operators, whose indices give invariants like the $\hat A$-genus (Atiyah--Singer index theorem).
+\end{itemize}
+
+This work connects Whitney's characteristic classes to modern geometry and physics: spin structures are essential in string theory, supersymmetry, and geometric quantization.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Pure Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Differential Topology:} The Whitney embedding and immersion theorems are foundational. Every argument that considers a manifold as embedded in Euclidean space (e.g., Morse theory, the Nash embedding theorem) relies on Whitney's result.
+    \item \textbf{Algebraic Topology:} Stiefel--Whitney classes are essential invariants of real vector bundles. The study of characteristic classes---including Chern classes (for complex bundles) and Pontryagin classes---grew from Whitney's work.
+    \item \textbf{Singularity Theory:} Whitney's classification of singularities of smooth maps between manifolds is the foundation of catastrophe theory (Thom) and the theory of singularities of differentiable mappings (Arnold, Vassiliev).
+    \item \textbf{Geometric Measure Theory:} The Whitney extension theorem and the Whitney covering lemma are standard tools in harmonic analysis, geometric measure theory, and the study of Sobolev spaces.
+    \item \textbf{Graph Theory:} Whitney's work on matroids (which he called ``matroids'' after the matrix rank function) created a fundamental area of combinatorics.
+    \item \textbf{Algebro-Geometric Topology:} Whitney stratifications are used in the theory of constructible sheaves, perverse sheaves, and the proof of the Kazhdan--Lusztig conjecture.
+\end{enumerate}
+
+\subsection{In Applied Fields}
+
+\begin{enumerate}
+    \item \textbf{Computer Graphics:} The Whitney embedding theorem guarantees that any surface can be represented in 3D, and the Whitney immersion theorem guarantees it can be represented with at most a finite number of self-intersections.
+    \item \textbf{Robotics:} The configuration space of a robot arm is a smooth manifold; Whitney's work on embeddings and immersions is used in motion planning and path optimization.
+    \item \textbf{Data Science:} The Whitney embedding theorem underlies the theory of manifold learning and nonlinear dimensionality reduction: if high-dimensional data lies on a low-dimensional manifold, it can be embedded in $\mathbb{R}^{2m}$ for visualization.
+    \item \textbf{Signal Processing:} The Whitney covering lemma and extension theorem are used in the theory of wavelet bases and time-frequency analysis.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: Why is the Whitney embedding theorem surprising?}
+
+The Whitney embedding theorem says that any smooth $m$-dimensional manifold can be placed in $\mathbb{R}^{2m}$. This is surprising because the manifold is defined abstractly, without any reference to Euclidean space, yet it can always be realized concretely as a submanifold of a Euclidean space of twice its dimension.
+
+For example:
+\begin{itemize}
+    \item A circle ($m=1$) embeds in $\mathbb{R}^2$ (and cannot embed in $\mathbb{R}^1$).
+    \item A $2$-sphere ($m=2$) embeds in $\mathbb{R}^3$, but the Klein bottle ($m=2$) needs $\mathbb{R}^4$ for an embedding (though it immerses in $\mathbb{R}^3$).
+    \item $\mathbb{RP}^2$ (the real projective plane, $m=2$) embeds in $\mathbb{R}^4$, not in $\mathbb{R}^3$.
+\end{itemize}
+
+The theorem is optimal: $\mathbb{RP}^m$ cannot embed in $\mathbb{R}^{2m-1}$ for $m$ a power of $2$, and many $m$-manifolds cannot immerse in $\mathbb{R}^{2m-2}$.
+
+\subsection*{Q2: What are Stiefel--Whitney classes, intuitively?}
+
+Stiefel--Whitney classes detect obstructions to the existence of linearly independent sections of a vector bundle. For the tangent bundle $TM$ of a manifold $M$:
+\begin{itemize}
+    \item $w_1(TM)$ detects whether $M$ is orientable: $w_1 = 0$ iff $M$ is orientable.
+    \item $w_2(TM)$ is related to the existence of a spin structure.
+    \item $w_m(TM)$ (the top class) is the Euler class mod $2$; for a closed orientable manifold, $w_m = \chi(M) \mod 2$.
+\end{itemize}
+
+For the canonical line bundle $\gamma^1 \to \mathbb{RP}^n$, $w_1(\gamma^1) \neq 0$ is the generator of $H^1(\mathbb{RP}^n; \mathbb{Z}_2) = \mathbb{Z}_2$. All non-trivial line bundles are detected by $w_1$.
+
+The Whitney sum formula $w(E \oplus F) = w(E) \cup w(F)$ makes these classes computable and functorial.
+
+\subsection*{Q3: What is the Whitney umbrella?}
+
+The Whitney umbrella is the surface $x^2 = y^2 z$ in $\mathbb{R}^3$. It looks like a folded piece of paper: the ``handle'' is the line $x = y = 0, z \geq 0$, and the two sheets open out from this line.
+
+It is the canonical singularity of a generic smooth map from a surface to $\mathbb{R}^3$. Near a Whitney umbrella, the map is locally equivalent to $(x,y) \mapsto (x, y, xy)$. The image has a self-intersection along the line $x = y = 0$ for $z > 0$, and the surface degenerates at the origin.
+
+Whitney showed that any stable smooth map from a $2$-manifold to $\mathbb{R}^3$ has only fold points and Whitney umbrellas as singularities. This is part of his classification of singularities of maps $\mathbb{R}^2 \to \mathbb{R}^3$.
+
+\subsection*{Q4: What is a Whitney stratification?}
+
+A Whitney stratification is a way of breaking a singular space into smooth pieces that fit together nicely. For example, the cone $x^2 + y^2 = z^2$ (a double cone) can be stratified as:
+\begin{itemize}
+    \item The origin $\{(0,0,0)\}$ (0-dimensional stratum).
+    \item The two cones minus the origin (2-dimensional strata).
+\end{itemize}
+
+The Whitney conditions ensure that the way these pieces meet is well-behaved: as you approach a lower-dimensional stratum from a higher-dimensional one, the tangent spaces of the higher stratum have well-defined limits that contain the tangent space of the lower stratum.
+
+Whitney stratifications are used in intersection homology (Goresky--MacPherson), where they allow the definition of homology groups for singular varieties that satisfy Poincar{\'e} duality.
+
+\subsection*{Q5: What should an undergraduate study to understand Whitney's work?}
+
+\begin{enumerate}
+    \item \textbf{Differential Topology:} Milnor's ``Topology from the Differentiable Viewpoint'' covers the embedding theorem. Guillemin and Pollack's ``Differential Topology'' is another excellent resource.
+    \item \textbf{Algebraic Topology:} Hatcher's ``Algebraic Topology'' covers characteristic classes and the cup product.
+    \item \textbf{Vector Bundles:} Milnor and Stasheff's ``Characteristic Classes'' is the definitive reference.
+    \item \textbf{Singularity Theory:} Arnold, Gusein-Zade, and Varchenko's ``Singularities of Differentiable Maps'' covers Whitney's classification.
+    \item \textbf{Geometric Measure Theory:} Federer's ``Geometric Measure Theory'' or Evans and Gariepy's ``Measure Theory and Fine Properties of Functions''.
+    \item \textbf{Graph Theory:} Whitney's original papers on matroids and the 4-color problem are still readable.
+\end{enumerate}
+
+For undergraduates, start with Milnor's ``Topology from the Differentiable Viewpoint'' and Hatcher's ``Algebraic Topology''.
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item H.\ Whitney, \textit{The self-intersections of a smooth $n$-manifold in $2n$-space}, Ann.\ of Math.\ 45 (1944), 220--246.
+    \item H.\ Whitney, \textit{The singularities of a smooth $n$-manifold in $(2n-1)$-space}, Ann.\ of Math.\ 45 (1944), 247--293.
+    \item H.\ Whitney, \textit{On the topology of differentiable manifolds}, in ``Lectures in Topology,'' University of Michigan Press, 1941.
+    \item H.\ Whitney, \textit{On the regular convergence of functions}, Ann.\ of Math.\ 35 (1934), 482--485.
+    \item H.\ Whitney, \textit{Analytic extensions of differentiable functions defined in closed sets}, Trans.\ AMS 36 (1934), 63--89.
+    \item H.\ Whitney, \textit{The general type of singularity of a set of $2n-1$ smooth functions of $n$ variables}, Duke Math.\ J.\ 10 (1943), 161--172.
+    \item H.\ Whitney, \textit{Elementary structure of real algebraic varieties}, Ann.\ of Math.\ 66 (1957), 545--556.
+    \item H.\ Whitney, \textit{Collected Papers}, Birkh\"{a}user, 1992.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item J.\ Eells, \textit{Hassler Whitney}, Biographical Memoirs of the NAS, 1992.
+    \item W.\ H.\ C.\ Whitehead, \textit{The work of Hassler Whitney}, Bull.\ AMS 67 (1961), 59--64.
+    \item J.\ Milnor, \textit{Hassler Whitney (1907--1989)}, Notices AMS 37 (1990), 44--45.
+    \item D.\ W.\ Kahn, \textit{Hassler Whitney's work in topology}, Expos.\ Math.\ 7 (1989), 299--320.
+\end{enumerate}
+
+\subsection*{Textbooks}
+\begin{enumerate}
+    \item J.\ Milnor, \textit{Topology from the Differentiable Viewpoint}, Princeton University Press, 1965.
+    \item J.\ Milnor and J.\ Stasheff, \textit{Characteristic Classes}, Princeton University Press, 1974.
+    \item A.\ Hatcher, \textit{Algebraic Topology}, Cambridge University Press, 2002.
+    \item V.\ I.\ Arnold, S.\ M.\ Gusein-Zade, and A.\ N.\ Varchenko, \textit{Singularities of Differentiable Maps}, Birkh\"{a}user, 1985.
+    \item M.\ Goresky and R.\ MacPherson, \textit{Stratified Morse Theory}, Springer, 1988.
+    \item H.\ Federer, \textit{Geometric Measure Theory}, Springer, 1969.
+    \item M.\ Golubitsky and V.\ Guillemin, \textit{Stable Mappings and Their Singularities}, Springer, 1973.
+    \item V.\ Guillemin and A.\ Pollack, \textit{Differential Topology}, Prentice-Hall, 1974.
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Characteristic class] A cohomology class associated to a vector bundle, invariant under bundle isomorphism.
+    \item[Cup product] The multiplication operation in cohomology making $H^*(X)$ into a graded ring.
+    \item[Embedding] A smooth injective immersion that is a homeomorphism onto its image.
+    \item[General position] A configuration of submanifolds where all intersections are transverse.
+    \item[Immersion] A smooth map with injective derivative at every point.
+    \item[Matroid] A combinatorial structure abstracting the concept of linear independence in vector spaces.
+    \item[Partition of unity] A collection of smooth functions summing to $1$, used to patch together local constructions.
+    \item[Singular simplex] A continuous map $\sigma: \Delta^k \to X$ from the standard $k$-simplex to a topological space.
+    \item[Stable map] A smooth map whose singularity type is unchanged under small perturbations.
+    \item[Stiefel--Whitney class] A characteristic class $w_i(E) \in H^i(B; \mathbb{Z}_2)$ for a real vector bundle $E$.
+    \item[Stratification] A decomposition of a space into smooth submanifolds satisfying frontier conditions.
+    \item[Tangent bundle] The vector bundle $TM$ whose fiber at $p \in M$ is the tangent space $T_pM$.
+    \item[Transversality] Two submanifolds intersect transversely if their tangent spaces span the ambient tangent space.
+    \item[Vector bundle] A family of vector spaces parametrized by a topological space, locally trivial.
+    \item[Whitney conditions] Conditions (a) and (b) ensuring that two strata meet nicely.
+    \item[Whitney embedding theorem] Every smooth $m$-manifold embeds in $\mathbb{R}^{2m}$.
+    \item[Whitney extension theorem] A function defined on a closed set extends smoothly iff it satisfies Taylor consistency.
+    \item[Whitney sum formula] $w(E \oplus F) = w(E) \cup w(F)$ for Stiefel--Whitney classes.
+    \item[Whitney umbrella] The singular surface $x^2 = y^2 z$ in $\mathbb{R}^3$.
+\end{description}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that $S^1$ embeds in $\mathbb{R}^2$ but not in $\mathbb{R}^1$.
+    \item Show that $\mathbb{RP}^1$ is diffeomorphic to $S^1$.
+    \item Show that $S^n$ has a non-vanishing vector field if and only if $n$ is odd. (Hint: use the Euler characteristic and the Poincar{\'e}--Hopf theorem.)
+    \item Compute the Stiefel--Whitney classes of the tangent bundle $T\mathbb{RP}^n$ using the Whitney sum formula.
+    \item Show that $w_1(E) = 0$ if and only if $E$ is orientable.
+    \item Show that the Klein bottle can be immersed in $\mathbb{R}^3$ but not embedded.
+    \item Prove that any smooth map $f: M \to \mathbb{R}^N$ with $N > 2m$ can be perturbed to an embedding.
+    \item Show that the Whitney umbrella $x^2 = y^2 z$ is not a smooth submanifold of $\mathbb{R}^3$.
+    \item Compute the cup product structure on $H^*(\mathbb{RP}^2; \mathbb{Z}_2)$.
+    \item Find a Whitney stratification of the nodal curve $y^2 = x^3 + x^2$.
+    \item Show that the tangent bundle of $S^2$ is not trivial (hairy ball theorem).
+    \item Prove that the Whitney sum $E \oplus F$ of two vector bundles has Stiefel--Whitney classes given by $w_k(E \oplus F) = \sum_{i+j=k} w_i(E) \cup w_j(F)$.
+    \item Show that a matroid can be equivalently defined in terms of its bases, its circuits, or its rank function.
+    \item Construct a Whitney stratification of the cone $x^2 + y^2 = z^2$ in $\mathbb{R}^3$ and verify the Whitney conditions.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1907 & Born in New York City \\ \hline
+1928 & BA in physics from Yale University \\ \hline
+1929--1930 | Studies mathematics at Harvard \\ \hline
+1932 & PhD from Harvard under G.\ D.\ Birkhoff \\ \hline
+1932--1933 | National Research Fellow at Princeton \\ \hline
+1933--1934 | Visiting scholar at Harvard \\ \hline
+1934 & Whitney extension theorem published \\ \hline
+1935--1940 | Assistant professor at Harvard \\ \hline
+1936 & Whitney embedding theorem published \\ \hline
+1940 & Defines Stiefel--Whitney classes and the cup product \\ \hline
+1943 & Classification of singularities of maps $\mathbb{R}^2 \to \mathbb{R}^2$ \\ \hline
+1944 & Embedded and immersed manifolds in Euclidean space (full details) \\ \hline
+1946--1977 | Professor at Harvard University \\ \hline
+1949 | President of the American Mathematical Society (1949--1950) \\ \hline
+1950s | Work on geometric measure theory and integration \\ \hline
+1957 | Whitney stratifications introduced \\ \hline
+1977 | Retires from Harvard \\ \hline
+1970s--1980s | Work on matroids and combinatorial theory \\ \hline
+1982 | Wolf Prize in Mathematics (co-recipient with M.\ Krein) \\ \hline
+1989 | Dies in Princeton, New Jersey \\ \hline
+\end{tabular}

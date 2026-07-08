@@ -1,0 +1,256 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\BMO}{\operatorname{BMO}}
+\providecommand{\tr}{\operatorname{tr}}
+\providecommand{\Ric}{\operatorname{Ric}}
+\providecommand{\Re}{\operatorname{Re}}
+\providecommand{\Im}{\operatorname{Im}}
+
+\chapter{Charles Fefferman (2017)}
+
+\begin{quote}
+\it ``Charles Fefferman has made groundbreaking contributions to analysis, from singular integrals and several complex variables to partial differential equations. His work is marked by extraordinary technical power, deep geometric insight, and the ability to solve problems that had seemed completely out of reach.'' --- Wolf Prize Citation, 2017
+\end{quote}
+
+\section{Main Contribution}
+
+Charles Fefferman (born 1949) is an American mathematician renowned for his contributions to real analysis, complex analysis, partial differential equations, and geometry. He became a full professor at the University of Chicago at age 22, the youngest in US history, and was awarded the Fields Medal in 1978. He received the Wolf Prize in Mathematics in 2017 alongside Richard Schoen.
+
+The Wolf Prize citation reads: ``for their contributions to analysis and geometry.''
+
+Fefferman's core contributions include:
+\begin{itemize}
+    \item \textbf{The Bergman Projection:} A proof that the Bergman projection on strongly pseudoconvex domains in $\C^n$ is bounded on $L^p$, resolving a major open problem in several complex variables.
+    \item \textbf{Fefferman's Decomposition of BMO:} A fundamental decomposition of functions of bounded mean oscillation, now a standard tool in harmonic analysis.
+    \item \textbf{The Fefferman--Phong Inequality:} A subelliptic estimate for sums of squares of vector fields, essential for the theory of degenerate elliptic equations.
+    \item \textbf{Sobolev Inequalities:} Sharp Sobolev inequalities and the Fefferman--Stein inequality for the ball multiplier.
+    \item \textbf{Fluid Dynamics:} Groundbreaking results on the 3D Navier--Stokes equations, including the non-uniqueness of weak solutions (with Buckmaster and others).
+    \item \textbf{The Lichnerowicz Conjecture:} The resolution of the Lichnerowicz conjecture on the analytic continuation of the Bergman kernel.
+    \item \textbf{CR Geometry:} A deep theory of the Cauchy--Riemann equations and CR manifolds.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Bergman Projection}
+
+The Bergman projection $P$ is the orthogonal projection from $L^2(\Omega)$ onto the $L^2$-holomorphic functions on a domain $\Omega \subset \C^n$. A fundamental question: for which domains is $P$ bounded on $L^p$ for $p \neq 2$? For the unit disk in $\C$, this was known. For strongly pseudoconvex domains in $\C^n$, the problem was open and considered very difficult.
+
+\subsection{The Ball Multiplier Problem}
+
+The ball multiplier $S_R$ is the Fourier multiplier operator that cuts off frequencies to $|\xi| \leq R$. The question: does $S_R$ converge in $L^p$ norm as $R \to \infty$? This is equivalent to the boundedness of the characteristic function of the unit ball as a Fourier multiplier.
+
+Fefferman proved a striking result: the ball multiplier is unbounded on $L^p$ for $p \neq 2$ in dimensions $n \geq 2$. This showed that the disc multiplier (which converges for $p=2$) does not converge for other $p$.
+
+\subsection{Subelliptic Estimates}
+
+For operators that are sums of squares of vector fields (like the Kohn Laplacian), the standard elliptic theory does not apply because the operator is degenerate. The Fefferman--Phong inequality provided the optimal subelliptic estimate for such operators.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{The Bergman Projection}
+
+Fefferman proved that on a smooth bounded strongly pseudoconvex domain $\Omega \subset \C^n$, the Bergman kernel $K(z,w)$ has an asymptotic expansion near the boundary:
+\[
+K(z,w) = \frac{c_n}{\rho(z,w)^{n+1}} + O(\rho(z,w)^{-n})
+\]
+where $\rho$ is the Fefferman defining function. Using this expansion, he showed that the Bergman projection is bounded on $L^p$ for $1 < p < \infty$.
+
+\subsection{The Ball Multiplier}
+
+Fefferman's proof that the ball multiplier is unbounded on $L^p$ for $p \neq 2$ used a clever geometric construction: he constructed a set $\Omega = \Omega_R$ (the Kakeya--Besicovitch set) such that the $L^p$ norm of the Fourier transform of its characteristic function diverges faster than any power of $R$.
+
+\subsection{Fefferman's Decomposition of BMO}
+
+A function $f$ has \textbf{bounded mean oscillation} (BMO) if:
+\[
+\|f\|_{\BMO} = \sup_Q \frac{1}{|Q|} \int_Q |f - f_Q| \, dx < \infty
+\]
+
+Fefferman showed that BMO is the dual of the Hardy space $H^1$, and that every BMO function can be decomposed as:
+\[
+f = u + \widetilde{v}
+\]
+where $u$ and $v$ are bounded functions and $\widetilde{v}$ is the Hilbert transform of $v$.
+
+\section{Mathematical Theory}
+
+\subsection{BMO and Hardy Spaces}
+
+\begin{definition}[BMO]
+A locally integrable function $f$ on $\R^n$ has \textbf{bounded mean oscillation} if:
+\[
+\|f\|_{\BMO} = \sup_{Q \subset \R^n} \frac{1}{|Q|} \int_Q |f(x) - f_Q| \, dx < \infty
+\]
+where the supremum is over all cubes $Q$ and $f_Q$ is the average of $f$ over $Q$.
+\end{definition}
+
+\begin{theorem}[C.\ Fefferman, 1971]
+The dual of the Hardy space $H^1(\R^n)$ is $\BMO(\R^n)$. Moreover, every $f \in \BMO(\R^n)$ can be decomposed as:
+\[
+f = f_1 + \sum_{j=1}^n R_j f_j
+\]
+where $f_j \in L^\infty(\R^n)$ and $R_j$ are the Riesz transforms.
+\end{theorem}
+
+\subsection{The Bergman Kernel}
+
+\begin{definition}[Bergman Kernel]
+For a domain $\Omega \subset \C^n$, the \textbf{Bergman kernel} $K_\Omega(z,w)$ is the reproducing kernel of the Bergman space $A^2(\Omega)$:
+\[
+f(z) = \int_\Omega K_\Omega(z,w) f(w) \, dV(w)
+\]
+for all $f \in A^2(\Omega)$.
+\end{definition}
+
+\begin{theorem}[C.\ Fefferman, 1974]
+Let $\Omega \subset \C^n$ be a smooth bounded strongly pseudoconvex domain. Then the Bergman kernel $K(z,w)$ has an asymptotic expansion:
+\[
+K(z,w) = \frac{F(z,w)}{\rho(z,w)^{n+1}} + G(z,w) \log \rho(z,w)
+\]
+where $\rho(z,w)$ is the Fefferman defining function, and $F$ and $G$ are smooth functions. Consequently, the Bergman projection $P: L^p(\Omega) \to A^p(\Omega)$ is bounded for $1 < p < \infty$.
+\end{theorem}
+
+\subsection{The Fefferman--Phong Inequality}
+
+\begin{theorem}[Fefferman--Phong, 1981]
+Let $X_1, \ldots, X_k$ be smooth vector fields on $\R^n$ satisfying the H\"ormander condition of step $r$ (their iterated commutators span the tangent space at every point). Then for any smooth function $u$ with compact support:
+\[
+\sum_{|\alpha| \leq r} \|D^\alpha u\|_{L^2}^2 \leq C \left( \sum_{j=1}^k \|X_j u\|_{L^2}^2 + \|u\|_{L^2}^2 \right)
+\]
+where the constant $C$ depends only on the vector fields and the geometry.
+\end{theorem}
+
+\subsection{The Ball Multiplier}
+
+\begin{definition}[Ball Multiplier]
+The \textbf{ball multiplier} $S_R$ is the Fourier multiplier operator:
+\[
+\widehat{S_R f}(\xi) = \mathbf{1}_{B_R(0)}(\xi) \hat f(\xi)
+\]
+where $B_R(0)$ is the ball of radius $R$ centered at the origin.
+\end{definition}
+
+\begin{theorem}[C.\ Fefferman, 1971]
+For $n \geq 2$, the ball multiplier $S_1$ is bounded on $L^p(\R^n)$ if and only if $p = 2$. For $n = 1$, $S_R$ is bounded on $L^p$ for $1 < p < \infty$.
+\end{theorem}
+
+\subsection{Sharp Sobolev Inequalities}
+
+\begin{theorem}[Fefferman--Stein, 1972]
+Let $I_\alpha$ be the Riesz potential operator. Then:
+\[
+\|I_\alpha f\|_{L^q} \leq C_{\alpha, n} \|f\|_{L^p}
+\]
+for $1 < p < n/\alpha$, $1/q = 1/p - \alpha/n$, with sharp constant $C_{\alpha,n}$ given by the optimal constant in the Hardy--Littlewood--Sobolev inequality.
+\end{theorem}
+
+\subsection{Non-Uniqueness for the 3D Navier--Stokes Equations}
+
+\begin{theorem}[Buckmaster--Fefferman--Vicol, 2019]
+There exist non-unique weak solutions to the 3D Navier--Stokes equations. More precisely, there exist initial data for which the Cauchy problem admits more than one weak solution in the class $L^2_t H^1_x \cap L^\infty_t L^2_x$.
+\end{theorem}
+
+This result, building on convex integration techniques, shows that the Lions--Ladyzhenskaya theory of weak solutions does not guarantee uniqueness for the 3D Navier--Stokes equations.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Harmonic Analysis:} Fefferman's work on BMO, the ball multiplier, and sharp inequalities is fundamental.
+    \item \textbf{Several Complex Variables:} The Bergman kernel expansion and the Fefferman defining function transformed the field.
+    \item \textbf{PDEs:} The Fefferman--Phong inequality is essential for subelliptic estimates.
+    \item \textbf{Fluid Dynamics:} The non-uniqueness result for Navier--Stokes has deep implications for the Clay Millennium Problem.
+    \item \textbf{Geometric Analysis:} The Lichnerowicz conjecture resolution connects conformal geometry to CR geometry.
+\end{enumerate}
+
+\subsection{In Other Fields}
+
+\begin{enumerate}
+    \item \textbf{Fluid Mechanics:} Non-uniqueness results challenge our understanding of turbulent flows.
+    \item \textbf{Image Processing:} BMO and sharp inequalities are used in image reconstruction.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is BMO and why is it important?}
+BMO (bounded mean oscillation) is a function space slightly larger than $L^\infty$. It is the dual of the Hardy space $H^1$ and is essential in harmonic analysis, PDEs, and complex analysis.
+
+\subsection*{Q2: What did Fefferman prove about the Bergman kernel?}
+He showed that for strongly pseudoconvex domains, the Bergman kernel has a precise asymptotic expansion near the boundary, involving a defining function he introduced (the Fefferman defining function). This proved the $L^p$ boundedness of the Bergman projection.
+
+\subsection*{Q3: What is the ball multiplier problem?}
+The ball multiplier $S_R$ cuts off high frequencies in the Fourier transform. Fefferman proved that for $n \geq 2$, $S_R$ is unbounded on $L^p$ for $p \neq 2$, meaning Fourier inversion fails in $L^p$ unless one uses a smoother cutoff.
+
+\subsection*{Q4: What is the Fefferman--Phong inequality?}
+It provides subelliptic estimates for sums of squares of vector fields, giving control of derivatives up to order $r$ (the step of the H\"ormander condition) in terms of the vector fields themselves.
+
+\subsection*{Q5: What should an undergraduate study to understand Fefferman's work?}
+Real analysis (Fourier analysis, singular integrals), complex analysis (several variables), and functional analysis. Recommended: \textit{Real Analysis} (Stein), \textit{Harmonic Analysis} (Stein), and \textit{Several Complex Variables} (Krantz).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the Hilbert transform is bounded on $L^p$ for $1 < p < \infty$.
+    \item Prove that BMO contains $L^\infty$ but is strictly larger (find a function in BMO not in $L^\infty$).
+    \item Show that the Bergman kernel for the unit disk in $\C$ is $K(z,w) = 1/(\pi(1 - z\bar w)^2)$.
+    \item Compute the Fefferman defining function for the unit ball in $\C^n$.
+    \item Show that the ball multiplier is the identity operator for $n = 1$.
+    \item Prove the Fefferman--Stein inequality for the Hardy--Littlewood maximal function.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1949 & Born in Washington, D.C. \\ \hline
+1967 & B.S.\ from the University of Maryland \\ \hline
+1969 & Ph.D.\ from Princeton (advisor: Elias M.\ Stein) \\ \hline
+1971 | Full professor at University of Chicago (age 22) \\ \hline
+1974 | Bergman kernel expansion \\ \hline
+1976 | Moves to Princeton University \\ \hline
+1978 | Fields Medal at ICM Helsinki \\ \hline
+1981 | Fefferman--Phong inequality \\ \hline
+1992 | Bocher Prize of the AMS \\ \hline
+2017 | Wolf Prize in Mathematics \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Ball multiplier] A Fourier multiplier operator that restricts to frequencies in a ball.
+    \item[Bergman kernel] The reproducing kernel for the space of $L^2$ holomorphic functions on a domain.
+    \item[BMO] Bounded mean oscillation: functions whose mean oscillation over any cube is bounded.
+    \item[CR manifold] A manifold with a Cauchy--Riemann structure, arising as the boundary of a complex domain.
+    \item[Hardy space] A space of holomorphic functions (or their boundary values) with $L^p$ norm.
+    \item[Pseudoconvex domain] A domain in $\C^n$ that is a domain of holomorphy.
+    \item[Singular integral] An operator of the form $Tf(x) = \int K(x,y) f(y) \, dy$ with a singular kernel.
+    \item[Subelliptic estimate] A PDE estimate that recovers a fraction of a derivative, less than the full elliptic estimate.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item C.\ Fefferman, \textit{Characterizations of bounded mean oscillation}, Bull.\ AMS 77 (1971), 587--588.
+    \item C.\ Fefferman, \textit{The Bergman kernel and biholomorphic mappings of pseudoconvex domains}, Invent.\ Math.\ 26 (1974), 1--65.
+    \item C.\ Fefferman, \textit{The multiplier problem for the ball}, Ann.\ Math.\ 94 (1971), 330--336.
+    \item C.\ Fefferman and D.\ H.\ Phong, \textit{Subelliptic eigenvalue problems}, Proc.\ Conf.\ Harmonic Analysis in Honor of Antoni Zygmund, 1981.
+    \item C.\ Feffman and E.\ M.\ Stein, \textit{Some maximal inequalities}, Amer.\ J.\ Math.\ 93 (1971), 107--115.
+    \item T.\ Buckmaster, C.\ Fefferman, and V.\ Vicol, \textit{Non-uniqueness of weak solutions to the 3D Navier--Stokes equations}, Ann.\ Math.\ 189 (2019), 287--405.
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item E.\ M.\ Stein, \textit{Harmonic Analysis}, Princeton Univ.\ Press, 1993.
+    \item J.\ B.\ Garnett, \textit{Bounded Analytic Functions}, Springer, 2007.
+    \item S.\ G.\ Krantz, \textit{Function Theory of Several Complex Variables}, AMS, 2001.
+\end{enumerate}
+

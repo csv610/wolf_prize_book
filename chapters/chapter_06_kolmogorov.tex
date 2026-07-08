@@ -1,0 +1,506 @@
+\let\E\relax
+\newcommand{\E}{\operatorname{\mathbb{E}}}
+\let\Var\relax
+\newcommand{\Var}{\operatorname{Var}}
+\let\Cov\relax
+\newcommand{\Cov}{\operatorname{Cov}}
+\let\KL\relax
+\newcommand{\KL}{\operatorname{KL}}
+\let\Supp\relax
+\newcommand{\Supp}{\operatorname{Supp}}
+\let\Spec\relax
+\newcommand{\Spec}{\operatorname{Spec}}
+\let\im\relax
+\newcommand{\im}{\operatorname{im}}
+\let\const\relax
+\newcommand{\const}{\operatorname{const}}
+\let\Ent\relax
+\newcommand{\Ent}{\operatorname{Ent}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+
+\chapter{Andrey Kolmogorov (1980)}
+
+\begin{quote}
+\it ``Kolmogorov's work in mathematics is of such immense scope and depth that it is easier to list the areas he did not touch. He was the great universalist of twentieth-century mathematics.'' --- Vladimir Arnold
+\end{quote}
+
+Andrey Nikolaevich Kolmogorov (1903--1987) was perhaps the last great universalist in mathematics. His contributions span probability theory, dynamical systems, turbulence, information theory, logic, topology, Fourier analysis, and the foundations of mathematics. The 1980 Wolf Prize (shared with Henri Cartan) recognized his ``deep and original discoveries in Fourier analysis, probability theory, ergodic theory and dynamical systems.''
+
+Kolmogorov's style was distinctive: he would enter a field, identify the fundamental open problem, solve it with a strikingly original insight, and then leave to conquer the next field. He founded entire disciplines (algorithmic information theory, the modern theory of turbulence) and shaped the Soviet school of mathematics through his students, which included Arnold, Gelfand, Sinai, and many others.
+
+\section{Main Contribution}
+
+Kolmogorov's contributions span an extraordinary range:
+
+\begin{itemize}
+    \item \textbf{Probability Theory:} The axioms of probability (1933), the Kolmogorov extension theorem, the strong law of large numbers, the Kolmogorov--Smirnov test, the zero--one law, the consistency theorem for conditional probabilities.
+    \item \textbf{Turbulence:} The statistical theory of turbulence (1941), the K41 theory, the $5/3$ energy spectrum law, the concept of the inertial range and energy cascade.
+    \item \textbf{Dynamical Systems:} The Kolmogorov--Arnold--Moser (KAM) theorem on the persistence of invariant tori in nearly integrable Hamiltonian systems, the concept of metric entropy (Kolmogorov--Sinai entropy).
+    \item \textbf{Algorithmic Information Theory:} Kolmogorov complexity---the length of the shortest program that outputs a given string---a rigorous definition of randomness.
+    \item \textbf{Fourier Analysis:} A function $f \in L^1(\mathbb{T})$ whose Fourier series diverges everywhere; the Kolmogorov--Riesz compactness criterion; the Kolmogorov inequality for Fourier coefficients.
+    \item \textbf{Foundations of Mathematics:} The Kolmogorov calculus (an intuitionistic propositional logic), work on Hilbert's 13th problem (composition of continuous functions).
+    \item \textbf{Topology and Logic:} Cohomology operations, the concept of a spectral sequence (simultaneously with Leray), the cohomology ring of a space.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Axiomatization of Probability}
+
+Before Kolmogorov, probability was a collection of techniques without a rigorous foundation. The classical definition (Laplace) required equally likely outcomes, which was circular. The frequentist interpretation (Venn, von Mises) struggled with the definition of infinite sequences and limiting frequencies.
+
+The central problem: can probability be placed on the same axiomatic footing as geometry or algebra? Is there a set of axioms from which all probabilistic results can be derived?
+
+The crucial insight came from measure theory, developed by Lebesgue, Borel, and others for the theory of integration. Events are measurable sets; probabilities are measures; random variables are measurable functions; expectation is the Lebesgue integral.
+
+\subsection{Turbulence: the Last Unsolved Problem of Classical Physics}
+
+Turbulent flow is the most common state of fluid motion in nature---from smoke rising from a cigarette to atmospheric weather patterns. The Navier--Stokes equations describe fluid flow at all scales, but turbulent flows exhibit structure across a vast range of scales simultaneously.
+
+Richardson (1922) described the energy cascade: large eddies break into smaller eddies, which break into even smaller eddies, until viscous dissipation converts kinetic energy into heat at the smallest scales. But this was a qualitative picture.
+
+The problem: can one make quantitative, universal predictions about turbulent flows? What is the energy spectrum (distribution of energy across scales) in fully developed turbulence? Is there a universal law independent of the specific flow geometry?
+
+\subsection{The Problem of Small Divisors in Celestial Mechanics}
+
+The solar system is an $n$-body problem governed by Newton's laws. While two bodies move in conic sections (Kepler's laws), three or more bodies produce chaotic motion that is not exactly solvable.
+
+Perturbation theory attempts to find approximate solutions by treating the gravitational interactions between planets as small corrections to Keplerian orbits. But the series expansion contains denominators $n_1\omega_1 + \cdots + n_k\omega_k$ that can be arbitrarily small—the ``small divisors'' problem.
+
+Poincar{\'e} proved that these series generally diverge. The question: can invariant tori (which represent quasi-periodic motion) persist under perturbations, or do they always break up? If they can persist, under what conditions?
+
+\subsection{What Is Randomness?}
+
+Given a binary string like $010101010101\dots$, is it random? It certainly looks patterned. But what about a string produced by coin flips? How do we define when a string is ``truly random''?
+
+Von Mises proposed that a random sequence must satisfy the law of large numbers and all ``admissible'' subsequences must also satisfy it. But what subsequences are admissible?
+
+The problem: give a mathematically rigorous definition of randomness for individual finite strings, not just for infinite sequences.
+
+\subsection{Fourier Series of Unbounded Functions}
+
+Every continuous function on the circle has a Fourier series that converges to it in $L^2$ and pointwise almost everywhere (Carleson's theorem, 1966). But before the modern era, the convergence theory was mysterious. Can an $L^1$ function (integrable but possibly unbounded) have a Fourier series that diverges everywhere? If so, this would show that the $L^1$ theory of Fourier series is fundamentally different from the $L^2$ theory.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{The Axioms of Probability}
+
+Kolmogorov's 1933 monograph ``Grundbegriffe der Wahrscheinlichkeitsrechnung'' (Foundations of the Theory of Probability) presented six axioms:
+
+\begin{enumerate}
+    \item There is a set $\Omega$ of elementary events.
+    \item There is a $\sigma$-algebra $\mathcal{F}$ of subsets of $\Omega$ (the events).
+    \item There is a function $P: \mathcal{F} \to [0,1]$ (the probability measure) satisfying:
+    \begin{itemize}
+        \item $P(\Omega) = 1$.
+        \item Countable additivity: if $A_1, A_2, \dots$ are pairwise disjoint events, then $P(\bigcup_i A_i) = \sum_i P(A_i)$.
+    \end{itemize}
+\end{enumerate}
+
+A random variable is a measurable function $X: \Omega \to \mathbb{R}$. Expectation is the Lebesgue integral $\E[X] = \int_\Omega X(\omega) dP(\omega)$.
+
+This framework:
+\begin{itemize}
+    \item Made probability a branch of measure theory, inheriting all its theorems (dominated convergence, Fubini, etc.).
+    \item Eliminated the circularity in classical definitions.
+    \item Provided a rigorous foundation for stochastic processes (via the Kolmogorov extension theorem).
+\end{itemize}
+
+The Kolmogorov extension theorem constructs a probability measure on an infinite product space (e.g., the space of all possible sequences of coin flips) from its finite-dimensional distributions, provided these satisfy a consistency condition.
+
+\subsection{The K41 Theory of Turbulence}
+
+Kolmogorov's 1941 theory (K41) made two bold assumptions:
+\begin{enumerate}
+    \item At sufficiently high Reynolds numbers, small-scale turbulence is isotropic and homogeneous (independent of direction and location).
+    \item The small-scale statistics depend only on the energy dissipation rate $\epsilon$ and the kinematic viscosity $\nu$.
+\end{enumerate}
+
+In the \textbf{inertial range} (scales between the energy-containing large scales and the dissipative small scales), viscosity is negligible, and the only parameter is $\epsilon$. By dimensional analysis:
+
+The energy spectrum $E(k)$ (energy per unit wavenumber $k$) must satisfy:
+\[
+E(k) \sim \epsilon^{2/3} k^{-5/3}
+\]
+
+This is the famous ``$-5/3$ law'' of turbulence.
+
+The intuition: energy enters the system at large scales (low $k$), cascades through the inertial range at constant rate $\epsilon$, and dissipates at small scales (high $k$) through viscosity. The spectrum must have the same functional form in all turbulent flows at sufficiently high Reynolds number---an extraordinary claim of universality.
+
+\subsection{KAM Theory}
+
+The Kolmogorov--Arnold--Moser theorem addresses the persistence of invariant tori in nearly integrable Hamiltonian systems.
+
+Consider a Hamiltonian $H(I, \theta) = H_0(I) + \epsilon H_1(I, \theta)$, where $(I, \theta)$ are action-angle variables. For $\epsilon = 0$, the system is integrable: $I$ is constant and $\theta$ moves linearly on invariant tori with frequencies $\omega(I) = \partial H_0/\partial I$.
+
+For $\epsilon > 0$, most tori with Diophantine frequencies (satisfying $|k \cdot \omega| \geq C|k|^{-\tau}$) survive under small perturbations, though they are slightly deformed. Tori with rational frequencies are destroyed.
+
+Kolmogorov's key insight: use a rapidly convergent Newton iteration (``superconvergence'') to eliminate the perturbation order by order, rather than the standard (and divergent) power series. At each step, the perturbation is squared rather than linearized, ensuring convergence.
+
+The method requires:
+\begin{itemize}
+    \item A non-degeneracy condition: $\det(\partial \omega / \partial I) \neq 0$ (twist condition).
+    \item Diophantine frequency vectors: $|k \cdot \omega| \geq C|k|^{-(n-1)}$.
+    \item Sufficient smoothness (analyticity).
+\end{itemize}
+
+\subsection{Kolmogorov Complexity}
+
+Kolmogorov defined the complexity $K(x)$ of a finite binary string $x$ as the length of the shortest program $p$ that outputs $x$ on a universal Turing machine:
+\[
+K(x) = \min\{|p| : U(p) = x\}
+\]
+
+A string is \textbf{random} if $K(x) \approx |x|$---i.e., there is no shorter description than the string itself. A string with patterns (like $010101\dots$) has $K(x) \ll |x|$ because a short program can reproduce it.
+
+Key properties:
+\begin{itemize}
+    \item $K(x) \leq |x| + O(1)$ (the string is its own description).
+    \item Most strings have $K(x) \approx |x|$ (most strings are random).
+    \item $K(xy) \leq K(x) + K(y) + O(\log \min(K(x), K(y)))$ (subadditivity).
+    \item $K(x)$ is uncomputable (there is no algorithm that computes $K(x)$ for all $x$).
+\end{itemize}
+
+Kolmogorov complexity provides the bridge between information theory (Shannon) and algorithmic information theory, and it gives a rigorous foundation for the philosophy of induction (Occam's razor: prefer the shortest explanation).
+
+\subsection{Fourier Series Divergence}
+
+Kolmogorov constructed a function $f \in L^1(\mathbb{T})$ whose Fourier series diverges everywhere. The construction uses a careful arrangement of ``blocks''---functions whose Fourier partial sums are large on specific intervals---stacked to produce divergence at every point.
+
+This was a shock: it showed that Carleson's theorem (almost everywhere convergence for $L^2$ functions) does not extend to $L^1$, and that the Fourier theory of integrable functions is genuinely different from that of square-integrable functions.
+
+\section{Mathematical Theory}
+
+\subsection{The Axiomatic Foundations}
+
+\begin{definition}[Probability Space]
+A \textbf{probability space} is a triple $(\Omega, \mathcal{F}, P)$ where:
+\begin{itemize}
+    \item $\Omega$ is a set.
+    \item $\mathcal{F}$ is a $\sigma$-algebra of subsets of $\Omega$.
+    \item $P: \mathcal{F} \to [0,1]$ is a measure with $P(\Omega) = 1$.
+\end{itemize}
+\end{definition}
+
+\begin{theorem}[Kolmogorov Extension Theorem]
+Let $\{\mu_{t_1,\dots,t_n}\}$ be a consistent family of finite-dimensional probability distributions on $\mathbb{R}^n$. There exists a unique probability measure $P$ on the space $\mathbb{R}^{[0,\infty)}$ of all functions $\omega: [0,\infty) \to \mathbb{R}$ whose finite-dimensional distributions are the given $\mu$.
+\end{theorem}
+
+\begin{theorem}[Kolmogorov's Zero--One Law]
+Let $X_1, X_2, \dots$ be independent random variables. Any event in the tail $\sigma$-algebra (determined by the asymptotic behavior of the sequence) has probability either 0 or 1.
+\end{theorem}
+
+\begin{theorem}[Strong Law of Large Numbers]
+If $X_1, X_2, \dots$ are independent identically distributed random variables with $\E[|X_1|] < \infty$, then:
+\[
+\frac{1}{n}\sum_{i=1}^n X_i \to \E[X_1] \quad \text{almost surely.}
+\]
+\end{theorem}
+
+\subsection{The K41 Theory of Turbulence}
+
+Let $E(k)$ be the energy spectrum: the kinetic energy per unit mass contained in eddies with wavenumber between $k$ and $k+dk$ is $E(k)dk$.
+
+\begin{theorem}[Kolmogorov's $-5/3$ Law]
+In fully developed turbulence at sufficiently high Reynolds number, the energy spectrum in the inertial range is:
+\[
+E(k) = C_K \epsilon^{2/3} k^{-5/3},
+\]
+where $C_K \approx 1.5$ is the Kolmogorov constant and $\epsilon$ is the mean energy dissipation rate per unit mass.
+\end{theorem}
+
+The Kolmogorov microscales give the smallest scales of turbulence:
+\[
+\eta = \left(\frac{\nu^3}{\epsilon}\right)^{1/4}, \quad u_\eta = (\nu \epsilon)^{1/4}, \quad \tau_\eta = \left(\frac{\nu}{\epsilon}\right)^{1/2}
+\]
+
+The ratio of the largest to smallest scale is:
+\[
+\frac{L}{\eta} \sim Re^{3/4},
+\]
+where $Re = UL/\nu$ is the Reynolds number. For atmospheric turbulence ($Re \sim 10^8$), the range of scales is enormous, making direct numerical simulation impossible---which is why turbulence modeling remains essential for weather prediction and engineering.
+
+\subsection{KAM Theory}
+
+Consider the Hamiltonian $H(I, \theta) = H_0(I) + \epsilon H_1(I, \theta)$ with $(I, \theta) \in \mathbb{R}^n \times \mathbb{T}^n$.
+
+\begin{theorem}[Kolmogorov--Arnold--Moser]
+Assume $H_0$ satisfies the non-degeneracy condition $\det(\partial^2 H_0/\partial I^2) \neq 0$, and $H$ is real-analytic. For sufficiently small $\epsilon > 0$, there exists a set of initial conditions of positive Lebesgue measure for which the motion is quasi-periodic with $n$ frequencies. These solutions lie on invariant tori that are small perturbations of the unperturbed tori.
+\end{theorem}
+
+The measure of the complement (the tori that are destroyed) tends to zero as $\epsilon \to 0$. The surviving tori are those with Diophantine frequencies:
+\[
+|k \cdot \omega| \geq \frac{C}{|k|^{\tau}}, \quad \tau > n-1.
+\]
+
+\subsection{Kolmogorov--Sinai Entropy}
+
+Let $T: X \to X$ be a measure-preserving transformation of a probability space $(X, \mathcal{F}, \mu)$. For a finite partition $\alpha = \{A_1,\dots,A_k\}$ of $X$, define the entropy:
+\[
+H(\alpha) = -\sum_{i=1}^k \mu(A_i) \log \mu(A_i).
+\]
+
+The entropy of $T$ is:
+\[
+h(T) = \sup_{\alpha} \lim_{n \to \infty} \frac{1}{n} H(\alpha \vee T^{-1}\alpha \vee \cdots \vee T^{-(n-1)}\alpha),
+\]
+where $\alpha \vee \beta = \{A \cap B : A \in \alpha, B \in \beta\}$.
+
+\begin{theorem}
+$h(T)$ is an invariant of measure-preserving isomorphism, and for Bernoulli shifts, $h(T)$ equals the Shannon entropy of the shift.
+\end{theorem}
+
+This entropy distinguishes between different ergodic systems that were previously indistinguishable by spectral methods. For example, Bernoulli shifts with different entropies are non-isomorphic (Ornstein's theorem).
+
+\subsection{Kolmogorov Complexity}
+
+\begin{definition}[Kolmogorov Complexity]
+Let $U$ be a universal Turing machine. The \textbf{Kolmogorov complexity} of a binary string $x$ is:
+\[
+K_U(x) = \min\{|p| : U(p) = x\}
+\]
+where $p$ ranges over all programs (binary strings) that cause $U$ to output $x$.
+\end{definition}
+
+\begin{theorem}[Invariance]
+If $U_1, U_2$ are two universal Turing machines, then $|K_{U_1}(x) - K_{U_2}(x)| \leq C$ for some constant $C$ independent of $x$.
+\end{theorem}
+
+\begin{theorem}[Uncomputability]
+The function $K(x)$ is not computable.
+\end{theorem}
+
+\begin{proof}
+If $K$ were computable, one could construct a program that enumerates strings $x$ and outputs the first with $K(x) \geq n$. This program itself has length $\sim \log n$, giving a contradiction.
+\end{proof}
+
+\subsection{Fourier Analysis}
+
+\begin{theorem}[Kolmogorov, 1923]
+There exists a function $f \in L^1(\mathbb{T})$ such that its Fourier series:
+\[
+\sum_{n=-\infty}^\infty \hat{f}(n) e^{2\pi i n x}
+\]
+diverges for every $x \in \mathbb{T}$.
+\end{theorem}
+
+\begin{theorem}[Kolmogorov's Inequality]
+If $f \in L^2(\mathbb{T})$ has Fourier coefficients $\hat{f}(n)$, then:
+\[
+\sum_{n=-\infty}^\infty |\hat{f}(n)|^2 = \int_0^1 |f(x)|^2 dx.
+\]
+\end{theorem}
+
+\begin{theorem}[Kolmogorov--Riesz Compactness Criterion]
+A subset $\mathcal{F} \subset L^p(\mathbb{R}^n)$ ($1 \leq p < \infty$) is precompact if and only if:
+\begin{enumerate}
+    \item $\sup_{f \in \mathcal{F}} \|f\|_p < \infty$.
+    \item $\lim_{h \to 0} \sup_{f \in \mathcal{F}} \|f(x+h) - f(x)\|_{L^p} = 0$.
+    \item $\lim_{R \to \infty} \sup_{f \in \mathcal{F}} \|f\|_{L^p(\mathbb{R}^n \setminus B_R)} = 0$.
+\end{enumerate}
+\end{theorem}
+
+\section{Impact on Science and Technology}
+
+\subsection{In Pure Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Probability:} Kolmogorov's axioms are now universal. Every textbook on probability begins with them. The Kolmogorov--Smirnov test is a standard statistical tool.
+    \item \textbf{Dynamical Systems:} KAM theory is one of the great achievements of 20th-century mathematics. It explains the stability of the solar system, the existence of quasi-periodic motion, and it stimulated the theory of Hamiltonian chaos.
+    \item \textbf{Turbulence:} The K41 theory is the starting point for all theoretical work on turbulence. While its assumptions have been refined (K62 intermittency corrections), the $-5/3$ law remains the fundamental prediction.
+    \item \textbf{Ergodic Theory:} Kolmogorov--Sinai entropy is a central invariant of dynamical systems, used to classify Bernoulli shifts and Anosov systems.
+    \item \textbf{Algorithmic Information Theory:} Kolmogorov complexity is foundational for the theory of randomness, inductive inference, and the minimum description length (MDL) principle.
+    \item \textbf{Topology:} Kolmogorov's work on cohomology operations was contemporaneous with {\'E}lie Cartan's and Alexander's, and the ``Alexander--Kolmogorov--Spanier'' cohomology is named partly for him.
+\end{enumerate}
+
+\subsection{In Physics and Engineering}
+
+\begin{enumerate}
+    \item \textbf{Turbulence Modeling:} The K41 spectrum is used in large eddy simulation (LES), weather prediction, oceanography, astrophysics (solar convection), and engineering (pipe flow, airfoil design).
+    \item \textbf{Celestial Mechanics:} KAM theory is used in satellite orbit calculations, asteroid belt dynamics, and the study of planetary system stability.
+    \item \textbf{Statistical Mechanics:} Kolmogorov's probability axioms and the ergodic theory of dynamical systems underpin the foundations of statistical mechanics.
+    \item \textbf{Information Theory:} Kolmogorov complexity extends Shannon information theory to individual objects, with applications in data compression, machine learning, and the theory of neural networks.
+\end{enumerate}
+
+\subsection{In Computing}
+
+\begin{enumerate}
+    \item \textbf{Data Compression:} The optimal compression of a string is related to its Kolmogorov complexity. While $K(x)$ is uncomputable, practical compressors approximate it.
+    \item \textbf{Machine Learning:} The minimum description length (MDL) principle, based on Kolmogorov complexity, provides a framework for model selection that balances fit and complexity.
+    \item \textbf{Randomness Testing:} The concept of algorithmic randomness (strings that cannot be compressed) underlies tests for pseudo-random number generators.
+    \item \textbf{Computational Biology:} Kolmogorov complexity is used in phylogenetics (genome distance measures based on compression) and in the analysis of genetic sequences.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: Did Kolmogorov really change fields so often?}
+
+Yes. Kolmogorov worked in set theory, Fourier analysis, probability, turbulence, dynamical systems, information theory, logic, topology, and the foundations of mathematics. He would enter a field, solve its deepest problem, and leave.
+
+His typical pattern: identify the essential difficulty, develop a completely new approach, settle the problem definitively, and then move on. He rarely wrote long treatises; his papers are often short, dense, and revolutionary. He founded the Soviet school of probability and supervised many students, but his own creative process was intensely individual.
+
+His breadth was legendary: when Arnold was his student, Kolmogorov suggested problems ranging from celestial mechanics to real algebraic geometry to the theory of currents.
+
+\subsection*{Q2: What exactly is the Kolmogorov--Smirnov test?}
+
+The Kolmogorov--Smirnov test is a non-parametric statistical test used to determine whether a sample comes from a specified distribution (one-sample test) or whether two samples come from the same distribution (two-sample test).
+
+It compares the empirical distribution function $F_n(x)$ (the fraction of observations $\leq x$) to the hypothesized cumulative distribution $F(x)$. The test statistic is:
+\[
+D_n = \sup_{x} |F_n(x) - F(x)|
+\]
+
+Under the null hypothesis, $\sqrt{n} D_n$ converges to the Kolmogorov distribution (the supremum of the Brownian bridge). The test is distribution-free, meaning the null distribution of $D_n$ does not depend on $F$.
+
+\subsection*{Q3: Is the $-5/3$ law of turbulence proved?}
+
+The $-5/3$ law is not rigorously proved from the Navier--Stokes equations---it remains one of the major open problems in mathematical physics. What Kolmogorov provided was a scaling argument based on dimensional analysis and physical reasoning.
+
+The law is consistent with experimental data across an enormous range of flows (wind tunnels, atmospheric boundary layers, oceanic turbulence, astrophysical plasmas). The ``Kolmogorov constant'' $C_K \approx 1.5$ is indeed universal.
+
+But the rigorous derivation from the Euler or Navier--Stokes equations, including the existence of a non-trivial inertial range in the infinite-Reynolds-number limit, is an open problem. Onsager's conjecture (1949) about energy dissipation in Euler solutions---proved in 2018 by Isett---is a related result.
+
+\subsection*{Q4: What is the difference between Kolmogorov complexity and Shannon entropy?}
+
+Shannon entropy measures the expected information content of a random variable. For a random variable $X$ with distribution $p(x)$:
+\[
+H(X) = -\sum_x p(x) \log p(x)
+\]
+This is an average over an ensemble. If you know $p$, you know the optimal compression rate.
+
+Kolmogorov complexity measures the information content of a \textit{single} finite string, without reference to any probability distribution:
+\[
+K(x) = \text{length of shortest program that outputs } x
+\]
+
+The two are related by the expected value: for a computable distribution $p$, the expected Kolmogorov complexity is approximately the Shannon entropy:
+\[
+\E_p[K(x)] \approx H(p).
+\]
+
+But Kolmogorov complexity is always defined for individual objects, making it foundational for algorithmic information theory, inductive inference, and the philosophy of science.
+
+\subsection*{Q5: What should an undergraduate study to understand Kolmogorov's work?}
+
+\begin{enumerate}
+    \item \textbf{Probability:} Kolmogorov's own ``Foundations of the Theory of Probability'' is still readable and remarkably modern.
+    \item \textbf{Fourier Analysis:} Stein and Shakarchi's ``Fourier Analysis'' covers the theory up to Kolmogorov's divergence result.
+    \item \textbf{Dynamical Systems:} Arnold's ``Mathematical Methods of Classical Mechanics'' includes KAM theory and Kolmogorov's contributions.
+    \item \textbf{Turbulence:} Frisch's ``Turbulence: The Legacy of A.\ N.\ Kolmogorov'' is an excellent and accessible introduction.
+    \item \textbf{Information Theory:} Cover and Thomas's ``Elements of Information Theory'' includes algorithmic complexity.
+    \item \textbf{Logic and Computation:} Sipser's ``Introduction to the Theory of Computation'' covers Turing machines and uncomputability, needed for Kolmogorov complexity.
+\end{enumerate}
+
+For undergraduates, start with probability and Fourier analysis—these are the most accessible entry points to Kolmogorov's world.
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item A.\ N.\ Kolmogorov, \textit{Grundbegriffe der Wahrscheinlichkeitsrechnung}, Springer, 1933.
+    \item A.\ N.\ Kolmogorov, \textit{The local structure of turbulence in incompressible viscous fluid for very large Reynolds numbers}, C.\ R.\ Acad.\ Sci.\ USSR 30 (1941), 301--305.
+    \item A.\ N.\ Kolmogorov, \textit{On conservation of conditionally periodic motions under a small change in the Hamiltonian function}, Dokl.\ Akad.\ Nauk SSSR 98 (1954), 527--530.
+    \item A.\ N.\ Kolmogorov, \textit{Three approaches to the quantitative definition of information}, Problems of Information Transmission 1 (1965), 1--7.
+    \item A.\ N.\ Kolmogorov, \textit{Une s{\'e}rie de Fourier--Lebesgue divergente partout}, C.\ R.\ Acad.\ Sci.\ Paris 183 (1926), 1327--1329.
+    \item A.\ N.\ Kolmogorov, \textit{Selected Works}, 3 vols., Springer, 1991--1993.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item V.\ I.\ Arnold, \textit{A.\ N.\ Kolmogorov}, in ``Kolmogorov's Heritage in Mathematics,'' Springer, 2007.
+    \item V.\ I.\ Arnold, \textit{Andrey Kolmogorov---the great Russian scholar of the 20th century}, Proc.\ Steklov Inst.\ Math.\ 242 (2003), 5--17.
+    \item Y.\ G.\ Sinai, \textit{The life and work of A.\ N.\ Kolmogorov}, in ``Kolmogorov's Heritage in Mathematics,'' Springer, 2007.
+    \item A.\ N.\ Shiryaev, \textit{Andrey Nikolaevich Kolmogorov (1903--1987)}, Notices AMS 49 (2002), 1045--1052.
+\end{enumerate}
+
+\subsection*{Textbooks}
+\begin{enumerate}
+    \item P.\ Billingsley, \textit{Probability and Measure}, Wiley, 1995.
+    \item U.\ Frisch, \textit{Turbulence: The Legacy of A.\ N.\ Kolmogorov}, Cambridge University Press, 1995.
+    \item V.\ I.\ Arnold, \textit{Mathematical Methods of Classical Mechanics}, Springer, 1989.
+    \item M.\ Li and P.\ Vit{\'a}nyi, \textit{An Introduction to Kolmogorov Complexity and Its Applications}, Springer, 2019.
+    \item A.\ Katok and B.\ Hasselblatt, \textit{Introduction to the Modern Theory of Dynamical Systems}, Cambridge University Press, 1995.
+    \item I.\ P.\ Cornfeld, S.\ V.\ Fomin, and Y.\ G.\ Sinai, \textit{Ergodic Theory}, Springer, 1982.
+    \item E.\ M.\ Stein and R.\ Shakarchi, \textit{Fourier Analysis}, Princeton University Press, 2003.
+    \item T.\ M.\ Cover and J.\ A.\ Thomas, \textit{Elements of Information Theory}, Wiley, 2006.
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Action-angle variables] Canonical coordinates $(I, \theta)$ for an integrable Hamiltonian system, where $I$ is constant and $\theta$ evolves linearly.
+    \item[Bernoulli shift] A measure-preserving transformation on the space of infinite coin flip sequences; the simplest ergodic system.
+    \item[Brownian bridge] A Gaussian process $B(t) - tB(1)$ on $[0,1]$ with $B(0) = B(1) = 0$.
+    \item[Diophantine frequency] A vector $\omega \in \mathbb{R}^n$ satisfying $|k \cdot \omega| \geq C|k|^{-\tau}$ for all $k \in \mathbb{Z}^n \setminus \{0\}$.
+    \item[Dissipation rate] The rate $\epsilon$ at which kinetic energy is converted to heat by viscosity in a turbulent flow.
+    \item[Energy cascade] The transfer of kinetic energy from large turbulent eddies to smaller ones.
+    \item[Energy spectrum] $E(k)$ such that $\int_{k_1}^{k_2} E(k) dk$ is the kinetic energy in eddies with wavenumbers between $k_1$ and $k_2$.
+    \item[Ergodic theory] The study of measure-preserving transformations and their long-term statistical behavior.
+    \item[Hamiltonian system] A dynamical system described by Hamilton's equations $\dot{q} = \partial H/\partial p$, $\dot{p} = -\partial H/\partial q$.
+    \item[Inertial range] The range of scales in a turbulent flow where neither forcing nor viscosity dominates.
+    \item[Integrable system] A Hamiltonian system with enough conserved quantities to be solvable by quadratures.
+    \item[Invariant torus] A submanifold of phase space preserved by the flow; for integrable systems, the phase space is foliated by such tori.
+    \item[K41 theory] Kolmogorov's 1941 theory of turbulence, predicting the $-5/3$ energy spectrum.
+    \item[KAM theorem] The persistence of quasi-periodic motion in nearly integrable Hamiltonian systems.
+    \item[Kolmogorov complexity] The length of the shortest program that outputs a given string.
+    \item[Large eddy simulation] A turbulence modeling approach where large scales are resolved directly and small scales are modeled.
+    \item[Measure-preserving transformation] A map $T$ satisfying $\mu(T^{-1}(A)) = \mu(A)$ for all measurable $A$.
+    \item[Newton iteration] An iterative method $x_{n+1} = x_n - f(x_n)/f'(x_n)$ for finding roots of $f$; converges quadratically.
+    \item[Reynolds number] $Re = UL/\nu$, the dimensionless ratio of inertial to viscous forces in a fluid.
+    \item[$\sigma$-algebra] A collection of subsets closed under countable unions, countable intersections, and complements.
+    \item[Strong law of large numbers] The almost sure convergence of sample means to the population mean.
+    \item[Universal Turing machine] A Turing machine that can simulate any other Turing machine.
+    \item[Zero--one law] Tail events of independent sequences have probability 0 or 1.
+\end{description}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Prove Kolmogorov's zero--one law: if $X_1, X_2, \dots$ are independent and $A$ is in the tail $\sigma$-algebra, then $P(A) \in \{0,1\}$.
+    \item Let $X_1, X_2, \dots$ be i.i.d.\ with $\E[X_1] = \mu$ and $\Var(X_1) = \sigma^2 < \infty$. Prove the strong law of large numbers using the Chebyshev inequality and the Borel--Cantelli lemma.
+    \item Show that the Kolmogorov extension theorem implies the existence of a probability measure on the space of infinite coin toss sequences $\{0,1\}^\mathbb{N}$.
+    \item Using dimensional analysis, derive the $-5/3$ law for the energy spectrum $E(k)$ in the inertial range of turbulence.
+    \item Show that the Kolmogorov microscale $\eta = (\nu^3/\epsilon)^{1/4}$ is the scale at which the Reynolds number based on eddy size equals 1.
+    \item Prove that the Kolmogorov complexity $K(x)$ satisfies $K(x) \leq |x| + O(1)$ and that most strings of length $n$ satisfy $K(x) \geq n - O(\log n)$.
+    \item Show that $K(x)$ is uncomputable (the proof via the Berry paradox).
+    \item Let $f \in C^\infty(\mathbb{T})$ be a smooth function. Show that its Fourier coefficients decay faster than any polynomial and that its Fourier series converges absolutely.
+    \item Compute the metric entropy of the Bernoulli shift on two symbols $\{0,1\}^\mathbb{Z}$ with probabilities $(p, 1-p)$.
+    \item Prove that if a Hamiltonian $H_0(I)$ satisfies $\det(\partial^2 H_0/\partial I^2) \neq 0$, then the frequencies $\omega(I) = \partial H_0/\partial I$ are locally a diffeomorphism.
+    \item Show that the Diophantine condition $|k \cdot \omega| \geq C|k|^{-\tau}$ holds for almost every $\omega \in \mathbb{R}^n$ when $\tau > n-1$.
+    \item Verify that the Kolmogorov--Smirnov test statistic $D_n = \sup_x |F_n(x) - F(x)|$ for the uniform distribution $U[0,1]$ has the same distribution for any continuous $F$.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1903 & Born in Tambov, Russia \\ \hline
+1920--1925 & Studies at Moscow State University \\ \hline
+1925 & First paper (on Fourier series), co-authored with Alexandrov \\ \hline
+1926 & Constructs an $L^1$ function with everywhere divergent Fourier series \\ \hline
+1929 & PhD (without formal defense); begins work on probability \\ \hline
+1931 & Professor at Moscow State University \\ \hline
+1933 & \textit{Grundbegriffe der Wahrscheinlichkeitsrechnung} (axioms of probability) \\ \hline
+1939 & Elected to the USSR Academy of Sciences \\ \hline
+1941 & K41 theory of turbulence published \\ \hline
+1954 & KAM theorem announced (on persistence of invariant tori) \\ \hline
+1956--1958 & Work on metric entropy of dynamical systems \\ \hline
+1957 & Solution of Hilbert's 13th problem (with Arnold) \\ \hline
+1965 & Kolmogorov complexity (algorithmic information theory) \\ \hline
+1966 & Lenin Prize for his work on KAM theory \\ \hline
+1970s & Work on the theory of $\epsilon$-entropy and complexity of function classes \\ \hline
+1980 & Wolf Prize in Mathematics (co-recipient with H.\ Cartan) \\ \hline
+1987 & Dies in Moscow \\ \hline
+\end{tabular}

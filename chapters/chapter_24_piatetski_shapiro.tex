@@ -1,0 +1,515 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\A\relax
+\newcommand{\A}{\mathbb{A}}
+\let\F\relax
+\newcommand{\F}{\mathbb{F}}
+\let\SO\relax
+\newcommand{\SO}{\operatorname{SO}}
+\let\SL\relax
+\newcommand{\SL}{\operatorname{SL}}
+\let\GL\relax
+\newcommand{\GL}{\operatorname{GL}}
+\let\Sp\relax
+\newcommand{\Sp}{\operatorname{Sp}}
+\let\St\relax
+\newcommand{\St}{\operatorname{St}}
+\let\GV\relax
+\newcommand{\GV}{\operatorname{GV}}
+\let\E\relax
+\newcommand{\E}{\operatorname{E}}
+\let\SU\relax
+\newcommand{\SU}{\operatorname{SU}}
+\let\Aut\relax
+\newcommand{\Aut}{\operatorname{Aut}}
+\let\Gal\relax
+\newcommand{\Gal}{\operatorname{Gal}}
+\let\Ad\relax
+\newcommand{\Ad}{\operatorname{Ad}}
+\let\Ind\relax
+\newcommand{\Ind}{\operatorname{Ind}}
+\let\Spec\relax
+\newcommand{\Spec}{\operatorname{Spec}}
+\let\Vol\relax
+\newcommand{\Vol}{\operatorname{Vol}}
+\let\Pic\relax
+\newcommand{\Pic}{\operatorname{Pic}}
+\let\Sym\relax
+\newcommand{\Sym}{\operatorname{Sym}}
+\let\End\relax
+\newcommand{\End}{\operatorname{End}}
+\let\Hom\relax
+\newcommand{\Hom}{\operatorname{Hom}}
+\let\Lie\relax
+\newcommand{\Lie}{\operatorname{Lie}}
+\let\ord\relax
+\newcommand{\ord}{\operatorname{ord}}
+\let\Cusp\relax
+\newcommand{\Cusp}{\operatorname{Cusp}}
+\let\Disc\relax
+\newcommand{\Disc}{\operatorname{Disc}}
+\let\sgn\relax
+\newcommand{\sgn}{\operatorname{sgn}}
+\let\supp\relax
+\newcommand{\supp}{\operatorname{supp}}
+
+\chapter{Ilya Piatetski-Shapiro (1990)}
+
+\begin{quote}
+\it ``Piatetski-Shapiro's work is characterized by an extraordinary blend of analytic power, algebraic depth, and geometric insight. His fundamental contributions to the theory of automorphic forms, the construction of the first counterexample to the general Selberg conjecture, the development of the Rankin--Selberg method for \(\GL(n)\), and his proof of the Torelli theorem for K3 surfaces have profoundly transformed number theory, representation theory, and algebraic geometry. His ideas continue to shape these fields.'' --- Wolf Prize Citation
+\end{quote}
+
+Ilya Ilyich Piatetski-Shapiro (March 30, 1929 -- February 21, 2009) was one of the most original mathematicians of the 20th century. The 1990 Wolf Prize in Mathematics (shared with Ennio de Giorgi) recognized his fundamental contributions to the theory of automorphic forms, discrete subgroups of semisimple Lie groups, \(L\)-functions, and algebraic geometry. Earlier, in 1986, he was awarded the Israel Prize for his lifetime of achievement.
+
+Piatetski-Shapiro's mathematical style is marked by profound originality and a rare ability to combine analytic, algebraic, and geometric methods. He created the modern theory of automorphic forms on semisimple groups, advanced the Rankin--Selberg method to new heights, and proved one of the most celebrated results in algebraic geometry: the Torelli theorem for K3 surfaces. His name appears throughout mathematics: the Piatetski-Shapiro criterion for cuspidal forms, the Piatetski-Shapiro zeta function, the Jacquet--Piatetski-Shapiro--Shalika theory of \(L\)-functions for \(\GL(n)\), and the Piatetski-Shapiro--Shafarevich Torelli theorem.
+
+\section{Early Life and Career}
+
+Ilya Piatetski-Shapiro was born in Moscow on March 30, 1929, into a Jewish family. His father, Ilya Leibovich Piatetski-Shapiro, was a mathematician and educator, and his mother, Sofia Borisovna Shapiro, was a teacher. He showed exceptional mathematical talent from an early age and entered the Moscow State University at age sixteen.
+
+Piatetski-Shapiro completed his undergraduate degree at Moscow State University in 1951 and remained there for graduate study. His doctoral research was supervised by Alexander Gelfond, one of the leading number theorists of the Soviet school. Piatetski-Shapiro received his PhD in 1954 for his thesis on the distribution of prime numbers and the analytic theory of \(L\)-functions.
+
+After completing his PhD, Piatetski-Shapiro faced significant obstacles due to the antisemitic policies of the Soviet state. Despite his outstanding mathematical abilities, he was denied a professorship at Moscow State University and was instead assigned to a teaching position at the Moscow Pedagogical Institute. This period of professional discrimination, known as the ``refusenik'' era for Soviet Jewish mathematicians, profoundly shaped his career. Nevertheless, Piatetski-Shapiro continued to produce groundbreaking research, often publishing in the leading Soviet mathematical journals.
+
+In the 1960s, Piatetski-Shapiro turned his attention to the theory of automorphic forms and discrete subgroups of semisimple Lie groups. This work established his international reputation as one of the leading mathematicians of his generation. In 1976, after years of struggle, he emigrated to Israel and joined the faculty of Tel Aviv University. He also held a position at Yale University in the United States, where he spent part of each year.
+
+Piatetski-Shapiro's emigration opened a new chapter in his career. In Israel, he founded a strong school of automorphic forms and \(L\)-functions, attracting students and collaborators from around the world. His collaboration with Herv\'{e} Jacquet and Joseph Shalika produced the foundational theory of \(L\)-functions for \(\GL(n)\). His work with James Cogdell on converse theorems for \(\GL(n)\) brought these ideas to their most complete form.
+
+Piatetski-Shapiro received the Wolf Prize in Mathematics in 1990, the Israel Prize in 1986, and was elected to the Israel Academy of Sciences and Humanities, the American Academy of Arts and Sciences, and the National Academy of Sciences of the United States. He died in Tel Aviv on February 21, 2009, at the age of 79.
+
+\section{Automorphic Forms and Discrete Subgroups}
+
+\subsection{Background: Semisimple Lie Groups and Discrete Subgroups}
+
+The theory of automorphic forms begins with the study of homogeneous spaces \(G/K\) where \(G\) is a semisimple Lie group and \(K\) is a maximal compact subgroup. The fundamental objects are functions on \(\Gamma \backslash G\) (or \(\Gamma \backslash G/K\)) where \(\Gamma \subset G\) is a discrete subgroup. The paradigm is the classical theory of modular forms, where \(G = \SL(2,\R)\), \(K = \SO(2)\), and \(\Gamma = \SL(2,\Z)\). The quotient \(\Gamma \backslash G/K\) is the modular curve, the space of elliptic curves up to isomorphism.
+
+For a general semisimple Lie group \(G\), a \textbf{lattice} is a discrete subgroup \(\Gamma\) such that the quotient \(\Gamma \backslash G\) has finite volume with respect to the Haar measure on \(G\). Lattices exist in all semisimple Lie groups, and their classification and properties are central to the theory of automorphic forms. The most important examples are the arithmetic lattices, which are constructed from the integer points of algebraic groups defined over \(\Q\). For instance, \(\SL(n,\Z)\) is an arithmetic lattice in \(\SL(n,\R)\).
+
+The study of lattices in semisimple Lie groups reached a high point with the work of Margulis, who proved that in higher rank (real rank at least 2), every irreducible lattice is arithmetic. This is the celebrated Margulis arithmeticity theorem, which showed that for higher-rank groups, there are no ``exotic'' lattices beyond the arithmetic ones.
+
+\subsection{Piatetski-Shapiro's Construction of Non-Arithmetic Lattices}
+
+The Selberg conjecture referred to the question of whether all lattices in semisimple Lie groups are arithmetic. This was a natural conjecture arising from the work of Selberg, Borel, Harish-Chandra, and others, which showed that arithmetic lattices exist in abundance and that many naturally occurring discrete subgroups are of arithmetic type.
+
+The situation for rank-1 groups, however, turned out to be fundamentally different from the higher-rank case. Piatetski-Shapiro constructed the first counterexample to the general Selberg conjecture by exhibiting a non-arithmetic lattice in \(\SL(2,\R)\).
+
+\begin{theorem}[Piatetski-Shapiro, 1960s]
+There exist infinitely many distinct, non-conjugate, non-arithmetic lattices in \(\SL(2,\R)\). Equivalently, there exist compact Riemann surfaces of genus \(g \geq 2\) whose fundamental group, as a discrete subgroup of \(\SL(2,\R)\), is not isomorphic to an arithmetic lattice.
+\end{theorem}
+
+Piatetski-Shapiro's construction proceeded by taking two arithmetic Fuchsian groups \(\Gamma_1\) and \(\Gamma_2\) that share a common cyclic subgroup \(H\). The group \(\Gamma\) generated by \(\Gamma_1\) and \(\Gamma_2\) is then a lattice in \(\SL(2,\R)\) that is generally non-arithmetic. This ``amalgam'' construction, or ``combination'' of Fuchsian groups, produced the first explicit examples of non-arithmetic lattices and disproved the general form of the Selberg conjecture.
+
+\begin{example}
+Let \(\Gamma_1 = \SL(2,\Z)\) (the modular group) and let \(\Gamma_2\) be a conjugate of \(\SL(2,\Z)\) by a matrix with entries in a quadratic field. Under suitable conditions, the group generated by \(\Gamma_1\) and \(\Gamma_2\) is a non-arithmetic lattice in \(\SL(2,\R)\). More generally, for any two arithmetic Fuchsian groups whose intersection contains a hyperbolic element, the group they generate is often a non-arithmetic lattice.
+\end{example}
+
+This result was revolutionary. It showed that the landscape of discrete subgroups of rank-1 Lie groups is much richer than previously imagined. The construction inspired the subsequent development of the theory of non-arithmetic lattices, including the work of Gromov, Mostow, and Deligne on lattices in \(\SO(n,1)\) and \(\SU(n,1)\).
+
+\subsection{Automorphic Forms on Semisimple Groups}
+
+Piatetski-Shapiro made fundamental contributions to the general theory of automorphic forms on semisimple Lie groups. He developed the theory of cusp forms for \(\GL(n)\) and established the existence of automorphic forms with prescribed properties using analytic methods.
+
+A central concept in the theory is the notion of a \textbf{cuspidal automorphic form}. Let \(G\) be a reductive algebraic group over \(\Q\), let \(\A\) be the adele ring of \(\Q\), and let \(\omega\) be a central character. A function \(\varphi: G(\A) \to \C\) is called a \textbf{cuspidal automorphic form} if it satisfies:
+
+\begin{enumerate}
+    \item \(\varphi(\gamma g) = \varphi(g)\) for all \(\gamma \in G(\Q)\) (automorphy),
+    \item \(\varphi(zg) = \omega(z)\varphi(g)\) for \(z \in Z(\A)\) where \(Z\) is the center of \(G\),
+    \item \(\varphi\) is smooth and of moderate growth,
+    \item \(\varphi\) is \({\mathfrak g}\)-finite and \(K\)-finite under the action of the Lie algebra and the maximal compact subgroup,
+    \item \(\varphi\) is \textbf{cuspidal}: for every proper parabolic subgroup \(P = MN\) of \(G\),
+    \[
+    \int_{N(\Q) \backslash N(\A)} \varphi(ng)\,dn = 0.
+    \]
+    \end{enumerate}
+
+The space of cuspidal automorphic forms decomposes into a direct sum of irreducible representations of \(G(\A)\), each occurring with finite multiplicity. This is the spectral decomposition, which generalizes the classical theory of modular forms.
+
+\section{Converse Theorems for \(\GL(n)\)}
+
+One of Piatetski-Shapiro's most profound contributions is the development of \textbf{converse theorems} for automorphic forms on \(\GL(n)\). A converse theorem is a result that characterizes automorphic representations in terms of the analytic properties of their \(L\)-functions.
+
+\subsection{The Classical Converse Theorem for \(\GL(2)\)}
+
+The classical converse theorem goes back to Hecke, who showed that a Dirichlet series with a functional equation of a certain type corresponds to a modular form. For \(\GL(2)\) over \(\Q\), the theorem states that a Fourier series \(f(z) = \sum_{n=1}^\infty a_n e^{2\pi i n z}\) is a modular form of weight \(k\) for \(\SL(2,\Z)\) if and only if the Dirichlet series \(L(s,f) = \sum_{n=1}^\infty a_n n^{-s}\) satisfies a functional equation relating \(s\) to \(k-s\). Weil generalized this to congruence subgroups and twisted \(L\)-functions.
+
+\subsection{The Converse Theorem for \(\GL(n)\)}
+
+The generalization of the converse theorem to \(\GL(n)\) was achieved by Piatetski-Shapiro, together with his collaborators Herv\'{e} Jacquet and later James Cogdell. The theorem provides a powerful criterion for recognizing automorphic representations of \(\GL(n)\) from the analytic properties of their \(L\)-functions twisted by automorphic representations of smaller groups.
+
+\begin{theorem}[Converse Theorem for \(\GL(n)\); Jacquet--Piatetski-Shapiro, Cogdell--Piatetski-Shapiro]
+Let \(K\) be a number field and let \(\pi\) be an irreducible admissible representation of \(\GL(n,\A_K)\) with central character \(\omega_\pi\). Suppose that for every cuspidal automorphic representation \(\tau\) of \(\GL(m,\A_K)\) with \(1 \leq m \leq n-1\), the Rankin--Selberg \(L\)-function
+\[
+L(s, \pi \times \tau)
+\]
+satisfies the following properties:
+\begin{enumerate}
+    \item It converges absolutely for \(\Re(s) \gg 0\),
+    \item It admits meromorphic continuation to all of \(\C\) with only finitely many poles,
+    \item It is bounded in vertical strips away from the poles,
+    \item It satisfies the functional equation
+    \[
+    L(s, \pi \times \tau) = \varepsilon(s, \pi \times \tau) L(1-s, \widetilde{\pi} \times \widetilde{\tau}),
+    \]
+    where \(\widetilde{\pi}\) denotes the contragredient representation.
+\end{enumerate}
+Then \(\pi\) is automorphic, i.e., \(\pi\) embeds into the space of automorphic forms on \(\GL(n,\A_K)\).
+\end{theorem}
+
+The converse theorem is a ``recognition principle'' for automorphic representations. It tells us that to prove that a representation is automorphic, it suffices to check that its \(L\)-function and all its twists by lower-rank automorphic representations satisfy the expected analytic properties. This theorem has been instrumental in proving that many representations arising from geometry (such as those associated to Galois representations) are in fact automorphic, providing a bridge between number theory and automorphic forms.
+
+\subsection{The Piatetski-Shapiro Criterion for Cuspidal Forms}
+
+A related result, often called the \textbf{Piatetski-Shapiro criterion}, characterizes cuspidal automorphic representations in terms of the analytic behavior of their \(L\)-functions.
+
+\begin{theorem}[Piatetski-Shapiro Criterion for Cuspidal Forms]
+Let \(\pi\) be an irreducible unitary representation of \(\GL(n,\A_K)\) that is generic (i.e., admits a Whittaker model). Then \(\pi\) is cuspidal automorphic if and only if the Rankin--Selberg \(L\)-function \(L(s, \pi \times \widetilde{\pi})\) has a simple pole at \(s = 1\). More generally, for any irreducible admissible representation \(\pi\) of \(\GL(n,\A_K)\), the following are equivalent:
+\begin{enumerate}
+    \item \(\pi\) is cuspidal automorphic,
+    \item The constant term of \(\pi\) along every proper parabolic subgroup vanishes,
+    \item The \(L\)-function \(L(s, \pi \times \widetilde{\pi})\) has a simple pole at \(s = 1\) and \(L(s, \pi \times \tau)\) is entire for every cuspidal automorphic representation \(\tau\) of \(\GL(m,\A_K)\) with \(1 \leq m \leq n-1\).
+\end{enumerate}
+\end{theorem}
+
+This criterion is a crucial tool in the analytic theory of automorphic forms. It provides a way to detect cuspidality from the analytic behavior of \(L\)-functions, and it plays a central role in the proof of the converse theorem itself.
+
+\section{The Rankin--Selberg Method}
+
+The \textbf{Rankin--Selberg method} is one of the most powerful techniques in the analytic theory of automorphic forms. It provides an integral representation for the \(L\)-functions associated to automorphic forms, expressing them as integrals of automorphic forms against Eisenstein series.
+
+\subsection{Classical Rankin--Selberg Method}
+
+The method was discovered independently by Robert Rankin (1939) and Atle Selberg (1940) in the context of classical modular forms for \(\SL(2,\Z)\). For two modular forms \(f\) and \(g\) of weight \(k\), they considered the integral
+\[
+\int_{\mathcal{F}} f(z) \overline{g(z)} y^{k+s} \frac{dx\,dy}{y^2},
+\]
+where \(\mathcal{F}\) is a fundamental domain for the action of \(\SL(2,\Z)\) on the upper half-plane. This integral unfolds to give the Dirichlet series \(\sum_{n=1}^\infty a_n \overline{b_n} n^{-s}\), which is the Rankin--Selberg convolution \(L\)-function.
+
+\subsection{Generalization to \(\GL(n)\) by Jacquet, Piatetski-Shapiro, and Shalika}
+
+The generalization of the Rankin--Selberg method to \(\GL(n)\) was one of the major achievements of Piatetski-Shapiro in collaboration with Herv\'{e} Jacquet and Joseph Shalika. Their work provided integral representations for the Rankin--Selberg \(L\)-function
+\[
+L(s, \pi \times \pi')
+\]
+associated to two automorphic representations \(\pi\) and \(\pi'\) of \(\GL(n,\A_K)\) and \(\GL(m,\A_K)\), respectively.
+
+\begin{theorem}[Jacquet--Piatetski-Shapiro--Shalika, 1980s]
+Let \(\pi\) and \(\pi'\) be cuspidal automorphic representations of \(\GL(n,\A_K)\) and \(\GL(m,\A_K)\), respectively. The Rankin--Selberg \(L\)-function \(L(s, \pi \times \pi')\) admits an integral representation
+\[
+L(s, \pi \times \pi') = \int_{\GL(n,\A_K)} \varphi(g) \varphi'(g) E(g, s, \Phi)\, dg,
+\]
+where \(\varphi\) and \(\varphi'\) are automorphic forms in the spaces of \(\pi\) and \(\pi'\), and \(E(g, s, \Phi)\) is a suitable Eisenstein series on \(\GL(n+m,\A_K)\). This integral converges for \(\Re(s) \gg 0\) and admits meromorphic continuation to all of \(\C\) with the functional equation
+\[
+L(s, \pi \times \pi') = \varepsilon(s, \pi \times \pi') L(1-s, \widetilde{\pi} \times \widetilde{\pi}').
+\]
+\end{theorem}
+
+The Jacquet--Piatetski-Shapiro--Shalika theory is a monumental achievement that unified and vastly generalized the earlier work of Rankin and Selberg. Their method uses the theory of Eisenstein series and the Bruhat decomposition to unfold the integral, reducing it to a product of local integrals that define the local \(L\)-factors.
+
+The key insight of the Rankin--Selberg method is that the integration against a well-chosen Eisenstein series ``unfolds'' the automorphic forms and expresses the global integral as a product of local integrals. Each local integral can be evaluated explicitly, yielding the local \(L\)-factor. The global \(L\)-function is then the Euler product of these local factors.
+
+\subsection{Applications of the Rankin--Selberg Method}
+
+The Jacquet--Piatetski-Shapiro--Shalika theory has numerous applications:
+
+\begin{enumerate}
+    \item \textbf{Analytic continuation and functional equations:} The integral representation provides the meromorphic continuation and functional equation for all Rankin--Selberg \(L\)-functions attached to cuspidal automorphic representations of \(\GL(n)\).
+
+    \item \textbf{Non-vanishing theorems:} The theory shows that the completed \(L\)-function has no zeros on the line \(\Re(s) = 1\) (a form of the prime number theorem for automorphic forms).
+
+    \item \textbf{Existence of poles:} The existence of a pole at \(s = 1\) in \(L(s, \pi \times \widetilde{\pi})\) characterizes the cuspidality of \(\pi\).
+
+    \item \textbf{The converse theorem:} The Rankin--Selberg method provides the analytic continuation of the twisted \(L\)-functions that feeds into the converse theorem.
+\end{enumerate}
+
+\section{\(L\)-Functions and the Piatetski-Shapiro Zeta Function}
+
+\subsection{\(L\)-Functions for \(\GL(n)\)}
+
+The theory of \(L\)-functions for \(\GL(n)\) was developed by Godement and Jacquet (1972) using the theory of matrix coefficients and by Jacquet, Piatetski-Shapiro, and Shalika (1981--1983) using the Rankin--Selberg method. These \(L\)-functions are the automorphic analogues of the Artin \(L\)-functions in algebraic number theory and the Hasse--Weil \(L\)-functions in arithmetic geometry.
+
+For a cuspidal automorphic representation \(\pi\) of \(\GL(n,\A_K)\), the standard \(L\)-function is defined as an Euler product
+\[
+L(s, \pi) = \prod_v L_v(s, \pi_v),
+\]
+where the product is over all places \(v\) of the number field \(K\). For a finite place \(v\) where \(\pi_v\) is unramified, the local factor is
+\[
+L_v(s, \pi_v) = \det\left( I - q_v^{-s} \pi_v(\varpi_v) \right)^{-1} = \prod_{j=1}^n \left(1 - \alpha_{j,v} q_v^{-s}\right)^{-1},
+\]
+where \(\alpha_{1,v}, \dots, \alpha_{n,v}\) are the Satake parameters of \(\pi_v\). At the archimedean places, the local factors are products of Gamma functions determined by the Langlands parameters.
+
+The completed \(L\)-function satisfies a functional equation
+\[
+\Lambda(s, \pi) = \varepsilon(s, \pi) \Lambda(1-s, \widetilde{\pi}),
+\]
+where \(\widetilde{\pi}\) is the contragredient representation and \(\varepsilon(s, \pi)\) is the epsilon factor.
+
+\subsection{The Piatetski-Shapiro Zeta Function}
+
+The \textbf{Piatetski-Shapiro zeta function} is a particular \(L\)-function associated to the symmetric square representation. For a cuspidal automorphic representation \(\pi\) of \(\GL(2,\A_K)\), the symmetric square \(L\)-function is defined by
+\[
+L(s, \pi, \Sym^2) = \prod_v \det\left( I - q_v^{-s} \Sym^2 \pi_v(\varpi_v) \right)^{-1},
+\]
+where \(\Sym^2: \GL(2,\C) \to \GL(3,\C)\) is the symmetric square representation. The Piatetski-Shapiro zeta function provides an integral representation for this \(L\)-function.
+
+\begin{theorem}[Piatetski-Shapiro Zeta Function]
+For a cuspidal automorphic representation \(\pi\) of \(\GL(2,\A_K)\), the symmetric square \(L\)-function \(L(s, \pi, \Sym^2)\) admits an integral representation
+\[
+L(s, \pi, \Sym^2) = \int_{\GL(2,\A_K)} \varphi(g) E_{\Sym}(g, s, \Phi)\, dg,
+\]
+where \(\varphi\) is an automorphic form in the space of \(\pi\) and \(E_{\Sym}\) is a special Eisenstein series on \(\GL(3,\A_K)\) designed to unfold the symmetric square. This integral represents the analytic continuation and functional equation for \(L(s, \pi, \Sym^2)\).
+\end{theorem}
+
+The Piatetski-Shapiro zeta function is an example of a more general phenomenon: the construction of \(L\)-functions for automorphic forms using the Rankin--Selberg method, where the choice of Eisenstein series is adapted to the particular representation (the ``functorial lift'') being studied.
+
+\subsection{Applications to Number Theory}
+
+The \(L\)-functions developed by Piatetski-Shapiro and his collaborators have profound applications to number theory:
+
+\begin{enumerate}
+    \item \textbf{The Langlands program:} The theory of \(L\)-functions for \(\GL(n)\) provides the analytic foundation for the Langlands correspondence, which predicts a deep relationship between automorphic forms and Galois representations.
+
+    \item \textbf{The Ramanujan--Petersson conjecture:} The analytic properties of Rankin--Selberg \(L\)-functions imply bounds on the Hecke eigenvalues of cuspidal automorphic forms, giving partial results toward the Ramanujan--Petersson conjecture.
+
+    \item \textbf{The Lindel\"{o}f hypothesis:} The convexity bound for \(L\)-functions, derived from the functional equation and the Phragm\'{e}n--Lindel\"{o}f principle, yields subconvexity estimates that have applications to equidistribution problems and the arithmetic of elliptic curves.
+
+    \item \textbf{The Sato--Tate conjecture:} The analytic properties of symmetric power \(L\)-functions, of which the Piatetski-Shapiro zeta function is a first example, are essential for the proof of the Sato--Tate conjecture.
+\end{enumerate}
+
+\section{Symmetric Domains and Arithmetic Quotients}
+
+\subsection{Bounded Symmetric Domains}
+
+A \textbf{symmetric domain} is a connected Riemannian manifold \(D\) such that for each point \(x \in D\), there exists an isometry \(\sigma_x: D \to D\) with \(\sigma_x(x) = x\) and \(d\sigma_x = -\mathrm{Id}\) at \(x\). The bounded symmetric domains are the Hermitian symmetric spaces of non-compact type, and they are the natural generalization of the upper half-plane. They are classified by Cartan's theory and include the Siegel upper half-space \(\mathcal{H}_g = \{Z \in M_g(\C): Z = Z^T, \Im(Z) > 0\}\).
+
+Piatetski-Shapiro made extensive contributions to the theory of bounded symmetric domains and their arithmetic quotients. He studied the classification of such domains, their realizations as bounded domains in \(\C^N\), and the geometry of their quotients by arithmetic groups.
+
+\subsection{Bounded Homogeneous Domains}
+
+One of Piatetski-Shapiro's early contributions was the proof that every bounded homogeneous domain in \(\C^n\) is symmetric. This result, known as the \textbf{Piatetski-Shapiro theorem on bounded homogeneous domains}, was a landmark in complex analysis and geometry.
+
+\begin{theorem}[Piatetski-Shapiro]
+Every bounded homogeneous domain in \(\C^n\) is a symmetric domain. In other words, if a bounded domain \(D \subset \C^n\) admits a transitive group of holomorphic automorphisms, then \(D\) is necessarily a Hermitian symmetric space.
+\end{theorem}
+
+This theorem shows that the class of bounded homogeneous domains coincides exactly with the class of bounded symmetric domains. It is a rigidity result: homogeneity forces symmetry, so there are no genuinely ``non-symmetric'' homogeneous bounded domains.
+
+\subsection{Arithmetic Quotients and Automorphic Forms}
+
+The quotients \(\Gamma \backslash D\) of a symmetric domain by an arithmetic subgroup \(\Gamma\) are complex algebraic varieties of great arithmetic significance. For example, when \(D = \mathcal{H}_g\) and \(\Gamma = \Sp(2g,\Z)\), the quotient \(\Gamma \backslash \mathcal{H}_g\) is the moduli space of principally polarized abelian varieties of dimension \(g\).
+
+Piatetski-Shapiro studied the geometry and arithmetic of these quotients, including the compactification theory (Baily--Borel compactification), the structure of the boundary components, and the properties of automorphic forms on these spaces. He developed the theory of \textbf{automorphic forms on symmetric domains} as a generalization of the classical theory of modular forms, establishing fundamental results about the Fourier expansion, the growth at infinity, and the relation to \(L\)-functions.
+
+\section{The Torelli Theorem for K3 Surfaces}
+
+\subsection{K3 Surfaces}
+
+A \textbf{K3 surface} is a compact complex K\"{a}hler surface \(X\) with trivial canonical bundle \(K_X \cong \mathcal{O}_X\) and irregularity \(h^1(X,\mathcal{O}_X) = 0\). The term ``K3'' was coined by Andr\'{e} Weil in honor of Kummer, K\"{a}hler, and Kodaira, and also as a pun on the K2 mountain. K3 surfaces are among the most important and well-studied objects in algebraic geometry. They are Calabi--Yau manifolds of dimension 2.
+
+The cohomology of a K3 surface has a rich structure. The Hodge diamond is
+\[
+\begin{array}{ccccc}
+& & 1 & & \\
+& 0 & & 0 & \\
+1 & & 20 & & 1 \\
+& 0 & & 0 & \\
+& & 1 & & 
+\end{array}
+\]
+so \(H^2(X,\Z)\) is a lattice of rank 22 with signature \((3,19)\). The intersection form on \(H^2(X,\Z)\) is isomorphic to the K3 lattice
+\[
+\Lambda_{K3} = E_8(-1) \oplus E_8(-1) \oplus U \oplus U \oplus U,
+\]
+where \(E_8(-1)\) is the negative definite \(E_8\) lattice and \(U\) is the hyperbolic plane.
+
+\subsection{The Period Map}
+
+The \textbf{period map} for K3 surfaces assigns to a marked K3 surface \((X, \varphi: H^2(X,\Z) \cong \Lambda_{K3})\) the Hodge structure on \(H^2(X,\C)\). The period point is the line
+\[
+\omega_X \in \mathbb{P}(\Lambda_{K3} \otimes \C)
+\]
+spanned by the holomorphic 2-form \(\omega_X\), which satisfies \(\langle \omega_X, \omega_X \rangle = 0\) and \(\langle \omega_X, \overline{\omega}_X \rangle > 0\) (the Riemann bilinear relations). The period domain is the open subset
+\[
+\Omega = \{ [\omega] \in \mathbb{P}(\Lambda_{K3} \otimes \C) : \langle \omega, \omega \rangle = 0, \langle \omega, \overline{\omega} \rangle > 0 \},
+\]
+which is a Hermitian symmetric domain of type IV (the bounded symmetric domain of type \(\mathrm{IV}_{19}\)).
+
+\subsection{The Global Torelli Theorem}
+
+The Torelli problem asks whether a K3 surface is determined up to isomorphism by its Hodge structure (i.e., by the period map). This question was answered affirmatively by Piatetski-Shapiro and Shafarevich in a landmark 1971 paper, which is one of the most celebrated results in algebraic geometry.
+
+\begin{theorem}[Piatetski-Shapiro--Shafarevich Torelli Theorem for K3 Surfaces, 1971]
+Let \(X\) and \(Y\) be complex K3 surfaces. If there exists an isomorphism of Hodge structures
+\[
+\varphi: H^2(X,\Z) \xrightarrow{\cong} H^2(Y,\Z)
+\]
+that preserves the intersection form and maps the K\"{a}hler cone of \(X\) to the K\"{a}hler cone of \(Y\), then \(X\) and \(Y\) are isomorphic as complex surfaces. Moreover, the period map
+\[
+\mathfrak{M}_{K3} \longrightarrow \Gamma \backslash \Omega
+\]
+from the moduli space of K3 surfaces to the quotient of the period domain by the arithmetic group \(\Gamma = \Aut(\Lambda_{K3})\) is an isomorphism onto an open dense subset.
+\end{theorem}
+
+In other words, a K3 surface is uniquely determined by the Hodge structure on its middle cohomology, together with the K\"{a}hler cone. This is a global Torelli theorem: the period map is injective.
+
+\subsection{The Proof by Piatetski-Shapiro and Shafarevich}
+
+The proof of the Torelli theorem by Piatetski-Shapiro and Shafarevich is a masterful synthesis of algebraic geometry, complex analysis, and the theory of automorphic forms. The key steps are:
+
+\begin{enumerate}
+    \item \textbf{Surjectivity of the period map:} Every point in the period domain \(\Omega\) corresponds to a marked K3 surface. This was proved using the theory of K\"{a}hler manifolds and the Calabi--Yau theorem (which in dimension 2 was known from the work of Todorov and Siu).
+
+    \item \textbf{Injectivity:} The main difficulty is to prove that a K3 surface is determined by its period. Piatetski-Shapiro and Shafarevich used the theory of \textbf{reflection groups} in hyperbolic geometry and the theory of automorphic forms on the period domain. They introduced the concept of the ``Weyl group'' of the K3 lattice, analogous to the Weyl group of a semisimple Lie algebra, and showed that the K\"{a}hler cone is a fundamental domain for the action of this group.
+
+    \item \textbf{The role of automorphic forms:} The connection with automorphic forms comes from the fact that the period domain \(\Omega\) is a bounded symmetric domain, and the moduli space of K3 surfaces is an arithmetic quotient of this domain. The Torelli theorem asserts that this quotient is exactly the coarse moduli space of (marked) K3 surfaces.
+\end{enumerate}
+
+More precisely, the proof proceeds by showing that two K3 surfaces with isomorphic Hodge structures can be connected by a family of K3 surfaces parametrized by a curve, and then using the theory of deformations and the properness of the period map to conclude that they are isomorphic.
+
+\subsection{Consequences of the Torelli Theorem}
+
+The Torelli theorem for K3 surfaces has numerous profound consequences:
+
+\begin{enumerate}
+    \item \textbf{The moduli space:} The theorem gives a description of the moduli space of K3 surfaces as the quotient of the period domain by the arithmetic group. This is the basis for all subsequent work on the geometry and arithmetic of K3 surfaces.
+
+    \item \textbf{Algebraic K3 surfaces:} The Torelli theorem allows the classification of algebraic K3 surfaces. A K3 surface is algebraic if and only if its period lies on a hyperplane section of the period domain defined by a rational K\"{a}hler class.
+
+    \item \textbf{Automorphisms of K3 surfaces:} The theorem reduces the study of automorphisms of K3 surfaces to the study of Hodge isometries of the K3 lattice. This led to the classification of finite groups acting symplectically on K3 surfaces by Mukai and others.
+
+    \item \textbf{Relations with the theory of automorphic forms:} The Torelli theorem establishes a deep connection between K3 surfaces and automorphic forms on the orthogonal group \(\SO(3,19)\). The theory of Borcherds products, which constructs automorphic forms on such domains with zeros and poles along Heegner divisors, has its roots in this connection.
+\end{enumerate}
+
+\section{Impact and Legacy}
+
+\subsection{Automorphic Forms and the Langlands Program}
+
+Piatetski-Shapiro's work on the converse theorem for \(\GL(n)\) and the Rankin--Selberg method provides the analytic foundation for the Langlands program. The converse theorem is the principal tool for proving the automorphy of Galois representations, which is the central goal of the Langlands correspondence. The method developed by Piatetski-Shapiro and Cogdell has been used to prove the automorphy of many Galois representations arising from algebraic geometry.
+
+\subsection{The Theory of \(L\)-Functions}
+
+The Jacquet--Piatetski-Shapiro--Shalika theory of \(L\)-functions for \(\GL(n)\) is the definitive treatment of the analytic properties of these fundamental objects. It is the starting point for all modern work on \(L\)-functions of automorphic forms, including the study of subconvexity, the Sato--Tate conjecture, and the Riemann hypothesis for automorphic \(L\)-functions.
+
+\subsection{Discrete Subgroups of Lie Groups}
+
+Piatetski-Shapiro's construction of non-arithmetic lattices in \(\SL(2,\R)\) was the first demonstration that the arithmeticity theory for lattices in semisimple Lie groups depends crucially on the rank. The later work of Margulis showed that for rank at least 2, all irreducible lattices are arithmetic, confirming the sharpness of Piatetski-Shapiro's examples.
+
+\subsection{Algebraic Geometry: K3 Surfaces}
+
+The Piatetski-Shapiro--Shafarevich Torelli theorem for K3 surfaces is one of the landmarks of algebraic geometry. It has spawned an enormous amount of research on K3 surfaces, their moduli spaces, and their relations to mathematical physics (particularly string theory, where K3 surfaces appear as compactification spaces). The theorem also established the paradigm of using automorphic forms to study arithmetic quotients of symmetric domains, a theme that has become central in modern arithmetic geometry.
+
+\subsection{Education and Influence}
+
+Piatetski-Shapiro was a dedicated teacher and mentor who trained generations of mathematicians in Israel and the United States. His students include many leading figures in number theory and automorphic forms. His expository writings, particularly his monograph on automorphic forms and the theory of \(L\)-functions, are models of clarity and insight.
+
+\section{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1929 & Born on March 30 in Moscow, Soviet Union \\ \hline
+1945 & Entered Moscow State University at age 16 \\ \hline
+1951 & Graduated from Moscow State University \\ \hline
+1954 & Ph.D. in Mathematics, Moscow State University (advisor: Alexander Gelfond) \\ \hline
+1954--1960s & Work on analytic number theory and automorphic forms; faced antisemitic discrimination \\ \hline
+1960s & Construction of non-arithmetic lattices; counterexample to the Selberg conjecture \\ \hline
+1960s & Theory of bounded homogeneous domains; classification of symmetric domains \\ \hline
+1971 & Torelli theorem for K3 surfaces (with Shafarevich); landmark in algebraic geometry \\ \hline
+1976 & Emigrated to Israel; joined Tel Aviv University \\ \hline
+1970s--1980s & Development of the Rankin--Selberg method for \(\GL(n)\) (with Jacquet and Shalika) \\ \hline
+1979--1980s & Converse theorems for \(\GL(n)\) (with Cogdell and others) \\ \hline
+1986 & Awarded the Israel Prize for Mathematics \\ \hline
+1990 & Awarded the Wolf Prize in Mathematics (shared with Ennio de Giorgi) \\ \hline
+1990s & Continued work on automorphic forms, \(L\)-functions, and the Langlands program \\ \hline
+2009 & Died on February 21 in Tel Aviv, Israel, at age 79 \\ \hline
+\end{tabular}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the symmetric space \(\SL(2,\R)/\SO(2)\) is isometric to the upper half-plane \(\mathcal{H} = \{z \in \C : \Im(z) > 0\}\) with the hyperbolic metric \(ds^2 = (dx^2 + dy^2)/y^2\).
+
+    \item For the modular group \(\Gamma = \SL(2,\Z)\), show that \(\Gamma \backslash \mathcal{H}\) has finite volume and is non-compact. Describe the cusp at infinity.
+
+    \item Prove that the \(n\)-dimensional Siegel upper half-space \(\mathcal{H}_n = \{Z \in M_n(\C): Z = Z^T, \Im(Z) > 0\}\) is a Hermitian symmetric domain of type III in Cartan's classification.
+
+    \item Let \(\Gamma \subset \SL(2,\R)\) be a lattice. Show that \(\Gamma\) is finitely presented and that the quotient \(\Gamma \backslash \mathcal{H}\) is a Riemann surface of finite type.
+
+    \item Show that the Satake parameters \(\alpha_{1,v}, \dots, \alpha_{n,v}\) of a cuspidal automorphic representation \(\pi\) of \(\GL(n,\A_\Q)\) satisfy the unitary bound \(|\alpha_{j,v}| = 1\) for all finite places \(v\) where \(\pi_v\) is unramified (this is the Ramanujan--Petersson conjecture for \(\GL(n)\); the best known bound is due to Luo--Rudnick--Sarnak).
+
+    \item Consider the symmetric square \(L\)-function for a cuspidal automorphic representation of \(\GL(2)\). Prove that the completed \(L\)-function \(\Lambda(s, \pi, \Sym^2)\) satisfies a functional equation of the form
+    \[
+    \Lambda(s, \pi, \Sym^2) = \varepsilon(s, \pi, \Sym^2) \Lambda(1-s, \widetilde{\pi}, \Sym^2).
+    \]
+
+    \item Compute the intersection form on \(H^2(X,\Z)\) for a K3 surface \(X\) and show that it is isomorphic to the K3 lattice \(E_8(-1) \oplus E_8(-1) \oplus U \oplus U \oplus U\).
+
+    \item Show that the period domain \(\Omega = \{ [\omega] \in \mathbb{P}(\Lambda_{K3} \otimes \C): \langle \omega, \omega \rangle = 0, \langle \omega, \overline{\omega} \rangle > 0 \}\) is a Hermitian symmetric domain of type IV.
+
+    \item Let \(X\) be a K3 surface with a holomorphic involution \(\iota: X \to X\) such that \(\iota^*\omega_X = -\omega_X\). Show that the fixed locus of \(\iota\) consists of a finite set of points. (These are the Nikulin involutions.)
+
+    \item Prove that the \(L\)-function \(L(s, \pi \times \widetilde{\pi})\) for a cuspidal automorphic representation \(\pi\) of \(\GL(n,\A_\Q)\) has a simple pole at \(s = 1\) with residue equal to the Plancherel measure of \(\pi\).
+
+    \item Show that every bounded homogeneous domain in \(\C^1\) is biholomorphic to the unit disk \(\Delta = \{z \in \C: |z| < 1\}\). Conclude that the one-dimensional case of Piatetski-Shapiro's theorem is equivalent to the uniformization theorem.
+
+    \item Let \(\Gamma \subset \SL(2,\R)\) be a non-arithmetic lattice constructed by the Piatetski-Shapiro amalgam method. Show that \(\Gamma\) contains a hyperbolic element and that the translation length of this element is not the logarithm of an algebraic integer.
+
+    \item For a cuspidal automorphic representation \(\pi\) of \(\GL(2,\A_\Q)\) with trivial central character, show that the symmetric square \(L\)-function \(L(s, \pi, \Sym^2)\) is equal to the Rankin--Selberg \(L\)-function \(L(s, \pi, \Ad)\) for the adjoint representation.
+
+    \item Let \(X\) be a K3 surface and let \(\Pic(X)\) be its Picard group. Show that \(\rank \Pic(X) \leq 20\) and that equality holds if and only if \(X\) is a singular K3 surface (also called a CM K3 surface). Show that such surfaces correspond to lattices in \(\C\) and are related to the theory of complex multiplication.
+
+    \item Prove that a K3 surface with a polarization of degree 2 is a double cover of \(\mathbb{P}^2\) branched along a sextic curve. This is the classic construction of K3 surfaces as sextic double planes.
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Arithmetic lattice] A discrete subgroup \(\Gamma\) of a semisimple Lie group \(G\) that arises as the integer points of an algebraic group defined over \(\Q\), or is commensurable with such a group.
+
+    \item[Automorphic form] A function on \(G(\A)\) (or \(\Gamma \backslash G/K\)) that satisfies automorphy, moderate growth, \(\mathfrak{g}\)-finiteness, \(K\)-finiteness, and (for cusp forms) cuspidality conditions.
+
+    \item[Bounded symmetric domain] A Hermitian symmetric space of non-compact type realized as a bounded domain in \(\C^N\).
+
+    \item[Converse theorem] A theorem characterizing automorphic representations by the analytic properties of their \(L\)-functions and their twists.
+
+    \item[Cuspidal automorphic representation] An irreducible subrepresentation of \(L^2_{\mathrm{cusp}}(G(\Q) \backslash G(\A))\) consisting of cuspidal automorphic forms.
+
+    \item[Discrete subgroup] A subgroup \(\Gamma\) of a Lie group \(G\) such that \(\Gamma\) has no accumulation points in \(G\).
+
+    \item[Eisenstein series] A family of automorphic forms on \(G(\A)\) obtained by summing a factor over a parabolic subgroup, used in the Rankin--Selberg method.
+
+    \item[K3 surface] A compact complex K\"{a}hler surface with trivial canonical bundle and vanishing irregularity.
+
+    \item[K3 lattice] The lattice \(H^2(X,\Z)\) of a K3 surface, isomorphic to \(E_8(-1) \oplus E_8(-1) \oplus U \oplus U \oplus U\).
+
+    \item[\(L\)-function] An Euler product associated to an automorphic representation, generalizing the Riemann zeta function and Dirichlet \(L\)-functions.
+
+    \item[Lattice (in Lie theory)] A discrete subgroup \(\Gamma\) of a Lie group \(G\) such that \(\Gamma \backslash G\) has finite volume.
+
+    \item[Non-arithmetic lattice] A lattice in a semisimple Lie group that is not commensurable with an arithmetic lattice.
+
+    \item[Period domain] The classifying space for Hodge structures of a given type, realized as an open subset of a projective variety.
+
+    \item[Period map] The map from a moduli space of varieties (e.g., K3 surfaces) to the period domain assigning the Hodge structure of the middle cohomology.
+
+    \item[Rankin--Selberg method] A technique for representing \(L\)-functions as integrals of automorphic forms against Eisenstein series.
+
+    \item[Satake parameters] The eigenvalues of the Hecke operators attached to an unramified local representation of \(\GL(n)\).
+
+    \item[Symmetric space] A Riemannian manifold with a point-reflecting isometry at every point.
+
+    \item[Torelli theorem] A theorem stating that a variety (e.g., a K3 surface) is determined by its Hodge structure (the period map is injective).
+
+    \item[Whittaker model] A realization of a representation of \(\GL(n,\A)\) in a space of functions on \(\GL(n,\A)\) that satisfy a certain transformation property under the unipotent radical of the Borel subgroup.
+
+    \item[Wolf Prize] An international award established by Ricardo Wolf, awarded annually in mathematics, physics, chemistry, medicine, and the arts.
+\end{description}

@@ -1,0 +1,264 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\divg}{\operatorname{div}}
+\providecommand{\grad}{\operatorname{grad}}
+\providecommand{\curl}{\operatorname{curl}}
+\providecommand{\tr}{\operatorname{tr}}
+\providecommand{\Spec}{\operatorname{Spec}}
+
+\chapter{Luis A. Caffarelli (2012)}
+
+\begin{quote}
+\it ``Luis Caffarelli is one of the world leaders in the study of partial differential equations. He has an extraordinary capacity to penetrate deep into the most difficult problems, and his work combines amazing technical power with profound geometric and analytic intuition. His results have transformed entire areas of analysis.'' --- Wolf Prize Citation, 2012
+\end{quote}
+
+\section{Main Contribution}
+
+Luis A. Caffarelli (born 1948) is an Argentine-American mathematician whose work has revolutionized the field of partial differential equations (PDEs) and their applications. He was awarded the Wolf Prize in Mathematics in 2012 alongside Michael Aschbacher, Richard Lyons, Stephen Smith, and Ronald Solomon.
+
+The Wolf Prize citation reads: ``for his deep and significant contributions to the theory of partial differential equations.''
+
+Caffarelli's core contributions include:
+\begin{itemize}
+    \item \textbf{Caffarelli--Kohn--Nirenberg Theorem:} A foundational result on the partial regularity of solutions to the three-dimensional Navier--Stokes equations, showing that the singular set has zero 1-dimensional Hausdorff measure.
+    \item \textbf{Regularity for Fully Nonlinear Elliptic Equations:} Establishing $C^{1,\alpha}$ and $W^{2,p}$ regularity for viscosity solutions of fully nonlinear elliptic equations, extending the Krylov--Safonov theory.
+    \item \textbf{Free Boundary Problems:} Deep regularity results for free boundaries, including the regularity of free boundaries in obstacle problems and two-phase problems.
+    \item \textbf{Caffarelli--Silvestre Theorem:} An extension result representing the fractional Laplacian as a Dirichlet-to-Neumann map for a degenerate elliptic equation, now a standard tool in analysis.
+    \item \textbf{Monge--Amp\`ere Equation:} Fundamental work on the regularity of solutions to the Monge--Amp\`ere equation, including interior $C^{1,\alpha}$ and $C^{2,\alpha}$ estimates.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Navier--Stokes Equations and Singularities}
+
+The Navier--Stokes equations model fluid flow:
+\[
+\partial_t u + (u \cdot \nabla) u - \nu \Delta u + \nabla p = 0, \quad \nabla \cdot u = 0
+\]
+Whether smooth solutions can develop singularities in finite time is one of the Clay Millennium Problems. The Caffarelli--Kohn--Nirenberg theorem shows that if singularities exist, they must be very rare: the set of times at which a singularity occurs has zero 1-dimensional Hausdorff measure.
+
+\subsection{Fully Nonlinear Equations}
+
+Equations of the form $F(D^2 u) = 0$, where $F$ is a nonlinear function of the Hessian, arise in geometry (prescribed curvature equations) and optimal transport (Monge--Amp\`ere). Before Caffarelli's work, the regularity theory for such equations was limited to linear and quasilinear cases. The viscosity solution framework, combined with the theory of Isaacs equations, required new tools.
+
+\subsection{Fractional Operators}
+
+Nonlocal operators such as $(-\Delta)^s$ arise in models with long-range interactions (e.g., anomalous diffusion, percolation, elasticity). The Caffarelli--Silvestre extension theorem transformed the study of these operators by connecting them to local degenerate elliptic PDEs.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Partial Regularity for Navier--Stokes}
+
+The Caffarelli--Kohn--Nirenberg approach uses energy estimates, the method of ``suitable weak solutions,'' and decay estimates for the scaled energy. Key ideas:
+\begin{itemize}
+    \item Introduce a notion of ``suitable weak solution'' satisfying a local energy inequality.
+    \item Use iterative scaling arguments to show that points where the solution is large are rare.
+    \item Apply covering arguments to bound the size of the singular set.
+\end{itemize}
+
+\subsection{Regularity for Fully Nonlinear Equations}
+
+Caffarelli's approach merges the viscosity solution method with the theory of elliptic equations with measurable coefficients. Key tools:
+\begin{itemize}
+    \item \textbf{Krylov--Safonov Harnack Inequality:} Adapted to fully nonlinear equations.
+    \item \textbf{Improvement of Flatness:} If a solution is close to a linear function in a ball, it becomes closer on smaller scales (with better rates).
+    \item \textbf{Aleksandrov--Bakelman--Pucci (ABP) Estimate:} A maximum principle for nondivergence form operators.
+    \item \textbf{Evans--Krylov Theorem:} $C^{2,\alpha}$ regularity for concave fully nonlinear equations.
+\end{itemize}
+
+\subsection{The Extension Theorem for the Fractional Laplacian}
+
+The fractional Laplacian $(-\Delta)^s$ (for $0 < s < 1$) is a nonlocal operator:
+\[
+(-\Delta)^s u(x) = C_{n,s} \, \text{P.V.} \int_{\R^n} \frac{u(x) - u(y)}{|x-y|^{n+2s}} \, dy
+\]
+
+Caffarelli and Silvestre showed that this nonlocal operator can be realized as a local degenerate elliptic equation in one extra dimension:
+\[
+\nabla \cdot (y^{1-2s} \nabla U) = 0, \quad U(x,0) = u(x)
+\]
+and
+\[
+(-\Delta)^s u(x) = - \frac{1}{2s} \lim_{y\to 0} y^{1-2s} \frac{\partial U}{\partial y}
+\]
+
+\section{Mathematical Theory}
+
+\subsection{The Caffarelli--Kohn--Nirenberg Theorem}
+
+Let $\Omega \subset \R^3$ be a domain and consider the Navier--Stokes equations:
+\[
+\partial_t u + (u \cdot \nabla) u - \Delta u + \nabla p = 0, \quad \nabla \cdot u = 0
+\]
+
+\begin{definition}[Suitable Weak Solution]
+A weak solution $(u,p)$ is \textbf{suitable} if it satisfies the local energy inequality:
+\[
+\int |\nabla u|^2 \varphi \, dx\,dt \leq \int |u|^2 (\partial_t \varphi + \Delta \varphi) + \int (|u|^2 + 2p) u \cdot \nabla \varphi \, dx\,dt
+\]
+for all nonnegative test functions $\varphi$.
+\end{definition}
+
+\begin{theorem}[Caffarelli--Kohn--Nirenberg, 1982]
+Let $(u,p)$ be a suitable weak solution of the three-dimensional Navier--Stokes equations. Then the singular set $\mathcal{S}$ has zero 1-dimensional parabolic Hausdorff measure. In particular, $\mathcal{S}$ cannot contain a curve of singular points.
+\end{theorem}
+
+\subsection{Regularity for Fully Nonlinear Elliptic Equations}
+
+\begin{definition}[Viscosity Solution]
+Let $F$ be a uniformly elliptic operator (that is, $\lambda \|N\| \leq F(M+N) - F(M) \leq \Lambda \|N\|$ for $N \geq 0$). A continuous function $u$ is a \textbf{viscosity subsolution} of $F(D^2 u) = 0$ if for any smooth $\varphi$ touching $u$ from above at $x_0$, we have $F(D^2 \varphi(x_0)) \geq 0$.
+\end{definition}
+
+\begin{theorem}[Caffarelli, 1989]
+Let $u$ be a viscosity solution of a uniformly elliptic fully nonlinear equation $F(D^2 u) = 0$ in $B_1$. Then $u \in C^{1,\alpha}(B_{1/2})$ for some $\alpha > 0$ depending only on $n, \lambda, \Lambda$. Moreover, $\|u\|_{C^{1,\alpha}(B_{1/2})} \leq C \|u\|_{L^\infty(B_1)}$.
+\end{theorem}
+
+\begin{theorem}[Caffarelli, 1989 -- $W^{2,p}$ Estimates]
+If $F$ is convex or concave and $u$ is a viscosity solution of $F(D^2 u) = f$ in $B_1$, then $D^2 u \in L^p$ for all $p < \infty$, and:
+\[
+\|D^2 u\|_{L^p(B_{1/2})} \leq C (\|u\|_{L^\infty(B_1)} + \|f\|_{L^p(B_1)})
+\]
+\end{theorem}
+
+\subsection{The Caffarelli--Silvestre Extension Theorem}
+
+\begin{theorem}[Caffarelli--Silvestre, 2007]
+For $s \in (0,1)$, let $u \in H^s(\R^n)$. Define $U: \R^n \times [0,\infty) \to \R$ as the unique solution to:
+\[
+\nabla \cdot (y^{1-2s} \nabla U) = 0, \quad U(x,0) = u(x)
+\]
+Then:
+\[
+(-\Delta)^s u(x) = -\frac{1}{2s} \lim_{y\to 0} y^{1-2s} \partial_y U(x,y)
+\]
+\end{theorem}
+
+This representation has become a standard tool for studying nonlocal equations, enabling the application of local PDE techniques (maximum principles, Harnack inequalities, regularity theory) to fractional problems.
+
+\subsection{Free Boundary Problems}
+
+\begin{definition}[Obstacle Problem]
+Find $u \geq 0$ such that:
+\[
+\min(-\Delta u, u - \varphi) = 0
+\]
+where $\varphi$ is a given obstacle. The set $\{u > \varphi\}$ is the \textbf{coincidence set}, and its boundary is the \textbf{free boundary}.
+\end{definition}
+
+\begin{theorem}[Caffarelli, 1977]
+The free boundary of the obstacle problem is $C^{1,\alpha}$ near regular points. In particular, the solution $u$ is $C^{1,1}$.
+\end{theorem}
+
+Caffarelli developed a systematic regularity theory for free boundaries, showing that free boundaries are smooth except for a small singular set, and classified the possible singularities.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{PDE Theory:} Caffarelli's work established the modern regularity theory for fully nonlinear elliptic equations, which is now standard.
+    \item \textbf{Fluid Dynamics:} The Caffarelli--Kohn--Nirenberg theorem remains the deepest result on the regularity of the Navier--Stokes equations.
+    \item \textbf{Nonlocal Equations:} The Caffarelli--Silvestre theorem enabled rapid progress in the analysis of fractional equations.
+    \item \textbf{Optimal Transport:} Regularity results for Monge--Amp\`ere are fundamental to optimal transport theory.
+    \item \textbf{Geometric Analysis:} Fully nonlinear elliptic equations describe prescribed curvature problems.
+\end{enumerate}
+
+\subsection{In Other Fields}
+
+\begin{enumerate}
+    \item \textbf{Materials Science:} Free boundary problems arise in phase transitions, crack propagation, and porous media flow.
+    \item \textbf{Image Processing:} The fractional Laplacian is used in image denoising and processing.
+    \item \textbf{Finance:} Nonlocal equations appear in models of optimal stopping and stochastic processes with jumps.
+    \item \textbf{Geophysics:} Navier--Stokes regularity is central to climate modeling and oceanography.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is the Caffarelli--Kohn--Nirenberg theorem?}
+It states that any singularity that develops in a suitable weak solution of the 3D Navier--Stokes equations is confined to a set of zero 1-dimensional measure. This means singularities, if they exist, cannot form curves in space-time.
+
+\subsection*{Q2: What does it mean for a PDE to be ``fully nonlinear''?}
+A PDE is fully nonlinear if it depends nonlinearly on the highest-order derivatives. For example, $F(D^2 u) = 0$ is fully nonlinear (involving the Hessian nonlinearly), while $-\Delta u = f$ is linear and $\nabla \cdot (a(u)\nabla u) = 0$ is quasilinear.
+
+\subsection*{Q3: What is the Caffarelli--Silvestre theorem?}
+It shows that the nonlocal fractional Laplacian $(-\Delta)^s$ can be expressed as a Dirichlet-to-Neumann map for a degenerate elliptic PDE in one higher dimension. This turns nonlocal problems into local ones.
+
+\subsection*{Q4: What are free boundary problems?}
+Problems where the domain of the PDE is unknown and must be determined as part of the solution. Examples include the obstacle problem (finding where a membrane touches an obstacle) and Stefan problems (ice melting in water).
+
+\subsection*{Q5: What should an undergraduate study to understand Caffarelli's work?}
+Real analysis (measure theory, Sobolev spaces), functional analysis, and PDE theory. Recommended: \textit{Partial Differential Equations} (Evans), \textit{Elliptic Partial Differential Equations of Second Order} (Gilbarg--Trudinger), and \textit{Fully Nonlinear Elliptic Equations} (Caffarelli--Cabr\'e).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Verify that the fractional Laplacian $(-\Delta)^s$ is a nonlocal operator by computing it explicitly for $u(x) = e^{ik\cdot x}$.
+    \item Derive the Euler--Lagrange equation for the obstacle problem $\int |\nabla u|^2$ subject to $u \geq \varphi$ and $u = g$ on $\partial\Omega$.
+    \item Prove that the Caffarelli--Silvestre extension for $s = 1/2$ gives the classical Dirichlet-to-Neumann map for the Laplace equation.
+    \item Show that a smooth solution of a fully nonlinear uniformly elliptic equation satisfies the ABP estimate.
+    \item Compute the 1-dimensional Hausdorff measure of a point and of a smooth curve in $\R^4$.
+    \item Write the Navier--Stokes equations in vorticity form and show that $\omega = \nabla \times u$ satisfies a parabolic equation.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1948 & Born in Buenos Aires, Argentina \\ \hline
+1969 & B.S.\ from Universidad de Buenos Aires \\ \hline
+1972 & Ph.D.\ from Universidad de Buenos Aires (advisor: Calixto Calder\'on) \\ \hline
+1977 | Regularity of free boundaries (obstacle problem) \\ \hline
+1982 | Caffarelli--Kohn--Nirenberg theorem on Navier--Stokes \\ \hline
+1984 | Moves to the University of Chicago \\ \hline
+1986 | Invited speaker at ICM Berkeley \\ \hline
+1989 | $C^{1,\alpha}$ and $W^{2,p}$ regularity for fully nonlinear equations \\ \hline
+1991 | Bocher Prize of the AMS \\ \hline
+1996 | Moves to UT Austin \\ \hline
+2003 | Shaw Prize (with David Donoho) \\ \hline
+2005 | National Medal of Science \\ \hline
+2007 | Caffarelli--Silvestre extension theorem \\ \hline
+2012 | Wolf Prize in Mathematics \\ \hline
+2014 | Moves to the University of Texas at Austin (continuing) \\ \hline
+2018 | Chern Medal of the ICM \\
+\hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[ABP estimate] The Aleksandrov--Bakelman--Pucci maximum principle for nondivergence form operators.
+    \item[Free boundary] The unknown boundary in a free boundary problem, separating different phases or regimes.
+    \item[Hausdorff measure] A generalization of Lebesgue measure that can measure sets of fractional dimension.
+    \item[Nonlocal operator] An operator whose value at a point depends on values far away, not just in a neighborhood.
+    \item[Obstacle problem] Find the equilibrium position of a membrane constrained to lie above a given obstacle.
+    \item[Partial regularity] A result that a solution is smooth except on a small exceptional set.
+    \item[Suitable weak solution] A weak solution of Navier--Stokes satisfying a local energy inequality.
+    \item[Viscosity solution] A notion of weak solution for fully nonlinear PDEs based on the comparison principle.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item L.\ Caffarelli, R.\ Kohn, and L.\ Nirenberg, \textit{Partial regularity of suitable weak solutions of the Navier--Stokes equations}, Comm.\ Pure Appl.\ Math.\ 35 (1982), 771--831.
+    \item L.\ Caffarelli, \textit{Interior a priori estimates for solutions of fully nonlinear equations}, Ann.\ Math.\ 130 (1989), 189--213.
+    \item L.\ Caffarelli and X.\ Cabr\'e, \textit{Fully Nonlinear Elliptic Equations}, AMS Colloquium Publ., 1995.
+    \item L.\ Caffarelli and L.\ Silvestre, \textit{An extension problem related to the fractional Laplacian}, Comm.\ PDE 32 (2007), 1245--1260.
+    \item L.\ Caffarelli, \textit{The regularity of free boundaries in higher dimensions}, Acta Math.\ 139 (1977), 155--184.
+    \item L.\ Caffarelli, \textit{Current issues on the regularity theory for the Monge--Amp\`ere equation}, J.\ AMS 5 (1992).
+\end{enumerate}
+
+\subsection*{Expository Works}
+\begin{enumerate}
+    \item L.\ Caffarelli and S.\ Salsa, \textit{A Geometric Approach to Free Boundary Problems}, AMS, 2005.
+    \item L.\ Caffarelli and P.\ E.\ Souganidis, \textit{Convergence of nonlocal threshold dynamics approximations to front propagation}, Arch.\ Rat.\ Mech.\ Anal.\ 195 (2010).
+    \item C.\ E.\ Kenig, \textit{Some recent applications of the Caffarelli--Silvestre extension}, Proc.\ ICM 2010.
+\end{enumerate}
+

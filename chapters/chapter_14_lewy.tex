@@ -1,0 +1,488 @@
+\let\Supp\relax
+\newcommand{\Supp}{\operatorname{Supp}}
+\let\ind\relax
+\newcommand{\ind}{\operatorname{ind}}
+\let\sgn\relax
+\newcommand{\sgn}{\operatorname{sgn}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+
+\chapter{Hans Lewy (1984/85)}
+
+Hans Lewy (1904--1988) was a German-American mathematician whose work transformed partial differential equations and several complex variables. The Wolf Prize (shared with Kodaira) recognized his ``fundamental contributions to the theory of partial differential equations and to the theory of functions of several complex variables.''
+
+Lewy's three most famous contributions are:
+\begin{enumerate}
+    \item \textbf{Lewy's example} (1957): a linear PDE with smooth coefficients having no solutions, which revolutionized the understanding of solvability.
+    \item \textbf{Lewy's extension theorem}: a CR function on a real hypersurface in $\mathbb{C}^n$ extends holomorphically to one side.
+    \item \textbf{Hopf--Lewy maximum principle}: for elliptic equations, the maximum of a solution occurs only on the boundary of the domain.
+\end{enumerate}
+
+Lewy worked extensively on the mathematics of water waves, minimal surfaces, and free boundary problems for the Navier--Stokes equations, bridging pure analysis with physical applications.
+
+\section{Main Contribution}
+
+\begin{itemize}
+    \item \textbf{Lewy's Example:} The PDE $\overline{\partial} u / \overline{\partial} \overline{z} - i z \overline{\partial} u / \overline{\partial} t = f(z, t)$ has no local $C^1$ solution for most smooth $f$, despite having $C^\infty$ coefficients. This showed that smooth coefficients do not guarantee solvability.
+    \item \textbf{Hopf--Lewy Maximum Principle:} For a second-order elliptic operator $L$, if $Lu \geq 0$ and $u$ attains an interior maximum, then $u$ is constant. The boundary version: if $u$ attains its maximum at a boundary point where the interior sphere condition holds, the outward normal derivative is positive.
+    \item \textbf{Lewy Extension Theorem:} A CR function on a strictly pseudoconvex hypersurface extends holomorphically to the pseudoconvex side.
+    \item \textbf{Water Waves:} Existence of periodic progressive waves of finite amplitude (Stokes waves). Proved using conformal mapping and complex analysis.
+    \item \textbf{Monge--Amp\`{e}re Equation:} Regularity of solutions and connections to geometry. Proof of analyticity for solutions with analytic data.
+    \item \textbf{Free Boundary Problems:} Regularity of solutions to the Navier--Stokes equations with free surfaces.
+    \item \textbf{Minimal Surfaces:} Contributions to the Plateau problem and the theory of minimal surfaces.
+    \item \textbf{Courant--Lewy Lemma:} A discretization lemma for finite element methods.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Solvability of Linear PDEs}
+
+In the 1950s, the theory of linear PDEs was well developed for constant coefficient equations. The Cauchy--Kovalevskaya theorem provided local analytic solutions. For elliptic equations, existence was guaranteed by the theory of potentials and Sobolev spaces.
+
+The question arose: does every linear PDE with smooth ($C^\infty$) coefficients have a local solution? The prevailing view was that smooth coefficients should guarantee local solvability, perhaps with some conditions (hyperbolicity, ellipticity).
+
+Lewy's 1957 example shattered this belief. He constructed a first-order linear PDE with polynomial coefficients (hence $C^\infty$) that has no $C^1$ solution in any neighborhood of any point. This was a profound shock to the PDE community.
+
+The historical context: the theory of linear PDEs was approaching completion. The Cauchy--Kovalevskaya theorem handled analytic coefficients. The theory of elliptic operators was mature (Schauder estimates, Fredholm theory). Hyperbolic equations were well understood via characteristics. Lewy's example showed that there were fundamental obstacles to a general existence theory.
+
+\subsection{CR Functions and Extension}
+
+A CR function on a real hypersurface $M \subset \mathbb{C}^n$ is a function that satisfies the tangential Cauchy--Riemann equations. The question: does a CR function on $M$ extend to a holomorphic function on a neighborhood of $M$?
+
+The answer depends on the Levi form of $M$. For a strictly pseudoconvex hypersurface (positive definite Levi form), Lewy proved extension to the pseudoconvex side. For pseudoconcave hypersurfaces, extension is not always possible.
+
+This problem arises naturally in the study of the boundary behavior of holomorphic functions. If $\Omega \subset \mathbb{C}^n$ is a domain with smooth boundary $M = \partial \Omega$, then any holomorphic function on $\Omega$ restricts to a CR function on $M$. The extension theorem gives the converse: any CR function on $M$ extends to a holomorphic function on $\Omega$ (at least locally).
+
+\subsection{Maximum Principles}
+
+The maximum principle for harmonic functions (a harmonic function attains its maximum on the boundary of a domain) was known since Gauss. Hopf (1927) extended this to general elliptic equations. Lewy's contribution was the boundary point lemma: at a boundary maximum, if the domain satisfies an interior sphere condition, the outward normal derivative is strictly positive.
+
+The interior maximum principle for elliptic equations states: if $Lu \geq 0$ in a domain $\Omega$ and $u$ attains its maximum at an interior point, then $u$ is constant. This is proved by considering the Hessian of $u$ at the maximum point.
+
+The boundary point lemma is a sharper result: if $u$ attains its maximum at a boundary point and the domain is smooth near that point, then the normal derivative is strictly positive. This is used to prove uniqueness and to construct barriers.
+
+\subsection{Water Waves}
+
+The theory of water waves seeks periodic traveling wave solutions to the Euler equations with a free surface. Stokes (1847) conjectured the existence of waves of greatest height with a $120^\circ$ angle at the crest. Lewy proved the existence of such waves using complex analysis and conformal mapping.
+
+The problem: find a function $\eta(x - ct)$ (the free surface) and a velocity potential $\phi(x, y)$ satisfying:
+\begin{itemize}
+    \item $\Delta \phi = 0$ in the fluid domain $\{y < \eta(x - ct)\}$.
+    \item $\phi_y = 0$ on the flat bottom $y = -h$.
+    \item $\phi_y = (u - c) \eta'$ on the free surface (kinematic condition).
+    \item $\phi_t + \frac12 |\nabla \phi|^2 + g\eta = 0$ on the free surface (Bernoulli condition).
+\end{itemize}
+
+For a 2D fluid with infinite depth, the complex velocity $w = u - iv$ is analytic in the fluid domain. The free surface maps to a curve in the complex $w$-plane, and the problem reduces to finding a conformal map.
+
+Lewy proved that for any amplitude $a > 0$ less than a critical value, there exists a smooth periodic wave of amplitude $a$. As $a \to a_{\max}$, the wave approaches the Stokes limiting configuration with a $120^\circ$ angle at the crest.
+
+\subsection{The Monge--Amp\`{e}re Equation}
+
+The Monge--Amp\`{e}re equation $\det(D^2 u) = f(x, u, Du)$ is a fully nonlinear elliptic PDE that arises in differential geometry (prescribed Gaussian curvature, K\"{a}hler--Einstein metrics) and optimal transport.
+
+Lewy proved that if $f$ is real-analytic and positive, then solutions of the Monge--Amp\`{e}re equation are real-analytic. This is the Pogorelov--Lewy theorem, which is essential for regularity theory.
+
+In two dimensions, the Monge--Amp\`{e}re equation can be written as:
+\[
+u_{xx} u_{yy} - u_{xy}^2 = f(x, y).
+\]
+
+Lewy used the method of complex characteristics to reduce this to a system of first-order equations and then applied the Cauchy--Kovalevskaya theorem to obtain analyticity.
+
+\section{How It Was Solved}
+
+\subsection{Lewy's Example: Detailed Analysis}
+
+Consider the PDE:
+\[
+L u = \frac{\partial u}{\partial \overline{z}} - i z \frac{\partial u}{\partial t} = f(z, t),
+\]
+where $(z, t) \in \mathbb{C} \times \mathbb{R}$ with $z = x + iy$. This is a first-order linear PDE with smooth ($C^\infty$) coefficients.
+
+\begin{theorem}[Lewy, 1957]
+For most $C^\infty$ functions $f$ (in the sense of Baire category), this equation has no $C^1$ solution in any neighborhood of any point.
+\end{theorem}
+
+The proof uses a contradiction argument. Assume a solution exists in a neighborhood of $0$. Using a change of variables:
+\[
+\zeta = \overline{z}, \quad \tau = t + i(z \overline{z}),
+\]
+the equation transforms to $\partial u/\partial \overline{\zeta} = g$, where $g$ is related to $f$. Applying the Cauchy integral formula and integrating over a closed surface yields a contradiction for most $f$.
+
+Specifically, if $u$ satisfies the equation, then composing with the change of variables and using the $\overline{\partial}$-Poincar\'{e} lemma, one obtains:
+\[
+\int_{B_r} |f(z, t)|^2 dz d\overline{z} dt < \infty,
+\]
+but $f$ can be chosen to violate this for any neighborhood. The argument uses the fact that the $\overline{\partial}$ operator in one variable has a right inverse given by convolution with $1/z$, but the change of variables introduces a twist that makes the inverse incompatible with compact support.
+
+\subsection{The Nirenberg--Treves Condition (P)}
+
+The deeper reason for the failure of local solvability is that the Lewy operator violates condition (P). For a pseudodifferential operator $P$ of principal type with principal symbol $p(x, \xi)$, condition (P) requires:
+
+For every fixed $x$, the function $\tau \mapsto p(x, \xi + \tau N)$ does not change sign as $\tau$ varies, for any covector $\xi$ and normal direction $N$.
+
+For the Lewy operator:
+\[
+p(z, t, \zeta, \tau) = \zeta_1 + i\zeta_2 - i z \tau.
+\]
+
+The imaginary part $\Im p = \zeta_2 - \Re(z) \tau$ changes sign along the bicharacteristic flow, violating condition (P). This forces the operator to be non-solvable.
+
+\begin{theorem}[Nirenberg--Treves, 1970]
+A pseudodifferential operator of principal type with smooth coefficients is locally solvable if and only if its principal symbol satisfies condition (P).
+\end{theorem}
+
+The theorem provides a complete characterization of local solvability for principal-type operators. It is one of the fundamental results of microlocal analysis.
+
+\subsection{Hopf--Lewy Maximum Principle}
+
+\begin{theorem}[Hopf Boundary Point Lemma]
+Let $Lu = \sum a_{ij} D_{ij} u + \sum b_i D_i u$ be a uniformly elliptic operator with $a_{ij} \geq \lambda I > 0$. Suppose $Lu \geq 0$ in a domain $\Omega$ and $u \leq u(x_0) = M$ for some boundary point $x_0 \in \partial \Omega$. If $\Omega$ satisfies an interior sphere condition at $x_0$ (there exists a ball $B \subset \Omega$ with $x_0 \in \partial B$), then:
+\[
+\frac{\partial u}{\partial \nu}(x_0) > 0,
+\]
+where $\nu$ is the outward normal.
+\end{theorem}
+
+The proof constructs a barrier function $v(x) = e^{-\alpha r^2} - e^{-\alpha R^2}$ where $r = |x - x_0|$ and $R$ is the radius of a touching interior sphere. For large $\alpha$, $Lv < 0$ in an annulus $A = \{R/2 < |x - x_0| < R\}$. Comparing $u$ with $\epsilon v$ for small $\epsilon$ gives the inequality.
+
+The interior sphere condition is satisfied when $\partial \Omega$ is $C^2$ near $x_0$. The lemma fails for domains with cusps.
+
+Applications of the boundary point lemma:
+\begin{itemize}
+    \item Uniqueness of solutions to the Dirichlet problem for elliptic equations.
+    \item The principle of the moving plane method for symmetry results.
+    \item Serrin's symmetry theorem for overdetermined boundary value problems.
+    \item The isoperimetric inequality via the Alexandrov reflection method.
+\end{itemize}
+
+\subsection{Lewy Extension Theorem}
+
+Let $M \subset \mathbb{C}^n$ be a smooth real hypersurface defined by $\rho = 0$, with $d\rho \neq 0$ on $M$. The CR vector fields on $M$ are the sections of $T^{0,1}M = TM \cap T^{0,1}\mathbb{C}^n$.
+
+A CR function $f$ on $M$ satisfies:
+\[
+\overline{\partial}_b f = 0,
+\]
+where $\overline{\partial}_b$ is the tangential Cauchy--Riemann operator.
+
+\begin{theorem}[Lewy Extension Theorem]
+If $M$ is strictly pseudoconvex (the Levi form is positive definite), then any CR function on $M$ extends to a holomorphic function on the pseudoconvex side of $M$.
+\end{theorem}
+
+The proof uses the Cauchy--Fantappi\`{e} integral formula. For a point $z$ near $M$ on the pseudoconvex side:
+\[
+F(z) = \int_M f(\zeta) K(z, \zeta) d\zeta,
+\]
+where $K$ is a kernel that is holomorphic in $z$. The strict pseudoconvexity ensures the integral converges (the kernel has no singularities on $M$) and defines a holomorphic function that agrees with $f$ on $M$.
+
+More explicitly, for $M = \partial \Omega$ with $\Omega = \{\rho < 0\}$ strictly pseudoconvex, the Bochner--Martinelli kernel can be modified using the Levi polynomial:
+\[
+\Phi(z, \zeta) = \sum_{j=1}^n \frac{\partial \rho}{\partial \zeta_j}(\zeta) (z_j - \zeta_j).
+\]
+
+For $z$ inside $\Omega$, $\Re \Phi(z, \zeta) < 0$ on $M$, so $1/\Phi$ is integrable and gives the extension kernel.
+
+\subsection{Water Waves: Lewy's Method}
+
+The problem of periodic progressive water waves of finite amplitude was solved by Lewy using complex analysis. Write the free surface as $y = \eta(x - ct)$ and the velocity potential $\phi$ satisfying Laplace's equation.
+
+Using conformal mapping, Lewy transformed the free boundary problem into a fixed boundary problem. The hodograph transform maps the fluid region to a strip in the complex $w$-plane. The free surface maps to a curve in the $w$-plane, and the periodic boundary condition becomes a periodicity condition on the conformal map.
+
+The existence proof uses:
+\begin{enumerate}
+    \item The Riemann mapping theorem to straighten the domain.
+    \item The Hilbert transform on the circle to relate the real and imaginary parts of the complex velocity.
+    \item The implicit function theorem to solve the resulting integral equation for the wave profile.
+\end{enumerate}
+
+The limiting Stokes wave (greatest height) has a corner of $120^\circ$ at the crest. Lewy proved that smooth solutions exist for amplitudes up to this limiting value. This was the first rigorous existence proof for waves of finite amplitude.
+
+\section{Mathematical Theory}
+
+\subsection{Local Solvability and Condition (P)}
+
+A linear PDE $P(x, D)u = f$ is locally solvable at $x_0$ if for every $f \in C_c^\infty$, there exists a distribution $u$ such that $Pu = f$ in a neighborhood of $x_0$.
+
+The Nirenberg--Treves theorem (1970) characterizes local solvability for principal-type operators. The proof uses:
+\begin{itemize}
+    \item Pseudodifferential operator calculus (symbol classes, quantization).
+    \item The theory of Fourier integral operators.
+    \item Egorov's theorem on canonical transformations.
+    \item The construction of a parametrix (approximate inverse) when condition (P) holds.
+\end{itemize}
+
+When condition (P) fails, the operator has a non-trivial imaginary part that oscillates along bicharacteristics. This produces a sign-changing phenomenon that makes it impossible to construct a local inverse.
+
+\subsection{The $\overline{\partial}$ Problem and CR Geometry}
+
+The Lewy extension theorem is the beginning of the theory of CR functions and the $\overline{\partial}_b$ complex. The $\overline{\partial}$ operator on $\mathbb{C}^n$ has:
+\[
+\overline{\partial} f = \sum_{j=1}^n \frac{\partial f}{\partial \overline{z}_j} d\overline{z}_j.
+\]
+
+For a hypersurface $M$ defined by $\rho = 0$, the tangential CR operator $\overline{\partial}_b$ acts on sections of $T^{0,1}M$, the complex tangent bundle intersected with $T^{0,1}\mathbb{C}^n$ restricted to $M$.
+
+The Kohn--Rossi extension theorem generalizes Lewy's result: CR functions on a strictly pseudoconvex manifold extend holomorphically to a neighborhood in the ambient complex manifold.
+
+The $\overline{\partial}_b$-Neumann problem studies the solvability of $\overline{\partial}_b u = f$ on CR manifolds. This is a subelliptic boundary value problem, with applications to:
+\begin{itemize}
+    \item The Bergman projection on domains in $\mathbb{C}^n$.
+    \item The Szeg\H{o} projector on CR manifolds.
+    \item The theory of the corona problem in several complex variables.
+\end{itemize}
+
+\subsection{The $\overline{\partial}$-Neumann Problem}
+
+The $\overline{\partial}$-Neumann problem asks: given a $(0,q)$-form $f$ on a domain $\Omega \subset \mathbb{C}^n$, find $u$ such that $\overline{\partial} u = f$ and $u$ satisfies the $\overline{\partial}$-Neumann boundary condition (the normal component of $u$ vanishes on $\partial \Omega$).
+
+The Kohn solution (1963) uses $L^2$ methods and the theory of pseudoconvex domains. The key estimate is:
+\[
+\|\overline{\partial} u\|^2 + \|\overline{\partial}^* u\|^2 \geq c \|u\|^2_1,
+\]
+where $\|\cdot\|_1$ is the Sobolev 1-norm. This holds for strictly pseudoconvex domains and gives the existence of solutions.
+
+The Kohn--Rossi theorem (1965) extends the Lewy extension theorem to embedded CR manifolds. It states that CR functions on a compact strictly pseudoconvex CR manifold of dimension $2n-1$ (with $n \geq 2$) extend holomorphically to a neighborhood.
+
+\subsection{The Method of Moving Planes}
+
+The method of moving planes, based on the Hopf--Lewy maximum principle, is a powerful tool for proving symmetry of solutions. For a solution $u$ of $\Delta u + f(u) = 0$ in a symmetric domain with $u = 0$ on the boundary, one shows that $u$ is symmetric and monotone.
+
+The technique:
+\begin{enumerate}
+    \item Start with a plane $T_\lambda$ parallel to a coordinate axis.
+    \item Reflect the domain across $T_\lambda$.
+    \item Compare $u$ with its reflection $u_\lambda$ using the maximum principle.
+    \item Slide the plane until it reaches a critical position where $u = u_\lambda$.
+\end{enumerate}
+
+This method, developed by Alexandrov, Serrin, Gidas--Ni--Nirenberg, relies crucially on the boundary point lemma. It has been used to prove:
+\begin{itemize}
+    \item The symmetry of the ground state solution of $\Delta u + u^p = 0$.
+    \item The radial symmetry of solutions on balls.
+    \item The Alexandrov soap bubble theorem (a compact constant mean curvature surface is a sphere).
+    \item The Serrin overdetermined problem: if a domain admits a solution of $\Delta u = -1$ with $u = 0$ and $\partial u/\partial \nu = \text{constant}$ on the boundary, the domain is a ball.
+\end{itemize}
+
+\subsection{The $\overline{\partial}$-Neumann Problem and Subelliptic Estimates}
+
+The $\overline{\partial}$-Neumann problem is central to the theory of several complex variables. For a domain $\Omega \subset \mathbb{C}^n$, define:
+\[
+\square = \overline{\partial} \overline{\partial}^* + \overline{\partial}^* \overline{\partial}.
+\]
+
+The $\overline{\partial}$-Neumann problem seeks $u$ such that $\square u = f$ with $u$ satisfying the boundary condition that its normal component vanishes.
+
+Kohn (1963) proved subelliptic estimates for strictly pseudoconvex domains:
+\[
+\|u\|^2_\epsilon \leq C(\|\overline{\partial} u\|^2 + \|\overline{\partial}^* u\|^2 + \|u\|^2_{L^2}),
+\]
+for some $\epsilon > 0$. This implies that the $\overline{\partial}$-Neumann operator is compact and the Bergman projection is regular.
+
+For weakly pseudoconvex domains, the situation is more subtle. Catlin (1983) characterized subellipticity in terms of the Diederich--Forn\ae ss index and the type of boundary points.
+
+\subsection{The Heisenberg Group and CR Geometry}
+
+The Heisenberg group $\mathbb{H}^n = \mathbb{C}^n \times \mathbb{R}$ with group law:
+\[
+(z, t) \cdot (z', t') = (z + z', t + t' + 2 \Im(z \cdot \overline{z'}))
+\]
+is the model for CR geometry. The Lewy operator on $\mathbb{H}^1$ is:
+\[
+\overline{\partial}_b = \frac{\partial}{\partial \overline{z}} + i \frac{\partial}{\partial t}.
+\]
+
+The Kohn Laplacian on $\mathbb{H}^n$ is:
+\[
+\square_b = \overline{\partial}_b^* \overline{\partial}_b + \overline{\partial}_b \overline{\partial}_b^*
+\]
+
+This is a subelliptic operator (it loses derivatives like a parabolic operator, not an elliptic one). The study of $\square_b$ on the Heisenberg group is central to CR geometry and sub-Riemannian geometry.
+
+\subsection{The Malgrange Preparation Theorem and PDEs}
+
+The Malgrange preparation theorem (a generalization of the Weierstrass preparation theorem to $C^\infty$ functions) plays a key role in the modern understanding of local solvability. It allows one to reduce a PDE with smooth coefficients to a normal form, revealing the obstruction to solvability.
+
+Malgrange's theorem: if $P(x, D)$ is a linear PDE whose symbol has a zero of finite order, then $P$ can be factored as $P = Q \circ R$ where $Q$ has constant coefficients and $R$ is a differential operator with smooth coefficients.
+
+This theorem, combined with the Nirenberg--Treves analysis, provides a complete theory of local solvability for principal-type operators.
+
+\subsection{Regularity Theory for the Monge--Amp\`{e}re Equation}
+
+The regularity theory for the Monge--Amp\`{e}re equation has developed significantly since Lewy. Major results:
+\begin{itemize}
+    \item Alexandrov (1939): continuous solutions exist for the Dirichlet problem.
+    \item Pogorelov (1971): $C^{1,\alpha}$ regularity for convex solutions.
+    \item Caffarelli (1990): $C^{2,\alpha}$ regularity for strictly convex solutions.
+    \item Urbas (1990): $C^{2,\alpha}$ estimates for the Monge--Amp\`{e}re equation.
+\end{itemize}
+
+Lewy's analyticity result (real-analytic data gives real-analytic solutions) is the sharpest regularity statement for the Monge--Amp\`{e}re equation. It is proved using complex characteristics and the Cauchy--Kovalevskaya theorem.
+
+\subsection{Lewy's Contributions to the Navier--Stokes Equations}
+
+Lewy also worked on the Navier--Stokes equations, particularly on free boundary problems. The Navier--Stokes equations for an incompressible fluid:
+\[
+u_t + u \cdot \nabla u - \nu \Delta u + \nabla p = 0, \quad \nabla \cdot u = 0,
+\]
+with a free surface boundary condition that includes surface tension.
+
+Lewy proved existence and regularity results for steady free surface flows. His work anticipated later developments in the regularity of free boundaries (the Caffarelli--Vasseur theory for the Navier--Stokes equations).
+
+\subsection{Lewy's Work on Minimal Surfaces}
+
+The minimal surface equation $\text{div}(\nabla u / \sqrt{1 + |\nabla u|^2}) = 0$ describes surfaces of zero mean curvature. Lewy proved the analyticity of solutions: if the boundary data is real-analytic, the minimal surface is real-analytic.
+
+For minimal graphs $u: \Omega \subset \mathbb{R}^2 \to \mathbb{R}$, the equation is:
+\[
+(1+u_y^2) u_{xx} - 2 u_x u_y u_{xy} + (1+u_x^2) u_{yy} = 0.
+\]
+
+Lewy's proof uses the fact that this elliptic equation can be transformed to the Cauchy--Riemann equations via the Legendre transform, so solutions are automatically real-analytic.
+
+This result is the highest regularity statement for minimal surfaces: $C^2$ solutions are automatically real-analytic. This contrasts with general elliptic equations, where $C^\infty$ coefficients do not guarantee $C^\infty$ solutions (as Lewy himself showed).
+
+\subsection{The Courant--Lewy Lemma}
+
+In numerical analysis, the Courant--Lewy lemma (CFL condition) is a fundamental stability condition for finite difference methods. It states that for explicit time-stepping schemes for hyperbolic PDEs, the numerical domain of dependence must contain the physical domain of dependence, giving:
+\[
+\frac{\Delta t}{\Delta x} \leq \frac{1}{|v|},
+\]
+where $v$ is the wave speed.
+
+Courant, Friedrichs, and Lewy (1928) proved this for the wave equation. It is the foundation of numerical stability theory and is essential for computational fluid dynamics.
+
+\subsection{Elliptic Equations and the Maximum Principle}
+
+The Hopf--Lewy maximum principle is a fundamental tool in elliptic PDE theory. Applications include:
+\begin{enumerate}
+    \item Uniqueness of solutions to boundary value problems.
+    \item A priori estimates for solutions.
+    \item Regularity of interfaces in free boundary problems.
+    \item The isoperimetric inequality (via the method of moving planes).
+    \item Symmetry of solutions to semilinear elliptic equations (Gidas--Ni--Nirenberg).
+\end{enumerate}
+
+The maximum principle also holds for fully nonlinear elliptic equations (the Alexandrov--Bakelman--Pucci estimate) and for degenerate elliptic equations. The Alexandrov--Bakelman--Pucci (ABP) estimate is a non-linear generalization that provides $L^\infty$ bounds for solutions of fully nonlinear equations.
+
+For the Laplace equation $\Delta u = 0$, the maximum principle is a consequence of the mean value property: the value of a harmonic function at a point equals its average over a sphere. For general elliptic operators, the proof uses the structure of the equation and the positivity of the coefficients.
+
+\subsection{Monge--Amp\`{e}re Equation}
+
+The Monge--Amp\`{e}re equation $\det(D^2 u) = f(x, u, Du)$ is a fully nonlinear elliptic equation central to K\"{a}hler geometry and optimal transport. In two dimensions:
+\[
+u_{xx} u_{yy} - u_{xy}^2 = f(x, y).
+\]
+
+The equation is elliptic when $D^2 u > 0$ (strictly convex solutions).
+
+The Pogorelov--Lewy theorem: if $f$ is real-analytic and positive, then solutions of the Monge--Amp\`{e}re equation are real-analytic. For $n=2$, Lewy gave a complete proof using complex characteristics. He introduced a Legendre transform to linearize the equation and then applied analytic function theory.
+
+In K\"{a}hler geometry, the Monge--Amp\`{e}re equation appears as:
+\[
+(\omega + i \partial \overline{\partial} \phi)^n = e^f \omega^n,
+\]
+which determines a K\"{a}hler metric with prescribed Ricci curvature. The Calabi--Yau theorem solves this equation using the continuity method and $C^{2,\alpha}$ estimates.
+
+\subsection{Free Boundary Problems}
+
+A free boundary problem is a PDE where part of the boundary (the free boundary) is unknown and must be determined as part of the solution. Examples:
+\begin{itemize}
+    \item The Stefan problem (melting ice).
+    \item The dam problem (flow through porous media).
+    \item The water wave problem (free surface of a fluid).
+    \item The obstacle problem (elastic membrane above an obstacle).
+\end{itemize}
+
+Lewy contributed to the regularity of free boundaries. For the obstacle problem, the free boundary is $C^{1,\alpha}$ in two dimensions (Caffarelli's theorem generalizes this). Lewy's work on water waves provided the first rigorous existence and regularity results for free boundary problems in fluid dynamics.
+
+\subsection{Microlocal Analysis and Fourier Integral Operators}
+
+Lewy's example was a major motivation for the development of microlocal analysis. The key ideas:
+\begin{itemize}
+    \item A PDE is studied in phase space $(x, \xi)$ rather than just physical space.
+    \item The wave front set $WF(u)$ of a distribution $u$ describes the singularities in both position and frequency.
+    \item Fourier integral operators (H\"{o}rmander, 1971) provide a calculus for solving PDEs by reducing them to simpler forms.
+    \item The propagation of singularities theorem: for a pseudodifferential operator $P$ of real principal type, singularities propagate along bicharacteristics of the principal symbol.
+\end{itemize}
+
+The Lewy operator is not of real principal type (the symbol is complex). The theory of complex principal type operators is richer and more subtle, with condition (P) as the key criterion.
+
+\section{Impact and Legacy}
+
+Lewy's example fundamentally changed PDE theory:
+\begin{itemize}
+    \item It forced mathematicians to study the precise conditions for local solvability, leading to the theory of pseudodifferential operators and microlocal analysis.
+    \item It revealed the deep connection between PDEs and symplectic geometry (Fourier integral operators, Maslov indices).
+    \item The Nirenberg--Treves condition (P) is the definitive answer to the solvability question.
+    \item It motivated the study of linear PDEs with complex coefficients (the theory of subelliptic operators).
+\end{itemize}
+
+The Lewy extension theorem and the theory of CR functions are essential in several complex variables and in the study of the $\overline{\partial}$-Neumann problem. The Hopf--Lewy maximum principle is a standard tool in elliptic PDE.
+
+\subsection*{FAQs}
+
+\noindent\textbf{Q: What is Lewy's example?} A linear PDE with $C^\infty$ coefficients that has no local solutions. It shows that smooth coefficients do not guarantee solvability, contrary to what was believed.
+
+\noindent\textbf{Q: What is the Hopf--Lewy maximum principle?} If an elliptic solution attains an interior maximum, it is constant. At a boundary maximum, the normal derivative is strictly positive.
+
+\noindent\textbf{Q: What is CR extension?} A function satisfying tangential CR equations on a strictly pseudoconvex hypersurface extends holomorphically to one side (the pseudoconvex side).
+
+\noindent\textbf{Q: What should I study?} Folland--Kohn ``The Neumann Problem for the Cauchy--Riemann Complex'', Taylor ``Partial Differential Equations'', Treves ``Pseudodifferential Operators'', H\"{o}rmander ``Analysis of Linear Partial Differential Operators.''
+
+\noindent\textbf{Q: What is condition (P)?} A condition on the principal symbol ensuring local solvability: the imaginary part of the symbol does not change sign along bicharacteristics.
+
+\noindent\textbf{Q: What is a Stokes wave?} A periodic progressive water wave of finite amplitude, the basic model for wind-generated ocean waves.
+
+\subsection*{Citations}
+
+Primary: Lewy 1957 (counterexample), Lewy 1956 (extension theorem), Hopf 1927 (maximum principle), Lewy on water waves (1950). Textbooks: Folland--Kohn, Taylor, Treves, H\"{o}rmander.
+
+\subsection*{Timeline}
+
+1904 Born Breslau (now Wroc\l aw). 1926 PhD G\"{o}ttingen (under Courant). 1933 Flees Nazi Germany to US. 1935 Professor Berkeley. 1936--1945 Works on water waves. 1945 Professor Brown. 1948--1951 Studies minimal surfaces. 1956 Lewy extension theorem. 1957 Lewy's example. 1960s CR geometry and $\overline{\partial}$-Neumann problem. 1972 Professor Stanford. 1985 Wolf Prize with Kodaira. 1988 Dies in Berkeley.
+
+\section*{Exercises}
+
+\begin{enumerate}
+    \item Verify that the Lewy operator $L = \partial/\partial \overline{z} - i z \partial/\partial t$ is not elliptic by computing its symbol.
+    \item Show that if $f$ is real-analytic, the Lewy equation has a local solution, using the Cauchy--Kovalevskaya theorem.
+    \item Prove the Hopf boundary point lemma for the Laplace operator $\Delta$ using the Poisson integral formula.
+    \item Show that a harmonic function on a bounded domain that attains its maximum at an interior point must be constant.
+    \item Show that the Cauchy--Riemann equations $\partial u/\partial \overline{z} = 0$ are elliptic.
+    \item Compute $L\overline{L} - \overline{L}L$ for the Lewy operator and show it is non-zero.
+    \item Show that the operator $\partial/\partial t + i \partial/\partial x$ on $\mathbb{R}^2$ is locally solvable (it's conjugate to the $\overline{\partial}$ operator).
+    \item Show that $\overline{\partial}_b$ is the tangential part of $\overline{\partial}$ by restricting to a hypersurface $\rho = 0$.
+    \item Prove that a CR function on the sphere $S^{2n-1} \subset \mathbb{C}^n$ extends holomorphically to the unit ball.
+    \item Show that if $M$ is pseudoconcave, CR functions on $M$ may not extend holomorphically.
+    \item Derive the Hopf--Lewy lemma for $\Delta u \geq 0$ using the Kelvin transform.
+    \item Show that the Monge--Amp\`{e}re equation on $\mathbb{R}^2$ can be written as the determinant of the Hessian.
+    \item Show that the Lewy operator is of principal type but not of real principal type.
+    \item Compute the symbol of the Kohn Laplacian $\square_b = \overline{\partial}_b^* \overline{\partial}_b + \overline{\partial}_b \overline{\partial}_b^*$ on the Heisenberg group.
+    \item Show that the Nirenberg--Treves condition (P) is satisfied by every elliptic operator.
+\end{enumerate}
+
+\section*{Glossary}
+\begin{description}
+    \item[Local solvability] Existence of a distribution solution near every point for any smooth right-hand side.
+    \item[CR function] A function on a real hypersurface satisfying tangential Cauchy--Riemann equations.
+    \item[Condition (P)] The Nirenberg--Treves condition ensuring local solvability of principal-type operators.
+    \item[Pseudoconvexity] A convexity property of real hypersurfaces in $\mathbb{C}^n$ ensuring CR extension.
+    \item[Maximum principle] The property that a solution of an elliptic PDE attains its maximum on the boundary.
+    \item[Elliptic operator] A PDE whose principal symbol is non-degenerate for $\xi \neq 0$.
+    \item[Monge--Amp\`{e}re equation] $\det(D^2 u) = f$, the fully nonlinear elliptic equation for prescribed Gaussian curvature.
+    \item[Microlocal analysis] The study of PDEs in phase space (position and frequency variables).
+    \item[Free boundary problem] A PDE where part of the boundary is unknown and must be determined.
+    \item[Stokes wave] A periodic progressive water wave of finite amplitude.
+    \item[Fourier integral operator] An operator that quantizes canonical transformations in phase space.
+    \item[$\overline{\partial}_b$ complex] The tangential Cauchy--Riemann complex on a CR manifold.
+\end{description}

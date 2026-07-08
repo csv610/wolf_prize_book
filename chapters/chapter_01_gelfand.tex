@@ -1,0 +1,493 @@
+\chapter{Israel Moiseevich Gelfand (1978)}
+
+\begin{quote}
+\it ``People always compare him with great mathematicians like Euler or Hilbert or Poincar\'{e}. Suppose they both arrived in a country with a lot of mountains. Kolmogorov would immediately try to climb the highest mountain. Gelfand would immediately start to build roads.'' --- Vladimir Arnold
+\end{quote}
+
+\section{Main Contribution}
+
+Israel Moiseevich Gelfand (1913--2009) was one of the titans of 20th-century mathematics. His work spanned functional analysis, representation theory, algebra, topology, mathematical physics, and even biology. More than any specific theorem, Gelfand created entire landscapes of mathematical thought---frameworks that generations of mathematicians have cultivated into rich theories.
+
+The Wolf Prize citation reads: ``for his work in functional analysis, group representation, and for his seminal contributions to many areas of mathematics and its applications.'' This succinct statement barely hints at the breadth of his achievements.
+
+Gelfand's core contributions include:
+\begin{itemize}
+    \item \textbf{Functional Analysis:} The theory of normed rings (Banach algebras), the Gelfand representation, the Gelfand--Mazur theorem, the Gelfand--Naimark theorem, and the Gelfand--Naimark--Segal (GNS) construction.
+    \item \textbf{Representation Theory:} Unitary representations of Lie groups, Gelfand pairs, Gelfand--Tsetlin bases, Bernstein--Gelfand--Gelfand (BGG) resolutions, and the orbit method.
+    \item \textbf{Generalized Functions:} The multi-volume series ``Generalized Functions'' with G.\ Shilov, systematizing distribution theory and introducing Gelfand--Shilov spaces.
+    \item \textbf{Integral Geometry:} Generalizations of the Radon transform (the Gelfand transform in integral geometry), the Gelfand--Graev transform.
+    \item \textbf{Mathematical Physics:} Inverse scattering problems, the Gelfand--Levitan equation, the Liouville--Bratu--Gelfand equation, and integrable systems.
+    \item \textbf{Algebra:} Gelfand--Kirillov dimension, cohomology of infinite-dimensional Lie algebras.
+    \item \textbf{Biology:} Mathematical biology, particularly the organization of control in multicellular systems.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Unification of Analysis}
+
+In the 1930s, functional analysis was emerging as a distinct field, but it lacked a unifying framework. Several seemingly unrelated theories existed side by side:
+\begin{itemize}
+    \item Fourier analysis, which transforms convolution into multiplication
+    \item Spectral theory of operators, which diagonalizes matrices and operators
+    \item The theory of integral equations and Fredholm operators
+\end{itemize}
+
+Norbert Wiener had proven a deep result about the invertibility of functions in $L^1(\mathbb{R})$ using the Fourier transform, but his proof was long, technical, and heavily computational. The central problem was: can we understand the relationship between algebraic operations (like convolution) and analytic properties (like invertibility) in a systematic, unifying way? This question led Gelfand to create the theory of normed rings (Banach algebras).
+
+\subsection{The Need for Non-Commutative Analysis}
+
+Quantum mechanics forced mathematicians to confront non-commutative structures. In classical mechanics, observables are functions on phase space (a commutative algebra). In quantum mechanics, observables are operators on Hilbert space, which do not commute: generally $AB \neq BA$. The mathematical framework needed to handle both commutative and non-commutative cases in a unified way. This led Gelfand to study algebras with involution---what we now call C$^*$-algebras.
+
+\subsection{Representations of Non-Compact Groups}
+
+Physicists needed to understand the symmetries of quantum mechanics, particularly the Lorentz group of special relativity. The Lorentz group $SO(1,3)$ is \textit{non-compact}, unlike the rotation group $SO(3)$ whose representation theory was well understood. Non-compact groups have infinite-dimensional unitary representations, and developing their theory was essential for relativistic quantum mechanics.
+
+\subsection{The Radon Transform and Imaging}
+
+In 1917, Johann Radon studied the following problem: given a function $f$ on $\mathbb{R}^2$, consider its integrals over all lines. Can we reconstruct $f$ from these line integrals? This question, now the mathematical basis of computed tomography (CT scanning), was the starting point for integral geometry. Gelfand vastly generalized this to integration over arbitrary submanifolds.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{The Gelfand Representation}
+
+Gelfand recognized that the Fourier transform is not unique to $L^1(\mathbb{R})$---it is a special case of a general construction on commutative Banach algebras. His insight was to notice that the ``points'' of the Fourier transform (the frequencies $\xi \in \mathbb{R}$) correspond to \textit{multiplicative linear functionals} (called characters) on the algebra $L^1(\mathbb{R})$.
+
+For any commutative Banach algebra $A$, the set $\Phi_A$ of all characters forms a topological space (the spectrum or maximal ideal space), and the map
+\[
+\Gamma: A \to C(\Phi_A), \quad \Gamma(x)(\phi) = \phi(x)
+\]
+generalizes the Fourier transform. This reduced Wiener's lemma to a purely algebraic statement: if a function does not vanish on any character, it is invertible in the algebra.
+
+\textbf{The key tools:} Functional analysis (Banach spaces, spectral theory), algebra (maximal ideals, homomorphisms), and topology (locally compact Hausdorff spaces).
+
+\subsection{The Gelfand--Naimark Theorem}
+
+For non-commutative algebras with involution, Gelfand and Naimark proved that every abstract C$^*$-algebra can be represented as bounded operators on a Hilbert space. The proof uses the \textbf{Gelfand--Naimark--Segal (GNS) construction}.
+
+The intuition: just as a probability measure on a space $X$ gives an $L^2(X)$ space, a positive linear functional (a ``state'') on a C$^*$-algebra $A$ gives a Hilbert space. Given a state $\phi: A \to \mathbb{C}$, define an inner product on $A$ by $\langle x, y \rangle = \phi(y^* x)$. The completion of $A/\{x: \phi(x^* x) = 0\}$ is a Hilbert space $H_\phi$, and each $a \in A$ acts by left multiplication.
+
+\textbf{The key insight:} The GNS construction builds a Hilbert space \textit{from the algebra itself}, without any external data. The direct sum over all pure states yields a faithful representation.
+
+\subsection{Gelfand Pairs and Multiplicity-Free Decompositions}
+
+In representation theory, Gelfand identified a condition that dramatically simplifies harmonic analysis on homogeneous spaces. A pair $(G,K)$ where $G$ is a locally compact group and $K$ a compact subgroup is a \textbf{Gelfand pair} if the convolution algebra $L^1(K\backslash G/K)$ of bi-$K$-invariant functions is commutative.
+
+The intuition: commutativity of this algebra means that the regular representation $L^2(G/K)$ decomposes with \textit{multiplicity one}---each irreducible representation of $G$ appears at most once. This is the reason spherical harmonics on $S^2$ form an orthogonal basis: $(SO(3), SO(2))$ is a Gelfand pair.
+
+\subsection{The Gelfand--Levitan Equation}
+
+For inverse scattering, Gelfand and Levitan showed that the inverse problem for the Sturm--Liouville operator reduces to solving a linear integral equation. The intuition: the spectral measure $d\rho(\lambda)$ determines the potential $q(x)$ through a ``triangular'' transformation kernel $K(x,y)$ that satisfies a linear Fredholm equation.
+
+This was remarkable because the original problem---determining $q(x)$ from spectral data---is nonlinear. The Gelfand--Levitan equation transforms it into a linear problem.
+
+\section{Mathematical Theory}
+
+\subsection{Banach Algebras and the Gelfand Transform}
+
+\begin{definition}[Banach Algebra]
+A \textbf{Banach algebra} is a complex Banach space $A$ equipped with an associative multiplication $(x,y) \mapsto xy$ that is bilinear and satisfies $\|xy\| \leq \|x\|\|y\|$ for all $x,y \in A$.
+\end{definition}
+
+The canonical example: $C(X)$, the algebra of continuous complex-valued functions on a compact Hausdorff space $X$, with the supremum norm and pointwise multiplication.
+
+\begin{example}
+$L^1(\mathbb{R})$ is a commutative Banach algebra under convolution $(f*g)(x) = \int f(x-y)g(y)\,dy$, but lacks a unit element (the Dirac delta is not a function).
+\end{example}
+
+\begin{definition}[Character]
+A \textbf{character} on a commutative Banach algebra $A$ is a non-zero algebra homomorphism $\phi: A \to \mathbb{C}$. The set $\Phi_A$ of all characters is called the \textbf{spectrum} or \textbf{maximal ideal space} of $A$.
+\end{definition}
+
+Characters are automatically continuous with operator norm at most 1. There is a bijection between characters and maximal ideals: $\ker \phi$ is a maximal ideal, and every maximal ideal arises this way.
+
+\begin{theorem}[Gelfand--Mazur]
+If $A$ is a commutative Banach algebra that is also a division algebra (every non-zero element is invertible), then $A$ is isometrically isomorphic to $\mathbb{C}$.
+\end{theorem}
+
+\begin{proof}
+For any $x \in A$, the spectrum $\sigma(x) = \{\lambda \in \mathbb{C} : x - \lambda e \text{ is not invertible}\}$ is non-empty (a consequence of Liouville's theorem from complex analysis applied to the resolvent function). Pick $\lambda \in \sigma(x)$. Since $A$ is a division algebra, $x - \lambda e = 0$, so $x = \lambda e$. The map $x \mapsto \lambda$ is the desired isomorphism.
+\end{proof}
+
+\begin{definition}[Gelfand Transform]
+For a commutative Banach algebra $A$, the \textbf{Gelfand transform} $\Gamma: A \to C(\Phi_A)$ is:
+\[
+\Gamma(x)(\phi) = \phi(x) \quad \text{for } x \in A,\ \phi \in \Phi_A
+\]
+\end{definition}
+
+\begin{theorem}[Gelfand Representation Theorem]
+Let $A$ be a commutative Banach algebra with unit. Then:
+\begin{enumerate}
+    \item $\|\Gamma(x)\|_\infty \leq \|x\|$ for all $x \in A$.
+    \item $\sigma(x) = \{\phi(x) : \phi \in \Phi_A\}$, where $\sigma(x)$ is the spectrum of $x$.
+    \item $\Gamma(x)$ is invertible in $C(\Phi_A)$ iff $x$ is invertible in $A$.
+\end{enumerate}
+\end{theorem}
+
+\begin{example}[Fourier Transform as Gelfand Transform]
+For $A = L^1(\mathbb{R})$ with convolution, the characters are $\phi_\xi(f) = \hat{f}(\xi) = \int f(x) e^{-2\pi i x\xi}\,dx$ for $\xi \in \mathbb{R}$. The Gelfand transform $\Gamma(f)$ is exactly the Fourier transform $\hat{f}$. The Gelfand representation thus generalizes the Fourier transform to arbitrary commutative Banach algebras.
+\end{example}
+
+\subsection{C$^*$-Algebras and the GNS Construction}
+
+\begin{definition}[C$^*$-Algebra]
+A \textbf{C$^*$-algebra} is a Banach algebra $A$ over $\mathbb{C}$ with an involution $*: A \to A$ satisfying:
+\begin{enumerate}
+    \item $(x^*)^* = x$
+    \item $(xy)^* = y^* x^*$
+    \item $(\lambda x + y)^* = \overline{\lambda} x^* + y^*$
+    \item $\|x^* x\| = \|x\|^2$ \quad (the \textbf{C$^*$-identity})
+\end{enumerate}
+\end{definition}
+
+The C$^*$-identity is deceptively simple but extraordinarily powerful. It forces the norm to be uniquely determined by the algebraic structure.
+
+\begin{example}
+$B(H)$, the algebra of bounded linear operators on a Hilbert space $H$, is a C$^*$-algebra with the operator norm and adjoint as involution.
+\end{example}
+
+\begin{example}
+$C_0(X)$, the algebra of continuous functions vanishing at infinity on a locally compact Hausdorff space $X$, is a commutative C$^*$-algebra with pointwise operations and complex conjugation as involution.
+\end{example}
+
+\begin{theorem}[Gelfand--Naimark, 1943]
+Every abstract C$^*$-algebra $A$ is isometrically $*$-isomorphic to a norm-closed $*$-subalgebra of $B(H)$ for some Hilbert space $H$.
+\end{theorem}
+
+The proof uses the \textbf{GNS construction}:
+
+\begin{definition}[State]
+A \textbf{state} on a C$^*$-algebra $A$ is a positive linear functional $\phi: A \to \mathbb{C}$ with $\|\phi\| = 1$ (and $\phi(1) = 1$ if $A$ is unital). Positivity means $\phi(x^* x) \geq 0$ for all $x \in A$.
+\end{definition}
+
+\textbf{The GNS construction:}
+\begin{enumerate}
+    \item Define $N_\phi = \{x \in A : \phi(x^* x) = 0\}$, a left ideal of $A$.
+    \item The quotient $A/N_\phi$ becomes a pre-Hilbert space with inner product $\langle x + N_\phi, y + N_\phi \rangle = \phi(y^* x)$.
+    \item The completion $H_\phi$ is a Hilbert space.
+    \item Define $\pi_\phi: A \to B(H_\phi)$ by $\pi_\phi(a)(x + N_\phi) = ax + N_\phi$, extended by continuity.
+    \item $\pi = \bigoplus_{\phi \in \text{PureStates}(A)} \pi_\phi$ is the Gelfand--Naimark representation.
+\end{enumerate}
+
+\begin{theorem}[Commutative Gelfand--Naimark]
+A commutative C$^*$-algebra $A$ with unit is isometrically $*$-isomorphic to $C(\Phi_A)$ for the compact Hausdorff space $\Phi_A$.
+\end{theorem}
+
+This establishes a duality:
+\[
+\{\text{commutative C}^*\text{-algebras}\} \longleftrightarrow \{\text{locally compact Hausdorff spaces}\}
+\]
+which is the foundation of \textbf{noncommutative geometry} (Connes).
+
+\subsection{Representation Theory}
+
+\subsubsection{Gelfand Pairs}
+
+\begin{definition}[Gelfand Pair]
+Let $G$ be a locally compact group and $K$ a compact subgroup. The pair $(G,K)$ is a \textbf{Gelfand pair} if the convolution algebra $L^1(K\backslash G/K)$ of bi-$K$-invariant functions on $G$ is commutative.
+\end{definition}
+
+The significance: commutativity implies that the quasi-regular representation $L^2(G/K)$ decomposes with multiplicity one. This means the spherical functions (matrix coefficients of $K$-fixed vectors) form a commutative algebra under convolution.
+
+\begin{example}
+$(SO(n), SO(n-1))$ is a Gelfand pair. The space $SO(n)/SO(n-1) \cong S^{n-1}$ is the $(n-1)$-sphere, and spherical harmonics give the multiplicity-free decomposition.
+\end{example}
+
+\begin{example}
+$(GL(n,\mathbb{R}), O(n))$ is a Gelfand pair. This is the setting for harmonic analysis on the space of positive definite symmetric matrices.
+\end{example}
+
+\subsubsection{Gelfand--Tsetlin Bases}
+
+A Gelfand--Tsetlin basis for representations of $GL(n,\mathbb{C})$ is constructed by iterating the branching rule:
+\[
+GL(n) \downarrow GL(n-1) \downarrow \cdots \downarrow GL(1)
+\]
+
+Each irreducible representation of $GL(n)$ decomposes with multiplicity one when restricted to $GL(n-1)$. Iterating this yields a canonical basis parameterized by arrays of integers satisfying betweenness conditions.
+
+\begin{definition}[Gelfand--Tsetlin Pattern]
+A \textbf{Gelfand--Tsetlin pattern} for $GL(n)$ is an array:
+\[
+\begin{pmatrix}
+m_{1n} & m_{2n} & \cdots & m_{nn} \\
+m_{1,n-1} & \cdots & m_{n-1,n-1} \\
+\ddots & \vdots \\
+m_{11}
+\end{pmatrix}
+\]
+with integers $m_{ij}$ satisfying $m_{i,j+1} \geq m_{ij} \geq m_{i+1,j+1}$.
+\end{definition}
+
+These patterns appear in combinatorics (standard Young tableaux, Kostka numbers), representation theory (explicit matrix elements), and quantum integrable systems.
+
+\subsubsection{BGG Resolution}
+
+The Bernstein--Gelfand--Gelfand (BGG) resolution expresses a finite-dimensional irreducible representation $V(\lambda)$ of a semisimple Lie algebra $\mathfrak{g}$ as:
+\[
+0 \leftarrow V(\lambda) \leftarrow M(\lambda) \leftarrow \bigoplus_{\alpha \in \Delta^+} M(\lambda - \alpha) \leftarrow \cdots \leftarrow \bigoplus_{\substack{w \in W \\ \ell(w) = k}} M(w\cdot\lambda) \leftarrow \cdots
+\]
+where $M(\mu)$ are Verma modules, $W$ is the Weyl group, and the differentials are given by explicit maps related to the Serre relations.
+
+This resolution is fundamental to the theory of $\mathcal{D}$-modules and the Kazhdan--Lusztig conjecture.
+
+\subsubsection{Gelfand--Kirillov Dimension}
+
+For a finitely generated algebra $A$ over a field $k$, the \textbf{Gelfand--Kirillov dimension} is:
+\[
+\mathrm{GKdim}(A) = \limsup_{n \to \infty} \frac{\log \dim_k(V^n)}{\log n}
+\]
+where $V$ is a finite-dimensional generating subspace.
+
+\begin{example}
+$\mathrm{GKdim}(k[x_1,\dots,x_n]) = n$, $\mathrm{GKdim}(A_n) = 2n$ (where $A_n$ is the Weyl algebra).
+\end{example}
+
+\subsection{Generalized Functions}
+
+\subsubsection{Gelfand--Shilov Spaces}
+
+Gelfand and Shilov introduced spaces $S^\beta_\alpha$ of test functions satisfying:
+\[
+|\partial^q \phi(x)| \leq C_q e^{-a|x|^{1/\beta}}, \quad |x^p \phi(x)| \leq C_p e^{-b|x|^{1/\beta}}
+\]
+
+These interpolate between Schwartz functions ($\alpha = \beta = 0$) and entire analytic functions ($\alpha = \beta = 1$).
+
+\subsubsection{Gelfand Triples}
+
+A \textbf{Gelfand triple} (rigged Hilbert space) is:
+\[
+\Phi \subset H \subset \Phi'
+\]
+where $H$ is a Hilbert space, $\Phi$ is dense with a stronger topology, and $\Phi'$ is the dual space.
+
+The canonical example: $\mathcal{S}(\mathbb{R}^n) \subset L^2(\mathbb{R}^n) \subset \mathcal{S}'(\mathbb{R}^n)$.
+
+Gelfand triples provide rigorous justification for Dirac's bra-ket notation in quantum mechanics: every self-adjoint operator has a complete set of generalized eigenvectors in $\Phi'$.
+
+\subsection{Integral Geometry}
+
+The \textbf{Radon transform} of $f$ on $\mathbb{R}^n$ is:
+\[
+Rf(\omega, p) = \int_{x\cdot\omega = p} f(x)\,d\mu(x), \quad \omega \in S^{n-1},\ p \in \mathbb{R}
+\]
+
+The inversion formula:
+\[
+f(x) = \frac{1}{2(2\pi)^{n-1}} \int_{S^{n-1}} \frac{\partial^{n-1}}{\partial p^{n-1}} Rf(\omega, \omega \cdot x)\,d\omega
+\]
+
+Gelfand generalized this to integration over arbitrary submanifolds using the concept of a \textbf{double fibration}:
+\[
+\begin{array}{ccc}
+& Z & \\
+\swarrow && \searrow \\
+X && Y
+\end{array}
+\]
+where $Z$ is the incidence variety.
+
+\subsection{Inverse Problems}
+
+The \textbf{Gelfand--Levitan equation} solves the inverse Sturm--Liouville problem:
+\[
+K(x,y) + F(x,y) + \int_0^x K(x,t)F(t,y)\,dt = 0, \quad q(x) = 2\frac{d}{dx}K(x,x)
+\]
+
+The \textbf{Gelfand--Levitan--Marchenko equation} extends this to the full line:
+\[
+K(x,y) + F(x+y) + \int_x^\infty K(x,t)F(t+y)\,dt = 0
+\]
+
+These equations are the foundation of the inverse scattering transform, which linearizes integrable nonlinear PDEs like the KdV equation:
+\[
+u_t = 6uu_x - u_{xxx}, \quad \text{solved via } u(x,t) = -2\frac{d}{dx}K(x,x,t)
+\]
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Banach Algebras and C$^*$-Algebras:} The Gelfand representation and Gelfand--Naimark theorem transformed functional analysis. The Gelfand--Naimark--Segal construction is the starting point for virtually all work on operator algebras. The commutative Gelfand--Naimark duality is the foundation of noncommutative geometry (A.\ Connes, Fields Medal 1982).
+    
+    \item \textbf{Harmonic Analysis:} The Gelfand transform unified Fourier analysis (on $\mathbb{R}^n$), Fourier series (on the circle), Laplace transforms (on the half-line), and spectral theory (for normal operators) under a single algebraic framework.
+    
+    \item \textbf{Representation Theory:} Gelfand shifted the field from finite groups to Lie groups, from compact to non-compact groups, and from finite-dimensional to infinite-dimensional representations. His work profoundly influenced the Langlands program, one of the most active areas of modern mathematics.
+    
+    \item \textbf{Integral Geometry:} Gelfand's generalizations of the Radon transform created a new field with deep connections to representation theory, differential geometry, and medical imaging.
+    
+    \item \textbf{Inverse Problems:} The Gelfand--Levitan--Marchenko theory is the mathematical foundation of the inverse scattering transform, which solved the KdV equation and other integrable systems.
+\end{enumerate}
+
+\subsection{In Physics}
+
+\begin{enumerate}
+    \item \textbf{Quantum Mechanics:} C$^*$-algebras provide the language for algebraic quantum field theory. The GNS construction is the rigorous bridge between states and Hilbert space representations. This is essential for understanding superselection sectors and quantum statistical mechanics.
+    
+    \item \textbf{Relativity:} Gelfand and Naimark's classification of unitary representations of the Lorentz group is fundamental to relativistic wave equations (Dirac equation, Maxwell equations, etc.) and to Wigner's classification of elementary particles.
+    
+    \item \textbf{Integrable Systems:} The inverse scattering method (based on the Gelfand--Levitan--Marchenko equation) solves the KdV equation, the nonlinear Schr\"odinger equation, the sine-Gordon equation, and other integrable PDEs that model water waves, plasmas, optical fibers, and superfluids.
+    
+    \item \textbf{Solitons:} The connection between inverse scattering and integrable PDEs revolutionized nonlinear physics. Solitons---particle-like waves that maintain their shape---are explicit solutions obtained via this method.
+\end{enumerate}
+
+\subsection{In Medicine and Engineering}
+
+\begin{enumerate}
+    \item \textbf{CT Scanning:} Every CT scanner implements the filtered back-projection algorithm, which is a discrete approximation of the inverse Radon transform. This has saved countless lives through non-invasive medical imaging.
+    
+    \item \textbf{Geophysics:} Seismic inversion uses generalizations of the Gelfand--Levitan method to determine Earth's subsurface structure from surface measurements of reflected waves.
+    
+    \item \textbf{Signal Processing:} Wavelets and time-frequency analysis build on ideas from functional analysis and harmonic analysis that Gelfand helped develop.
+    
+    \item \textbf{Magnetic Resonance Imaging:} The mathematical principles of integral geometry underpin MRI reconstruction algorithms.
+\end{enumerate}
+
+\subsection{The Gelfand Seminar}
+
+For nearly 50 years, Gelfand ran his legendary seminar at Moscow State University. It met weekly, often lasting 3-4 hours, and covered everything from abstract algebra to concrete problems in biology. The seminar was famous for Gelfand's interruptions (``Stop! You've said something interesting. Let me think about it''), the mixing of fields (analysts, algebraists, geometers, and physicists all attended), and its intense, supportive atmosphere.
+
+Students of the Gelfand seminar include some of the most influential mathematicians: Endre Szemer\'{e}di (Abel Prize 2012), Alexandre Kirillov, Joseph Bernstein, David Kazhdan, and Andrei Zelevinsky. Gelfand also founded the All-Union Correspondence School of Mathematics (VZMS) and, in the US, the Gelfand Correspondence Program in Mathematics (GCPM), bringing advanced mathematical education to gifted students regardless of location.
+
+\subsection{In Biology}
+
+Gelfand co-founded the Institute of Biological Physics at the USSR Academy of Sciences. He published on control mechanisms in multicellular organisms, mathematical models of gene regulation, and movement control. His approach was characteristically Gelfandian: find the mathematical structure underlying biological complexity.
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What was Gelfand's greatest mathematical achievement?}
+
+This depends on perspective. Many functional analysts would say the Gelfand--Naimark theorem (abstract C$^*$-algebras are operator algebras) is his deepest result, as it bridges abstract algebra and concrete analysis in a surprising and powerful way. The commutative version (the Gelfand representation) unified Fourier analysis, spectral theory, and functional analysis into a single framework.
+
+Representation theorists would point to his classification of unitary representations of the Lorentz group, the introduction of Gelfand pairs, Gelfand--Tsetlin bases, and BGG resolutions. Inverse problem specialists would cite the Gelfand--Levitan equation, which transformed a nonlinear problem into a linear one.
+
+Perhaps the fairest answer: Gelfand's greatest achievement was not any single theorem, but the creation of \textit{frameworks}---the Gelfand representation, GNS construction, Gelfand pairs, Gelfand--Tsetlin bases---that became indispensable tools across all of mathematics.
+
+\subsection*{Q2: Why did Gelfand win the first Wolf Prize in Mathematics?}
+
+The Wolf Prize began in 1978, and Gelfand was selected as one of the first two laureates (along with Carl L.\ Siegel). At that time, Gelfand was already recognized as one of the greatest living mathematicians. His career spanned four decades and fundamentally reshaped functional analysis, representation theory, and mathematical physics. The Wolf Prize specifically recognizes lifetime achievement, and Gelfand's career exemplified this ideal.
+
+\subsection*{Q3: How did Gelfand succeed as a Jewish mathematician in the Soviet system?}
+
+The Soviet system was deeply anti-Semitic. Gelfand faced significant obstacles---he was expelled from school as a child because his father was a mill owner (a ``non-working element'' in Soviet parlance). However, several factors worked in his favor:
+\begin{itemize}
+    \item His brilliance was undeniable, even to Soviet authorities.
+    \item He had the protection of powerful figures like Kolmogorov.
+    \item His international reputation gave the regime propaganda incentives to tolerate him.
+    \item He was careful not to openly challenge the political system.
+\end{itemize}
+Nonetheless, he was denied certain positions and honors that his achievements merited. Many of his Jewish students faced even greater obstacles, and some (like Joseph Bernstein and David Kazhdan) emigrated.
+
+\subsection*{Q4: Is the Gelfand representation the same as the Fourier transform?}
+
+Not exactly, but they are deeply related. The Fourier transform on $L^1(\mathbb{R})$ is \textit{a special case} of the Gelfand transform. More precisely:
+\begin{itemize}
+    \item $L^1(\mathbb{R})$ is a commutative Banach algebra under convolution.
+    \item Its character space $\Phi_{L^1(\mathbb{R})}$ is homeomorphic to $\mathbb{R}$.
+    \item The Gelfand transform of $f \in L^1(\mathbb{R})$ evaluated at the character $\phi_\xi$ is exactly $\hat{f}(\xi)$.
+\end{itemize}
+The Gelfand transform thus generalizes the Fourier transform to any commutative Banach algebra, with characters playing the role of frequencies.
+
+\subsection*{Q5: What should an undergraduate study to understand Gelfand's work?}
+
+A strong path includes:
+\begin{enumerate}
+    \item \textbf{Linear Algebra:} Jordan canonical forms, spectral theorem, tensor products.
+    \item \textbf{Abstract Algebra:} Groups, rings, modules, fields, representation theory basics.
+    \item \textbf{Real Analysis:} Lebesgue integration, $L^p$ spaces, Banach and Hilbert spaces.
+    \item \textbf{Complex Analysis:} Holomorphic functions, Cauchy's theorem, contour integration.
+    \item \textbf{Functional Analysis:} Banach algebras, spectral theory, operator theory.
+    \item \textbf{Topology:} Point-set topology, compactness, algebraic topology basics.
+\end{enumerate}
+
+Gelfand's own books are excellent starting points: \textit{Lectures on Linear Algebra} and \textit{Calculus of Variations} (with Fomin) are accessible at the undergraduate level. For deeper work, Rudin's \textit{Functional Analysis} and Murphy's \textit{C$^*$-Algebras and Operator Theory} are recommended.
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that $C[0,1]$ with the supremum norm and pointwise multiplication is a commutative Banach algebra. What are its characters?
+    \item Prove the spectral radius formula $r(x) = \lim_{n\to\infty} \|x^n\|^{1/n}$ using the Gelfand representation.
+    \item For a compact Hausdorff space $X$, show that the Gelfand transform $C(X) \to C(\Phi_{C(X)})$ is an isometric isomorphism.
+    \item Verify that $B(H)$ satisfies the C$^*$-identity $\|T^* T\| = \|T\|^2$.
+    \item Let $(G,K)$ be a Gelfand pair. Show that $L^2(G/K)$ decomposes with multiplicity one.
+    \item For the one-dimensional Schr\"odinger equation $-\psi'' + q\psi = k^2\psi$, derive the Gelfand--Levitan equation from the spectral measure.
+    \item Compute the GK dimension of the polynomial ring $k[x_1,x_2,x_3]$ and the Weyl algebra $A_2$.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1913 & Born in Okny, Ukraine \\ \hline
+1930 & Moves to Moscow, works as doorkeeper at Lenin Library \\ \hline
+1932 & Becomes graduate student of Kolmogorov \\ \hline
+1935 & Defends PhD thesis on abstract functions and linear operators \\ \hline
+1938 & Defends D.Sc.\ thesis on normed rings \\ \hline
+1941 & Professor at Moscow State University \\ \hline
+1943 & Gelfand--Naimark theorem published \\ \hline
+1951 & Gelfand--Levitan equation \\ \hline
+1960 & Co-founds Institute of Biological Physics \\ \hline
+1963 & Publishes \textit{Calculus of Variations} with Fomin \\ \hline
+1978 & Wolf Prize in Mathematics \\ \hline
+1989 & Emigrates to United States \\ \hline
+1990 & Distinguished Professor at Rutgers University \\ \hline
+1994 & MacArthur Fellowship \\ \hline
+2005 & AMS Steele Prize for Lifetime Achievement \\ \hline
+2009 & Dies in New Brunswick, New Jersey \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Banach algebra] A complete normed vector space with compatible multiplication.
+    \item[BGG resolution] A free resolution of a $\mathfrak{g}$-module in terms of Verma modules.
+    \item[C$^*$-algebra] A Banach algebra with involution satisfying $\|x^* x\| = \|x\|^2$.
+    \item[Character] A non-zero multiplicative linear functional on a Banach algebra.
+    \item[Gelfand pair] A pair $(G,K)$ where the algebra of bi-$K$-invariant functions is commutative.
+    \item[Gelfand--Tsetlin basis] A canonical basis for representations labeled by integer patterns.
+    \item[Gelfand transform] The map $A \to C(\Phi_A)$ given by $x \mapsto \hat{x}(\phi) = \phi(x)$.
+    \item[Gelfand triple] A triple $\Phi \subset H \subset \Phi'$ of a Hilbert space with dense subspaces.
+    \item[GNS construction] Hilbert space representation from a state on a C$^*$-algebra.
+    \item[GK dimension] Growth rate $\limsup \log\dim(V^n)/\log n$ for an algebra.
+    \item[Radon transform] Integration of a function over hyperplanes.
+    \item[Spectrum] Set of characters of a Banach algebra, or eigenvalues of an operator.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item I.\ M.\ Gelfand, \textit{Normierte Ringe}, Rec.\ Math.\ (Mat.\ Sbornik) N.S.\ 9(51) (1941), 3--24.
+    \item I.\ M.\ Gelfand and M.\ A.\ Naimark, \textit{On the embedding of normed rings into the ring of operators in Hilbert space}, Rec.\ Math.\ (Mat.\ Sbornik) N.S.\ 12(54) (1943), 197--217.
+    \item I.\ M.\ Gelfand and G.\ E.\ Shilov, \textit{Generalized Functions}, Volumes 1--5, Academic Press, 1964--1968.
+    \item I.\ M.\ Gelfand and S.\ V.\ Fomin, \textit{Calculus of Variations}, Prentice-Hall, 1963 (Dover reprint, 2000).
+    \item I.\ M.\ Gelfand and B.\ M.\ Levitan, \textit{On the determination of a differential equation from its spectral function}, Izv.\ Akad.\ Nauk SSSR Ser.\ Mat.\ 15 (1951), 309--360.
+    \item I.\ N.\ Bernstein, I.\ M.\ Gelfand, and S.\ I.\ Gelfand, \textit{Differential operators on the base affine space and a study of $\mathfrak{g}$-modules}, in ``Lie Groups and Their Representations,'' Wiley, 1975, pp.\ 21--64.
+    \item I.\ M.\ Gelfand and A.\ A.\ Kirillov, \textit{Sur les corps li\'{e}s aux alg\`ebres enveloppantes des alg\`ebres de Lie}, Publ.\ Math.\ IH\'{E}S 31 (1966), 5--19.
+    \item I.\ M.\ Gelfand, M.\ I.\ Graev, and N.\ Ya.\ Vilenkin, \textit{Generalized Functions, Vol.\ 5: Integral Geometry and Representation Theory}, Academic Press, 1966.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item A.\ Kirillov, \textit{Israel Moiseevich Gelfand}, Notices of the AMS 57(1) (2010), 32--42.
+    \item K.\ Chang, \textit{Israel Gelfand, Math Giant, Dies at 96}, The New York Times, October 8, 2009.
+    \item V.\ Arnold, M.\ Atiyah, P.\ Lax, and B.\ Mazur (eds.), \textit{The Collected Papers of Israel M.\ Gelfand}, Springer, 1989--2016 (5 volumes).
+    \item S.\ G.\ Gindikin, A.\ A.\ Kirillov, and D.\ B.\ Fuks, \textit{Work of I.\ M.\ Gelfand in functional analysis, algebra and topology}, Uspekhi Mat.\ Nauk 29 (1974), 195--223.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item W.\ Rudin, \textit{Functional Analysis} (2nd ed.), McGraw-Hill, 1991.
+    \item G.\ J.\ Murphy, \textit{C$^*$-Algebras and Operator Theory}, Academic Press, 1990.
+    \item A.\ A.\ Kirillov, \textit{Elements of the Theory of Representations}, Springer, 1976.
+    \item S.\ Helgason, \textit{The Radon Transform} (2nd ed.), Birkh\"auser, 1999.
+    \item L.\ H\"ormander, \textit{The Analysis of Linear Partial Differential Operators I}, Springer, 1983.
+    \item A.\ Connes, \textit{Noncommutative Geometry}, Academic Press, 1994.
+    \item L.\ D.\ Faddeev and L.\ A.\ Takhtajan, \textit{Hamiltonian Methods in the Theory of Solitons}, Springer, 1987.
+\end{enumerate}

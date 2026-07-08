@@ -1,0 +1,278 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\CP}{\mathbb{CP}}
+\providecommand{\Ric}{\operatorname{Ric}}
+\providecommand{\Scal}{\operatorname{Scal}}
+\providecommand{\Hol}{\operatorname{Hol}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\End}{\operatorname{End}}
+
+\chapter{Shing-Tung Yau (2010)}
+
+\begin{quote}
+\it ``We have rarely had the opportunity to witness the spectacle of the work of one mathematician affecting, in a short span of years, the direction of whole areas of research. In the field of geometry, one of the most remarkable instances of such an occurrence during the last decade is given by the contributions of Shing-Tung Yau.'' --- William Thurston, 1981
+\end{quote}
+
+\section{Main Contribution}
+
+Shing-Tung Yau (born 1949) is one of the most influential geometers of the modern era, whose work transformed differential geometry through the use of partial differential equations. He was awarded the Fields Medal in 1982 and the Wolf Prize in Mathematics in 2010.
+
+The Wolf Prize citation reads: ``for his work in geometric analysis that has had a profound and dramatic impact on many areas of geometry and physics.''
+
+Yau's core contributions include:
+\begin{itemize}
+    \item \textbf{Calabi Conjecture:} The proof of the Calabi conjecture, establishing the existence of Ricci-flat K\"ahler metrics (Calabi--Yau manifolds), which revolutionized both algebraic geometry and string theory.
+    \item \textbf{Positive Mass Theorem:} A proof (with Richard Schoen) of the positive mass conjecture in general relativity, showing that gravitational energy is nonnegative.
+    \item \textbf{Donaldson--Uhlenbeck--Yau Theorem:} A theorem (with Karen Uhlenbeck) relating the existence of Hermitian Yang--Mills connections to the stability of holomorphic vector bundles.
+    \item \textbf{Geometric Analysis:} Foundational contributions to the theory of minimal surfaces, the Monge--Amp\`ere equation, and the development of differential Harnack inequalities.
+    \item \textbf{Mirror Symmetry:} The SYZ conjecture (with Strominger and Zaslow) providing a geometric interpretation of mirror symmetry.
+    \item \textbf{Comparison Geometry:} The Lawson--Yau flat torus theorem, the Cheeger--Yau estimate on heat kernels, and the Li--Yau gradient estimates.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Calabi Conjecture}
+
+In 1954, Eugenio Calabi posed a bold conjecture: on a compact K\"ahler manifold, one can prescribe the Ricci curvature arbitrarily (subject to topological constraints). More precisely, given a closed $(1,1)$-form representing the first Chern class, there exists a unique K\"ahler metric in a given K\"ahler class with that Ricci form.
+
+A special case of this conjecture---the existence of Ricci-flat K\"ahler metrics when $c_1(M) = 0$---was seen as particularly striking. Such metrics would have holonomy contained in $\SU(n)$, producing manifolds with extraordinary geometric properties. Most geometers believed the conjecture was too strong: it seemed to say that a nonlinear partial differential equation of incredible complexity always has a solution.
+
+\subsection{The Positive Mass Problem}
+
+In general relativity, the total mass (energy) of an isolated gravitational system is a subtle quantity. For an asymptotically flat spacetime, one defines the ADM mass. A fundamental question: can this mass be negative? Physically, negative mass would allow bizarre phenomena, but stability arguments suggested it should be nonnegative. Proving this mathematically required deep insights into the geometry of scalar curvature and minimal surfaces.
+
+\subsection{The Need for Analytic Methods in Geometry}
+
+In the 1970s, differential geometry and partial differential equations were largely separate fields. Yau pioneered the use of powerful PDE techniques---particularly the Monge--Amp\`ere equation and the method of continuity---to solve geometric problems that had resisted purely geometric or topological approaches.
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{The Proof of the Calabi Conjecture}
+
+Yau's proof of the Calabi conjecture uses the method of continuity. The complex Monge--Amp\`ere equation:
+\[
+\det(g_{i\bar j} + \partial_i\partial_{\bar j}\varphi) = e^{F} \det(g_{i\bar j})
+\]
+is solved for the unknown function $\varphi$, where $F$ is determined by the prescribed Ricci form. Yau proved $C^0$, $C^1$, and $C^2$ estimates for $\varphi$, showing that the set of parameters for which a solution exists is both open and closed, hence everything.
+
+The key estimates are:
+\begin{itemize}
+    \item \textbf{$C^0$ estimate:} A Moser iteration argument using the Sobolev inequality.
+    \item \textbf{$C^2$ estimate:} A pointwise bound on $\partial\bar\partial\varphi$ using the maximum principle.
+    \item \textbf{Higher estimates:} The Evans--Krylov theory and Schauder estimates.
+\end{itemize}
+
+\subsection{Tools and Techniques}
+
+\begin{itemize}
+    \item \textbf{The Maximum Principle:} Used repeatedly to obtain pointwise bounds on solutions.
+    \item \textbf{Moser iteration:} A technique for obtaining $L^\infty$ bounds from $L^p$ estimates.
+    \item \textbf{The Method of Continuity:} Deforming the target equation through a family of simpler equations.
+    \item \textbf{Sobolev inequalities:} Geometric Sobolev inequalities adapted to K\"ahler manifolds.
+    \item \textbf{A priori estimates:} Estimates on derivatives of solutions that depend only on the data, not on the solution itself.
+\end{itemize}
+
+\section{Mathematical Theory}
+
+\subsection{The Calabi--Yau Theorem}
+
+\begin{definition}[K\"ahler Metric]
+A Riemannian metric $g$ on a complex manifold $M$ is \textbf{K\"ahler} if it is Hermitian and its associated $(1,1)$-form $\omega$ is closed: $d\omega = 0$. In local coordinates, $\omega = \frac{i}{2} g_{i\bar j} dz^i \wedge d\bar z^{\bar j}$.
+\end{definition}
+
+\begin{definition}[Ricci Form]
+The \textbf{Ricci form} of a K\"ahler metric is $\rho = \frac{i}{2} R_{i\bar j} dz^i \wedge d\bar z^{\bar j}$, where $R_{i\bar j}$ is the Ricci curvature. The Ricci form represents the first Chern class: $[\rho] = 2\pi c_1(M)$.
+\end{definition}
+
+\begin{theorem}[Calabi Conjecture, Yau 1977]
+Let $(M, \omega)$ be a compact K\"ahler manifold and let $\rho'$ be a closed $(1,1)$-form representing $2\pi c_1(M)$. Then there exists a unique K\"ahler metric $\tilde\omega$ cohomologous to $\omega$ whose Ricci form is $\rho'$.
+\end{theorem}
+
+The equivalent PDE is the complex Monge--Amp\`ere equation:
+\[
+\det\left(g_{i\bar j} + \frac{\partial^2 \varphi}{\partial z^i \partial \bar z^{\bar j}}\right) = e^{F} \det(g_{i\bar j}), \quad \omega + \frac{i}{2}\partial\bar\partial\varphi > 0
+\]
+
+\begin{corollary}[Existence of Calabi--Yau Manifolds]
+If $c_1(M) = 0$, then $M$ admits a Ricci-flat K\"ahler metric. Such manifolds are called \textbf{Calabi--Yau manifolds}. They have holonomy contained in $\SU(n)$.
+\end{corollary}
+
+\begin{example}
+A smooth quintic hypersurface in $\CP^4$ is a Calabi--Yau threefold. It has $h^{1,1} = 1$, $h^{2,1} = 101$, and Euler characteristic $\chi = -200$.
+\end{example}
+
+\subsection{The Positive Mass Theorem}
+
+\begin{definition}[ADM Mass]
+For an asymptotically flat Riemannian 3-manifold $(M, g)$ with $g_{ij} = (1 + 2m/r)\delta_{ij} + O(r^{-2})$, the \textbf{ADM mass} is:
+\[
+m = \frac{1}{16\pi} \lim_{r\to\infty} \int_{S_r} (\partial_j g_{ij} - \partial_i g_{jj}) \, dS^i
+\]
+\end{definition}
+
+\begin{theorem}[Positive Mass Theorem, Schoen--Yau 1979]
+Let $(M, g)$ be an asymptotically flat Riemannian 3-manifold with nonnegative scalar curvature. Then the ADM mass $m \geq 0$, with equality if and only if $(M, g)$ is isometric to Euclidean space.
+\end{theorem}
+
+The proof uses stable minimal surfaces. Schoen and Yau showed that if $m < 0$, one can construct a stable minimal surface with positive curvature, violating the Gauss--Bonnet theorem.
+
+\subsection{The Donaldson--Uhlenbeck--Yau Theorem}
+
+\begin{definition}[Hermitian Yang--Mills Connection]
+Let $E \to M$ be a holomorphic vector bundle over a compact K\"ahler manifold. A Hermitian metric $h$ on $E$ induces a Chern connection $\nabla$. The connection is \textbf{Hermitian Yang--Mills} if its curvature $F$ satisfies:
+\[
+\Lambda F = \lambda \cdot \mathrm{Id}_E
+\]
+where $\Lambda$ is contraction with the K\"ahler form and $\lambda$ is a constant determined by the topology of $E$.
+\end{definition}
+
+\begin{definition}[Stability]
+A holomorphic vector bundle $E$ is \textbf{stable} (in the sense of Mumford--Takemoto) if for every coherent subsheaf $\mathcal{F} \subset \mathcal{O}(E)$ with $0 < \mathrm{rank}(\mathcal{F}) < \mathrm{rank}(E)$, we have:
+\[
+\frac{\deg(\mathcal{F})}{\mathrm{rank}(\mathcal{F})} < \frac{\deg(E)}{\mathrm{rank}(E)}
+\]
+\end{definition}
+
+\begin{theorem}[Donaldson--Uhlenbeck--Yau, 1985]
+A holomorphic vector bundle $E$ over a compact K\"ahler manifold $M$ admits a Hermitian Yang--Mills connection if and only if $E$ is a direct sum of stable bundles.
+\end{theorem}
+
+\subsection{Li--Yau Gradient Estimates}
+
+\begin{theorem}[Li--Yau, 1986]
+Let $u$ be a positive solution to the heat equation $\partial_t u = \Delta u$ on a complete Riemannian manifold $M$ with $\Ric \geq -K$. Then:
+\[
+\frac{|\nabla u|^2}{u^2} - \frac{\partial_t u}{u} \leq \frac{n}{2t} + \frac{nK}{2(e^{2Kt} - 1)}
+\]
+\end{theorem}
+
+This differential Harnack inequality integrates along paths to give the classical Harnack inequality, and has been generalized to many other geometric PDEs.
+
+\subsection{The SYZ Conjecture}
+
+\begin{definition}[SYZ Mirror Symmetry]
+For a Calabi--Yau threefold $X$, the \textbf{SYZ conjecture} (Strominger--Yau--Zaslow, 1996) proposes that $X$ and its mirror $\check X$ are related by a special Lagrangian torus fibration $\pi: X \to B$, where mirror symmetry corresponds to dualizing the torus fibers.
+\end{definition}
+
+This geometric picture has guided much of the subsequent development of mirror symmetry, connecting it to integrable systems, tropical geometry, and the study of special Lagrangian submanifolds.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Algebraic Geometry:} Calabi--Yau manifolds are central objects. The Miyaoka--Yau inequality bounds Chern numbers of surfaces.
+    \item \textbf{Differential Geometry:} Yau's results on the Monge--Amp\`ere equation, minimal surfaces, and comparison geometry are foundational.
+    \item \textbf{Geometric Analysis:} The field of geometric analysis was largely created by Yau and his collaborators. The Li--Yau estimates and Schoen--Yau minimal surface techniques are standard tools.
+    \item \textbf{Spectral Geometry:} Yau's eigenvalue estimates and his work on the heat kernel are fundamental.
+\end{enumerate}
+
+\subsection{In Physics}
+
+\begin{enumerate}
+    \item \textbf{String Theory:} Calabi--Yau manifolds are used as compactification spaces in superstring theory. The existence of Ricci-flat metrics is essential for preserving supersymmetry.
+    \item \textbf{Mirror Symmetry:} The SYZ conjecture provides the geometric foundation for mirror symmetry, one of the most active interfaces between mathematics and physics.
+    \item \textbf{General Relativity:} The positive mass theorem is a cornerstone of mathematical relativity.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is a Calabi--Yau manifold?}
+A Calabi--Yau manifold is a compact K\"ahler manifold with a Ricci-flat metric. Equivalently, it is a K\"ahler manifold with $c_1(M) = 0$. These manifolds have special holonomy (contained in $\SU(n)$) and are central to string theory, where they serve as the hidden dimensions of spacetime.
+
+\subsection*{Q2: Why is the positive mass theorem important?}
+The positive mass theorem proves that gravitational energy is always nonnegative in general relativity, confirming a fundamental physical intuition. It also has important mathematical consequences, including restrictions on the topology of manifolds with nonnegative scalar curvature.
+
+\subsection*{Q3: What is the Donaldson--Uhlenbeck--Yau theorem?}
+It establishes a deep correspondence between differential geometry (Hermitian Yang--Mills connections) and algebraic geometry (stability of vector bundles). This is an instance of the Hitchin--Kobayashi correspondence and is central to the study of moduli spaces in algebraic geometry.
+
+\subsection*{Q4: How are Calabi--Yau manifolds used in string theory?}
+In string theory, spacetime has 10 dimensions. The extra 6 dimensions are curled up into a Calabi--Yau threefold. The Ricci-flat metric ensures that the compactification preserves supersymmetry, making the theory mathematically consistent and physically viable.
+
+\subsection*{Q5: What should an undergraduate study to understand Yau's work?}
+Differential geometry (Riemannian geometry, connections, curvature), partial differential equations (elliptic and parabolic theory), complex analysis (several variables, K\"ahler geometry), and algebraic geometry. Recommended books: \textit{Principles of Algebraic Geometry} (Griffiths--Harris), \textit{Complex Geometry} (Huybrechts), and \textit{Riemannian Geometry} (Petersen).
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that a K\"ahler manifold with $c_1(M) = 0$ and $b_1(M) = 0$ has $\Hol(M) \subseteq \SU(n)$.
+    \item Compute the Euler characteristic of a quintic threefold in $\CP^4$.
+    \item Prove the Li--Yau gradient estimate for harmonic functions on a manifold with $\Ric \geq 0$.
+    \item Show that a compact Riemannian manifold with positive scalar curvature cannot admit a metric of nonnegative Ricci curvature that is flat anywhere.
+    \item Verify that the Fubini--Study metric on $\CP^n$ is K\"ahler and compute its Ricci form.
+    \item Let $E$ be a stable vector bundle on a Riemann surface. Show that $E$ admits a Hermitian Yang--Mills connection.
+    \item Derive the complex Monge--Amp\`ere equation from the Calabi conjecture.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1949 & Born in Shantou, China \\ \hline
+1969 & B.A.\ from Chinese University of Hong Kong \\ \hline
+1971 & Ph.D.\ from UC Berkeley (advisor: S.\ S.\ Chern) \\ \hline
+1976 | Proves the Calabi conjecture \\ \hline
+1979 | Positive mass theorem (with Schoen) \\ \hline
+1981 | Oswald Veblen Prize \\ \hline
+1982 | Fields Medal at the ICM in Warsaw \\ \hline
+1985 | Donaldson--Uhlenbeck--Yau theorem \\ \hline
+1987 | Professor at Harvard University \\ \hline
+1994 | Crafoord Prize \\ \hline
+1996 | SYZ conjecture (with Strominger and Zaslow) \\ \hline
+1997 | National Medal of Science \\ \hline
+2010 | Wolf Prize in Mathematics \\ \hline
+2022 | Moves to Tsinghua University \\ \hline
+2023 | Shaw Prize \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[ADM mass] A definition of total energy for asymptotically flat spacetimes in general relativity.
+    \item[Calabi--Yau manifold] A compact Ricci-flat K\"ahler manifold, often with $\SU(n)$ holonomy.
+    \item[Hermitian Yang--Mills connection] A connection on a holomorphic vector bundle whose curvature satisfies $\Lambda F = \lambda \cdot \mathrm{Id}$.
+    \item[K\"ahler manifold] A complex manifold with a Riemannian metric compatible with the complex structure and a closed associated $(1,1)$-form.
+    \item[Li--Yau estimate] A differential Harnack inequality for positive solutions to the heat equation.
+    \item[Monge--Amp\`ere equation] A fully nonlinear PDE of the form $\det(D^2 u) = f$, central to Yau's proof of the Calabi conjecture.
+    \item[Positive mass theorem] The statement that the ADM mass of an asymptotically flat manifold with nonnegative scalar curvature is nonnegative.
+    \item[Ricci-flat] A Riemannian or K\"ahler manifold with zero Ricci curvature.
+    \item[SYZ conjecture] A geometric interpretation of mirror symmetry via special Lagrangian torus fibrations.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item S.-T.\ Yau, \textit{On the Ricci curvature of a compact K\"ahler manifold and the complex Monge--Amp\`ere equation, I}, Comm.\ Pure Appl.\ Math.\ 31 (1978), 339--411.
+    \item R.\ Schoen and S.-T.\ Yau, \textit{On the proof of the positive mass conjecture in general relativity}, Comm.\ Math.\ Phys.\ 65 (1979), 45--76.
+    \item K.\ Uhlenbeck and S.-T.\ Yau, \textit{On the existence of Hermitian Yang--Mills connections in stable vector bundles}, Comm.\ Pure Appl.\ Math.\ 39 (1986), S257--S293.
+    \item P.\ Li and S.-T.\ Yau, \textit{On the parabolic kernel of the Schr\"odinger operator}, Acta Math.\ 156 (1986), 153--201.
+    \item A.\ Strominger, S.-T.\ Yau, and E.\ Zaslow, \textit{Mirror symmetry is T-duality}, Nucl.\ Phys.\ B 479 (1996), 243--259.
+    \item B.\ Lawson and S.-T.\ Yau, \textit{Compact manifolds of nonpositive curvature}, J.\ Diff.\ Geom.\ 7 (1972), 211--228.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item S.-T.\ Yau and S.\ Nadis, \textit{The Shape of a Life: One Mathematician's Search for the Universe's Hidden Geometry}, Yale Univ.\ Press, 2019.
+    \item Wolf Foundation, \textit{Wolf Prize Citation 2010}.
+    \item S.\ S.\ Chern, \textit{The Work of S.-T.\ Yau}, Proc.\ ICM Warsaw 1982.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item S.\ T.\ Yau (ed.), \textit{Seminar on Differential Geometry}, Princeton Univ.\ Press, 1982.
+    \item R.\ Schoen and S.-T.\ Yau, \textit{Lectures on Differential Geometry}, International Press, 1994.
+    \item A.\ L.\ Besse, \textit{Einstein Manifolds}, Springer, 1987.
+    \item D.\ Huybrechts, \textit{Complex Geometry}, Springer, 2005.
+    \item M.\ Gross, D.\ Huybrechts, and D.\ Joyce, \textit{Calabi--Yau Manifolds and Related Geometries}, Springer, 2003.
+\end{enumerate}
+

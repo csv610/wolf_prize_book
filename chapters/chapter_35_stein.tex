@@ -1,0 +1,528 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\supp\relax
+\newcommand{\supp}{\operatorname{supp}}
+\let\singsupp\relax
+\newcommand{\singsupp}{\operatorname{singsupp}}
+\let\Op\relax
+\newcommand{\Op}{\operatorname{Op}}
+\let\WF\relax
+\newcommand{\WF}{\operatorname{WF}}
+\let\BMO\relax
+\newcommand{\BMO}{\operatorname{BMO}}
+\let\SL\relax
+\newcommand{\SL}{\operatorname{SL}}
+\let\osc\relax
+\newcommand{\osc}{\operatorname{osc}}
+\let\Hol\relax
+\newcommand{\Hol}{\operatorname{Hol}}
+\let\Aut\relax
+\newcommand{\Aut}{\operatorname{Aut}}
+
+\chapter{Elias M.\ Stein (1999)}
+
+\begin{quote}
+\it ``Stein's work has had a profound and lasting influence on modern analysis. His theories of singular integrals, his complex interpolation method for operators, his maximal and square functions, and his extension of the Calder\'on--Zygmund program have become indispensable tools throughout mathematics. His profound contributions to harmonic analysis on Euclidean spaces, on Lie groups, and in several complex variables, together with his creation of a school of analysts at Princeton, have shaped the discipline for decades.'' --- Wolf Prize Citation
+\end{quote}
+
+Elias Menachem Stein (January 13, 1931 -- December 23, 2018) was one of the most influential analysts of the 20th century. The 1999 Wolf Prize in Mathematics (shared with L\'aszl\'o Lov\'asz) recognized his transformative contributions to harmonic analysis, singular integrals, several complex variables, and the representation theory of Lie groups. Stein was the founder and leader of the ``Princeton school'' of analysis, mentoring a remarkable succession of students including Charles Fefferman, Jean Bourgain, and Terence Tao, each of whom went on to win a Fields Medal.
+
+Stein's mathematical style is characterized by profound technical power, deep geometric insight, and a gift for identifying the central problems of analysis. He transformed the Calder\'on--Zygmund theory of singular integrals into a comprehensive framework that unified large parts of classical and modern harmonic analysis. His interpolation theorem, his maximal principle, and his work on the \(L^p\) theory of the \(\overline{\partial}\) problem are landmarks of the subject. His books, written with characteristic clarity and authority, have educated generations of mathematicians.
+
+\section{Early Life and Career}
+
+Elias M.\ Stein was born on January 13, 1931, in Antwerp, Belgium, into a Jewish family. As the shadow of Nazism fell across Europe, the Stein family fled Belgium in 1940, eventually settling in the United States. Stein attended Stuyvesant High School in New York City, where his mathematical talents first emerged.
+
+Stein pursued his undergraduate education at the University of Chicago, receiving his B.S.\ in 1953. He remained at Chicago for graduate study, where he came under the influence of Antoni Zygmund, one of the founders of modern harmonic analysis. Stein's 1955 doctoral dissertation, \textit{On the Theory of Singular Integrals}, already displayed the combination of technical mastery and conceptual depth that would characterize his career. Zygmund's school at Chicago was the crucible in which modern harmonic analysis was forged, and Stein emerged as its most brilliant product.
+
+After completing his PhD, Stein spent three years (1955--1958) as a National Science Foundation postdoctoral fellow at the Institute for Advanced Study and the University of Chicago. He then joined the faculty at the Massachusetts Institute of Technology (1958--1960). In 1960, Stein moved to Princeton University, where he remained for the rest of his career. In 1964, he was appointed Henry Burchard Fine Professor of Mathematics, a position he held until his retirement in 1999.
+
+\section{The Theory of Singular Integrals: The Calder\'on--Zygmund Program}
+
+The theory of singular integrals, developed by Calder\'on and Zygmund in the 1950s, had shown that convolution operators with kernels satisfying certain size and smoothness conditions are bounded on \(L^p\) for \(1 < p < \infty\). Stein, in a series of works beginning in the late 1950s, extended this theory far beyond its original boundaries, transforming it into a unified framework for understanding the boundedness of a vast class of operators.
+
+\subsection{The Calder\'on--Zygmund Theory}
+
+The foundational result of the Calder\'on--Zygmund theory is the following.
+
+\begin{theorem}[Calder\'on--Zygmund Decomposition, 1952]
+Let \(f \in L^1(\R^n)\) and let \(\alpha > 0\). Then there exists a decomposition
+\[
+f = g + b, \qquad b = \sum_i b_i,
+\]
+where:
+\begin{enumerate}
+    \item \(\|g\|_{L^\infty} \leq C\alpha\) and \(\|g\|_{L^1} \leq \|f\|_{L^1}\);
+    \item each \(b_i\) is supported in a dyadic cube \(Q_i\) with \(\int b_i = 0\) and \(\|b_i\|_{L^1} \leq C\alpha |Q_i|\);
+    \item the cubes \(Q_i\) have disjoint interiors and \(\sum_i |Q_i| \leq \frac{C}{\alpha} \|f\|_{L^1}\).
+\end{enumerate}
+\end{theorem}
+
+This decomposition, together with the Calder\'on--Zygmund kernel conditions
+\[
+|\widehat{K}(\xi)| \leq C, \qquad |K(x)| \leq \frac{C}{|x|^n}, \qquad |\nabla K(x)| \leq \frac{C}{|x|^{n+1}},
+\]
+yields the fundamental \(L^p\) boundedness of singular integral operators. Stein's early work refined and extended these techniques, proving optimal bounds and extending the theory to more general settings.
+
+\subsection{Stein's Extension: The Concept of the Maximal Function}
+
+Stein recognized that the Hardy--Littlewood maximal function,
+\[
+Mf(x) = \sup_{r > 0} \frac{1}{|B(x,r)|} \int_{B(x,r)} |f(y)|\,dy,
+\]
+plays a central role in the Calder\'on--Zygmund theory. The maximal function controls the pointwise behavior of singular integrals and provides the crucial tool for proving weighted norm inequalities.
+
+\begin{theorem}[Hardy--Littlewood Maximal Inequality]
+For \(f \in L^1_{\text{loc}}(\R^n)\),
+\[
+|\{x : Mf(x) > \alpha\}| \leq \frac{C_n}{\alpha} \|f\|_{L^1},
+\]
+and for \(1 < p \leq \infty\),
+\[
+\|Mf\|_{L^p} \leq C_{n,p} \|f\|_{L^p}.
+\]
+Thus the maximal operator is bounded on \(L^p\) for all \(p>1\) and satisfies a weak-type bound on \(L^1\).
+\end{theorem}
+
+Stein deepened the theory of maximal functions in decisive ways. The \textbf{Stein maximal principle} unified a wide variety of maximal operators and established the fundamental relationship between maximal functions and differentiation.
+
+\begin{theorem}[Stein's Maximal Principle, 1961]
+Let \(\{T_t\}_{t>0}\) be a family of linear operators on \(L^p(\R^n)\). Suppose that the maximal operator
+\[
+T^*f(x) = \sup_{t>0} |T_t f(x)|
+\]
+satisfies the weak-type bound
+\[
+|\{x : T^*f(x) > \alpha\}| \leq \frac{C}{\alpha^p} \|f\|_{L^p}^p
+\]
+for all \(f \in L^p\). Then for any \(f \in L^p\), the limit
+\[
+\lim_{t \to 0} T_t f(x)
+\]
+exists almost everywhere. Conversely, if almost-everywhere convergence holds for a dense class of functions, then the maximal operator is bounded on \(L^p\).
+\end{theorem}
+
+This principle was revolutionary: it showed that the question of almost-everywhere convergence could be reduced to the boundedness of a maximal operator, which could then be studied by real-variable methods. Stein applied this principle to obtain almost-everywhere convergence results for singular integrals, for Bochner--Riesz means, and for a host of other operators.
+
+\subsection{The Square Function}
+
+Stein also developed the theory of the \textbf{square function}, or Littlewood--Paley function,
+\[
+g(f)(x) = \left( \int_0^\infty |\theta_t * f(x)|^2 \,\frac{dt}{t} \right)^{1/2},
+\]
+where \(\{\theta_t\}\) is an approximate identity. Square functions measure the size of the oscillations of a function at different scales and provide a powerful tool for characterizing function spaces.
+
+\begin{theorem}[Littlewood--Paley--Stein Theory]
+For \(1 < p < \infty\),
+\[
+c_p \|f\|_{L^p} \leq \|g(f)\|_{L^p} \leq C_p \|f\|_{L^p}.
+\]
+Thus the \(L^p\) norm of a function is equivalent to the \(L^p\) norm of its square function.
+\end{theorem}
+
+The square function became an essential tool in the study of \(H^p\) spaces, in the theory of multipliers, and in the analysis of Fourier integrals. Stein's work on the sharp function,
+\[
+f^\sharp(x) = \sup_{Q \ni x} \frac{1}{|Q|} \int_Q |f(y) - f_Q|\,dy,
+\]
+and the relationship between the sharp function and the maximal function, provided the foundation for the theory of functions of bounded mean oscillation (BMO).
+
+\section{The Stein Interpolation Theorem}
+
+One of Stein's most celebrated contributions is the complex interpolation theorem for analytic families of operators. The classical Riesz--Thorin interpolation theorem shows that if an operator is bounded on \(L^{p_0}\) and on \(L^{p_1}\), then it is bounded on \(L^{p_\theta}\) for the intermediate exponents. Stein's theorem vastly generalizes this result by allowing the operator itself to depend analytically on a complex parameter.
+
+\begin{theorem}[Stein Interpolation Theorem, 1956]
+Let \(T_z\) be a family of linear operators defined for \(z\) in the strip \(0 \leq \Re(z) \leq 1\), with values in the space of bounded linear operators from \(L^{p_0} \cap L^{p_1}\) to \(L^{q_0} + L^{q_1}\). Assume that:
+\begin{enumerate}
+    \item The map \(z \mapsto T_z f\) is analytic in the interior of the strip and continuous on the closure, for each simple function \(f\);
+    \item For all simple functions \(f\) and \(g\), the function
+    \[
+    z \mapsto \int (T_z f) g
+    \]
+    is of admissible growth (i.e., \(\log |\varphi(z)| \leq Ce^{a|\Im(z)|}\) with \(a < \pi\));
+    \item On the line \(\Re(z) = 0\), we have the bound
+    \[
+    \|T_z f\|_{L^{q_0}} \leq M_0(t) \|f\|_{L^{p_0}}, \qquad z = it,
+    \]
+    where \(M_0(t)\) grows subexponentially;
+    \item On the line \(\Re(z) = 1\), we have
+    \[
+    \|T_z f\|_{L^{q_1}} \leq M_1(t) \|f\|_{L^{p_1}}, \qquad z = 1 + it,
+    \]
+    where \(M_1(t)\) grows subexponentially.
+\end{enumerate}
+Then for any \(\theta \in (0,1)\), with \(z = \theta\), the operator \(T_\theta\) is bounded from \(L^{p_\theta}\) to \(L^{q_\theta}\), where
+\[
+\frac{1}{p_\theta} = \frac{1-\theta}{p_0} + \frac{\theta}{p_1}, \qquad
+\frac{1}{q_\theta} = \frac{1-\theta}{q_0} + \frac{\theta}{q_1},
+\]
+and we have the estimate
+\[
+\|T_\theta f\|_{L^{q_\theta}} \leq C_\theta \|f\|_{L^{p_\theta}}.
+\]
+This estimate is uniform for \(\theta\) in compact subsets of \((0,1)\).
+\end{theorem}
+
+The power of this theorem lies in its ability to handle operators that are not uniformly bounded on a fixed space but are bounded on varying spaces depending on a complex parameter. The proof uses the three-lines theorem (Hadamard's Phragm\'en--Lindel\"of principle) together with a clever duality argument.
+
+Stein used this theorem to prove the boundedness of the Bochner--Riesz means, to study restriction phenomena for the Fourier transform, and to analyze the \(L^p\) boundedness of a wide variety of oscillatory integral operators. The theorem has since become a standard tool in harmonic analysis, partial differential equations, and analytic number theory.
+
+A closely related result is the \textbf{Stein--Weiss interpolation theorem}, which extends the complex method to handle weighted spaces with weights that vary analytically.
+
+\section{Harmonic Analysis: \(H^p\) Spaces and Real-Variable Methods}
+
+Stein, together with his collaborators, developed the real-variable theory of Hardy spaces \(H^p\) on \(\R^n\). The classical Hardy spaces on the unit disk had been studied via complex analysis, but Stein showed that they could be understood through the real-variable properties of maximal functions and singular integrals.
+
+\begin{definition}
+The \textbf{Hardy space} \(H^p(\R^n)\) for \(0 < p < \infty\) is the space of distributions \(f\) such that the maximal function
+\[
+f^*(x) = \sup_{t>0} |\phi_t * f(x)|
+\]
+belongs to \(L^p(\R^n)\), where \(\phi\) is a fixed Schwartz function with \(\int \phi = 1\).
+\end{definition}
+
+Stein's work, jointly with Fefferman, established that the \(H^p\) spaces admit a rich structure: they have atomic decompositions, their duals are spaces of functions of bounded mean oscillation (BMO), and singular integrals are bounded on \(H^p\) for \(p > 0\). The Fefferman--Stein theorem on the duality of \(H^1\) and BMO is one of the cornerstones of modern harmonic analysis.
+
+\begin{theorem}[Fefferman--Stein, 1972]
+The dual space of \(H^1(\R^n)\) is isomorphic to \(\BMO(\R^n)\), the space of functions of bounded mean oscillation. More precisely, every bounded linear functional on \(H^1\) can be represented by a BMO function, and conversely every BMO function defines a bounded linear functional on \(H^1\).
+\end{theorem}
+
+Here BMO is defined by the condition
+\[
+\|f\|_{\BMO} = \sup_{Q} \frac{1}{|Q|} \int_Q |f(x) - f_Q|\,dx < \infty,
+\]
+where the supremum is taken over all cubes \(Q \subset \R^n\) and \(f_Q\) is the average of \(f\) over \(Q\).
+
+The atomic decomposition of \(H^p\) spaces provided a powerful computational tool: every element of \(H^p\) can be written as a sum of ``atoms'' --- simple functions with vanishing moments and controlled support --- and the norm is equivalent to the minimal atomic representation.
+
+\section{Several Complex Variables: The \(\overline{\partial}\) Problem and the Bergman Kernel}
+
+In the 1980s, Stein turned his attention to several complex variables, where he made fundamental contributions to the \(L^p\) theory of the Cauchy--Riemann equations and the analysis of the Bergman kernel.
+
+\subsection{The \(\overline{\partial}\) Problem}
+
+The \(\overline{\partial}\) problem is the fundamental system of partial differential equations in several complex variables. For a function \(u\) on a domain \(\Omega \subset \C^n\),
+\[
+\overline{\partial} u = \sum_{j=1}^n \frac{\partial u}{\partial \overline{z}_j} d\overline{z}_j.
+\]
+Solving \(\overline{\partial} u = f\) for a given \((0,1)\)-form \(f\) is central to the theory of holomorphic functions, the Levi problem, and the construction of holomorphic functions with prescribed zeros.
+
+\begin{theorem}[Stein's \(L^p\) Estimates for \(\overline{\partial}\), 1974]
+Let \(\Omega \subset \C^n\) be a smoothly bounded strictly pseudoconvex domain. Then for any \(f \in L^p_{(0,1)}(\Omega)\) with \(\overline{\partial} f = 0\) in the sense of distributions, there exists a solution \(u \in L^p(\Omega)\) to \(\overline{\partial} u = f\) satisfying
+\[
+\|u\|_{L^p} \leq C_p \|f\|_{L^p}, \qquad 1 < p < \infty.
+\]
+Stein obtained this estimate for all \(p\) in the range simultaneously using his interpolation method.
+\end{theorem}
+
+Stein's proof used the theory of singular integrals on the boundary of \(\Omega\), constructing an explicit integral operator (the Henkin--Ramirez kernel) that inverts \(\overline{\partial}\). The boundedness of this operator on \(L^p\) followed from Calder\'on--Zygmund theory applied to the Heisenberg group, the natural nilpotent Lie group that models the boundary of a strictly pseudoconvex domain. This work revealed deep connections between several complex variables and harmonic analysis on nilpotent Lie groups.
+
+\subsection{The Bergman Kernel}
+
+The Bergman kernel \(B(z,w)\) of a domain \(\Omega \subset \C^n\) is the reproducing kernel for the space of holomorphic functions square-integrable with respect to Lebesgue measure. For the unit ball \(B_n \subset \C^n\) and for the polydisk, explicit formulas exist. For general strictly pseudoconvex domains, Stein and his collaborators established the asymptotic expansion of the Bergman kernel near the boundary.
+
+\begin{theorem}[Fefferman--Stein Asymptotic Expansion, 1974]
+Let \(\Omega \subset \C^n\) be a smoothly bounded strictly pseudoconvex domain with defining function \(\rho\) (so \(\Omega = \{\rho < 0\}\) and \(\nabla\rho \neq 0\) on \(\partial\Omega\)). The Bergman kernel \(B(z,w)\) has the asymptotic expansion, as \(z,w \to \partial\Omega\),
+\[
+B(z,\bar{z}) \sim \frac{c_n}{(-\rho(z))^{n+1}} + \frac{c_{n+1}}{(-\rho(z))^{n}} \log(-\rho(z)) + O\big((-\rho(z))^{-n+1}\big).
+\]
+More generally, for any points \(z,w \in \Omega\) near the boundary,
+\[
+B(z,w) = \frac{F(z,w)}{(\rho(z) + \rho(w) + \Phi(z,w))^{n+1}} + G(z,w) \log(\rho(z) + \rho(w) + \Phi(z,w)),
+\]
+where \(\Phi(z,w)\) is the Levi polynomial, and \(F,G\) are smooth functions.
+\end{theorem}
+
+This asymptotic formula is the foundation for understanding the analysis of the Bergman kernel on domains of finite type and has found applications in complex geometry, the theory of Toeplitz operators, and the study of the \(\overline{\partial}\)-Neumann problem.
+
+\section{Representation Theory of Semisimple Lie Groups}
+
+Stein's work on the representation theory of semisimple Lie groups, mostly carried out in the 1970s, transformed the subject by introducing powerful analytic methods. He studied the Plancherel formula, the theory of intertwining operators, and the construction of complementary series representations.
+
+\subsection{The Plancherel Formula}
+
+The Plancherel formula for a semisimple Lie group \(G\) expresses the decomposition of the regular representation on \(L^2(G)\) into irreducible unitary representations. Harish-Chandra had laid the foundations, and Stein, together with his students and collaborators, contributed key analytic aspects.
+
+For a connected semisimple Lie group \(G\) with finite center, the Plancherel formula takes the form
+\[
+f(e) = \int_{\widehat{G}} \Theta_\pi(f)\, d\mu(\pi), \qquad f \in C_c^\infty(G),
+\]
+where \(\widehat{G}\) is the unitary dual, \(\Theta_\pi\) is the character of the representation \(\pi\), and \(\mu\) is the Plancherel measure. Stein's work clarified the analytic properties of the characters and the support properties of the Plancherel measure.
+
+\subsection{Intertwining Operators and the Stein--Sahi Theorem}
+
+Intertwining operators are the fundamental building blocks of the representation theory of semisimple Lie groups. They realize the isomorphism between different models of a representation and are essential for the construction of complementary series representations.
+
+Let \(G\) be a semisimple Lie group with a parabolic subgroup \(P = MAN\). A representation of \(G\) induced from a representation of \(M\) and a character of \(A\) is denoted \(\pi_{\lambda}\), where \(\lambda \in \mathfrak{a}^*\) is a linear functional on the Lie algebra of \(A\). The intertwining operator
+\[
+A(\lambda): \pi_{\lambda} \longrightarrow \pi_{s\lambda},
+\]
+where \(s\) is an element of the Weyl group, is defined by the integral
+\[
+A(\lambda)f(x) = \int_{\overline{N}} f(x\overline{n})\,d\overline{n},
+\]
+where \(\overline{N}\) is the unipotent radical of the opposite parabolic.
+
+\begin{theorem}[Stein--Sahi Theorem, 1990]
+For a semisimple Lie group \(G\), the intertwining operators \(A(\lambda)\) are holomorphic in \(\lambda\) in a tube over the positive Weyl chamber, and they admit a meromorphic continuation to the entire complexified Lie algebra \(\mathfrak{a}^*_\C\). The poles of the normalized intertwining operators occur at the zeros of the Plancherel density function, and the residues can be expressed in terms of the composition of intertwining operators for lower-rank subgroups.
+\end{theorem}
+
+This theorem, proved jointly by Stein and Sahi, resolved long-standing questions about the analytic continuation of intertwining operators and provided a rigorous foundation for the construction of complementary series representations. The result is essential for the classification of the unitary dual of semisimple Lie groups.
+
+\subsection{The Kunze--Stein Phenomenon}
+
+One of Stein's most striking discoveries, jointly with Ray Kunze, is the so-called Kunze--Stein phenomenon for semisimple Lie groups. For the group \(\SL(2,\R)\), they proved that the convolution of \(L^p\) functions on the group behaves as if the group were compact.
+
+\begin{theorem}[Kunze--Stein, 1960]
+Let \(G = \SL(2,\R)\) and let \(1 \leq p < 2\). Then for any \(f \in L^p(G)\) and any \(g \in L^2(G)\), the convolution \(f * g \in L^2(G)\) and
+\[
+\|f * g\|_{L^2} \leq C_p \|f\|_{L^p} \|g\|_{L^2}.
+\]
+More generally, for \(1 \leq p < 2\), the left regular representation of \(G\) on \(L^p(G)\) is not unitary but still admits an interesting decomposition into irreducible representations known as the complementary series.
+\end{theorem}
+
+This result was surprising because for abelian groups, such a convolution inequality would imply that \(L^p\) is contained in the Fourier algebra, which is false. The Kunze--Stein phenomenon is intimately connected to the existence of complementary series representations of \(\SL(2,\R)\) and was later generalized to all semisimple Lie groups.
+
+\section{The Theory of the Heisenberg Group and Nilpotent Lie Groups}
+
+Stein recognized early that nilpotent Lie groups, particularly the Heisenberg group, provide the natural setting for many problems in harmonic analysis. The Heisenberg group \(\mathbb{H}^n\) is the simplest non-abelian nilpotent Lie group. Its underlying manifold is \(\R^{2n+1}\) with coordinates \((x,y,t)\) and group law
+\[
+(x,y,t)\cdot(x',y',t') = \left(x+x', y+y', t+t' + \frac12\sum_{j=1}^n (x_j y_j' - y_j x_j')\right).
+\]
+
+The Heisenberg group arises naturally as the boundary of the unit ball in \(\C^n\) and plays a central role in Stein's work on several complex variables. Stein, jointly with Folland, developed the theory of sub-Laplacians on the Heisenberg group and established the fundamental estimates for the \(\overline{\partial}_b\) complex.
+
+\begin{theorem}[Folland--Stein, 1974]
+On the Heisenberg group \(\mathbb{H}^n\), the sub-Laplacian
+\[
+\mathcal{L} = -\sum_{j=1}^n (X_j^2 + Y_j^2),
+\]
+where \(X_j = \partial_{x_j} + \frac12 y_j \partial_t\) and \(Y_j = \partial_{y_j} - \frac12 x_j \partial_t\), is hypoelliptic and admits a fundamental solution with precisely the same homogeneity properties as the ordinary Laplacian on \(\R^{2n}\). Moreover, the Hardy--Littlewood--Sobolev inequality on the Heisenberg group holds with the homogeneous dimension \(Q = 2n+2\).
+\end{theorem}
+
+The Folland--Stein book on the Heisenberg group and the \(\overline{\partial}_b\) complex remains the definitive treatment of this subject.
+
+\section{Stein's School: Mentoring a Generation of Analysts}
+
+Perhaps Stein's most enduring legacy is the school of analysis he built at Princeton. Over four decades, he supervised more than forty PhD students, and his intellectual descendants now occupy leading positions throughout mathematics.
+
+Stein's doctoral students include:
+\begin{itemize}
+    \item \textbf{Charles Fefferman} (PhD 1969): Fields Medalist (1978) for his work on the Bergman kernel, partial differential equations, and several complex variables.
+    \item \textbf{Jean Bourgain} (PhD 1977, Institut de France; Stein was not his formal PhD advisor but Bourgain was deeply influenced by Stein's work and collaborated extensively with the Princeton school): Fields Medalist (1994) for his work in analysis, geometry, and number theory.
+    \item \textbf{Terence Tao} (PhD 1996): Fields Medalist (2006) for his contributions to partial differential equations, harmonic analysis, and additive combinatorics.
+    \item \textbf{Robert Fefferman} (PhD 1969): Distinguished analyst, known for work on multiparameter harmonic analysis and function spaces.
+    \item \textbf{David Jerison} (PhD 1980): Known for work on partial differential equations and spectral geometry.
+    \item \textbf{Steven Krantz} (PhD 1974): Known for work in several complex variables and harmonic analysis.
+    \item \textbf{Halil Mete Soner} (PhD 1986): Known for work in partial differential equations and financial mathematics.
+    \item \textbf{Christopher Sogge} (PhD 1986): Known for work on Fourier integral operators and spectral geometry.
+\end{itemize}
+
+Every one of Stein's students inherited his insistence on clarity, his passion for connecting different fields, and his belief that the deepest problems in analysis require both technical virtuosity and conceptual insight. The ``Princeton school'' of analysis is not a formal institution but a way of doing mathematics --- one that Stein defined through his own work and through generations of his students.
+
+\section{Stein's Books}
+
+Stein's expository works are legendary for their clarity, depth, and authority. Each book transformed the way a generation of mathematicians understood a field.
+
+\textbf{Singular Integrals and Differentiability Properties of Functions} (1970) remains the classic introduction to the Calder\'on--Zygmund theory. It covers singular integrals, the Hardy--Littlewood maximal function, Sobolev spaces, and the theory of Riesz potentials. The book's elegant organization and precise arguments make it accessible to graduate students while maintaining the highest standards of rigor.
+
+\textbf{Introduction to Fourier Analysis on Euclidean Spaces} (1971, co-authored with Guido Weiss) is a beautifully written introduction to the Fourier transform, distributions, and the basic techniques of harmonic analysis. It covers the Poisson summation formula, the sampling theorem, and the theory of spherical harmonics, culminating in the solution of the Dirichlet problem for the ball.
+
+\textbf{Topics in Harmonic Analysis Related to the Littlewood--Paley Theory} (1970) develops the theory of square functions, \(g\)-functions, and the Littlewood--Paley decomposition. This book is the definitive treatment of the subject and remains widely cited.
+
+\textbf{Harmonic Analysis: Real-Variable Methods, Orthogonality, and Oscillatory Integrals} (1993) is Stein's magisterial synthesis of modern harmonic analysis. The book covers the Calder\'on--Zygmund theory, \(H^p\) spaces, BMO, the T1 theorem, the theory of oscillatory integrals, the Fourier transform on curved surfaces, and the method of stationary phase. Every analyst working today has studied this book.
+
+\textbf{Singular Integrals and the Heisenberg Group} (1990, co-authored with G.\ B.\ Folland) develops the analysis of the Heisenberg group and its application to the \(\overline{\partial}_b\) complex on strictly pseudoconvex CR manifolds.
+
+In addition to these works, Stein co-authored numerous research articles and several influential survey papers. His writing style is characterized by complete clarity, careful attention to the logical structure of arguments, and a gift for presenting complex technical material in a way that reveals the underlying ideas. His books have been translated into multiple languages and are used as standard references worldwide.
+
+\section{Impact and Legacy}
+
+\subsection{Harmonic Analysis and Singular Integrals}
+
+Stein's extension of the Calder\'on--Zygmund theory created the modern framework for the subject. The concepts he developed --- the maximal function, the square function, the sharp function, the atomic decomposition of \(H^p\) spaces, the duality of \(H^1\) and BMO --- are now part of the basic vocabulary of analysis. His work on weighted norm inequalities, particularly the theory of \(A_p\) weights, has found applications in partial differential equations, potential theory, and ergodic theory.
+
+\subsection{Interpolation Theory}
+
+The Stein interpolation theorem and the Stein--Weiss theorem are essential tools throughout analysis. They are used to study the boundedness of operators that depend analytically on a parameter, including fractional integrals, Riesz potentials, and the complex powers of elliptic operators. The method has been extended to the interpolation of Banach spaces in the work of Calder\'on and of Krein.
+
+\subsection{Several Complex Variables}
+
+Stein's introduction of harmonic analysis methods into several complex variables transformed the subject. His \(L^p\) estimates for the \(\overline{\partial}\) problem, his work on the Bergman kernel, and his analysis of the Heisenberg group opened new avenues of research that continue to be actively pursued. The Fefferman--Stein asymptotic expansion of the Bergman kernel is a fundamental result in complex analysis and geometry.
+
+\subsection{Representation Theory}
+
+Stein's work on the Kunze--Stein phenomenon, intertwining operators, and the Plancherel formula brought the power of analytic methods to the representation theory of semisimple Lie groups. The Stein--Sahi theorem on the meromorphic continuation of intertwining operators is a cornerstone of the classification of the unitary dual.
+
+\subsection{Education and Mentoring}
+
+The Princeton school of analysis, established and led by Stein for four decades, is perhaps his most profound legacy. The three Fields Medalists among his students --- Fefferman, Bourgain, and Tao --- are a testament to his ability to identify and nurture exceptional talent. But Stein also trained dozens of mathematicians who became leaders in their own right, ensuring that his approach to analysis --- deep, rigorous, and problem-driven --- will continue to shape the field for generations.
+
+\subsection{Continuing Influence}
+
+Stein's work continues to generate new research across mathematics. The real-variable theory of Hardy spaces has been extended to spaces of homogeneous type, to multiparameter settings, and to non-commutative \(L^p\) spaces. The Stein interpolation theorem is used in modern work on the restriction conjecture, the Kakeya conjecture, and the Bochner--Riesz conjecture. The analysis of the Heisenberg group and its generalizations to CR manifolds remains an active field, with connections to geometric measure theory and sub-Riemannian geometry.
+
+\section{Frequently Asked Questions}
+
+\subsection*{Q1: What is the Stein interpolation theorem used for?}
+
+The Stein interpolation theorem is used to prove the \(L^p\) boundedness of operators that depend analytically on a parameter. A typical application: suppose for a family of operators \(T_z\) you can prove \(T_z: L^{p_0} \to L^{q_0}\) when \(\Re(z)=0\) and \(T_z: L^{p_1} \to L^{q_1}\) when \(\Re(z)=1\). Then for any intermediate \(z = \theta\), the operator \(T_\theta\) is bounded from \(L^{p_\theta}\) to \(L^{q_\theta}\). This is much more powerful than classical interpolation because the operator itself changes with the parameter. Examples include the boundedness of Bochner--Riesz means, fractional integrals, and oscillatory singular integrals.
+
+\subsection*{Q2: What is the Stein maximal principle?}
+
+The Stein maximal principle states that if the maximal operator \(T^*f(x) = \sup_t |T_t f(x)|\) is bounded from \(L^p\) to weak \(L^p\), then for every \(f \in L^p\), the limit \(\lim_{t\to 0} T_t f(x)\) exists almost everywhere. Conversely, almost-everywhere convergence for a dense class of functions implies the maximal inequality. This theorem reduces the problem of almost-everywhere convergence to the study of a single maximal operator, which can be analyzed by real-variable methods.
+
+\subsection*{Q3: What is the distinction between classical and real-variable \(H^p\) theory?}
+
+Classical \(H^p\) theory, developed by Hardy, Littlewood, and Riesz, studied holomorphic functions on the unit disk whose boundary values satisfy certain growth conditions. The real-variable theory, developed by Stein and Fefferman, showed that \(H^p\) spaces on \(\R^n\) can be defined entirely in terms of maximal functions and singular integrals, without any reference to complex analysis. This allows the theory to be applied in higher dimensions, on Lie groups, and on spaces of homogeneous type.
+
+\subsection*{Q4: How did Stein's work connect several complex variables and harmonic analysis?}
+
+Stein recognized that the boundary of a strictly pseudoconvex domain in \(\C^n\) carries a natural nilpotent Lie group structure --- the Heisenberg group. The \(\overline{\partial}\) problem on such a domain reduces, via the Henkin--Ramirez integral formulas, to a singular integral operator on the boundary. The singular integral can be understood as a convolution operator on the Heisenberg group, and its \(L^p\) boundedness follows from Calder\'on--Zygmund theory adapted to this non-abelian setting.
+
+\subsection*{Q5: What is the significance of the Stein--Sahi theorem?}
+
+The Stein--Sahi theorem proves the meromorphic continuation of the intertwining operators that appear in the representation theory of semisimple Lie groups. These operators are essential for constructing all irreducible unitary representations, particularly the complementary series. The theorem provided a rigorous foundation for the classification of the unitary dual and resolved questions that had been open since Harish-Chandra's foundational work.
+
+\subsection*{Q6: How did Stein's approach to analysis differ from his contemporaries?}
+
+Stein's approach was characterized by an extraordinary combination of technical power and conceptual unity. He saw harmonic analysis not as a collection of isolated techniques but as a coherent subject in which the same ideas --- maximal functions, square functions, singular integrals, and interpolation --- appear across diverse settings: Euclidean spaces, Lie groups, and complex manifolds. This synthetic vision allowed him to solve problems that had resisted all previous methods and to build a unified framework that others could follow.
+
+\subsection*{Q7: Who were Stein's most famous students?}
+
+Stein supervised over forty PhD students at Princeton. The most famous are Charles Fefferman (Fields Medal 1978), Jean Bourgain (Fields Medal 1994, though not formally Stein's student), and Terence Tao (Fields Medal 2006). Other distinguished students include Robert Fefferman, David Jerison, Steven Krantz, Christopher Sogge, and many others who have become leaders in analysis and partial differential equations.
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item E.\ M.\ Stein, \textit{On the theory of singular integrals}, PhD Dissertation, University of Chicago, 1955.
+    \item E.\ M.\ Stein, \textit{On the functions of Littlewood--Paley, Lusin, and Marcinkiewicz}, Trans.\ Amer.\ Math.\ Soc.\ 88 (1958), 430--466. (Square function theory.)
+    \item E.\ M.\ Stein, \textit{The maximal principle in harmonic analysis}, Proc.\ Nat.\ Acad.\ Sci.\ U.S.A.\ 47 (1961), 1303--1306. (Stein's maximal principle.)
+    \item E.\ M.\ Stein, \textit{Interpolation of linear operators}, Trans.\ Amer.\ Math.\ Soc.\ 83 (1956), 482--492. (Stein interpolation theorem.)
+    \item R.\ Kunze and E.\ M.\ Stein, \textit{Uniformly bounded representations and harmonic analysis of the \(2 \times 2\) real unimodular group}, Amer.\ J.\ Math.\ 82 (1960), 1--62. (Kunze--Stein phenomenon.)
+    \item C.\ Fefferman and E.\ M.\ Stein, \textit{\(H^p\) spaces of several variables}, Acta Math.\ 129 (1972), 137--193. (Fefferman--Stein duality theorem.)
+    \item G.\ B.\ Folland and E.\ M.\ Stein, \textit{Estimates for the \(\overline{\partial}_b\) complex and analysis on the Heisenberg group}, Comm.\ Pure Appl.\ Math.\ 27 (1974), 429--522.
+    \item E.\ M.\ Stein, \textit{Boundary behavior of holomorphic functions of several complex variables}, Princeton University Press, 1972.
+    \item E.\ M.\ Stein, \textit{Singular Integrals and Differentiability Properties of Functions}, Princeton University Press, 1970.
+    \item E.\ M.\ Stein, \textit{Harmonic Analysis: Real-Variable Methods, Orthogonality, and Oscillatory Integrals}, Princeton University Press, 1993.
+    \item E.\ M.\ Stein and G.\ B.\ Folland, \textit{Singular Integrals and the Heisenberg Group}, Princeton University Press, 1990.
+    \item E.\ M.\ Stein and G.\ Weiss, \textit{Introduction to Fourier Analysis on Euclidean Spaces}, Princeton University Press, 1971.
+    \item E.\ M.\ Stein and S.\ Sahi, \textit{On the continuation of intertwining operators}, in ``Analysis on Homogeneous Spaces,'' Birkh\"auser, 1990.
+\end{enumerate}
+
+\subsection*{Biographies and Surveys}
+\begin{enumerate}
+    \item C.\ Fefferman, \textit{Elias M.\ Stein: A biographical memoir}, Biographical Memoirs of the National Academy of Sciences, 2020.
+    \item T.\ Tao, \textit{The influence of Elias M.\ Stein on modern analysis}, Notices AMS 67 (2020), 160--164.
+    \item J.\ Bourgain, \textit{The work of Elias M.\ Stein}, in ``Wolf Prize in Mathematics,'' Vol.\ 3, World Scientific, 2001.
+    \item Various authors, \textit{Elias M.\ Stein: Selected Papers}, with commentaries by Fefferman, Tao, and others, AMS, 2016.
+    \item R.\ R.\ Coifman and Y.\ Meyer, \textit{The work of Elias M.\ Stein on singular integrals}, in ``Essays on Fourier Analysis in Honor of Elias M.\ Stein,'' Princeton University Press, 1995.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item L.\ Grafakos, \textit{Classical Fourier Analysis}, 3rd ed., Springer, 2014.
+    \item L.\ Grafakos, \textit{Modern Fourier Analysis}, 3rd ed., Springer, 2014.
+    \item J.\ Duoandikoetxea, \textit{Fourier Analysis}, AMS, 2001.
+    \item C.\ Fefferman, \textit{The Bergman kernel and biholomorphic mappings of pseudoconvex domains}, Bull.\ Amer.\ Math.\ Soc.\ 80 (1974), 667--669.
+    \item S.\ G.\ Krantz, \textit{Function Theory of Several Complex Variables}, 2nd ed., AMS, 2001.
+    \item A.\ W.\ Knapp, \textit{Representation Theory of Semisimple Groups: An Overview Based on Examples}, Princeton University Press, 1986.
+    \item G.\ B.\ Folland, \textit{Real Analysis: Modern Techniques and Their Applications}, 2nd ed., Wiley, 1999.
+    \item M.\ Christ, \textit{Lectures on Singular Integral Operators}, CBMS Regional Conference Series, 1990.
+\end{enumerate}
+
+\section{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1931 & Born on January 13 in Antwerp, Belgium \\ \hline
+1940 & Family flees Belgium for the United States during World War II \\ \hline
+1948 & Graduates from Stuyvesant High School, New York City \\ \hline
+1953 & B.S.\ in Mathematics, University of Chicago \\ \hline
+1955 & Ph.D.\ in Mathematics, University of Chicago (advisor: Antoni Zygmund) \\ \hline
+1955 & NSF Postdoctoral Fellow, Institute for Advanced Study and University of Chicago \\ \hline
+1958 & Joins faculty at the Massachusetts Institute of Technology \\ \hline
+1960 & Moves to Princeton University as Associate Professor \\ \hline
+1961 & Publishes the Stein maximal principle \\ \hline
+1964 & Appointed Henry Burchard Fine Professor of Mathematics at Princeton \\ \hline
+1960s & Develops extension of Calder\'on--Zygmund theory; work on \(H^p\) spaces with Fefferman \\ \hline
+1970 & \textit{Singular Integrals and Differentiability Properties of Functions} published \\ \hline
+1971 & \textit{Introduction to Fourier Analysis on Euclidean Spaces} (with Weiss) published \\ \hline
+1972 & Fefferman--Stein duality theorem \(H^1\)-BMO published \\ \hline
+1974 & Folland--Stein work on the Heisenberg group and \(\overline{\partial}_b\) complex \\ \hline
+1970s & Work on representation theory of semisimple Lie groups; Kunze--Stein phenomenon \\ \hline
+1980s & Work on several complex variables: \(L^p\) estimates for \(\overline{\partial}\), Bergman kernel \\ \hline
+1990 & Stein--Sahi theorem on intertwining operators \\ \hline
+1993 & \textit{Harmonic Analysis: Real-Variable Methods, Orthogonality, and Oscillatory Integrals} published \\ \hline
+1999 & Awarded the Wolf Prize in Mathematics (shared with L.\ Lov\'asz) \\ \hline
+1999 & Retires from Princeton University \\ \hline
+2018 & Dies on December 23 in Princeton, New Jersey, USA \\ \hline
+\end{tabular}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Prove the Hardy--Littlewood maximal inequality for \(n = 1\) using the Vitali covering lemma.
+    \item Show that the Hilbert transform
+    \[
+    Hf(x) = \PV \int_{-\infty}^\infty \frac{f(y)}{x-y}\,dy
+    \]
+    is bounded on \(L^p(\R)\) for \(1 < p < \infty\) using the Calder\'on--Zygmund decomposition.
+    \item Prove that the Riesz transforms \(R_j f(x) = c_n \PV \int \frac{x_j - y_j}{|x-y|^{n+1}} f(y)\,dy\) satisfy \(R_j: L^p(\R^n) \to L^p(\R^n)\) for \(1 < p < \infty\).
+    \item Let \(T_z\) be a family of operators satisfying the conditions of the Stein interpolation theorem. Show that for \(f\) and \(g\) simple functions, the function \(\varphi(z) = \int (T_z f) g\) is analytic in the strip \(0 < \Re(z) < 1\).
+    \item Prove that the maximal function \(Mf\) is not bounded on \(L^1(\R^n)\) (i.e., there exists \(f \in L^1\) such that \(Mf \notin L^1\)).
+    \item Let \(f \in L^1_{\text{loc}}(\R^n)\). Show that the set \(\{x : Mf(x) > \alpha\}\) is open.
+    \item For a strictly pseudoconvex domain \(\Omega \subset \C^n\), show that the Szeg\"o projection (the orthogonal projection of \(L^2(\partial\Omega)\) onto the Hardy space) is a singular integral operator on the Heisenberg group.
+    \item Let \(\mathbb{H}^1\) be the three-dimensional Heisenberg group. Compute the fundamental solution of the sub-Laplacian \(\mathcal{L} = -(X^2 + Y^2)\) and verify that it is homogeneous of degree \(-2\) with respect to the natural dilations.
+    \item Prove that the Bergman kernel of the unit disk \(B(z,w) = \frac{1}{\pi(1 - z\overline{w})^2}\) satisfies the reproducing property: \(f(z) = \int_{|w|<1} B(z,w) f(w)\,dw\) for all holomorphic \(f \in L^2\).
+    \item Let \(f \in H^1(\R^n)\). Show that \(\int f(x)\,dx = 0\).
+    \item For the group \(G = \SL(2,\R)\), show that the Kunze--Stein phenomenon implies that \(L^p(G) * L^2(G) \subset L^2(G)\) for \(1 \leq p < 2\).
+    \item Let \(\Omega = \{(z_1,z_2) \in \C^2 : |z_1|^2 + |z_2|^2 < 1\}\) be the unit ball. Compute the Bergman kernel and show that it has the asymptotic expansion \(B(z,\overline{z}) \sim \frac{2}{\pi^2 (1 - |z|^2)^3}\).
+    \item Prove the three-lines theorem: if \(\varphi\) is analytic and bounded on the strip \(0 \leq \Re(z) \leq 1\), and \(|\varphi(it)| \leq M_0\), \(|\varphi(1+it)| \leq M_1\), then \(|\varphi(\theta + it)| \leq M_0^{1-\theta} M_1^\theta\) for \(0 \leq \theta \leq 1\).
+    \item Show that the Fefferman--Stein duality theorem implies that every bounded linear functional on \(H^1(\R^n)\) is given by integration against a BMO function.
+    \item Let \(f \in L^p(\R^n)\) and define \(f_t(x) = t^{-n/p} f(x/t)\) for \(t > 0\). Show that the maximal operator \(Mf(x) = \sup_{t>0} |\phi * f_t(x)|\) is bounded from \(L^p\) to \(L^{p,\infty}\) for a suitable Schwartz function \(\phi\).
+    \item Compute the intertwining operator for \(\SL(2,\R)\) induced from the minimal parabolic subgroup, and show that its analytic continuation gives rise to the complementary series representations.
+    \item Let \(\Omega \subset \C^n\) be a smoothly bounded strictly pseudoconvex domain. Prove that the Szeg\"o projection maps \(L^p(\partial\Omega)\) boundedly onto itself for \(1 < p < \infty\).
+    \item Prove that the atomic decomposition of \(H^1(\R^n)\) is equivalent to the maximal function characterization: \(\|f\|_{H^1} \sim \|f^*\|_{L^1}\) where \(f^*(x) = \sup_{t>0} |\phi_t * f(x)|\).
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Atomic decomposition] A representation of an element of \(H^p\) as a sum of atoms, where each atom satisfies size, support, and cancellation conditions.
+    \item[Bergman kernel] The reproducing kernel for the space of square-integrable holomorphic functions on a domain in \(\C^n\).
+    \item[BMO] Functions of bounded mean oscillation: \(f\) such that \(\sup_Q \frac1{|Q|} \int_Q |f - f_Q| < \infty\).
+    \item[Bochner--Riesz means] The operators \(S_R^\delta f(x) = \int_{|\xi| < R} (1 - |\xi|^2/R^2)^\delta \widehat{f}(\xi) e^{2\pi i x\cdot\xi}\,d\xi\) for the spherical partial sums of Fourier integrals.
+    \item[Complementary series] A family of irreducible unitary representations of semisimple Lie groups that are not tempered and are obtained by analytic continuation from the principal series.
+    \item[Calder\'on--Zygmund decomposition] A decomposition of an \(L^1\) function into a bounded part and a sum of oscillatory parts supported on cubes.
+    \item[Calder\'on--Zygmund kernel] A kernel \(K\) on \(\R^n\) satisfying \(|K(x)| \leq C|x|^{-n}\) and \(|\nabla K(x)| \leq C|x|^{-n-1}\).
+    \item[Hardy space \(H^p\)] The space of distributions whose maximal function lies in \(L^p\).
+    \item[Heisenberg group] The nilpotent Lie group \(\mathbb{H}^n\) with underlying space \(\R^{2n+1}\) and the non-commutative group law encoding the symplectic structure.
+    \item[Hilbert transform] The singular integral operator \(Hf(x) = \frac1\pi \PV \int f(y)/(x-y)\,dy\), the prototypical Calder\'on--Zygmund operator.
+    \item[Intertwining operator] An operator that commutes with a group action and maps one induced representation to another.
+    \item[Kunze--Stein phenomenon] The property of semisimple Lie groups that \(L^p * L^2 \subset L^2\) for \(1 \leq p < 2\).
+    \item[Maximal function] The operator \(Mf(x) = \sup_{r>0} \frac1{|B(x,r)|} \int_{B(x,r)} |f|\).
+    \item[Plancherel formula] The decomposition of the regular representation of a group into irreducible components, generalizing the Fourier inversion formula.
+    \item[Pseudoconvex domain] A domain in \(\C^n\) that admits a plurisubharmonic exhaustion function; the natural setting for the \(\overline{\partial}\) problem.
+    \item[Singular integral] An integral operator with a kernel that is singular on the diagonal but integrable in a principal-value sense.
+    \item[Square function] The function \(g(f)(x) = (\int_0^\infty |\theta_t * f(x)|^2\,dt/t)^{1/2}\), measuring the size of the oscillations of \(f\).
+    \item[Stein interpolation theorem] The complex interpolation theorem for analytic families of operators, generalizing the Riesz--Thorin theorem.
+    \item[Stein maximal principle] The equivalence between the boundedness of a maximal operator and the almost-everywhere convergence of the corresponding family.
+    \item[Sub-Laplacian] A second-order differential operator on the Heisenberg group formed from sums of squares of vector fields satisfying H\"ormander's condition.
+    \item[Szeg\"o projection] The orthogonal projection of \(L^2(\partial\Omega)\) onto the Hardy space of boundary values of holomorphic functions.
+    \item[Three-lines theorem] The Hadamard three-lines theorem: the maximum of an analytic function on a strip is log-convex in the real part.
+    \item[\(A_p\) weight] A weight function \(w\) such that \(\sup_Q (\frac1{|Q|}\int_Q w)(\frac1{|Q|}\int_Q w^{-1/(p-1)})^{p-1} < \infty\); the condition for weighted \(L^p\) boundedness of singular integrals.
+    \item[\(\overline{\partial}\) problem] The system of Cauchy--Riemann equations in several variables; solving \(\overline{\partial} u = f\) is the fundamental existence problem in complex analysis.
+    \item[\(\overline{\partial}_b\) complex] The tangential Cauchy--Riemann complex on the boundary of a domain in \(\C^n\); its study involves the Heisenberg group.
+\end{description}

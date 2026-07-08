@@ -1,0 +1,594 @@
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\SO\relax
+\newcommand{\SO}{\operatorname{SO}}
+\let\SL\relax
+\newcommand{\SL}{\operatorname{SL}}
+\let\GL\relax
+\newcommand{\GL}{\operatorname{GL}}
+\let\St\relax
+\newcommand{\St}{\operatorname{St}}
+\let\GV\relax
+\newcommand{\GV}{\operatorname{GV}}
+\let\E\relax
+\newcommand{\E}{\operatorname{E}}
+\let\vol\relax
+\newcommand{\vol}{\operatorname{vol}}
+\let\diam\relax
+\newcommand{\diam}{\operatorname{diam}}
+\let\inj\relax
+\newcommand{\inj}{\operatorname{inj}}
+\let\supp\relax
+\newcommand{\supp}{\operatorname{supp}}
+\let\dist\relax
+\newcommand{\dist}{\operatorname{dist}}
+\let\Aut\relax
+\newcommand{\Aut}{\operatorname{Aut}}
+\let\End\relax
+\newcommand{\End}{\operatorname{End}}
+\let\Hom\relax
+\newcommand{\Hom}{\operatorname{Hom}}
+\let\Ker\relax
+\newcommand{\Ker}{\operatorname{Ker}}
+\let\im\relax
+\newcommand{\im}{\operatorname{im}}
+\let\Symp\relax
+\newcommand{\Symp}{\operatorname{Symp}}
+\let\Ham\relax
+\newcommand{\Ham}{\operatorname{Ham}}
+\let\Crit\relax
+\newcommand{\Crit}{\operatorname{Crit}}
+\let\Mod\relax
+\newcommand{\Mod}{\operatorname{Mod}}
+\let\Hol\relax
+\newcommand{\Hol}{\operatorname{Hol}}
+\let\Area\relax
+\newcommand{\Area}{\operatorname{Area}}
+\let\Ric\relax
+\newcommand{\Ric}{\operatorname{Ric}}
+\let\Sec\relax
+\newcommand{\Sec}{\operatorname{Sec}}
+\let\Isom\relax
+\newcommand{\Isom}{\operatorname{Isom}}
+\let\Cay\relax
+\newcommand{\Cay}{\operatorname{Cay}}
+\let\codim\relax
+\newcommand{\codim}{\operatorname{codim}}
+\let\gr\relax
+\newcommand{\gr}{\operatorname{gr}}
+\let\id\relax
+\newcommand{\id}{\operatorname{id}}
+\let\const\relax
+\newcommand{\const}{\operatorname{const}}
+\let\FillRad\relax
+\newcommand{\FillRad}{\operatorname{FillRad}}
+\let\sys\relax
+\newcommand{\sys}{\operatorname{sys}}
+
+\chapter{Mikhail Gromov (1993)}
+
+\begin{quote}
+\it ``Gromov's work is characterized by extraordinary originality, breadth, and depth. He has transformed our understanding of geometry in its many forms --- symplectic, Riemannian, metric, and discrete. His ideas --- the h-principle, Gromov--Hausdorff convergence, Gromov--Witten invariants, hyperbolic groups, the non-squeezing theorem --- have opened entirely new fields and changed the way we think about geometry.'' --- Wolf Prize Citation
+\end{quote}
+
+Mikhail Leonidovich Gromov (born December 23, 1943) is one of the most influential and original mathematicians of the second half of the twentieth century. The 1993 Wolf Prize in Mathematics (shared with Jacques Tits) recognized his fundamental contributions to geometry, topology, and group theory. Gromov was awarded the Abel Prize in 2009 for his revolutionary contributions to geometry. His work is distinguished by an extraordinary combination of geometric intuition, analytic power, and a visionary ability to perceive deep connections between seemingly disparate fields.
+
+Gromov has created entire subfields of mathematics: the \(h\)-principle in differential topology, Gromov--Witten theory in symplectic geometry, Gromov--Hausdorff convergence in metric geometry, and the theory of hyperbolic groups in geometric group theory. His symplectic non-squeezing theorem revolutionized symplectic topology, and his theorem on groups of polynomial growth settled a major conjecture and established a fundamental link between geometry and group theory.
+
+\section{Early Life and Career}
+
+Mikhail Gromov was born on December 23, 1943, in Boksitogorsk, Russia, during the siege of Leningrad. His father, Leonid Gromov, was a mathematician, and his mother, Dina Rabinovich, was a physician. The family moved to Leningrad after the war, and young Gromov showed exceptional mathematical talent.
+
+Gromov entered Leningrad State University in 1961. He studied under the supervision of Vladimir Rokhlin, one of the leading topologists of his generation, who had been a student of Andrey Kolmogorov and had made fundamental contributions to topology and measure theory. Rokhlin's influence on Gromov was profound: from him, Gromov absorbed a deep appreciation for geometry and a taste for fundamental problems.
+
+Gromov completed his PhD at Leningrad State University in 1969, with a dissertation on the topology of manifolds. His early work already bore the hallmarks of his mature style: a combination of geometric intuition with bold, often visionary, ideas.
+
+In 1974, Gromov left the Soviet Union, emigrating to the West. He held positions at Stony Brook University (1974--1981), the University of Paris-Sud in Orsay (1981--1982), the Institut des Hautes \'Etudes Scientifiques (IH\'ES) in Bures-sur-Yvette (1982--2013), and New York University's Courant Institute (1992--2020). At IH\'ES, he succeeded Ren\'e Thom, another towering figure of French geometry.
+
+Gromov's work can be organized around several major themes: the \(h\)-principle and differential topology, symplectic geometry and pseudoholomorphic curves, Riemannian geometry and metric geometry, geometric group theory, and the geometry of partial differential relations. Each of these areas was transformed by his contributions.
+
+\section{The \(h\)-Principle}
+
+The \(h\)-principle (homotopy principle) is one of Gromov's most influential ideas. It addresses a fundamental question: when can a topological or algebraic condition be realized by a geometric solution?
+
+\subsection{Motivation}
+
+Consider the problem of finding an immersion of a circle into the plane. The Whitney--Graustein theorem states that two immersions of \(S^1\) into \(\R^2\) are regularly homotopic (homotopic through immersions) if and only if they have the same rotation number. The rotation number is the degree of the tangent map \(S^1 \to S^1\). Crucially, there exist immersions that are homotopic as continuous maps but not regularly homotopic --- for instance, the standard embedding and the figure-eight immersion. The obstruction is algebraic (the rotation number) and can be computed from the derivative data.
+
+The \(h\)-principle formalizes the situations where such algebraic obstructions are the \textit{only} obstructions. In its most general form, the \(h\)-principle states that for a wide class of geometric problems (called \textit{partial differential relations}), the space of formal solutions (solutions of the linearized problem, satisfying the appropriate algebraic/topological conditions) is homotopy equivalent to the space of actual solutions.
+
+\subsection{Partial Differential Relations}
+
+Let \(\pi: E \to M\) be a smooth fiber bundle over a manifold \(M\). Let \(J^k(\pi)\) be the bundle of \(k\)-jets of sections of \(\pi\). A \textbf{partial differential relation of order \(k\)} is a subset \(\mathcal{R} \subset J^k(\pi)\). A section \(f: M \to E\) satisfies \(\mathcal{R}\) if its \(k\)-jet \(j^k f\) takes values in \(\mathcal{R}\).
+
+\begin{definition}
+A section \(f: M \to E\) is a \textbf{formal solution} of \(\mathcal{R}\) if there exists a section \(\phi: M \to J^k(\pi)\) with \(\phi(M) \subset \mathcal{R}\) such that \(\phi\) is homotopic through sections of \(\mathcal{R}\) to a section of the form \(j^k f\) for some actual solution \(f\). The relation \(\mathcal{R}\) satisfies the \textbf{\(h\)-principle} if every formal solution is homotopic to an actual solution.
+\end{definition}
+
+\subsection{Gromov's \(h\)-Principle Theorem}
+
+\begin{theorem}[Gromov's \(h\)-Principle, 1974]
+Let \(\mathcal{R} \subset J^k(\pi)\) be a partial differential relation that is open and \(\pi_1\)-invariant (or, more generally, satisfies the parametric \(h\)-principle). Then the inclusion
+\[
+\text{Sol}(\mathcal{R}) \hookrightarrow \text{Fol}(\mathcal{R})
+\]
+of the space of actual solutions into the space of formal solutions is a homotopy equivalence. In particular, if the formal obstruction vanishes, an actual solution exists.
+\end{theorem}
+
+The proof uses the method of \textbf{convex integration}, a technique that Gromov developed for this purpose. The idea is to build solutions by integrating along a family of directions, using a convexity argument to resolve the underdetermined nature of the relation. Convex integration has since become a standard tool in geometry and analysis.
+
+\subsection{Applications of the \(h\)-Principle}
+
+The \(h\)-principle has numerous striking applications:
+
+\begin{itemize}
+    \item \textbf{Immersion theory:} The Smale--Hirsch theorem, which states that the space of immersions \(M^n \to \R^q\) is homotopy equivalent to the space of bundle monomorphisms \(TM \to \underline{\R}^q\), is a special case of the \(h\)-principle. For \(n < q\), the existence of an immersion reduces to a purely algebraic problem.
+    \item \textbf{Symplectic and contact geometry:} The existence of symplectic and contact structures on open manifolds is governed by the \(h\)-principle. Gromov proved that every open even-dimensional manifold admits a symplectic structure if and only if it admits an almost complex structure --- a purely topological condition.
+    \item \textbf{Foliations:} The existence of foliations with prescribed geometric properties often satisfies the \(h\)-principle. The Haefliger--Thurston theorem on the existence of codimension-one foliations is an example.
+    \item \textbf{Isometric embeddings:} The Nash--Kuiper theorem (every Riemannian manifold admits a \(C^1\) isometric embedding into Euclidean space of one dimension higher) can be understood as an \(h\)-principle result, and Gromov's work on convex integration provides a unified framework.
+\end{itemize}
+
+The \(h\)-principle is one of the great unifying principles in differential topology. It shows that for many geometric problems, the only obstructions to existence are homotopy-theoretic, and it provides a powerful method for constructing geometric objects.
+
+\section{The Symplectic Non-Squeezing Theorem}
+
+One of Gromov's most celebrated results is the symplectic non-squeezing theorem, proved in 1985. This theorem revolutionized symplectic geometry and established Gromov as the founder of modern symplectic topology.
+
+\subsection{Background}
+
+A symplectic manifold \((M, \omega)\) is an even-dimensional smooth manifold equipped with a closed non-degenerate 2-form \(\omega\). The standard symplectic manifold is \((\R^{2n}, \omega_0)\), where
+\[
+\omega_0 = \sum_{i=1}^n dx_i \wedge dy_i.
+\]
+
+A symplectic embedding of \((M_1, \omega_1)\) into \((M_2, \omega_2)\) is an embedding \(\varphi: M_1 \to M_2\) such that \(\varphi^*\omega_2 = \omega_1\). The fundamental question is: when does one symplectic manifold symplectically embed into another?
+
+Before Gromov's work, the only known obstruction was volume: since \(\omega^n\) is a volume form, any symplectic embedding preserves volume. For embeddings of balls into cylinders, volume was the only known constraint.
+
+\subsection{Gromov's Non-Squeezing Theorem}
+
+\begin{theorem}[Gromov Non-Squeezing Theorem, 1985]
+Let \(B^{2n}(R)\) denote the closed ball of radius \(R\) in \(\R^{2n}\) with the standard symplectic structure, and let \(Z^{2n}(r) = B^2(r) \times \R^{2n-2}\) be the symplectic cylinder of radius \(r\) (where \(B^2(r)\) is a disk of radius \(r\) in the \(x_1y_1\)-plane). There exists a symplectic embedding
+\[
+B^{2n}(R) \hookrightarrow Z^{2n}(r)
+\]
+if and only if \(R \leq r\).
+\end{theorem}
+
+In other words, a symplectic ball cannot be squeezed into a thinner cylinder, even though there is no volume obstruction: when \(n > 1\), the ball \(B^{2n}(R)\) has volume proportional to \(R^{2n}\), while the cylinder has infinite volume. The obstruction is purely symplectic.
+
+This result was shocking to the mathematical community. It showed that symplectic geometry is a ``rigid'' subject, unlike volume-preserving geometry (where a ball of any radius can be squeezed into a cylinder of any radius). The non-squeezing theorem revealed the existence of a new symplectic invariant --- the \textbf{Gromov width} --- and initiated the field of symplectic topology.
+
+\subsection{Pseudoholomorphic Curves}
+
+The proof of the non-squeezing theorem introduced a revolutionary new tool: pseudoholomorphic curves.
+
+\begin{definition}
+Let \((M, J)\) be an almost complex manifold. A \textbf{pseudoholomorphic curve} (or \(J\)-holomorphic curve) is a map \(u: (\Sigma, j) \to (M, J)\) from a Riemann surface \((\Sigma, j)\) to \(M\) such that the differential is complex-linear:
+\[
+J \circ du = du \circ j.
+\]
+\end{definition}
+
+When \(M\) is a symplectic manifold with a compatible almost complex structure \(J\) (i.e., \(J\) is \(\omega\)-tame: \(\omega(v, Jv) > 0\) for all nonzero \(v\)), pseudoholomorphic curves behave remarkably like holomorphic curves in K\"ahler geometry. They satisfy an elliptic system of partial differential equations, and their moduli spaces are finite-dimensional.
+
+Gromov's insight was that pseudoholomorphic curves can be used to probe the symplectic geometry of \((M, \omega)\). In the non-squeezing theorem, one considers a pseudoholomorphic curve passing through the center of the ball. The area of this curve is bounded below by the area of a disk of radius \(R\) (by a monotonicity argument), and the symplectic embedding would force the area to be bounded above by \(\pi r^2\). The contradiction for \(R > r\) proves the theorem.
+
+\subsection{Gromov--Witten Invariants}
+
+The introduction of pseudoholomorphic curves led directly to Gromov--Witten invariants, which are among the most powerful invariants in symplectic geometry and algebraic geometry.
+
+Let \((M, \omega)\) be a closed symplectic manifold. For a generic compatible almost complex structure \(J\) and for generic choices of constraints, the moduli space \(\overline{\mathcal{M}}_{g, k}(M, \beta, J)\) of stable \(J\)-holomorphic curves of genus \(g\) with \(k\) marked points representing a homology class \(\beta \in H_2(M; \Z)\) is a compact oriented orbifold of dimension
+\[
+\dim = 2\langle c_1(TM), \beta\rangle + 2n(\dim_\C M - 3)(1-g) + 2k.
+\]
+
+The \textbf{Gromov--Witten invariant} is defined by integrating cohomology classes over this moduli space:
+\[
+GW_{g, k, \beta}(\alpha_1, \dots, \alpha_k) = \int_{\overline{\mathcal{M}}_{g, k}(M, \beta, J)} \prod_{i=1}^k \operatorname{ev}_i^*(\alpha_i),
+\]
+where \(\operatorname{ev}_i: \overline{\mathcal{M}}_{g, k}(M, \beta, J) \to M\) is the evaluation map at the \(i\)-th marked point.
+
+\begin{theorem}[Gromov--Witten Invariants]
+The Gromov--Witten invariants are deformation invariants of the symplectic structure \(\omega\). They are unchanged under symplectic deformations and provide powerful enumerative invariants. In the case where \(M\) is a projective algebraic variety, the Gromov--Witten invariants coincide with the enumerative invariants counting algebraic curves.
+\end{theorem}
+
+Gromov--Witten invariants have applications far beyond symplectic geometry:
+\begin{itemize}
+    \item \textbf{Enumerative geometry:} They count the number of holomorphic curves on a Calabi--Yau manifold, verifying predictions from mirror symmetry.
+    \item \textbf{Quantum cohomology:} The Gromov--Witten invariants define the quantum cup product on \(H^*(M)\), which encodes counts of rational curves and gives the quantum cohomology ring.
+    \item \textbf{String theory:} Gromov--Witten invariants appear in type IIA string theory, where they count worldsheet instantons. The mirror symmetry conjecture equates these with period integrals on the mirror manifold.
+    \item \textbf{Floer theory:} The technology of pseudoholomorphic curves underlies Lagrangian Floer homology and the Fukaya category, central objects in homological mirror symmetry.
+\end{itemize}
+
+\section{Gromov--Hausdorff Convergence}
+
+Gromov revolutionized metric geometry by introducing a notion of convergence for metric spaces.
+
+\subsection{The Gromov--Hausdorff Distance}
+
+\begin{definition}[Gromov--Hausdorff Distance]
+Let \(X\) and \(Y\) be compact metric spaces. The \textbf{Gromov--Hausdorff distance} \(d_{GH}(X, Y)\) is the infimum of all numbers \(\varepsilon > 0\) for which there exist a metric space \(Z\) and isometric embeddings \(i: X \to Z\) and \(j: Y \to Z\) such that the Hausdorff distance between \(i(X)\) and \(j(Y)\) in \(Z\) is at most \(\varepsilon\).
+\end{definition}
+
+Equivalently, \(d_{GH}(X, Y) < \varepsilon\) if there exist \(\varepsilon\)-approximations between \(X\) and \(Y\): maps \(f: X \to Y\) and \(g: Y \to X\) such that for all \(x_1, x_2 \in X\),
+\[
+|d_X(x_1, x_2) - d_Y(f(x_1), f(x_2))| < \varepsilon,
+\]
+and similarly for \(g\), with the compositions \(g \circ f\) and \(f \circ g\) uniformly close to the identity.
+
+\begin{theorem}[Gromov Compactness Theorem]
+The set of compact metric spaces with uniformly bounded diameter and a uniform lower bound on the number of \(\varepsilon\)-balls needed to cover the space is precompact in the Gromov--Hausdorff topology. More precisely, for any \(D > 0\) and any integer \(N(\varepsilon)\), the class of compact metric spaces \(X\) with \(\diam(X) \leq D\) and with covering number \(N_X(\varepsilon) \leq N(\varepsilon)\) for all \(\varepsilon > 0\) is compact.
+\end{theorem}
+
+\subsection{Applications in Riemannian Geometry}
+
+Gromov--Hausdorff convergence is a fundamental tool in Riemannian geometry. It allows one to study sequences of Riemannian manifolds with curvature bounds and to extract limit spaces that may have singularities.
+
+\begin{theorem}[Gromov's Precompactness Theorem for Riemannian Manifolds]
+Let \(M_n\) be a sequence of closed Riemannian \(m\)-manifolds with \(\Ric(M_n) \geq -(m-1)\) and \(\diam(M_n) \leq D\). Then a subsequence converges in the Gromov--Hausdorff topology to some compact metric space.
+\end{theorem}
+
+This theorem, and its generalizations by Cheeger, Colding, and others, is the foundation of the structure theory of Riemannian manifolds with lower Ricci curvature bounds. The limit spaces, called \textbf{Ricci limit spaces}, are metric spaces that may have singularities but nonetheless possess a rich structure theory.
+
+\subsection{\noindent Gromov's Betti Number Theorem}
+
+One of the earliest and most striking applications of Gromov--Hausdorff convergence is Gromov's Betti number theorem (1978), which gives a uniform bound on the Betti numbers of manifolds with positive sectional curvature.
+
+\begin{theorem}[Gromov's Betti Number Theorem, 1978]
+For any dimension \(m\) and any constant \(\kappa > 0\), there exists a constant \(C(m, \kappa)\) such that for every closed Riemannian \(m\)-manifold \(M\) with sectional curvature \(\Sec_M \geq \kappa\),
+\[
+\sum_{i=0}^m b_i(M) \leq C(m, \kappa),
+\]
+where \(b_i(M) = \dim_\R H_i(M; \R)\) is the \(i\)-th Betti number.
+\end{theorem}
+
+The proof uses Gromov--Hausdorff convergence in an essential way. One rescales the manifold to have a uniform lower bound on sectional curvature and then studies the limit space. The Betti numbers are controlled by the topology of the limit, which is constrained by the curvature bounds.
+
+This theorem was a landmark result in Riemannian geometry. It showed that curvature bounds impose strong topological restrictions on manifolds, and it opened the door to the systematic study of the relationship between curvature and topology.
+
+\section{Gromov's Theorem on Groups of Polynomial Growth}
+
+In 1981, Gromov proved one of the most celebrated theorems in geometric group theory, solving Milnor's conjecture on the growth of groups.
+
+\subsection{Background}
+
+Let \(G\) be a finitely generated group with a finite symmetric generating set \(S\). The word length \(\ell_S(g)\) is the minimum number of elements of \(S\) needed to express \(g\). The growth function is
+\[
+\gamma_{G,S}(n) = \#\{g \in G : \ell_S(g) \leq n\}.
+\]
+
+\begin{definition}
+A finitely generated group \(G\) has \textbf{polynomial growth} if there exist constants \(C, d > 0\) such that \(\gamma_{G,S}(n) \leq C n^d\) for all \(n\).
+\end{definition}
+
+Milnor (1968) conjectured that a finitely generated group has polynomial growth if and only if it is \textbf{virtually nilpotent}, i.e., contains a nilpotent subgroup of finite index. The converse direction (virtually nilpotent groups have polynomial growth) was known and follows from the fact that a nilpotent group of nilpotency class \(c\) has growth bounded by \(n^{c+1}\).
+
+\subsection{The Theorem}
+
+\begin{theorem}[Gromov, 1981]
+Every finitely generated group of polynomial growth is virtually nilpotent.
+\end{theorem}
+
+\subsection{Outline of the Proof}
+
+Gromov's proof is a tour de force that synthesizes geometric group theory, Riemannian geometry, and Lie theory. The key steps are:
+
+\paragraph{Step 1: From groups to metric spaces.}
+Consider the Cayley graph \(\Cay(G, S)\) of the group with respect to the generating set \(S\). This is a proper geodesic metric space on which \(G\) acts cocompactly by isometries. The growth condition implies a bound on the volume of balls in \(\Cay(G, S)\).
+
+\paragraph{Step 2: Scaling and Gromov--Hausdorff convergence.}
+Rescale the Cayley graph by a factor \(1/n\). The sequence of metric spaces
+\[
+X_n = \left(\Cay(G, S), \frac{1}{n} d\right)
+\]
+has uniformly bounded diameter when restricted to a fixed ball around the identity. By Gromov's compactness theorem, a subsequence converges in the Gromov--Hausdorff topology to a limit metric space \(X_\infty\).
+
+\paragraph{Step 3: The limit space.}
+The limit space \(X_\infty\) is a connected, locally compact, homogeneous metric space of finite Hausdorff dimension. Moreover, it is a \textbf{geodesic space} that is \textbf{isometrically homogeneous}: the isometry group \(\Isom(X_\infty)\) acts transitively.
+
+\paragraph{Step 4: Hilbert's fifth problem.}
+By the theory of locally compact groups (Montgomery--Zippin, Gleason, and Yamabe --- the solution of Hilbert's fifth problem), the isometry group \(\Isom(X_\infty)\) is a Lie group. The stabilizer of a point is compact, so \(X_\infty\) is a homogeneous space of a Lie group.
+
+\paragraph{Step 5: Nilpotency.}
+The polynomial growth condition implies that the limit space \(X_\infty\) has polynomial volume growth, which forces the associated Lie group to be nilpotent. Consequently, \(G\) is virtually nilpotent (it has a nilpotent subgroup of finite index).
+
+\subsection{Significance}
+
+Gromov's theorem is a foundational result in geometric group theory. It established growth as a fundamental asymptotic invariant of groups and showed that geometric methods (Gromov--Hausdorff convergence) could be applied to purely algebraic problems. The theorem has been generalized and refined in many directions, including the study of groups of intermediate growth (Grigorchuk's groups) and the relationship between growth and amenability.
+
+\section{Hyperbolic Groups and Metric Spaces}
+
+In a landmark 1987 monograph, Gromov introduced the notion of hyperbolic metric spaces and hyperbolic groups, initiating a vast program in geometric group theory.
+
+\subsection{\(\delta\)-Hyperbolic Metric Spaces}
+
+\begin{definition}
+A metric space \((X, d)\) is \textbf{\(\delta\)-hyperbolic} (for some \(\delta \geq 0\)) if for any four points \(x, y, z, w \in X\),
+\[
+d(x, y) + d(z, w) \leq \max\{d(x, z) + d(y, w),\; d(x, w) + d(y, z)\} + 2\delta.
+\]
+Equivalently, every geodesic triangle in \(X\) is \(\delta\)-thin: each side is contained in the \(\delta\)-neighborhood of the union of the other two sides.
+\end{definition}
+
+\begin{example}
+Hyperbolic space \(\mathbb{H}^n\) is \(\delta\)-hyperbolic for some \(\delta > 0\) depending on the curvature. More generally, any simply connected Riemannian manifold with sectional curvature bounded above by a negative constant is \(\delta\)-hyperbolic. Trees (connected graphs without cycles) are 0-hyperbolic: every triangle is a tripod.
+\end{example}
+
+\subsection{Hyperbolic Groups}
+
+\begin{definition}
+A finitely generated group \(G\) is \textbf{hyperbolic} (or Gromov hyperbolic) if its Cayley graph with respect to some (hence any) finite generating set is a \(\delta\)-hyperbolic metric space for some \(\delta \geq 0\).
+\end{definition}
+
+\begin{theorem}[Properties of Hyperbolic Groups]
+Hyperbolic groups have the following fundamental properties:
+\begin{itemize}
+    \item \textbf{Word problem:} Hyperbolic groups have solvable word problem in linear time (the Dehn algorithm).
+    \item \textbf{Finite presentation:} Every hyperbolic group is finitely presented.
+    \item \textbf{Boundary:} The Gromov boundary \(\partial_\infty G\) is a compact metrizable space on which \(G\) acts by homeomorphisms. For a free group \(F_n\), the boundary is a Cantor set; for a surface group, the boundary is a circle.
+    \item \textbf{Geodesic property:} Every element of infinite order in a hyperbolic group is contained in a unique maximal cyclic subgroup.
+    \item \textbf{No \(\Z \oplus \Z\) subgroups:} A hyperbolic group cannot contain a subgroup isomorphic to \(\Z \oplus \Z\) (this is a key rigidity property).
+\end{itemize}
+\end{theorem}
+
+\subsection{The Rips Complex and the Boundary}
+
+The \textbf{Rips complex} \(P_d(G)\) is a simplicial complex whose vertices are elements of \(G\), and a finite set \(\{g_0, \dots, g_k\}\) spans a simplex if \(d(g_i, g_j) \leq d\) for all \(i, j\). For a hyperbolic group, the Rips complex for sufficiently large \(d\) is contractible and admits a proper cocompact action of \(G\). This allows one to deduce that hyperbolic groups are of type \(F_\infty\) (they have classifying spaces with finitely many cells in each dimension).
+
+The \textbf{Gromov boundary} \(\partial_\infty G\) consists of equivalence classes of geodesic rays in the Cayley graph, where two rays are equivalent if they stay within bounded distance of each other. The boundary captures the large-scale geometry of the group and is a fundamental invariant.
+
+\subsection{Applications and Examples}
+
+Hyperbolic groups include:
+\begin{itemize}
+    \item \textbf{Free groups} \(F_n\) for \(n \geq 2\) (tree-like geometry, Cantor set boundary).
+    \item \textbf{Surface groups} \(\pi_1(\Sigma_g)\) for \(g \geq 2\) (circle boundary).
+    \item \textbf{Fundamental groups of closed negatively curved manifolds} (sphere boundary of dimension \(n-1\)).
+    \item \textbf{Large classes of small cancellation groups} and random groups (at sufficiently low density).
+\end{itemize}
+
+The theory of hyperbolic groups is one of the cornerstones of geometric group theory. It has been extended and generalized in many directions, including relatively hyperbolic groups (Gromov, Farb, Bowditch), acylindrically hyperbolic groups (Osin), and the study of cube complexes (Sageev, Wise). The resolution of the virtual Haken conjecture for hyperbolic 3-manifolds (Agol, Wise) uses the theory of hyperbolic groups in an essential way.
+
+\section{Gromov--Witten Invariants and Symplectic Topology}
+
+Building on his work on pseudoholomorphic curves, Gromov (together with Edward Witten) developed the theory of Gromov--Witten invariants, which have become central to both symplectic geometry and algebraic geometry.
+
+\subsection{Moduli Spaces of Pseudoholomorphic Curves}
+
+Let \((M, \omega)\) be a closed symplectic manifold of dimension \(2n\), and let \(J\) be a generic almost complex structure tamed by \(\omega\). For a homology class \(\beta \in H_2(M; \Z)\) and a genus \(g \geq 0\), consider the moduli space
+\[
+\mathcal{M}_{g, k}(M, \beta, J)
+\]
+of \(J\)-holomorphic curves \(u: (\Sigma, j) \to (M, J)\) of genus \(g\) with \(k\) marked points, representing the class \(\beta\). Here \(\Sigma\) is a smooth Riemann surface of genus \(g\) with \(k\) distinct marked points, and the map \(u\) satisfies the Cauchy--Riemann equation
+\[
+\bar\partial_J(u) = \frac{1}{2}(du + J \circ du \circ j) = 0.
+\]
+
+This is an elliptic PDE, and for a generic \(J\) the linearized operator is surjective, making \(\mathcal{M}_{g, k}(M, \beta, J)\) a smooth manifold of dimension given by the Fredholm index.
+
+\subsection{Compactification and Virtual Fundamental Class}
+
+The moduli space is not compact: sequences of curves may develop bubbles (spheres or disks attached at points) or degenerate nodes in the domain. Gromov's compactness theorem asserts that any sequence of \(J\)-holomorphic curves with bounded energy has a subsequence converging to a \textbf{stable map}: a connected nodal curve with \(J\)-holomorphic components, with only finitely many automorphisms.
+
+The compactified moduli space \(\overline{\mathcal{M}}_{g, k}(M, \beta, J)\) is a compact Hausdorff space. However, it is not generally a smooth manifold; it is a \textbf{compact metrizable stratified space} whose strata correspond to the possible combinatorial types of degenerations. To define invariants, one constructs the \textbf{virtual fundamental class} \([\overline{\mathcal{M}}_{g, k}(M, \beta, J)]^{\text{vir}}\) using the theory of Kuranishi structures (Fukaya--Ono) or polyfolds (Hofer--Wysocki--Zehnder).
+
+\subsection{Definition of Gromov--Witten Invariants}
+
+Let \(\alpha_1, \dots, \alpha_k \in H^*(M; \Q)\) be cohomology classes. The Gromov--Witten invariant is
+\[
+GW_{g, k, \beta}(\alpha_1, \dots, \alpha_k) = \int_{[\overline{\mathcal{M}}_{g, k}(M, \beta, J)]^{\text{vir}}} \prod_{i=1}^k \operatorname{ev}_i^*(\alpha_i),
+\]
+where \(\operatorname{ev}_i: \overline{\mathcal{M}}_{g, k}(M, \beta, J) \to M\) is the evaluation at the \(i\)-th marked point.
+
+These invariants are rational numbers that are invariant under deformations of the symplectic structure. They satisfy:
+\begin{itemize}
+    \item \textbf{Fundamental class:} \(GW_{0, 0, \beta} = 0\) unless \(\beta = 0\).
+    \item \textbf{Divisor axiom:} For a divisor class \(D\), \(GW_{g, k+1, \beta}(D, \alpha_1, \dots, \alpha_k) = (\int_\beta D) \, GW_{g, k, \beta}(\alpha_1, \dots, \alpha_k)\).
+    \item \textbf{String equation:} Relates invariants with different numbers of marked points and genera.
+    \item \textbf{Composition law:} The evaluation of the top dimension class on the moduli space can be expressed in terms of the cohomology ring of \(M\).
+\end{itemize}
+
+\subsection{Quantum Cohomology}
+
+The Gromov--Witten invariants define a deformation of the cup product on \(H^*(M; \Q)\). The \textbf{quantum cup product} is defined by
+\[
+\alpha \star \beta = \sum_{\beta \in H_2(M; \Z)} \sum_{k \geq 0} \frac{1}{k!} GW_{0, k+2, \beta}(\alpha, \beta, \gamma_1, \dots, \gamma_k) \, q^\beta \, \gamma^1 \cdots \gamma^k,
+\]
+where \(\{\gamma_i\}\) is a basis of \(H^*(M; \Q)\) with dual basis \(\{\gamma^i\}\), and \(q^\beta\) is a formal variable. The quantum cohomology ring is a deformation of the ordinary cohomology ring that encodes enumerative information about pseudoholomorphic curves.
+
+\section{Gromov's Work on Riemannian Geometry}
+
+Throughout his career, Gromov made profound contributions to Riemannian geometry, particularly concerning the relationship between curvature and topology.
+
+\subsection{Almost Flat Manifolds and the Buser--Gromov Inequality}
+
+A manifold is \textbf{almost flat} if it admits a sequence of Riemannian metrics with sectional curvature bounded in absolute value by a constant that tends to zero, while the diameter remains bounded. Gromov proved that such manifolds are precisely the infranilmanifolds: they are finitely covered by nilmanifolds.
+
+\begin{theorem}[Gromov, 1978]
+There exists a constant \(\varepsilon_m > 0\) such that any closed Riemannian \(m\)-manifold \(M\) with sectional curvature satisfying \(|\Sec_M| \leq 1\) and \(\diam(M) \leq \varepsilon_m\) is diffeomorphic to an infranilmanifold (a compact quotient of a simply connected nilpotent Lie group by a discrete subgroup).
+\end{theorem}
+
+This theorem is closely related to Gromov's theorem on groups of polynomial growth: the fundamental group of an almost flat manifold is virtually nilpotent.
+
+\subsection{Inequalities in Riemannian Geometry}
+
+Gromov established numerous inequalities relating geometric quantities:
+\begin{itemize}
+    \item \textbf{Systolic inequality:} For any essential closed Riemannian manifold \(M\) (i.e., a manifold whose fundamental class is nonzero in the Eilenberg--MacLane space \(K(\pi_1(M), 1)\)), the length of the shortest noncontractible geodesic (the systole) satisfies
+    \[
+    \sys(M) \leq C_m \, \vol(M)^{1/m},
+    \]
+    where \(C_m\) depends only on the dimension.
+    \item \textbf{Buser--Gromov inequality:} For a complete Riemannian manifold with \(\Ric \geq 0\), the volume growth of balls is at most Euclidean: \(\vol(B_R(p)) \leq \omega_m R^m\), with equality only for Euclidean space.
+    \item \textbf{Gromov--Lawson theorem:} A simply connected spin manifold of dimension \(n \geq 5\) that is not a Kervaire manifold admits a metric of positive scalar curvature if and only if its \(\alpha\)-invariant vanishes.
+\end{itemize}
+
+\subsection{Filling Area and the Filling Radius}
+
+Gromov introduced the concepts of \textbf{filling area} and \textbf{filling radius} in Riemannian geometry. The filling area of a closed curve in a metric space is the infimum of areas of surfaces whose boundary is the curve. The filling radius of a metric space \(X\) is the infimum of \(r > 0\) such that the inclusion \(X \hookrightarrow X_r\) (the \(r\)-neighborhood of \(X\) in its injective hull) is nullhomologous.
+
+Gromov's isoperimetric inequality for the filling radius states that for any closed Riemannian manifold \(M\),
+\[
+\FillRad(M) \leq C_m \, \vol(M)^{1/m},
+\]
+providing a connection between the filling invariants and volume.
+
+\section{Other Contributions}
+
+\subsection{The Gromov--Lawson--Rosenberg Conjecture}
+
+The Gromov--Lawson--Rosenberg conjecture concerns the existence of metrics of positive scalar curvature on closed manifolds. It states that a closed spin manifold \(M\) of dimension \(n \geq 5\) admits a metric of positive scalar curvature if and only if the index of the Dirac operator (the \(\alpha\)-invariant) vanishes in the real \(K\)-theory of the classifying space \(B\pi_1(M)\). This conjecture has been proved in many cases and is a central problem in the geometry of positive scalar curvature.
+
+\subsection{Gromov's Theorem on Symplectic Fixed Points}
+
+Gromov proved that any symplectomorphism of a closed symplectic manifold that is isotopic to the identity through symplectomorphisms has infinitely many fixed points, provided certain conditions on the fundamental group are satisfied. This result is related to the Arnold conjecture on the number of fixed points of Hamiltonian diffeomorphisms and stimulated the development of Floer homology.
+
+\subsection{Gromov's Work on Partial Differential Relations}
+
+Beyond the \(h\)-principle, Gromov made fundamental contributions to the study of overdetermined and underdetermined systems of partial differential equations. His monograph \textit{Partial Differential Relations} (1986) is a comprehensive treatment of the subject, covering the \(h\)-principle, convex integration, and the theory of differential relations.
+
+\section{Impact and Legacy}
+
+\subsection{Symplectic Geometry}
+
+Gromov's non-squeezing theorem and the introduction of pseudoholomorphic curves transformed symplectic geometry from a relatively specialized subject into one of the central fields of mathematics. Gromov--Witten invariants, quantum cohomology, and the whole Floer-theoretic machinery --- including Lagrangian Floer homology, the Fukaya category, and homological mirror symmetry --- are built on foundations laid by Gromov.
+
+\subsection{Geometric Group Theory}
+
+Gromov's theorem on groups of polynomial growth and his theory of hyperbolic groups created the modern field of geometric group theory. The study of groups by their large-scale geometry, the use of boundaries and compactifications, and the understanding of groups as geometric objects all trace back to Gromov's work.
+
+\subsection{Metric Geometry}
+
+Gromov--Hausdorff convergence has become an indispensable tool in Riemannian geometry, metric geometry, and geometric analysis. It underlies the structure theory of manifolds with Ricci curvature bounds, the theory of Alexandrov spaces, and the study of metric measure spaces with synthetic curvature bounds.
+
+\subsection{Abel Prize (2009)}
+
+Gromov was awarded the Abel Prize in 2009 with the citation: ``for his revolutionary contributions to geometry.'' The prize recognized his role in creating and developing the \(h\)-principle, Gromov--Witten invariants, Gromov--Hausdorff convergence, and hyperbolic groups --- contributions that have reshaped the mathematical landscape.
+
+\section{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1943 & Born on December 23 in Boksitogorsk, Russia \\ \hline
+1961 & Entered Leningrad State University \\ \hline
+1969 & PhD from Leningrad State University (advisor: Vladimir Rokhlin) \\ \hline
+1974 & Emigrated to the West; joined Stony Brook University \\ \hline
+1974 & Publication of the \(h\)-principle and convex integration \\ \hline
+1978 & Gromov's Betti number theorem \\ \hline
+1981 & Proof of the theorem on groups of polynomial growth \\ \hline
+1982 & Joined the Institut des Hautes \'Etudes Scientifiques (IH\'ES) \\ \hline
+1985 & Non-squeezing theorem and introduction of pseudoholomorphic curves \\ \hline
+1985 & Gromov--Witten invariants (with Edward Witten) \\ \hline
+1987 & Publication of \textit{Hyperbolic Groups} (the theory of \(\delta\)-hyperbolic spaces and groups) \\ \hline
+1993 & Awarded the Wolf Prize in Mathematics (shared with Jacques Tits) \\ \hline
+2009 & Awarded the Abel Prize from the Norwegian Academy of Science and Letters \\ \hline
+\end{tabular}
+
+\section{Frequently Asked Questions}
+
+\subsection*{Q1: What is the \(h\)-principle in simple terms?}
+
+The \(h\)-principle says that for many geometric problems, the only obstructions to finding a solution are topological (homotopy-theoretic) in nature. Roughly, if you can find a ``formal'' solution --- a solution to the linearized problem that ignores the nonlinear constraints --- then you can find an actual solution. For example, the question of whether a manifold can be immersed in Euclidean space reduces to a purely algebraic problem about vector bundles, thanks to the \(h\)-principle.
+
+\subsection*{Q2: Why is the non-squeezing theorem so important?}
+
+Before Gromov's non-squeezing theorem, volume was the only known obstruction to symplectic embeddings. Gromov showed that symplectic geometry is inherently rigid: a ball of radius \(R\) cannot be symplectically squeezed into a cylinder of radius \(r < R\), even though there is no volume obstruction. This revealed the existence of a new invariant (Gromov width) and showed that symplectic geometry is fundamentally different from volume-preserving geometry. The proof introduced pseudoholomorphic curves, which became the central tool in symplectic topology.
+
+\subsection*{Q3: What are Gromov--Witten invariants used for?}
+
+Gromov--Witten invariants are used to count pseudoholomorphic curves in symplectic manifolds. They have applications in enumerative geometry (counting algebraic curves on varieties), mirror symmetry (relating counts on a Calabi--Yau manifold to period integrals on its mirror), quantum cohomology (defining a deformation of the cup product), and string theory (counting worldsheet instantons). They also play a central role in the construction of the Fukaya category and homological mirror symmetry.
+
+\subsection*{Q4: What does it mean for a group to be hyperbolic?}
+
+A finitely generated group is hyperbolic if its Cayley graph looks like a negatively curved space at large scales: geodesic triangles are ``thin'' (each side is close to the union of the other two). Hyperbolic groups have solvable word problem, no \(\Z \oplus \Z\) subgroups, and a compact boundary at infinity. Examples include free groups, surface groups, and fundamental groups of closed negatively curved manifolds. Gromov's theory of hyperbolic groups is one of the foundations of geometric group theory.
+
+\subsection*{Q5: How did Gromov prove the theorem on groups of polynomial growth?}
+
+Gromov's proof proceeds in five steps: (1) construct the Cayley graph of the group; (2) rescale the graph and take a Gromov--Hausdorff limit to obtain a limit metric space; (3) show the limit space is homogeneous and locally compact; (4) use the solution of Hilbert's fifth problem (Gleason, Montgomery--Zippin, Yamabe) to identify the isometry group as a Lie group; (5) use the polynomial growth condition to deduce that the Lie group is nilpotent, and hence the original group is virtually nilpotent.
+
+\subsection*{Q6: What is Gromov's Betti number theorem?}
+
+Gromov's Betti number theorem (1978) states that for any dimension \(m\) and any \(\kappa > 0\), there is a uniform bound on the sum of the Betti numbers of all closed Riemannian \(m\)-manifolds with sectional curvature at least \(\kappa\). This was a striking result because it showed that a lower bound on sectional curvature imposes strong topological restrictions. It was proved using Gromov--Hausdorff convergence and has been generalized to Ricci curvature bounds.
+
+\subsection*{Q7: What is the Gromov--Hausdorff distance?}
+
+The Gromov--Hausdorff distance measures how far two compact metric spaces are from being isometric. It is defined as the infimum of the Hausdorff distances of isometric embeddings of the two spaces into a common metric space. The Gromov compactness theorem states that families of metric spaces with bounded diameter and uniform covering numbers are precompact in this topology. This notion of convergence is fundamental in Riemannian geometry, geometric group theory, and metric geometry.
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the free group on two generators \(F_2\) has exponential growth. Conclude that it cannot be virtually nilpotent.
+    \item Prove that the Heisenberg group \(H_3(\Z)\) (the group of \(3 \times 3\) upper triangular integer matrices with ones on the diagonal) has polynomial growth of degree 4.
+    \item Show that a finitely generated nilpotent group of nilpotency class \(c\) has growth at most \(C n^c\) for some constant \(C\).
+    \item Prove that a tree (a connected graph without cycles) is 0-hyperbolic. Show that any geodesic triangle in a tree is a tripod.
+    \item Let \(\Gamma\) be a finitely generated group that is \(\delta\)-hyperbolic. Show that \(\Gamma\) cannot contain a subgroup isomorphic to \(\Z \oplus \Z\).
+    \item Show that the Gromov--Hausdorff distance between two isometric compact metric spaces is zero.
+    \item Prove that the ball \(B^{2n}(R)\) and the cylinder \(Z^{2n}(r)\) have the same volume for any \(R\) and \(r\) when \(n > 1\). Conclude that volume alone does not obstruct the symplectic embedding of a ball into a cylinder.
+    \item Let \(f: \Sigma \to M\) be a \(J\)-holomorphic curve. Show that the energy \(E(f) = \int_\Sigma f^*\omega\) depends only on the homology class \([f(\Sigma)] \in H_2(M; \Z)\).
+    \item Prove that the Gromov boundary of a free group of rank \(n \geq 2\) is a Cantor set.
+    \item Let \(G\) be a finitely generated group with generating set \(S\). Define the word metric \(d_S\). Show that \(d_S\) is quasi-isometric to the metric on the Cayley graph \(\Cay(G, S)\).
+    \item For the standard symplectic form \(\omega_0 = \sum dx_i \wedge dy_i\) on \(\R^{2n}\), show that the standard complex structure \(J_0\) (given by \(J_0(\partial_{x_i}) = \partial_{y_i}\), \(J_0(\partial_{y_i}) = -\partial_{x_i}\)) is compatible with \(\omega_0\).
+    \item Prove that a \(J\)-holomorphic curve in a symplectic manifold \((M, \omega)\) with \(\omega\)-tame \(J\) satisfies the monotonicity property: the area of a pseudoholomorphic disk is bounded below by \(\pi r^2\) for a ball of radius \(r\) centered at an interior point.
+    \item Let \(M\) be a closed hyperbolic 3-manifold. Show that \(\pi_1(M)\) is a hyperbolic group.
+    \item Show that the Heisenberg group is not virtually nilpotent if we consider the continuous Heisenberg group; show that the discrete Heisenberg group is virtually nilpotent and has polynomial growth.
+    \item Let \(X\) and \(Y\) be compact metric spaces with \(d_{GH}(X, Y) < \varepsilon\). Construct explicit \(\varepsilon\)-approximation maps \(f: X \to Y\) and \(g: Y \to X\).
+    \item Consider the standard symplectic ball \(B^{2n}(1)\) and the polydisk \(P^{2n}(1, \dots, 1, R)\) for large \(R\). Show that the Gromov width of the ball is 1.
+    \item Show that a compact Riemannian manifold with positive sectional curvature has finite fundamental group (Synge's theorem). How does this relate to Gromov's Betti number theorem?
+    \item Prove that any \(\delta\)-hyperbolic geodesic metric space has a well-defined boundary at infinity.
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[\(h\)-principle] The principle that for many geometric problems, the only obstructions to existence are homotopy-theoretic, so formal solutions can be deformed to actual solutions.
+    \item[Almost complex structure] An endomorphism \(J: TM \to TM\) satisfying \(J^2 = -\id\). A symplectic manifold admits compatible almost complex structures.
+    \item[Convex integration] A method invented by Gromov for constructing solutions to underdetermined partial differential relations by integrating along a family of directions.
+    \item[\(\delta\)-hyperbolic space] A metric space where every geodesic triangle is \(\delta\)-thin; equivalently, a space satisfying the Gromov four-point condition.
+    \item[Gromov boundary] The set of equivalence classes of geodesic rays in a \(\delta\)-hyperbolic metric space, forming a compact metrizable space.
+    \item[Gromov--Hausdorff distance] A metric on the space of compact metric spaces, measuring how far two spaces are from being isometric.
+    \item[Gromov--Hausdorff convergence] A notion of convergence for metric spaces using the Gromov--Hausdorff distance.
+    \item[Gromov width] The largest radius \(r\) such that the standard symplectic ball \(B^{2n}(r)\) embeds symplectically into a given symplectic manifold.
+    \item[Gromov--Witten invariant] An invariant counting pseudoholomorphic curves in a symplectic manifold, defined by integrating cohomology classes over the virtual fundamental class of the moduli space of stable maps.
+    \item[Hyperbolic group] A finitely generated group whose Cayley graph is a \(\delta\)-hyperbolic metric space.
+    \item[\(J\)-holomorphic curve] A map from a Riemann surface to an almost complex manifold satisfying \(J \circ du = du \circ j\).
+    \item[Milnor's conjecture] The conjecture that groups of polynomial growth are virtually nilpotent, proved by Gromov in 1981.
+    \item[Non-squeezing theorem] Gromov's theorem that a symplectic ball \(B^{2n}(R)\) cannot be symplectically embedded into a cylinder \(Z^{2n}(r)\) unless \(R \leq r\).
+    \item[Partial differential relation] A subset of the jet bundle of a fiber bundle, representing a system of partial differential equations or inequalities.
+    \item[Polynomial growth] A finitely generated group has polynomial growth if the number of elements of word length at most \(n\) grows at most polynomially in \(n\).
+    \item[Pseudoholomorphic curve] A \(J\)-holomorphic curve in a symplectic manifold with a compatible almost complex structure.
+    \item[Quantum cohomology] A deformation of the ordinary cohomology ring using Gromov--Witten invariants, encoding counts of pseudoholomorphic curves.
+    \item[Rips complex] A simplicial complex built from the Cayley graph of a group, used to study the topology of hyperbolic groups.
+    \item[Stable map] A degenerate nodal curve with \(J\)-holomorphic components, used to compactify the moduli space of pseudoholomorphic curves.
+    \item[Symplectic embedding] An embedding \(\varphi: (M_1, \omega_1) \to (M_2, \omega_2)\) such that \(\varphi^*\omega_2 = \omega_1\).
+    \item[Symplectic manifold] An even-dimensional smooth manifold equipped with a closed non-degenerate 2-form.
+    \item[Virtual fundamental class] A homology class on a moduli space that represents the expected fundamental class when the moduli space is not smooth, constructed using Kuranishi structures or polyfolds.
+    \item[Virtually nilpotent] A group containing a nilpotent subgroup of finite index.
+\end{description}
+
+\section*{Further Reading}
+\addcontentsline{toc}{section}{Further Reading}
+
+\begin{enumerate}
+    \item M.\ Gromov, \textit{Partial Differential Relations}, Ergebnisse der Mathematik und ihrer Grenzgebiete (3), Vol.\ 9, Springer, 1986.
+    \item M.\ Gromov, \textit{Structures m\'etriques pour les vari\'et\'es riemanniennes}, Textes Math\'ematiques, Vol.\ 1, CEDIC, 1981.
+    \item M.\ Gromov, \textit{Hyperbolic groups}, in ``Essays in Group Theory'' (S.\ M.\ Gersten, ed.), MSRI Publications 8, Springer, 1987, 75--263.
+    \item M.\ Gromov, \textit{Pseudoholomorphic curves in symplectic manifolds}, Invent.\ Math.\ 82 (1985), 307--347.
+    \item M.\ Gromov, \textit{Groups of polynomial growth and expanding maps}, Publ.\ Math.\ IH\'ES 53 (1981), 53--78.
+    \item M.\ Gromov, \textit{Curvature, diameter and Betti numbers}, Comment.\ Math.\ Helv.\ 56 (1981), 179--195.
+    \item M.\ Gromov, \textit{Filling Riemannian manifolds}, J.\ Differential Geometry 18 (1983), 1--147.
+    \item D.\ McDuff and D.\ Salamon, \textit{J-Holomorphic Curves and Symplectic Topology}, AMS Colloquium Publications 52, 2nd ed., 2012.
+    \item \'E.\ Ghys and P.\ de la Harpe (eds.), \textit{Sur les groupes hyperboliques d'apr\`es Mikhael Gromov}, Progress in Mathematics 83, Birkh\"auser, 1990.
+    \item P.\ de la Harpe, \textit{Topics in Geometric Group Theory}, University of Chicago Press, 2000.
+\end{enumerate}

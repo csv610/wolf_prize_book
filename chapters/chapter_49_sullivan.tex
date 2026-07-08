@@ -1,0 +1,274 @@
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\CP}{\mathbb{CP}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Map}{\operatorname{Map}}
+\providecommand{\Sing}{\operatorname{Sing}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Out}{\operatorname{Out}}
+\providecommand{\Diff}{\operatorname{Diff}}
+\providecommand{\Homeo}{\operatorname{Homeo}}
+\providecommand{\Top}{\operatorname{Top}}
+\providecommand{\PL}{\operatorname{PL}}
+\providecommand{\cat}{\operatorname{cat}}
+\providecommand{\Tor}{\operatorname{Tor}}
+
+\chapter{Dennis P. Sullivan (2010)}
+
+\begin{quote}
+\it ``Sullivan has a remarkable ability to see deep connections between seemingly disparate fields. His work unites topology, geometry, and dynamics in ways that have transformed our understanding of all three subjects. His influence on modern mathematics is profound and lasting.'' --- Wolf Prize Citation
+\end{quote}
+
+\section{Main Contribution}
+
+Dennis Parnell Sullivan (born 1941) is one of the most creative and influential mathematicians of his generation, whose work has fundamentally shaped algebraic topology, geometric topology, and dynamical systems. He was awarded the Wolf Prize in 2010 and the Abel Prize in 2022.
+
+The Wolf Prize citation reads: ``for his innovative contributions to algebraic topology and conformal dynamics.''
+
+Sullivan's core contributions include:
+\begin{itemize}
+    \item \textbf{Rational Homotopy Theory:} The creation (independently with Quillen) of a complete algebraic framework for studying the rational homotopy type of spaces.
+    \item \textbf{Localization in Topology:} The radical idea that spaces themselves could be ``localized'' at primes, leading to profound insights about the structure of homotopy theory.
+    \item \textbf{The Sullivan Conjecture:} A fundamental result about maps from classifying spaces of finite groups, proved by Miller.
+    \item \textbf{Geometric Topology:} The classification of high-dimensional manifolds, the Hauptvermutung, and the analysis of topological normal invariants.
+    \item \textbf{Kleinian Groups and Dynamics:} The no-wandering-domain theorem for rational maps, the density conjecture for Kleinian groups, and the Parry--Sullivan invariant.
+    \item \textbf{String Topology:} The creation (with Moira Chas) of string topology, studying algebraic structures on free loop spaces.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{The Homotopy Problem}
+
+Algebraic topology in the 1960s had achieved remarkable successes in computing homotopy groups of spheres, but the general problem of determining the homotopy type of a space remained elusive. The fundamental challenge: homotopy groups are extremely difficult to compute, and the classical invariants (homology, cohomology) do not capture all homotopy information.
+
+A key question: can we build an algebraic model of a simply connected space that completely determines its rational homotopy type? And can we understand how homotopy theory decomposes into its $p$-local components?
+
+\subsection{The Classification of Manifolds}
+
+Surgery theory, developed by Browder, Novikov, and Wall, provided a powerful framework for classifying high-dimensional manifolds. But a fundamental question remained: when is a homotopy equivalence between manifolds homotopic to a homeomorphism? This is the Hauptvermutung (``main conjecture''), and Sullivan's work on the classification of topological manifolds and normal invariants was crucial to resolving it.
+
+\subsection{Dynamics of Rational Maps}
+
+The iteration of rational maps on the Riemann sphere had been studied since the time of Fatou and Julia (early 20th century), but the field stagnated for decades. The central problem: what is the structure of the Fatou set (where dynamics is stable) and the Julia set (where it is chaotic)? In particular, are there wandering domains---connected components of the Fatou set that never map back to themselves?
+
+\section{How It Was Solved and the Intuitions/Tools Needed}
+
+\subsection{Rational Homotopy Theory}
+
+Sullivan's key insight was to use differential forms with polynomial coefficients (forms on a simplicial complex with $\Q$-coefficients) to build an algebraic model of a space. The resulting \textbf{minimal model} is a commutative differential graded algebra (CDGA) over $\Q$ that encodes the rational homotopy type.
+
+The intuition: just as de Rham cohomology captures the real cohomology of a manifold via differential forms, Sullivan's forms with polynomial coefficients capture the rational homotopy type. A space is \textbf{formal} if its rational homotopy type is determined by its cohomology algebra—a property that holds for many interesting spaces like K\"ahler manifolds.
+
+\subsection{Tools and Techniques}
+
+\begin{itemize}
+    \item \textbf{Simplicial differential forms:} The algebra $\Omega_n$ of polynomial differential forms on the standard $n$-simplex.
+    \item \textbf{Minimal models:} A free CDGA $(\bigwedge V, d)$ with decomposable differential, providing a canonical algebraic model.
+    \item \textbf{Localization:} The construction of spaces $X_{(p)}$ (localized at a prime $p$) and $X_\Q$ (rationalization), using the technique of ``plus construction'' and ``localization of spaces.''
+    \item \textbf{Surgery theory:} The classification of normal invariants via $G/\Top$ and $G/\PL$.
+\end{itemize}
+
+\subsection{The No-Wandering-Domain Theorem}
+
+Sullivan proved that rational maps have no wandering domains, resolving a 60-year-old problem from Fatou--Julia theory. The proof uses techniques from Teichm\"uller theory, quasiconformal mappings, and the theory of Kleinian groups. The intuition: the existence of a wandering domain would allow one to construct an infinite-dimensional family of conformally inequivalent dynamical systems, contradicting the finite-dimensionality of the parameter space.
+
+\section{Mathematical Theory}
+
+\subsection{Rational Homotopy Theory}
+
+\begin{definition}[Minimal Model]
+A \textbf{minimal CDGA} is a commutative differential graded algebra $(\bigwedge V, d)$ freely generated by a graded vector space $V = \bigoplus_{k \geq 1} V_k$, where $d(V_k) \subset \bigwedge^{\geq 2} V$ (the differential is decomposable).
+\end{definition}
+
+\begin{theorem}[Sullivan, 1977]
+For any simply connected topological space $X$ of finite type, there exists a minimal CDGA $M_X$ (the \textbf{Sullivan minimal model}) and a quasi-isomorphism $M_X \to A_{\PL}(X)$, where $A_{\PL}(X)$ is the algebra of polynomial differential forms on $X$.
+\end{theorem}
+
+The minimal model encodes the rational homotopy groups:
+\[
+\pi_n(X) \otimes \Q \cong (V_n)^*
+\]
+where $V_n$ is the degree-$n$ part of the generating space.
+
+\begin{definition}[Formal Space]
+A simply connected space $X$ is \textbf{formal} if its Sullivan minimal model is quasi-isomorphic to $(H^*(X, \Q), 0)$---that is, the rational homotopy type is determined by the cohomology algebra.
+\end{definition}
+
+\begin{theorem}[Deligne--Griffiths--Morgan--Sullivan, 1975]
+Compact K\"ahler manifolds are formal. This implies deep restrictions on their rational homotopy type, including that all Massey products vanish.
+\end{theorem}
+
+\subsection{Localization of Spaces}
+
+\begin{definition}[Rationalization]
+The \textbf{rationalization} of a simply connected space $X$ is a space $X_\Q$ with $\pi_*(X_\Q) \cong \pi_*(X) \otimes \Q$, together with a map $X \to X_\Q$ inducing this isomorphism.
+\end{definition}
+
+Sullivan's 1970 MIT notes introduced the idea that spaces can be localized at a prime $p$ to produce spaces $X_{(p)}$ with $\pi_*(X_{(p)}) \cong \pi_*(X) \otimes \Z_{(p)}$, where $\Z_{(p)}$ is the localization of $\Z$ at $p$.
+
+\begin{theorem}[Sullivan's Localization Theorem]
+The homotopy category of simply connected spaces decomposes as a product over all primes:
+\[
+\Ho(\Top) \simeq \prod_{p \text{ prime}} \Ho(\Top_{(p)}) \times \Ho(\Top_\Q)
+\]
+where $\Top_{(p)}$ are $p$-local spaces and $\Top_\Q$ are rational spaces.
+\end{theorem}
+
+\subsection{The Sullivan Conjecture}
+
+\begin{definition}[Classifying Space]
+For a finite group $G$, the \textbf{classifying space} $BG$ is the base space of the universal principal $G$-bundle $EG \to BG$. Its homotopy type encodes the group theory of $G$.
+\end{definition}
+
+\begin{theorem}[Miller, 1984; Sullivan Conjecture]
+Let $G$ be a finite group and $X$ a finite CW complex. Then the space $\Map_*(BG, X)$ of pointed maps from $BG$ to $X$ is weakly contractible.
+\end{theorem}
+
+This result, conjectured by Sullivan in his 1970 notes, has profound implications for the homotopy theory of classifying spaces. It implies that $BG$ is ``atomic'' in a precise sense: it cannot map nontrivially to any finite complex.
+
+\subsection{The No-Wandering-Domain Theorem}
+
+\begin{definition}[Fatou and Julia Sets]
+For a rational map $f: \widehat{\C} \to \widehat{\C}$ of degree $\geq 2$, the \textbf{Fatou set} $F(f)$ is the set of points where the iterates $\{f^n\}$ form a normal family. The \textbf{Julia set} $J(f) = \widehat{\C} \setminus F(f)$ is where the dynamics is chaotic.
+\end{definition}
+
+\begin{definition}[Wandering Domain]
+A component $U$ of the Fatou set is a \textbf{wandering domain} if $f^n(U) \cap f^m(U) = \emptyset$ for all $n \neq m$.
+\end{definition}
+
+\begin{theorem}[Sullivan, 1985]
+Every rational map of degree $\geq 2$ has no wandering domains. Every Fatou component is eventually periodic.
+\end{theorem}
+
+The proof uses the Teichm\"uller theory of rational maps and the finite-dimensionality of the parameter space of dynamical systems.
+
+\subsection{String Topology}
+
+\begin{definition}[Chas--Sullivan Product]
+For a closed oriented manifold $M$, the \textbf{Chas--Sullivan product} on the homology $H_*(LM)$ of the free loop space $LM = \Map(S^1, M)$ is:
+\[
+\circ: H_p(LM) \otimes H_q(LM) \to H_{p+q-n}(LM)
+\]
+where $n = \dim M$. This makes $H_*(LM)$ into a graded commutative associative algebra.
+\end{definition}
+
+String topology has connections to topological field theories, Hochschild homology, and the algebraic structures on free loop spaces.
+
+\section{Impact on Science and Technology}
+
+\subsection{In Mathematics}
+
+\begin{enumerate}
+    \item \textbf{Algebraic Topology:} Rational homotopy theory is a standard tool throughout topology and geometry. The concept of formality has deep implications for K\"ahler geometry, symplectic geometry, and mathematical physics.
+    \item \textbf{Geometric Topology:} Sullivan's classification of normal invariants and his work on the Hauptvermutung resolved fundamental questions about the nature of manifolds.
+    \item \textbf{Dynamical Systems:} The no-wandering-domain theorem revitalized the study of holomorphic dynamics. Sullivan's work on Kleinian groups and the density conjecture (proved by Ohshika and Namazi--Souto) shaped modern low-dimensional topology and hyperbolic geometry.
+    \item \textbf{Homotopy Theory:} The localization of spaces and the Sullivan conjecture remain active areas of research with connections to algebraic K-theory and chromatic homotopy theory.
+\end{enumerate}
+
+\subsection{In Physics}
+
+\begin{enumerate}
+    \item \textbf{String Theory:} String topology provides algebraic structures on loop spaces that are relevant to string theory, topological field theories, and the study of moduli spaces of Riemann surfaces.
+    \item \textbf{Conformal Field Theory:} Sullivan's work on quasiconformal mappings and the Connes--Donaldson--Sullivan--Teleman index theorem connects to conformal field theory and noncommutative geometry.
+\end{enumerate}
+
+\section{Five Frequently Asked Questions}
+
+\subsection*{Q1: What is rational homotopy theory?}
+Rational homotopy theory studies the homotopy type of a space after ignoring all torsion information. Sullivan showed that every simply connected space can be modeled by a commutative differential graded algebra (a ``minimal model'') over $\Q$, whose generators correspond to rational homotopy groups. This reduces homotopy theory to an algebraic problem that is often computable. For example, a space is formal if its homotopy type is determined by its cohomology ring.
+
+\subsection*{Q2: What is the localization of spaces?}
+Just as we can localize integers at a prime $p$ to get $\Z_{(p)}$, Sullivan showed we can localize topological spaces at a prime $p$ to get $p$-local spaces. The homotopy groups of the localized space are the localization of the original homotopy groups. This decomposes homotopy theory into a product over primes, making computations more tractable---just as understanding integers modulo powers of $p$ helps understand integers.
+
+\subsection*{Q3: What is the no-wandering-domain theorem?}
+Sullivan proved that for a rational map of the Riemann sphere, every component of the Fatou set (where the dynamics is stable) must eventually map back to itself under iteration. This rules out ``wandering domains'' that never return. The proof combines Teichm\"uller theory (deformation spaces of Riemann surfaces) with the observation that a wandering domain would create infinite-dimensional freedom in the parameter space, which is impossible.
+
+\subsection*{Q4: What is string topology?}
+String topology, created by Sullivan and Moira Chas, studies algebraic structures on the homology of the space of loops in a manifold. The Chas--Sullivan product gives a rich algebraic structure that generalizes the intersection product on the manifold itself. String topology has deep connections to topological quantum field theories and the geometry of moduli spaces.
+
+\subsection*{Q5: What should an undergraduate study to understand Sullivan's work?}
+For topology: algebraic topology (homotopy groups, homology, cohomology, spectral sequences), differential topology (manifolds, transversality). For dynamics: complex analysis (Riemann surfaces), dynamical systems, and Teichm\"uller theory. Hatcher's \textit{Algebraic Topology}, Milnor's \textit{Morse Theory}, and Beardon's \textit{Iteration of Rational Functions} are recommended starting points.
+
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Show that the rational cohomology ring of $\CP^n$ is $\Q[x]/(x^{n+1})$ with $\deg x = 2$, and compute its Sullivan minimal model.
+    \item Prove that the sphere $S^n$ is formal for all $n$.
+    \item Show that a compact K\"ahler manifold has no non-trivial Massey products (use formality).
+    \item Let $f(z) = z^2 + c$. Show that if $c$ is outside the Mandelbrot set, then the Julia set of $f$ is a Cantor set.
+    \item Compute the Chas--Sullivan product on $H_*(LS^2)$ for the free loop space of the 2-sphere.
+    \item Show that the classifying space $B\Z/p\Z$ is homotopy equivalent to the infinite lens space $L^\infty(\Z/p\Z)$.
+    \item Prove the Sullivan conjecture for $G = \Z/2\Z$ and $X = S^n$ using elementary homotopy theory.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1941 & Born in Port Huron, Michigan \\ \hline
+1963 & B.A.\ from Rice University \\ \hline
+1966 & Ph.D.\ from Princeton University (advisor: William Browder) \\ \hline
+1970 | MIT notes on geometric topology and localization \\ \hline
+1971 | Oswald Veblen Prize in Geometry \\ \hline
+1974 | Professor at IH\'ES \\ \hline
+1977 | Publishes ``Infinitesimal computations in topology'' \\ \hline
+1981 | Albert Einstein Chair at CUNY Graduate Center \\ \hline
+1985 | Proves the no-wandering-domain theorem \\ \hline
+1996 | Professor at Stony Brook University \\ \hline
+1999 | String topology (with Moira Chas) \\ \hline
+2004 | National Medal of Science \\ \hline
+2006 | Steele Prize for Lifetime Achievement \\ \hline
+2010 | Wolf Prize in Mathematics \\ \hline
+2014 | Balzan Prize \\ \hline
+2022 | Abel Prize \\ \hline
+\end{tabular}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Chas--Sullivan product] A product on the homology of the free loop space, making it into a graded commutative algebra.
+    \item[Classifying space] A space $BG$ whose homotopy type encodes the group theory of $G$, the base of the universal $G$-bundle.
+    \item[Fatou set] The set where iterates of a rational map form a normal family (stable dynamics).
+    \item[Julia set] The complement of the Fatou set, where dynamics is chaotic.
+    \item[Localization] The process of inverting primes in homotopy theory, decomposing spaces into $p$-local factors.
+    \item[Minimal model] A free CDGA $(\bigwedge V, d)$ with decomposable differential, providing a canonical algebraic model of a space.
+    \item[Rational homotopy theory] The study of homotopy types after tensoring homotopy groups with $\Q$.
+    \item[String topology] The study of algebraic structures on the homology of free loop spaces.
+    \item[Wandering domain] A Fatou component that never maps back to itself under iteration.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item D.\ Sullivan, \textit{Infinitesimal computations in topology}, Publ.\ Math.\ IH\'ES 47 (1977), 269--331.
+    \item D.\ Sullivan, \textit{Geometric Topology: Localization, Periodicity and Galois Symmetry}, MIT notes 1970 (published by Springer, 2005).
+    \item D.\ Sullivan, \textit{Quasiconformal homeomorphisms and dynamics I: Solution of the Fatou--Julia problem on wandering domains}, Ann.\ of Math.\ 122 (1985), 401--418.
+    \item M.\ Chas and D.\ Sullivan, \textit{String topology}, arXiv:math/9911159, 1999.
+    \item P.\ Deligne, P.\ Griffiths, J.\ Morgan, and D.\ Sullivan, \textit{Real homotopy theory of K\"ahler manifolds}, Invent.\ Math.\ 29 (1975), 245--274.
+    \item S.\ Donaldson and D.\ Sullivan, \textit{Quasiconformal 4-manifolds}, Acta Math.\ 163 (1989), 181--252.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item A.\ Phillips, \textit{Dennis Sullivan -- A Short History}, in ``Graphs and Patterns in Mathematics and Theoretical Physics,'' AMS, 2005.
+    \item H.\ Miller, \textit{The Sullivan Conjecture}, Bull.\ AMS 1984.
+    \item Wolf Foundation, \textit{Wolf Prize Citation 2010}.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item Y.\ F\'elix, J.\ Oprea, and D.\ Tanr\'e, \textit{Algebraic Models in Geometry}, Oxford Univ.\ Press, 2008.
+    \item Y.\ F\'elix, S.\ Halperin, and J.-C.\ Thomas, \textit{Rational Homotopy Theory}, Springer, 2001.
+    \item A.\ Hatcher, \textit{Algebraic Topology}, Cambridge Univ.\ Press, 2002.
+    \item L.\ Carleson and T.\ Gamelin, \textit{Complex Dynamics}, Springer, 1993.
+    \item C.\ T.\ McMullen, \textit{Complex Dynamics and Renormalization}, Princeton Univ.\ Press, 1994.
+\end{enumerate}
+

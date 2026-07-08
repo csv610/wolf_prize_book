@@ -1,0 +1,562 @@
+\let\im\relax
+\newcommand{\im}{\operatorname{im}}
+\let\N\relax
+\newcommand{\N}{\mathbb{N}}
+\let\R\relax
+\newcommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\let\Q\relax
+\newcommand{\Q}{\mathbb{Q}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb{Z}}
+\let\E\relax
+\newcommand{\E}{\mathbb{E}}
+\let\Var\relax
+\newcommand{\Var}{\operatorname{Var}}
+\let\cov\relax
+\newcommand{\cov}{\operatorname{cov}}
+
+\chapter{Kiyoshi It\^{o} (1987)}
+
+\begin{quote}
+\it ``It\^{o}'s theory of stochastic integration and stochastic differential equations is one of the most important developments in probability theory of the twentieth century. It has become an indispensable tool in every field where random dynamical systems are studied, from physics and biology to economics and finance.'' --- Wolf Prize Citation
+\end{quote}
+
+Kiyoshi It\^{o} (1915--2008) was a Japanese mathematician whose creation of stochastic calculus revolutionized probability theory and its applications. The 1987 Wolf Prize in Mathematics (shared with Peter Lax) recognized his development of the It\^{o} integral, It\^{o}'s lemma, and the theory of stochastic differential equations. These tools form the mathematical foundation for the modern theory of random processes, and they are indispensable in fields ranging from mathematical finance and signal processing to statistical physics and quantum field theory.
+
+It\^{o}'s work solved a fundamental problem: how to make rigorous sense of differential equations driven by Brownian motion. Brownian paths are nowhere differentiable, so classical calculus cannot handle them. It\^{o} constructed a new kind of integral---the stochastic integral---and a corresponding chain rule---It\^{o}'s lemma---that together form what is now called It\^{o} calculus. This calculus is the appropriate language for describing systems subject to continuous random noise.
+
+\section{Main Contribution}
+
+\begin{itemize}
+    \item \textbf{It\^{o} Integral (1944):} A rigorous definition of the integral \(\int_0^t H_s \, dW_s\) with respect to Brownian motion, based on \(L^2\)-convergence and the It\^{o} isometry. This was the first mathematically sound treatment of integration against a stochastic process with unbounded variation.
+    \item \textbf{It\^{o}'s Lemma (1951):} The stochastic analogue of the chain rule. For a smooth function \(f(t,x)\) and an It\^{o} process \(X_t\),
+    \[
+    df(t,X_t) = \frac{\partial f}{\partial t}\,dt + \frac{\partial f}{\partial x}\,dX_t + \frac12 \frac{\partial^2 f}{\partial x^2}\,d\langle X\rangle_t.
+    \]
+    When \(X_t = W_t\) (Brownian motion), this simplifies to the iconic formula
+    \[
+    df(t,W_t) = \left(\frac{\partial f}{\partial t} + \frac12 \frac{\partial^2 f}{\partial x^2}\right) dt + \frac{\partial f}{\partial x}\,dW_t.
+    \]
+    \item \textbf{Stochastic Differential Equations (SDEs):} A theory of equations of the form
+    \[
+    dX_t = \mu(X_t, t)\,dt + \sigma(X_t, t)\,dW_t,
+    \]
+    including existence and uniqueness theorems, Markov properties, and connections to partial differential equations.
+    \item \textbf{It\^{o} Calculus:} The complete framework of stochastic calculus, including the It\^{o} isometry, martingale representation, and the change-of-measure theorems (Girsanov's theorem).
+    \item \textbf{Feynman--Kac Formula:} A representation of solutions of parabolic PDEs as expectations of functionals of It\^{o} processes, connecting stochastic calculus to analysis.
+    \item \textbf{It\^{o}'s Theory of Stochastic Processes:} Foundational work on the classification and structure of stochastic processes, including the It\^{o} decomposition of semimartingales.
+\end{itemize}
+
+\section{Origin of the Problem}
+
+\subsection{Brownian Motion}
+
+In 1827, the botanist Robert Brown observed through a microscope that pollen grains suspended in water moved in a continuous, irregular, zigzag pattern. This motion, later named Brownian motion, was eventually explained by Einstein (1905) as the result of collisions between the pollen and water molecules. Einstein's analysis gave the first mathematical description: the probability density \(p(x,t)\) of a Brownian particle satisfies the diffusion equation
+\[
+\frac{\partial p}{\partial t} = D \frac{\partial^2 p}{\partial x^2},
+\]
+where \(D\) is the diffusion coefficient. This established the connection between random motion and partial differential equations.
+
+Norbert Wiener (1923) gave the first rigorous construction of Brownian motion as a mathematical object. A Wiener process \(W = \{W_t : t \geq 0\}\) is a stochastic process satisfying:
+\begin{enumerate}
+    \item \(W_0 = 0\) almost surely.
+    \item Independent increments: for \(0 \leq s < t\), \(W_t - W_s\) is independent of \(\{W_u : u \leq s\}\).
+    \item Gaussian increments: \(W_t - W_s \sim \mathcal{N}(0, t-s)\).
+    \item Continuous paths: \(t \mapsto W_t\) is almost surely continuous.
+\end{enumerate}
+
+Wiener showed that such a process exists and that its paths are almost surely nowhere differentiable. It is this last property---the extreme irregularity of Brownian paths---that makes stochastic calculus necessary. Since \(dW_t/dt\) does not exist as an ordinary function, the differential equation
+\[
+\frac{dX_t}{dt} = \mu(X_t, t) + \sigma(X_t, t) \frac{dW_t}{dt}
+\]
+is meaningless in the classical sense. A new calculus was needed.
+
+\subsection{The Need for Stochastic Integration}
+
+Consider a particle moving in a fluid, subject to both a deterministic drift and random collisions. The Langevin equation (1908) models this as
+\[
+m \frac{d^2 x}{dt^2} = -\gamma \frac{dx}{dt} + \xi(t),
+\]
+where \(-\gamma v\) is a damping force and \(\xi(t)\) represents the random force from molecular collisions. In the overdamped limit (small mass), one obtains
+\[
+\frac{dx}{dt} = \mu(x,t) + \sigma(x,t) \eta(t),
+\]
+where \(\eta(t) = dW_t/dt\) is ``white noise''---a generalized stochastic process that is the formal derivative of Brownian motion.
+
+Physicists had been manipulating equations of this type heuristically since Einstein and Langevin. But the mathematical problem was clear: if \(W_t\) is nowhere differentiable, what does it mean to write \(\int f(t)\,dW_t\)? The Riemann--Stieltjes integral requires the integrator to have bounded variation, but Brownian motion has infinite variation on every interval:
+\[
+\lim_{n \to \infty} \sum_{k=1}^{2^n} \bigl|W_{k/2^n} - W_{(k-1)/2^n}\bigr| = \infty \quad \text{almost surely}.
+\]
+
+Moreover, the quadratic variation of Brownian motion is non-zero:
+\[
+\lim_{n \to \infty} \sum_{k=1}^{2^n} \bigl(W_{k/2^n} - W_{(k-1)/2^n}\bigr)^2 = t \quad \text{in } L^2.
+\]
+
+This non-zero quadratic variation is the key to It\^{o}'s theory: the extra \(dt\) term in It\^{o}'s lemma appears precisely because \((dW_t)^2\) does not vanish---it equals \(dt\) in a mean-square sense.
+
+\subsection{The It\^{o} vs.\ Stratonovich Question}
+
+A subtlety arises: how should one interpret the integral \(\int H_s \, dW_s\) when the integrand depends on the future? The Riemann--Stieltjes sum
+\[
+\sum_{k} H_{t_k^*} (W_{t_{k+1}} - W_{t_k})
+\]
+depends on the choice of evaluation point \(t_k^*\) because \(W\) has unbounded variation. If we choose the left endpoint (\(t_k^* = t_k\)), we obtain the It\^{o} integral. If we choose the midpoint, we obtain the Stratonovich integral (introduced later by Stratonovich in the 1960s). The It\^{o} choice has the advantage that the resulting integral is a martingale, which is crucial for the theory.
+
+\section{How It Was Solved}
+
+\subsection{Construction of the It\^{o} Integral}
+
+It\^{o}'s fundamental insight was to define the stochastic integral first for simple (step-function) integrands, then extend by continuity using an isometry. The domain consists of \emph{adapted} processes \(H_t\) (those depending only on information available up to time \(t\)).
+
+Let \((\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})\) be a filtered probability space supporting a Brownian motion \(W_t\).
+
+\begin{definition}
+A process \(H_t\) is called \emph{elementary} if there exists a partition \(0 = t_0 < t_1 < \cdots < t_n = T\) and \(\mathcal{F}_{t_k}\)-measurable random variables \(e_k\) such that
+\[
+H_t = \sum_{k=0}^{n-1} e_k \mathbf{1}_{(t_k, t_{k+1}]}(t).
+\]
+The It\^{o} integral of an elementary process is defined as
+\[
+\int_0^T H_t \, dW_t = \sum_{k=0}^{n-1} e_k (W_{t_{k+1}} - W_{t_k}).
+\]
+\end{definition}
+
+The crucial property is the It\^{o} isometry:
+
+\begin{theorem}[It\^{o} Isometry]
+For any elementary process \(H_t\) that is square-integrable (\(\E\int_0^T H_t^2 \, dt < \infty\)),
+\[
+\E\left[\left(\int_0^T H_t \, dW_t\right)^2\right] = \E\left[\int_0^T H_t^2 \, dt\right].
+\]
+\end{theorem}
+
+\begin{proof}
+By independence of increments and adaptedness,
+\[
+\E[e_k e_\ell (W_{t_{k+1}} - W_{t_k})(W_{t_{\ell+1}} - W_{t_\ell})] = 0 \quad \text{for } k \neq \ell.
+\]
+For \(k = \ell\),
+\[
+\E[e_k^2 (W_{t_{k+1}} - W_{t_k})^2] = \E[e_k^2] (t_{k+1} - t_k).
+\]
+Summing over \(k\) gives the result.
+\end{proof}
+
+The It\^{o} isometry shows that the map from an integrand \(H\) to its integral is an isometry from the space of elementary processes (with norm \(\|H\|^2 = \E\int_0^T H_t^2 \, dt\)) into \(L^2(\Omega)\). Elementary processes are dense in the space of all adapted, square-integrable processes, so the integral extends uniquely to this larger space by continuity.
+
+\begin{definition}
+The It\^{o} integral \(\int_0^T H_t \, dW_t\) for an adapted process \(H_t\) with \(\E\int_0^T H_t^2 \, dt < \infty\) is the unique \(L^2\)-limit of integrals of elementary processes approximating \(H\).
+\end{definition}
+
+The It\^{o} integral has the following fundamental properties:
+\begin{enumerate}
+    \item \textbf{Martingale property:} The process \(M_t = \int_0^t H_s \, dW_s\) is a martingale with respect to \(\mathcal{F}_t\).
+    \item \textbf{Zero mean:} \(\E[\int_0^t H_s \, dW_s] = 0\).
+    \item \textbf{Quadratic variation:} \(\langle M \rangle_t = \int_0^t H_s^2 \, ds\).
+    \item \textbf{Linearity:} \(\int (aH + bK) \, dW = a\int H\,dW + b\int K\,dW\).
+\end{enumerate}
+
+\subsection{It\^{o}'s Lemma}
+
+It\^{o}'s lemma is the stochastic analogue of the chain rule. It is the most important computational tool in stochastic calculus.
+
+\begin{theorem}[It\^{o}'s Lemma]
+Let \(f(t,x) \in C^{1,2}([0,\infty) \times \R)\) and let \(X_t\) be an It\^{o} process satisfying
+\[
+dX_t = \mu_t \, dt + \sigma_t \, dW_t.
+\]
+Then \(Y_t = f(t, X_t)\) is also an It\^{o} process, and
+\[
+df(t,X_t) = \left(\frac{\partial f}{\partial t} + \mu_t \frac{\partial f}{\partial x} + \frac{\sigma_t^2}{2} \frac{\partial^2 f}{\partial x^2}\right) dt + \sigma_t \frac{\partial f}{\partial x} \, dW_t.
+\]
+\end{theorem}
+
+\begin{proof}[Sketch]
+Expand \(f\) in a Taylor series up to second order:
+\[
+\Delta f = \frac{\partial f}{\partial t} \Delta t + \frac{\partial f}{\partial x} \Delta X + \frac12 \frac{\partial^2 f}{\partial x^2} (\Delta X)^2 + \frac{\partial^2 f}{\partial t \partial x} \Delta t \Delta X + \frac12 \frac{\partial^2 f}{\partial t^2} (\Delta t)^2 + \cdots
+\]
+Now \(\Delta X = \mu \Delta t + \sigma \Delta W\). For Brownian motion, \((\Delta W)^2 \to dt\) in \(L^2\) (the quadratic variation), while \(\Delta t \Delta W = o(\Delta t)\) and \((\Delta t)^2 = o(\Delta t)\). Substituting and taking limits yields the formula.
+\end{proof}
+
+The crucial difference from ordinary calculus is the \( \frac12 \sigma_t^2 \frac{\partial^2 f}{\partial x^2} dt \) term, which arises because \((dW_t)^2 = dt\) in the mean-square sense. This term is the signature of stochastic calculus.
+
+\begin{example}[Geometric Brownian Motion]
+Let \(dX_t = \mu X_t \, dt + \sigma X_t \, dW_t\) and \(f(t,x) = \log x\). Applying It\^{o}'s lemma with \(\partial f/\partial t = 0\), \(\partial f/\partial x = 1/x\), \(\partial^2 f/\partial x^2 = -1/x^2\):
+\[
+d(\log X_t) = \left(0 + \mu X_t \cdot \frac{1}{X_t} + \frac{\sigma^2 X_t^2}{2} \cdot \left(-\frac{1}{X_t^2}\right)\right) dt + \sigma X_t \cdot \frac{1}{X_t} \, dW_t
+= \left(\mu - \frac{\sigma^2}{2}\right) dt + \sigma \, dW_t.
+\]
+Therefore
+\[
+X_t = X_0 \exp\left(\left(\mu - \frac{\sigma^2}{2}\right) t + \sigma W_t\right),
+\]
+which is geometric Brownian motion, the fundamental model in mathematical finance.
+\end{example}
+
+\subsection{The Multi-Dimensional It\^{o} Formula}
+
+For a \(d\)-dimensional Brownian motion \(\mathbf{W}_t = (W_t^1, \ldots, W_t^d)\) and an It\^{o} process
+\[
+dX_t = \boldsymbol{\mu}_t \, dt + \boldsymbol{\sigma}_t \, d\mathbf{W}_t,
+\]
+where \(\boldsymbol{\mu}_t\) is an \(\R^n\)-valued vector and \(\boldsymbol{\sigma}_t\) is an \(n \times d\) matrix, the multi-dimensional It\^{o} formula for \(f: [0,\infty) \times \R^n \to \R\) is:
+\[
+df(t,\mathbf{X}_t) = \frac{\partial f}{\partial t} dt + \sum_{i=1}^n \frac{\partial f}{\partial x_i} dX_t^i + \frac12 \sum_{i,j=1}^n (\boldsymbol{\sigma}_t \boldsymbol{\sigma}_t^\top)_{ij} \frac{\partial^2 f}{\partial x_i \partial x_j} dt.
+\]
+
+\section{Mathematical Theory}
+
+\subsection{Stochastic Differential Equations}
+
+A stochastic differential equation (SDE) is an equation of the form
+\[
+dX_t = \mu(X_t, t)\,dt + \sigma(X_t, t)\,dW_t, \qquad X_0 = x,
+\]
+which is interpreted as the integral equation
+\[
+X_t = x + \int_0^t \mu(X_s, s)\,ds + \int_0^t \sigma(X_s, s)\,dW_s.
+\]
+
+\begin{theorem}[Existence and Uniqueness]
+Suppose \(\mu\) and \(\sigma\) satisfy global Lipschitz and linear growth conditions:
+\[
+|\mu(x,t) - \mu(y,t)| + |\sigma(x,t) - \sigma(y,t)| \leq K|x - y|,
+\]
+\[
+|\mu(x,t)|^2 + |\sigma(x,t)|^2 \leq K(1 + |x|^2).
+\]
+Then there exists a unique continuous, adapted solution \(X_t\) satisfying \(\E[\sup_{0 \leq t \leq T} |X_t|^2] < \infty\).
+\end{theorem}
+
+\begin{proof}[Sketch]
+The proof uses Picard iteration: define \(X_t^{(0)} = x\) and
+\[
+X_t^{(n+1)} = x + \int_0^t \mu(X_s^{(n)}, s)\,ds + \int_0^t \sigma(X_s^{(n)}, s)\,dW_s.
+\]
+Gronwall's inequality and the It\^{o} isometry show that \(X^{(n)}\) converges uniformly on \([0,T]\) in \(L^2\) to a limit \(X_t\) that satisfies the SDE. Uniqueness follows from the same estimates.
+\end{proof}
+
+SDEs have deep connections to partial differential equations. The generator of the diffusion \(X_t\) is the second-order differential operator
+\[
+\mathcal{A} f(x) = \mu(x,t) \frac{\partial f}{\partial x} + \frac12 \sigma(x,t)^2 \frac{\partial^2 f}{\partial x^2}.
+\]
+
+\begin{theorem}[Kolmogorov Backward Equation]
+Let \(u(t,x) = \E[\phi(X_T) \mid X_t = x]\) where \(X_t\) solves the SDE above. Then \(u\) satisfies the backward parabolic equation
+\[
+\frac{\partial u}{\partial t} + \mu(x,t) \frac{\partial u}{\partial x} + \frac12 \sigma(x,t)^2 \frac{\partial^2 u}{\partial x^2} = 0, \qquad t < T,
+\]
+with terminal condition \(u(T,x) = \phi(x)\).
+\end{theorem}
+
+\subsection{The Feynman--Kac Formula}
+
+The Feynman--Kac formula provides a probabilistic representation for solutions of parabolic PDEs. It is one of the most beautiful and useful results connecting stochastic analysis to partial differential equations.
+
+\begin{theorem}[Feynman--Kac Formula]
+Let \(\phi: \R \to \R\) and \(V: \R \to \R\) be bounded, continuous functions. Consider the PDE
+\[
+\frac{\partial u}{\partial t} + \mu(x) \frac{\partial u}{\partial x} + \frac12 \sigma(x)^2 \frac{\partial^2 u}{\partial x^2} - V(x) u = 0,
+\]
+with terminal condition \(u(T,x) = \phi(x)\). Then the unique solution has the representation
+\[
+u(t,x) = \E\left[ \exp\left(-\int_t^T V(X_s)\,ds\right) \phi(X_T) \;\Big|\; X_t = x \right],
+\]
+where \(X_s\) is the It\^{o} process solving \(dX_s = \mu(X_s)\,ds + \sigma(X_s)\,dW_s\).
+\end{theorem}
+
+\begin{example}[Black--Scholes Equation]
+In mathematical finance, the price \(V(S_t, t)\) of a European option on a stock with price \(S_t\) following geometric Brownian motion \(dS_t = rS_t\,dt + \sigma S_t\,dW_t\) satisfies
+\[
+\frac{\partial V}{\partial t} + rS \frac{\partial V}{\partial S} + \frac12 \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} - rV = 0,
+\]
+which is exactly of Feynman--Kac type with \(\mu(S) = rS\), \(\sigma(S) = \sigma S\), and \(V(S) = r\). The solution is
+\[
+V(S_t, t) = e^{-r(T-t)} \E[\phi(S_T) \mid S_t],
+\]
+where \(\phi\) is the option payoff.
+\end{example}
+
+\subsection{Martingale Representation Theorem}
+
+The martingale representation theorem states that every martingale with respect to the Brownian filtration can be written as a stochastic integral.
+
+\begin{theorem}[It\^{o} Martingale Representation]
+Let \(M_t\) be a square-integrable martingale with respect to the filtration generated by Brownian motion \(W_t\). Then there exists a unique adapted process \(H_t\) with \(\E\int_0^T H_t^2 \, dt < \infty\) such that
+\[
+M_t = M_0 + \int_0^t H_s \, dW_s \quad \text{almost surely for all } t \leq T.
+\]
+\end{theorem}
+
+This theorem is of fundamental importance in mathematical finance: it implies that every contingent claim can be hedged by trading in the underlying asset, which is the foundation of complete market theory.
+
+\subsection{Girsanov's Theorem}
+
+Girsanov's theorem describes how stochastic processes change under a change of probability measure. It is the stochastic analogue of the Radon--Nikodym theorem.
+
+\begin{theorem}[Girsanov's Theorem]
+Let \(\theta_t\) be an adapted process satisfying the Novikov condition \(\E[\exp(\frac12 \int_0^T \theta_t^2 \, dt)] < \infty\). Define
+\[
+L_t = \exp\left(-\int_0^t \theta_s \, dW_s - \frac12 \int_0^t \theta_s^2 \, ds\right).
+\]
+Then \(L_t\) is a martingale, and under the new probability measure \(\mathbb{Q}\) defined by \(d\mathbb{Q}/d\mathbb{P} = L_T\), the process
+\[
+\widetilde{W}_t = W_t + \int_0^t \theta_s \, ds
+\]
+is a Brownian motion.
+\end{theorem}
+
+This theorem is central to mathematical finance (pricing under the risk-neutral measure), filtering theory, and many areas of stochastic analysis.
+
+\subsection{It\^{o} Processes and Semimartingales}
+
+A natural generalization of the It\^{o} process is the class of semimartingales---processes that can be decomposed into a local martingale and a finite-variation process.
+
+\begin{definition}
+A continuous semimartingale is a process \(X_t = M_t + A_t\) where \(M_t\) is a continuous local martingale and \(A_t\) is a continuous adapted process of finite variation.
+\end{definition}
+
+It\^{o}'s formula extends to semimartingales:
+\[
+df(X_t) = f'(X_t)\,dX_t + \frac12 f''(X_t)\,d\langle X\rangle_t,
+\]
+where \(\langle X\rangle_t\) is the quadratic variation of \(X_t\).
+
+\subsection{Stratonovich Integral}
+
+While the It\^{o} integral is mathematically natural (it yields martingales), the Stratonovich integral (introduced by Stratonovich in the 1960s) satisfies the ordinary chain rule and is often more natural in physical applications.
+
+\begin{definition}
+The Stratonovich integral \(\int_0^T H_t \circ dW_t\) is defined as the limit of Riemann sums with mid-point evaluation:
+\[
+\int_0^T H_t \circ dW_t = \lim_{n \to \infty} \sum_{k=0}^{n-1} \frac{H_{t_k} + H_{t_{k+1}}}{2} (W_{t_{k+1}} - W_{t_k}).
+\]
+\end{definition}
+
+The It\^{o} and Stratonovich integrals are related by a correction term:
+\[
+\int_0^T H_t \circ dW_t = \int_0^T H_t \, dW_t + \frac12 \langle H, W\rangle_T.
+\]
+
+For an SDE in Stratonovich form,
+\[
+dX_t = \mu(X_t)\,dt + \sigma(X_t) \circ dW_t,
+\]
+the ordinary chain rule holds: \(df(X_t) = f'(X_t)\,dX_t\). The equivalent It\^{o} SDE is
+\[
+dX_t = \left(\mu(X_t) + \frac12 \sigma(X_t) \sigma'(X_t)\right) dt + \sigma(X_t)\,dW_t.
+\]
+
+\section{Impact}
+
+\subsection{Mathematical Finance}
+
+The most celebrated application of It\^{o} calculus is in mathematical finance. The Black--Scholes--Merton model (1973) uses It\^{o}'s lemma to derive the partial differential equation for option prices. If a stock price follows geometric Brownian motion
+\[
+dS_t = \mu S_t \, dt + \sigma S_t \, dW_t,
+\]
+and a risk-free bond grows at rate \(r\), then a self-financing portfolio consisting of the stock and bond can replicate any derivative security. It\^{o}'s lemma shows that the value \(V(S_t, t)\) of any derivative must satisfy the Black--Scholes equation:
+\[
+\frac{\partial V}{\partial t} + rS \frac{\partial V}{\partial S} + \frac12 \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} - rV = 0.
+\]
+
+The solution for a European call option (strike \(K\), maturity \(T\)) is:
+\[
+V(S,t) = S\Phi(d_1) - Ke^{-r(T-t)}\Phi(d_2),
+\]
+where
+\[
+d_{1,2} = \frac{\log(S/K) + (r \pm \sigma^2/2)(T-t)}{\sigma\sqrt{T-t}},
+\]
+and \(\Phi\) is the standard normal cumulative distribution function. Every term in this formula comes directly from It\^{o} calculus.
+
+The entire field of quantitative finance---option pricing, risk management, portfolio optimization, interest rate modeling---rests on the foundation of It\^{o} calculus. The 1997 Nobel Prize in Economics was awarded to Robert Merton and Myron Scholes for their work on option pricing (Fischer Black died in 1995 and was not eligible).
+
+\subsection{Stochastic Filtering}
+
+In engineering and signal processing, the Kalman--Bucy filter (1960s) and the more general Kushner--Stratonovich equation for nonlinear filtering rely on It\^{o} calculus. The filtering problem is to estimate the state of a dynamical system from noisy observations:
+\[
+dX_t = f(X_t)\,dt + g(X_t)\,dW_t \quad (\text{signal}),
+\]
+\[
+dY_t = h(X_t)\,dt + dV_t \quad (\text{observation}),
+\]
+where \(W_t\) and \(V_t\) are independent Brownian motions. The conditional distribution of \(X_t\) given observations \(\{Y_s : s \leq t\}\) satisfies a stochastic PDE known as the Kushner--Stratonovich equation, whose derivation and analysis require It\^{o} calculus.
+
+Applications include GPS navigation, aircraft tracking, robot localization, weather prediction, and neural signal processing.
+
+\subsection{Physics and Chemistry}
+
+It\^{o} calculus provides the rigorous mathematical foundation for the Langevin equation and the Fokker--Planck equation. In statistical mechanics, the motion of a Brownian particle is modeled by
+\[
+dv_t = -\gamma v_t\,dt + \sigma\,dW_t,
+\]
+which is the Ornstein--Uhlenbeck process (exactly solvable via It\^{o}'s lemma). The Fokker--Planck equation,
+\[
+\frac{\partial p}{\partial t} = -\frac{\partial}{\partial x}(\mu p) + \frac12 \frac{\partial^2}{\partial x^2}(\sigma^2 p),
+\]
+describes the evolution of the probability density of an It\^{o} process and is the fundamental equation of stochastic dynamics.
+
+In quantum field theory, the Feynman path integral is a formal infinite-dimensional integral over paths. The Feynman--Kac formula provides a rigorous version of this for the Euclidean (imaginary-time) Schrödinger equation.
+
+\subsection{Stochastic Analysis}
+
+It\^{o}'s work gave birth to the field of stochastic analysis, which includes:
+\begin{itemize}
+    \item Malliavin calculus (the stochastic calculus of variations), which extends It\^{o} calculus to provide a gradient structure on the Wiener space.
+    \item Rough path theory (T.\ Lyons, 1990s), which generalizes It\^{o} calculus to paths with arbitrary roughness.
+    \item Stochastic partial differential equations (SPDEs), such as the stochastic heat equation and the Kardar--Parisi--Zhang (KPZ) equation, which model random field evolution.
+    \item Stochastic geometry and stochastic flows.
+\end{itemize}
+
+\subsection{Impact on Undergraduate Mathematics}
+
+It\^{o} calculus is now a standard advanced undergraduate topic in mathematics and financial engineering programs. The key ideas---the It\^{o} integral, It\^{o}'s lemma, and the connection to PDEs---can be presented without measure theory for the case of Brownian motion. The Black--Scholes equation provides a compelling application that motivates students. Many universities offer courses on ``Stochastic Calculus for Finance'' at the undergraduate level.
+
+\section{Frequently Asked Questions}
+
+\subsection*{Q1: What is the difference between the It\^{o} and Stratonovich integrals?}
+
+The difference lies in the choice of evaluation point in the Riemann sum. The It\^{o} integral uses the left endpoint, making it a martingale. The Stratonovich integral uses the midpoint, making it satisfy the ordinary chain rule. In physical applications, Stratonovich is often preferred because it arises naturally as the limit of smooth noise. In finance, It\^{o} is preferred because the martingale property corresponds to the absence of arbitrage. The two are related by a correction term: \(\int H \circ dW = \int H\,dW + \frac12 \langle H,W\rangle\).
+
+\subsection*{Q2: Why is \((dW_t)^2 = dt\)?}
+
+This is a shorthand for the quadratic variation of Brownian motion. For a partition \(t_k = kt/n\),
+\[
+\sum_{k=1}^n (W_{t_k} - W_{t_{k-1}})^2 \to t
+\]
+in \(L^2\) as \(n \to \infty\). This is because each increment \(W_{t_k} - W_{t_{k-1}}\) has mean zero and variance \(t/n\), so the sum has mean \(t\) and variance \(2t^2/n \to 0\). In differential notation, we write \((dW_t)^2 = dt\). This is the source of the extra \( \frac12 f'' \) term in It\^{o}'s lemma.
+
+\subsection*{Q3: What is an It\^{o} process?}
+
+An It\^{o} process is a stochastic process of the form
+\[
+X_t = X_0 + \int_0^t \mu_s \, ds + \int_0^t \sigma_s \, dW_s,
+\]
+where \(\mu_s\) is an adapted process (the drift) and \(\sigma_s\) is an adapted process (the diffusion coefficient). In differential form, \(dX_t = \mu_t\,dt + \sigma_t\,dW_t\). The drift term is an ordinary integral (finite variation), while the diffusion term is an It\^{o} integral (a martingale).
+
+\subsection*{Q4: How is It\^{o} calculus used in finance?}
+
+It\^{o} calculus is the mathematical foundation of quantitative finance. It\^{o}'s lemma is used to derive the dynamics of derivative prices. The Black--Scholes PDE follows from applying It\^{o}'s lemma to a hedged portfolio. The martingale representation theorem guarantees that any derivative can be hedged. Girsanov's theorem is used to change from the real-world probability measure to the risk-neutral measure under which prices are martingales. Every major model in finance---Black--Scholes, Heston, SABR, LIBOR market model---is an It\^{o} SDE.
+
+\subsection*{Q5: What is the connection between SDEs and PDEs?}
+
+Every SDE has an associated PDE via the Feynman--Kac formula and the Kolmogorov equations. The solution of a parabolic PDE can be represented as an expectation over paths of an SDE, and conversely, the expectation of a functional of an SDE satisfies a PDE. This connection is a two-way street: SDEs provide probabilistic representations for PDEs (useful for Monte Carlo methods), and PDEs provide analytic tools for studying SDEs.
+
+\subsection*{Q6: What are the major open problems in stochastic analysis?}
+
+Several deep problems remain:
+\begin{enumerate}
+    \item \textbf{Regularity of stochastic flows:} Under minimal assumptions, how smooth are the solution maps of SDEs?
+    \item \textbf{Well-posedness of SPDEs:} For many nonlinear SPDEs (like the KPZ equation in dimensions greater than one), existence and uniqueness are open.
+    \item \textbf{Stochastic homogenization:} Understanding the effective behavior of SDEs with rapidly oscillating coefficients.
+    \item \textbf{Pathwise stochastic calculus:} Extending It\^{o} calculus beyond the semimartingale setting (rough path theory has made progress, but many questions remain).
+    \item \textbf{Optimal stochastic control:} The general theory for high-dimensional, non-Markovian systems.
+\end{enumerate}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item K.\ It\^{o}, \textit{On stochastic processes I}, Jap.\ J.\ Math.\ 18 (1942), 261--301. (Foundation of stochastic integration.)
+    \item K.\ It\^{o}, \textit{Stochastic integral}, Proc.\ Imp.\ Acad.\ Tokyo 20 (1944), 519--524.
+    \item K.\ It\^{o}, \textit{On a formula concerning stochastic differentials}, Nagoya Math.\ J.\ 3 (1951), 55--65. (It\^{o}'s lemma.)
+    \item K.\ It\^{o}, \textit{On stochastic differential equations}, Mem.\ Amer.\ Math.\ Soc.\ 4 (1951), 1--51.
+    \item K.\ It\^{o}, \textit{Lectures on Stochastic Processes}, Tata Institute of Fundamental Research, 1961.
+    \item K.\ It\^{o}, \textit{Selected Papers}, Springer, 1987.
+\end{enumerate}
+
+\subsection*{Biographies and Surveys}
+\begin{enumerate}
+    \item D.\ W.\ Stroock, \textit{Kiyosi It\^{o} (1915--2008)}, Notices AMS 56 (2009), 234--238.
+    \item S.\ R.\ S.\ Varadhan, \textit{Kiyoshi It\^{o} and his work}, in ``Selected Papers of Kiyoshi It\^{o},'' Springer, 1987.
+    \item M.\ Fukushima, \textit{Kiyoshi It\^{o}: His work and life}, in ``Stochastic Analysis and Applications,'' Springer, 2001.
+\end{enumerate}
+
+\subsection*{Textbooks}
+\begin{enumerate}
+    \item B.\ \O{}ksendal, \textit{Stochastic Differential Equations: An Introduction with Applications}, 6th ed., Springer, 2003. (The classic undergraduate text.)
+    \item I.\ Karatzas and S.\ E.\ Shreve, \textit{Brownian Motion and Stochastic Calculus}, 2nd ed., Springer, 1998.
+    \item L.\ C.\ G.\ Rogers and D.\ Williams, \textit{Diffusions, Markov Processes, and Martingales}, Vols.\ 1--2, Cambridge University Press, 2000.
+    \item S.\ E.\ Shreve, \textit{Stochastic Calculus for Finance}, Vols.\ I--II, Springer, 2004. (Finance-focused.)
+    \item D.\ Revuz and M.\ Yor, \textit{Continuous Martingales and Brownian Motion}, 3rd ed., Springer, 1999.
+    \item J.\ M.\ Steele, \textit{Stochastic Calculus and Financial Applications}, Springer, 2001.
+    \item H.-H.\ Kuo, \textit{Introduction to Stochastic Integration}, Springer, 2006.
+    \item F.\ C.\ Klebaner, \textit{Introduction to Stochastic Calculus with Applications}, 3rd ed., Imperial College Press, 2012.
+\end{enumerate}
+
+\section{Timeline}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1915 & Born on September 7 in Mie Prefecture, Honshu, Japan \\ \hline
+1938 & Graduates from Tokyo Imperial University with a degree in mathematics \\ \hline
+1939--1943 & Works at the Statistics Bureau of the Japanese Cabinet \\ \hline
+1942 & Publishes ``On Stochastic Processes I'' in the Japanese Journal of Mathematics; introduces the It\^{o} integral \\ \hline
+1944 & Publishes ``Stochastic Integral'' in the Proceedings of the Imperial Academy of Tokyo \\ \hline
+1945 & Appointed Professor at Nagoya Imperial University \\ \hline
+1951 & Publishes ``On Stochastic Differential Equations'' and ``On a Formula Concerning Stochastic Differentials'' (It\^{o}'s lemma) \\ \hline
+1952 & Moves to Kyoto University as Professor of Mathematics \\ \hline
+1950s & Develops the theory of stochastic differential equations, diffusion processes, and connections to PDEs \\ \hline
+1960s & Mentors a generation of Japanese probabilists; builds Kyoto into a world center for stochastic analysis \\ \hline
+1978 & Retires from Kyoto University; becomes Professor Emeritus \\ \hline
+1978--1990s & Continues research; receives numerous honors including the Fujiwara Prize (1966), the Japan Academy Prize (1978), and the Order of Culture (1978) \\ \hline
+1987 & Awarded the Wolf Prize in Mathematics (shared with Peter Lax) \\ \hline
+2006 & Awarded the first Carl Friedrich Gauss Prize at the International Congress of Mathematicians in Madrid \\ \hline
+2008 & Dies on November 10 in Kyoto, Japan, at age 93 \\ \hline
+\end{tabular}
+
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{enumerate}
+    \item Verify the It\^{o} isometry for the elementary process \(H_t = \mathbf{1}_{(a,b]}(t)W_a\) by direct computation.
+    \item Compute the It\^{o} integral \(\int_0^t W_s \, dW_s\) by (a) using the definition as a limit of Riemann sums, and (b) using It\^{o}'s lemma with \(f(t,x) = x^2/2\). Verify that the two methods agree and that the result is \((W_t^2 - t)/2\), not \(W_t^2/2\) as ordinary calculus would suggest.
+    \item Let \(X_t = W_t^3\). Use It\^{o}'s lemma to compute \(dX_t\). Then write \(X_t\) in integral form as \(X_t = \int_0^t (\cdots) ds + \int_0^t (\cdots) dW_s\).
+    \item Let \(f(t,x) = e^{\alpha x - \alpha^2 t/2}\). Show that \(f(t,W_t)\) is a martingale by computing its stochastic differential via It\^{o}'s lemma. This is the Dol\'eans--Dade exponential, the fundamental building block of Girsanov's theorem.
+    \item Solve the Ornstein--Uhlenbeck SDE: \(dX_t = -\theta X_t\,dt + \sigma\,dW_t\) with \(X_0 = x\). Hint: apply It\^{o}'s lemma to \(Y_t = e^{\theta t} X_t\).
+    \item Use the Feynman--Kac formula to write the solution of the heat equation \(\partial_t u = \frac12 \partial_x^2 u\) with initial condition \(u(0,x) = \phi(x)\) as an expectation. Verify that the resulting expression is the classical heat kernel representation.
+    \item Let \(M_t = W_t^4 - 6tW_t^2 + 3t^2\). Show that \(M_t\) is a martingale by applying It\^{o}'s lemma to \(W_t^4\) and collecting terms.
+    \item Apply It\^{o}'s lemma to \(f(W_t)\) where \(f\) is piecewise \(C^2\) but has a kink (e.g., \(f(x) = |x|\)). What is the resulting generalized It\^{o} formula? (This introduces the concept of local time via Tanaka's formula.)
+    \item Derive the Black--Scholes PDE by constructing a self-financing portfolio of \(\Delta_t\) shares of stock and one option, applying It\^{o}'s lemma to the portfolio value, and eliminating the random term by choosing \(\Delta_t = \partial V/\partial S\).
+    \item Let \(X_t\) and \(Y_t\) be It\^{o} processes. Derive the integration by parts formula:
+    \[
+    d(X_t Y_t) = X_t\,dY_t + Y_t\,dX_t + d\langle X,Y\rangle_t.
+    \]
+    Show that this differs from the ordinary product rule by the cross-variation term.
+    \item Prove that the Stratonovich integral satisfies the ordinary chain rule: if \(dX_t = \mu_t\,dt + \sigma_t \circ dW_t\) and \(f \in C^2\), then \(df(X_t) = f'(X_t)\,dX_t\).
+    \item Show that geometric Brownian motion \(S_t = S_0 \exp((\mu - \sigma^2/2)t + \sigma W_t)\) satisfies the SDE \(dS_t = \mu S_t\,dt + \sigma S_t\,dW_t\) by a direct application of It\^{o}'s lemma.
+    \item Let \(H_t\) be an adapted, square-integrable process. Prove that the quadratic variation of \(M_t = \int_0^t H_s\,dW_s\) is \(\langle M\rangle_t = \int_0^t H_s^2\,ds\).
+    \item Consider the SDE \(dX_t = -X_t\,dt + dW_t\). Compute \(\E[X_t]\), \(\Var(X_t)\), and \(\E[X_t X_{t+s}]\) by solving the SDE explicitly using It\^{o}'s lemma.
+    \item Use the martingale representation theorem to show that the random variable \(F = W_T^3\) can be expressed as a stochastic integral. (Hint: find a function \(f(t,x)\) such that \(F = \E[F] + \int_0^T \partial_x f(t,W_t)\,dW_t\).)
+\end{enumerate}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}
+    \item[Adapted process] A stochastic process \(X_t\) is adapted to a filtration \(\mathcal{F}_t\) if \(X_t\) is measurable with respect to \(\mathcal{F}_t\) for each \(t\).
+    \item[Black--Scholes equation] The PDE \(\partial_t V + rS \partial_S V + \frac12 \sigma^2 S^2 \partial_S^2 V - rV = 0\) satisfied by the price of a European option under geometric Brownian motion.
+    \item[Brownian motion] A continuous stochastic process with independent, stationary Gaussian increments; the fundamental building block of stochastic calculus.
+    \item[Dol\'eans--Dade exponential] The process \(\mathcal{E}(X)_t = \exp(X_t - \frac12 \langle X\rangle_t)\); it is the unique solution of \(dY_t = Y_t\,dX_t\).
+    \item[Feynman--Kac formula] A probabilistic representation of solutions of parabolic PDEs as expectations of functionals of It\^{o} processes.
+    \item[Filtration] An increasing family of sigma-algebras \(\{\mathcal{F}_t\}_{t \geq 0}\) representing the information available up to time \(t\).
+    \item[Geometric Brownian motion] The process \(S_t = S_0 \exp((\mu - \sigma^2/2)t + \sigma W_t)\); the standard model for stock prices.
+    \item[Girsanov's theorem] A theorem describing the transformation of Brownian motion under an equivalent change of probability measure.
+    \item[It\^{o} integral] The stochastic integral \(\int H_t\,dW_t\) defined for adapted, square-integrable integrands via the It\^{o} isometry; it produces a martingale.
+    \item[It\^{o} isometry] \(\E[(\int H\,dW)^2] = \E[\int H^2\,dt]\), the fundamental identity used to define the It\^{o} integral.
+    \item[It\^{o} process] A process of the form \(X_t = X_0 + \int \mu\,ds + \int \sigma\,dW\); the basic object of study in stochastic calculus.
+    \item[It\^{o}'s lemma] The stochastic chain rule: \(df = f_t\,dt + f_x\,dX + \frac12 f_{xx}\,d\langle X\rangle\).
+    \item[Martingale] A process \(M_t\) such that \(\E[M_t \mid \mathcal{F}_s] = M_s\) for all \(s \leq t\).
+    \item[Quadratic variation] The limit \(\langle X\rangle_t = \lim_{|P| \to 0} \sum (X_{t_{k+1}} - X_{t_k})^2\), equal to \(\int \sigma_t^2\,dt\) for an It\^{o} process.
+    \item[Semimartingale] A process that decomposes into a local martingale and a finite-variation process; the largest class for which stochastic calculus works.
+    \item[Stochastic differential equation] An equation \(dX_t = \mu(X_t,t)\,dt + \sigma(X_t,t)\,dW_t\) driven by Brownian noise.
+    \item[Stratonovich integral] A stochastic integral using midpoint evaluation; it satisfies the ordinary chain rule but is not a martingale.
+    \item[White noise] The formal derivative of Brownian motion, \(\eta(t) = dW_t/dt\); a generalized stochastic process.
+    \item[Wiener process] Another name for Brownian motion, honoring Norbert Wiener's rigorous construction.
+\end{description}
