@@ -1,5 +1,9 @@
 # Wolf Prize in Mathematics
 
+<p align="center">
+  <img src="frontpage.png" alt="Book Cover" width="350" />
+</p>
+
 A comprehensive survey of every Wolf Prize in Mathematics laureate (1978–2024), covering biography, main contributions, and detailed mathematical exposition.
 
 ## Contents
