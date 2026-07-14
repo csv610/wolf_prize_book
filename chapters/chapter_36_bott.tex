@@ -44,6 +44,7 @@
 \newcommand{\Or}{\operatorname{O}}
 
 \chapter{Raoul Bott (2000)}
+\index{Bott, Raoul}
 
 \begin{quote}
 \it ``Raoul Bott's work is characterized by extraordinary geometric insight combined with powerful algebraic methods. His periodicity theorem transformed algebraic topology, his extension of Morse theory opened new vistas in differential geometry, and his collaborations with Atiyah produced some of the most beautiful results in modern mathematics. He possessed a rare ability to find simple, elegant proofs of deep theorems.'' --- Wolf Prize Citation
@@ -482,7 +483,7 @@ The work of Atiyah and Bott on the Yang--Mills equations over Riemann surfaces h
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1923 & Born on September 24 in Budapest, Hungary \\ \hline
@@ -503,7 +504,7 @@ The work of Atiyah and Bott on the Yang--Mills equations over Riemann surfaces h
 1987--1989 & President of the American Mathematical Society \\ \hline
 2000 & Awarded the Wolf Prize in Mathematics (shared with Jean-Pierre Serre) \\ \hline
 2005 & Dies on December 20 in San Diego, California, USA \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section{Frequently Asked Questions}
 
@@ -581,30 +582,34 @@ Several deep problems remain:
     \item J.\ Milnor and J.\ Stasheff, \textit{Characteristic Classes}, Annals of Mathematics Studies 76, Princeton University Press, 1974.
 \end{enumerate}
 
+\section{Related Chapters}
+
+See also Chapter~15 (Eilenberg) on algebraic topology, and Chapter~19 (Hirzebruch) on characteristic classes and index theory.
+
 \section{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Verify that the stable homotopy groups of \(\U(\infty)\) given by the Bott periodicity theorem satisfy \(\pi_{\text{odd}}(\U(\infty)) \cong \Z\) and \(\pi_{\text{even}}(\U(\infty)) \cong 0\). Compute \(\pi_0(\U(\infty))\), \(\pi_1(\U(\infty))\), and \(\pi_2(\U(\infty))\) explicitly.
-    \item Using the Bott periodicity theorem, show that \(\KU(S^{2k}) \cong \Z\) and \(\KU(S^{2k+1}) \cong 0\) for all \(k \geq 0\).
-    \item Let \(M\) be a compact manifold with a Morse function \(f: M \to \R\) having only isolated critical points. Show that the Morse inequalities reduce to \(\sum_p t^{\lambda(p)} \geq P_t(M)\), where \(\lambda(p)\) is the index of the critical point \(p\).
-    \item Consider the circle \(S^1\) with the height function \(f(x,y) = y\). The critical points are at \((0,1)\) (maximum, index 1) and \((0,-1)\) (minimum, index 0). Verify the Bott--Morse inequalities for this function.
-    \item Let \(G = \SU(2) \cong S^3\). Compute the Poincar\'e polynomial of \(\Omega SU(2)\) using Bott's formula and verify that it equals \(1 + t^2 + t^4 + \cdots = 1/(1-t^2)\).
-    \item Prove that the Godbillon--Vey class \(\GV(\mathcal{F}) \in H^3(M; \R)\) is well-defined, i.e., independent of the choices of the 1-form \(\omega\) defining the foliation.
-    \item Let \(\Sigma\) be a compact Riemann surface of genus \(g\). Compute the dimension of the moduli space of stable \(\SU(2)\)-bundles on \(\Sigma\) with fixed determinant of degree \(d\). (The answer is \(3g - 3\).)
-    \item Show that the fundamental group of a surface of genus \(g \geq 2\) admits irreducible \(\SU(2)\)-representations for which the associated flat \(\C^2\)-bundle is stable.
-    \item Let \(M\) be a compact Riemannian manifold and let \(g: M \to M\) be an isometry with isolated fixed points. Apply the Atiyah--Bott fixed point theorem to the de Rham complex and show that the Euler characteristic of \(M\) equals the sum of the indices of the fixed points.
-    \item For the rotation \(g(z) = e^{2\pi i k/n}z\) acting on \(\C P^1\) (the Riemann sphere), compute the fixed points and verify the Atiyah--Bott fixed point formula for the Dolbeault complex.
-    \item Let \(\mathcal{F}\) be a codimension-one foliation on a 3-manifold \(M\). Prove that the Godbillon--Vey invariant vanishes if \(\mathcal{F}\) is given by a closed 1-form.
-    \item Show that the loop space \(\Omega S^n\) has the homotopy type of a CW complex with cells in dimensions \(k(n-1)\) for \(k = 0,1,2,\dots\). Compute the Poincar\'e polynomial of \(\Omega S^3\).
-    \item Consider the iterated integral \(\int \omega_1 \circ \omega_2\) where \(\omega_1, \omega_2\) are 1-forms on \(M\). Show that this defines a 1-form on the path space of \(M\). Generalize to iterated integrals of length \(k\).
-    \item Compute the Poincar\'e polynomial of the moduli space of rank-2 degree-1 stable bundles on a Riemann surface of genus \(g\) using the Atiyah--Bott formulas. Verify that the dimension of the moduli space is \(3g - 3\).
-    \item Let \(M\) be a compact oriented 4-manifold with a codimension-one foliation \(\mathcal{F}\). Show that the Godbillon--Vey number \(\int_M \GV(\mathcal{F})\) is zero. (Hint: use the Bott vanishing theorem.)
-    \item Prove that the Bott periodicity theorem implies the homotopy equivalence \(\Omega \BU \simeq \U(\infty)\).
-    \item Let \(G\) be a compact simply connected Lie group with exponents \(d_1, \dots, d_r\). Show that the Poincar\'e series of \(\Omega G\) is \(\prod_{i=1}^r 1/(1 - t^{2d_i})\).
-    \item For a foliation of codimension 2, what can the Bott vanishing theorem say about the Pontryagin classes of the normal bundle? Give an example of a 4-manifold with a codimension-2 foliation that has non-vanishing \(p_1\).
-    \item Show that the Atiyah--Bott fixed point theorem for an elliptic complex reduces to the standard Lefschetz fixed point theorem when the elliptic complex is the de Rham complex.
-    \item Derive the Weyl character formula for representations of \(\SU(2)\) using the Atiyah--Bott fixed point theorem applied to the action of the maximal torus on the flag manifold \(\C P^1\).
+    \item [B] Verify that the stable homotopy groups of \(\U(\infty)\) given by the Bott periodicity theorem satisfy \(\pi_{\text{odd}}(\U(\infty)) \cong \Z\) and \(\pi_{\text{even}}(\U(\infty)) \cong 0\). Compute \(\pi_0(\U(\infty))\), \(\pi_1(\U(\infty))\), and \(\pi_2(\U(\infty))\) explicitly.
+    \item [B] Using the Bott periodicity theorem, show that \(\KU(S^{2k}) \cong \Z\) and \(\KU(S^{2k+1}) \cong 0\) for all \(k \geq 0\).
+    \item [B] Let \(M\) be a compact manifold with a Morse function \(f: M \to \R\) having only isolated critical points. Show that the Morse inequalities reduce to \(\sum_p t^{\lambda(p)} \geq P_t(M)\), where \(\lambda(p)\) is the index of the critical point \(p\).
+    \item [B] Consider the circle \(S^1\) with the height function \(f(x,y) = y\). The critical points are at \((0,1)\) (maximum, index 1) and \((0,-1)\) (minimum, index 0). Verify the Bott--Morse inequalities for this function.
+    \item [I] Let \(G = \SU(2) \cong S^3\). Compute the Poincar\'e polynomial of \(\Omega SU(2)\) using Bott's formula and verify that it equals \(1 + t^2 + t^4 + \cdots = 1/(1-t^2)\).
+    \item [I] Prove that the Godbillon--Vey class \(\GV(\mathcal{F}) \in H^3(M; \R)\) is well-defined, i.e., independent of the choices of the 1-form \(\omega\) defining the foliation.
+    \item [I] Let \(\Sigma\) be a compact Riemann surface of genus \(g\). Compute the dimension of the moduli space of stable \(\SU(2)\)-bundles on \(\Sigma\) with fixed determinant of degree \(d\). (The answer is \(3g - 3\).)
+    \item [I] Show that the fundamental group of a surface of genus \(g \geq 2\) admits irreducible \(\SU(2)\)-representations for which the associated flat \(\C^2\)-bundle is stable.
+    \item [I] Let \(M\) be a compact Riemannian manifold and let \(g: M \to M\) be an isometry with isolated fixed points. Apply the Atiyah--Bott fixed point theorem to the de Rham complex and show that the Euler characteristic of \(M\) equals the sum of the indices of the fixed points.
+    \item [I] For the rotation \(g(z) = e^{2\pi i k/n}z\) acting on \(\C P^1\) (the Riemann sphere), compute the fixed points and verify the Atiyah--Bott fixed point formula for the Dolbeault complex.
+    \item [I] Let \(\mathcal{F}\) be a codimension-one foliation on a 3-manifold \(M\). Prove that the Godbillon--Vey invariant vanishes if \(\mathcal{F}\) is given by a closed 1-form.
+    \item [I] Show that the loop space \(\Omega S^n\) has the homotopy type of a CW complex with cells in dimensions \(k(n-1)\) for \(k = 0,1,2,\dots\). Compute the Poincar\'e polynomial of \(\Omega S^3\).
+    \item [I] Consider the iterated integral \(\int \omega_1 \circ \omega_2\) where \(\omega_1, \omega_2\) are 1-forms on \(M\). Show that this defines a 1-form on the path space of \(M\). Generalize to iterated integrals of length \(k\).
+    \item [A] Compute the Poincar\'e polynomial of the moduli space of rank-2 degree-1 stable bundles on a Riemann surface of genus \(g\) using the Atiyah--Bott formulas. Verify that the dimension of the moduli space is \(3g - 3\).
+    \item [I] Let \(M\) be a compact oriented 4-manifold with a codimension-one foliation \(\mathcal{F}\). Show that the Godbillon--Vey number \(\int_M \GV(\mathcal{F})\) is zero. (Hint: use the Bott vanishing theorem.)
+    \item [I] Prove that the Bott periodicity theorem implies the homotopy equivalence \(\Omega \BU \simeq \U(\infty)\).
+    \item [A] Let \(G\) be a compact simply connected Lie group with exponents \(d_1, \dots, d_r\). Show that the Poincar\'e series of \(\Omega G\) is \(\prod_{i=1}^r 1/(1 - t^{2d_i})\).
+    \item [A] For a foliation of codimension 2, what can the Bott vanishing theorem say about the Pontryagin classes of the normal bundle? Give an example of a 4-manifold with a codimension-2 foliation that has non-vanishing \(p_1\).
+    \item [I] Show that the Atiyah--Bott fixed point theorem for an elliptic complex reduces to the standard Lefschetz fixed point theorem when the elliptic complex is the de Rham complex.
+    \item [A] Derive the Weyl character formula for representations of \(\SU(2)\) using the Atiyah--Bott fixed point theorem applied to the action of the maximal torus on the flag manifold \(\C P^1\).
 \end{enumerate}
 
 \section{Glossary}

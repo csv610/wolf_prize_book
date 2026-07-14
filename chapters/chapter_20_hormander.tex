@@ -12,6 +12,7 @@
 \newcommand{\singsupp}{\operatorname{singsupp}}
 
 \chapter{Lars H\"{o}rmander (1988)}
+\index{H\"{o}rmander, Lars}
 
 \begin{quote}
 \it ``H\"ormander's profound and wide-ranging contributions to the modern
@@ -999,7 +1000,7 @@ Several deep problems remain:
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1931 & Born on January 24 in Mj\"allby, Blekinge, Sweden \\ \hline
@@ -1039,29 +1040,29 @@ Emeritus \\ \hline
 2006 & Awarded the Steele Prize for Mathematical Exposition
 (American Mathematical Society) \\ \hline
 2012 & Died on November 25 in Lund, Sweden, at age 81 \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Let \(u\) be the characteristic function of the unit ball in
+    \item [B] Let \(u\) be the characteristic function of the unit ball in
     \(\R^3\). Compute \(\WF(u)\). Show that the singularities occur
     only at the boundary and that the wave front set consists of
     conormal directions to the sphere.
-    \item Prove that for the Dirac delta \(\delta_0\) on \(\R^n\),
+    \item [B] Prove that for the Dirac delta \(\delta_0\) on \(\R^n\),
     \(\WF(\delta_0) = \{(0,\xi): \xi \neq 0\}\). Show that if a
     distribution has \(\WF(u) = \varnothing\), then \(u \in C^\infty\).
-    \item Let \(P = -\partial_x^2 - \partial_y^2\) be the Laplacian on
+    \item [B] Let \(P = -\partial_x^2 - \partial_y^2\) be the Laplacian on
     \(\R^2\). Compute the principal symbol \(p_2(x,y,\xi,\eta)\) and
     the Hamilton vector field \(H_{p_2}\). Show that the
     bicharacteristics are the straight lines \(\xi =\) constant,
     \(\eta =\) constant.
-    \item For the wave operator \(\square = \partial_t^2 - \partial_x^2\)
+    \item [B] For the wave operator \(\square = \partial_t^2 - \partial_x^2\)
     on \(\R^2\), compute the principal symbol and the bicharacteristics.
     Show that the propagation of singularities theorem recovers the
     fact that solutions travel along light cones.
-    \item Verify that Lewy's operator
+    \item [I] Verify that Lewy's operator
     \[
     L = \frac{\partial}{\partial x_1} + i\frac{\partial}{\partial x_2}
     - 2i(x_1 + i x_2) \frac{\partial}{\partial x_3}
@@ -1069,46 +1070,46 @@ Emeritus \\ \hline
     has principal symbol \(p_1(x,\xi) = \xi_1 + i\xi_2 - 2i(x_1 + i x_2)\xi_3\).
     Show that the H\"ormander sign condition fails at the origin,
     explaining why \(L\) is not locally solvable.
-    \item Let \(X_1 = \partial_x\) and \(X_2 = x\partial_y\) on \(\R^2\).
+    \item [B] Let \(X_1 = \partial_x\) and \(X_2 = x\partial_y\) on \(\R^2\).
     Compute their commutator \([X_1, X_2]\). Show that the operator
     \(P = X_1^2 + X_2^2\) satisfies H\"ormander's condition and is
     therefore hypoelliptic.
-    \item Prove that if \(a \in S^{m_1}\) and \(b \in S^{m_2}\), then
+    \item [I] Prove that if \(a \in S^{m_1}\) and \(b \in S^{m_2}\), then
     the composition symbol \(c(x,\xi) = a(x,D) b(x,\xi)\) (where
     \(b(x,\xi)\) acts on \(a\)) belongs to \(S^{m_1+m_2}\) and has
     leading term \(a(x,\xi) b(x,\xi)\).
-    \item Implement the stationary phase method for the one-dimensional
+    \item [B] Implement the stationary phase method for the one-dimensional
     integral
     \[
     I(\lambda) = \int_{-1}^1 e^{i\lambda x^2} \,dx.
     \]
     Compute the asymptotic expansion as \(\lambda \to \infty\) and
     compare with the exact evaluation in terms of Fresnel integrals.
-    \item Prove that the heat operator \(\partial_t - \partial_x^2\)
+    \item [B] Prove that the heat operator \(\partial_t - \partial_x^2\)
     on \(\R^2\) is hypoelliptic by verifying H\"ormander's condition
     for the vector fields \(X_0 = \partial_t\) and \(X_1 = \partial_x\).
-    \item Let \(u\) be a distribution and let \(\phi \in C_0^\infty\).
+    \item [I] Let \(u\) be a distribution and let \(\phi \in C_0^\infty\).
     Show that \(\WF(\phi u) \subset \WF(u)\) and that
     \(\WF(u) = \bigcup_\phi \WF(\phi u)\) (where the union is over a
     partition of unity).
-    \item For the Schr\"odinger operator \(i\partial_t + \Delta\) on
+    \item [I] For the Schr\"odinger operator \(i\partial_t + \Delta\) on
     \(\R^{1+n}\), compute the principal symbol and the bicharacteristics.
     Show that singularities propagate along straight lines in the
     spatial variables.
-    \item Derive the composition formula for two pseudodifferential
+    \item [B] Derive the composition formula for two pseudodifferential
     operators whose symbols are independent of \(x\) (so-called
     Fourier multipliers). Show that in this case the composition is
     exact (the asymptotic expansion terminates at the first term).
-    \item Let \(P\) be an elliptic operator on a compact manifold.
+    \item [I] Let \(P\) be an elliptic operator on a compact manifold.
     Construct a parametrix \(Q\) of order \(-m\) such that
     \(P Q = I + R\) where \(R\) has a smooth kernel. Use this to prove
     the elliptic regularity theorem.
-    \item Show that H\"ormander's condition for local solvability is
+    \item [A] Show that H\"ormander's condition for local solvability is
     equivalent to the condition that the principal symbol \(p_m\)
     does not vanish on the characteristic set to infinite order when
     the frequency is perturbed in a complex direction normal to the
     characteristic surface.
-    \item (Project) Read H\"ormander's original 1971 paper on Fourier
+    \item [A] (Project) Read H\"ormander's original 1971 paper on Fourier
     integral operators and write a summary of the main theorems. Focus
     on the construction of the parametrix for operators of real
     principal type.

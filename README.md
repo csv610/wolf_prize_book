@@ -1,6 +1,6 @@
 # Wolf Prize in Mathematics
 
-A comprehensive report on every Wolf Prize in Mathematics laureate (1978–2024), written for undergraduate students.
+A comprehensive survey of every Wolf Prize in Mathematics laureate (1978–2024), covering biography, main contributions, and detailed mathematical exposition.
 
 ## Contents
 
@@ -35,7 +35,7 @@ make
 Or compile manually:
 
 ```bash
-pdflatex -interaction=nonstopmode wolf_prize_main.tex
+pdflatex -interaction=nonstopmode wolf_prize.tex
 ```
 
 You may need to run `pdflatex` twice for cross-references.

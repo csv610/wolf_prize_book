@@ -18,6 +18,7 @@
 \newcommand{\cov}{\operatorname{cov}}
 
 \chapter{Kiyoshi It\^{o} (1987)}
+\index{It\^{o}, Kiyoshi}
 
 \begin{quote}
 \it ``It\^{o}'s theory of stochastic integration and stochastic differential equations is one of the most important developments in probability theory of the twentieth century. It has become an indispensable tool in every field where random dynamical systems are studied, from physics and biology to economics and finance.'' --- Wolf Prize Citation
@@ -491,7 +492,7 @@ Several deep problems remain:
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1915 & Born on September 7 in Mie Prefecture, Honshu, Japan \\ \hline
@@ -509,31 +510,35 @@ Several deep problems remain:
 1987 & Awarded the Wolf Prize in Mathematics (shared with Peter Lax) \\ \hline
 2006 & Awarded the first Carl Friedrich Gauss Prize at the International Congress of Mathematicians in Madrid \\ \hline
 2008 & Dies on November 10 in Kyoto, Japan, at age 93 \\ \hline
-\end{tabular}
+\end{tabularx}
+
+\section{Related Chapters}
+
+For further exploration, see Chapter~61 (Le Gall) on stochastic processes and Brownian motion and Chapter~62 (Lawler) on random walks and Schramm--Loewner evolution.
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Verify the It\^{o} isometry for the elementary process \(H_t = \mathbf{1}_{(a,b]}(t)W_a\) by direct computation.
-    \item Compute the It\^{o} integral \(\int_0^t W_s \, dW_s\) by (a) using the definition as a limit of Riemann sums, and (b) using It\^{o}'s lemma with \(f(t,x) = x^2/2\). Verify that the two methods agree and that the result is \((W_t^2 - t)/2\), not \(W_t^2/2\) as ordinary calculus would suggest.
-    \item Let \(X_t = W_t^3\). Use It\^{o}'s lemma to compute \(dX_t\). Then write \(X_t\) in integral form as \(X_t = \int_0^t (\cdots) ds + \int_0^t (\cdots) dW_s\).
-    \item Let \(f(t,x) = e^{\alpha x - \alpha^2 t/2}\). Show that \(f(t,W_t)\) is a martingale by computing its stochastic differential via It\^{o}'s lemma. This is the Dol\'eans--Dade exponential, the fundamental building block of Girsanov's theorem.
-    \item Solve the Ornstein--Uhlenbeck SDE: \(dX_t = -\theta X_t\,dt + \sigma\,dW_t\) with \(X_0 = x\). Hint: apply It\^{o}'s lemma to \(Y_t = e^{\theta t} X_t\).
-    \item Use the Feynman--Kac formula to write the solution of the heat equation \(\partial_t u = \frac12 \partial_x^2 u\) with initial condition \(u(0,x) = \phi(x)\) as an expectation. Verify that the resulting expression is the classical heat kernel representation.
-    \item Let \(M_t = W_t^4 - 6tW_t^2 + 3t^2\). Show that \(M_t\) is a martingale by applying It\^{o}'s lemma to \(W_t^4\) and collecting terms.
-    \item Apply It\^{o}'s lemma to \(f(W_t)\) where \(f\) is piecewise \(C^2\) but has a kink (e.g., \(f(x) = |x|\)). What is the resulting generalized It\^{o} formula? (This introduces the concept of local time via Tanaka's formula.)
-    \item Derive the Black--Scholes PDE by constructing a self-financing portfolio of \(\Delta_t\) shares of stock and one option, applying It\^{o}'s lemma to the portfolio value, and eliminating the random term by choosing \(\Delta_t = \partial V/\partial S\).
-    \item Let \(X_t\) and \(Y_t\) be It\^{o} processes. Derive the integration by parts formula:
+    \item [B] Verify the It\^{o} isometry for the elementary process \(H_t = \mathbf{1}_{(a,b]}(t)W_a\) by direct computation.
+    \item [B] Compute the It\^{o} integral \(\int_0^t W_s \, dW_s\) by (a) using the definition as a limit of Riemann sums, and (b) using It\^{o}'s lemma with \(f(t,x) = x^2/2\). Verify that the two methods agree and that the result is \((W_t^2 - t)/2\), not \(W_t^2/2\) as ordinary calculus would suggest.
+    \item [B] Let \(X_t = W_t^3\). Use It\^{o}'s lemma to compute \(dX_t\). Then write \(X_t\) in integral form as \(X_t = \int_0^t (\cdots) ds + \int_0^t (\cdots) dW_s\).
+    \item [I] Let \(f(t,x) = e^{\alpha x - \alpha^2 t/2}\). Show that \(f(t,W_t)\) is a martingale by computing its stochastic differential via It\^{o}'s lemma. This is the Dol\'eans--Dade exponential, the fundamental building block of Girsanov's theorem.
+    \item [B] Solve the Ornstein--Uhlenbeck SDE: \(dX_t = -\theta X_t\,dt + \sigma\,dW_t\) with \(X_0 = x\). Hint: apply It\^{o}'s lemma to \(Y_t = e^{\theta t} X_t\).
+    \item [I] Use the Feynman--Kac formula to write the solution of the heat equation \(\partial_t u = \frac12 \partial_x^2 u\) with initial condition \(u(0,x) = \phi(x)\) as an expectation. Verify that the resulting expression is the classical heat kernel representation.
+    \item [I] Let \(M_t = W_t^4 - 6tW_t^2 + 3t^2\). Show that \(M_t\) is a martingale by applying It\^{o}'s lemma to \(W_t^4\) and collecting terms.
+    \item [I] Apply It\^{o}'s lemma to \(f(W_t)\) where \(f\) is piecewise \(C^2\) but has a kink (e.g., \(f(x) = |x|\)). What is the resulting generalized It\^{o} formula? (This introduces the concept of local time via Tanaka's formula.)
+    \item [I] Derive the Black--Scholes PDE by constructing a self-financing portfolio of \(\Delta_t\) shares of stock and one option, applying It\^{o}'s lemma to the portfolio value, and eliminating the random term by choosing \(\Delta_t = \partial V/\partial S\).
+    \item [I] Let \(X_t\) and \(Y_t\) be It\^{o} processes. Derive the integration by parts formula:
     \[
     d(X_t Y_t) = X_t\,dY_t + Y_t\,dX_t + d\langle X,Y\rangle_t.
     \]
     Show that this differs from the ordinary product rule by the cross-variation term.
-    \item Prove that the Stratonovich integral satisfies the ordinary chain rule: if \(dX_t = \mu_t\,dt + \sigma_t \circ dW_t\) and \(f \in C^2\), then \(df(X_t) = f'(X_t)\,dX_t\).
-    \item Show that geometric Brownian motion \(S_t = S_0 \exp((\mu - \sigma^2/2)t + \sigma W_t)\) satisfies the SDE \(dS_t = \mu S_t\,dt + \sigma S_t\,dW_t\) by a direct application of It\^{o}'s lemma.
-    \item Let \(H_t\) be an adapted, square-integrable process. Prove that the quadratic variation of \(M_t = \int_0^t H_s\,dW_s\) is \(\langle M\rangle_t = \int_0^t H_s^2\,ds\).
-    \item Consider the SDE \(dX_t = -X_t\,dt + dW_t\). Compute \(\E[X_t]\), \(\Var(X_t)\), and \(\E[X_t X_{t+s}]\) by solving the SDE explicitly using It\^{o}'s lemma.
-    \item Use the martingale representation theorem to show that the random variable \(F = W_T^3\) can be expressed as a stochastic integral. (Hint: find a function \(f(t,x)\) such that \(F = \E[F] + \int_0^T \partial_x f(t,W_t)\,dW_t\).)
+    \item [I] Prove that the Stratonovich integral satisfies the ordinary chain rule: if \(dX_t = \mu_t\,dt + \sigma_t \circ dW_t\) and \(f \in C^2\), then \(df(X_t) = f'(X_t)\,dX_t\).
+    \item [B] Show that geometric Brownian motion \(S_t = S_0 \exp((\mu - \sigma^2/2)t + \sigma W_t)\) satisfies the SDE \(dS_t = \mu S_t\,dt + \sigma S_t\,dW_t\) by a direct application of It\^{o}'s lemma.
+    \item [B] Let \(H_t\) be an adapted, square-integrable process. Prove that the quadratic variation of \(M_t = \int_0^t H_s\,dW_s\) is \(\langle M\rangle_t = \int_0^t H_s^2\,ds\).
+    \item [B] Consider the SDE \(dX_t = -X_t\,dt + dW_t\). Compute \(\E[X_t]\), \(\Var(X_t)\), and \(\E[X_t X_{t+s}]\) by solving the SDE explicitly using It\^{o}'s lemma.
+    \item [A] Use the martingale representation theorem to show that the random variable \(F = W_T^3\) can be expressed as a stochastic integral. (Hint: find a function \(f(t,x)\) such that \(F = \E[F] + \int_0^T \partial_x f(t,W_t)\,dW_t\).)
 \end{enumerate}
 
 \section*{Glossary}

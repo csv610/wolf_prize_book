@@ -34,6 +34,7 @@
 \newcommand{\PSU}{\operatorname{PSU}}
 
 \chapter{Jacques Tits (1993)}
+\index{Tits, Jacques}
 
 \begin{quote}
 \it ``Tits has revolutionized group theory by introducing geometric ideas into the subject. His theory of buildings provides a unified geometric framework for understanding all groups of Lie type, and his classification of spherical buildings is one of the crowning achievements of 20th-century mathematics. The Tits alternative, a fundamental result about linear groups, has become a cornerstone of geometric group theory.'' --- Wolf Prize Citation
@@ -394,7 +395,7 @@ Tits's ideas continue to shape mathematical research:
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1930 & Born on August 12 in Uccle, Brussels, Belgium \\ \hline
@@ -414,7 +415,7 @@ Tits's ideas continue to shape mathematical research:
 1995 & Retired from the Coll\`ege de France \\ \hline
 2008 & Awarded the Abel Prize from the Norwegian Academy of Science and Letters \\ \hline
 2021 & Died on December 5 at age 91 \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section{Frequently Asked Questions}
 
@@ -451,37 +452,41 @@ A Kac--Moody group is a group associated to a Kac--Moody algebra, just as a semi
 
 The Tits alternative is one of the foundational results of geometric group theory. It shows that linear groups lie at one end of a spectrum: they either contain a free subgroup (and thus have exponential growth, are non-amenable, and have complicated Cayley graphs) or they are virtually solvable (and thus have polynomial growth, are amenable, and have relatively simple structure). The alternative has been generalized to many other contexts, and it serves as a model for the kind of structural dichotomies that geometric group theory seeks.
 
+\section{Related Chapters}
+
+See also Chapter~26 (Thompson) on finite simple groups.
+
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Show that in the BN-pair of \(\SL_n(F)\), the Weyl group is isomorphic to the symmetric group \(S_n\) and the Coxeter generators are the simple transpositions.
-    \item Prove that the Bruhat decomposition for \(\SL_2(F)\) takes the form \(\SL_2(F) = B \cup B w B\), where \(w = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}\).
-    \item Let \(\Delta\) be the building of \(\SL_3(F)\). Show that the apartments correspond to the choice of a basis of \(F^3\).
-    \item Prove that the projective plane \(\mathbb{P}^2(F)\) is a generalized 3-gon (building of type \(A_2\)).
-    \item Show that the Tits alternative holds in the trivial case: any finite group is virtually solvable (indeed, finite) and does not contain a non-abelian free subgroup.
-    \item Let \(G = \SL_2(\Z)\). Find an explicit non-abelian free subgroup of \(G\).
-    \item Prove that the free group \(F_2\) is not virtually solvable. Conclude that \(F_2\) satisfies the Tits alternative (it contains a non-abelian free subgroup, namely itself).
-    \item Show that the Heisenberg group \(H = \left\{ \begin{pmatrix} 1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1 \end{pmatrix} : a,b,c \in \Z \right\}\) is solvable and hence virtually solvable.
-    \item Let \(\Delta\) be a thick building of type \(A_n\). Show that \(\Delta\) is isomorphic to the flag complex of an \((n+1)\)-dimensional vector space over some division ring.
-    \item Show that the ordinary \(m\)-gon (an \(m\)-cycle graph) is a building of type \(\tilde{A}_1\) with the dihedral Weyl group \(D_m\).
-    \item Compute the Coxeter diagram for the Weyl group of type \(E_6\). Describe the corresponding building.
-    \item Show that the building of \(\Sp_4(F)\) is a generalized 4-gon. Describe its apartments.
-    \item Prove that a group with a BN-pair is transitive on the chambers of its building.
-    \item Let \(G\) be a group with a BN-pair. Show that the parabolic subgroups of \(G\) correspond to subsets of \(S\).
-    \item Show that the group of upper-triangular matrices in \(\SL_n(F)\) is the Borel subgroup \(B\) and that it is solvable.
-    \item Let \(g \in \GL_n(\C)\) be a matrix with eigenvalues of different absolute values. Show that the action of \(g\) on projective space \(\mathbb{P}^{n-1}(\C)\) has a unique attracting fixed point.
-    \item Prove the ping-pong lemma: if two elements \(a, b\) in a group acting on a set \(X\) have disjoint attracting and repelling sets, then they generate a free group.
-    \item Show that the building of a reductive algebraic group over a finite field is a finite simplicial complex.
-    \item Let \((W, S)\) be a Coxeter system. Show that the Coxeter complex \(\Sigma(W, S)\) is a building of type \((W, S)\).
-    \item Show that the Bruhat--Tits tree for \(\SL_2(\Q_p)\) is a regular tree of degree \(p+1\).
-    \item Let \(\mathfrak{g}(A)\) be an affine Kac--Moody algebra of type \(\tilde{A}_1\). Show that the Dynkin diagram of \(\mathfrak{g}(A)\) is an extended \(A_1\) diagram.
-    \item Show that a generalized \(m\)-gon has girth \(2m\) and diameter \(m\) as a bipartite graph.
-    \item Prove that in a building, any two chambers are connected by a gallery of minimal length equal to the length of the Weyl distance between them.
-    \item Let \(G\) be a semisimple algebraic group over a field \(F\). Describe the relationship between the Tits building of \(G(F)\) and the Dynkin diagram of \(G\).
-    \item Prove that the building of \(\SL_n(F)\) is thick if and only if \(F\) has at least three elements.
-    \item Show that the Weyl group of type \(G_2\) is the dihedral group \(D_6\) of order 12, and describe the corresponding generalized hexagon.
-    \item Let \(\Delta\) be a spherical building of type \(A_n\). Show that the apartments are isomorphic to the flag complex of an \((n+1)\)-dimensional vector space.
+    \item [I] Show that in the BN-pair of \(\SL_n(F)\), the Weyl group is isomorphic to the symmetric group \(S_n\) and the Coxeter generators are the simple transpositions.
+    \item [B] Prove that the Bruhat decomposition for \(\SL_2(F)\) takes the form \(\SL_2(F) = B \cup B w B\), where \(w = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}\).
+    \item [I] Let \(\Delta\) be the building of \(\SL_3(F)\). Show that the apartments correspond to the choice of a basis of \(F^3\).
+    \item [I] Prove that the projective plane \(\mathbb{P}^2(F)\) is a generalized 3-gon (building of type \(A_2\)).
+    \item [B] Show that the Tits alternative holds in the trivial case: any finite group is virtually solvable (indeed, finite) and does not contain a non-abelian free subgroup.
+    \item [I] Let \(G = \SL_2(\Z)\). Find an explicit non-abelian free subgroup of \(G\).
+    \item [B] Prove that the free group \(F_2\) is not virtually solvable. Conclude that \(F_2\) satisfies the Tits alternative (it contains a non-abelian free subgroup, namely itself).
+    \item [B] Show that the Heisenberg group \(H = \left\{ \begin{pmatrix} 1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1 \end{pmatrix} : a,b,c \in \Z \right\}\) is solvable and hence virtually solvable.
+    \item [I] Let \(\Delta\) be a thick building of type \(A_n\). Show that \(\Delta\) is isomorphic to the flag complex of an \((n+1)\)-dimensional vector space over some division ring.
+    \item [I] Show that the ordinary \(m\)-gon (an \(m\)-cycle graph) is a building of type \(\tilde{A}_1\) with the dihedral Weyl group \(D_m\).
+    \item [I] Compute the Coxeter diagram for the Weyl group of type \(E_6\). Describe the corresponding building.
+    \item [I] Show that the building of \(\Sp_4(F)\) is a generalized 4-gon. Describe its apartments.
+    \item [I] Prove that a group with a BN-pair is transitive on the chambers of its building.
+    \item [I] Let \(G\) be a group with a BN-pair. Show that the parabolic subgroups of \(G\) correspond to subsets of \(S\).
+    \item [B] Show that the group of upper-triangular matrices in \(\SL_n(F)\) is the Borel subgroup \(B\) and that it is solvable.
+    \item [I] Let \(g \in \GL_n(\C)\) be a matrix with eigenvalues of different absolute values. Show that the action of \(g\) on projective space \(\mathbb{P}^{n-1}(\C)\) has a unique attracting fixed point.
+    \item [I] Prove the ping-pong lemma: if two elements \(a, b\) in a group acting on a set \(X\) have disjoint attracting and repelling sets, then they generate a free group.
+    \item [I] Show that the building of a reductive algebraic group over a finite field is a finite simplicial complex.
+    \item [I] Let \((W, S)\) be a Coxeter system. Show that the Coxeter complex \(\Sigma(W, S)\) is a building of type \((W, S)\).
+    \item [I] Show that the Bruhat--Tits tree for \(\SL_2(\Q_p)\) is a regular tree of degree \(p+1\).
+    \item [I] Let \(\mathfrak{g}(A)\) be an affine Kac--Moody algebra of type \(\tilde{A}_1\). Show that the Dynkin diagram of \(\mathfrak{g}(A)\) is an extended \(A_1\) diagram.
+    \item [B] Show that a generalized \(m\)-gon has girth \(2m\) and diameter \(m\) as a bipartite graph.
+    \item [I] Prove that in a building, any two chambers are connected by a gallery of minimal length equal to the length of the Weyl distance between them.
+    \item [I] Let \(G\) be a semisimple algebraic group over a field \(F\). Describe the relationship between the Tits building of \(G(F)\) and the Dynkin diagram of \(G\).
+    \item [B] Prove that the building of \(\SL_n(F)\) is thick if and only if \(F\) has at least three elements.
+    \item [I] Show that the Weyl group of type \(G_2\) is the dihedral group \(D_6\) of order 12, and describe the corresponding generalized hexagon.
+    \item [I] Let \(\Delta\) be a spherical building of type \(A_n\). Show that the apartments are isomorphic to the flag complex of an \((n+1)\)-dimensional vector space.
 \end{enumerate}
 
 \section*{Glossary}

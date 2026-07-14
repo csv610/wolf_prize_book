@@ -1,18 +1,12 @@
-\providecommand{\R}{\mathbb{R}}
-\providecommand{\C}{\mathbb{C}}
-\providecommand{\N}{\mathbb{N}}
-\providecommand{\Z}{\mathbb{Z}}
-\providecommand{\Q}{\mathbb{Q}}
-\providecommand{\H}{\mathbb{H}}
 \providecommand{\Isom}{\operatorname{Isom}}
 \providecommand{\Vol}{\operatorname{Vol}}
-\providecommand{\Aut}{\operatorname{Aut}}
-\providecommand{\PSL}{\operatorname{PSL}}
-\providecommand{\SL}{\operatorname{SL}}
-\providecommand{\SO}{\operatorname{SO}}
-\providecommand{\SU}{\operatorname{SU}}
+\let\HH\relax
+\newcommand{\HH}{\mathbb{H}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
 
 \chapter{George D. Mostow (2013)}
+\index{Mostow, George D.}
 
 \begin{quote}
 \it ``Mostow rigidity is one of the great landmarks of modern geometry. When a compact manifold of negative curvature has dimension at least 3, its fundamental group determines it completely. This simple statement, whose proof reaches deep into the structure of semisimple Lie groups, has transformed our understanding of geometric structures and their moduli.'' --- Wolf Prize Citation, 2013
@@ -43,7 +37,7 @@ The question: does this flexibility persist in higher dimensions? For hyperbolic
 
 \subsection{The Nature of Representations}
 
-The fundamental group $\pi_1(M)$ of a hyperbolic manifold $M = \H^n / \Gamma$ embeds as a discrete subgroup $\Gamma \subset \Isom(\H^n) \cong \SO(n,1)$. The question of geometric deformations is equivalent to: can $\Gamma$ be continuously deformed inside $\SO(n,1)$ while remaining discrete and of finite covolume?
+The fundamental group $\pi_1(M)$ of a hyperbolic manifold $M = \HH^n / \Gamma$ embeds as a discrete subgroup $\Gamma \subset \Isom(\HH^n) \cong \SO(n,1)$. The question of geometric deformations is equivalent to: can $\Gamma$ be continuously deformed inside $\SO(n,1)$ while remaining discrete and of finite covolume?
 
 For $n = 2$, the answer is yes (Teichm\"uller theory). For $n \geq 3$, Mostow showed the answer is no: the representation is rigid.
 
@@ -51,14 +45,14 @@ For $n = 2$, the answer is yes (Teichm\"uller theory). For $n \geq 3$, Mostow sh
 
 \subsection{The Strategy of the Proof}
 
-Mostow's proof proceeds by contradiction. Given two discrete subgroups $\Gamma_1, \Gamma_2 \subset \SO(n,1)$ acting cocompactly on $\H^n$ and an isomorphism $\varphi: \Gamma_1 \to \Gamma_2$, one wants to show $\varphi$ extends to an isometry of $\H^n$.
+Mostow's proof proceeds by contradiction. Given two discrete subgroups $\Gamma_1, \Gamma_2 \subset \SO(n,1)$ acting cocompactly on $\HH^n$ and an isomorphism $\varphi: \Gamma_1 \to \Gamma_2$, one wants to show $\varphi$ extends to an isometry of $\HH^n$.
 
 The key steps are:
 \begin{enumerate}
     \item Construct a quasi-isometry between the two quotient manifolds using the group isomorphism.
     \item Show that this quasi-isometry extends to a homeomorphism of the spheres at infinity.
     \item Using ergodic theory (the geodesic flow is ergodic for $n \geq 2$), show that the extension is actually a M\"obius transformation (a conformal map) of $S^{n-1}$.
-    \item Conclude that the original groups are conjugate in $\Isom(\H^n)$.
+    \item Conclude that the original groups are conjugate in $\Isom(\HH^n)$.
 \end{enumerate}
 
 \subsection{Tools and Techniques}
@@ -74,15 +68,15 @@ The key steps are:
 \subsection{Hyperbolic Geometry}
 
 \begin{definition}[Hyperbolic Space]
-The $n$-dimensional \textbf{hyperbolic space} $\H^n$ is the unique simply connected Riemannian manifold of constant sectional curvature $-1$. It can be modeled as:
+The $n$-dimensional \textbf{hyperbolic space} $\HH^n$ is the unique simply connected Riemannian manifold of constant sectional curvature $-1$. It can be modeled as:
 \[
-\H^n = \{ (x_1, \ldots, x_n) \in \R^n : x_n > 0 \}, \quad ds^2 = \frac{dx_1^2 + \cdots + dx_n^2}{x_n^2}
+\HH^n = \{ (x_1, \ldots, x_n) \in \R^n : x_n > 0 \}, \quad ds^2 = \frac{dx_1^2 + \cdots + dx_n^2}{x_n^2}
 \]
 (the upper half-space model).
 \end{definition}
 
 \begin{definition}[Hyperbolic Manifold]
-A \textbf{hyperbolic manifold} is a Riemannian manifold locally isometric to $\H^n$. Equivalently, it is a quotient $\H^n / \Gamma$ where $\Gamma \subset \Isom(\H^n)$ acts freely and properly discontinuously.
+A \textbf{hyperbolic manifold} is a Riemannian manifold locally isometric to $\HH^n$. Equivalently, it is a quotient $\HH^n / \Gamma$ where $\Gamma \subset \Isom(\HH^n)$ acts freely and properly discontinuously.
 \end{definition}
 
 \subsection{Mostow Rigidity Theorem}
@@ -173,19 +167,19 @@ Differential geometry (Riemannian manifolds, curvature), Lie groups and Lie alge
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Show that the upper half-plane $\H^2$ with metric $ds^2 = (dx^2 + dy^2)/y^2$ has constant curvature $-1$.
-    \item Prove that $\Isom(\H^n) \cong \SO(n,1)$ (the group of $(n+1)\times(n+1)$ matrices preserving the bilinear form of signature $(n,1)$).
-    \item Show that a quasi-isometry between two hyperbolic spaces induces a homeomorphism of their boundaries.
-    \item Prove that any conformal map of $S^n$ for $n \geq 2$ extends to a M\"obius transformation.
-    \item Compute the dimension of the moduli space of hyperbolic surfaces of genus $g$.
-    \item Show that $\SL(2,\R)$ acts on $\H^2$ by fractional linear transformations.
-    \item Classify all irreducible bounded symmetric domains using the classification of simple Lie algebras.
+    \item [B] Show that the upper half-plane $\HH^2$ with metric $ds^2 = (dx^2 + dy^2)/y^2$ has constant curvature $-1$.
+    \item [I] Prove that $\Isom(\HH^n) \cong \SO(n,1)$ (the group of $(n+1)\times(n+1)$ matrices preserving the bilinear form of signature $(n,1)$).
+    \item [A] Show that a quasi-isometry between two hyperbolic spaces induces a homeomorphism of their boundaries.
+    \item [I] Prove that any conformal map of $S^n$ for $n \geq 2$ extends to a M\"obius transformation.
+    \item [B] Compute the dimension of the moduli space of hyperbolic surfaces of genus $g$.
+    \item [B] Show that $\SL(2,\R)$ acts on $\HH^2$ by fractional linear transformations.
+    \item [A] Classify all irreducible bounded symmetric domains using the classification of simple Lie algebras.
 \end{enumerate}
 
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1923 & Born in Boston, Massachusetts \\ \hline
@@ -201,7 +195,7 @@ Differential geometry (Riemannian manifolds, curvature), Lie groups and Lie alge
 1993 | Moves to Johns Hopkins University \\ \hline
 2013 | Wolf Prize in Mathematics \\ \hline
 2017 | Dies in Falls Church, Virginia \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section*{Glossary}
 \addcontentsline{toc}{section}{Glossary}
@@ -212,7 +206,7 @@ Differential geometry (Riemannian manifolds, curvature), Lie groups and Lie alge
     \item[Geodesic flow] The flow on the unit tangent bundle of a Riemannian manifold where each point moves along the geodesic it determines.
     \item[Hyperbolic manifold] A Riemannian manifold of constant negative curvature $-1$.
     \item[Locally symmetric space] A manifold whose universal cover is a symmetric space.
-    \item[M\"obius transformation] A conformal automorphism of the sphere $S^n$, extending an isometry of $\H^{n+1}$.
+    \item[M\"obius transformation] A conformal automorphism of the sphere $S^n$, extending an isometry of $\HH^{n+1}$.
     \item[Moduli space] The space of all geometric structures on a fixed topological manifold up to isometry.
     \item[Quasi-isometry] A map between metric spaces that distorts distances by at most a bounded multiplicative and additive factor.
 \end{description}

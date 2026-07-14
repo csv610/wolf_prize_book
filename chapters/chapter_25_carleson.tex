@@ -44,6 +44,7 @@
 \newcommand{\Aut}{\operatorname{Aut}}
 
 \chapter{Lennart Carleson (1992)}
+\index{Carleson, Lennart}
 
 \begin{quote}
 \it ``Carleson's work is distinguished by its extraordinary technical power and its deep originality. He solved problems that had resisted the efforts of the best mathematicians for decades, most famously Luzin's conjecture on the almost everywhere convergence of Fourier series of \(L^2\) functions. His creation of Carleson measures and his proof of the corona theorem transformed complex analysis and harmonic analysis forever. He is one of the great problem-solvers of modern mathematics.'' --- Wolf Prize Citation
@@ -428,7 +429,7 @@ The difficulty lies in the fact that the Dirichlet kernel \(D_N(t) = \sin((N+1/2
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1928 & Born on March 18 in Stockholm, Sweden \\ \hline
@@ -448,37 +449,37 @@ The difficulty lies in the fact that the Dirichlet kernel \(D_N(t) = \sin((N+1/2
 1992 & Awarded the Wolf Prize in Mathematics (shared with John G. Thompson) \\ \hline
 1993 & Foreign Member of the Royal Society (London) \\ \hline
 2006 & Awarded the Abel Prize from the Norwegian Academy of Science and Letters \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Show that the \(L^1\) norm of the Dirichlet kernel \(D_N(t) = \frac{\sin((N+1/2)t)}{\sin(t/2)}\) grows like \(\frac{4}{\pi^2} \log N\) as \(N \to \infty\). Specifically, prove that \(\|D_N\|_1 = \frac{1}{2\pi} \int_{-\pi}^\pi |D_N(t)|\,dt \sim \frac{4}{\pi^2} \log N\).
-    \item Prove that if the maximal partial sum operator \(S_*\) is of weak type \((2,2)\) (i.e., \(|\{x : S_* f(x) > \lambda\}| \leq C \|f\|_2^2/\lambda^2\)), then the Fourier series of every \(L^2\) function converges almost everywhere. (This is the Banach principle.)
-    \item Let \(\{z_n\} \subset \D\) be a sequence. Prove that if \(\sum (1-|z_n|) < \infty\), then the Blaschke product \(B(z) = \prod_n \frac{\overline{z_n}}{|z_n|} \frac{z_n - z}{1 - \overline{z_n}z}\) converges uniformly on compact subsets of \(\D\).
-    \item Show that the measure \(d\mu(z) = (1-|z|^2)^{-1}\,dA(z)\) on \(\D\) is a Carleson measure. Compute its Carleson norm. (Here \(dA\) is area measure normalized so that Area\((\D) = 1\).)
-    \item Prove that if \(\mu\) is a Carleson measure, then so is the measure \(|\mu|\) defined by \(d|\mu|(z) = (1-|z|^2)\,d\mu(z)\).
-    \item Let \(f(z) = \sum_{n=0}^\infty a_n z^n \in H^2\). Show that \(\|f\|_{H^2}^2 = \sum |a_n|^2 = \sup_{0<r<1} \frac{1}{2\pi} \int_0^{2\pi} |f(re^{i\theta})|^2\,d\theta\).
-    \item Prove Carleson's interpolation theorem for the special case of a sequence \(\{z_n\}\) satisfying \(|z_n| \leq r < 1\) (i.e., the points stay away from the boundary). Show that in this case, every bounded sequence is interpolated.
-    \item Let \(\{f_j\}\) be a finite set of functions in \(H^\infty\) satisfying the corona condition \(\sum |f_j(z)| \geq \delta > 0\) on \(\D\). Show that there exist functions \(g_j\) in \(L^\infty(\D, \overline{\partial})\) (smooth solutions to the inhomogeneous Cauchy--Riemann equation) such that \(\overline{\partial} g_j = 0\) on \(\D\) and \(\sum f_j g_j = 1\).
-    \item Compute the Fourier series of the function \(f(x) = \log|x|\) on \([-\pi,\pi]\). Show that \(f \in L^2[-\pi,\pi]\) but not in \(L^\infty\). By Carleson's theorem, its Fourier series converges almost everywhere.
-    \item Let \(\mu\) be a positive measure on \(\D\). Prove that if \(\mu\) is a Carleson measure with Carleson norm \(C\), then for every Carleson square \(S\), we have \(\mu(S) \leq C |S|\), where \(|S|\) is the arc length of the base of the square.
-    \item Show that the Carleson measure condition is equivalent to the condition that there exists a constant \(C > 0\) such that for every \(z \in \D\),
+    \item [I] Show that the \(L^1\) norm of the Dirichlet kernel \(D_N(t) = \frac{\sin((N+1/2)t)}{\sin(t/2)}\) grows like \(\frac{4}{\pi^2} \log N\) as \(N \to \infty\). Specifically, prove that \(\|D_N\|_1 = \frac{1}{2\pi} \int_{-\pi}^\pi |D_N(t)|\,dt \sim \frac{4}{\pi^2} \log N\).
+    \item [I] Prove that if the maximal partial sum operator \(S_*\) is of weak type \((2,2)\) (i.e., \(|\{x : S_* f(x) > \lambda\}| \leq C \|f\|_2^2/\lambda^2\)), then the Fourier series of every \(L^2\) function converges almost everywhere. (This is the Banach principle.)
+    \item [B] Let \(\{z_n\} \subset \D\) be a sequence. Prove that if \(\sum (1-|z_n|) < \infty\), then the Blaschke product \(B(z) = \prod_n \frac{\overline{z_n}}{|z_n|} \frac{z_n - z}{1 - \overline{z_n}z}\) converges uniformly on compact subsets of \(\D\).
+    \item [B] Show that the measure \(d\mu(z) = (1-|z|^2)^{-1}\,dA(z)\) on \(\D\) is a Carleson measure. Compute its Carleson norm. (Here \(dA\) is area measure normalized so that Area\((\D) = 1\).)
+    \item [I] Prove that if \(\mu\) is a Carleson measure, then so is the measure \(|\mu|\) defined by \(d|\mu|(z) = (1-|z|^2)\,d\mu(z)\).
+    \item [B] Let \(f(z) = \sum_{n=0}^\infty a_n z^n \in H^2\). Show that \(\|f\|_{H^2}^2 = \sum |a_n|^2 = \sup_{0<r<1} \frac{1}{2\pi} \int_0^{2\pi} |f(re^{i\theta})|^2\,d\theta\).
+    \item [B] Prove Carleson's interpolation theorem for the special case of a sequence \(\{z_n\}\) satisfying \(|z_n| \leq r < 1\) (i.e., the points stay away from the boundary). Show that in this case, every bounded sequence is interpolated.
+    \item [A] Let \(\{f_j\}\) be a finite set of functions in \(H^\infty\) satisfying the corona condition \(\sum |f_j(z)| \geq \delta > 0\) on \(\D\). Show that there exist functions \(g_j\) in \(L^\infty(\D, \overline{\partial})\) (smooth solutions to the inhomogeneous Cauchy--Riemann equation) such that \(\overline{\partial} g_j = 0\) on \(\D\) and \(\sum f_j g_j = 1\).
+    \item [B] Compute the Fourier series of the function \(f(x) = \log|x|\) on \([-\pi,\pi]\). Show that \(f \in L^2[-\pi,\pi]\) but not in \(L^\infty\). By Carleson's theorem, its Fourier series converges almost everywhere.
+    \item [B] Let \(\mu\) be a positive measure on \(\D\). Prove that if \(\mu\) is a Carleson measure with Carleson norm \(C\), then for every Carleson square \(S\), we have \(\mu(S) \leq C |S|\), where \(|S|\) is the arc length of the base of the square.
+    \item [I] Show that the Carleson measure condition is equivalent to the condition that there exists a constant \(C > 0\) such that for every \(z \in \D\),
     \[
     \iint_\D \frac{(1-|z|^2)(1-|w|^2)}{|1-\overline{w}z|^2}\,d\mu(w) \leq C (1-|z|^2).
     \]
     (This is the reproducing kernel characterization.)
-    \item Prove that if \(f \in H^\infty\), then the measure \(d\mu_f = |f'(z)|^2 (1-|z|^2)\,dA(z)\) is a Carleson measure. (This is related to the Bloch space.)
-    \item Show that the corona theorem for two functions \(f_1, f_2 \in H^\infty\) can be reduced to the case where one of the functions is a Blaschke product.
-    \item Let \(\{z_n\}\) be an interpolating sequence for \(H^\infty\) with separation constant \(\delta\). Prove that \(\sum (1-|z_n|) < \infty\) if and only if the Blaschke product with zeros \(\{z_n\}\) converges.
-    \item Prove that the measure \(d\mu(z) = \chi_{S(\theta, h)}(z)\,dA(z)\) (the area measure restricted to a Carleson square) has Carleson norm at most \(2h\).
-    \item Let \(f \in L^2[-\pi,\pi]\). Prove that the Fej\'er means \(\sigma_N(f)(x) = \frac{1}{N} \sum_{k=0}^{N-1} S_k(f)(x)\) converge to \(f(x)\) almost everywhere. (This is easier than Carleson's theorem and follows from the boundedness of the Fej\'er kernel.)
-    \item Let \(\varphi: \D \to \D\) be an analytic self-map of the disk. Show that the composition operator \(C_\varphi: H^2 \to H^2\) defined by \(C_\varphi f = f \circ \varphi\) is bounded. Show that \(C_\varphi\) is bounded on \(H^2\) if and only if the measure \(\mu_\varphi\) defined by \(\mu_\varphi(E) = m(\varphi^{-1}(E) \cap \T)\) is a Carleson measure, where \(m\) is Lebesgue measure on \(\T\).
-    \item Prove the corona theorem for the special case of two functions \(f_1, f_2 \in H^\infty\) with \(f_1\) a bounded function that is bounded away from zero: \(|f_1(z)| \geq \delta > 0\) for all \(z \in \D\).
-    \item Show that the maximal ideal space \(\mathfrak{M}(H^\infty)\) is connected. (This follows from the corona theorem and the fact that \(\D\) is connected and dense in \(\mathfrak{M}(H^\infty)\).)
-    \item Let \(f \in L^p(\T)\) with \(p > 1\). Using Hunt's theorem and the Banach principle, show that the partial sums of the Fourier series of \(f\) converge almost everywhere.
-    \item Prove that the Carleson measure norm of a measure \(\mu\) is the supremum of \(\mu(S(\theta, h))/h\) over all Carleson squares. Show that this is equivalent to the optimal constant in the embedding \(H^2 \hookrightarrow L^2(\mu)\).
+    \item [I] Prove that if \(f \in H^\infty\), then the measure \(d\mu_f = |f'(z)|^2 (1-|z|^2)\,dA(z)\) is a Carleson measure. (This is related to the Bloch space.)
+    \item [A] Show that the corona theorem for two functions \(f_1, f_2 \in H^\infty\) can be reduced to the case where one of the functions is a Blaschke product.
+    \item [I] Let \(\{z_n\}\) be an interpolating sequence for \(H^\infty\) with separation constant \(\delta\). Prove that \(\sum (1-|z_n|) < \infty\) if and only if the Blaschke product with zeros \(\{z_n\}\) converges.
+    \item [B] Prove that the measure \(d\mu(z) = \chi_{S(\theta, h)}(z)\,dA(z)\) (the area measure restricted to a Carleson square) has Carleson norm at most \(2h\).
+    \item [B] Let \(f \in L^2[-\pi,\pi]\). Prove that the Fej\'er means \(\sigma_N(f)(x) = \frac{1}{N} \sum_{k=0}^{N-1} S_k(f)(x)\) converge to \(f(x)\) almost everywhere. (This is easier than Carleson's theorem and follows from the boundedness of the Fej\'er kernel.)
+    \item [I] Let \(\varphi: \D \to \D\) be an analytic self-map of the disk. Show that the composition operator \(C_\varphi: H^2 \to H^2\) defined by \(C_\varphi f = f \circ \varphi\) is bounded. Show that \(C_\varphi\) is bounded on \(H^2\) if and only if the measure \(\mu_\varphi\) defined by \(\mu_\varphi(E) = m(\varphi^{-1}(E) \cap \T)\) is a Carleson measure, where \(m\) is Lebesgue measure on \(\T\).
+    \item [I] Prove the corona theorem for the special case of two functions \(f_1, f_2 \in H^\infty\) with \(f_1\) a bounded function that is bounded away from zero: \(|f_1(z)| \geq \delta > 0\) for all \(z \in \D\).
+    \item [I] Show that the maximal ideal space \(\mathfrak{M}(H^\infty)\) is connected. (This follows from the corona theorem and the fact that \(\D\) is connected and dense in \(\mathfrak{M}(H^\infty)\).)
+    \item [A] Let \(f \in L^p(\T)\) with \(p > 1\). Using Hunt's theorem and the Banach principle, show that the partial sums of the Fourier series of \(f\) converge almost everywhere.
+    \item [I] Prove that the Carleson measure norm of a measure \(\mu\) is the supremum of \(\mu(S(\theta, h))/h\) over all Carleson squares. Show that this is equivalent to the optimal constant in the embedding \(H^2 \hookrightarrow L^2(\mu)\).
 \end{enumerate}
 
 \section*{Glossary}

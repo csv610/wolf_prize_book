@@ -56,6 +56,7 @@
 \newcommand{\Ces}{\operatorname{Ces}}
 
 \chapter{Hillel Furstenberg (2006/07)}
+\index{Furstenberg, Hillel}
 
 \begin{quote}
 \it ``Furstenberg's work is characterized by a rare combination of probabilistic insight, ergodic-theoretic depth, and combinatorial brilliance. He has created entirely new bridges between ergodic theory and combinatorics, between random walks and harmonic analysis on Lie groups, and between dynamical systems and number theory. His ergodic proof of Szemer\'edi's theorem on arithmetic progressions stands as one of the great achievements of twentieth-century mathematics, and his theories of boundary and entropy for random walks have become indispensable tools.'' --- Wolf Prize Citation
@@ -480,7 +481,7 @@ Several major open problems remain. The polynomial Hales--Jewett theorem (a dens
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1935 & Born on September 29 in Berlin, Germany \\ \hline
@@ -499,27 +500,27 @@ Several major open problems remain. The polynomial Hales--Jewett theorem (a dens
 1990s & Work on equidistribution, homogeneous dynamics, and unique ergodicity \\ \hline
 2006/07 & Awarded the Wolf Prize in Mathematics (shared with Stephen Smale) \\ \hline
 2020 & Awarded the Abel Prize (shared with Grigory Margulis) \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Prove the classical Poincar\'e recurrence theorem: if \((X,\mathscr{B},\mu,T)\) is a measure-preserving system and \(A \in \mathscr{B}\) with \(\mu(A) > 0\), then for almost every \(x \in A\) there exist infinitely many \(n\) such that \(T^n x \in A\).
-    \item Show that for a set \(A \subseteq \Z\) of positive upper Banach density, the Furstenberg correspondence principle produces a dynamical system in which \(\mu(A_0) = \overline{d}(A)\) and for any \(m_1,\dots,m_k\), we have \(\overline{d}(A \cap (A-m_1) \cap \cdots \cap (A-m_k)) \geq \mu(A_0 \cap T^{-m_1}A_0 \cap \cdots \cap T^{-m_k}A_0)\).
-    \item Prove that the sequence \(a_n = \log\|A_n \cdots A_1\|\) is subadditive for any norm on \(\GL(d,\R)\). Use Kingman's subadditive ergodic theorem to conclude that \(\frac{1}{n}a_n\) converges almost surely.
-    \item Let \((X,\mu,T)\) be an ergodic system. Show that the system is weakly mixing if and only if it has no non-constant eigenfunctions (i.e., its discrete spectrum consists only of the eigenvalue 1).
-    \item Let \(A \subseteq \N\) have positive upper density. Use the correspondence principle and the Furstenberg--S\'ark\"ozy theorem to show that \(A\) contains two elements whose difference is a perfect square.
-    \item Show that the horocycle flow on \(\SL(2,\R)/\SL(2,\Z)\) is uniquely ergodic by showing that every continuous function has a uniform limit of its Birkhoff averages. (Hint: use the representation theory of \(\SL(2,\R)\).)
-    \item Prove that if a measure-preserving system has zero entropy, it is disjoint from every Kolmogorov system (a system with completely positive entropy).
-    \item Let \(G\) be a countable group and \(\mu\) a probability measure on \(G\) with finite entropy. Show that if the Poisson boundary is trivial, then \(h(\mu) = 0\). (This is one direction of the entropy criterion.)
-    \item Let \(\alpha\) be an irrational number and consider the rotation \(R_\alpha: x \mapsto x + \alpha\) on \(\T\). Show that this system is distal. Conclude that it is disjoint from any weakly mixing system.
-    \item Let \(F \subset \Z^d\) be a finite set. Show that the Furstenberg--Katznelson multidimensional theorem implies that any set \(A \subseteq \Z^d\) of positive upper Banach density contains a translated copy of \(F\) (i.e., there exists \(u \in \Z^d\) such that \(u + F \subseteq A\)).
-    \item Let \(p(n) = n^2\). Show that the average \(\frac{1}{N}\sum_{n=1}^N T^{n^2}\) converges in the strong operator topology on \(L^2(\mu)\) using the spectral theorem.
-    \item For a random walk on a finite group with step distribution \(\mu\), compute the asymptotic entropy \(h(\mu)\). Show that \(h(\mu) = 0\) if and only if the random walk is recurrent in the sense that every bounded harmonic function is constant.
-    \item Let \(\Gamma = \SL(2,\Z)\) and consider the product of i.i.d.\ matrices in \(\GL(2,\R)\). Use the Furstenberg--Kesten theorem to show that the top Lyapunov exponent is positive if the matrices do not preserve a common finite set of directions.
-    \item Show that the set of squares \(\{n^2 : n \in \N\}\) has zero upper Banach density. Conclude that the Furstenberg--S\'ark\"ozy theorem is nontrivial --- the squares are a sparse set that must nontrivially intersect the difference set of any positive-density set.
-    \item Let \((X,\mu,T)\) be an ergodic system. Use the Furstenberg--Zimmer structure theorem to show that the system has a maximal distal factor \(Y\) and that \(X\) is relatively weakly mixing over \(Y\).
+    \item [B] Prove the classical Poincar\'e recurrence theorem: if \((X,\mathscr{B},\mu,T)\) is a measure-preserving system and \(A \in \mathscr{B}\) with \(\mu(A) > 0\), then for almost every \(x \in A\) there exist infinitely many \(n\) such that \(T^n x \in A\).
+    \item [I] Show that for a set \(A \subseteq \Z\) of positive upper Banach density, the Furstenberg correspondence principle produces a dynamical system in which \(\mu(A_0) = \overline{d}(A)\) and for any \(m_1,\dots,m_k\), we have \(\overline{d}(A \cap (A-m_1) \cap \cdots \cap (A-m_k)) \geq \mu(A_0 \cap T^{-m_1}A_0 \cap \cdots \cap T^{-m_k}A_0)\).
+    \item [I] Prove that the sequence \(a_n = \log\|A_n \cdots A_1\|\) is subadditive for any norm on \(\GL(d,\R)\). Use Kingman's subadditive ergodic theorem to conclude that \(\frac{1}{n}a_n\) converges almost surely.
+    \item [I] Let \((X,\mu,T)\) be an ergodic system. Show that the system is weakly mixing if and only if it has no non-constant eigenfunctions (i.e., its discrete spectrum consists only of the eigenvalue 1).
+    \item [I] Let \(A \subseteq \N\) have positive upper density. Use the correspondence principle and the Furstenberg--S\'ark\"ozy theorem to show that \(A\) contains two elements whose difference is a perfect square.
+    \item [A] Show that the horocycle flow on \(\SL(2,\R)/\SL(2,\Z)\) is uniquely ergodic by showing that every continuous function has a uniform limit of its Birkhoff averages. (Hint: use the representation theory of \(\SL(2,\R)\).)
+    \item [I] Prove that if a measure-preserving system has zero entropy, it is disjoint from every Kolmogorov system (a system with completely positive entropy).
+    \item [I] Let \(G\) be a countable group and \(\mu\) a probability measure on \(G\) with finite entropy. Show that if the Poisson boundary is trivial, then \(h(\mu) = 0\). (This is one direction of the entropy criterion.)
+    \item [I] Let \(\alpha\) be an irrational number and consider the rotation \(R_\alpha: x \mapsto x + \alpha\) on \(\T\). Show that this system is distal. Conclude that it is disjoint from any weakly mixing system.
+    \item [I] Let \(F \subset \Z^d\) be a finite set. Show that the Furstenberg--Katznelson multidimensional theorem implies that any set \(A \subseteq \Z^d\) of positive upper Banach density contains a translated copy of \(F\) (i.e., there exists \(u \in \Z^d\) such that \(u + F \subseteq A\)).
+    \item [I] Let \(p(n) = n^2\). Show that the average \(\frac{1}{N}\sum_{n=1}^N T^{n^2}\) converges in the strong operator topology on \(L^2(\mu)\) using the spectral theorem.
+    \item [I] For a random walk on a finite group with step distribution \(\mu\), compute the asymptotic entropy \(h(\mu)\). Show that \(h(\mu) = 0\) if and only if the random walk is recurrent in the sense that every bounded harmonic function is constant.
+    \item [I] Let \(\Gamma = \SL(2,\Z)\) and consider the product of i.i.d.\ matrices in \(\GL(2,\R)\). Use the Furstenberg--Kesten theorem to show that the top Lyapunov exponent is positive if the matrices do not preserve a common finite set of directions.
+    \item [B] Show that the set of squares \(\{n^2 : n \in \N\}\) has zero upper Banach density. Conclude that the Furstenberg--S\'ark\"ozy theorem is nontrivial --- the squares are a sparse set that must nontrivially intersect the difference set of any positive-density set.
+    \item [I] Let \((X,\mu,T)\) be an ergodic system. Use the Furstenberg--Zimmer structure theorem to show that the system has a maximal distal factor \(Y\) and that \(X\) is relatively weakly mixing over \(Y\).
 \end{enumerate}
 
 \section{Key Terms}

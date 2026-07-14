@@ -1,7 +1,7 @@
 LATEX = pdflatex -interaction=nonstopmode
 
-MAIN_TEX = wolf_prize_main.tex
-MAIN_PDF = wolf_prize_main.pdf
+MAIN_TEX = wolf_prize.tex
+MAIN_PDF = wolf_prize.pdf
 
 CHAPTERS = chapters/chapter_*.tex
 
@@ -13,6 +13,8 @@ main: $(MAIN_PDF)
 
 $(MAIN_PDF): $(MAIN_TEX) $(CHAPTERS)
 	-$(LATEX) $(MAIN_TEX)
+	-makeindex wolf_prize
+	-$(LATEX) $(MAIN_TEX)
 	-$(LATEX) $(MAIN_TEX)
 	@echo "---"
 	@echo "Output: $(MAIN_PDF)"
@@ -22,7 +24,7 @@ quick:
 	-$(LATEX) $(MAIN_TEX)
 
 clean:
-	rm -f *.aux *.log *.out *.toc chapters/*.aux chapters/*.log
+	rm -f *.aux *.log *.out *.toc *.idx *.ilg *.ind chapters/*.aux chapters/*.log
 
 cleanall: clean
 	rm -f $(MAIN_PDF)

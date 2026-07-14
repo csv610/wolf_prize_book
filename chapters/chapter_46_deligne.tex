@@ -54,6 +54,7 @@
 \newcommand{\Frob}{\operatorname{Frob}}
 
 \chapter{Pierre Deligne (2008)}
+\index{Deligne, Pierre}
 
 \begin{quote}
 \it ``Deligne's work has transformed algebraic geometry and number theory. His proof of the Weil conjectures, his development of mixed Hodge theory, his construction of Deligne--Mumford stacks, his profound contributions to the theory of tensor categories, and his work on the Langlands program represent some of the deepest and most influential mathematics of the twentieth century. He has shaped the way we think about the fundamental structures of algebraic geometry.'' --- Wolf Prize Citation
@@ -335,13 +336,13 @@ The category \(\Rep_k(G)\) of finite-dimensional representations of an affine gr
 
 \subsection{Tannakian Categories}
 
-A \textbf{Tannakian category} over a field \(k\) is a rigid abelian tensor category \(\mathcal{C}\) equipped with a fiber functor \(\omega: \mathcal{C} \to \Vec_k\) to the category of finite-dimensional vector spaces over \(k\), satisfying certain exactness and faithfulness conditions.
+A \textbf{Tannakian category} over a field \(k\) is a rigid abelian tensor category \(\mathcal{C}\) equipped with a fiber functor \(\omega: \mathcal{C} \to \mathbf{Vec}_{k}\) to the category of finite-dimensional vector spaces over \(k\), satisfying certain exactness and faithfulness conditions.
 
 \begin{definition}[Tannakian Category]
 A neutral Tannakian category over a field \(k\) is a pair \((\mathcal{C}, \omega)\) where:
 \begin{enumerate}
     \item \(\mathcal{C}\) is a rigid abelian \(k\)-linear tensor category.
-    \item \(\omega: \mathcal{C} \to \Vec_k\) is an exact, faithful \(k\)-linear tensor functor (the \textbf{fiber functor}).
+    \item \(\omega: \mathcal{C} \to \mathbf{Vec}_{k}\) is an exact, faithful \(k\)-linear tensor functor (the \textbf{fiber functor}).
     \item \(\End(\omega) = k\) (i.e., the only endomorphisms of \(\omega\) are scalars).
 \end{enumerate}
 \end{definition}
@@ -373,7 +374,7 @@ Let \(\mathcal{C}\) be a rigid tensor category over an algebraically closed fiel
 More precisely, Deligne proved:
 
 \begin{theorem}[Deligne's Theorem on Tensor Categories]
-Let \(\mathcal{C}\) be a symmetric tensor category over an algebraically closed field \(k\) of characteristic zero. Suppose that for every object \(X \in \mathcal{C}\), the length of \(X^{\otimes n}\) is bounded by a polynomial in \(n\). Then \(\mathcal{C}\) is Tannakian: it admits a fiber functor to \(\Vec_k\).
+Let \(\mathcal{C}\) be a symmetric tensor category over an algebraically closed field \(k\) of characteristic zero. Suppose that for every object \(X \in \mathcal{C}\), the length of \(X^{\otimes n}\) is bounded by a polynomial in \(n\). Then \(\mathcal{C}\) is Tannakian: it admits a fiber functor to \(\mathbf{Vec}_{k}\).
 \end{theorem}
 
 This theorem has profound implications: it shows that many tensor categories that arise in geometry and representation theory are actually categories of representations. For example, Deligne used this to prove that the category of perverse sheaves on a variety with a given stratification is Tannakian.
@@ -560,7 +561,7 @@ Deligne's proof of the Ramanujan conjecture was a milestone in the Langlands pro
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1944 & Born on October 3 in Etterbeek, Brussels, Belgium \\ \hline
@@ -582,35 +583,39 @@ Deligne's proof of the Ramanujan conjecture was a milestone in the Langlands pro
 2004 & Awarded the Balzan Prize \\ \hline
 2008 & Awarded the Wolf Prize in Mathematics (shared with Griffiths and Mumford) \\ \hline
 2013 & Awarded the Abel Prize from the Norwegian Academy of Science and Letters \\ \hline
-\end{tabular}
+\end{tabularx}
+
+\section{Related Chapters}
+
+See also Chapter~04 (Weil) on algebraic geometry and the Weil conjectures.
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Let \(X\) be a smooth projective curve of genus \(g\) over \(\F_q\). Show that the zeta function of \(X\) is
+    \item [I] Let \(X\) be a smooth projective curve of genus \(g\) over \(\F_q\). Show that the zeta function of \(X\) is
     \[
     Z(X, t) = \frac{P_1(t)}{(1-t)(1-qt)},
     \]
     where \(P_1(t) = \prod_{i=1}^{2g} (1 - \alpha_i t)\) and \(|\alpha_i| = q^{1/2}\). Conclude that \(|X(\F_{q^m})| = q^m + 1 - \sum \alpha_i^m\).
-    \item Prove that for a smooth projective variety \(X\) over \(\F_q\), the functional equation for the zeta function is equivalent to Poincar\'e duality for \'etale cohomology.
-    \item Let \(X\) be a smooth projective surface over \(\F_q\). Show that the zeta function takes the form
+    \item [I] Prove that for a smooth projective variety \(X\) over \(\F_q\), the functional equation for the zeta function is equivalent to Poincar\'e duality for \'etale cohomology.
+    \item [I] Let \(X\) be a smooth projective surface over \(\F_q\). Show that the zeta function takes the form
     \[
     Z(X, t) = \frac{P_1(t) P_3(t)}{P_0(t) P_2(t) P_4(t)},
     \]
     where each \(P_i\) has degree \(b_i\), and the Riemann hypothesis gives bounds on the reciprocal roots.
-    \item Show that the category \(\Rep_k(G)\) of finite-dimensional representations of an affine group scheme \(G\) over a field \(k\) is a neutral Tannakian category with fiber functor given by the forgetful functor.
-    \item Prove that the Deligne--Mumford compactification \(\overline{\M}_g\) is proper by showing that any family of smooth curves over a punctured disk can be extended to a family of stable curves after a finite base change.
-    \item Let \(V\) be a pure Hodge structure of weight \(k\). Show that the Hodge decomposition \(V_\C = \bigoplus_{p+q=k} V^{p,q}\) determines and is determined by the Hodge filtration \(F^p V_\C = \bigoplus_{r \geq p} V^{r,k-r}\).
-    \item For a smooth variety \(U = X \setminus D\) where \(D\) is a divisor with simple normal crossings, show that the cohomology of \(U\) is computed by the complex \(\Omega_X^\bullet(\log D)\).
-    \item Verify that for the modular discriminant \(\Delta(q) = q \prod (1-q^n)^{24}\), the Ramanujan conjecture for weight 12 gives \(|\tau(p)| \leq 2 p^{11/2}\).
-    \item Let \(f\) be a cusp form of weight \(k \geq 2\). Show that the associated Galois representation \(\rho_{f,l}\) is unramified outside \(lN\) where \(N\) is the level, and that for \(p \nmid lN\), \(\operatorname{Tr} \rho_{f,l}(\Frob_p) = a_p\).
-    \item Prove that a Deligne--Mumford stack with trivial automorphism groups is an algebraic space.
-    \item Let \(\mathcal{C}\) be a Tannakian category with fiber functor \(\omega\). Show that the group scheme \(\underline{\Aut}^\otimes(\omega)\) is affine.
-    \item For a smooth projective variety \(X\) over \(\C\), show that the Hodge numbers satisfy \(h^{p,q} = h^{q,p}\) and \(h^{p,q} = h^{n-p,n-q}\) (Hodge symmetry and Serre duality).
-    \item Let \(X\) be a smooth quasi-projective variety. Use Deligne's mixed Hodge theory to show that the weight filtration on \(H^k(X, \Q)\) satisfies \(W_{k-1} = 0\) and \(W_k = H^k\).
-    \item Show that the zeta function of a smooth projective curve \(X\) of genus \(g\) over \(\F_q\) satisfies the Riemann hypothesis if and only if the eigenvalues of Frobenius on \(H^1_{\text{\'et}}(X_{\overline{\F}_q}, \Q_l)\) have absolute value \(q^{1/2}\).
-    \item Let \(\mathcal{C}\) be a rigid tensor category over a field \(k\). Show that the endomorphism algebra of the unit object \(\mathbf{1}\) is a field extension of \(k\).
+    \item [I] Show that the category \(\Rep_k(G)\) of finite-dimensional representations of an affine group scheme \(G\) over a field \(k\) is a neutral Tannakian category with fiber functor given by the forgetful functor.
+    \item [A] Prove that the Deligne--Mumford compactification \(\overline{\M}_g\) is proper by showing that any family of smooth curves over a punctured disk can be extended to a family of stable curves after a finite base change.
+    \item [B] Let \(V\) be a pure Hodge structure of weight \(k\). Show that the Hodge decomposition \(V_\C = \bigoplus_{p+q=k} V^{p,q}\) determines and is determined by the Hodge filtration \(F^p V_\C = \bigoplus_{r \geq p} V^{r,k-r}\).
+    \item [I] For a smooth variety \(U = X \setminus D\) where \(D\) is a divisor with simple normal crossings, show that the cohomology of \(U\) is computed by the complex \(\Omega_X^\bullet(\log D)\).
+    \item [B] Verify that for the modular discriminant \(\Delta(q) = q \prod (1-q^n)^{24}\), the Ramanujan conjecture for weight 12 gives \(|\tau(p)| \leq 2 p^{11/2}\).
+    \item [I] Let \(f\) be a cusp form of weight \(k \geq 2\). Show that the associated Galois representation \(\rho_{f,l}\) is unramified outside \(lN\) where \(N\) is the level, and that for \(p \nmid lN\), \(\operatorname{Tr} \rho_{f,l}(\Frob_p) = a_p\).
+    \item [B] Prove that a Deligne--Mumford stack with trivial automorphism groups is an algebraic space.
+    \item [I] Let \(\mathcal{C}\) be a Tannakian category with fiber functor \(\omega\). Show that the group scheme \(\underline{\Aut}^\otimes(\omega)\) is affine.
+    \item [B] For a smooth projective variety \(X\) over \(\C\), show that the Hodge numbers satisfy \(h^{p,q} = h^{q,p}\) and \(h^{p,q} = h^{n-p,n-q}\) (Hodge symmetry and Serre duality).
+    \item [I] Let \(X\) be a smooth quasi-projective variety. Use Deligne's mixed Hodge theory to show that the weight filtration on \(H^k(X, \Q)\) satisfies \(W_{k-1} = 0\) and \(W_k = H^k\).
+    \item [B] Show that the zeta function of a smooth projective curve \(X\) of genus \(g\) over \(\F_q\) satisfies the Riemann hypothesis if and only if the eigenvalues of Frobenius on \(H^1_{\text{\'et}}(X_{\overline{\F}_q}, \Q_l)\) have absolute value \(q^{1/2}\).
+    \item [I] Let \(\mathcal{C}\) be a rigid tensor category over a field \(k\). Show that the endomorphism algebra of the unit object \(\mathbf{1}\) is a field extension of \(k\).
 \end{enumerate}
 
 \section*{Glossary}

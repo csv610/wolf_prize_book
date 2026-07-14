@@ -54,6 +54,7 @@
 \newcommand{\fix}{\operatorname{fix}}
 
 \chapter{Stephen Smale (2006/07)}
+\index{Smale, Stephen}
 
 \begin{quote}
 \it ``Smale's work is characterized by its extraordinary breadth and depth, ranging from fundamental contributions to differential topology and dynamical systems to pioneering work in the theory of computation and mathematical economics. His proof of the Poincar\'e conjecture in dimensions \(\geq 5\) via the \(h\)-cobordism theorem is one of the great achievements of 20th-century mathematics. His subsequent work on hyperbolic dynamical systems, the Smale horseshoe, and the \(\Omega\)-stability theorem has transformed our understanding of complicated behavior in deterministic systems.'' --- Wolf Prize Citation
@@ -412,7 +413,7 @@ Smale's influence is felt across many applied fields. The theory of hyperbolic d
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1930 & Born on July 15 in Flint, Michigan, USA \\ \hline
@@ -433,32 +434,36 @@ Smale's influence is felt across many applied fields. The theory of hyperbolic d
 1995 & Retired from the University of California, Berkeley \\ \hline
 1998 & Publication of \textit{Mathematical Problems for the 21st Century} (the Smale 18 problems) \\ \hline
 2006/07 & Awarded the Wolf Prize in Mathematics (shared with Hillel Furstenberg) \\ \hline
-\end{tabular}
+\end{tabularx}
+
+\section{Related Chapters}
+
+See also Chapter~22 (Milnor) on differential topology.
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Let \(M\) be a simply connected closed 5-manifold with the homology of \(S^5\). Show that \(M\) is homeomorphic to \(S^5\) using the \(h\)-cobordism theorem. (Hint: remove a 5-ball and consider the resulting \(h\)-cobordism.)
-    \item Construct an explicit Morse function on \(S^n\) with exactly two critical points (a minimum and a maximum). Show that any Morse function on a homotopy sphere with only two critical points yields a handlebody decomposition that is a product.
-    \item Prove that the Smale horseshoe map has countably infinitely many periodic points of period \(n\) for each positive integer \(n\). Show that the number of fixed points of \(f^n\) on \(\Lambda\) equals \(2^n\).
-    \item Show that the set \(\Lambda\) in the horseshoe map has topological dimension 0 (it is a Cantor set) and Hausdorff dimension \(\log 2 / \log 3\).
-    \item For a hyperbolic invariant set \(\Lambda\) of a diffeomorphism \(f\), prove that the stable manifold \(W^s(x)\) and the unstable manifold \(W^u(x)\) are injectively immersed Euclidean spaces for each \(x \in \Lambda\). Show that \(W^s(x)\) and \(W^u(x)\) intersect transversely at \(x\).
-    \item Let \(f: M \to M\) be an Anosov diffeomorphism. Prove that the set of periodic points of \(f\) is dense in \(M\). (Hint: use the shadowing lemma for hyperbolic sets.)
-    \item Let \(F\) be a Morse--Smale function on a compact oriented manifold \(M\). Define the Morse--Smale complex and prove that \(\partial^2 = 0\). Show that the Euler characteristic of \(M\) equals the alternating sum of the numbers of critical points.
-    \item Verify that for a Morse function on the torus \(T^2 = S^1 \times S^1\) with one minimum, two saddles, and one maximum, the Morse--Smale complex computes the homology of \(T^2\) correctly.
-    \item Show that the excess demand function \(Z(p)\) in an exchange economy with strictly convex preferences satisfies Walras' law: \(p \cdot Z(p) = 0\) for all \(p\). Use this to show that if \(Z\) is continuous, a solution to \(Z(p) = 0\) exists on the price simplex (by the Brouwer fixed-point theorem).
-    \item Prove the gross substitutability condition implies that the equilibrium in an exchange economy is unique. (Hint: suppose \(p\) and \(p'\) are two equilibria. Show that \(\min_i p_i/p'_i\) is attained at a good where excess demands are inconsistent with equilibrium.)
-    \item In the Blum--Shub--Smale model, show that the decision problem for a system of quadratic equations over \(\R\) is NP-complete over \(\R\). Compare with the discrete case of 3-SAT.
-    \item Show that a Morse function on a closed manifold can be modified to eliminate all critical points of index 0 and \(n\) except the global minimum and maximum. (Hint: use handle cancellation.)
-    \item Let \(f: D^2 \to D^2\) be the Smale horseshoe map restricted to the square. Show that the topological entropy of \(f\) is \(\log 2\) by computing the growth rate of the number of periodic points.
-    \item For a general equilibrium economy with three goods and gross substitutability, show that the tatonnement process \(\dot{p} = Z(p)\) converges to the unique equilibrium from any initial positive price vector.
-    \item Prove that the set of non-wandering points \(\Omega(f)\) for an Axiom A diffeomorphism decomposes into a finite union of basic sets, each of which is topologically transitive and contains a dense set of periodic points (Smale's spectral decomposition theorem).
-    \item Let \(W\) be an \(h\)-cobordism with \(\partial W = M_0 \sqcup M_1\). Show that \(H_*(W, M_0) = 0\). Conclude that the Euler characteristic of \(W\) equals \(\chi(M_0)\).
-    \item Consider the gradient flow of a Morse function on a compact manifold. Show that the Morse inequalities \(\mu_k \geq b_k\) hold, where \(\mu_k\) is the number of critical points of index \(k\) and \(b_k\) is the \(k\)-th Betti number.
-    \item Show that the Hausdorff dimension of the horseshoe Cantor set \(\Lambda\) equals \(\log 2 / \log 3\). Generalize to the case where the map expands by a factor \(a > 2\) and contracts by \(1/a\).
-    \item Let \(f\) be a \(C^2\)-diffeomorphism satisfying Axiom A and the strong transversality condition. Prove that \(f\) is structurally stable (Robbin's theorem, outline using the stable and unstable foliations and the shadowing lemma).
-    \item Show that the Poincar\'e--Hopf theorem for vector fields implies the existence of general equilibrium in an exchange economy with smooth utility functions.
+    \item [I] Let \(M\) be a simply connected closed 5-manifold with the homology of \(S^5\). Show that \(M\) is homeomorphic to \(S^5\) using the \(h\)-cobordism theorem. (Hint: remove a 5-ball and consider the resulting \(h\)-cobordism.)
+    \item [B] Construct an explicit Morse function on \(S^n\) with exactly two critical points (a minimum and a maximum). Show that any Morse function on a homotopy sphere with only two critical points yields a handlebody decomposition that is a product.
+    \item [I] Prove that the Smale horseshoe map has countably infinitely many periodic points of period \(n\) for each positive integer \(n\). Show that the number of fixed points of \(f^n\) on \(\Lambda\) equals \(2^n\).
+    \item [I] Show that the set \(\Lambda\) in the horseshoe map has topological dimension 0 (it is a Cantor set) and Hausdorff dimension \(\log 2 / \log 3\).
+    \item [I] For a hyperbolic invariant set \(\Lambda\) of a diffeomorphism \(f\), prove that the stable manifold \(W^s(x)\) and the unstable manifold \(W^u(x)\) are injectively immersed Euclidean spaces for each \(x \in \Lambda\). Show that \(W^s(x)\) and \(W^u(x)\) intersect transversely at \(x\).
+    \item [I] Let \(f: M \to M\) be an Anosov diffeomorphism. Prove that the set of periodic points of \(f\) is dense in \(M\). (Hint: use the shadowing lemma for hyperbolic sets.)
+    \item [I] Let \(F\) be a Morse--Smale function on a compact oriented manifold \(M\). Define the Morse--Smale complex and prove that \(\partial^2 = 0\). Show that the Euler characteristic of \(M\) equals the alternating sum of the numbers of critical points.
+    \item [B] Verify that for a Morse function on the torus \(T^2 = S^1 \times S^1\) with one minimum, two saddles, and one maximum, the Morse--Smale complex computes the homology of \(T^2\) correctly.
+    \item [I] Show that the excess demand function \(Z(p)\) in an exchange economy with strictly convex preferences satisfies Walras' law: \(p \cdot Z(p) = 0\) for all \(p\). Use this to show that if \(Z\) is continuous, a solution to \(Z(p) = 0\) exists on the price simplex (by the Brouwer fixed-point theorem).
+    \item [I] Prove the gross substitutability condition implies that the equilibrium in an exchange economy is unique. (Hint: suppose \(p\) and \(p'\) are two equilibria. Show that \(\min_i p_i/p'_i\) is attained at a good where excess demands are inconsistent with equilibrium.)
+    \item [A] In the Blum--Shub--Smale model, show that the decision problem for a system of quadratic equations over \(\R\) is NP-complete over \(\R\). Compare with the discrete case of 3-SAT.
+    \item [I] Show that a Morse function on a closed manifold can be modified to eliminate all critical points of index 0 and \(n\) except the global minimum and maximum. (Hint: use handle cancellation.)
+    \item [I] Let \(f: D^2 \to D^2\) be the Smale horseshoe map restricted to the square. Show that the topological entropy of \(f\) is \(\log 2\) by computing the growth rate of the number of periodic points.
+    \item [I] For a general equilibrium economy with three goods and gross substitutability, show that the tatonnement process \(\dot{p} = Z(p)\) converges to the unique equilibrium from any initial positive price vector.
+    \item [I] Prove that the set of non-wandering points \(\Omega(f)\) for an Axiom A diffeomorphism decomposes into a finite union of basic sets, each of which is topologically transitive and contains a dense set of periodic points (Smale's spectral decomposition theorem).
+    \item [I] Let \(W\) be an \(h\)-cobordism with \(\partial W = M_0 \sqcup M_1\). Show that \(H_*(W, M_0) = 0\). Conclude that the Euler characteristic of \(W\) equals \(\chi(M_0)\).
+    \item [B] Consider the gradient flow of a Morse function on a compact manifold. Show that the Morse inequalities \(\mu_k \geq b_k\) hold, where \(\mu_k\) is the number of critical points of index \(k\) and \(b_k\) is the \(k\)-th Betti number.
+    \item [I] Show that the Hausdorff dimension of the horseshoe Cantor set \(\Lambda\) equals \(\log 2 / \log 3\). Generalize to the case where the map expands by a factor \(a > 2\) and contracts by \(1/a\).
+    \item [A] Let \(f\) be a \(C^2\)-diffeomorphism satisfying Axiom A and the strong transversality condition. Prove that \(f\) is structurally stable (Robbin's theorem, outline using the stable and unstable foliations and the shadowing lemma).
+    \item [I] Show that the Poincar\'e--Hopf theorem for vector fields implies the existence of general equilibrium in an exchange economy with smooth utility functions.
 \end{enumerate}
 
 \section*{Glossary}

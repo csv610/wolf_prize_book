@@ -48,6 +48,7 @@
 \newcommand{\const}{\operatorname{const}}
 
 \chapter{J\"{u}rgen Moser (1994/95)}
+\index{Moser, J\"{u}rgen}
 
 \begin{quote}
 \it ``Moser's work is distinguished by a rare combination of deep analytical power, geometric insight, and profound contributions to dynamical systems. His discoveries in KAM theory, the implicit function theorem that bears his name with Nash, and his fundamental contributions to the theory of partial differential equations, symplectic geometry, and celestial mechanics have reshaped large areas of mathematics. His proofs are models of elegance and technical mastery.'' --- Wolf Prize Citation
@@ -448,7 +449,7 @@ Moser's unique ability to combine deep analysis with geometric insight, and his 
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1928 & Born on July 4 in K\"{o}nigsberg, East Prussia \\ \hline
@@ -470,45 +471,49 @@ Moser's unique ability to combine deep analysis with geometric insight, and his 
 1994/95 & Awarded the Wolf Prize in Mathematics (shared with Pierre Deligne) \\ \hline
 1996 & Cantor Medal of the German Mathematical Society \\ \hline
 1999 & Died on December 17 in Schwerzenbach, Switzerland \\ \hline
-\end{tabular}
+\end{tabularx}
+
+\section{Related Chapters}
+
+For further exploration, see Chapter~38 (Arnold) on KAM theory and dynamical systems and Chapter~33 (Sinai) on ergodic theory and statistical mechanics.
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-\item Let $\omega = (\omega_1, \dots, \omega_n)$ be a vector of frequencies. Show that if the $\omega_i$ and $1$ are linearly independent over $\Q$ (i.e., $\langle k, \omega \rangle = 0$ only for $k = 0$), then the linear flow $\theta \mapsto \theta + \omega t$ on $\mathbb{T}^n$ is dense. Show that the Diophantine condition $|\langle k, \omega \rangle| \geq \gamma/|k|^\tau$ implies that the flow is also uniquely ergodic.
+\item [I] Let $\omega = (\omega_1, \dots, \omega_n)$ be a vector of frequencies. Show that if the $\omega_i$ and $1$ are linearly independent over $\Q$ (i.e., $\langle k, \omega \rangle = 0$ only for $k = 0$), then the linear flow $\theta \mapsto \theta + \omega t$ on $\mathbb{T}^n$ is dense. Show that the Diophantine condition $|\langle k, \omega \rangle| \geq \gamma/|k|^\tau$ implies that the flow is also uniquely ergodic.
 
-\item Prove that the set of numbers $\omega \in [0,1]$ satisfying the Diophantine condition $|q\omega - p| \geq c/|q|^{\mu}$ for all $p/q \in \Q$ has full Lebesgue measure when $\mu > 1$. (This is a key step in the KAM theorem: most frequencies are Diophantine.)
+\item [I] Prove that the set of numbers $\omega \in [0,1]$ satisfying the Diophantine condition $|q\omega - p| \geq c/|q|^{\mu}$ for all $p/q \in \Q$ has full Lebesgue measure when $\mu > 1$. (This is a key step in the KAM theorem: most frequencies are Diophantine.)
 
-\item Show that the golden ratio $\phi = (1+\sqrt{5})/2$ satisfies the Diophantine condition with $\mu = 1$: $|q\phi - p| \geq 1/(\sqrt{5}\,q)$ for all $p,q \in \Z$,$q \neq 0$. (This is a classical result in Diophantine approximation related to the continued fraction expansion of $\phi$.)
+\item [B] Show that the golden ratio $\phi = (1+\sqrt{5})/2$ satisfies the Diophantine condition with $\mu = 1$: $|q\phi - p| \geq 1/(\sqrt{5}\,q)$ for all $p,q \in \Z$,$q \neq 0$. (This is a classical result in Diophantine approximation related to the continued fraction expansion of $\phi$.)
 
-\item Consider the harmonic oscillator $H(p,q) = \frac{1}{2}(p^2 + q^2)$. Find action-angle variables $(I,\theta)$ for this system and verify that the Hamiltonian depends only on $I$. Compute the frequency $\omega(I) = \partial H/\partial I$ and check the Kolmogorov non-degeneracy condition.
+\item [B] Consider the harmonic oscillator $H(p,q) = \frac{1}{2}(p^2 + q^2)$. Find action-angle variables $(I,\theta)$ for this system and verify that the Hamiltonian depends only on $I$. Compute the frequency $\omega(I) = \partial H/\partial I$ and check the Kolmogorov non-degeneracy condition.
 
-\item For the standard map $\varphi(\theta, r) = (\theta + r',\; r' = r + \varepsilon \sin\theta)$, verify that it preserves the area form $d\theta \wedge dr$ and satisfies the twist condition for small $\varepsilon$. For $\varepsilon = 0$, describe the invariant curves. What happens to these curves as $\varepsilon$ increases?
+\item [I] For the standard map $\varphi(\theta, r) = (\theta + r',\; r' = r + \varepsilon \sin\theta)$, verify that it preserves the area form $d\theta \wedge dr$ and satisfies the twist condition for small $\varepsilon$. For $\varepsilon = 0$, describe the invariant curves. What happens to these curves as $\varepsilon$ increases?
 
-\item Let $F: B_0 \to B_0$ be a $C^1$ map between Banach spaces with $F(0) = 0$ and $DF(0)$ an isomorphism. Prove the standard implicit function theorem using Newton iteration: set $x_{n+1} = x_n - DF(0)^{-1}F(x_n)$ and show that $x_n \to 0$ quadratically. Why does this iteration fail when the derivative loses derivatives?
+\item [I] Let $F: B_0 \to B_0$ be a $C^1$ map between Banach spaces with $F(0) = 0$ and $DF(0)$ an isomorphism. Prove the standard implicit function theorem using Newton iteration: set $x_{n+1} = x_n - DF(0)^{-1}F(x_n)$ and show that $x_n \to 0$ quadratically. Why does this iteration fail when the derivative loses derivatives?
 
-\item Let $u \in C^\infty(\mathbb{T}^n)$ and define the smoothing operator $S_t$ by truncating the Fourier expansion at frequency $|k| \leq t$: $S_t u(\theta) = \sum_{|k| \leq t} \hat{u}(k) e^{i\langle k,\theta \rangle}$. Show that $\|S_t u\|_{C^m} \leq C t^{m - k} \|u\|_{C^k}$ for $m \geq k$ and $\|(I - S_t) u\|_{C^k} \leq C t^{-(m-k)} \|u\|_{C^m}$ for $k \leq m$. These are the smoothing estimates used in the Nash--Moser theorem.
+\item [I] Let $u \in C^\infty(\mathbb{T}^n)$ and define the smoothing operator $S_t$ by truncating the Fourier expansion at frequency $|k| \leq t$: $S_t u(\theta) = \sum_{|k| \leq t} \hat{u}(k) e^{i\langle k,\theta \rangle}$. Show that $\|S_t u\|_{C^m} \leq C t^{m - k} \|u\|_{C^k}$ for $m \geq k$ and $\|(I - S_t) u\|_{C^k} \leq C t^{-(m-k)} \|u\|_{C^m}$ for $k \leq m$. These are the smoothing estimates used in the Nash--Moser theorem.
 
-\item Let $\varphi$ be an area-preserving diffeomorphism of the unit disk $D^2$ that equals a rotation $R_\theta$ near the boundary. Show that the Calabi invariant $C(\varphi) = \theta \cdot \area(D^2)/2\pi$ by constructing the generating function $S$ such that $dS = \varphi^*(dx \wedge dy) - dx \wedge dy$.
+\item [I] Let $\varphi$ be an area-preserving diffeomorphism of the unit disk $D^2$ that equals a rotation $R_\theta$ near the boundary. Show that the Calabi invariant $C(\varphi) = \theta \cdot \area(D^2)/2\pi$ by constructing the generating function $S$ such that $dS = \varphi^*(dx \wedge dy) - dx \wedge dy$.
 
-\item In the restricted three-body problem, verify that the Lagrange triangular point $L_4$ is an equilibrium when the three bodies form an equilateral triangle. Linearize the equations of motion around $L_4$ and compute the frequencies. Show that these frequencies are real (implying linear stability) when the mass ratio satisfies $\mu/(1-\mu) < 1/27$.
+\item [I] In the restricted three-body problem, verify that the Lagrange triangular point $L_4$ is an equilibrium when the three bodies form an equilateral triangle. Linearize the equations of motion around $L_4$ and compute the frequencies. Show that these frequencies are real (implying linear stability) when the mass ratio satisfies $\mu/(1-\mu) < 1/27$.
 
-\item Consider the Toda lattice with $N=2$ particles. Write the equations of motion, find a Lax pair $(L,B)$, and verify that $L$ is a $2 \times 2$ symmetric matrix. Show that the eigenvalues of $L$ are constants of motion and that the system is completely integrable.
+\item [I] Consider the Toda lattice with $N=2$ particles. Write the equations of motion, find a Lax pair $(L,B)$, and verify that $L$ is a $2 \times 2$ symmetric matrix. Show that the eigenvalues of $L$ are constants of motion and that the system is completely integrable.
 
-\item Let $u \in C^2(B_R)$ be a non-negative solution of the Laplace equation $\Delta u = 0$ in $B_R \subset \R^n$. Prove the classical Harnack inequality
+\item [B] Let $u \in C^2(B_R)$ be a non-negative solution of the Laplace equation $\Delta u = 0$ in $B_R \subset \R^n$. Prove the classical Harnack inequality
 \[
 \sup_{B_{R/2}} u \leq C \inf_{B_{R/2}} u
 \]
 using the mean value property. Compare this proof with Moser's iteration technique for elliptic equations with measurable coefficients.
 
-\item Let $\Omega \subset \R^2$ be the unit disk. Consider the family of radial functions $u_\varepsilon(r) = (\log(1/\varepsilon))^{-1/2} \cdot (-\log r)^{1/2}$ for $0 < r < 1$ and $u_\varepsilon \equiv 0$ for $r \leq \varepsilon$. Show that $\int_\Omega |\nabla u_\varepsilon|^2 \, dx = 1$ and compute $\int_\Omega \exp(4\pi u_\varepsilon^2) \, dx$. Examine the limit as $\varepsilon \to 0$ to see why $4\pi$ is the sharp constant in the Moser--Trudinger inequality.
+\item [A] Let $\Omega \subset \R^2$ be the unit disk. Consider the family of radial functions $u_\varepsilon(r) = (\log(1/\varepsilon))^{-1/2} \cdot (-\log r)^{1/2}$ for $0 < r < 1$ and $u_\varepsilon \equiv 0$ for $r \leq \varepsilon$. Show that $\int_\Omega |\nabla u_\varepsilon|^2 \, dx = 1$ and compute $\int_\Omega \exp(4\pi u_\varepsilon^2) \, dx$. Examine the limit as $\varepsilon \to 0$ to see why $4\pi$ is the sharp constant in the Moser--Trudinger inequality.
 
-\item Show that the standard symplectic form $\omega_0 = dx_1 \wedge dy_1 + \cdots + dx_n \wedge dy_n$ on $\R^{2n}$ and the form $\omega_1 = 2\omega_0$ are not symplectomorphic on $\R^{2n}$ via a diffeomorphism isotopic to the identity, but are symplectomorphic on $\R^{2n} \setminus \{0\}$. This illustrates the compactness hypothesis in Moser's stability theorem.
+\item [I] Show that the standard symplectic form $\omega_0 = dx_1 \wedge dy_1 + \cdots + dx_n \wedge dy_n$ on $\R^{2n}$ and the form $\omega_1 = 2\omega_0$ are not symplectomorphic on $\R^{2n}$ via a diffeomorphism isotopic to the identity, but are symplectomorphic on $\R^{2n} \setminus \{0\}$. This illustrates the compactness hypothesis in Moser's stability theorem.
 
-\item Let $\omega_0$ and $\omega_1$ be two symplectic forms on $\mathbb{T}^2$ (the 2-torus) such that $\int_{\mathbb{T}^2} \omega_0 = \int_{\mathbb{T}^2} \omega_1 = 1$. Show that $\omega_0$ and $\omega_1$ are symplectomorphic. This is a special case of Moser's theorem: on a closed surface, the only symplectic invariant is the total volume.
+\item [I] Let $\omega_0$ and $\omega_1$ be two symplectic forms on $\mathbb{T}^2$ (the 2-torus) such that $\int_{\mathbb{T}^2} \omega_0 = \int_{\mathbb{T}^2} \omega_1 = 1$. Show that $\omega_0$ and $\omega_1$ are symplectomorphic. This is a special case of Moser's theorem: on a closed surface, the only symplectic invariant is the total volume.
 
-\item Prove that the harmonic oscillator $H = \frac{1}{2}(p^2 + \omega^2 q^2)$ has the frequencies $\partial^2 H / \partial I^2 = 0$ when expressed in action-angle variables. That is, the harmonic oscillator is a degenerate integrable system. Explain why the KAM theorem fails for the harmonic oscillator and how the isoenergetic non-degeneracy condition $\det(\partial^2 H / \partial I^2) \neq 0$ is essential.
+\item [I] Prove that the harmonic oscillator $H = \frac{1}{2}(p^2 + \omega^2 q^2)$ has the frequencies $\partial^2 H / \partial I^2 = 0$ when expressed in action-angle variables. That is, the harmonic oscillator is a degenerate integrable system. Explain why the KAM theorem fails for the harmonic oscillator and how the isoenergetic non-degeneracy condition $\det(\partial^2 H / \partial I^2) \neq 0$ is essential.
 
 \end{enumerate}
 

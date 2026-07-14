@@ -22,6 +22,7 @@
 \newcommand{\E}{\operatorname{E}}
 
 \chapter{Joseph Keller (1996/97)}
+\index{Keller, Joseph}
 
 \begin{quote}
 \it ``Keller's work is distinguished by its remarkable breadth and depth, ranging from the diffraction of waves and fluid dynamics to biology and the mathematics of sports. He has made fundamental contributions to the geometric theory of diffraction, the theory of wave propagation, the Keller--Box method for boundary-layer flows, the Keller--Segel model for chemotaxis, and the effective properties of random media. His work exemplifies the power of mathematics to illuminate the physical world.'' --- Wolf Prize Citation
@@ -592,7 +593,7 @@ Several deep problems remain:
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1923 & Born on July 31 in Paterson, New Jersey, USA \\ \hline
@@ -612,32 +613,32 @@ Several deep problems remain:
 1988 & Awarded the National Medal of Science \\ \hline
 1996/97 & Awarded the Wolf Prize in Mathematics (shared with Yakov G.\ Sinai) \\ \hline
 2016 & Died on September 7 in Stanford, California, USA \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-  \item Derive the eikonal equation \(|\nabla S|^2 = n^2(x)\) from the Helmholtz equation by assuming a WKB ansatz \(u \sim A(x) e^{ikS(x)}\) and taking the limit \(k \to \infty\).
-  \item For a half-plane diffraction problem (Sommerfeld), derive the leading-order asymptotic form of the diffracted field in the shadow region using Keller's GTD.
-  \item Consider a two-phase composite in 2D with conductivities \(\sigma_1 = 1\) (volume fraction \(f\)) and \(\sigma_2 = 100\) (volume fraction \(1-f\)). Compute the effective conductivity bounds and plot them as a function of \(f\).
-  \item Verify Keller's duality relation: show that if \(\sigma^*(\sigma_1, \sigma_2)\) is the effective conductivity of a 2D composite, then \(\sigma^*(\sigma_1, \sigma_2) \sigma^*(\sigma_2, \sigma_1) = \sigma_1 \sigma_2\). (Hint: consider rotating the applied field by 90 degrees.)
-  \item For the bistable equation \(\partial_t u = \partial_x^2 u + f(u)\) with \(f(u) = u(1-u)(u-a)\), show that there exists a traveling front solution \(u(x, t) = \phi(x - ct)\) with speed \(c = (1-2a)/\sqrt{2}\).
-  \item Consider the Keller--Segel model in one dimension with \(D_\rho = D_c = 1\), \(\chi = 1\), \(\alpha = 1\), \(\beta = 0\). Show that the total cell mass \(M = \int \rho\, dx\) is conserved.
-  \item Derive the optimal bat swing as a bang--bang control problem: given a bat of moment of inertia \(I\) and maximum applied torque \(\tau_{\max}\), find the control \(\tau(t) \in [-\tau_{\max}, \tau_{\max}]\) that maximizes the bat speed at impact.
-  \item For a two-phase composite with conductivities \(\sigma_1\) and \(\sigma_2\), show that the effective conductivity \(\sigma^*\) satisfies the arithmetic and harmonic mean bounds from Keller's 1964 paper.
-  \item Show that the Keller--Box method with centered differences is second-order accurate in both \(x\) and \(y\) for the linearized boundary-layer equation.
-  \item For the Keller--Rinzel model, show that in the limit \(\varepsilon \to 0\), a traveling pulse solution can be constructed by patching together a fast wave (the front) and a slow recovery (the back).
-  \item Consider a randomly layered medium where the refractive index varies only in the \(z\)-direction as \(n^2(z) = 1 + \mu(z)\) with a stationary random process \(\mu(z)\). Derive the effective wavenumber using Keller's smoothing method.
-  \item For an acoustic beam described by the KZK equation, derive the operator splitting (fractional step) method and show that it is first-order accurate in the step size.
-  \item Model the trajectory of a Frisbee: write the equations of motion for a spinning disk under gravity, lift, and drag. Show that the lift-to-drag ratio determines the range.
-  \item For the Keller--Segel model in \(\R^2\), compute the critical mass \(M_c\) by analyzing the stationary solutions of the reduced system.
-  \item Analyze the sound field near a caustic using the uniform theory of diffraction (UTD). Show that the field is given by an Airy function rather than a ray sum.
-  \item For a flagellum with bending stiffness \(EI\) and normal drag \(C_N\), derive the dispersion relation for bending waves: \(\omega = (EI/C_N)^{1/2} k^2\).
-  \item Extend the Keller--Box method to the thermal boundary layer: derive the energy equation and discretize it using the box scheme.
-  \item Consider the boomerang as a rigid body with angular momentum \(\mathbf{L}\). Show that under the action of lift, the spin axis precesses, producing the circular flight path.
-  \item For the Hodgkin--Huxley model, derive the condition for traveling wave solutions and show that the propagation speed depends on the maximum sodium conductance.
-  \item Prove that for the Keller--Segel model in \(\R^2\) with subcritical mass, solutions exist globally and asymptotically approach a self-similar diffusion profile.
+  \item [I] Derive the eikonal equation \(|\nabla S|^2 = n^2(x)\) from the Helmholtz equation by assuming a WKB ansatz \(u \sim A(x) e^{ikS(x)}\) and taking the limit \(k \to \infty\).
+  \item [I] For a half-plane diffraction problem (Sommerfeld), derive the leading-order asymptotic form of the diffracted field in the shadow region using Keller's GTD.
+  \item [I] Consider a two-phase composite in 2D with conductivities \(\sigma_1 = 1\) (volume fraction \(f\)) and \(\sigma_2 = 100\) (volume fraction \(1-f\)). Compute the effective conductivity bounds and plot them as a function of \(f\).
+  \item [I] Verify Keller's duality relation: show that if \(\sigma^*(\sigma_1, \sigma_2)\) is the effective conductivity of a 2D composite, then \(\sigma^*(\sigma_1, \sigma_2) \sigma^*(\sigma_2, \sigma_1) = \sigma_1 \sigma_2\). (Hint: consider rotating the applied field by 90 degrees.)
+  \item [I] For the bistable equation \(\partial_t u = \partial_x^2 u + f(u)\) with \(f(u) = u(1-u)(u-a)\), show that there exists a traveling front solution \(u(x, t) = \phi(x - ct)\) with speed \(c = (1-2a)/\sqrt{2}\).
+  \item [B] Consider the Keller--Segel model in one dimension with \(D_\rho = D_c = 1\), \(\chi = 1\), \(\alpha = 1\), \(\beta = 0\). Show that the total cell mass \(M = \int \rho\, dx\) is conserved.
+  \item [I] Derive the optimal bat swing as a bang--bang control problem: given a bat of moment of inertia \(I\) and maximum applied torque \(\tau_{\max}\), find the control \(\tau(t) \in [-\tau_{\max}, \tau_{\max}]\) that maximizes the bat speed at impact.
+  \item [B] For a two-phase composite with conductivities \(\sigma_1\) and \(\sigma_2\), show that the effective conductivity \(\sigma^*\) satisfies the arithmetic and harmonic mean bounds from Keller's 1964 paper.
+  \item [I] Show that the Keller--Box method with centered differences is second-order accurate in both \(x\) and \(y\) for the linearized boundary-layer equation.
+  \item [B] For the Keller--Rinzel model, show that in the limit \(\varepsilon \to 0\), a traveling pulse solution can be constructed by patching together a fast wave (the front) and a slow recovery (the back).
+  \item [I] Consider a randomly layered medium where the refractive index varies only in the \(z\)-direction as \(n^2(z) = 1 + \mu(z)\) with a stationary random process \(\mu(z)\). Derive the effective wavenumber using Keller's smoothing method.
+  \item [B] For an acoustic beam described by the KZK equation, derive the operator splitting (fractional step) method and show that it is first-order accurate in the step size.
+  \item [I] Model the trajectory of a Frisbee: write the equations of motion for a spinning disk under gravity, lift, and drag. Show that the lift-to-drag ratio determines the range.
+  \item [A] For the Keller--Segel model in \(\R^2\), compute the critical mass \(M_c\) by analyzing the stationary solutions of the reduced system.
+  \item [I] Analyze the sound field near a caustic using the uniform theory of diffraction (UTD). Show that the field is given by an Airy function rather than a ray sum.
+  \item [I] For a flagellum with bending stiffness \(EI\) and normal drag \(C_N\), derive the dispersion relation for bending waves: \(\omega = (EI/C_N)^{1/2} k^2\).
+  \item [I] Extend the Keller--Box method to the thermal boundary layer: derive the energy equation and discretize it using the box scheme.
+  \item [I] Consider the boomerang as a rigid body with angular momentum \(\mathbf{L}\). Show that under the action of lift, the spin axis precesses, producing the circular flight path.
+  \item [I] For the Hodgkin--Huxley model, derive the condition for traveling wave solutions and show that the propagation speed depends on the maximum sodium conductance.
+  \item [A] Prove that for the Keller--Segel model in \(\R^2\) with subcritical mass, solutions exist globally and asymptotically approach a self-similar diffusion profile.
 \end{enumerate}
 
 \section*{Glossary}

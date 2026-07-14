@@ -1,15 +1,11 @@
-\providecommand{\R}{\mathbb{R}}
-\providecommand{\C}{\mathbb{C}}
-\providecommand{\N}{\mathbb{N}}
-\providecommand{\Z}{\mathbb{Z}}
-\providecommand{\Q}{\mathbb{Q}}
 \providecommand{\BMO}{\operatorname{BMO}}
-\providecommand{\tr}{\operatorname{tr}}
-\providecommand{\Ric}{\operatorname{Ric}}
 \providecommand{\Re}{\operatorname{Re}}
 \providecommand{\Im}{\operatorname{Im}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
 
 \chapter{Charles Fefferman (2017)}
+\index{Fefferman, Charles}
 
 \begin{quote}
 \it ``Charles Fefferman has made groundbreaking contributions to analysis, from singular integrals and several complex variables to partial differential equations. His work is marked by extraordinary technical power, deep geometric insight, and the ability to solve problems that had seemed completely out of reach.'' --- Wolf Prize Citation, 2017
@@ -195,18 +191,18 @@ Real analysis (Fourier analysis, singular integrals), complex analysis (several 
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Show that the Hilbert transform is bounded on $L^p$ for $1 < p < \infty$.
-    \item Prove that BMO contains $L^\infty$ but is strictly larger (find a function in BMO not in $L^\infty$).
-    \item Show that the Bergman kernel for the unit disk in $\C$ is $K(z,w) = 1/(\pi(1 - z\bar w)^2)$.
-    \item Compute the Fefferman defining function for the unit ball in $\C^n$.
-    \item Show that the ball multiplier is the identity operator for $n = 1$.
-    \item Prove the Fefferman--Stein inequality for the Hardy--Littlewood maximal function.
+    \item [I] Show that the Hilbert transform is bounded on $L^p$ for $1 < p < \infty$.
+    \item [B] Prove that BMO contains $L^\infty$ but is strictly larger (find a function in BMO not in $L^\infty$).
+    \item [B] Show that the Bergman kernel for the unit disk in $\C$ is $K(z,w) = 1/(\pi(1 - z\bar w)^2)$.
+    \item [I] Compute the Fefferman defining function for the unit ball in $\C^n$.
+    \item [B] Show that the ball multiplier is the identity operator for $n = 1$.
+    \item [I] Prove the Fefferman--Stein inequality for the Hardy--Littlewood maximal function.
 \end{enumerate}
 
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1949 & Born in Washington, D.C. \\ \hline
@@ -219,7 +215,7 @@ Real analysis (Fourier analysis, singular integrals), complex analysis (several 
 1981 | Fefferman--Phong inequality \\ \hline
 1992 | Bocher Prize of the AMS \\ \hline
 2017 | Wolf Prize in Mathematics \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section*{Glossary}
 \addcontentsline{toc}{section}{Glossary}

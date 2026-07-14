@@ -46,6 +46,7 @@
 \newcommand{\cO}{\mathcal{O}}
 
 \chapter{Andr\'{e} Weil (1979)}
+\index{Weil, Andr\'{e}}
 
 \begin{quote}
 \it ``Weil's work is characterized by its breadth, depth, and the search for the underlying unity in mathematics. He was the great synthesizer, who saw in number theory and algebraic geometry the same deep structures, and built the bridges that later generations would travel.'' --- Armand Borel
@@ -139,11 +140,11 @@ Weil proved the Riemann hypothesis for curves over finite fields using intersect
 
 Let $C$ be a smooth projective curve over $\F_q$ of genus $g$. Consider the Frobenius endomorphism $\Frob: C \to C$ (raising coordinates to the $q$-th power). The number of $\Fq$-rational points is the number of fixed points of $\Frob$.
 
-Weil considered the diagonal $\Delta \subset C \times C$ and the graph $\Gamma_\Frob \subset C \times C$ of the Frobenius. The intersection number $\Delta \cdot \Gamma_\Frob$ equals the number of fixed points of $\Frob$, which is $N_1$, the number of $\Fq$-points.
+Weil considered the diagonal $\Delta \subset C \times C$ and the graph $\Gamma_{\Frob} \subset C \times C$ of the Frobenius. The intersection number $\Delta \cdot \Gamma_{\Frob}$ equals the number of fixed points of $\Frob$, which is $N_1$, the number of $\Fq$-points.
 
 More generally, for $n \geq 1$, the number $N_n$ of $\F_{q^n}$-rational points is the intersection number of $\Delta$ with the graph of $\Frob^n$.
 
-By the Hodge index theorem (for surfaces), the intersection pairing on the N\'eron--Severi group of $C \times C$ has signature $(1, \rho - 1)$. Applying this to the classes $\Delta$ and $\Gamma_\Frob$ gives an inequality that, when combined with the functional equation, forces the eigenvalues of Frobenius acting on the Jacobian to have absolute value $q^{1/2}$.
+By the Hodge index theorem (for surfaces), the intersection pairing on the N\'eron--Severi group of $C \times C$ has signature $(1, \rho - 1)$. Applying this to the classes $\Delta$ and $\Gamma_{\Frob}$ gives an inequality that, when combined with the functional equation, forces the eigenvalues of Frobenius acting on the Jacobian to have absolute value $q^{1/2}$.
 
 The proof uses:
 \begin{itemize}
@@ -249,7 +250,7 @@ Let $V$ be a smooth projective variety of dimension $d$ over $\F_q$. Then:
 
 \begin{proof}[Sketch]
 \begin{enumerate}
-    \item Grothendieck (1964): Constructed \'{e}tale cohomology $H_{\'{e}t}^i(V_{\overline{\F}_q}, \mathbb{Q}_l)$ and used the Lefschetz fixed point formula to express $|V(\F_{q^n})|$ as an alternating sum of traces of Frobenius, giving rationality.
+    \item Grothendieck (1964): Constructed \'{e}tale cohomology $H_{\text{\'{e}t}}^i(V_{\overline{\F}_q}, \mathbb{Q}_l)$ and used the Lefschetz fixed point formula to express $|V(\F_{q^n})|$ as an alternating sum of traces of Frobenius, giving rationality.
     \item Grothendieck (1965): Poincar\'{e} duality in \'{e}tale cohomology gives the functional equation.
     \item Deligne (1974): Proved the Riemann hypothesis by studying the action of Frobenius on cohomology, using delicate arguments involving Lefschetz pencils and the hard Lefschetz theorem.
 \end{enumerate}
@@ -454,32 +455,36 @@ For undergraduates, Silverman's ``The Arithmetic of Elliptic Curves'' and ``A Fr
     \item[Zeta function of a variety] An exponential generating function encoding the point counts over all finite extensions of $\F_q$.
 \end{description}
 
+\section{Related Chapters}
+
+For further exploration, see Chapter~46 (Deligne) on algebraic geometry and Weil conjectures, Chapter~30 (Langlands) on number theory and automorphic forms, and Chapter~31 (Wiles) on modular forms and Fermat\'s Last Theorem.
+
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Let $C: y^2 = x^3 - x$ over $\F_3$. Compute the number of $\F_3$-rational points and verify the Hasse--Weil bound.
-    \item Show that for an elliptic curve $E$ over $\F_q$, the zeta function satisfies $Z_E(t) = \frac{1 - a_1 t + q t^2}{(1-t)(1-qt)}$ where $a_1 = q + 1 - N_1$.
-    \item Prove that if $E$ is an elliptic curve over $\F_q$, then $|a_1| \leq 2\sqrt{q}$ (the Hasse bound) by computing the positivity of the intersection pairing $\Delta \cdot \Gamma_F$ on $E \times E$.
-    \item Let $\Q$ be the rational numbers. Show that the idele group $\mathbb{A}_\Q^\times$ is $\mathbb{R}_{>0} \times \widehat{\mathbb{Z}}^\times \times \prod_p \mathbb{Z}_p^\times$ modulo discrete embeddings.
-    \item Show that for a smooth projective curve $C$ of genus $g$ over $\mathbb{C}$, $b_0 = b_2 = 1$ and $b_1 = 2g$.
-    \item State the Mordell--Weil theorem for an elliptic curve $E/\Q$ and show that $E(\Q)/2E(\Q)$ is finite using elementary descent.
-    \item Let $\F_q$ be a finite field. Define the Frobenius morphism $\Frob: \mathbb{P}^1_{\F_q} \to \mathbb{P}^1_{\F_q}$. Compute the number of fixed points of $\Frob^n$ directly.
-    \item Prove the functional equation for the zeta function of $\mathbb{P}^1$ over $\F_q$.
-    \item Show that the Weil representation for $SL(2,\mathbb{R})$ acting on $L^2(\mathbb{R})$ is given by:
+    \item [B] Let $C: y^2 = x^3 - x$ over $\F_3$. Compute the number of $\F_3$-rational points and verify the Hasse--Weil bound.
+    \item [I] Show that for an elliptic curve $E$ over $\F_q$, the zeta function satisfies $Z_E(t) = \frac{1 - a_1 t + q t^2}{(1-t)(1-qt)}$ where $a_1 = q + 1 - N_1$.
+    \item [A] Prove that if $E$ is an elliptic curve over $\F_q$, then $|a_1| \leq 2\sqrt{q}$ (the Hasse bound) by computing the positivity of the intersection pairing $\Delta \cdot \Gamma_F$ on $E \times E$.
+    \item [I] Let $\Q$ be the rational numbers. Show that the idele group $\mathbb{A}_\Q^\times$ is $\mathbb{R}_{>0} \times \widehat{\mathbb{Z}}^\times \times \prod_p \mathbb{Z}_p^\times$ modulo discrete embeddings.
+    \item [B] Show that for a smooth projective curve $C$ of genus $g$ over $\mathbb{C}$, $b_0 = b_2 = 1$ and $b_1 = 2g$.
+    \item [I] State the Mordell--Weil theorem for an elliptic curve $E/\Q$ and show that $E(\Q)/2E(\Q)$ is finite using elementary descent.
+    \item [B] Let $\F_q$ be a finite field. Define the Frobenius morphism $\Frob: \mathbb{P}^1_{\F_q} \to \mathbb{P}^1_{\F_q}$. Compute the number of fixed points of $\Frob^n$ directly.
+    \item [I] Prove the functional equation for the zeta function of $\mathbb{P}^1$ over $\F_q$.
+    \item [I] Show that the Weil representation for $SL(2,\mathbb{R})$ acting on $L^2(\mathbb{R})$ is given by:
     \[
     \begin{pmatrix} a & 0 \\ 0 & a^{-1} \end{pmatrix} \cdot f(x) = |a|^{1/2} f(ax), \quad \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} \cdot f(x) = \hat{f}(x),
     \]
     where $\hat{f}$ is the Fourier transform.
-    \item Let $C$ be a curve of genus $2$ over $\F_2$ with $N_1 = 5$. Compute $N_2$ and $N_3$ using the Weil conjectures.
-    \item Show that the group $E(\mathbb{Q})_{\text{tors}}$ of torsion points on an elliptic curve $E/\mathbb{Q}$ is finite (Mazur's theorem classifies the possibilities, but just prove finiteness using basic height theory).
-    \item Compute the zeta function of $\mathbb{P}^n$ over $\F_q$ and verify the Weil conjectures for it explicitly.
+    \item [I] Let $C$ be a curve of genus $2$ over $\F_2$ with $N_1 = 5$. Compute $N_2$ and $N_3$ using the Weil conjectures.
+    \item [A] Show that the group $E(\mathbb{Q})_{\text{tors}}$ of torsion points on an elliptic curve $E/\mathbb{Q}$ is finite (Mazur's theorem classifies the possibilities, but just prove finiteness using basic height theory).
+    \item [I] Compute the zeta function of $\mathbb{P}^n$ over $\F_q$ and verify the Weil conjectures for it explicitly.
 \end{enumerate}
 
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1906 & Born in Paris, France (brother of philosopher Simone Weil) \\ \hline
@@ -503,4 +508,4 @@ For undergraduates, Silverman's ``The Arithmetic of Elliptic Curves'' and ``A Fr
 1979 & Wolf Prize in Mathematics (co-recipient with J.\ Leray) \\ \hline
 1992 & Publishes memoir \textit{The Apprenticeship of a Mathematician} \\ \hline
 1998 & Dies in Princeton, New Jersey \\ \hline
-\end{tabular}
+\end{tabularx}

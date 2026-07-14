@@ -26,6 +26,7 @@
 \newcommand{\BV}{\operatorname{BV}}
 
 \chapter{Ennio de Giorgi (1990)}
+\index{De Giorgi, Ennio}
 
 \begin{quote}
 \it ``De Giorgi's work is characterized by a rare combination of geometric intuition, analytic power, and measure-theoretic precision. His solution of Hilbert's 19th problem, his regularity theory for minimal surfaces, and his creation of the theory of sets of finite perimeter and \(\Gamma\)-convergence have profoundly transformed the calculus of variations, geometric measure theory, and partial differential equations. His papers are models of depth and originality.'' --- Wolf Prize Citation
@@ -562,7 +563,7 @@ Several deep problems remain:
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1928 & Born on February 8 in Lecce, Italy \\ \hline
@@ -581,52 +582,52 @@ Several deep problems remain:
 1978 & De Giorgi's conjecture on 1D symmetry proposed at ICM Helsinki \\ \hline
 1990 & Awarded the Wolf Prize in Mathematics (shared with I.\ Piatetski-Shapiro) \\ \hline
 1996 & Died in Pisa on October 25 at age 68 \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Let \(\Omega \subset \R^n\) be a bounded domain and let \(u \in H^1(\Omega)\) be a minimizer of the Dirichlet integral
+    \item [B] Let \(\Omega \subset \R^n\) be a bounded domain and let \(u \in H^1(\Omega)\) be a minimizer of the Dirichlet integral
     \[
     F(u) = \int_\Omega |\nabla u|^2\,dx.
     \]
     Show that \(u\) is harmonic, i.e., \(\Delta u = 0\) in \(\Omega\) in the weak sense.
-    \item Prove the Modica gradient estimate: if \(u\) is a bounded solution of \(\Delta u + u(1-u^2) = 0\) in \(\R^n\), then \(|\nabla u|^2 \leq \frac{1}{4}(1-u^2)^2\). (Hint: compute \(\Delta (|\nabla u|^2)\) and apply the maximum principle.)
-    \item Let \(E \subset \R^n\) be a smooth bounded set. Show that
+    \item [I] Prove the Modica gradient estimate: if \(u\) is a bounded solution of \(\Delta u + u(1-u^2) = 0\) in \(\R^n\), then \(|\nabla u|^2 \leq \frac{1}{4}(1-u^2)^2\). (Hint: compute \(\Delta (|\nabla u|^2)\) and apply the maximum principle.)
+    \item [B] Let \(E \subset \R^n\) be a smooth bounded set. Show that
     \[
     \per(E,\R^n) = \mathcal{H}^{n-1}(\partial E),
     \]
     by considering the divergence theorem with a vector field that equals the outward unit normal on \(\partial E\).
-    \item Show that the one-dimensional function \(u_0(s) = \tanh(s/\sqrt{2})\) satisfies \(u_0'' + u_0(1-u_0^2) = 0\) with limits \(\pm 1\) as \(s \to \pm \infty\).
-    \item Let \(\{F_k\}\) be a sequence of functionals on a metric space \(X\), and suppose that \(F_k\) \(\Gamma\)-converges to \(F\). Show that every cluster point of a sequence of minimizers of \(F_k\) is a minimizer of \(F\).
-    \item Consider the double-well potential \(W(u) = (1-u^2)^2\). Compute the constant \(c_W = \int_{-1}^1 \sqrt{W(s)}\,ds\) appearing in the Modica--Mortola theorem.
-    \item Let \(u \in H^1(\Omega)\) be a weak solution of \(\Delta u = 0\). Prove the mean value property: for any ball \(B_r(x_0) \subset \Omega\),
+    \item [B] Show that the one-dimensional function \(u_0(s) = \tanh(s/\sqrt{2})\) satisfies \(u_0'' + u_0(1-u_0^2) = 0\) with limits \(\pm 1\) as \(s \to \pm \infty\).
+    \item [I] Let \(\{F_k\}\) be a sequence of functionals on a metric space \(X\), and suppose that \(F_k\) \(\Gamma\)-converges to \(F\). Show that every cluster point of a sequence of minimizers of \(F_k\) is a minimizer of \(F\).
+    \item [B] Consider the double-well potential \(W(u) = (1-u^2)^2\). Compute the constant \(c_W = \int_{-1}^1 \sqrt{W(s)}\,ds\) appearing in the Modica--Mortola theorem.
+    \item [B] Let \(u \in H^1(\Omega)\) be a weak solution of \(\Delta u = 0\). Prove the mean value property: for any ball \(B_r(x_0) \subset \Omega\),
     \[
     u(x_0) = \frac{1}{|B_r|} \int_{B_r} u(x)\,dx.
     \]
-    \item Let \(E \subset \R^n\) be a set of finite perimeter. Show that
+    \item [B] Let \(E \subset \R^n\) be a set of finite perimeter. Show that
     \[
     \per(E,\R^n) = \sup \left\{ \int_E \operatorname{div} \varphi \, dx : \varphi \in C^\infty_c(\R^n; \R^n), \|\varphi\|_\infty \leq 1 \right\}.
     \]
-    \item Consider the Allen--Cahn equation \(\Delta u + u(1-u^2) = 0\) in \(\R^2\). Suppose \(u\) satisfies the monotonicity condition \(\partial u/\partial x_2 > 0\) and the limits \(\lim_{x_2 \to \pm \infty} u(x_1,x_2) = \pm 1\). Show that there exists a unit vector \(a \in S^1\) such that \(u(x) = \tanh(a \cdot x / \sqrt{2})\). (This is the Ambrosio--Cabr\'e theorem; you may assume the result without proof.)
-    \item Prove that the De Giorgi iteration implies the H\"older continuity of bounded weak solutions of \(\operatorname{div}(a(x)\nabla u) = 0\) with measurable, uniformly elliptic coefficients. (Hint: use the energy estimates for sub- and super-level sets to show that the oscillation decays geometrically.)
-    \item Show that every set of finite perimeter has a representative (a set equal almost everywhere) whose topological boundary is contained in the support of the perimeter measure and has finite \((n-1)\)-dimensional Hausdorff measure.
-    \item Let \(F: \R^n \to \R\) be a smooth, strictly convex function satisfying \(\lambda |p|^2 \leq D^2F(p) \leq \Lambda |p|^2\) for some \(0 < \lambda < \Lambda\). Suppose \(u \in C^2(\Omega)\) is a minimizer of \(\int_\Omega F(\nabla u)\,dx\). Show that the gradient \(v = \partial_{x_k}u\) satisfies a uniformly elliptic linear equation with measurable coefficients.
-    \item Consider the family of functionals
+    \item [A] Consider the Allen--Cahn equation \(\Delta u + u(1-u^2) = 0\) in \(\R^2\). Suppose \(u\) satisfies the monotonicity condition \(\partial u/\partial x_2 > 0\) and the limits \(\lim_{x_2 \to \pm \infty} u(x_1,x_2) = \pm 1\). Show that there exists a unit vector \(a \in S^1\) such that \(u(x) = \tanh(a \cdot x / \sqrt{2})\). (This is the Ambrosio--Cabr\'e theorem; you may assume the result without proof.)
+    \item [I] Prove that the De Giorgi iteration implies the H\"older continuity of bounded weak solutions of \(\operatorname{div}(a(x)\nabla u) = 0\) with measurable, uniformly elliptic coefficients. (Hint: use the energy estimates for sub- and super-level sets to show that the oscillation decays geometrically.)
+    \item [I] Show that every set of finite perimeter has a representative (a set equal almost everywhere) whose topological boundary is contained in the support of the perimeter measure and has finite \((n-1)\)-dimensional Hausdorff measure.
+    \item [I] Let \(F: \R^n \to \R\) be a smooth, strictly convex function satisfying \(\lambda |p|^2 \leq D^2F(p) \leq \Lambda |p|^2\) for some \(0 < \lambda < \Lambda\). Suppose \(u \in C^2(\Omega)\) is a minimizer of \(\int_\Omega F(\nabla u)\,dx\). Show that the gradient \(v = \partial_{x_k}u\) satisfies a uniformly elliptic linear equation with measurable coefficients.
+    \item [I] Consider the family of functionals
     \[
     F_\varepsilon(u) = \int_0^1 \left( \varepsilon (u')^2 + \frac{1}{\varepsilon} W(u) \right) dt
     \]
     for \(u \in H^1(0,1)\) with \(u(0) = -1\), \(u(1) = 1\), where \(W(t) = (1-t^2)^2\). Compute the \(\Gamma\)-limit as \(\varepsilon \to 0\).
-    \item Let \(C = \{(x,y) \in \R^4 \times \R^4 : |x| = |y|\}\). Show that \(C\) is a minimal cone in \(\R^8\) and that the area of \(C \cap B_1\) is larger than the area of the disk \(B_1 \cap \R^7\) in \(\R^8\). (This is the Bombieri--De Giorgi--Giusti cone.)
-    \item Let \(E \subset \R^n\) be a perimeter-minimizing set. Prove the monotonicity formula:
+    \item [A] Let \(C = \{(x,y) \in \R^4 \times \R^4 : |x| = |y|\}\). Show that \(C\) is a minimal cone in \(\R^8\) and that the area of \(C \cap B_1\) is larger than the area of the disk \(B_1 \cap \R^7\) in \(\R^8\). (This is the Bombieri--De Giorgi--Giusti cone.)
+    \item [I] Let \(E \subset \R^n\) be a perimeter-minimizing set. Prove the monotonicity formula:
     \[
     \frac{\per(E, B_r(x))}{\omega_{n-1} r^{n-1}}
     \]
     is a nondecreasing function of \(r\), where \(\omega_{n-1}\) is the volume of the \((n-1)\)-dimensional unit ball.
-    \item Show that if \(u \in \BV(\R^n)\) is a characteristic function of a set of finite perimeter, then the total variation measure \(|Du|\) coincides with the perimeter measure. Conclude that the perimeter is lower semicontinuous with respect to \(L^1\) convergence of characteristic functions.
-    \item Prove that the only bounded entire solutions of \(\Delta u = 0\) are constant functions. Why does this not contradict the existence of non-constant solutions to the Allen--Cahn equation?
-    \item Let \(f: \R \to \R\) be a smooth function and consider the ODE \(u'' + f(u) = 0\) on \(\R\). Show that if \(F(u) = \int_0^u f(s)\,ds\) has a double well with minima at \(\pm 1\), then there exists a heteroclinic orbit connecting \(-1\) to \(+1\).
+    \item [I] Show that if \(u \in \BV(\R^n)\) is a characteristic function of a set of finite perimeter, then the total variation measure \(|Du|\) coincides with the perimeter measure. Conclude that the perimeter is lower semicontinuous with respect to \(L^1\) convergence of characteristic functions.
+    \item [B] Prove that the only bounded entire solutions of \(\Delta u = 0\) are constant functions. Why does this not contradict the existence of non-constant solutions to the Allen--Cahn equation?
+    \item [I] Let \(f: \R \to \R\) be a smooth function and consider the ODE \(u'' + f(u) = 0\) on \(\R\). Show that if \(F(u) = \int_0^u f(s)\,ds\) has a double well with minima at \(\pm 1\), then there exists a heteroclinic orbit connecting \(-1\) to \(+1\).
 \end{enumerate}
 
 \section*{Glossary}

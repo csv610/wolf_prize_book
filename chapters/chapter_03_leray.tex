@@ -36,6 +36,7 @@
 \newcommand{\cO}{\mathcal{O}}
 
 \chapter{Jean Leray (1979)}
+\index{Leray, Jean}
 
 \begin{quote}
 \it ``The problems of the universe are not solved by formulas or by numbers, but by the awakening of the spirit to a consciousness of the truth.'' --- Jean Leray, citing an unnamed philosopher in his Coll{\`e}ge de France lectures
@@ -481,31 +482,35 @@ The abstraction level is high, but the core insight is simple and powerful. Henr
     \item[Weak solution] A function satisfying a differential equation in the sense of distributions (tested against smooth functions).
 \end{description}
 
+\section{Related Chapters}
+
+See also Chapter~05 (Cartan) on sheaf theory and spectral sequences.
+
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Derive the energy identity for the Navier--Stokes equations: multiply $\partial_t u + (u \cdot \nabla)u - \nu \Delta u + \nabla p = 0$ by $u$, integrate over $\Omega$, and use $\nabla \cdot u = 0$ to show:
+    \item [B] Derive the energy identity for the Navier--Stokes equations: multiply $\partial_t u + (u \cdot \nabla)u - \nu \Delta u + \nabla p = 0$ by $u$, integrate over $\Omega$, and use $\nabla \cdot u = 0$ to show:
     \[
     \frac{1}{2}\frac{d}{dt}\|u\|_2^2 + \nu\|\nabla u\|_2^2 = 0.
     \]
-    \item Show that the constant presheaf $\underline{\mathbb{Z}}$, with $\underline{\mathbb{Z}}(U) = \mathbb{Z}$ for all non-empty $U$ and identity restrictions, is \textit{not} a sheaf. Then modify it to the sheaf of locally constant $\mathbb{Z}$-valued functions.
-    \item Compute the \v{C}ech cohomology $\check{H}^1(\mathcal{U}, \underline{\mathbb{Z}})$ for the open cover $\mathcal{U} = \{U_0, U_1\}$ of $S^1$ where $U_0, U_1$ are arcs covering $S^1$ with two connected intersection components.
-    \item Verify that the Leray spectral sequence for a product $E = B \times F$ collapses at $E_2$, recovering the K{\"u}nneth theorem.
-    \item Prove the Leray--Schauder fixed point theorem from the homotopy invariance property of the degree.
-    \item Show that if $\cF$ is a fine sheaf on a paracompact space, then $H^q(X, \cF) = 0$ for all $q \geq 1$.
-    \item Let $X = \mathbb{C}$ and $\cO$ be the sheaf of holomorphic functions. Show that $H^1(\mathbb{C}, \cO) = 0$ (this is the Mittag-Leffler theorem in sheaf language).
-    \item For the map $\pi: \mathbb{R}^2 \to \mathbb{R}$ given by $\pi(x,y) = x$, compute $R^q \pi_* \underline{\mathbb{Z}}$. What sheaves on $\mathbb{R}$ do you obtain?
-    \item Write the Leray--Schauder degree for $T: \mathbb{R}^n \to \mathbb{R}^n$ where $T$ is smooth and compact (bounded image). Show it agrees with the topological degree of $I - T$.
-    \item Let $f(z) = \frac{1}{2\pi i}\int_{\gamma} \frac{f(\zeta)}{\zeta - z}d\zeta$ be the Cauchy formula. Generalize to the case where $\gamma$ varies smoothly with $z$ to obtain the Leray--Koppelman formula in $\mathbb{C}^n$.
-    \item Show that every solution $(u,p)$ of the stationary Navier--Stokes equations $-\nu \Delta u + (u \cdot \nabla)u + \nabla p = f$ with $u|_{\partial\Omega} = 0$ satisfies $\nu \|\nabla u\|_2^2 \leq \|f\|_{H^{-1}}\|u\|_{H^1}$.
-    \item Consider the Leray spectral sequence for the fibration $S^1 \to S^1 \times S^1 \to S^1$ (projection onto the first factor). Show it collapses at $E_2$.
+    \item [B] Show that the constant presheaf $\underline{\mathbb{Z}}$, with $\underline{\mathbb{Z}}(U) = \mathbb{Z}$ for all non-empty $U$ and identity restrictions, is \textit{not} a sheaf. Then modify it to the sheaf of locally constant $\mathbb{Z}$-valued functions.
+    \item [I] Compute the \v{C}ech cohomology $\check{H}^1(\mathcal{U}, \underline{\mathbb{Z}})$ for the open cover $\mathcal{U} = \{U_0, U_1\}$ of $S^1$ where $U_0, U_1$ are arcs covering $S^1$ with two connected intersection components.
+    \item [I] Verify that the Leray spectral sequence for a product $E = B \times F$ collapses at $E_2$, recovering the K{\"u}nneth theorem.
+    \item [I] Prove the Leray--Schauder fixed point theorem from the homotopy invariance property of the degree.
+    \item [I] Show that if $\cF$ is a fine sheaf on a paracompact space, then $H^q(X, \cF) = 0$ for all $q \geq 1$.
+    \item [I] Let $X = \mathbb{C}$ and $\cO$ be the sheaf of holomorphic functions. Show that $H^1(\mathbb{C}, \cO) = 0$ (this is the Mittag-Leffler theorem in sheaf language).
+    \item [I] For the map $\pi: \mathbb{R}^2 \to \mathbb{R}$ given by $\pi(x,y) = x$, compute $R^q \pi_* \underline{\mathbb{Z}}$. What sheaves on $\mathbb{R}$ do you obtain?
+    \item [I] Write the Leray--Schauder degree for $T: \mathbb{R}^n \to \mathbb{R}^n$ where $T$ is smooth and compact (bounded image). Show it agrees with the topological degree of $I - T$.
+    \item [A] Let $f(z) = \frac{1}{2\pi i}\int_{\gamma} \frac{f(\zeta)}{\zeta - z}d\zeta$ be the Cauchy formula. Generalize to the case where $\gamma$ varies smoothly with $z$ to obtain the Leray--Koppelman formula in $\mathbb{C}^n$.
+    \item [I] Show that every solution $(u,p)$ of the stationary Navier--Stokes equations $-\nu \Delta u + (u \cdot \nabla)u + \nabla p = f$ with $u|_{\partial\Omega} = 0$ satisfies $\nu \|\nabla u\|_2^2 \leq \|f\|_{H^{-1}}\|u\|_{H^1}$.
+    \item [B] Consider the Leray spectral sequence for the fibration $S^1 \to S^1 \times S^1 \to S^1$ (projection onto the first factor). Show it collapses at $E_2$.
 \end{enumerate}
 
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1906 & Born in Nantes, France \\ \hline
@@ -526,4 +531,4 @@ The abstraction level is high, but the core insight is simple and powerful. Henr
 1979 & Wolf Prize in Mathematics (co-recipient with A.\ Weil) \\ \hline
 1988 & Lomonosov Gold Medal \\ \hline
 1998 & Dies in La Baule, France \\ \hline
-\end{tabular}
+\end{tabularx}

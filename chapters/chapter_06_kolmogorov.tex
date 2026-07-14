@@ -28,6 +28,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 
 \chapter{Andrey Kolmogorov (1980)}
+\index{Kolmogorov, Andrey}
 
 \begin{quote}
 \it ``Kolmogorov's work in mathematics is of such immense scope and depth that it is easier to list the areas he did not touch. He was the great universalist of twentieth-century mathematics.'' --- Vladimir Arnold
@@ -462,28 +463,32 @@ For undergraduates, start with probability and Fourier analysis—these are the 
     \item[Zero--one law] Tail events of independent sequences have probability 0 or 1.
 \end{description}
 
+\section{Related Chapters}
+
+For further exploration, see Chapter~33 (Sinai) on ergodic theory and dynamical systems, Chapter~17 (It\^o) on stochastic processes, and Chapter~38 (Arnold) on dynamical systems and KAM theory.
+
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Prove Kolmogorov's zero--one law: if $X_1, X_2, \dots$ are independent and $A$ is in the tail $\sigma$-algebra, then $P(A) \in \{0,1\}$.
-    \item Let $X_1, X_2, \dots$ be i.i.d.\ with $\E[X_1] = \mu$ and $\Var(X_1) = \sigma^2 < \infty$. Prove the strong law of large numbers using the Chebyshev inequality and the Borel--Cantelli lemma.
-    \item Show that the Kolmogorov extension theorem implies the existence of a probability measure on the space of infinite coin toss sequences $\{0,1\}^\mathbb{N}$.
-    \item Using dimensional analysis, derive the $-5/3$ law for the energy spectrum $E(k)$ in the inertial range of turbulence.
-    \item Show that the Kolmogorov microscale $\eta = (\nu^3/\epsilon)^{1/4}$ is the scale at which the Reynolds number based on eddy size equals 1.
-    \item Prove that the Kolmogorov complexity $K(x)$ satisfies $K(x) \leq |x| + O(1)$ and that most strings of length $n$ satisfy $K(x) \geq n - O(\log n)$.
-    \item Show that $K(x)$ is uncomputable (the proof via the Berry paradox).
-    \item Let $f \in C^\infty(\mathbb{T})$ be a smooth function. Show that its Fourier coefficients decay faster than any polynomial and that its Fourier series converges absolutely.
-    \item Compute the metric entropy of the Bernoulli shift on two symbols $\{0,1\}^\mathbb{Z}$ with probabilities $(p, 1-p)$.
-    \item Prove that if a Hamiltonian $H_0(I)$ satisfies $\det(\partial^2 H_0/\partial I^2) \neq 0$, then the frequencies $\omega(I) = \partial H_0/\partial I$ are locally a diffeomorphism.
-    \item Show that the Diophantine condition $|k \cdot \omega| \geq C|k|^{-\tau}$ holds for almost every $\omega \in \mathbb{R}^n$ when $\tau > n-1$.
-    \item Verify that the Kolmogorov--Smirnov test statistic $D_n = \sup_x |F_n(x) - F(x)|$ for the uniform distribution $U[0,1]$ has the same distribution for any continuous $F$.
+    \item [B] Prove Kolmogorov's zero--one law: if $X_1, X_2, \dots$ are independent and $A$ is in the tail $\sigma$-algebra, then $P(A) \in \{0,1\}$.
+    \item [B] Let $X_1, X_2, \dots$ be i.i.d.\ with $\E[X_1] = \mu$ and $\Var(X_1) = \sigma^2 < \infty$. Prove the strong law of large numbers using the Chebyshev inequality and the Borel--Cantelli lemma.
+    \item [B] Show that the Kolmogorov extension theorem implies the existence of a probability measure on the space of infinite coin toss sequences $\{0,1\}^\mathbb{N}$.
+    \item [B] Using dimensional analysis, derive the $-5/3$ law for the energy spectrum $E(k)$ in the inertial range of turbulence.
+    \item [B] Show that the Kolmogorov microscale $\eta = (\nu^3/\epsilon)^{1/4}$ is the scale at which the Reynolds number based on eddy size equals 1.
+    \item [I] Prove that the Kolmogorov complexity $K(x)$ satisfies $K(x) \leq |x| + O(1)$ and that most strings of length $n$ satisfy $K(x) \geq n - O(\log n)$.
+    \item [I] Show that $K(x)$ is uncomputable (the proof via the Berry paradox).
+    \item [B] Let $f \in C^\infty(\mathbb{T})$ be a smooth function. Show that its Fourier coefficients decay faster than any polynomial and that its Fourier series converges absolutely.
+    \item [I] Compute the metric entropy of the Bernoulli shift on two symbols $\{0,1\}^\mathbb{Z}$ with probabilities $(p, 1-p)$.
+    \item [I] Prove that if a Hamiltonian $H_0(I)$ satisfies $\det(\partial^2 H_0/\partial I^2) \neq 0$, then the frequencies $\omega(I) = \partial H_0/\partial I$ are locally a diffeomorphism.
+    \item [I] Show that the Diophantine condition $|k \cdot \omega| \geq C|k|^{-\tau}$ holds for almost every $\omega \in \mathbb{R}^n$ when $\tau > n-1$.
+    \item [B] Verify that the Kolmogorov--Smirnov test statistic $D_n = \sup_x |F_n(x) - F(x)|$ for the uniform distribution $U[0,1]$ has the same distribution for any continuous $F$.
 \end{enumerate}
 
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1903 & Born in Tambov, Russia \\ \hline
@@ -503,4 +508,4 @@ For undergraduates, start with probability and Fourier analysis—these are the 
 1970s & Work on the theory of $\epsilon$-entropy and complexity of function classes \\ \hline
 1980 & Wolf Prize in Mathematics (co-recipient with H.\ Cartan) \\ \hline
 1987 & Dies in Moscow \\ \hline
-\end{tabular}
+\end{tabularx}

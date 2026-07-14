@@ -1,12 +1,7 @@
-\providecommand{\R}{\mathbb{R}}
-\providecommand{\C}{\mathbb{C}}
-\providecommand{\N}{\mathbb{N}}
-\providecommand{\Z}{\mathbb{Z}}
-\providecommand{\Q}{\mathbb{Q}}
-\providecommand{\prob}{\operatorname{Pr}}
 \providecommand{\poly}{\operatorname{poly}}
 
 \chapter{Adi Shamir (2024)}
+\index{Shamir, Adi}
 
 \begin{quote}
 \it ``Adi Shamir has been one of the most influential figures in cryptography and theoretical computer science. The RSA cryptosystem, which he co-invented, is the foundation of modern secure communication. His contributions to cryptanalysis, secret sharing, and zero-knowledge proofs have shaped the very nature of security in the digital age.'' --- Wolf Prize Citation, 2024
@@ -180,19 +175,19 @@ Number theory (modular arithmetic, primality, factoring), probability, and algor
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Show that RSA decryption works: $(m^e)^d \equiv m \pmod n$ for $m$ coprime to $n$.
-    \item Implement Shamir's $(3,5)$-threshold secret sharing over a finite field.
-    \item Show that breaking RSA by computing $\varphi(n)$ is as hard as factoring $n$.
-    \item Compute the probability of a differential characteristic for a simple 2-round Feistel cipher.
-    \item Show that the Feige--Fiat--Shamir protocol is a zero-knowledge proof of identity.
-    \item Implement the RSA algorithm for 1024-bit keys.
-    \item Show that if $p$ and $q$ are close, $n = pq$ can be factored easily (Fermat factorization).
+    \item [B] Show that RSA decryption works: $(m^e)^d \equiv m \pmod n$ for $m$ coprime to $n$.
+    \item [B] Implement Shamir's $(3,5)$-threshold secret sharing over a finite field.
+    \item [I] Show that breaking RSA by computing $\varphi(n)$ is as hard as factoring $n$.
+    \item [I] Compute the probability of a differential characteristic for a simple 2-round Feistel cipher.
+    \item [A] Show that the Feige--Fiat--Shamir protocol is a zero-knowledge proof of identity.
+    \item [B] Implement the RSA algorithm for 1024-bit keys.
+    \item [I] Show that if $p$ and $q$ are close, $n = pq$ can be factored easily (Fermat factorization).
 \end{enumerate}
 
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1952 & Born in Tel Aviv, Israel \\ \hline
@@ -208,7 +203,7 @@ Number theory (modular arithmetic, primality, factoring), probability, and algor
 2003 | Israel Prize in Mathematics \\ \hline
 2017 | TWIRL factoring device \\ \hline
 2024 | Wolf Prize in Mathematics \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section*{Glossary}
 \addcontentsline{toc}{section}{Glossary}

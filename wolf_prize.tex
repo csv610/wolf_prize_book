@@ -7,7 +7,28 @@
 \usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{physics}
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.5}
 \usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+    citecolor=darkblue,
+    pdfauthor={Compiled Report},
+    pdftitle={Wolf Prize in Mathematics: A Comprehensive Survey},
+    pdfsubject={Mathematics survey of Wolf Prize laureates 1978-2024},
+    pdfkeywords={Wolf Prize, Mathematics, History of Mathematics},
+    unicode=true,
+    pdfencoding=auto,
+    psdextra=true,
+}
+\usepackage{bookmark}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\makeindex
+\usepackage{tabularx}
 \usepackage{enumerate}
 \usepackage{geometry}
 \usepackage{fancyhdr}
@@ -15,10 +36,15 @@
 \usepackage{cite}
 \usepackage{wasysym}
 \usepackage{amscd}
+\usepackage{tabularx}
 
 \geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}
-\setlength{\headheight}{14.5pt}
+\setlength{\headheight}{15.2pt}
 \setstretch{1.15}
+
+% Reduce overfull boxes
+\sloppy
+\emergencystretch=3em
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -42,7 +68,49 @@
 % Each chapter fragment also carries its own local definitions with \let\NAME\relax prefix.
 \newcommand{\Sha}{\text{\fontencoding{T2A}\selectfont\CYRSH}}
 
-% Math operators used across chapters (defined as providecommand so fragments can override)
+% Math operators and symbols used across chapters
+% Universal blackboard letters (used in 22+ chapters)
+\providecommand{\R}{\mathbb{R}}
+\let\C\relax
+\newcommand{\C}{\mathbb{C}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\F}{\mathbb{F}}
+\let\oldH\H
+\renewcommand{\H}{\ifmmode\mathbb{H}\else\expandafter\oldH\fi}
+\providecommand{\HH}{\mathbb{H}}
+\providecommand{\CP}{\mathbb{CP}}
+
+% Universal operators (used in 4-9 chapters)
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\SL}{\operatorname{SL}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\tr}{\operatorname{tr}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\SO}{\operatorname{SO}}
+\providecommand{\SU}{\operatorname{SU}}
+\providecommand{\PSL}{\operatorname{PSL}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Out}{\operatorname{Out}}
+\providecommand{\Scal}{\operatorname{Scal}}
+\providecommand{\Ric}{\operatorname{Ric}}
+\providecommand{\grad}{\operatorname{grad}}
+\providecommand{\divg}{\operatorname{div}}
+\providecommand{\Rep}{\operatorname{Rep}}
+\providecommand{\prob}{\operatorname{Pr}}
+
+% Caligraphic letters
+\providecommand{\cF}{\mathcal{F}}
+\providecommand{\cO}{\mathcal{O}}
+
+% Existing per-chapter operators
 \providecommand{\ex}{\mathbb{E}}
 \providecommand{\ch}{\operatorname{ch}}
 \providecommand{\CS}{\operatorname{CS}}
@@ -60,21 +128,71 @@
 \providecommand{\IC}{\operatorname{IC}}
 \providecommand{\Frob}{\operatorname{Frob}}
 
-\title{\Huge\textbf{Wolf Prize in Mathematics}\\ \vspace{0.5cm}
-\LARGE A Comprehensive Report for Undergraduate Students}
-\author{Compiled Report}
-\date{\today}
-
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+    \centering
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \includegraphics[width=0.95\textwidth]{frontpage.png}
+    \vspace*{\fill}
+\end{titlepage}
 \thispagestyle{empty}
+\newpage
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\Huge\textbf{Wolf Prize in Mathematics}} \\[0.8cm]
+    {\LARGE A Comprehensive Survey} \\[2cm]
+    \vfill
+    {\large Compiled Report} \\[0.3cm]
+    {\large \today}
+\end{titlepage}
+\thispagestyle{empty}
+\newpage
+
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{flushleft}
+{\large\textbf{Wolf Prize in Mathematics: A Comprehensive Survey}} \\
+\textit{Compiled Report (1978--2024)}
+
+\vspace{1cm}
+
+\copyright\ 2026 Compiled Report. All rights reserved.
+
+\vspace{0.5cm}
+
+This book is published for educational and research purposes. All trademarks, names, and images relating to the Wolf Prize and the Wolf Foundation are the property of their respective owners and are used here under fair use for educational review and survey.
+
+\vspace{0.5cm}
+
+No part of this publication may be reproduced, stored in a retrieval system, or transmitted in any form or by any means, electronic, mechanical, photocopying, recording, or otherwise, without prior written permission of the publisher.
+
+\vspace{1cm}
+
+\textbf{Publisher Metadata} \\
+Published by Apex Academic Press \\
+London, United Kingdom \\
+info@apexacademicpress.com
+
+\vspace{0.5cm}
+
+ISBN-13: 978-X-XXXX-XXXX-X (Hardcover) \\
+ISBN-13: 978-X-XXXX-XXXX-X (Digital Edition)
+\end{flushleft}
+\clearpage
 
 \newpage
 
 \tableofcontents
 
 \newpage
+
+\include{chapters/preface}
+
+\include{chapters/chapter_00_introduction}
 
 \include{chapters/chapter_01_gelfand}
 \include{chapters/chapter_02_siegel}
@@ -144,5 +262,11 @@
 \include{chapters/chapter_66_daubechies}
 \include{chapters/chapter_67_alon}
 \include{chapters/chapter_68_shamir}
+
+\include{chapters/chapter_conclusion}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
 
 \end{document}

@@ -22,6 +22,7 @@
 \newcommand{\E}{\operatorname{E}}
 
 \chapter{John Milnor (1989)}
+\index{Milnor, John}
 
 \begin{quote}
 \it ``Milnor's work is characterized by a rare combination of deep geometric insight, algebraic power, and technical virtuosity. He has transformed our understanding of differential topology, singularity theory, algebraic \(K\)-theory, and the geometry of manifolds. His proofs are models of clarity and elegance, and his books have educated generations of mathematicians.'' --- Wolf Prize Citation
@@ -417,7 +418,7 @@ Several deep problems remain:
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1931 & Born on February 20 in Orange, New Jersey, USA \\ \hline
@@ -436,31 +437,35 @@ Several deep problems remain:
 1974 & \textit{Characteristic Classes} (with Stasheff) published \\ \hline
 1989 & Awarded the Wolf Prize in Mathematics (shared with Alberto Calder\'on) \\ \hline
 2011 & Awarded the Abel Prize from the Norwegian Academy of Science and Letters \\ \hline
-\end{tabular}
+\end{tabularx}
+
+\section{Related Chapters}
+
+For further exploration, see Chapter~44 (Smale) on differential topology and dynamical systems, Chapter~63 (Donaldson) on 4-manifold topology, and Chapter~64 (Eliashberg) on symplectic and contact topology.
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Compute the Milnor number \(\mu\) for the singularity \(f(x,y) = x^p + y^q\) in \(\C^2\). Show that \(\mu = (p-1)(q-1)\).
-    \item For the \(A_k\) singularity \(f(z_0,\dots,z_n) = z_0^{k+1} + \sum_{i=1}^n z_i^2\), compute the Milnor number and describe the Milnor fiber.
-    \item Let \(M^7\) be an \(S^3\)-bundle over \(S^4\). Show that if the Euler class \(h\) and the Pontryagin number satisfy \(h + j = 1\), then \(M^7\) is homeomorphic to \(S^7\). (Use the Hurewicz theorem and the Whitehead theorem.)
-    \item Prove that the free group on two generators \(F_2\) has exponential growth, and show that it is not virtually nilpotent.
-    \item Let \(G\) be a finitely generated nilpotent group of nilpotency class \(c\). Show that \(\gamma_G(n) \leq C n^c\) for some constant \(C\).
-    \item Consider the trefoil knot in \(\R^3\). Compute its total curvature by approximating with a polygonal knot. Verify that the total curvature exceeds \(4\pi\).
-    \item Show that the standard 7-sphere \(S^7\) bounds an 8-manifold with signature 0, while the exotic sphere \(M^7_{1,0}\) bounds an 8-manifold with signature 1 (mod 7). Conclude that \(\lambda(M^7_{1,0}) \neq 0\).
-    \item For a flat \(\SL(2,\R)\)-bundle over a surface \(\Sigma_g\) with representation \(\rho: \pi_1(\Sigma_g) \to \SL(2,\R)\), prove that the Euler number satisfies \(|e(\rho)| \leq 2g - 2\). (Hint: pull back to the universal cover and consider the associated disk bundle.)
-    \item Let \(f(x,y) = x^3 + y^4\). Describe the Milnor fiber of this singularity and compute its homology.
-    \item Show that \(\Z \oplus \Z\) has polynomial growth of degree 2, while the Heisenberg group (the group of \(3 \times 3\) upper triangular integer matrices with ones on the diagonal) has polynomial growth of degree 4.
-    \item Prove the Fenchel theorem: for any simple closed curve in \(\R^3\), the total curvature is at least \(2\pi\). (Hint: the tangent indicatrix is a closed curve on \(S^2\) whose length equals the total curvature; a closed curve on \(S^2\) has length at least \(2\pi\).)
-    \item Compute \(K_2(\C)\) using Matsumoto's theorem. Show that \(K_2(\C)\) is divisible (every element is an \(n\)-th power for any \(n\)).
-    \item For the \(D_4\) singularity \(f(x,y,z) = x^3 + x y^2 + z^2\), compute the Milnor number and the intersection form on the middle homology of the Milnor fiber.
-    \item Show that the fundamental group of a closed oriented surface \(\Sigma_g\) with \(g \geq 2\) has exponential growth.
-    \item Let \(\rho: \pi_1(\Sigma_g) \to \SL(2,\R)\) be a discrete and faithful representation corresponding to a hyperbolic structure on \(\Sigma_g\). Show that the Euler number of the associated flat bundle equals \(\pm (2g-2)\).
-    \item Let \(f(z_0,z_1) = z_0^3 + z_1^5\). Compute the Milnor number of this singularity. Draw the vanishing cycles on the Milnor fiber and describe the monodromy.
-    \item Prove that the group of orientation-preserving diffeomorphisms of the standard 7-sphere does not act transitively on the set of all differentiable structures on \(S^7\).
-    \item Let \(G\) be a finitely generated group. Show that if \(G\) has subexponential growth, then every finitely generated subgroup also has subexponential growth.
-    \item Consider the quadratic map \(f_c(z) = z^2 + c\). Show that if \(|c| > 2\), then \(c\) lies outside the Mandelbrot set (i.e., \(f_c^n(0) \to \infty\)).
+    \item [I] Compute the Milnor number \(\mu\) for the singularity \(f(x,y) = x^p + y^q\) in \(\C^2\). Show that \(\mu = (p-1)(q-1)\).
+    \item [I] For the \(A_k\) singularity \(f(z_0,\dots,z_n) = z_0^{k+1} + \sum_{i=1}^n z_i^2\), compute the Milnor number and describe the Milnor fiber.
+    \item [A] Let \(M^7\) be an \(S^3\)-bundle over \(S^4\). Show that if the Euler class \(h\) and the Pontryagin number satisfy \(h + j = 1\), then \(M^7\) is homeomorphic to \(S^7\). (Use the Hurewicz theorem and the Whitehead theorem.)
+    \item [B] Prove that the free group on two generators \(F_2\) has exponential growth, and show that it is not virtually nilpotent.
+    \item [I] Let \(G\) be a finitely generated nilpotent group of nilpotency class \(c\). Show that \(\gamma_G(n) \leq C n^c\) for some constant \(C\).
+    \item [I] Consider the trefoil knot in \(\R^3\). Compute its total curvature by approximating with a polygonal knot. Verify that the total curvature exceeds \(4\pi\).
+    \item [A] Show that the standard 7-sphere \(S^7\) bounds an 8-manifold with signature 0, while the exotic sphere \(M^7_{1,0}\) bounds an 8-manifold with signature 1 (mod 7). Conclude that \(\lambda(M^7_{1,0}) \neq 0\).
+    \item [A] For a flat \(\SL(2,\R)\)-bundle over a surface \(\Sigma_g\) with representation \(\rho: \pi_1(\Sigma_g) \to \SL(2,\R)\), prove that the Euler number satisfies \(|e(\rho)| \leq 2g - 2\). (Hint: pull back to the universal cover and consider the associated disk bundle.)
+    \item [I] Let \(f(x,y) = x^3 + y^4\). Describe the Milnor fiber of this singularity and compute its homology.
+    \item [I] Show that \(\Z \oplus \Z\) has polynomial growth of degree 2, while the Heisenberg group (the group of \(3 \times 3\) upper triangular integer matrices with ones on the diagonal) has polynomial growth of degree 4.
+    \item [I] Prove the Fenchel theorem: for any simple closed curve in \(\R^3\), the total curvature is at least \(2\pi\). (Hint: the tangent indicatrix is a closed curve on \(S^2\) whose length equals the total curvature; a closed curve on \(S^2\) has length at least \(2\pi\).)
+    \item [A] Compute \(K_2(\C)\) using Matsumoto's theorem. Show that \(K_2(\C)\) is divisible (every element is an \(n\)-th power for any \(n\)).
+    \item [A] For the \(D_4\) singularity \(f(x,y,z) = x^3 + x y^2 + z^2\), compute the Milnor number and the intersection form on the middle homology of the Milnor fiber.
+    \item [B] Show that the fundamental group of a closed oriented surface \(\Sigma_g\) with \(g \geq 2\) has exponential growth.
+    \item [A] Let \(\rho: \pi_1(\Sigma_g) \to \SL(2,\R)\) be a discrete and faithful representation corresponding to a hyperbolic structure on \(\Sigma_g\). Show that the Euler number of the associated flat bundle equals \(\pm (2g-2)\).
+    \item [A] Let \(f(z_0,z_1) = z_0^3 + z_1^5\). Compute the Milnor number of this singularity. Draw the vanishing cycles on the Milnor fiber and describe the monodromy.
+    \item [A] Prove that the group of orientation-preserving diffeomorphisms of the standard 7-sphere does not act transitively on the set of all differentiable structures on \(S^7\).
+    \item [B] Let \(G\) be a finitely generated group. Show that if \(G\) has subexponential growth, then every finitely generated subgroup also has subexponential growth.
+    \item [B] Consider the quadratic map \(f_c(z) = z^2 + c\). Show that if \(|c| > 2\), then \(c\) lies outside the Mandelbrot set (i.e., \(f_c^n(0) \to \infty\)).
 \end{enumerate}
 
 \section*{Glossary}

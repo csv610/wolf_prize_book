@@ -22,6 +22,7 @@
 \newcommand{\E}{\operatorname{E}}
 
 \chapter{Yakov Sinai (1996/97)}
+\index{Sinai, Yakov}
 
 \begin{quote}
 \it ``Sinai's work has profoundly transformed our understanding of dynamical systems, statistical mechanics, and the connections between them. His theory of dispersing billiards established the ergodic properties of hard-sphere systems. The Sinai--Ruelle--Bowen measure provides the natural invariant measure for dissipative chaotic systems. The thermodynamic formalism, developed in collaboration with Ruelle and others, forged a deep and lasting link between statistical mechanics and dynamical systems. The Pirogov--Sinai theory gave a rigorous foundation for the theory of phase transitions. His work on random walks in random environments opened an entirely new field.'' --- Wolf Prize Citation
@@ -379,7 +380,7 @@ relating entropy to Lyapunov exponents.
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1935 & Born on September 21 in Moscow, USSR \\ \hline
@@ -398,7 +399,7 @@ relating entropy to Lyapunov exponents.
 1996/97 & Awarded the Wolf Prize in Mathematics (shared with Joseph B.\ Keller) \\ \hline
 2000s & Work on intermittency, Burgers turbulence, and non-equilibrium statistical mechanics \\ \hline
 2014 & Awarded the Abel Prize \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section{Frequently Asked Questions}
 
@@ -441,18 +442,22 @@ Several deep problems remain:
   \item \textbf{Non-equilibrium stationary states:} Sinai's work on the thermodynamic formalism for equilibrium systems has inspired efforts to develop a rigorous theory of non-equilibrium stationary states.
 \end{enumerate}
 
+\section{Related Chapters}
+
+See also Chapter~06 (Kolmogorov) on ergodic theory and Chapter~29 (Moser) on dynamical systems.
+
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-  \item Consider the Sinai billiard in a unit square with a circular obstacle of radius \(r\) at the center. Show that the collision map (the transformation from one collision to the next) has a positive Lyapunov exponent for almost every initial condition.
-  \item Compute the topological pressure for the full shift on two symbols with potential \(\phi(x) = \alpha x_0\) where \(x_0 \in \{0, 1\}\). Show that \(P(\phi) = \log(1 + e^\alpha)\).
-  \item Verify the variational principle for the above case: compute \(h_\mu(f) + \int \phi\, d\mu\) for the Bernoulli measure with parameter \(p\) and show that the supremum over \(p\) equals \(\log(1 + e^\alpha)\).
-  \item For the one-dimensional Ising model with Hamiltonian \(H(\sigma) = -J \sum_i \sigma_i \sigma_{i+1} - h \sum_i \sigma_i\), where \(\sigma_i \in \{\pm 1\}\), show that the ground states at zero temperature are all \(+1\) (if \(h > 0\)), all \(-1\) (if \(h < 0\)), and both \((+1\) and \(-1\)) at \(h = 0\).
-  \item Using Pirogov--Sinai theory, prove that the two-dimensional Ising model has a phase transition at sufficiently low temperature: there exist at least two distinct Gibbs states for \(h = 0\) and sufficiently large \(\beta\).
-  \item Consider a random walk in a random environment with \(\omega_i\) distributed uniformly on \([\varepsilon, 1-\varepsilon]\). Compute the distribution of the potential \(U(i)\). Using large deviation theory, estimate the expected time to exit a valley of depth \(D\).
-  \item For the map \(f(x) = 2x \mod 1\) on the unit interval with Lebesgue measure, compute the Kolmogorov--Sinai entropy directly from the definition using the partition \(\mathcal{P} = \{[0, 1/2), [1/2, 1)\}\).
-  \item Let \(f: M \to M\) be an Anosov diffeomorphism. Prove that the SRB measure \(\mu_{\text{SRB}}\) is the unique invariant measure whose conditional distributions on unstable manifolds are absolutely continuous with respect to Lebesgue measure.
+  \item [I] Consider the Sinai billiard in a unit square with a circular obstacle of radius \(r\) at the center. Show that the collision map (the transformation from one collision to the next) has a positive Lyapunov exponent for almost every initial condition.
+  \item [B] Compute the topological pressure for the full shift on two symbols with potential \(\phi(x) = \alpha x_0\) where \(x_0 \in \{0, 1\}\). Show that \(P(\phi) = \log(1 + e^\alpha)\).
+  \item [B] Verify the variational principle for the above case: compute \(h_\mu(f) + \int \phi\, d\mu\) for the Bernoulli measure with parameter \(p\) and show that the supremum over \(p\) equals \(\log(1 + e^\alpha)\).
+  \item [B] For the one-dimensional Ising model with Hamiltonian \(H(\sigma) = -J \sum_i \sigma_i \sigma_{i+1} - h \sum_i \sigma_i\), where \(\sigma_i \in \{\pm 1\}\), show that the ground states at zero temperature are all \(+1\) (if \(h > 0\)), all \(-1\) (if \(h < 0\)), and both \((+1\) and \(-1\)) at \(h = 0\).
+  \item [A] Using Pirogov--Sinai theory, prove that the two-dimensional Ising model has a phase transition at sufficiently low temperature: there exist at least two distinct Gibbs states for \(h = 0\) and sufficiently large \(\beta\).
+  \item [I] Consider a random walk in a random environment with \(\omega_i\) distributed uniformly on \([\varepsilon, 1-\varepsilon]\). Compute the distribution of the potential \(U(i)\). Using large deviation theory, estimate the expected time to exit a valley of depth \(D\).
+  \item [B] For the map \(f(x) = 2x \mod 1\) on the unit interval with Lebesgue measure, compute the Kolmogorov--Sinai entropy directly from the definition using the partition \(\mathcal{P} = \{[0, 1/2), [1/2, 1)\}\).
+  \item [A] Let \(f: M \to M\) be an Anosov diffeomorphism. Prove that the SRB measure \(\mu_{\text{SRB}}\) is the unique invariant measure whose conditional distributions on unstable manifolds are absolutely continuous with respect to Lebesgue measure.
 \end{enumerate}
 
 \section*{Glossary}

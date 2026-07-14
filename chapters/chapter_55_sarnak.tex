@@ -1,13 +1,9 @@
-\providecommand{\R}{\mathbb{R}}
-\providecommand{\C}{\mathbb{C}}
-\providecommand{\N}{\mathbb{N}}
-\providecommand{\Z}{\mathbb{Z}}
-\providecommand{\Q}{\mathbb{Q}}
-\providecommand{\SL}{\operatorname{SL}}
-\providecommand{\Spec}{\operatorname{Spec}}
-\providecommand{\tr}{\operatorname{tr}}
+
+\let\HH\relax
+\newcommand{\HH}{\mathbb{H}}
 
 \chapter{Peter Sarnak (2014)}
+\index{Sarnak, Peter}
 
 \begin{quote}
 \it ``Peter Sarnak has made profound contributions to number theory, analysis, and geometry. His work, which combines deep insights from these fields, has opened up new directions and solved long-standing problems. He is a mathematician of exceptional breadth and power.'' --- Wolf Prize Citation, 2014
@@ -43,7 +39,7 @@ The M\"obius function $\mu(n)$ (which is $0$ if $n$ has a squared prime factor, 
 
 \subsection{Spectral Theory on Locally Symmetric Spaces}
 
-The Laplacian on a hyperbolic surface $\Gamma \backslash \H^2$ has both discrete spectrum (cusp forms) and continuous spectrum (Eisenstein series). Understanding this spectrum, especially the existence of cusp forms for general congruence subgroups, is a deep problem with connections to number theory.
+The Laplacian on a hyperbolic surface $\Gamma \backslash \HH^2$ has both discrete spectrum (cusp forms) and continuous spectrum (Eisenstein series). Understanding this spectrum, especially the existence of cusp forms for general congruence subgroups, is a deep problem with connections to number theory.
 
 \section{How It Was Solved and the Intuitions/Tools Needed}
 
@@ -92,6 +88,7 @@ The \textbf{M\"obius function} $\mu: \N \to \{-1, 0, 1\}$ is defined by:
 0 & \text{if } n \text{ has a squared prime factor}, \\
 (-1)^k & \text{if } n \text{ is a product of } k \text{ distinct primes}.
 \end{cases}
+\]
 \end{definition}
 
 \begin{conjecture}[Sarnak's Conjecture, 2010]
@@ -117,7 +114,7 @@ Congruence arithmetic surfaces are exceptional: they admit infinitely many cusp 
 \subsection{Katz--Sarnak Philosophy}
 
 \begin{theorem}[Katz--Sarnak, 1999]
-For a family of L-functions with a given symmetry type $G$ (where $G$ is one of $\U(N)$, $\Sp}(2N)$, or $\O(N)$), the distribution of low-lying zeros (suitably normalized) coincides with the distribution of eigenvalues near $1$ for $G$.
+For a family of L-functions with a given symmetry type $G$ (where $G$ is one of $\operatorname{U}(N)$, $\operatorname{Sp}(2N)$, or $\operatorname{O}(N)$), the distribution of low-lying zeros (suitably normalized) coincides with the distribution of eigenvalues near $1$ for $G$.
 \end{theorem}
 
 This includes:
@@ -130,7 +127,7 @@ This includes:
 \subsection{The Selberg Eigenvalue Problem}
 
 \begin{theorem}[Selberg, 1965]
-For congruence subgroups $\Gamma(N) \subset \SL(2,\Z)$, the smallest non-zero eigenvalue of the Laplacian on $\Gamma(N) \backslash \H^2$ satisfies $\lambda_1 \geq 3/16$.
+For congruence subgroups $\Gamma(N) \subset \SL(2,\Z)$, the smallest non-zero eigenvalue of the Laplacian on $\Gamma(N) \backslash \HH^2$ satisfies $\lambda_1 \geq 3/16$.
 \end{theorem}
 
 Sarnak has made significant contributions to understanding the optimality of this bound, relating it to the Ramanujan conjecture for modular forms and to properties of automorphic representations.
@@ -170,23 +167,27 @@ It shows that most hyperbolic surfaces have no cusp forms — only continuous sp
 \subsection*{Q5: What should an undergraduate study to understand Sarnak's work?}
 Number theory (analytic, algebraic, modular forms), spectral geometry (Laplacians on manifolds), and random matrix theory. Recommended: \textit{Introduction to Analytic Number Theory} (Iwaniec--Kowalski), \textit{Spectral Theory of Automorphic Forms} (Iwaniec), and \textit{Random Matrices} (Mehta).
 
+\section{Related Chapters}
+
+See also Chapter~16 (Selberg) on analytic number theory and automorphic forms.
+
 \section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Show that the eigenvalues of a $k$-regular graph are bounded between $-k$ and $k$.
-    \item Compute the pair correlation of eigenvalues of a GUE random matrix in the large $N$ limit.
-    \item Prove that the eigenvalues of a Ramanujan graph satisfy the Alon--Boppana bound.
-    \item Show that $\sum_{n \leq x} \mu(n) = o(x)$ is equivalent to the Prime Number Theorem.
-    \item Compute the spectrum of the Lubotzky--Phillips--Sarnak graph $X^{5,3}$ explicitly.
-    \item Derive the explicit formula relating zeros of the Riemann zeta function to sums over primes.
-    \item Show that the Laplacian on a compact hyperbolic surface has discrete spectrum.
+    \item [B] Show that the eigenvalues of a $k$-regular graph are bounded between $-k$ and $k$.
+    \item [I] Compute the pair correlation of eigenvalues of a GUE random matrix in the large $N$ limit.
+    \item [I] Prove that the eigenvalues of a Ramanujan graph satisfy the Alon--Boppana bound.
+    \item [I] Show that $\sum_{n \leq x} \mu(n) = o(x)$ is equivalent to the Prime Number Theorem.
+    \item [A] Compute the spectrum of the Lubotzky--Phillips--Sarnak graph $X^{5,3}$ explicitly.
+    \item [I] Derive the explicit formula relating zeros of the Riemann zeta function to sums over primes.
+    \item [I] Show that the Laplacian on a compact hyperbolic surface has discrete spectrum.
 \end{enumerate}
 
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1953 & Born in Johannesburg, South Africa \\ \hline
@@ -200,7 +201,7 @@ Number theory (analytic, algebraic, modular forms), spectral geometry (Laplacian
 2014 | Wolf Prize in Mathematics \\ \hline
 2015 | Appointed Charles Simonyi Professor at the IAS \\ \hline
 2022 | Sylvester Medal of the Royal Society \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section*{Glossary}
 \addcontentsline{toc}{section}{Glossary}

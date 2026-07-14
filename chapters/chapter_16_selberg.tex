@@ -30,6 +30,7 @@
 \newcommand{\cS}{\mathcal{S}}
 
 \chapter{Atle Selberg (1986)}
+\index{Selberg, Atle}
 
 \begin{quote}
 \it ``Selberg's work is characterized by its depth, originality, and technical power. He has made fundamental contributions to number theory, spectral theory, and the theory of automorphic forms.'' --- Wolf Prize Citation
@@ -511,7 +512,7 @@ Several major open problems remain:
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1917 & Born in Langesund, Norway \\ \hline
@@ -530,27 +531,31 @@ Several major open problems remain:
 1989 & Formulates the Selberg class of \(L\)-functions at the Amalfi Conference; publishes his conjectures \\ \hline
 1990s & Continues work on the Selberg class and the orthonormality conjecture; receives numerous honors \\ \hline
 2007 & Dies in Princeton, New Jersey, at age 90 \\ \hline
-\end{tabular}
+\end{tabularx}
+
+\section{Related Chapters}
+
+For further exploration, see Chapter~30 (Langlands) on automorphic forms and the Langlands program, Chapter~56 (Arthur) on trace formula and automorphic representations, and Chapter~55 (Sarnak) on analytic number theory and automorphic forms.
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Verify Selberg's identity for \(x = 10\) by explicitly computing \(\psi(x)\) and the sums.
-    \item Show that Selberg's identity implies \(\psi(x) \log x + \int_1^x \psi(x/t) \, d\psi(t) = 2x \log x + O(x)\), where the integral is a Stieltjes integral.
-    \item Using Selberg's identity and the estimate \(\sum_{n \leq x} \Lambda(n) \sim x\), prove that \(\psi(x) \sim x\).
-    \item Derive the Selberg upper bound sieve for the number of integers \(\leq x\) with no prime factors \(\leq x^{1/2}\). Show that the optimal choice of weights gives \(\pi(x) \leq (2 + o(1)) x/\log x\).
-    \item Prove that for the Selberg sieve, the optimal weights satisfy \(\lambda_d = \mu(d) \frac{G(z/d)}{G(z)}\) where \(G\) is the sum in the theorem.
-    \item Show that the Selberg zeta function \(Z_\Gamma(s)\) converges absolutely for \(\Re(s) > 1\).
-    \item Verify the functional equation of the Selberg zeta function for a compact hyperbolic surface: \(Z_\Gamma(s) = Z_\Gamma(1-s) \exp\left( \vol(\Gamma \backslash \HH) \int_0^{s-1/2} u \tan(\pi u) \, du \right)\) (without performing the integral).
-    \item Prove that the Rankin--Selberg convolution \(L(f \otimes g, s)\) has an Euler product of degree 4.
-    \item Show that the Dirichlet series of \(L(f \otimes f, s)\) has a simple pole at \(s = k\) if \(f\) is a non-zero cusp form.
-    \item Show that the degree of the Dedekind zeta function \(\zeta_K(s)\) in the Selberg class equals \([K:\Q]\).
-    \item Prove that if \(L \in \cS\) is primitive and has degree 0, then \(L(s) \equiv 1\).
-    \item Using Selberg's theorem, show that a positive proportion of zeros of \(\zeta(s)\) lie on the critical line. (This is a conceptual exercise: outline the method of moments.)
-    \item Show that the Ramanujan hypothesis for \(\GL(2)\) Maass forms is equivalent to the Selberg eigenvalue conjecture.
-    \item Prove that the Selberg integral \(S_2(\alpha, \beta, \gamma)\) reduces to a product of gamma functions using the standard beta integral.
-    \item Show that the spectral side of the Selberg trace formula for a compact surface converges absolutely for a suitable test function \(h(r)\) with rapid decay.
+    \item [B] Verify Selberg's identity for \(x = 10\) by explicitly computing \(\psi(x)\) and the sums.
+    \item [I] Show that Selberg's identity implies \(\psi(x) \log x + \int_1^x \psi(x/t) \, d\psi(t) = 2x \log x + O(x)\), where the integral is a Stieltjes integral.
+    \item [I] Using Selberg's identity and the estimate \(\sum_{n \leq x} \Lambda(n) \sim x\), prove that \(\psi(x) \sim x\).
+    \item [I] Derive the Selberg upper bound sieve for the number of integers \(\leq x\) with no prime factors \(\leq x^{1/2}\). Show that the optimal choice of weights gives \(\pi(x) \leq (2 + o(1)) x/\log x\).
+    \item [A] Prove that for the Selberg sieve, the optimal weights satisfy \(\lambda_d = \mu(d) \frac{G(z/d)}{G(z)}\) where \(G\) is the sum in the theorem.
+    \item [B] Show that the Selberg zeta function \(Z_\Gamma(s)\) converges absolutely for \(\Re(s) > 1\).
+    \item [A] Verify the functional equation of the Selberg zeta function for a compact hyperbolic surface: \(Z_\Gamma(s) = Z_\Gamma(1-s) \exp\left( \vol(\Gamma \backslash \HH) \int_0^{s-1/2} u \tan(\pi u) \, du \right)\) (without performing the integral).
+    \item [I] Prove that the Rankin--Selberg convolution \(L(f \otimes g, s)\) has an Euler product of degree 4.
+    \item [I] Show that the Dirichlet series of \(L(f \otimes f, s)\) has a simple pole at \(s = k\) if \(f\) is a non-zero cusp form.
+    \item [B] Show that the degree of the Dedekind zeta function \(\zeta_K(s)\) in the Selberg class equals \([K:\Q]\).
+    \item [I] Prove that if \(L \in \cS\) is primitive and has degree 0, then \(L(s) \equiv 1\).
+    \item [I] Using Selberg's theorem, show that a positive proportion of zeros of \(\zeta(s)\) lie on the critical line. (This is a conceptual exercise: outline the method of moments.)
+    \item [I] Show that the Ramanujan hypothesis for \(\GL(2)\) Maass forms is equivalent to the Selberg eigenvalue conjecture.
+    \item [B] Prove that the Selberg integral \(S_2(\alpha, \beta, \gamma)\) reduces to a product of gamma functions using the standard beta integral.
+    \item [I] Show that the spectral side of the Selberg trace formula for a compact surface converges absolutely for a suitable test function \(h(r)\) with rapid decay.
 \end{enumerate}
 
 \section*{Glossary}

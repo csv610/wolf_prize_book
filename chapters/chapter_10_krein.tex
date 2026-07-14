@@ -28,6 +28,7 @@
 \newcommand{\cP}{\mathcal{P}}
 
 \chapter{Mark Krein (1982)}
+\index{Krein, Mark}
 
 \begin{quote}
 \it ``Krein was one of the pillars of the Soviet school of functional analysis. His work on convexity, operator theory, and spectral analysis shaped the subject for decades, and his theorems are among the most cited in all of mathematics.'' --- Israel Gohberg
@@ -206,6 +207,7 @@ A point $x \in K$ is \textbf{extreme} if $x = \lambda y + (1-\lambda)z$ with $y,
 Every compact convex set $K \subset X$ is the closed convex hull of its extreme points:
 \[
 K = \overline{\operatorname{co}}(\operatorname{ext}(K)).
+\]
 \end{theorem}
 
 \begin{corollary}[Representation of States]
@@ -449,7 +451,6 @@ For undergraduates, start with functional analysis (Rudin or Lax) and the Krein-
     \item J.\ B.\ Conway, \textit{A Course in Functional Analysis}, Springer, 1990.
     \item B.\ Simon, \textit{Trace Ideals and Their Applications}, Cambridge University Press, 1979.
 \end{enumerate}
-\end{enumerate}
 
 \section*{Glossary}
 \addcontentsline{toc}{section}{Glossary}
@@ -479,30 +480,34 @@ For undergraduates, start with functional analysis (Rudin or Lax) and the Krein-
     \item[Weak-* topology] The weakest topology making all evaluation functionals continuous.
 \end{description}
 
+\section{Related Chapters}
+
+See also Chapter~01 (Gelfand) on functional analysis.
+
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Show that the unit ball of $L^1[0,1]$ has no extreme points in the weak topology.
-    \item Prove that the unit ball of $\ell^1$ has extreme points (the standard basis vectors).
-    \item Show that the set of extreme points of $\{x \in \ell^\infty : \|x\|_\infty \leq 1\}$ is $\{\pm e_n\}$.
-    \item Let $T$ be an $n \times n$ matrix with all positive entries. Show that $T$ has a positive eigenvector with eigenvalue equal to the spectral radius (Perron--Frobenius theorem).
-    \item Prove that the cone $C_+([0,1]) = \{f \in C([0,1]) : f(x) \geq 0\}$ has non-empty interior with respect to the supremum norm.
-    \item Show that if $A$ is a positive symmetric operator, then the quadratic form $a(x) = \langle Ax, x\rangle$ is closable.
-    \item Compute the Hankel matrix $H_2$ for $s_0 = 1, s_1 = 0, s_2 = 1, s_3 = 0, s_4 = 1$. Is this a moment sequence for some measure on $\mathbb{R}$?
-    \item Show that the Krein--Milman theorem implies the Riesz representation theorem for states on $C(X)$.
-    \item Let $H_0 = -\frac{d^2}{dx^2}$ on $L^2[0,1]$ with Dirichlet boundary conditions. Compute the spectral shift function for $V$ being multiplication by a constant $c$.
-    \item Show that the Krein--Rutman theorem fails for non-compact positive operators by constructing a counterexample.
-    \item Let $A$ be the operator $Af(x) = x f(x)$ on $L^2[0,1]$. Is $A$ positive? Find its Friedrichs and Krein--von Neumann extensions.
-    \item Show that the Chebyshev polynomials are orthogonal with respect to the weight $1/\sqrt{1-x^2}$ on $[-1,1]$ and compute the corresponding moments.
-    \item Prove that if $\{s_n\}$ are the moments of a probability measure on $\mathbb{R}$ with compact support, then the Hankel matrices $H_n$ are positive semidefinite.
-    \item Show that the Krein--Milman theorem implies that every compact convex set has at least one extreme point.
+    \item [I] Show that the unit ball of $L^1[0,1]$ has no extreme points in the weak topology.
+    \item [B] Prove that the unit ball of $\ell^1$ has extreme points (the standard basis vectors).
+    \item [B] Show that the set of extreme points of $\{x \in \ell^\infty : \|x\|_\infty \leq 1\}$ is $\{\pm e_n\}$.
+    \item [I] Let $T$ be an $n \times n$ matrix with all positive entries. Show that $T$ has a positive eigenvector with eigenvalue equal to the spectral radius (Perron--Frobenius theorem).
+    \item [B] Prove that the cone $C_+([0,1]) = \{f \in C([0,1]) : f(x) \geq 0\}$ has non-empty interior with respect to the supremum norm.
+    \item [I] Show that if $A$ is a positive symmetric operator, then the quadratic form $a(x) = \langle Ax, x\rangle$ is closable.
+    \item [I] Compute the Hankel matrix $H_2$ for $s_0 = 1, s_1 = 0, s_2 = 1, s_3 = 0, s_4 = 1$. Is this a moment sequence for some measure on $\mathbb{R}$?
+    \item [A] Show that the Krein--Milman theorem implies the Riesz representation theorem for states on $C(X)$.
+    \item [A] Let $H_0 = -\frac{d^2}{dx^2}$ on $L^2[0,1]$ with Dirichlet boundary conditions. Compute the spectral shift function for $V$ being multiplication by a constant $c$.
+    \item [I] Show that the Krein--Rutman theorem fails for non-compact positive operators by constructing a counterexample.
+    \item [A] Let $A$ be the operator $Af(x) = x f(x)$ on $L^2[0,1]$. Is $A$ positive? Find its Friedrichs and Krein--von Neumann extensions.
+    \item [I] Show that the Chebyshev polynomials are orthogonal with respect to the weight $1/\sqrt{1-x^2}$ on $[-1,1]$ and compute the corresponding moments.
+    \item [I] Prove that if $\{s_n\}$ are the moments of a probability measure on $\mathbb{R}$ with compact support, then the Hankel matrices $H_n$ are positive semidefinite.
+    \item [B] Show that the Krein--Milman theorem implies that every compact convex set has at least one extreme point.
 \end{enumerate}
 
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1907 & Born in Kiev, Russian Empire (now Ukraine) \\ \hline
@@ -523,4 +528,4 @@ For undergraduates, start with functional analysis (Rudin or Lax) and the Krein-
 1977 & ``The Markov Moment Problem and Extremal Problems'' with Nudelman \\ \hline
 1982 & Wolf Prize in Mathematics (co-recipient with H.\ Whitney) \\ \hline
 1989 & Dies in Odessa, USSR \\ \hline
-\end{tabular}
+\end{tabularx}

@@ -8,6 +8,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 
 \chapter{Peter Lax (1987)}
+\index{Lax, Peter}
 
 \begin{quote}
 \it ``Lax's work spans a remarkable range of mathematical subjects, from the theory of partial differential equations to numerical analysis, from scattering theory to integrable systems. His contributions have the rare quality of being simultaneously deep and useful --- they advance pure mathematics while providing concrete tools for scientists and engineers.'' --- Wolf Prize Citation
@@ -569,7 +570,7 @@ Several deep problems remain:
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1926 & Born on May 1 in Budapest, Hungary \\ \hline
@@ -592,43 +593,47 @@ Several deep problems remain:
 1987 & Awarded the Wolf Prize in Mathematics (shared with Kiyoshi It\^{o}) \\ \hline
 2005 & Awarded the Abel Prize from the Norwegian Academy of Science and Letters \\ \hline
 2013 & Celebrated 60 years on the faculty at NYU \\ \hline
-\end{tabular}
+\end{tabularx}
+
+\section{Related Chapters}
+
+See also Chapter~01 (Gelfand) on functional analysis and operator theory.
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Let \(H = L^2(0,1)\) and define \(B(u,v) = \int_0^1 u'(x) v'(x) \,dx\) on \(H_0^1(0,1)\). Verify the continuity and coercivity of \(B\), and find the unique weak solution of \(-u'' = f\) for \(f \equiv 1\) using the Lax--Milgram theorem.
-    \item Prove that the Lax--Friedrichs scheme is monotone: if \(u_j^n \geq v_j^n\) for all \(j\), then \(u_j^{n+1} \geq v_j^{n+1}\) for all \(j\), provided the CFL condition holds.
-    \item Derive the Lax--Wendroff scheme by starting from the Taylor expansion
+    \item [B] Let \(H = L^2(0,1)\) and define \(B(u,v) = \int_0^1 u'(x) v'(x) \,dx\) on \(H_0^1(0,1)\). Verify the continuity and coercivity of \(B\), and find the unique weak solution of \(-u'' = f\) for \(f \equiv 1\) using the Lax--Milgram theorem.
+    \item [I] Prove that the Lax--Friedrichs scheme is monotone: if \(u_j^n \geq v_j^n\) for all \(j\), then \(u_j^{n+1} \geq v_j^{n+1}\) for all \(j\), provided the CFL condition holds.
+    \item [I] Derive the Lax--Wendroff scheme by starting from the Taylor expansion
     \[
     u(x, t + \Delta t) = u - \Delta t\, f_x + \frac12 \Delta t^2\, (f'(u) f_x)_x + O(\Delta t^3)
     \]
     and approximating the spatial derivatives by central differences.
-    \item Consider the Burgers equation \(u_t + (u^2/2)_x = 0\) with Riemann data \(u_L = 1, u_R = 0\). Show that the shock with speed \(s = 1/2\) satisfies the Lax entropy condition, while the rarefaction wave connecting \(u_L\) to \(u_R\) does not correspond to a single discontinuity.
-    \item For the KdV equation, verify directly that the Lax pair \((L, M)\) with \(L = -\partial_x^2 + u\) and \(M = -4\partial_x^3 + 3(u\partial_x + \partial_x u)\) satisfies \(L_t = [L, M]\) if and only if \(u_t = u_{xxx} - 6uu_x\).
-    \item Show that the spectrum of \(L(t) = -\partial_x^2 + u(x,t)\) is independent of time when \(u\) evolves by the KdV equation. (Hint: use the Lax pair to show that \(L(t)\) is unitarily equivalent to \(L(0)\).)
-    \item For the scalar conservation law \(u_t + f(u)_x = 0\) with convex flux, prove that the Lax entropy condition \(f'(u_L) > s > f'(u_R)\) is equivalent to the Oleinik entropy condition:
+    \item [B] Consider the Burgers equation \(u_t + (u^2/2)_x = 0\) with Riemann data \(u_L = 1, u_R = 0\). Show that the shock with speed \(s = 1/2\) satisfies the Lax entropy condition, while the rarefaction wave connecting \(u_L\) to \(u_R\) does not correspond to a single discontinuity.
+    \item [I] For the KdV equation, verify directly that the Lax pair \((L, M)\) with \(L = -\partial_x^2 + u\) and \(M = -4\partial_x^3 + 3(u\partial_x + \partial_x u)\) satisfies \(L_t = [L, M]\) if and only if \(u_t = u_{xxx} - 6uu_x\).
+    \item [I] Show that the spectrum of \(L(t) = -\partial_x^2 + u(x,t)\) is independent of time when \(u\) evolves by the KdV equation. (Hint: use the Lax pair to show that \(L(t)\) is unitarily equivalent to \(L(0)\).)
+    \item [I] For the scalar conservation law \(u_t + f(u)_x = 0\) with convex flux, prove that the Lax entropy condition \(f'(u_L) > s > f'(u_R)\) is equivalent to the Oleinik entropy condition:
     \[
     \frac{f(u) - f(u_L)}{u - u_L} \geq s \geq \frac{f(u) - f(u_R)}{u - u_R}
     \]
     for all \(u\) between \(u_L\) and \(u_R\).
-    \item Implement the Lax--Friedrichs scheme for the inviscid Burgers equation with initial data \(u(x,0) = \sin(\pi x)\) on \([-1,1]\) with periodic boundary conditions. Compute the numerical solution at \(t = 0.5\) using \(\Delta x = 0.01\) and \(\Delta t = 0.005\). Observe the formation of a shock.
-    \item Prove that the Lax--Milgram theorem implies the existence and uniqueness of weak solutions for the convection--diffusion equation
+    \item [B] Implement the Lax--Friedrichs scheme for the inviscid Burgers equation with initial data \(u(x,0) = \sin(\pi x)\) on \([-1,1]\) with periodic boundary conditions. Compute the numerical solution at \(t = 0.5\) using \(\Delta x = 0.01\) and \(\Delta t = 0.005\). Observe the formation of a shock.
+    \item [I] Prove that the Lax--Milgram theorem implies the existence and uniqueness of weak solutions for the convection--diffusion equation
     \[
     -\varepsilon u'' + b u' = f, \quad u(0) = u(1) = 0,
     \]
     where \(\varepsilon > 0\) and \(b\) is a constant.
-    \item For the nonlinear Schr\"odinger equation \(i u_t + u_{xx} + 2|u|^2 u = 0\), verify that the given Lax pair satisfies the zero-curvature condition \(P_t - Q_x + [P,Q] = 0\).
-    \item Let \(B(u,v)\) be a continuous, coercive bilinear form on a Hilbert space \(H\). Prove that the solution operator \(L \mapsto u\) is linear and continuous from \(H'\) to \(H\) with norm \(\|u\| \leq \|L\|/\alpha\).
-    \item Show that the Lax equivalence theorem fails for nonlinear problems by constructing a consistent, stable finite-difference scheme for Burgers equation that does not converge to the entropy solution.
-    \item Derive the Lax--Phillips semigroup \(Z(t) = P_+ U(t) P_-\) and show that it is a strongly continuous semigroup of contractions on the orthogonal complement of \(\mathcal{D}_+ \oplus \mathcal{D}_-\).
-    \item Prove that the one-soliton solution of the KdV equation,
+    \item [A] For the nonlinear Schr\"odinger equation \(i u_t + u_{xx} + 2|u|^2 u = 0\), verify that the given Lax pair satisfies the zero-curvature condition \(P_t - Q_x + [P,Q] = 0\).
+    \item [B] Let \(B(u,v)\) be a continuous, coercive bilinear form on a Hilbert space \(H\). Prove that the solution operator \(L \mapsto u\) is linear and continuous from \(H'\) to \(H\) with norm \(\|u\| \leq \|L\|/\alpha\).
+    \item [I] Show that the Lax equivalence theorem fails for nonlinear problems by constructing a consistent, stable finite-difference scheme for Burgers equation that does not converge to the entropy solution.
+    \item [A] Derive the Lax--Phillips semigroup \(Z(t) = P_+ U(t) P_-\) and show that it is a strongly continuous semigroup of contractions on the orthogonal complement of \(\mathcal{D}_+ \oplus \mathcal{D}_-\).
+    \item [I] Prove that the one-soliton solution of the KdV equation,
     \[
     u(x,t) = -2\kappa^2 \operatorname{sech}^2(\kappa(x - 4\kappa^2 t - x_0)),
     \]
     satisfies the Lax pair condition. Show that the Schr\"odinger operator with this potential has exactly one bound state at energy \(E = -\kappa^2\).
-    \item Consider the Lax--Wendroff theorem. Construct a sequence of numerical solutions that converge boundedly to a weak solution that is not an entropy solution, illustrating the necessity of the discrete entropy inequality.
+    \item [A] Consider the Lax--Wendroff theorem. Construct a sequence of numerical solutions that converge boundedly to a weak solution that is not an entropy solution, illustrating the necessity of the discrete entropy inequality.
 \end{enumerate}
 
 \section*{Glossary}

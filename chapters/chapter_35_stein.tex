@@ -28,6 +28,7 @@
 \newcommand{\Aut}{\operatorname{Aut}}
 
 \chapter{Elias M.\ Stein (1999)}
+\index{Stein, Elias M.\}
 
 \begin{quote}
 \it ``Stein's work has had a profound and lasting influence on modern analysis. His theories of singular integrals, his complex interpolation method for operators, his maximal and square functions, and his extension of the Calder\'on--Zygmund program have become indispensable tools throughout mathematics. His profound contributions to harmonic analysis on Euclidean spaces, on Lie groups, and in several complex variables, together with his creation of a school of analysts at Princeton, have shaped the discipline for decades.'' --- Wolf Prize Citation
@@ -441,7 +442,7 @@ Stein supervised over forty PhD students at Princeton. The most famous are Charl
 
 \section{Timeline}
 
-\begin{tabular}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1931 & Born on January 13 in Antwerp, Belgium \\ \hline
@@ -466,34 +467,34 @@ Stein supervised over forty PhD students at Princeton. The most famous are Charl
 1999 & Awarded the Wolf Prize in Mathematics (shared with L.\ Lov\'asz) \\ \hline
 1999 & Retires from Princeton University \\ \hline
 2018 & Dies on December 23 in Princeton, New Jersey, USA \\ \hline
-\end{tabular}
+\end{tabularx}
 
 \section*{Exercises}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item Prove the Hardy--Littlewood maximal inequality for \(n = 1\) using the Vitali covering lemma.
-    \item Show that the Hilbert transform
+    \item [B] Prove the Hardy--Littlewood maximal inequality for \(n = 1\) using the Vitali covering lemma.
+    \item [I] Show that the Hilbert transform
     \[
     Hf(x) = \PV \int_{-\infty}^\infty \frac{f(y)}{x-y}\,dy
     \]
     is bounded on \(L^p(\R)\) for \(1 < p < \infty\) using the Calder\'on--Zygmund decomposition.
-    \item Prove that the Riesz transforms \(R_j f(x) = c_n \PV \int \frac{x_j - y_j}{|x-y|^{n+1}} f(y)\,dy\) satisfy \(R_j: L^p(\R^n) \to L^p(\R^n)\) for \(1 < p < \infty\).
-    \item Let \(T_z\) be a family of operators satisfying the conditions of the Stein interpolation theorem. Show that for \(f\) and \(g\) simple functions, the function \(\varphi(z) = \int (T_z f) g\) is analytic in the strip \(0 < \Re(z) < 1\).
-    \item Prove that the maximal function \(Mf\) is not bounded on \(L^1(\R^n)\) (i.e., there exists \(f \in L^1\) such that \(Mf \notin L^1\)).
-    \item Let \(f \in L^1_{\text{loc}}(\R^n)\). Show that the set \(\{x : Mf(x) > \alpha\}\) is open.
-    \item For a strictly pseudoconvex domain \(\Omega \subset \C^n\), show that the Szeg\"o projection (the orthogonal projection of \(L^2(\partial\Omega)\) onto the Hardy space) is a singular integral operator on the Heisenberg group.
-    \item Let \(\mathbb{H}^1\) be the three-dimensional Heisenberg group. Compute the fundamental solution of the sub-Laplacian \(\mathcal{L} = -(X^2 + Y^2)\) and verify that it is homogeneous of degree \(-2\) with respect to the natural dilations.
-    \item Prove that the Bergman kernel of the unit disk \(B(z,w) = \frac{1}{\pi(1 - z\overline{w})^2}\) satisfies the reproducing property: \(f(z) = \int_{|w|<1} B(z,w) f(w)\,dw\) for all holomorphic \(f \in L^2\).
-    \item Let \(f \in H^1(\R^n)\). Show that \(\int f(x)\,dx = 0\).
-    \item For the group \(G = \SL(2,\R)\), show that the Kunze--Stein phenomenon implies that \(L^p(G) * L^2(G) \subset L^2(G)\) for \(1 \leq p < 2\).
-    \item Let \(\Omega = \{(z_1,z_2) \in \C^2 : |z_1|^2 + |z_2|^2 < 1\}\) be the unit ball. Compute the Bergman kernel and show that it has the asymptotic expansion \(B(z,\overline{z}) \sim \frac{2}{\pi^2 (1 - |z|^2)^3}\).
-    \item Prove the three-lines theorem: if \(\varphi\) is analytic and bounded on the strip \(0 \leq \Re(z) \leq 1\), and \(|\varphi(it)| \leq M_0\), \(|\varphi(1+it)| \leq M_1\), then \(|\varphi(\theta + it)| \leq M_0^{1-\theta} M_1^\theta\) for \(0 \leq \theta \leq 1\).
-    \item Show that the Fefferman--Stein duality theorem implies that every bounded linear functional on \(H^1(\R^n)\) is given by integration against a BMO function.
-    \item Let \(f \in L^p(\R^n)\) and define \(f_t(x) = t^{-n/p} f(x/t)\) for \(t > 0\). Show that the maximal operator \(Mf(x) = \sup_{t>0} |\phi * f_t(x)|\) is bounded from \(L^p\) to \(L^{p,\infty}\) for a suitable Schwartz function \(\phi\).
-    \item Compute the intertwining operator for \(\SL(2,\R)\) induced from the minimal parabolic subgroup, and show that its analytic continuation gives rise to the complementary series representations.
-    \item Let \(\Omega \subset \C^n\) be a smoothly bounded strictly pseudoconvex domain. Prove that the Szeg\"o projection maps \(L^p(\partial\Omega)\) boundedly onto itself for \(1 < p < \infty\).
-    \item Prove that the atomic decomposition of \(H^1(\R^n)\) is equivalent to the maximal function characterization: \(\|f\|_{H^1} \sim \|f^*\|_{L^1}\) where \(f^*(x) = \sup_{t>0} |\phi_t * f(x)|\).
+    \item [I] Prove that the Riesz transforms \(R_j f(x) = c_n \PV \int \frac{x_j - y_j}{|x-y|^{n+1}} f(y)\,dy\) satisfy \(R_j: L^p(\R^n) \to L^p(\R^n)\) for \(1 < p < \infty\).
+    \item [A] Let \(T_z\) be a family of operators satisfying the conditions of the Stein interpolation theorem. Show that for \(f\) and \(g\) simple functions, the function \(\varphi(z) = \int (T_z f) g\) is analytic in the strip \(0 < \Re(z) < 1\).
+    \item [B] Prove that the maximal function \(Mf\) is not bounded on \(L^1(\R^n)\) (i.e., there exists \(f \in L^1\) such that \(Mf \notin L^1\)).
+    \item [B] Let \(f \in L^1_{\text{loc}}(\R^n)\). Show that the set \(\{x : Mf(x) > \alpha\}\) is open.
+    \item [A] For a strictly pseudoconvex domain \(\Omega \subset \C^n\), show that the Szeg\"o projection (the orthogonal projection of \(L^2(\partial\Omega)\) onto the Hardy space) is a singular integral operator on the Heisenberg group.
+    \item [A] Let \(\mathbb{H}^1\) be the three-dimensional Heisenberg group. Compute the fundamental solution of the sub-Laplacian \(\mathcal{L} = -(X^2 + Y^2)\) and verify that it is homogeneous of degree \(-2\) with respect to the natural dilations.
+    \item [B] Prove that the Bergman kernel of the unit disk \(B(z,w) = \frac{1}{\pi(1 - z\overline{w})^2}\) satisfies the reproducing property: \(f(z) = \int_{|w|<1} B(z,w) f(w)\,dw\) for all holomorphic \(f \in L^2\).
+    \item [B] Let \(f \in H^1(\R^n)\). Show that \(\int f(x)\,dx = 0\).
+    \item [A] For the group \(G = \SL(2,\R)\), show that the Kunze--Stein phenomenon implies that \(L^p(G) * L^2(G) \subset L^2(G)\) for \(1 \leq p < 2\).
+    \item [I] Let \(\Omega = \{(z_1,z_2) \in \C^2 : |z_1|^2 + |z_2|^2 < 1\}\) be the unit ball. Compute the Bergman kernel and show that it has the asymptotic expansion \(B(z,\overline{z}) \sim \frac{2}{\pi^2 (1 - |z|^2)^3}\).
+    \item [B] Prove the three-lines theorem: if \(\varphi\) is analytic and bounded on the strip \(0 \leq \Re(z) \leq 1\), and \(|\varphi(it)| \leq M_0\), \(|\varphi(1+it)| \leq M_1\), then \(|\varphi(\theta + it)| \leq M_0^{1-\theta} M_1^\theta\) for \(0 \leq \theta \leq 1\).
+    \item [I] Show that the Fefferman--Stein duality theorem implies that every bounded linear functional on \(H^1(\R^n)\) is given by integration against a BMO function.
+    \item [I] Let \(f \in L^p(\R^n)\) and define \(f_t(x) = t^{-n/p} f(x/t)\) for \(t > 0\). Show that the maximal operator \(Mf(x) = \sup_{t>0} |\phi * f_t(x)|\) is bounded from \(L^p\) to \(L^{p,\infty}\) for a suitable Schwartz function \(\phi\).
+    \item [A] Compute the intertwining operator for \(\SL(2,\R)\) induced from the minimal parabolic subgroup, and show that its analytic continuation gives rise to the complementary series representations.
+    \item [A] Let \(\Omega \subset \C^n\) be a smoothly bounded strictly pseudoconvex domain. Prove that the Szeg\"o projection maps \(L^p(\partial\Omega)\) boundedly onto itself for \(1 < p < \infty\).
+    \item [I] Prove that the atomic decomposition of \(H^1(\R^n)\) is equivalent to the maximal function characterization: \(\|f\|_{H^1} \sim \|f^*\|_{L^1}\) where \(f^*(x) = \sup_{t>0} |\phi_t * f(x)|\).
 \end{enumerate}
 
 \section*{Glossary}
