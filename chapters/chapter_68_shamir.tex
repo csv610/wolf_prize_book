@@ -1,25 +1,34 @@
 \providecommand{\poly}{\operatorname{poly}}
+\providecommand{\BPP}{\operatorname{BPP}}
 
 \chapter{Adi Shamir (2024)}
 \index{Shamir, Adi}
 
 \begin{quote}
-\it ``Adi Shamir has been one of the most influential figures in cryptography and theoretical computer science. The RSA cryptosystem, which he co-invented, is the foundation of modern secure communication. His contributions to cryptanalysis, secret sharing, and zero-knowledge proofs have shaped the very nature of security in the digital age.'' --- Wolf Prize Citation, 2024
+\it ``Adi Shamir has been one of the most influential figures in cryptography and theoretical computer science. The RSA cryptosystem\index{RSA algorithm}, which he co-invented, is the foundation of modern secure communication. His contributions to cryptanalysis, secret sharing, and zero-knowledge proofs have shaped the very nature of security in the digital age.'' --- Wolf Prize Citation, 2024
 \end{quote}
-
-\section{Main Contributions}
 
 Adi Shamir (born 1952) is an Israeli cryptographer and computer scientist whose work has fundamentally shaped modern cryptography and cybersecurity. He was awarded the Wolf Prize in Mathematics in 2024 alongside Noga Alon.
 
 The Wolf Prize citation reads: ``for their pioneering contributions to the mathematical foundations of computer science, and for their profound and lasting impact on combinatorics and number theory.''
 
+\section{Early Life and Career}
+
+Shamir was born on May 6, 1952, in Tel Aviv, Israel. He studied mathematics and computer science at Tel Aviv University, completing his B.Sc.\ in 1973. He then pursued graduate studies at the Weizmann Institute of Science under the supervision of Zohar Manna, completing his PhD in 1977 with a thesis on the complexity of planar graph problems.
+
+After a postdoctoral period at MIT (1977--1980), where he collaborated with Ronald Rivest and Leonard Adleman on the RSA cryptosystem, Shamir returned to Israel and joined the faculty of the Weizmann Institute in 1983. He has remained there since, as the W.\ Worms Professor of Computer Science and the director of the Cryptography and Computer Security Research Center.
+
+Shamir's work is distinguished by its combination of deep mathematical insight and practical impact. Unlike many theorists, Shamir has consistently engaged with real-world cryptographic systems, both building them and breaking them. His attacks on cryptographic systems have been as influential as his constructions, forcing the design of stronger encryption standards.
+
+\section{Main Contributions}
+
 Shamir's core contributions include:
 \begin{itemize}
-    \item \textbf{RSA Cryptosystem:} The invention (with Rivest and Adleman) of the RSA public-key cryptosystem, which uses the difficulty of factoring large integers to enable secure communication. RSA is the world's most widely used public-key cryptosystem.
-    \item \textbf{Shamir's Secret Sharing:} A scheme for splitting a secret into $n$ shares such that any $k$ shares reconstruct the secret but any $k-1$ shares reveal nothing. This is fundamental to secure multiparty computation.
+    \item \textbf{RSA Cryptosystem\index{RSA cryptography}:} The invention (with Rivest and Adleman) of the RSA public-key cryptosystem, which uses the difficulty of factoring large integers to enable secure communication. RSA is the world's most widely used public-key cryptosystem.
+    \item \textbf{Shamir's Secret Sharing\index{secret sharing}:} A scheme for splitting a secret into $n$ shares such that any $k$ shares reconstruct the secret but any $k-1$ shares reveal nothing. This is fundamental to secure multiparty computation.
     \item \textbf{Differential Cryptanalysis:} The invention (with Biham) of differential cryptanalysis, a powerful method for analyzing and breaking symmetric-key ciphers, which transformed the design of block ciphers.
     \item \textbf{The TWIRL Machine:} A design for a specialized hardware device for factoring large numbers, demonstrating practical threats to RSA security.
-    \item \textbf{Zero-Knowledge Proofs:} The Feige--Fiat--Shamir identification scheme and foundational contributions to zero-knowledge protocols.
+    \item \textbf{Zero-Knowledge Proofs\index{zero-knowledge proof}:} The Feige--Fiat--Shamir identification scheme and foundational contributions to zero-knowledge protocols.
     \item \textbf{Visual Cryptography:} A cryptographic technique allowing visual information (e.g., images) to be encrypted in such a way that decryption is performed by the human visual system.
     \item \textbf{Cryptanalysis:} Attacks on numerous cryptographic systems, including the Shamir attack on the Merkle--Hellman knapsack cryptosystem.
 \end{itemize}
@@ -30,7 +39,7 @@ Shamir's core contributions include:
 
 Before the 1970s, cryptography used symmetric keys: both sender and receiver shared a secret key. This created the key distribution problem: how do two parties who have never met agree on a secret key over a public channel?
 
-Diffie and Hellman (1976) proposed the concept of public-key cryptography: a system with two keys, a public key for encryption and a private key for decryption. The challenge: find a practical one-way function (easy to compute, hard to invert) that supports a trapdoor (the private key).
+Diffie and Hellman (1976) proposed the concept of public-key cryptography: a system with two keys, a public key for encryption and a private key for decryption. The challenge: find a practical one-way function\index{one-way function} (easy to compute, hard to invert) that supports a trapdoor (the private key).
 
 \subsection{The RSA Solution}
 
@@ -82,7 +91,22 @@ For any $m \in \Z_n^*$, RSA decryption recovers the original plaintext:
 \[
 (m^e)^d \equiv m^{ed} \equiv m^{1 + k\varphi(n)} \equiv m \pmod n
 \]
+where the last step uses Euler's theorem $m^{\varphi(n)} \equiv 1 \pmod n$.
 \end{theorem}
+
+\begin{proof}
+Since $ed \equiv 1 \pmod{\varphi(n)}$, we have $ed = 1 + k\varphi(n)$ for some integer $k$. Then $m^{ed} = m^{1 + k\varphi(n)} = m \cdot (m^{\varphi(n)})^k$. By Euler's theorem, $m^{\varphi(n)} \equiv 1 \pmod n$ when $\gcd(m, n) = 1$, so $m^{ed} \equiv m \pmod n$. The case $\gcd(m, n) \neq 1$ can be handled separately by working modulo $p$ and $q$ individually.
+\end{proof}
+
+\begin{theorem}[RSA Security Assumption]
+Breaking RSA (recovering $m$ from $c = m^e \mod n$) is at least as hard as factoring $n$. More precisely, computing the private key $d$ from $(n, e)$ is equivalent to factoring $n$.
+\end{theorem}
+
+This equivalence was proved by Rivest, Shamir, and Adleman in their original paper. However, it remains possible that breaking RSA could be easier than factoring (i.e., there could be a direct attack on the cryptographic problem without factoring $n$). No such attack is known.
+
+\begin{remark}
+The RSA assumption is stronger than the factoring assumption. There exist trapdoor permutations based on factoring that are not equivalent to RSA (e.g., the Rabin cryptosystem, where $c = m^2 \mod n$; decryption requires knowing $p$ and $q$ to compute square roots, and security is provably equivalent to factoring).
+\end{remark}
 
 \subsection{Shamir's Secret Sharing}
 
@@ -100,6 +124,36 @@ Reconstruction: given any $k$ shares $(i, s_i)$, use Lagrange interpolation to r
 The Shamir scheme is perfectly secret: any $k-1$ shares provide no information about $s$ (the distribution of the shares is independent of $s$).
 \end{theorem}
 
+\begin{proof}
+Given any $k-1$ shares, the missing share positions determine a system of $k-1$ linear equations in $k$ unknowns (the coefficients of $P$). For any candidate secret $s' \in \F$, there is exactly one polynomial $P'$ of degree $< k$ consistent with the $k-1$ shares and having constant term $s'$. Since the coefficients $a_1, \ldots, a_{k-1}$ were chosen uniformly at random, the conditional distribution of the remaining shares given the $k-1$ observed shares is uniform over $\F^{n-k+1}$, regardless of $s$.
+\end{proof}
+
+\begin{remark}
+Shamir's scheme has the information-theoretic property that it is \textbf{unconditionally secure}: the security does not depend on any computational assumption. This is in contrast to RSA, whose security relies on the factoring assumption.
+\end{remark}
+
+\subsection{Visual Cryptography}
+
+Shamir introduced the concept of \textbf{visual cryptography} (with Naor and Adi in 1994), a method for encrypting visual information (such as images) so that decryption can be performed by the human visual system without any computation.
+
+The basic $(2,2)$ visual secret sharing scheme works as follows:
+\begin{enumerate}
+    \item The secret image $S$ is a binary image (black and white pixels).
+    \item Two transparencies $T_1$ and $T_2$ are generated, each containing a random pattern of subpixels.
+    \item Each pixel of $S$ is encoded as a $2 \times 2$ block of subpixels in each transparency.
+    \item When the two transparencies are stacked, black pixels of $S$ produce a completely black block, while white pixels produce a block that is half black and half white.
+\end{enumerate}
+
+The security guarantee: either transparency alone reveals no information about $S$ (each is a random pattern).
+
+\subsection{The Shamir Attack on the Knapsack Cryptosystem}
+
+The Merkle--Hellman knapsack cryptosystem (1978) was one of the first proposed public-key cryptosystems based on an NP-complete problem. Shamir showed in 1982 that the system is insecure, despite the underlying knapsack problem being NP-hard.
+
+The key insight: the superincreasing structure of the private key creates a lattice-like structure that can be exploited. Shamir's attack uses a \textbf{density argument}: the density of the knapsack instance (the ratio of the number of items to the bit-length of the modulus) is too low to resist lattice reduction algorithms. Specifically, the LLL algorithm (Lenstra--Lenstra--Lov\'asz, 1982) can recover the secret key in polynomial time.
+
+This was a landmark result in cryptanalysis: it showed that NP-hardness of the underlying problem does not imply security of the cryptosystem. The security of a cryptographic system depends on the \textit{average-case} hardness of the problem, not the worst-case hardness.
+
 \subsection{Differential Cryptanalysis}
 
 \begin{definition}[Differential Characteristic]
@@ -113,6 +167,15 @@ For a cipher $E_K$, a \textbf{differential characteristic} $(\Delta P, \Delta C)
 DES can be broken using $2^{47}$ chosen plaintexts using differential cryptanalysis, compared to $2^{56}$ for exhaustive search. This is the first publicly known attack faster than brute force on DES.
 \end{theorem}
 
+The general methodology of differential cryptanalysis:
+\begin{enumerate}
+    \item \textbf{Differential analysis:} For each pair of plaintexts with a fixed XOR difference $\Delta P$, track how this difference propagates through the cipher's round function.
+    \item \textbf{Characteristic probability:} Compute the probability that a particular input difference $\Delta P$ produces a particular output difference $\Delta C$ through the entire cipher.
+    \item \textbf{Key recovery:} For high-probability characteristics, use the relationship between $\Delta P$, $\Delta C$, and the round subkeys to recover key bits via a chosen-plaintext attack.
+\end{enumerate}
+
+The design of modern block ciphers (particularly AES) was influenced by differential cryptanalysis. AES uses an S-box based on the inversion map in $\F_{2^8}$, which was specifically chosen to resist differential attacks by minimizing the maximum differential probability.
+
 \subsection{Zero-Knowledge Proofs}
 
 \begin{definition}[Zero-Knowledge Proof]
@@ -124,103 +187,132 @@ A protocol between a prover $P$ and a verifier $V$ is a \textbf{zero-knowledge p
 \end{enumerate}
 \end{definition}
 
-The Feige--Fiat--Shamir protocol provided an efficient identification scheme based on zero-knowledge proofs.
+The Feige--Fiat--Shamir protocol provided an efficient identification scheme based on zero-knowledge proofs. The protocol works as follows:
+\begin{enumerate}
+    \item \textbf{Setup:} A trusted center publishes $n = pq$ (RSA modulus) and a public key $v = x^2 \mod n$ for the prover (where $x$ is the secret key).
+    \item \textbf{Challenge:} The prover sends $y = r^2 \mod n$ for a random $r$. The verifier sends a random bit $b \in \{0, 1\}$.
+    \item \textbf{Response:} If $b = 0$, the prover sends $r$; if $b = 1$, the prover sends $rx \mod n$.
+    \item \textbf{Verification:} If $b = 0$, check $y = r^2 \mod n$; if $b = 1$, check $y = (r' )^2 \cdot v \mod n$.
+\end{enumerate}
+
+This protocol is zero-knowledge because the transcript can be simulated: given $b$ and the response, one can compute $y$ without knowing $x$.
 
 \section{Impact on Science and Technology}
 
 \subsection{In Computer Science}
 
 \begin{enumerate}
-    \item \textbf{Cryptography:} RSA is the foundation of internet security (SSL/TLS, PGP, digital signatures).
-    \item \textbf{Cryptanalysis:} Differential cryptanalysis influenced the design of modern block ciphers (AES).
-    \item \textbf{Secure Computation:} Secret sharing is fundamental to multiparty computation.
-    \item \textbf{Number Theory:} The security of RSA motivated advances in factoring algorithms and primality testing.
+    \item \textbf{Cryptography:} RSA is the foundation of internet security (SSL/TLS, PGP, digital signatures). It enables secure e-commerce, encrypted email, and secure communication over the internet.
+    \item \textbf{Cryptanalysis:} Differential cryptanalysis influenced the design of modern block ciphers (AES). The Advanced Encryption Standard was designed specifically to resist differential and linear attacks.
+    \item \textbf{Secure Computation:} Secret sharing is fundamental to multiparty computation, distributed key generation, and threshold cryptography. It enables secure protocols where no single party holds the entire secret.
+    \item \textbf{Number Theory:} The security of RSA motivated advances in factoring algorithms (number field sieve, elliptic curve method) and primality testing (Miller--Rabin, AKS).
 \end{enumerate}
 
 \subsection{In Mathematics}
 
 \begin{enumerate}
-    \item \textbf{Algorithmic Number Theory:} RSA motivated research into factoring and discrete logarithm algorithms.
-    \item \textbf{Probability and Combinatorics:} Secret sharing and zero-knowledge proofs use probabilistic methods.
-    \item \textbf{Computational Complexity:} The theory of one-way functions and pseudorandom generators.
+    \item \textbf{Algorithmic Number Theory:} RSA motivated research into factoring and discrete logarithm algorithms. The number field sieve (the fastest known factoring algorithm) was developed in part to understand RSA security.
+    \item \textbf{Probability and Combinatorics:} Secret sharing and zero-knowledge proofs use probabilistic methods extensively. The analysis of differential characteristics requires sophisticated probabilistic arguments.
+    \item \textbf{Computational Complexity:} The theory of one-way functions and pseudorandom generators was developed largely in response to cryptographic needs. The existence of one-way functions is a central open problem in complexity theory.
+    \item \textbf{Lattice Theory:} Shamir's attack on the knapsack cryptosystem helped launch the field of lattice-based cryptography, which is now a leading candidate for post-quantum cryptography.
 \end{enumerate}
 
 \subsection{In Practice}
 
 \begin{enumerate}
-    \item \textbf{Secure Communication:} Every HTTPS connection uses RSA (or related) for key exchange.
-    \item \textbf{Financial Transactions:} Credit cards, banking, and cryptocurrency use public-key cryptography.
-    \item \textbf{Digital Signatures:} RSA signatures are used for software updates, document signing, and email.
-    \item \textbf{National Security:} Cryptography is essential for secure government communications.
+    \item \textbf{Secure Communication:} Every HTTPS connection uses RSA (or related) for key exchange. The padlock icon in your browser relies on RSA or elliptic-curve cryptography.
+    \item \textbf{Financial Transactions:} Credit cards, banking, and cryptocurrency use public-key cryptography. RSA signatures verify the authenticity of financial transactions.
+    \item \textbf{Digital Signatures:} RSA signatures are used for software updates, document signing, and email. Code-signing certificates use RSA to verify software integrity.
+    \item \textbf{National Security:} Cryptography is essential for secure government communications, intelligence, and military operations.
+    \item \textbf{Blockchain:} While Bitcoin uses elliptic-curve cryptography (not RSA), the mathematical foundations laid by Shamir's work underpin the entire field of cryptocurrency.
 \end{enumerate}
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: How does RSA work?}
-Choose two large primes $p$ and $q$, compute $n = pq$. The public key is $(n, e)$ where $e$ is coprime to $(p-1)(q-1)$. The private key is $d$, the modular inverse of $e$. Encryption: $c = m^e \mod n$. Decryption: $m = c^d \mod n$.
+Choose two large primes $p$ and $q$, compute $n = pq$. The public key is $(n, e)$ where $e$ is coprime to $(p-1)(q-1)$. The private key is $d$, the modular inverse of $e$. Encryption: $c = m^e \mod n$. Decryption: $m = c^d \mod n$. The security relies on the fact that computing $d$ from $(n, e)$ requires knowing the factorization of $n$.
 
 \subsection*{Q2: What is Shamir's secret sharing?}
-A method for splitting a secret into $n$ shares so that any $k$ shares can reconstruct the secret but any $k-1$ reveal nothing. It uses polynomial interpolation: the secret is the constant term of a random degree $k-1$ polynomial.
+A method for splitting a secret into $n$ shares so that any $k$ shares can reconstruct the secret but any $k-1$ reveal nothing. It uses polynomial interpolation: the secret is the constant term of a random degree $k-1$ polynomial. The scheme is information-theoretically secure, meaning it is unconditionally secure against any adversary.
 
 \subsection*{Q3: What is differential cryptanalysis?}
-A method for analyzing block ciphers by studying how differences in input pairs propagate through the cipher. It was used by Biham and Shamir to break DES faster than brute force.
+A method for analyzing block ciphers by studying how differences in input pairs propagate through the cipher. Biham and Shamir showed that DES can be broken faster than brute force using this technique. The method influenced the design of AES, which uses an S-box specifically chosen to resist differential attacks.
 
 \subsection*{Q4: What is a zero-knowledge proof?}
-A protocol where one party proves to another that a statement is true without revealing any information beyond the truth of the statement. The Feige--Fiat--Shamir protocol is a classic example.
+A protocol where one party proves to another that a statement is true without revealing any information beyond the truth of the statement. The Feige--Fiat--Shamir protocol is a classic example used for identification. Zero-knowledge proofs have applications in authentication, blockchain (zk-SNARKs), and secure multiparty computation.
 
-\subsection*{Q5: What should an undergraduate study to understand Shamir's work?}
+\subsection*{Q5: Why is the knapsack cryptosystem insecure despite the knapsack problem being NP-hard?}
+NP-hardness refers to worst-case hardness: some instances are hard. Cryptographic security requires average-case hardness: random instances must be hard. The Merkle--Hellman knapsack uses a superincreasing structure that makes the average case easy, even though the general problem is NP-hard. Shamir's attack exploited this gap, demonstrating that worst-case hardness is insufficient for cryptographic security.
+
+\subsection*{Q6: What should an undergraduate study to understand Shamir's work?}
 Number theory (modular arithmetic, primality, factoring), probability, and algorithms. Recommended: \textit{Handbook of Applied Cryptography} (Menezes--Vanstone), \textit{Introduction to Cryptography} (Trappe--Washington), and \textit{Foundations of Cryptography} (Goldreich).
+
+\section{Related Chapters}
+See also Chapter~67 (Alon) on combinatorics and theoretical computer science and Chapter~34 (Lovász) on graph theory.
 
 \section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
     \item [B] Show that RSA decryption works: $(m^e)^d \equiv m \pmod n$ for $m$ coprime to $n$.
-    \item [B] Implement Shamir's $(3,5)$-threshold secret sharing over a finite field.
-    \item [I] Show that breaking RSA by computing $\varphi(n)$ is as hard as factoring $n$.
-    \item [I] Compute the probability of a differential characteristic for a simple 2-round Feistel cipher.
-    \item [A] Show that the Feige--Fiat--Shamir protocol is a zero-knowledge proof of identity.
-    \item [B] Implement the RSA algorithm for 1024-bit keys.
-    \item [I] Show that if $p$ and $q$ are close, $n = pq$ can be factored easily (Fermat factorization).
+    \item [B] Compute $\varphi(n)$ for $n = 77 = 7 \times 11$ and find the RSA private key $d$ when $e = 13$.
+    \item [B] Show that for $n = pq$, any $k$ of the $n$ shares in Shamir's scheme uniquely determine the polynomial $P$ of degree $< k$.
+    \item [I] Show that breaking RSA by computing $\varphi(n)$ is as hard as factoring $n$. (Hint: given $\varphi(n) = (p-1)(q-1)$ and $n = pq$, solve for $p + q$ and use the quadratic formula.)
+    \item [I] Show that if $p$ and $q$ are close (say $|p - q| < 2n^{1/4}$), then $n = pq$ can be factored easily using Fermat's method of continued fractions.
+    \item [I] Implement Shamir's $(3,5)$-threshold secret sharing over $\F_{97}$ and verify that any 3 shares reconstruct the secret while 2 shares provide no information.
+    \item [A] Prove that the Feige--Fiat--Shamir protocol is zero-knowledge by constructing an explicit simulator that produces transcripts indistinguishable from real ones.
+    \item [I] Compute the probability of a differential characteristic for a simple 2-round Feistel cipher with $S$-box $S(x) = x^3 \mod 17$.
+    \item [B] Show that the Merkle--Hellman knapsack cryptosystem is insecure by finding the secret key for the public key $(62, 81, 119, 143, 245)$ with modulus $379$ and multiplier $29$.
+    \item [I] Show that RSA is a homomorphic cryptosystem: $E(m_1) \cdot E(m_2) = E(m_1 \cdot m_2)$ where $E(m) = m^e \mod n$. Explain why this property is both useful and dangerous.
+    \item [A] Prove that any language with a zero-knowledge proof is in $\BPP$ (assuming the existence of one-way functions). (Hint: the verifier can run the protocol with itself using a simulated prover.)
+    \item [B] Show that the $(2,2)$ visual cryptography scheme has perfect security: either transparency alone reveals no information about the secret image.
 \end{enumerate}
 
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1952 & Born in Tel Aviv, Israel \\ \hline
 1973 & B.Sc.\ from Tel Aviv University \\ \hline
 1977 & Ph.D.\ from the Weizmann Institute (advisor: Zohar Manna) \\ \hline
-1978 | RSA cryptosystem (with Rivest and Adleman) \\ \hline
-1979 | Shamir's secret sharing scheme \\ \hline
-1982 | Postdoc at MIT \\ \hline
-1983 | Moves to the Weizmann Institute \\ \hline
-1985 | Feige--Fiat--Shamir identification scheme \\ \hline
-1990 | Differential cryptanalysis (with Biham) \\ \hline
-2002 | Turing Award (with Rivest and Adleman) \\ \hline
-2003 | Israel Prize in Mathematics \\ \hline
-2017 | TWIRL factoring device \\ \hline
-2024 | Wolf Prize in Mathematics \\ \hline
+1978 & RSA cryptosystem (with Rivest and Adleman) \\ \hline
+1979 & Shamir's secret sharing scheme \\ \hline
+1982 & Postdoc at MIT \\ \hline
+1983 & Moves to the Weizmann Institute \\ \hline
+1985 & Feige--Fiat--Shamir identification scheme \\ \hline
+1990 & Differential cryptanalysis (with Biham) \\ \hline
+2002 & Turing Award (with Rivest and Adleman) \\ \hline
+2003 & Israel Prize in Mathematics \\ \hline
+2017 & TWIRL factoring device \\ \hline
+2024 & Wolf Prize in Mathematics \\ \hline
 \end{tabularx}
 
 \section*{Glossary}
 \addcontentsline{toc}{section}{Glossary}
 
 \begin{description}
-    \item[Cryptanalysis] The study of methods for breaking cryptographic systems.
-    \item[Differential cryptanalysis] An attack based on tracking differences through a cipher.
-    \item[One-way function] A function easy to compute but hard to invert.
-    \item[Public-key cryptography] A cryptographic system with separate encryption and decryption keys.
-    \item[Zero-knowledge proof] A proof revealing only the truth of the statement, nothing more.
-    \item[Secret sharing] A method for distributing a secret among multiple parties.
-    \item[RSA] A public-key cryptosystem based on the difficulty of factoring.
-    \item[Threshold scheme] A secret sharing scheme requiring $k$ of $n$ shares to reconstruct.
+    \item[Chosen-plaintext attack] An attack model where the adversary can choose plaintexts and obtain their encryptions, then analyze the ciphertexts to recover the key.
+    \item[Cryptanalysis] The study of methods for breaking cryptographic systems, including attacks on specific algorithms and protocols.
+    \item[Differential cryptanalysis] An attack on block ciphers based on tracking how input differences propagate through the cipher, exploiting non-random behavior in the round function.
+    \item[Euclidean algorithm] An efficient algorithm for computing the greatest common divisor of two integers, essential for RSA key generation.
+    \item[Euler's totient function] $\varphi(n) = |\{m : 1 \leq m \leq n, \gcd(m,n) = 1\}|$, the number of integers coprime to $n$.
+    \item[Euler's theorem] $m^{\varphi(n)} \equiv 1 \pmod n$ when $\gcd(m, n) = 1$, the mathematical foundation of RSA.
+    \item[Feistel cipher] A symmetric structure used in block ciphers (like DES) where the round function is applied to half the block and XORed with the other half.
+    \item[Information-theoretic security] Security that holds against adversaries with unbounded computational power, as in Shamir's secret sharing.
+    \item[Lattice reduction] Algorithms (like LLL) for finding short vectors in lattices, used in Shamir's attack on the knapsack cryptosystem.
+    \item[One-way function] A function easy to compute but hard to invert on average; the existence of one-way functions is a central open problem in complexity theory.
+    \item[Public-key cryptography] A cryptographic system with separate encryption and decryption keys, enabling secure communication without shared secrets.
+    \item[RSA] A public-key cryptosystem based on the difficulty of factoring large integers, co-invented by Rivest, Shamir, and Adleman.
+    \item[Secret sharing] A method for distributing a secret among multiple parties so that only authorized subsets can reconstruct it.
+    \item[Superincreasing sequence] A sequence $a_1, \ldots, a_n$ where each $a_i > \sum_{j<i} a_j$, used in the Merkle--Hellman knapsack system and exploited by Shamir's attack.
+    \item[Threshold scheme] A secret sharing scheme requiring $k$ of $n$ shares to reconstruct, providing resilience against the loss of up to $k-1$ shares.
+    \item[Turing Award] The highest distinction in computer science, awarded to Shamir in 2002 (with Rivest and Adleman).
+    \item[Zero-knowledge proof] A cryptographic protocol proving a statement is true without revealing any information beyond the truth of the statement.
 \end{description}
 
 \section{Citations}
-
 \subsection*{Primary Sources}
 \begin{enumerate}
     \item R.\ Rivest, A.\ Shamir, and L.\ Adleman, \textit{A method for obtaining digital signatures and public-key cryptosystems}, Comm.\ ACM 21 (1978), 120--126.
@@ -228,12 +320,24 @@ Number theory (modular arithmetic, primality, factoring), probability, and algor
     \item E.\ Biham and A.\ Shamir, \textit{Differential cryptanalysis of DES-like cryptosystems}, J.\ Cryptology 4 (1991), 3--72.
     \item U.\ Feige, A.\ Fiat, and A.\ Shamir, \textit{Zero-knowledge proofs of identity}, J.\ Cryptology 1 (1988), 77--94.
     \item A.\ Shamir and E.\ Tromer, \textit{Factoring large numbers with the TWIRL device}, Proc.\ CRYPTO 2003.
+    \item A.\ Shamir, \textit{A polynomial time algorithm for breaking the basic Merkle--Hellman cryptosystem}, Proc.\ FOCS 1982.
+    \item M.\ Naor and A.\ Shamir, \textit{Visual cryptography}, Proc.\ EUROCRYPT 1994, pp.\ 1--12.
 \end{enumerate}
 
-\subsection*{Expository Works}
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item Simson Garfinkel, \textit{Profiles in Courage: Adi Shamir}, MIT Technology Review, 2002.
+    \item National Academy of Sciences, \textit{Biographical Memoir: Adi Shamir}, 2024.
+    \item ACM Turing Award Citation, 2002.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
 \begin{enumerate}
     \item N.\ Koblitz, \textit{A Course in Number Theory and Cryptography}, Springer, 1994.
     \item J.\ Katz and Y.\ Lindell, \textit{Introduction to Modern Cryptography}, CRC Press, 2014.
     \item O.\ Goldreich, \textit{Foundations of Cryptography}, Cambridge Univ.\ Press, 2001.
+    \item A.\ J.\ Menezes, P.\ C.\ van Oorschot, and S.\ A.\ Vanstone, \textit{Handbook of Applied Cryptography}, CRC Press, 1996.
+    \item W.\ Trappe and L.\ Washington, \textit{Introduction to Cryptography with Coding Theory}, Pearson, 2006.
+    \item D.\ Stinson, \textit{Cryptography: Theory and Practice}, CRC Press, 2006.
 \end{enumerate}
 

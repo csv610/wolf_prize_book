@@ -21,18 +21,18 @@
 \index{It\^{o}, Kiyoshi}
 
 \begin{quote}
-\it ``It\^{o}'s theory of stochastic integration and stochastic differential equations is one of the most important developments in probability theory of the twentieth century. It has become an indispensable tool in every field where random dynamical systems are studied, from physics and biology to economics and finance.'' --- Wolf Prize Citation
+\it ``It\^{o}'s theory of stochastic integration and stochastic differential equations\index{stochastic differential equation} is one of the most important developments in probability theory of the twentieth century. It has become an indispensable tool in every field where random dynamical systems are studied, from physics and biology to economics and finance.'' --- Wolf Prize Citation
 \end{quote}
 
 Kiyoshi It\^{o} (1915--2008) was a Japanese mathematician whose creation of stochastic calculus revolutionized probability theory and its applications. The 1987 Wolf Prize in Mathematics (shared with Peter Lax) recognized his development of the It\^{o} integral, It\^{o}'s lemma, and the theory of stochastic differential equations. These tools form the mathematical foundation for the modern theory of random processes, and they are indispensable in fields ranging from mathematical finance and signal processing to statistical physics and quantum field theory.
 
-It\^{o}'s work solved a fundamental problem: how to make rigorous sense of differential equations driven by Brownian motion. Brownian paths are nowhere differentiable, so classical calculus cannot handle them. It\^{o} constructed a new kind of integral---the stochastic integral---and a corresponding chain rule---It\^{o}'s lemma---that together form what is now called It\^{o} calculus. This calculus is the appropriate language for describing systems subject to continuous random noise.
+It\^{o}'s work solved a fundamental problem: how to make rigorous sense of differential equations driven by Brownian motion\index{Brownian motion}. Brownian paths are nowhere differentiable, so classical calculus cannot handle them. It\^{o} constructed a new kind of integral---the stochastic integral---and a corresponding chain rule---It\^{o}'s lemma---that together form what is now called It\^{o} calculus\index{It\^{o} calculus}. This calculus is the appropriate language for describing systems subject to continuous random noise.
 
 \section{Main Contributions}
 
 \begin{itemize}
     \item \textbf{It\^{o} Integral (1944):} A rigorous definition of the integral \(\int_0^t H_s \, dW_s\) with respect to Brownian motion, based on \(L^2\)-convergence and the It\^{o} isometry. This was the first mathematically sound treatment of integration against a stochastic process with unbounded variation.
-    \item \textbf{It\^{o}'s Lemma (1951):} The stochastic analogue of the chain rule. For a smooth function \(f(t,x)\) and an It\^{o} process \(X_t\),
+    \item \textbf{It\^{o}'s Lemma (1951):}\index{It\^{o} lemma} The stochastic analogue of the chain rule. For a smooth function \(f(t,x)\) and an It\^{o} process \(X_t\),
     \[
     df(t,X_t) = \frac{\partial f}{\partial t}\,dt + \frac{\partial f}{\partial x}\,dX_t + \frac12 \frac{\partial^2 f}{\partial x^2}\,d\langle X\rangle_t.
     \]
@@ -352,7 +352,7 @@ the ordinary chain rule holds: \(df(X_t) = f'(X_t)\,dX_t\). The equivalent It\^{
 dX_t = \left(\mu(X_t) + \frac12 \sigma(X_t) \sigma'(X_t)\right) dt + \sigma(X_t)\,dW_t.
 \]
 
-\section{Impact}
+\section{Impact on Science and Technology}
 
 \subsection{Mathematical Finance}
 
@@ -459,9 +459,7 @@ Several deep problems remain:
     \item \textbf{Optimal stochastic control:} The general theory for high-dimensional, non-Markovian systems.
 \end{enumerate}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item K.\ It\^{o}, \textit{On stochastic processes I}, Jap.\ J.\ Math.\ 18 (1942), 261--301. (Foundation of stochastic integration.)
     \item K.\ It\^{o}, \textit{Stochastic integral}, Proc.\ Imp.\ Acad.\ Tokyo 20 (1944), 519--524.
@@ -490,9 +488,8 @@ Several deep problems remain:
     \item F.\ C.\ Klebaner, \textit{Introduction to Stochastic Calculus with Applications}, 3rd ed., Imperial College Press, 2012.
 \end{enumerate}
 
-\section{Timeline}
-
-\begin{tabularx}{\linewidth}{|l|X|}
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1915 & Born on September 7 in Mie Prefecture, Honshu, Japan \\ \hline
@@ -513,10 +510,9 @@ Several deep problems remain:
 \end{tabularx}
 
 \section{Related Chapters}
-
 For further exploration, see Chapter~61 (Le Gall) on stochastic processes and Brownian motion and Chapter~62 (Lawler) on random walks and Schramm--Loewner evolution.
 
-\section*{Exercises}
+\section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}

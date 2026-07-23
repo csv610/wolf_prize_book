@@ -6,6 +6,10 @@
 \it ``Jean-Fran\c cois Le Gall has made transformative contributions to probability theory. His work on the Brownian snake, random trees, and random maps has revealed profound connections between stochastic processes and geometry. The construction of the Brownian map is one of the most remarkable achievements in modern probability.'' --- Wolf Prize Citation, 2019
 \end{quote}
 
+\section{Early Life and Career}
+
+Jean-Fran\c{c}ois Le Gall was born in 1959 in Paris, France. He studied at the University of Paris-Sud (Orsay), receiving his Ph.D.\ in 1982 under the supervision of Claude Dellacherie. He has spent his career at the University of Paris-Sud (now Universit\'{e} Paris-Saclay) and the \'Ecole Normale Sup\'{e}rieure, where he is currently a professor. He was awarded the Wolf Prize in Mathematics in 2019.
+
 \section{Main Contributions}
 
 Jean-Fran\c{c}ois Le Gall (born 1959) is a French mathematician whose work in probability theory has opened new connections between stochastic processes, geometry, and combinatorics. He was awarded the Wolf Prize in Mathematics in 2019 alongside Gregory Lawler.
@@ -117,6 +121,148 @@ Le Gall established the deep connection between super-Brownian motion and the no
 \]
 through the Brownian snake representation.
 
+\subsection{The Feynman--Kac Formula}
+
+The Feynman--Kac formula provides the fundamental link between Brownian motion and parabolic partial differential equations. It expresses solutions of the heat equation with a potential as expectations of Brownian motion functionals.
+
+\begin{theorem}[Feynman--Kac]
+Let $V \colon \R^d \to \R$ be a bounded measurable function and let $(B_t)_{t \geq 0}$ be a standard Brownian motion in $\R^d$ started at $x$. Define
+\[
+    u(t,x) = \E_x\!\left[\exp\!\left(-\int_0^t V(B_s)\,ds\right) f(B_t)\right]
+\]
+for a bounded measurable function $f$. Then $u$ is the unique bounded measurable solution of the Cauchy problem
+\begin{align}
+    \partial_t u &= \tfrac{1}{2}\Delta u - V\, u, \qquad t > 0,\; x \in \R^d, \label{eq:feynman-kac-pde}\\
+    u(0,x) &= f(x). \label{eq:feynman-kac-ic}
+\end{align}
+\end{theorem}
+
+\begin{remark}
+The Feynman--Kac formula can be reformulated in terms of the semigroup $(T_t)_{t \geq 0}$ associated to the operator $\mathcal{L} = \frac{1}{2}\Delta - V$. For each $t \geq 0$, the operator $T_t$ acts on $L^2(\R^d)$ by
+\[
+    (T_t \varphi)(x) = \E_x\!\left[\exp\!\left(-\int_0^t V(B_s)\,ds\right) \varphi(B_t)\right].
+\]
+The family $(T_t)_{t \geq 0}$ forms a strongly continuous contraction semigroup on $L^2(\R^d)$, and its infinitesimal generator is $\mathcal{L}$ with domain $H^2(\R^d)$.
+\end{remark}
+
+\begin{remark}[Heat Kernel and Transition Density]
+When $V \equiv 0$, the semigroup reduces to the free heat semigroup, and the solution is given explicitly by the heat kernel:
+\[
+    (T_t \varphi)(x) = \int_{\R^d} p_t(x,y)\,\varphi(y)\,dy,
+\]
+where
+\[
+    p_t(x,y) = \frac{1}{(2\pi t)^{d/2}}\,\exp\!\left(-\frac{|x-y|^2}{2t}\right)
+\]
+is the Gaussian transition density of Brownian motion. More generally, if $V$ is a bounded potential, the Feynman--Kac semigroup admits a smooth kernel $p_t^V(x,y)$ satisfying
+\[
+    \partial_t p_t^V = \tfrac{1}{2}\Delta\, p_t^V - V\, p_t^V
+\]
+with $p_0^V(x,y) = \delta_y(x)$. This kernel satisfies the Chapman--Kolmogorov equation $p_{s+t}^V(x,y) = \int p_s^V(x,z)\,p_t^V(z,y)\,dz$ and is strictly positive for all $t > 0$.
+\end{remark}
+
+\subsection{Brownian Motion as a Scaling Limit of Random Walks}
+
+Brownian motion arises canonically as the scaling limit of simple random walks. This invariance principle, due to Donsker, is one of the cornerstones of modern probability.
+
+\begin{theorem}[Donsker's Invariance Principle]
+Let $(S_n)_{n \geq 0}$ be a simple symmetric random walk on $\Z^d$, so $S_n = \xi_1 + \cdots + \xi_n$ where the $\xi_i$ are i.i.d.\ with $\P(\xi_i = e_j) = \P(\xi_i = -e_j) = \frac{1}{2d}$ for each coordinate direction $e_j$. Define the continuous-time interpolation $W^{(n)}$ on $[0,1]$ by
+\[
+    W^{(n)}_t = \frac{1}{\sqrt{n}}\,S_{\lfloor nt \rfloor} + \frac{nt - \lfloor nt \rfloor}{\sqrt{n}}\,\xi_{\lfloor nt \rfloor + 1}.
+\]
+Then $W^{(n)}$ converges in distribution in $C([0,1],\R^d)$ to a standard Brownian motion $(B_t)_{0 \leq t \leq 1}$ equipped with the uniform topology.
+\end{theorem}
+
+\begin{remark}
+The functional central limit theorem (FCLT) extends Donsker's principle to random walks with increments having mean zero and finite variance $\sigma^2$. In this case, the limit is $\sigma$ times a standard Brownian motion. The convergence holds in the Skorokhod space $D([0,1],\R^d)$ for general increments and in $C([0,1],\R^d)$ when the walk is continuous (lattice-valued).
+\end{remark}
+
+\begin{remark}[Scaling Exponents]
+The scaling relation $W^{(n)}_t \approx n^{-1/2} S_{nt}$ has important generalizations. For random planar maps, the analogous scaling involves $n^{-1/4}$ in the metric, reflecting the fact that the Brownian map has Hausdorff dimension 4 while Brownian motion has dimension 2. This dimensional doubling is a hallmark of the connection between random walks on planar maps and the Brownian snake: the genealogical tree of the walk (a CRT) has dimension 2, but the two-dimensional surface structure encoded by the Brownian snake raises the dimension to 4.
+\end{remark}
+
+\subsection{The Brownian Plane}
+
+The Brownian plane, introduced by Le Gall and Miermont (2011), is the scaling limit of uniformly random planar maps viewed as random metric spaces. It plays the role that Brownian motion plays for random walks: the universal random metric space underlying two-dimensional random geometry.
+
+\begin{definition}[Brownian Plane]
+The \textbf{Brownian plane} is the random metric space $(\mathcal{Q}, d_{\mathcal{Q}})$ defined as follows. Let $(e_t)_{0 \leq t \leq 1}$ be a normalized Brownian excursion, and let $(Z_v)_{v \in \mathcal{T}_e}$ be the labels of the Brownian snake indexed by the CRT $\mathcal{T}_e$. For $x, y \in \mathcal{T}_e$, define the pseudodistance
+\[
+    d^*(x,y) = Z_x + Z_y - 2\inf_{w \in [x,y]_{\mathcal{T}_e}} Z_w,
+\]
+where $[x,y]_{\mathcal{T}_e}$ is the geodesic path in the CRT. The Brownian plane is obtained by the Poisson construction: embed the CRT into the real line via the contour function, then assign a mass measure to each edge of the tree proportional to the local time of the Brownian motion. The metric $d_{\mathcal{Q}}$ is then defined as the quotient metric on $\mathcal{T}_e / \!\sim$ where $x \sim y$ if $d^*(x,y) = 0$.
+\end{definition}
+
+\begin{theorem}[Le Gall--Miermont, 2011]
+Let $M_n$ be a uniformly random planar map (e.g., a triangulation or quadrangulation of the sphere) with $n$ edges, viewed as a metric space with the graph distance rescaled by $n^{-1/2}$. Then as $n \to \infty$:
+\[
+    (M_n, n^{-1/2} d_{\text{graph}}) \xrightarrow{d} (\mathcal{Q}, d_{\mathcal{Q}})
+\]
+in the Gromov--Hausdorff sense. The Brownian plane is an infinite random metric space with the following properties:
+\begin{enumerate}
+    \item It is almost surely a geodesic metric space.
+    \item It is isometry-invariant: the law of $(\mathcal{Q}, d_{\mathcal{Q}})$ is invariant under the action of isometries fixing a marked point.
+    \item The Hausdorff dimension of $\mathcal{Q}$ is almost surely 4.
+    \item The spectral dimension is $\frac{4}{3}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+The Brownian plane is closely related to the Brownian map but differs in an important way: the Brownian plane is infinite (non-compact), while the Brownian map is compact. The Brownian map can be obtained from the Brownian plane by a ``sphereification'' procedure that identifies the boundary at infinity. Formally, the Brownian map is the quotient of a suitably defined compactification of the Brownian plane.
+\end{remark}
+
+\begin{remark}[Coordinates]
+The Brownian plane can be described through its coordinate process: a real-valued process $(B_t)_{t \geq 0}$ coupled with a tree-valued process (the CRT) and a label process from the Brownian snake. The geodesic distance between two points with contour times $s, t \in [0,1]$ is
+\[
+    d_{\mathcal{Q}}(s,t) = \sup_{r \in [s,t]} \left( Z_r - \inf_{u \in [s \wedge r, t \vee r]} Z_u \right),
+\]
+where $Z$ is the Brownian snake label process. This self-similar structure underpins the universality of the Brownian plane as a scaling limit.
+\end{remark}
+
+\subsection{Applications to Random Geometry}
+
+Le Gall's work on the Brownian map, the Brownian plane, and related processes has had profound applications in random geometry and combinatorial probability.
+
+\subsubsection{Random Trees and the CRT}
+
+The continuum random tree serves as the universal scaling limit of a broad family of discrete random trees. Le Gall's results on the CRT as a scaling limit of Galton--Watson trees conditioned on their total population size have become foundational.
+
+\begin{proposition}[Le Gall, 1993]
+Let $(T_n)$ be a Galton--Watson branching process with offspring distribution having finite variance $\sigma^2 > 0$, conditioned on $|T_n| = k$. Then the rescaled tree $(k^{-1/2} d_{T_n})$ converges in distribution in the Gromov--Hausdorff topology to $\sigma \cdot \mathcal{T}_e$, where $\mathcal{T}_e$ is the CRT encoded by a normalized Brownian excursion.
+\end{proposition}
+
+The CRT is the ``tree of geodesics'' of the Brownian map: the map is constructed by attaching labels to the CRT via the Brownian snake and then quotienting. Random trees arising in computer science (binary search trees, random recursive trees) and in physics (spanning trees, minimum spanning trees) all converge to the CRT after appropriate rescaling, making it a universal object.
+
+\subsubsection{The Mated-Cauchy Process and L\'evy Trees}
+
+Le Gall's theory extends beyond Brownian motion to processes with jumps. The mated-Cauchy process $(X_t)_{t \geq 0}$ is a symmetric $\alpha$-stable L\'evy process in $\R^d$ (with $\alpha = 1$, i.e., Cauchy increments) whose genealogical structure is described by a L\'evy tree rather than the CRT. Le Gall and Le Jan showed that the exploration process of the branching structure associated to a superprocess with stable spatial motion is described by a L\'evy snake, a generalization of the Brownian snake.
+
+\begin{remark}
+The Hausdorff dimension of the range of the L\'evy snake in the superprocess setting is $\alpha$ (the stability index), and the corresponding random metric space (the ``Brownian map'' analogue for $\alpha$-stable processes) has dimension $2d/\alpha$ when $d < \alpha$. This provides a family of universal random geometries parameterized by $\alpha$, with the Brownian case $\alpha = 2$ recovering dimension 4 for $d = 2$.
+\end{remark}
+
+\subsubsection{Random Planar Maps and Quantum Gravity}
+
+The convergence of random planar maps to the Brownian map provides the rigorous mathematical foundation for two-dimensional quantum gravity. In physics, the partition function of 2D quantum gravity is defined as a sum over equivalence classes of metrics on the two-sphere. Random planar maps serve as a discrete regularization of this sum.
+
+Le Gall's construction shows that the continuum limit is the Brownian map, which is homeomorphic to $\mathbb{S}^2$ and has Hausdorff dimension 4. This result confirmed conjectures from the physics literature (originally due to Chekhov, David, Knizhnik, and Polyakov) and established the ``multi-point loop gas'' interpretation of the Brownian map.
+
+\begin{theorem}[Universality of the Brownian Map]
+The Brownian map is the scaling limit not only of random quadrangulations but of any ``nice'' family of planar maps, including random triangulations, Eulerian maps, and maps with prescribed face degrees satisfying a moment condition. Specifically, if $(M_n)$ is a family of planar maps with $n$ faces such that
+\[
+    \E\!\left[\text{(number of faces of degree }k\text{)}^2\right] \leq C\, n
+\]
+for all $k \geq 3$ and some constant $C$, then $(M_n, n^{-1/4} d_{\text{graph}})$ converges to the Brownian map in the Gromov--Hausdorff topology.
+\end{theorem}
+
+\subsubsection{The mated-Cauchy Process and Random Geometry in Higher Dimensions}
+
+Le Gall's framework for the Brownian map has been extended to higher-dimensional settings by several authors, including Abraham, Delmas, and Hoscheit. The key insight is that the Brownian snake construction generalizes to higher-dimensional spatial motions: the ``Brownian map'' in $d$ dimensions has Hausdorff dimension $d+2$ and arises as the scaling limit of random maps with higher-dimensional face structure. Le Gall's original techniques---excursion theory, the Brownian snake, and Gromov--Hausdorff convergence---remain the essential tools.
+
+\begin{remark}
+The study of random geometry in dimensions $d \geq 3$ remains one of the major open problems in probability. While the $d = 2$ case (the Brownian map) is completely understood, the analogous objects in $d \geq 3$ are conjectured to exist but their construction requires fundamentally new ideas beyond the Brownian snake framework.
+\end{remark}
+
 \section{Impact on Science and Technology}
 
 \subsection{In Mathematics}
@@ -136,7 +282,7 @@ through the Brownian snake representation.
     \item \textbf{Statistical Mechanics:} Random maps are related to the Ising model, percolation, and other models.
 \end{enumerate}
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: What is the Brownian map?}
 The Brownian map is the universal continuum random surface that arises as the scaling limit of large random planar maps. It is homeomorphic to the 2-sphere and has Hausdorff dimension 4.
@@ -154,7 +300,6 @@ They are discrete models of random surfaces. In physics, they model 2D quantum g
 Probability theory (stochastic processes, Brownian motion, martingales), measure theory, and basic topology. Recommended: \textit{Brownian Motion and Stochastic Calculus} (Karatzas--Shreve), \textit{Random Trees} (Evans), and \textit{Brownian Maps} (Le Gall).
 
 \section{Related Chapters}
-
 See also Chapter~17 (It\^o) on stochastic calculus.
 
 \section*{Exercises for the Reader}
@@ -173,7 +318,7 @@ See also Chapter~17 (It\^o) on stochastic calculus.
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1959 & Born in Morlaix, France \\ \hline
@@ -202,9 +347,7 @@ See also Chapter~17 (It\^o) on stochastic calculus.
     \item[Superprocess] A measure-valued branching process.
 \end{description}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item J.-F.\ Le Gall, \textit{The Brownian map is the scaling limit of uniform random plane quadrangulations}, Acta Math.\ 210 (2013), 319--401.
     \item J.-F.\ Le Gall, \textit{The topological structure of scaling limits of random planar maps}, Invent.\ Math.\ 169 (2007), 621--670.

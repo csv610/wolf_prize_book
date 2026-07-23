@@ -33,13 +33,18 @@
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{setspace}
-\usepackage{cite}
 \usepackage{wasysym}
 \usepackage{amscd}
+\usepackage{etoolbox}
 
 \geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}
 \setlength{\headheight}{15.2pt}
 \setstretch{1.15}
+
+% Fix TOC overfull boxes (widen page number box for T2A font encoding)
+\makeatletter
+\renewcommand{\@pnumwidth}{2.2em}
+\makeatother
 
 % Reduce overfull boxes
 \sloppy
@@ -61,7 +66,6 @@
 \newtheorem{proposition}{Proposition}[chapter]
 \newtheorem{conjecture}{Conjecture}[chapter]
 \newtheorem{condition}{Condition}[chapter]
-\newtheorem{conj}{Conjecture}[chapter]
 
 % Common math shorthand (used across multiple chapters)
 % Each chapter fragment also carries its own local definitions with \let\NAME\relax prefix.
@@ -178,8 +182,9 @@ info@apexacademicpress.com
 
 \vspace{0.5cm}
 
-ISBN-13: 978-X-XXXX-XXXX-X (Hardcover) \\
-ISBN-13: 978-X-XXXX-XXXX-X (Digital Edition)
+ISBN-13: 978-X-XXXX-XXXX-X (Hardcover) \\ [0.2cm]
+ISBN-13: 978-X-XXXX-XXXX-X (Digital Edition) \\ [0.3cm]
+\textit{(ISBNs to be assigned by publisher upon publication)}
 \end{flushleft}
 \clearpage
 
@@ -263,6 +268,9 @@ ISBN-13: 978-X-XXXX-XXXX-X (Digital Edition)
 \include{chapters/chapter_68_shamir}
 
 \include{chapters/chapter_conclusion}
+
+% Fix index overfull boxes: small font + wider column separation
+\apptocmd{\theindex}{\small\setlength{\columnsep}{2em}}{}{}
 
 \clearpage
 \addcontentsline{toc}{chapter}{Index}

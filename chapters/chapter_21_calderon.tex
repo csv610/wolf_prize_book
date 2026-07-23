@@ -15,16 +15,29 @@
 \index{Calder\'{o}n, Alberto}
 
 \begin{quote}
-\it ``Calder\'{o}n's work has profoundly transformed the landscape of modern analysis. His theory of singular integrals, the Calder\'{o}n--Zygmund decomposition, his complex method of interpolation, his construction of the Calder\'{o}n projector for elliptic boundary problems, his contributions to the theory of pseudodifferential operators, and his formulation of the inverse conductivity problem have opened vast new territories in mathematics. His ideas continue to resonate across harmonic analysis, partial differential equations, and inverse problems.'' --- Wolf Prize Citation
+\it ``Calder\'{o}n's work has profoundly transformed the landscape of modern analysis. His theory of singular integrals\index{singular integral operator}, the Calder\'{o}n--Zygmund decomposition, his complex method of interpolation, his construction of the Calder\'{o}n projector for elliptic boundary problems, his contributions to the theory of pseudodifferential operators, and his formulation of the inverse conductivity problem have opened vast new territories in mathematics. His ideas continue to resonate across harmonic analysis, partial differential equations, and inverse problems.'' --- Wolf Prize Citation
 \end{quote}
 
-Alberto Pedro Calder\'{o}n (1920--1998) stands as one of the most influential analysts of the twentieth century. Born in Mendoza, Argentina, Calder\'{o}n began his career as a civil engineer before discovering his true calling in mathematics. His move to the University of Chicago in 1949 to work with Antoni Zygmund initiated one of the most productive collaborations in the history of analysis. The Calder\'{o}n--Zygmund theory of singular integrals, developed in the early 1950s, revolutionized harmonic analysis and provided the essential tools for the modern theory of linear partial differential equations.
+Alberto Pedro Calder\'{o}n (1920--1998) stands as one of the most influential analysts of the twentieth century. Born in Mendoza, Argentina, Calder\'{o}n began his career as a civil engineer before discovering his true calling in mathematics. His move to the University of Chicago in 1949 to work with Antoni Zygmund initiated one of the most productive collaborations in the history of analysis. The Calder\'{o}n--Zygmund theory\index{Calder\'{o}n-Zygmund theory} of singular integrals, developed in the early 1950s, revolutionized harmonic analysis and provided the essential tools for the modern theory of linear partial differential equations.
 
 Calder\'{o}n's work is characterized by extraordinary technical power combined with deep geometric insight. His contributions span an immense range: the theory of singular integrals and their application to PDEs, the complex method for interpolation of operators, the construction of parametrices and projectors for elliptic boundary-value problems, the development of pseudodifferential operator algebras, the formulation of the inverse conductivity problem, and the discovery of the fundamental reproducing formula that bears his name and underlies modern wavelet theory. Each of these contributions created or transformed an entire field of research.
 
-\section{Timeline}
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+This section presents a series of exercises related to the profound mathematical contributions of 21 Calderon, covering topics from singular integrals to inverse problems.
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{enumerate}
+    \item [B] Define a singular integral operator $T$ with a Calderón-Zygmund kernel $K(x-y)$. Provide an example of such an operator, clearly stating its principal value definition.
+    \item [B] State the $L^p$ boundedness result for the Hilbert transform $H$ on $\mathbb{R}$. Explain how this result serves as a foundational example for the broader theory of singular integral operators developed by Calderón and Zygmund.
+    \item [B] Explain the concept of a "good $\lambda$-inequality" (or weak type (1,1) estimate) in the context of singular integral operators. Why is establishing such an inequality a crucial step in proving the $L^p$ boundedness for $1 < p < \infty$, a key contribution of Calderón?
+    \item [I] Describe the main steps and purpose of the Calderón-Zygmund decomposition of a function $f \in L^1(\mathbb{R}^n)$ at a given level $\lambda > 0$. How does this decomposition allow for the effective analysis of singular integral operators?
+    \item [I] Discuss Calderón's groundbreaking work on the Cauchy integral operator on Lipschitz curves. What specific mathematical difficulties arise when the curve is merely Lipschitz (as opposed to smooth), and what were the key ideas Calderón introduced to overcome these challenges?
+    \item [I] Consider the commutator $[M_b, T] = M_b T - T M_b$, where $M_b$ is the operator of multiplication by a function $b$ and $T$ is a singular integral operator. Explain why the boundedness of such commutators (e.g., when $b$ is in BMO) is significant in harmonic analysis, referencing Calderón's contributions to this area.
+    \item [A] Formulate Calderón's inverse problem for electrical impedance tomography. Specifically, state how one aims to determine the electrical conductivity $\sigma(x)$ inside a domain $\Omega$ from measurements of current and voltage on its boundary $\partial\Omega$. Discuss the main mathematical challenges involved in establishing uniqueness and stability for this inverse problem.
+\end{enumerate}
+
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1920 & Born on September 14 in Mendoza, Argentina \\ \hline
@@ -434,7 +447,7 @@ Let $\Omega \subset \R^n$ ($n \geq 2$) be a bounded domain with smooth boundary.
 The global uniqueness for arbitrary $C^2$ conductivities was proved by Sylvester and Uhlmann (1987) for $n \geq 3$, and by Astala and P\"aiv\"arinta (2006) for $n = 2$ using techniques from complex analysis and quasiconformal mappings.
 \end{remark}
 
-\section{Impact}
+\section{Impact on Science and Technology}
 
 \subsection{Harmonic Analysis}
 
@@ -473,12 +486,20 @@ Several of Calder\'{o}n's contributions are now standard in the curriculum:
 \end{itemize}
 
 \section{Related Chapters}
-
 For further exploration, see Chapter~1 (Gelfand) on functional analysis and singular integrals.
 
-\section{Citations}
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+\begin{description}
+    \item[Calderón-Zygmund Operators] A class of singular integral operators whose kernels satisfy specific size and smoothness conditions, generalizing the Hilbert transform. They are fundamental in modern harmonic analysis and PDE theory, mapping $L^p$ to $L^p$ for $1 < p < \infty$.
+    \item[Singular Integral Operators] Integral operators whose kernels have a singularity at the origin, typically of the form $K(x-y)$ where $K$ is homogeneous of degree $-n$ and has zero integral on the unit sphere. They are crucial for solving many partial differential equations.
+    \item[Hardy Spaces ($H^p$)] Function spaces that generalize $L^p$ spaces, particularly for $p \le 1$. They are defined via maximal functions or atomic decompositions and are the natural domain for many singular integral operators, where $L^p$ theory breaks down for small $p$.
+    \item[Commutators] Operators of the form $[M_b, T] = M_b T - T M_b$, where $M_b$ is multiplication by a function $b$ and $T$ is a singular integral operator. Calderón's work on commutators, particularly with $b \in \text{BMO}$ (Bounded Mean Oscillation), was groundbreaking.
+    \item[Cauchy Integral on Lipschitz Curves] An extension of the classical Cauchy integral formula to non-smooth curves (Lipschitz graphs). Calderón proved its boundedness on $L^p$ for $1 < p < \infty$, a significant result in complex analysis and harmonic analysis.
+    \item[Unique Continuation Property] A property of solutions to certain partial differential equations, stating that if a solution vanishes on an open set, it must vanish identically throughout its domain. Calderón made important contributions to this area, particularly for elliptic and parabolic equations.
+\end{description}
 
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item A.\ P.\ Calder\'{o}n and A.\ Zygmund, \textit{On the existence of certain singular integrals}, Acta Math.\ 88 (1952), 85--139. (The founding paper of the Calder\'{o}n--Zygmund theory.)
     \item A.\ P.\ Calder\'{o}n and A.\ Zygmund, \textit{On singular integrals}, Amer.\ J.\ Math.\ 78 (1956), 289--309.

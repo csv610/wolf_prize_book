@@ -7,6 +7,10 @@
 \it ``George Lusztig has been the dominant figure in the representation theory of reductive groups over finite fields for the past fifty years. His development of character sheaves, the theory of cells in Coxeter groups, and the geometric construction of quantum groups have transformed the field and created deep connections between representation theory, algebraic geometry, and combinatorics.'' --- Wolf Prize Citation, 2022
 \end{quote}
 
+\section{Early Life and Career}
+
+George Lusztig was born on May 20, 1946, in Timi\c{s}oara, Romania. He studied at the University of Bucharest, receiving his Ph.D.\ in 1968 under the supervision of Alexandru Froda. He emigrated to the United States in 1969 and has been a professor at the Massachusetts Institute of Technology since 1978. He was awarded the Wolf Prize in Mathematics in 2022.
+
 \section{Main Contributions}
 
 George Lusztig (born 1946) is a Romanian--American mathematician whose work has fundamentally shaped representation theory, algebraic geometry, and combinatorics. He was awarded the Wolf Prize in Mathematics in 2022.
@@ -16,9 +20,9 @@ The Wolf Prize citation reads: ``for his groundbreaking contributions to represe
 Lusztig's core contributions include:
 \begin{itemize}
     \item \textbf{Character Sheaves:} The development of the theory of character sheaves, a geometric approach to constructing characters of finite groups of Lie type, providing a uniform description of all irreducible characters.
-    \item \textbf{Lusztig--Kazhdan Theory:} The classification of irreducible representations of affine Hecke algebras and the establishment of the Kazhdan--Lusztig conjectures, later proved by Beilinson--Bernstein and Brylinski--Kashiwara.
+    \item \textbf{Lusztig--Kazhdan Theory\index{Kazhdan-Lusztig theory}:} The classification of irreducible representations of affine Hecke algebras and the establishment of the Kazhdan--Lusztig conjectures, later proved by Beilinson--Bernstein and Brylinski--Kashiwara.
     \item \textbf{Cells in Coxeter Groups:} The theory of left, right, and two-sided cells in Coxeter groups, with applications to Hecke algebras, representation theory, and total positivity.
-    \item \textbf{Canonical Bases:} The construction of canonical bases for quantum groups and their classical limits, providing a deep connection between quantum groups and combinatorics.
+    \item \textbf{Canonical Bases\index{canonical basis}:} The construction of canonical bases for quantum groups and their classical limits, providing a deep connection between quantum groups and combinatorics.
     \item \textbf{Representations of Finite Groups of Lie Type:} The classification and character formula for all irreducible representations of reductive groups over finite fields.
     \item \textbf{Geometric Quantum Groups:} The Beilinson--Lusztig--MacPherson geometric realization of quantum $\GL_n$ using perverse sheaves on quiver varieties.
     \item \textbf{Total Positivity:} The theory of totally positive matrices and its generalization to arbitrary Lie groups, with applications to cluster algebras.
@@ -34,7 +38,7 @@ Lusztig's character sheaves provided a uniform geometric framework that complete
 
 \subsection{Hecke Algebras and Kazhdan--Lusztig Conjectures}
 
-The Hecke algebra $H_q(W)$ of a Coxeter group $W$ is a deformation of the group algebra. The Kazhdan--Lusztig polynomials $P_{x,w}(q)$ encode subtle combinatorial information about the Bruhat order. The Kazhdan--Lusztig conjectures (proved later) relate these polynomials to the characters of Verma modules in representation theory.
+The Hecke algebra\index{Hecke algebra} $H_q(W)$ of a Coxeter group $W$ is a deformation of the group algebra. The Kazhdan--Lusztig polynomials $P_{x,w}(q)$ encode subtle combinatorial information about the Bruhat order. The Kazhdan--Lusztig conjectures (proved later) relate these polynomials to the characters of Verma modules in representation theory.
 
 \subsection{Canonical Bases}
 
@@ -124,6 +128,113 @@ The \textbf{left cells} of a Coxeter group $W$ are the equivalence classes under
 The two-sided cells of a Weyl group $W$ are in bijection with the unipotent classes of the corresponding algebraic group. Moreover, each left cell gives rise to a representation of $W$ (the cell representation).
 \end{theorem}
 
+\subsection{Construction of Canonical Bases via Kashiwara Operators}
+
+\begin{definition}[Kashiwara Operators]
+For a quantum group $U_q(\mathfrak{g})$ with Chevalley generators $E_i, F_i, K_i$, the \textbf{Kashiwara operators} $\tilde{E}_i$ and $\tilde{F}_i$ are defined on the crystal basis $\mathcal{B}$ of a highest weight module $V(\lambda)$ by:
+\[
+\tilde{E}_i(b) = \begin{cases} E_i \cdot b / [n+1]_q & \text{if } E_i^{(n+1)} \cdot b \neq 0 \text{ and } E_i^{(n)} \cdot b = 0 \text{ with } n = \varepsilon_i(b) \\ 0 & \text{otherwise} \end{cases}
+\]
+\[
+\tilde{F}_i(b) = \begin{cases} F_i \cdot b / [n+1]_q & \text{if } F_i^{(n+1)} \cdot b \neq 0 \text{ and } F_i^{(n)} \cdot b = 0 \text{ with } n = \varphi_i(b) \\ 0 & \text{otherwise} \end{cases}
+\]
+where $[n]_q = (q^n - q^{-n})/(q - q^{-1})$ is the quantum integer, and $E_i^{(n)} = E_i^n/[n]_q!$.
+\end{definition}
+
+\begin{definition}[Crystal Graph]
+The \textbf{crystal graph} of $V(\lambda)$ is the directed graph $(\mathcal{B}, E)$ where the vertices are elements of $\mathcal{B}$ and there is an arrow $b \to b'$ labeled $i$ if $\tilde{F}_i(b) = b'$. The crystal graph encodes the combinatorial structure of the representation.
+\end{definition}
+
+\begin{theorem}[Kashiwara, 1991; Lusztig, 1990]
+The canonical basis $\mathbf{B}$ of $U_q^+(\mathfrak{g})$ can be constructed using Kashiwara operators and crystal graphs. The construction proceeds as follows:
+\begin{enumerate}
+    \item For each dominant weight $\lambda$, the crystal $\mathcal{B}(\lambda)$ has a unique highest weight element $u_\lambda$.
+    \item The crystal basis $\mathcal{B}$ of $U_q^-(\mathfrak{g})$ is the disjoint union $\bigsqcup_\lambda \mathcal{B}(\lambda)$.
+    \item Each element $b \in \mathcal{B}$ corresponds to a canonical basis element $\mathbf{b} \in \mathbf{B}$ via the crystal-to-basis map.
+    \item The bar involution $\overline{\cdot}$ on $U_q^+(\mathfrak{g})$ acts on the crystal by $\overline{b} = b$ for all $b \in \mathcal{B}$ (up to normalization).
+\end{enumerate}
+The resulting basis $\mathbf{B} = \{\mathbf{b}: b \in \mathcal{B}\}$ is the canonical basis.
+\end{theorem}
+
+\begin{remark}
+The crystal graph provides a purely combinatorial description of the canonical basis. The structure constants of the canonical basis (the coefficients in the product $\mathbf{b}_1 \cdot \mathbf{b}_2 = \sum c_{b_1, b_2}^{b_3} \mathbf{b}_3$) lie in $\N[q, q^{-1}]$, which is Lusztig's celebrated positivity property. This was proved using the geometric construction via perverse sheaves on quiver varieties.
+\end{remark}
+
+\subsection{Kazhdan--Lusztig Polynomials and Intersection Cohomology}
+
+\begin{definition}[Recursive Definition of KL Polynomials]
+The Kazhdan--Lusztig polynomials $P_{x,w}(q)$ for $x, w \in W$ with $x \leq w$ are defined recursively by:
+\begin{enumerate}
+    \item $P_{x,x}(q) = 1$ for all $x \in W$.
+    \item If $s \in S$ and $\ell(sw) < \ell(w)$ (so $sw < w$), then:
+    \[
+    P_{x,w}(q) = \begin{cases}
+    P_{sx, sw}(q) & \text{if } \ell(sx) > \ell(x) \\
+    q \cdot P_{sx, sw}(q) + (q^{1/2} - q^{-1/2}) \cdot P_{x, sw}(q) - q \cdot P_{sx, w}(q) & \text{if } \ell(sx) < \ell(x)
+    \end{cases}
+    \]
+    \item The polynomial $P_{x,w}(q)$ has degree at most $\frac{1}{2}(\ell(w) - \ell(x) - 1)$.
+    \item When $\ell(w) - \ell(x)$ is odd, $P_{x,w}(q)$ is divisible by $q^{1/2}$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Kazhdan--Lusztig, 1979]
+The Kazhdan--Lusztig polynomial $P_{x,w}(q)$ satisfies $P_{x,w}(1) = \dim L_x^{(w)}$, where $L_x^{(w)}$ is the simple subquotient of the Verma module $M_w$ of highest weight $-w(\rho) - \rho$. Equivalently:
+\[
+[M_w: L_x] = P_{x,w}(1)
+\]
+for all $x \leq w$ in the Bruhat order.
+\end{theorem}
+
+\begin{theorem}[Intersection Cohomology Connection; Kazhdan--Lusztig, 1979]
+Let $X_w$ be the Schubert variety in the flag variety $G/B$ corresponding to $w \in W$. Then for $x \leq w$:
+\[
+P_{x,w}(q) = \sum_{i=0}^{d} \dim \mathcal{H}^i_{c}(X_w \cap X_w^{\circ}, \Q_l) \cdot q^{i/2}
+\]
+where $\mathcal{H}^i_c$ denotes the intersection cohomology groups and $X_w^{\circ}$ is the Bruhat cell corresponding to $w$. In particular:
+\[
+\dim \mathcal{H}^{2i}(X_w) = \sum_{x \leq w} [M_w: L_x] = \sum_{x \leq w} P_{x,w}(1)
+\]
+\end{theorem}
+
+\begin{remark}
+The intersection cohomology of Schubert varieties is Poincar\'e duality, and the Kazhdan--Lusztig polynomials encode the Betti numbers of these varieties. This geometric interpretation was the key to proving the Kazhdan--Lusztig conjectures via the Beilinson--Bernstein--Deligne--Gabber localization theorem and the Brylinski--Kashiwara proof using D-modules.
+\end{remark}
+
+\subsection{Total Positivity and the Unipotent Variety}
+
+\begin{definition}[Total Positivity]
+A matrix $A \in \GL_n(\R)$ is \textbf{totally positive} if all its minors are positive. More generally, $A$ is \textbf{totally nonnegative} if all minors are nonnegative. The set of totally positive matrices forms a semigroup under multiplication.
+\end{definition}
+
+\begin{theorem}[Lusztig, 1992; Total Positivity in Reductive Groups]
+Let $G$ be a split reductive group over $\R$ with Weyl group $W = (s_1, \ldots, s_n)$. For each reduced expression $w_0 = s_{i_1} \cdots s_{i_N}$ of the longest element $w_0 \in W$, Lusztig constructs:
+\begin{enumerate}
+    \item Unipotent elements $u_1, \ldots, u_N \in G(\R)$ (the \textbf{Lusztig parameterization}).
+    \item A map $\mathfrak{L}_{w_0}: \R^N \to G(\R)$ given by $\mathfrak{L}_{w_0}(t_1, \ldots, t_N) = u_1(t_1) \cdots u_N(t_N)$.
+    \item The image $\mathfrak{L}_{w_0}(\R_{>0}^N)$ is the set of \textbf{totally positive} elements of $G$.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Lusztig's Canonical Basis for the Unipotent Variety]
+The totally nonnegative part of the unipotent variety $U$ of a reductive group $G$ admits a cell decomposition:
+\[
+U_{\geq 0} = \bigsqcup_{w \in W} C_w
+\]
+where $C_w$ are cells parameterized by elements of the Weyl group, and each cell is homeomorphic to $\R^{\ell(w)}$. The closure relations are encoded by the Kazhdan--Lusztig polynomials:
+\[
+\overline{C_w} = \bigsqcup_{x \leq w} C_x
+\]
+\end{theorem}
+
+\begin{remark}
+Lusztig's total positivity program has deep connections to cluster algebras (Fomin--Zelevinsky). The totally nonnegative part of the unipotent variety is related to the space of phylogenetic trees and to Teichm\"uller theory. The parameterization of totally positive matrices using reduced expressions of $w_0$ provides a combinatorial description of the cell structure.
+\end{remark}
+
+\begin{remark}
+The unipotent variety $U$ of a reductive group $G$ is the set of elements $g \in G$ such that $g$ is conjugate to a unipotent matrix (all eigenvalues equal to $1$). Lusztig's work shows that the intersection of the unipotent variety with the totally nonnegative part of $G$ has a rich combinatorial structure governed by cells parameterized by the Weyl group.
+\end{remark}
+
 \section{Impact on Science and Technology}
 
 \subsection{In Mathematics}
@@ -143,7 +254,7 @@ The two-sided cells of a Weyl group $W$ are in bijection with the unipotent clas
     \item \textbf{Statistical Mechanics:} The Yang--Baxter equation and quantum groups.
 \end{enumerate}
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: What are character sheaves?}
 A geometric approach to the representation theory of finite groups of Lie type. Character sheaves are perverse sheaves on a reductive group whose characteristic functions give the irreducible characters of the finite group.
@@ -159,6 +270,9 @@ Equivalence classes in a Coxeter group defined via the Kazhdan--Lusztig basis. T
 
 \subsection*{Q5: What should an undergraduate study to understand Lusztig's work?}
 Representation theory (Lie algebras, finite groups), algebraic geometry (sheaves, cohomology), and combinatorics (Coxeter groups, Hecke algebras). Recommended: \textit{Representation Theory} (Humphreys), \textit{Introduction to Quantum Groups} (Kassel), and \textit{Lectures on Algebraic Geometry} (Harris).
+
+\section{Related Chapters}
+See also Chapter~28 (Tits) on buildings and groups of Lie type and Chapter~26 (Thompson) on finite simple groups.
 
 \section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
@@ -176,7 +290,7 @@ Representation theory (Lie algebras, finite groups), algebraic geometry (sheaves
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1946 & Born in Timi\c{s}oara, Romania \\ \hline
@@ -207,9 +321,7 @@ Representation theory (Lie algebras, finite groups), algebraic geometry (sheaves
     \item[Schubert variety] A subvariety of the flag variety defined by Bruhat order conditions.
 \end{description}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item D.\ Kazhdan and G.\ Lusztig, \textit{Representations of Coxeter groups and Hecke algebras}, Invent.\ Math.\ 53 (1979), 165--184.
     \item D.\ Kazhdan and G.\ Lusztig, \textit{Schubert varieties and Poincar\'e duality}, Proc.\ Symp.\ Pure Math.\ 36 (1980), 185--203.

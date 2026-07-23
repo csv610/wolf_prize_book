@@ -12,6 +12,10 @@
 \it ``Yakov Eliashberg has been the leading figure in symplectic and contact topology for decades. His discovery of overtwisted contact structures, his development of the h-principle, and his creation of symplectic field theory have transformed our understanding of odd-dimensional geometry and its connections to analysis and physics.'' --- Wolf Prize Citation, 2020
 \end{quote}
 
+\section{Early Life and Career}
+
+Yakov Markovich Eliashberg was born in 1946 in Leningrad, USSR (now Saint Petersburg). He studied at Leningrad State University, receiving his Ph.D.\ in 1972 under the supervision of Rokhlin. He emigrated to the United States in 1987 and has been a professor at Stanford University since 1989. He was awarded the Wolf Prize in Mathematics in 2020.
+
 \section{Main Contributions}
 
 Yakov Eliashberg (born 1946) is a Russian--American mathematician who has fundamentally shaped symplectic and contact geometry and topology. He was awarded the Wolf Prize in Mathematics in 2020 alongside Simon Donaldson.
@@ -60,7 +64,7 @@ Eliashberg proved that on a 3-manifold, every homotopy class of plane fields tha
 \subsection{Tools and Techniques}
 
 \begin{itemize}
-    \item \textbf{Pseudoholomorphic Curves:} Gromov's theory of $J$-holomorphic curves is the main source of rigidity in symplectic topology.
+    \item \textbf{Pseudoholomorphic Curves\index{holomorphic curve}:} Gromov's theory of $J$-holomorphic curves is the main source of rigidity in symplectic topology.
     \item \textbf{Holomorphic Disk Filling:} A technique to detect tightness using families of pseudoholomorphic disks.
     \item \textbf{Convex Surface Theory:} The study of contact structures via convex surfaces (Giroux).
     \item \textbf{Hurwitz--Morse Theory:} The topology of Stein manifolds via Morse theory of plurisubharmonic functions.
@@ -128,6 +132,96 @@ A smooth almost complex manifold $W$ of dimension $2n$ (with $n > 2$) admits a S
 
 This theorem enables the construction of exotic Stein manifolds and establishes a deep connection between complex geometry and contact topology (the boundary of a Stein manifold inherits a tight contact structure).
 
+\subsection{Gromov's h-Principle for Contact Structures}
+
+\begin{theorem}[Gromov, 1973; Eliashberg, 1989]
+Let $M$ be a closed oriented manifold of dimension $2n+1 \geq 5$. Then overtwisted contact structures on $M$ satisfy the \textbf{h-principle}: two overtwisted contact structures are isotopic if and only if they are homotopic as plane fields. In dimension 3, Eliashberg (1989) proved that every homotopy class of formally almost contact structures contains a unique overtwisted contact structure up to isotopy.
+\end{theorem}
+
+\begin{remark}
+The h-principle for overtwisted contact structures is remarkable because contact structures are defined by a nonlinear PDE (maximal non-integrability of a distribution), yet the classification reduces to a purely algebraic-topological problem. The key ingredient in Eliashberg's proof is the \textbf{parametric h-principle}: one shows that the inclusion of isotopy classes of overtwisted contact structures into homotopy classes of almost contact structures is a bijection by constructing explicit isotopies using surgery techniques.
+\end{remark}
+
+\begin{remark}
+In dimensions $\geq 5$, the result was proved by Gromov using his general theory of convex integration. The dimension 3 case required fundamentally new ideas, as the topology of 3-manifolds allows for local modifications (Legendrian surgery) that are not available in higher dimensions.
+\end{remark}
+
+\subsection{Fillability and the Weinstein Conjecture}
+
+\begin{definition}[Symplectic Fillability]
+A contact manifold $(M, \xi)$ is \textbf{symplectically fillable} if there exists a symplectic manifold $(W, \omega)$ with $\partial W = M$ (as oriented manifolds) such that $\omega|_{\xi}$ is a positive volume form on $\xi$ at each point of $\partial W$. It is \textbf{exact fillable} if additionally $\omega = d\lambda$ with $\lambda|_M$ a contact form for $\xi$.
+\end{definition}
+
+\begin{definition}[Weinstein Conjecture]
+Let $(M, \xi)$ be a closed contact manifold with a contact form $\alpha$ (so $\xi = \ker \alpha$). The \textbf{Reeb vector field} $R_\alpha$ is defined by $\iota_{R_\alpha} d\alpha = 0$ and $\alpha(R_\alpha) = 1$. The Weinstein conjecture asserts that the Reeb vector field of any contact form on a closed contact manifold has a periodic orbit.
+\end{definition}
+
+\begin{theorem}[Hofer, 1993]
+Every closed overtwisted contact 3-manifold satisfies the Weinstein conjecture: the Reeb vector field of any contact form has a periodic orbit.
+\end{theorem}
+
+\begin{remark}
+The relationship between fillability and the Weinstein conjecture is deep. For overtwisted contact manifolds, the h-principle implies fillability: every overtwisted contact structure on a closed 3-manifold is fillable (by a theorem of Eliashberg). However, there exist tight contact structures that are not fillable, providing a sharp distinction between the flexible and rigid categories. The Weinstein conjecture is now known to hold for all contact 3-manifolds by the work of Colin--Honda (2008), which builds on Eliashberg's foundational classification.
+\end{remark}
+
+\begin{remark}[Exact Lagrangian Submanifolds]
+A Lagrangian submanifold $L \subset (W, \omega)$ is \textbf{exact} if $\omega|_L = d\beta$ for a 1-form $\beta$ on $L$ that extends to a primitive $\lambda$ with $\omega = d\lambda$ on $W$. Exact Lagrangian submanifolds cannot be closed (by Stokes' theorem), but their existence imposes strong constraints on fillability. Gromov (1985) showed that a closed exact Lagrangian submanifold cannot exist in an exact symplectic manifold. This result connects the topology of Lagrangian submanifolds to the fillability of contact boundaries via the exact sequence relating Legendrian knots in $\partial W$ to Lagrangian submanifolds in $W$.
+\end{remark}
+
+\subsection{Flexible and Rigid Contact Structures}
+
+\begin{definition}[Flexible (Overtwisted) Contact Structure]
+A contact structure $\xi$ on a manifold $M$ is \textbf{flexible} (or \textbf{overtwisted} in dimension 3) if it satisfies the h-principle: its isotopy class is determined by its homotopy class as a plane field. Flexible structures admit arbitrarily large $C^0$-perturbations and are classified by algebraic topology. In dimension 3, this is equivalent to being overtwisted.
+\end{definition}
+
+\begin{definition}[Rigid (Tight) Contact Structure]
+A contact structure $\xi$ is \textbf{tight} if it does not contain an overtwisted disk (in dimension 3) or, more generally, if it satisfies certain rigidity properties. Tight structures require the full apparatus of pseudoholomorphic curve theory for their study and can distinguish between contact structures that are homotopic but not isotopic.
+\end{definition}
+
+\begin{theorem}[Eliashberg's Dichotomy]
+On a closed 3-manifold, every contact structure is either:
+\begin{enumerate}
+    \item \textbf{Overtwisted:} classified by homotopy theory (flexible), or
+    \item \textbf{Tight:} not isotopic to any overtwisted structure (rigid).
+\end{enumerate}
+Moreover, the standard contact structure on $S^3$ (the kernel of the connection 1-form) is tight, and any contact structure isotopic to an overtwisted structure is itself overtwisted.
+\end{theorem}
+
+\begin{remark}[Characterization of Tightness via Holomorphic Curves]
+The deep reason tight structures are rigid is that Gromov's theory of pseudoholomorphic curves provides powerful invariants. In a tight contact manifold, the moduli spaces of holomorphic disks with boundary on Legendrian submanifolds carry transversality properties that are absent in the overtwisted case. Specifically, tightness prevents the existence of ``fat'' Legendrian knots---those bounding a disk with too many Reeb chord intersections---which is precisely the obstruction captured by the overtwisted disk.
+\end{remark}
+
+\begin{remark}[Higher-Dimensional Flexibility and Rigidity]
+In dimensions $\geq 5$, the overtwisted/tight dichotomy does not generalize in the same way. Instead, the relevant dichotomy is between:
+\begin{itemize}
+    \item \textbf{Flexible contact structures:} those satisfying the h-principle (all contact structures in dimension $\geq 5$ satisfying certain local conditions).
+    \item \textbf{Strongly fillable (Weinstein) structures:} those admitting exact symplectic fillings, which carry the full force of holomorphic curve rigidity.
+\end{itemize}
+This higher-dimensional theory was developed by Borman--Eliashberg--Murphy (2015), who proved the h-principle for flexible contact structures in all dimensions.
+\end{remark}
+
+\subsection{The Eliashberg--Gromov Dichotomy in Symplectic Geometry}
+
+\begin{definition}[Symplectic Rigidity]
+A symplectic manifold $(W, \omega)$ is \textbf{rigid} if its symplectic diffeomorphism group acts discretely on the space of symplectic structures---meaning small perturbations of $\omega$ cannot be absorbed by a diffeomorphism. This is the generic behavior for closed symplectic manifolds and is detected by Gromov's pseudoholomorphic curve invariants.
+\end{definition}
+
+\begin{definition}[Symplectic Flexibility]
+A symplectic structure is \textbf{flexible} if the symplectic embedding problem reduces to volume considerations. Eliashberg's characterization (2001) of flexible symplectic manifolds shows that ``weinstein Weinstein''---a symplectic manifold is flexible if and only if it is Weinstein and its Weinstein structure can be deformed to a particularly simple form.
+\end{definition}
+
+\begin{theorem}[Eliashberg, 2001]
+A Stein domain $(W, J)$ of dimension $\geq 6$ is flexible if and only if its Weinstein structure can be deformed so that the core Legendrian submanifolds have no ``exotic'' holomorphic disk counts. In dimension 4, flexibility is equivalent to the vanishing of certain Gromov--Witten-type invariants.
+\end{theorem}
+
+\begin{remark}[Contact Surgery and Flexibility]
+The transition from flexible to rigid structures is controlled by Legendrian surgery: cutting along a Legendrian sphere and gluing in a Weinstein handle. Each such surgery either preserves flexibility or creates rigidity, depending on the holomorphic disk count on the attaching region. This perspective unifies the classification of contact structures (flexible = classified by h-principle) with the classification of Stein fillings (rigid = classified by holomorphic curves).
+\end{remark}
+
+\begin{remark}[Symplectic Homology as an Obstruction]
+Symplectic homology $\mathrm{SH}(W)$, introduced by Viterbo and refined by Eliashberg--Givental--Hofer, is a powerful invariant that vanishes for flexible (exact) Weinstein manifolds but is typically non-vanishing for rigid ones. It provides a computable obstruction to flexibility and detects the failure of the h-principle for symplectic embeddings.
+\end{remark}
+
 \section{Impact on Science and Technology}
 
 \subsection{In Mathematics}
@@ -143,11 +237,11 @@ This theorem enables the construction of exotic Stein manifolds and establishes 
 
 \begin{enumerate}
     \item \textbf{Symplectic Field Theory:} SFT is related to topological field theories and string theory.
-    \item \textbf{Classical Mechanics:} Contact geometry appears in thermodynamics and geometric optics.
+    \item \textbf{Classical Mechanics:} Contact geometry\index{contact geometry} appears in thermodynamics and geometric optics.
     \item \textbf{Quantization:} Contact structures are related to the prequantization of symplectic manifolds.
 \end{enumerate}
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: What is an overtwisted contact structure?}
 A contact structure on a 3-manifold that contains an overtwisted disk—a disk whose boundary is tangent to the contact planes. Overtwisted structures are flexible and classified by algebraic topology.
@@ -165,7 +259,6 @@ A complex manifold that can be properly holomorphically embedded in $\C^N$. Elia
 Differential topology (manifolds, vector bundles, transversality), symplectic geometry (symplectic forms, Hamiltonian dynamics), and complex geometry. Recommended: \textit{Introduction to Symplectic Topology} (McDuff--Salamon), \textit{Contact Geometry} (Geiges), and \textit{The h-Principle} (Eliashberg--Mishachev).
 
 \section{Related Chapters}
-
 See also Chapter~22 (Milnor) on differential topology.
 
 \section*{Exercises for the Reader}
@@ -184,7 +277,7 @@ See also Chapter~22 (Milnor) on differential topology.
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1946 & Born in Leningrad, USSR \\ \hline
@@ -215,9 +308,7 @@ See also Chapter~22 (Milnor) on differential topology.
     \item[Tight] A contact structure that is not overtwisted.
 \end{description}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item Y.\ Eliashberg, \textit{Classification of overtwisted contact structures on 3-manifolds}, Invent.\ Math.\ 98 (1989), 623--637.
     \item Y.\ Eliashberg, \textit{Topological characterization of Stein manifolds of dimension $> 2$}, Int.\ J.\ Math.\ 1 (1990), 29--46.

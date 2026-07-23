@@ -40,8 +40,8 @@ Erd\H{o}s's approach emphasized clever elementary arguments and probabilistic me
     \item \textbf{Prime Number Theorem:} With Selberg, gave an elementary proof (1949) that $\pi(x) \sim x/\log x$ without complex analysis.
     \item \textbf{Erd\H{o}s--Kac Theorem:} The Gaussian law for the distribution of the number of prime factors: $\frac{\omega(n) - \log\log n}{\sqrt{\log\log n}} \to N(0,1)$.
     \item \textbf{Erd\H{o}s--Szekeres Theorem:} Every sequence of $n^2+1$ real numbers contains a monotone subsequence of length $n+1$.
-    \item \textbf{Ramsey Theory:} The Erd\H{o}s--Szekeres bounds $R(s,s) \geq 2^{s/2}$ (lower bound via probabilistic method). The Erd\H{o}s--Rado theorem in partition calculus.
-    \item \textbf{Probabilistic Method:} Pioneered the use of randomness to prove existence of combinatorial structures. Classic example: graphs with large girth and large chromatic number.
+    \item \textbf{Ramsey Theory:}\index{Ramsey theory} The Erd\H{o}s--Szekeres bounds $R(s,s) \geq 2^{s/2}$ (lower bound via probabilistic method). The Erd\H{o}s--Rado theorem in partition calculus.
+    \item \textbf{Probabilistic Method:}\index{probabilistic method} Pioneered the use of randomness to prove existence of combinatorial structures. Classic example: graphs with large girth and large chromatic number.
     \item \textbf{Erd\H{o}s--R\'{e}nyi Random Graphs:} The theory of random graphs $G(n,p)$, including the discovery of the phase transition at $p = 1/n$.
     \item \textbf{Erd\H{o}s--Gallai Theorem:} Necessary and sufficient conditions for a degree sequence to be graphical.
     \item \textbf{Erd\H{o}s--Selfridge Conjecture:} On discrepancy of sequences. Proved by Beck (1981) for arithmetic progressions.
@@ -394,7 +394,7 @@ means: for any coloring of $n$-tuples of $\kappa$ with $\mu$ colors, there is a 
 
 Erd\H{o}s and Rado proved that $(2^\kappa)^+ \to (\kappa^+)^2_\kappa$, which is essentially the best possible for the square bracket partition relation.
 
-\section{Impact}
+\section{Impact on Science and Technology}
 
 Erd\H{o}s transformed combinatorics from a collection of puzzles into a deep mathematical discipline. The probabilistic method is now a standard tool across mathematics and CS. Random graph theory is central to network science and social network analysis. His elementary proof of PNT showed the deep connections between number theory and analysis.
 
@@ -480,9 +480,8 @@ Primary: Erd\H{o}s--Szekeres 1935, Erd\H{o}s--Kac 1940, Erd\H{o}s--R\'{e}nyi 195
 
 1913 Born Budapest. 1934 PhD at 21 (University of Budapest). 1934--38 Manchester (postdoc). 1938--40 IAS Princeton. 1940 Erd\H{o}s--Kac theorem. 1941--48 Travels in US (Jewish refugee). 1949 Elementary proof of PNT. 1950s Travels the world. 1959 Random graphs with R\'{e}nyi. 1960 Erd\H{o}s--Gallai theorem. 1961 Erd\H{o}s--Ko--Rado theorem. 1970s Ramsey theory and set theory. 1984 Wolf Prize with Chern. 1996 Dies in Warsaw while attending a conference.
 
-\section*{Exercises}
-
-\begin{enumerate}
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}\begin{enumerate}
     \item [I] Show that the Erd\H{o}s--Szekeres theorem on monotone subsequences is sharp: for any $n$, construct a sequence of $n^2$ numbers with no monotone subsequence of length $n+1$.
     \item [B] Prove that $R(3,3) = 6$ by showing that $K_5$ can be 2-colored without monochromatic $K_3$, but $K_6$ cannot.
     \item [I] Use the probabilistic method to show $R(k,k) \geq k^{k/2}/e^{k/2}$ (improving the basic bound).
@@ -497,8 +496,29 @@ Primary: Erd\H{o}s--Szekeres 1935, Erd\H{o}s--Kac 1940, Erd\H{o}s--R\'{e}nyi 195
     \item [I] Prove the EGZ theorem for $n$ prime using pigeonhole principle only.
 \end{enumerate}
 
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1913 & Born in Budapest, Hungary, to Anna and Lajos Erdos. \\ \hline
+1930 & Entered Pázmány Péter University in Budapest. \\ \hline
+1934 & Awarded Ph.D. in mathematics from Pázmány Péter University at age 21. \\ \hline
+1934 & Left Hungary due to growing antisemitism and political instability. \\ \hline
+1934--1938 & Postdoctoral fellowship at the University of Manchester, England. \\ \hline
+1938 & Moved to the United States, accepting a fellowship at Princeton University. \\ \hline
+1940s & Began his lifelong nomadic lifestyle, traveling between universities and collaborating with mathematicians worldwide. \\ \hline
+1949 & Published an elementary proof of the Prime Number Theorem with Atle Selberg. \\ \hline
+1951 & Denied re-entry to the United States after a trip abroad, due to McCarthy-era suspicions. \\ \hline
+1954--1963 & Lived and worked primarily in Israel and Europe, continuing his prolific research. \\ \hline
+1963 & Granted permission to re-enter the United States, though his travel was still monitored for some time. \\ \hline
+1970s--1980s & Continued his unparalleled output of papers, collaborating with hundreds of mathematicians. \\ \hline
+1984 & Awarded the Wolf Prize in Mathematics for his numerous contributions to number theory, combinatorics, probability, and set theory. \\ \hline
+1996 & Died in Warsaw, Poland, at the age of 83, while attending a conference. \\ \hline
+\end{tabularx}
+
 \section*{Glossary}
-\begin{description}
+\addcontentsline{toc}{section}{Glossary}\begin{description}
     \item[Probabilistic method] Proving existence by showing positive probability.
     \item[Ramsey number] The smallest $n$ such that any 2-coloring of $K_n$ contains a monochromatic $K_s$.
     \item[Giant component] In random graphs, the unique component of size $\Theta(n)$ in the supercritical regime.
@@ -510,3 +530,28 @@ Primary: Erd\H{o}s--Szekeres 1935, Erd\H{o}s--Kac 1940, Erd\H{o}s--R\'{e}nyi 195
     \item[Girth] The length of the shortest cycle in a graph.
     \item[Chebyshev function] $\psi(x) = \sum_{p^k \leq x} \log p$, useful for counting primes.
 \end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item Erd\H{o}s, P. (1939). On the density of some sequences of numbers. \textit{Journal of the London Mathematical Society}, \textit{14}(1), 12--14.
+    \item Erd\H{o}s, P., \& Kac, M. (1940). On the distribution of values of additive functions. \textit{Proceedings of the National Academy of Sciences}, \textit{25}(11), 596--597.
+    \item Erd\H{o}s, P., \& Tur\'{a}n, P. (1936). On a problem of Sidon in additive number theory. \textit{Acta Litterarum ac Scientiarum Universitatis Szegediensis, Sectio Scientiarum Mathematicarum}, \textit{8}(3), 207--215.
+    \item Erd\H{o}s, P., \& R\'{e}nyi, A. (1959). On random graphs I. \textit{Publicationes Mathematicae Debrecen}, \textit{6}, 290--299.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item Hoffman, P. (1998). \textit{The Man Who Loved Only Numbers: The Story of Paul Erd\H{o}s and the Search for Mathematical Truth}. Hyperion.
+    \item Schechter, B. (1998). \textit{My Brain is Open: The Mathematical Journeys of Paul Erd\H{o}s}. Simon \& Schuster.
+    \item Graham, R. L., \& Spencer, J. H. (2000). \textit{Paul Erd\H{o}s: The Art of Counting}. MIT Press.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item Aigner, M., \& Ziegler, G. M. (2018). \textit{Proofs from THE BOOK} (6th ed.). Springer.
+    \item Alon, N., \& Spencer, J. H. (2008). \textit{The Probabilistic Method} (3rd ed.). John Wiley \& Sons.
+    \item Bollob\'{a}s, B. (2001). \textit{Random Graphs} (2nd ed.). Cambridge University Press.
+    \item Graham, R. L., Rothschild, B. L., \& Spencer, J. H. (1990). \textit{Ramsey Theory} (2nd ed.). John Wiley \& Sons.
+\end{enumerate}

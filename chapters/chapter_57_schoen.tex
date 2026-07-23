@@ -6,6 +6,10 @@
 \it ``Richard Schoen's work has transformed our understanding of the relationship between geometry and analysis. His proofs of the positive mass theorem and the Yamabe problem, together with his fundamental contributions to minimal surface theory and harmonic maps, have established him as one of the leading geometers of our time.'' --- Wolf Prize Citation, 2017
 \end{quote}
 
+\section{Early Life and Career}
+
+Richard Michael Schoen was born on October 23, 1950, in Fort Wayne, Indiana. He studied at the University of Michigan and then at Stanford University, where he received his Ph.D.\ in 1977 under the supervision of Robert Gunning. He held positions at the University of California, Berkeley, Stanford University, and the University of California, Irvine. He has been a professor at Stanford since 1986. He was awarded the Wolf Prize in Mathematics in 2017.
+
 \section{Main Contributions}
 
 Richard Schoen (born 1950) is an American mathematician whose work in geometric analysis has produced some of the most important results in modern geometry. He was awarded the Wolf Prize in Mathematics in 2017 alongside Charles Fefferman.
@@ -14,7 +18,7 @@ The Wolf Prize citation reads: ``for their contributions to analysis and geometr
 
 Schoen's core contributions include:
 \begin{itemize}
-    \item \textbf{Positive Mass Theorem:} A proof (with Yau) that the ADM mass of an asymptotically flat manifold with nonnegative scalar curvature is nonnegative, with equality only for Euclidean space.
+    \item \textbf{Positive Mass Theorem:\index{positive mass theorem}} A proof (with Yau) that the ADM mass of an asymptotically flat manifold with nonnegative scalar curvature is nonnegative, with equality only for Euclidean space.
     \item \textbf{The Yamabe Problem:} The resolution of the Yamabe problem: every compact Riemannian manifold of dimension $n \geq 3$ admits a metric of constant scalar curvature in its conformal class.
     \item \textbf{Minimal Surface Theory:} Foundational results on the existence, regularity, and stability of minimal surfaces, including the proof (with Yau) that any compact 3-manifold with positive scalar curvature contains a stable minimal surface.
     \item \textbf{Harmonic Maps:} The Schoen--Uhlenbeck theory of harmonic maps, including regularity and compactness results.
@@ -128,6 +132,100 @@ The Euler--Lagrange equation is $\tau(f) = 0$, where $\tau(f)$ is the tension fi
 Let $M$ be a compact Riemannian $m$-manifold and $N$ a compact Riemannian manifold. A weakly harmonic map $f: M \to N$ is smooth outside a closed set $\Sigma$ of Hausdorff codimension at least $3$. In particular, for $m = 2$, all weakly harmonic maps are smooth.
 \end{theorem}
 
+\subsection{The Positive Mass Theorem: Full Statement}
+
+\begin{theorem}[Positive Mass Theorem; Schoen--Yau, 1979 (Spin Case); Witten, 1981 (General Case)]
+Let $(M, g)$ be an asymptotically flat Riemannian $n$-manifold ($n \geq 3$) with nonnegative scalar curvature $\Scal_g \geq 0$. If $M$ is spin, then the ADM mass satisfies:
+\[
+m_{\text{ADM}} \geq 0
+\]
+with equality if and only if $(M, g)$ is isometric to $(\R^n, \delta)$. In the general (non-spin) case, the theorem holds with the additional hypothesis that the manifold is orientable and the scalar curvature satisfies $\Scal_g \geq 0$.
+\end{theorem}
+
+\begin{corollary}
+The ADM mass of an asymptotically flat $3$-manifold with $\Scal_g \geq 0$ and $M$ spin satisfies:
+\[
+m_{\text{ADM}} = \frac{1}{16\pi} \lim_{r \to \infty} \int_{S_r} \sum_{i,j} (\partial_j g_{ij} - \partial_i g_{jj}) \frac{x^i}{r} \, dS \geq 0
+\]
+\end{corollary}
+
+\begin{remark}
+Witten's proof (1981) uses spinors and the Dirac operator. The key identity relates the mass to an integral of $|\nabla \psi|^2 + \frac{1}{4}\Scal |\psi|^2$ for a harmonic spinor $\psi$, which is nonnegative when $\Scal \geq 0$. Schoen and Yau's original proof used minimal surfaces and is valid without the spin assumption in dimension $3$.
+\end{remark}
+
+\subsection{Schoen--Yau Iteration Technique}
+
+\begin{definition}[Prescribed Scalar Curvature Equation]
+Given a compact Riemannian manifold $(M, g)$ of dimension $n \geq 3$ and a smooth function $f$ on $M$, the \textbf{prescribed scalar curvature equation} is the semilinear elliptic PDE:
+\[
+-\frac{4(n-1)}{n-2} \Delta_g u + \Scal_g \, u = f \cdot u^{(n+2)/(n-2)}
+\]
+A solution $u > 0$ gives the conformal metric $\tilde{g} = u^{4/(n-2)} g$ with $\Scal_{\tilde{g}} = f$.
+\end{definition}
+
+\begin{theorem}[Schoen--Yau Iteration, 1988]
+The \textbf{Schoen--Yau iteration} for the Yamabe problem proceeds as follows:
+\begin{enumerate}
+    \item Start with a conformal factor $u_0 > 0$ and define $g_0 = u_0^{4/(n-2)} g$.
+    \item At each step, solve the linearized equation:
+    \[
+    L_{g_k} v_k = -c_n \Delta_{g_k} v_k + \Scal_{g_k} v_k = \lambda_k v_k^{(n+2)/(n-2)}
+    \]
+    where $L_{g_k}$ is the conformal Laplacian of $g_k$.
+    \item Use the Yamabe functional as a Lyapunov function:
+    \[
+    Q(g_k) = \frac{\int_M \Scal_{g_k} \, dV_{g_k}}{\left(\int_M dV_{g_k}\right)^{(n-2)/n}}
+    \]
+    which decreases under the iteration: $Q(g_{k+1}) \leq Q(g_k)$.
+    \item If the Yamabe invariant $Y(M, g) > 0$ and equals $Y(S^n) = n(n-1)\omega_n^{2/n}$, construct test functions $u_\epsilon$ concentrating at a point and show that the limiting mass is positive, contradicting the positive mass theorem unless $(M, g)$ is conformally equivalent to $S^n$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+The iteration scheme is a gradient flow for the Yamabe functional. The key analytic input is the Moser--Trudinger inequality (in the locally conformally flat case) and the positive mass theorem (for the borderline case $Y(M, g) = Y(S^n)$). The iteration converges because the Yamabe functional is bounded below and the conformal Laplacian satisfies a maximum principle.
+\end{remark}
+
+\subsection{Minimal Surface Methods}
+
+\begin{definition}[Stable Minimal Surface]
+A two-sided minimal surface $\Sigma$ in a Riemannian $3$-manifold $(M, g)$ is \textbf{stable} if the second variation of area is nonnegative for all compactly supported variations of $\Sigma$:
+\[
+\delta^2 A(\Sigma)(\phi, \phi) = \int_\Sigma \bigl(|\nabla \phi|^2 - (\text{Ric}_M(\nu, \nu) + |A|^2) \phi^2\bigr) \, d\Sigma \geq 0
+\]
+for all $\phi \in C_c^\infty(\Sigma)$, where $\nu$ is the unit normal to $\Sigma$ and $|A|^2$ is the squared norm of the second fundamental form.
+\end{definition}
+
+\begin{theorem}[Schoen--Yau, 1979; Minimal Surface Methods for Positive Mass]
+The minimal surface method for the positive mass theorem proceeds as follows:
+\begin{enumerate}
+    \item Suppose $(M, g)$ is an asymptotically flat $3$-manifold with $\Scal_g \geq 0$ and $m_{\text{ADM}} < 0$.
+    \item By the assumption $m_{\text{ADM}} < 0$, one can construct a complete, noncompact stable minimal surface $\Sigma$ in $(M, g)$.
+    \item The stability inequality, combined with the Gauss equation, gives:
+    \[
+    \int_\Sigma \bigl(|\nabla \phi|^2 - (\text{Ric}_M(\nu, \nu) + |A|^2) \phi^2\bigr) \, d\Sigma \geq 0
+    \]
+    \item Using $\Scal_g = 2K_\Sigma - |A|^2 + H^2 - \text{Ric}_M(\nu,\nu)$ (where $K_\Sigma$ is the Gauss curvature of $\Sigma$ and $H = 0$ for minimal surfaces), and $\Scal_g \geq 0$, one obtains:
+    \[
+    \int_\Sigma |A|^2 \phi^2 \, d\Sigma \leq \int_\Sigma \bigl(|\nabla \phi|^2 + 2K_\Sigma \phi^2\bigr) \, d\Sigma
+    \]
+    \item Choosing $\phi$ to be a cutoff function and using the fact that $\Sigma$ is complete and noncompact, one derives that $K_\Sigma \leq 0$ outside a compact set.
+    \item By the Gauss--Bonnet theorem, $\Sigma$ must have the topology of a plane, and the curvature estimate leads to a contradiction with the completeness of $\Sigma$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+The minimal surface method was later extended by Schoen and Yau to prove topological restrictions on $3$-manifolds with positive scalar curvature. Any incompressible surface in such a manifold must have non-positive Euler characteristic. This was further generalized to higher dimensions by Gromov and Lawson.
+\end{remark}
+
+\begin{theorem}[Schoen--Yau, 1979; Topological Restriction via Minimal Surfaces]
+Let $M$ be a compact orientable $3$-manifold with $\Scal_g > 0$. Then:
+\begin{enumerate}
+    \item $M$ contains no immersed incompressible torus or Klein bottle.
+    \item Any embedded incompressible surface $\Sigma \subset M$ must satisfy $\chi(\Sigma) < 0$ (i.e., $\Sigma$ is a surface of genus $\geq 2$).
+    \item The fundamental group $\pi_1(M)$ contains no free abelian subgroup of rank $2$.
+\end{enumerate}
+\end{theorem}
+
 \section{Impact on Science and Technology}
 
 \subsection{In Mathematics}
@@ -147,7 +245,7 @@ Let $M$ be a compact Riemannian $m$-manifold and $N$ a compact Riemannian manifo
     \item \textbf{String Theory:} Calabi--Yau compactifications rely on many of the geometric analysis techniques Schoen developed.
 \end{enumerate}
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: What is the positive mass theorem?}
 It states that the total gravitational energy of an isolated system (the ADM mass) is always nonnegative if the local energy density (scalar curvature) is nonnegative. This confirms that negative mass cannot exist in classical general relativity.
@@ -163,6 +261,9 @@ Stable minimal surfaces in a 3-manifold with positive scalar curvature must be s
 
 \subsection*{Q5: What should an undergraduate study to understand Schoen's work?}
 Differential geometry (Riemannian geometry, curvature, geodesics), PDE theory (elliptic equations, Sobolev spaces), and minimal surface theory. Recommended: \textit{Riemannian Geometry} (do Carmo), \textit{Differential Geometry of Curves and Surfaces} (do Carmo), and \textit{Partial Differential Equations} (Evans).
+
+\section{Related Chapters}
+See also Chapter~23 (De Giorgi) on regularity theory and Chapter~50 (Yau) on differential geometry and the positive mass theorem.
 
 \section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
@@ -180,7 +281,7 @@ Differential geometry (Riemannian geometry, curvature, geodesics), PDE theory (e
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1950 & Born in Celina, Ohio \\ \hline
@@ -209,9 +310,7 @@ Differential geometry (Riemannian geometry, curvature, geodesics), PDE theory (e
     \item[Yamabe invariant] A conformal invariant measuring the best constant in the Sobolev inequality.
 \end{description}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item R.\ Schoen and S.-T.\ Yau, \textit{On the proof of the positive mass conjecture in general relativity}, Comm.\ Math.\ Phys.\ 65 (1979), 45--76.
     \item R.\ Schoen, \textit{Conformal deformation of a Riemannian metric to constant scalar curvature}, J.\ Diff.\ Geom.\ 20 (1984), 479--495.

@@ -26,7 +26,7 @@ Lax's work is characterized by a deep geometric intuition, a preference for conc
     \item \textbf{Lax--Friedrichs and Lax--Wendroff Schemes (1950s--1960s):} Two of the most important numerical methods for hyperbolic conservation laws. The Lax--Friedrichs scheme is a monotone, first-order method; the Lax--Wendroff scheme is a second-order method derived from Taylor expansion. The Lax--Wendroff theorem establishes that conservative numerical methods that converge to weak solutions must converge to entropy solutions.
     \item \textbf{Lax Entropy Condition (1971):} A selection criterion for physically relevant weak solutions of hyperbolic conservation laws. It requires that admissible shock waves have characteristic lines converging into the shock, ensuring that the solution satisfies the second law of thermodynamics.
     \item \textbf{Lax--Phillips Scattering Theory (1967):} A comprehensive framework for scattering theory in terms of translation representations and semigroups of operators. It unifies quantum scattering, wave propagation, and acoustics into a single abstract theory.
-    \item \textbf{Lax Pairs (1968):} A formulation of integrable nonlinear PDEs as compatibility conditions of a pair of linear operators:
+    \item \textbf{Lax Pairs (1968):}\index{Lax pair} A formulation of integrable nonlinear PDEs as compatibility conditions of a pair of linear operators:
     \[
     \frac{dL}{dt} = [L, M] = LM - ML,
     \]
@@ -63,7 +63,7 @@ The Korteweg--de Vries (KdV) equation,
 \[
 u_t - 6 u u_x + u_{xxx} = 0,
 \]
-was derived in 1895 to model shallow-water waves. Numerical experiments in the 1950s (by Fermi, Pasta, Ulam, and Tsingou) revealed surprising recurrences that suggested hidden structure. In 1965, Zabusky and Kruskal discovered that the KdV equation has \textit{soliton} solutions --- localized waves that pass through each other without change of shape or speed. This particle-like behavior was mysterious: nonlinear equations typically produce complex, chaotic interactions, not elastic collisions.
+was derived in 1895 to model shallow-water waves. Numerical experiments in the 1950s (by Fermi, Pasta, Ulam, and Tsingou) revealed surprising recurrences that suggested hidden structure. In 1965, Zabusky and Kruskal discovered that the KdV equation has \textit{soliton}\index{soliton} solutions --- localized waves that pass through each other without change of shape or speed. This particle-like behavior was mysterious: nonlinear equations typically produce complex, chaotic interactions, not elastic collisions.
 
 The problem was to understand the mathematical structure underlying these phenomena. What makes some nonlinear equations ``integrable'' while most are not? The answer came from Lax's concept of a Lax pair.
 
@@ -443,7 +443,7 @@ for some consistent entropy flux \(Q\), then the limit of the numerical solution
 
 This result is the numerical analogue of the vanishing viscosity method. Monotone schemes (like Lax--Friedrichs) automatically satisfy discrete entropy inequalities, which is why they converge to entropy solutions.
 
-\section{Impact}
+\section{Impact on Science and Technology}
 
 \subsection{Numerical Analysis and Scientific Computing}
 
@@ -533,9 +533,7 @@ Several deep problems remain:
     \item \textbf{Adaptive numerical methods:} Theoretical understanding of adaptive mesh refinement for hyperbolic conservation laws with rigorous error bounds.
 \end{enumerate}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item P.\ D.\ Lax and A.\ N.\ Milgram, \textit{Parabolic equations}, in ``Contributions to the Theory of Partial Differential Equations,'' Annals of Mathematics Studies 33, Princeton University Press, 1954, pp.\ 167--190. (The Lax--Milgram theorem.)
     \item P.\ D.\ Lax, \textit{Weak solutions of nonlinear hyperbolic equations and their numerical computation}, Comm.\ Pure Appl.\ Math.\ 7 (1954), 159--193. (The Lax equivalence theorem.)
@@ -568,9 +566,8 @@ Several deep problems remain:
     \item A.\ Bressan, \textit{Hyperbolic Systems of Conservation Laws: The One-Dimensional Cauchy Problem}, Oxford University Press, 2000.
 \end{enumerate}
 
-\section{Timeline}
-
-\begin{tabularx}{\linewidth}{|l|X|}
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1926 & Born on May 1 in Budapest, Hungary \\ \hline
@@ -596,10 +593,9 @@ Several deep problems remain:
 \end{tabularx}
 
 \section{Related Chapters}
-
 See also Chapter~01 (Gelfand) on functional analysis and operator theory.
 
-\section*{Exercises}
+\section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}

@@ -34,7 +34,7 @@
 \it ``Kolmogorov's work in mathematics is of such immense scope and depth that it is easier to list the areas he did not touch. He was the great universalist of twentieth-century mathematics.'' --- Vladimir Arnold
 \end{quote}
 
-Andrey Nikolaevich Kolmogorov (1903--1987) was perhaps the last great universalist in mathematics. His contributions span probability theory, dynamical systems, turbulence, information theory, logic, topology, Fourier analysis, and the foundations of mathematics. The 1980 Wolf Prize (shared with Henri Cartan) recognized his ``deep and original discoveries in Fourier analysis, probability theory, ergodic theory and dynamical systems.''
+Andrey Nikolaevich Kolmogorov (1903--1987) was perhaps the last great universalist in mathematics. His contributions span probability theory, dynamical systems, turbulence, information theory, logic, topology, Fourier analysis, and the foundations of mathematics. The 1980 Wolf Prize (shared with Henri Cartan) recognized his ``deep and original discoveries in Fourier analysis, probability theory, ergodic theory\index{ergodic theory} and dynamical systems.''
 
 Kolmogorov's style was distinctive: he would enter a field, identify the fundamental open problem, solve it with a strikingly original insight, and then leave to conquer the next field. He founded entire disciplines (algorithmic information theory, the modern theory of turbulence) and shaped the Soviet school of mathematics through his students, which included Arnold, Gelfand, Sinai, and many others.
 
@@ -45,8 +45,8 @@ Kolmogorov's contributions span an extraordinary range:
 \begin{itemize}
     \item \textbf{Probability Theory:} The axioms of probability (1933), the Kolmogorov extension theorem, the strong law of large numbers, the Kolmogorov--Smirnov test, the zero--one law, the consistency theorem for conditional probabilities.
     \item \textbf{Turbulence:} The statistical theory of turbulence (1941), the K41 theory, the $5/3$ energy spectrum law, the concept of the inertial range and energy cascade.
-    \item \textbf{Dynamical Systems:} The Kolmogorov--Arnold--Moser (KAM) theorem on the persistence of invariant tori in nearly integrable Hamiltonian systems, the concept of metric entropy (Kolmogorov--Sinai entropy).
-    \item \textbf{Algorithmic Information Theory:} Kolmogorov complexity---the length of the shortest program that outputs a given string---a rigorous definition of randomness.
+    \item \textbf{Dynamical Systems:} The Kolmogorov--Arnold--Moser (KAM) theorem\index{KAM theory} on the persistence of invariant tori in nearly integrable Hamiltonian systems, the concept of metric entropy (Kolmogorov--Sinai entropy).
+    \item \textbf{Algorithmic Information Theory:} Kolmogorov complexity\index{Kolmogorov complexity}---the length of the shortest program that outputs a given string---a rigorous definition of randomness.
     \item \textbf{Fourier Analysis:} A function $f \in L^1(\mathbb{T})$ whose Fourier series diverges everywhere; the Kolmogorov--Riesz compactness criterion; the Kolmogorov inequality for Fourier coefficients.
     \item \textbf{Foundations of Mathematics:} The Kolmogorov calculus (an intuitionistic propositional logic), work on Hilbert's 13th problem (composition of continuous functions).
     \item \textbf{Topology and Logic:} Cohomology operations, the concept of a spectral sequence (simultaneously with Leray), the cohomology ring of a space.
@@ -340,7 +340,7 @@ A subset $\mathcal{F} \subset L^p(\mathbb{R}^n)$ ($1 \leq p < \infty$) is precom
     \item \textbf{Computational Biology:} Kolmogorov complexity is used in phylogenetics (genome distance measures based on compression) and in the analysis of genetic sequences.
 \end{enumerate}
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: Did Kolmogorov really change fields so often?}
 
@@ -402,9 +402,7 @@ But Kolmogorov complexity is always defined for individual objects, making it fo
 
 For undergraduates, start with probability and Fourier analysis—these are the most accessible entry points to Kolmogorov's world.
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item A.\ N.\ Kolmogorov, \textit{Grundbegriffe der Wahrscheinlichkeitsrechnung}, Springer, 1933.
     \item A.\ N.\ Kolmogorov, \textit{The local structure of turbulence in incompressible viscous fluid for very large Reynolds numbers}, C.\ R.\ Acad.\ Sci.\ USSR 30 (1941), 301--305.
@@ -464,17 +462,16 @@ For undergraduates, start with probability and Fourier analysis—these are the 
 \end{description}
 
 \section{Related Chapters}
-
 For further exploration, see Chapter~33 (Sinai) on ergodic theory and dynamical systems, Chapter~17 (It\^o) on stochastic processes, and Chapter~38 (Arnold) on dynamical systems and KAM theory.
 
-\section*{Exercises}
+\section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
-    \item [B] Prove Kolmogorov's zero--one law: if $X_1, X_2, \dots$ are independent and $A$ is in the tail $\sigma$-algebra, then $P(A) \in \{0,1\}$.
-    \item [B] Let $X_1, X_2, \dots$ be i.i.d.\ with $\E[X_1] = \mu$ and $\Var(X_1) = \sigma^2 < \infty$. Prove the strong law of large numbers using the Chebyshev inequality and the Borel--Cantelli lemma.
+    \item [I] Prove Kolmogorov's zero--one law: if $X_1, X_2, \dots$ are independent and $A$ is in the tail $\sigma$-algebra, then $P(A) \in \{0,1\}$.
+    \item [I] Let $X_1, X_2, \dots$ be i.i.d.\ with $\E[X_1] = \mu$ and $\Var(X_1) = \sigma^2 < \infty$. Prove the strong law of large numbers using the Chebyshev inequality and the Borel--Cantelli lemma.
     \item [B] Show that the Kolmogorov extension theorem implies the existence of a probability measure on the space of infinite coin toss sequences $\{0,1\}^\mathbb{N}$.
-    \item [B] Using dimensional analysis, derive the $-5/3$ law for the energy spectrum $E(k)$ in the inertial range of turbulence.
+    \item [I] Using dimensional analysis, derive the $-5/3$ law for the energy spectrum $E(k)$ in the inertial range of turbulence.
     \item [B] Show that the Kolmogorov microscale $\eta = (\nu^3/\epsilon)^{1/4}$ is the scale at which the Reynolds number based on eddy size equals 1.
     \item [I] Prove that the Kolmogorov complexity $K(x)$ satisfies $K(x) \leq |x| + O(1)$ and that most strings of length $n$ satisfy $K(x) \geq n - O(\log n)$.
     \item [I] Show that $K(x)$ is uncomputable (the proof via the Berry paradox).
@@ -488,7 +485,7 @@ For further exploration, see Chapter~33 (Sinai) on ergodic theory and dynamical 
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1903 & Born in Tambov, Russia \\ \hline

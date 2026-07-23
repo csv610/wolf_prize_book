@@ -8,6 +8,10 @@
 \it ``Ingrid Daubechies has revolutionized the field of signal processing through her discovery of compactly supported wavelets. Her work has had an extraordinary impact, from the FBI fingerprint database and image compression standards to applications in art conservation, medicine, and astronomy. She has built bridges between pure mathematics and real-world problems that are models of scientific excellence.'' --- Wolf Prize Citation, 2023
 \end{quote}
 
+\section{Early Life and Career}
+
+Ingrid Daubechies was born on August 17, 1954, in Houthalen, Belgium. She studied at the Vrije Universiteit Brussel, receiving her Ph.D.\ in 1980 under the supervision of Jean-Pierre Antoine. She held positions at the Free University of Brussels, Bell Labs, and Duke University before joining the University of Chicago in 2019. She was awarded the Wolf Prize in Mathematics in 2023.
+
 \section{Main Contributions}
 
 Ingrid Daubechies (born 1954) is a Belgian physicist and mathematician whose work in wavelet theory has transformed signal processing, image compression, and data analysis. She was awarded the Wolf Prize in Mathematics in 2023.
@@ -16,7 +20,7 @@ The Wolf Prize citation reads: ``for her pathbreaking contributions to wavelet t
 
 Daubechies' core contributions include:
 \begin{itemize}
-    \item \textbf{Daubechies Wavelets:} The construction of the first family of compactly supported orthogonal wavelets, now fundamental to signal processing and data compression.
+    \item \textbf{Daubechies Wavelets\index{wavelet}:} The construction of the first family of compactly supported orthogonal wavelets, now fundamental to signal processing and data compression.
     \item \textbf{The Lifting Scheme:} A construction (with Sweldens) of wavelets through spatial lifting, enabling efficient implementation and integer-wavelet transforms.
     \item \textbf{FBI Fingerprint Standard:} The wavelet-based compression standard for the FBI's fingerprint database, achieving 20:1 compression ratios.
     \item \textbf{Image Processing:} Foundational work on wavelet-based image denoising, compression (JPEG 2000), and analysis.
@@ -30,7 +34,7 @@ Daubechies' core contributions include:
 
 Before wavelets, signal processing relied primarily on the Fourier transform, which represents signals as sums of sine waves. The Fourier transform gives perfect frequency resolution but poor time localization. The short-time Fourier transform (STFT) provides time-frequency localization but has fixed resolution.
 
-What was needed: a representation that can analyze signals at multiple resolutions, with good time localization for high frequencies and good frequency localization for low frequencies. This is the multiresolution analysis idea.
+What was needed: a representation that can analyze signals at multiple resolutions, with good time localization for high frequencies and good frequency localization for low frequencies. This is the multiresolution analysis\index{multiresolution analysis} idea.
 
 \subsection{The Problem of Compact Support}
 
@@ -127,6 +131,110 @@ The lifting scheme enables:
 
 The FBI's WSQ (Wavelet Scalar Quantization) standard, based on Daubechies wavelets, compresses fingerprint images at ratios of 15:1 to 20:1 while preserving the fine ridge details needed for identification. This was the first large-scale government standard using wavelets.
 
+\subsection{Compact Support and Regularity}
+
+\begin{theorem}[Daubechies, 1988]
+\label{thm:daubechies_regularity}
+For the Daubechies wavelet $\psi_N$ with $N$ vanishing moments:
+\begin{enumerate}
+    \item The support satisfies $\supp \psi_N = [0, 2N-1]$.
+    \item The scaling function $\varphi_N \in C^{\alpha}$ where $\alpha \geq cN$ for an absolute constant $c > 0$.
+    \item More precisely, the H\"older regularity satisfies $\alpha_N \geq N - 1 - \log_2(\rho)$, where $\rho = |\lambda_2| / 2 < 1$ is the second-largest modulus of the two-scale symbol evaluated at the zeros.
+\end{enumerate}
+\end{theorem}
+
+The tradeoff between compact support and smoothness is fundamental: increasing $N$ gives smoother wavelets but wider support. For the Daubechies $D4$ wavelet ($N = 2$), the scaling function is H\"older continuous with exponent approximately $0.55$, while $D8$ ($N = 4$) achieves H\"older exponent approximately $0.86$.
+
+\begin{remark}
+The exact H\"older regularity of the Daubechies scaling functions was computed by Lawton and others using the $p$-norm method and the cascade algorithm. The spectral radius of a transfer operator determines the precise regularity. For any fixed $N$, one has $\varphi_N \in C^{N-1-\epsilon}$ for all $\epsilon > 0$, and $\varphi_N \notin C^{N}$ in general.
+\end{remark}
+
+\begin{theorem}[Vanishing Moments and Polynomial Reproduction]
+Let $\psi$ be a wavelet with $N$ vanishing moments. Then for any polynomial $p(x)$ of degree $< N$, the wavelet coefficients satisfy:
+\[
+\langle p, \psi_{j,k} \rangle = \int_{\R} p(x) \cdot 2^{j/2} \psi(2^j x - k) \, dx = 0.
+\]
+Consequently, any $C^N$ function $f$ can be approximated to accuracy $O(2^{-jN})$ at resolution $j$ using wavelet coefficients, achieving optimal approximation rates for piecewise smooth functions.
+\end{theorem}
+
+\subsection{Wavelet Frames and Non-Euclidean Extensions}
+
+\begin{definition}[Tight Frame]
+A family $\{f_i\}_{i \in I}$ in a Hilbert space $\mathcal{H}$ is a \textbf{tight frame} if there exists $A > 0$ such that for all $f \in \mathcal{H}$:
+\[
+f = \frac{1}{A} \sum_{i \in I} \langle f, f_i \rangle \, f_i.
+\]
+Equivalently, the frame satisfies the identity $\sum_{i \in I} |\langle f, f_i \rangle|^2 = A \|f\|^2$ for all $f \in \mathcal{H}$. When $A = 1$, the tight frame is an orthonormal basis.
+\end{definition}
+
+Daubechies, along with Grossmann and Meyer, pioneered the theory of wavelet frames for redundant representations. Unlike orthonormal wavelet bases, tight wavelet frames allow redundancy, which provides:
+\begin{itemize}
+    \item Robustness to noise and small perturbations.
+    \item Shift-invariant or nearly shift-invariant representations.
+    \item Greater flexibility in adaptation to specific signal structures.
+\end{itemize}
+
+\begin{theorem}[Daubechies--Han, 2001]
+A two-level wavelet frame constructed from a finite filter bank generates a tight frame for $L^2(\R)$ if and only if the corresponding polyphase matrix satisfies a unitarity condition on the unit circle. In particular, the frame operator $S = \sum_k U_k^* U_k$ is a scalar multiple of the identity.
+\end{theorem}
+
+The extension to non-Euclidean settings---manifolds, graphs, and irregular sampling domains---has become a major theme of twenty-first-century analysis. On a Riemannian manifold $(M, g)$, one can define wavelets via the spectral theory of the Laplace--Beltrami operator:
+\[
+\Delta_g \psi_k = \lambda_k \psi_k, \quad \psi_k \in L^2(M),
+\]
+and construct multiscale decompositions using spectral cutoffs $\psi_{j,k} = \sum_{\lambda_k \in [2^{2j}, 2^{2(j+1)})} \langle f, \psi_k \rangle \psi_k$.
+
+\begin{remark}
+On graphs, the spectral graph wavelet transform (Hammond et al., 2011) uses the eigendecomposition of the graph Laplacian to define wavelets adapted to the graph structure. This framework generalizes classical wavelets to data on irregular domains, with applications in sensor networks, social network analysis, and computational neuroscience.
+\end{remark}
+
+The lifting scheme (Section 3.3.1) was specifically designed to extend wavelet constructions to irregular sampling and non-Euclidean geometries, as it requires only local operations that can be performed on any connected graph or mesh.
+
+\subsection{Biorthogonal Wavelets and Filter Banks}
+
+\begin{definition}[Biorthogonal Wavelet System]
+A pair of dual wavelet systems $\{\psi_{j,k}\}$ and $\{\widetilde{\psi}_{j,k}\}$ is \textbf{biorthogonal} if $\langle \psi_{j,k}, \widetilde{\psi}_{j',k'} \rangle = \delta_{j,j'} \delta_{k,k'}$. Equivalently, the synthesis filters $\{h_k\}$ and analysis filters $\{\widetilde{h}_k\}$ satisfy:
+\[
+\sum_n h_n \widetilde{h}_{n + 2k} = \delta_{k,0}, \quad \sum_n h_n = \sum_n \widetilde{h}_n = \sqrt{2}.
+\]
+\end{definition}
+
+Biorthogonal wavelets relax the orthogonality constraint, allowing symmetric filters and thus linear-phase filter banks. The Cohen--Daubechies--Feauveau (CDF) 9/7 biorthogonal wavelet, used in JPEG 2000, achieves this symmetry while maintaining sufficient vanishing moments and compact support for image compression.
+
+\begin{theorem}[Cohen--Daubechies--Feauveau, 1992]
+For each pair of positive integers $(\widetilde{N}, N)$, there exists a biorthogonal wavelet system with $\widetilde{N}$ dual vanishing moments and $N$ primal vanishing moments, supported on intervals of length $2\widetilde{N} - 1$ (dual) and $2N - 1$ (primal). Symmetric filters are possible precisely because orthogonality is relaxed.
+\end{theorem}
+
+\subsection{Wavelet Packets and Best Basis Selection}
+
+Wavelet packets (Coifman, Meyer, and Wickerhauser, 1992) generalize the wavelet decomposition by allowing adaptive splitting of frequency subbands. Given a signal $f$ of length $2^J$, the wavelet packet algorithm computes a library of $2^{J(J+1)/2}$ possible orthonormal bases, and selects the one minimizing an information cost functional:
+\[
+\mathcal{C}(f) = \sum_k c_k^2 \log(c_k^{-2}) \quad \text{(Shannon entropy)}.
+\]
+This adaptive approach provides optimal compression for signals with complex time-frequency structure, such as chirps and transient oscillations that are poorly captured by the standard dyadic wavelet decomposition.
+
+\begin{definition}[Wavelet Packet Basis]
+Given a signal space $V_0$ with orthonormal basis $\{\phi(x - k)\}$, a \textbf{wavelet packet basis} is obtained by recursively decomposing either the approximation space $V_j$ or the detail space $W_j$ at each level, using the same pair of orthogonal filters. The resulting collection of subspaces forms a complete orthonormal basis of $V_0$.
+\end{definition}
+
+\subsection{The Cascade Algorithm and Convergence}
+
+\begin{definition}[Cascade Algorithm]
+The \textbf{cascade algorithm} (Daubechies, 1988) constructs the scaling function $\varphi$ iteratively. Starting from the indicator function $\varphi^{(0)} = \mathbf{1}_{[0,1)}$, define:
+\[
+\varphi^{(m+1)}(x) = \sqrt{2} \sum_{k} h_k \varphi^{(m)}(2x - k).
+\]
+If the iteration converges in $L^2(\R)$, the limit is the scaling function $\varphi$.
+\end{definition}
+
+\begin{theorem}[Daubechies, 1988]
+For the Daubechies filter coefficients with $N$ vanishing moments, the cascade algorithm converges in $L^2(\R)$ to a continuous limit function $\varphi$. The rate of convergence is governed by the second-largest eigenvalue (in modulus) of the transition operator associated with the refinement mask. When $|\lambda_2| < 1$, convergence is geometric.
+\end{theorem}
+
+\begin{remark}
+The cascade algorithm provides both a constructive proof of existence and a practical algorithm for computing the scaling function numerically. For the $D4$ wavelet ($N = 2$), the algorithm converges to the continuous, nowhere differentiable scaling function after approximately 8--10 iterations. The convergence analysis uses the transfer matrix of the two-scale difference equation and the spectral radius condition $|\lambda_2| < 1$.
+\end{remark}
+
 \section{Impact on Science and Technology}
 
 \subsection{In Mathematics}
@@ -148,7 +256,7 @@ The FBI's WSQ (Wavelet Scalar Quantization) standard, based on Daubechies wavele
     \item \textbf{Art Conservation:} Wavelet analysis of X-ray images of paintings.
 \end{enumerate}
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: What are Daubechies wavelets?}
 A family of compactly supported orthogonal wavelets, indexed by the number of vanishing moments $N$. They are smooth, have compact support, and form orthonormal bases of $L^2(\R)$.
@@ -164,6 +272,9 @@ They were the first smooth, compactly supported, orthogonal wavelets. This combi
 
 \subsection*{Q5: What should an undergraduate study to understand Daubechies' work?}
 Fourier analysis, linear algebra (filter banks, orthogonal bases), and signal processing. Recommended: \textit{Ten Lectures on Wavelets} (Daubechies), \textit{A Wavelet Tour of Signal Processing} (Mallat), and \textit{Wavelets and Filter Banks} (Strang--Nguyen).
+
+\section{Related Chapters}
+See also Chapter~25 (Carleson) on Fourier analysis and Chapter~01 (Gelfand) on functional analysis.
 
 \section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
@@ -181,7 +292,7 @@ Fourier analysis, linear algebra (filter banks, orthogonal bases), and signal pr
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1954 & Born in Houthalen, Belgium \\ \hline
@@ -212,9 +323,7 @@ Fourier analysis, linear algebra (filter banks, orthogonal bases), and signal pr
     \item[Wavelet] A function $\psi$ whose dilations and translations form an orthonormal basis of $L^2(\R)$.
 \end{description}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item I.\ Daubechies, \textit{Orthonormal bases of compactly supported wavelets}, Comm.\ Pure Appl.\ Math.\ 41 (1988), 909--996.
     \item I.\ Daubechies, \textit{Ten Lectures on Wavelets}, SIAM, 1992.

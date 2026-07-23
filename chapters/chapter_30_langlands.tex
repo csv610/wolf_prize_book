@@ -72,11 +72,11 @@
 
 Robert Phelan Langlands was born on October 6, 1936, in New Westminster, British Columbia, Canada. He grew up in a small town near Vancouver, showing an early aptitude for mathematics. Langlands attended the University of British Columbia for his undergraduate studies, earning a B.A. in 1957 and an M.A. in 1958. He then moved to Yale University, where he completed his Ph.D.\ in 1960 under the supervision of Cassius Ionescu-Tulcea, with a dissertation on the theory of Lie groups.
 
-After brief positions at Princeton University and the University of California, Berkeley, Langlands joined the faculty at Yale in 1962. In 1967, he wrote the famous letter to Andr\'{e} Weil that would lay the foundation for what became known as the Langlands program. This letter, now legendary in mathematics, outlined a sweeping vision connecting number theory, harmonic analysis, and representation theory.
+After brief positions at Princeton University and the University of California, Berkeley, Langlands joined the faculty at Yale in 1962. In 1967, he wrote the famous letter to Andr\'{e} Weil that would lay the foundation for what became known as the Langlands program\index{Langlands program}. This letter, now legendary in mathematics, outlined a sweeping vision connecting number theory, harmonic analysis, and representation theory.
 
 Langlands moved to the Institute for Advanced Study in Princeton in 1972, where he remained for the rest of his career. He was appointed Professor Emeritus at IAS in 2006 but continued to pursue active research well into his later years.
 
-Langlands's early work focused on the representation theory of Lie groups and the theory of automorphic forms. His Ph.D.\ thesis dealt with the representation theory of the Lorentz group, foreshadowing his deep interest in the interplay between group representations and analysis. During his time at Princeton and Berkeley in the early 1960s, he became deeply familiar with the work of Harish-Chandra on harmonic analysis on semisimple Lie groups and with Selberg's trace formula.
+Langlands's early work focused on the representation theory of Lie groups and the theory of automorphic forms\index{automorphic form}. His Ph.D.\ thesis dealt with the representation theory of the Lorentz group, foreshadowing his deep interest in the interplay between group representations and analysis. During his time at Princeton and Berkeley in the early 1960s, he became deeply familiar with the work of Harish-Chandra on harmonic analysis on semisimple Lie groups and with Selberg's trace formula.
 
 The monumental scope of his contributions has been recognized by numerous honors. He received the Wolf Prize in Mathematics in 1995/96, sharing it with Andrew Wiles ``for his extraordinary achievements in number theory and related fields.'' For the precise citation: Langlands was awarded the prize ``for his pioneering work and extraordinary insights in the fields of number theory, automorphic forms, and representation theory.'' In 2018, he was awarded the Abel Prize by the Norwegian Academy of Sciences and Letters, ``for his visionary program connecting representation theory to number theory.''
 
@@ -92,7 +92,7 @@ They were not idiotic. In this letter, Langlands proposed a vast generalization 
 
 The core insight is deceptively simple. Let \(F\) be a number field and let \(\overline{F}\) be an algebraic closure. The absolute Galois group \(\Gal(\overline{F}/F)\) is a profinite group encoding the arithmetic of \(F\). Its finite-dimensional representations over \(\C\) or \(\overline{\Q}_\ell\) are objects of central importance. On the other hand, let \(\mathbb{A}_F\) be the adele ring of \(F\) and let \(G\) be a reductive algebraic group over \(F\). The group \(G(\mathbb{A}_F)\) acts by right translation on the space \(L^2(G(F)\backslash G(\mathbb{A}_F))\), and the irreducible constituents of this representation are called automorphic representations.
 
-The Langlands correspondence predicts a bijection between certain \(n\)-dimensional Galois representations of \(\Gal(\overline{F}/F)\) and certain automorphic representations of \(\GL(n,\mathbb{A}_F)\). More generally, for any reductive group \(G\), the automorphic representations of \(G\) should correspond to homomorphisms of the conjectural Langlands group \(L_F\) into the Langlands dual group \({}^L G\).
+The Langlands correspondence predicts a bijection between certain \(n\)-dimensional Galois representations\index{Galois representation} of \(\Gal(\overline{F}/F)\) and certain automorphic representations of \(\GL(n,\mathbb{A}_F)\). More generally, for any reductive group \(G\), the automorphic representations of \(G\) should correspond to homomorphisms of the conjectural Langlands group \(L_F\) into the Langlands dual group\index{Langlands dual group} \({}^L G\).
 
 This vision unified seemingly disparate fields: algebraic number theory, the theory of automorphic forms, harmonic analysis on reductive groups, and the representation theory of \(p\)-adic and real Lie groups.
 
@@ -105,7 +105,7 @@ The letter itself, now available in facsimile in Langlands's collected works, sh
 To make the discussion precise, we must first understand automorphic forms. Classical automorphic forms are functions on the upper half-plane \(\mathfrak{H} = \{z \in \C : \Im(z) > 0\}\) that are invariant under a discrete subgroup \(\Gamma \subset \SL(2,\R)\). The prototypical example is the modular group \(\Gamma = \SL(2,\Z)\).
 
 \begin{definition}
-A function \(f : \mathfrak{H} \to \C\) is a modular form of weight \(k\) for \(\SL(2,\Z)\) if:
+A function \(f : \mathfrak{H} \to \C\) is a modular form\index{modular form} of weight \(k\) for \(\SL(2,\Z)\) if:
 \begin{enumerate}
 \item \(f\) is holomorphic on \(\mathfrak{H}\);
 \item \(f(\gamma z) = (cz + d)^k f(z)\) for all \(\gamma = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \SL(2,\Z)\);
@@ -114,7 +114,7 @@ A function \(f : \mathfrak{H} \to \C\) is a modular form of weight \(k\) for \(\
 A cusp form additionally satisfies \(a_0 = 0\).
 \end{definition}
 
-The modern, representation-theoretic viewpoint replaces these classical automorphic forms with automorphic representations. This perspective, pioneered by Gelfand, Piatetski-Shapiro, and later Langlands, considers the action of the adelic group \(G(\mathbb{A}_F)\) on the space of square-integrable functions on \(G(F)\backslash G(\mathbb{A}_F)\). The space decomposes as a direct integral of irreducible unitary representations, and those occurring discretely are of particular interest.
+The modern, representation-theoretic viewpoint replaces these classical automorphic forms\index{automorphic form} with automorphic representations. This perspective, pioneered by Gelfand, Piatetski-Shapiro, and later Langlands, considers the action of the adelic group \(G(\mathbb{A}_F)\) on the space of square-integrable functions on \(G(F)\backslash G(\mathbb{A}_F)\). The space decomposes as a direct integral of irreducible unitary representations, and those occurring discretely are of particular interest.
 
 \begin{definition}
 Let \(F\) be a number field and \(G\) a reductive algebraic group over \(F\). An automorphic representation \(\pi\) of \(G(\mathbb{A}_F)\) is an irreducible representation of \(G(\mathbb{A}_F)\) that is isomorphic to a subquotient of the space of automorphic forms on \(G(F)\backslash G(\mathbb{A}_F)\).
@@ -210,7 +210,7 @@ This conjecture encompasses almost all known relationships between automorphic f
 
 Despite decades of effort, the full Functoriality Conjecture remains open. However, many important cases have been established, notably by Langlands himself, by Arthur, Clozel, Harris, Taylor, and many others. The proof of the modularity of elliptic curves (the Shimura--Taniyama--Weil conjecture) by Wiles, Taylor, Breuil, Conrad, Diamond, and Taylor can be viewed as a special case of functoriality for \(\GL(2)\).
 
-\section{The Langlands Correspondence for \(\GL(2)\)}
+\section{The Langlands Correspondence for \texorpdfstring{\(\GL(2)\)}{GL(2)}}
 
 The simplest nontrivial case of the Langlands correspondence is for \(\GL(2)\) over \(\Q\). This case was largely established by Langlands himself in his 1970s work and was later refined by Carayol, Deligne, and others.
 
@@ -447,9 +447,39 @@ Langlands himself remains an active figure in mathematics. His work continues to
 
 In the words of the Norwegian Academy of Sciences and Letters: ``Robert Langlands has been awarded the Abel Prize for his visionary program connecting representation theory to number theory. His program---the Langlands program---weaves together deep results in number theory, representation theory, and algebraic geometry, and has led to spectacular applications.''
 
-\section*{Glossary}
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}
+\begin{enumerate}
+    \item [B] What is the overarching goal of the Langlands Program, connecting two seemingly disparate areas of mathematics (number theory and representation theory)?
+    \item [B] Briefly explain what an "automorphic form" is in the context of the Langlands Program, and how it generalizes classical modular forms.
+    \item [B] State the fundamental idea behind the Langlands Reciprocity Conjecture, relating Galois representations to automorphic representations.
+    \item [I] Describe the role of L-functions (both automorphic and Galois) in the Langlands Program. How are they conjectured to be related, and what properties are expected from this relation?
+    \item [I] Explain the significance of the Functoriality Conjecture. Provide an example of a specific case that has been proven or is a major area of research (e.g., base change for GL(2) or symmetric power lifts).
+    \item [I] For a local field $F$, the Local Langlands Correspondence for $GL_n(F)$ establishes a bijection between what two sets of objects? Briefly describe the nature of this correspondence.
+    \item [A] Discuss the concept of "endoscopy" within the Langlands Program. How does it address the issue of transferring automorphic forms between different groups, and what challenges does it present in its formulation and proof?
+\end{enumerate}
 
-\begin{description}
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1936 & Born in New Westminster, British Columbia, Canada. \\ \hline
+1957 & Earns B.A. from the University of British Columbia. \\ \hline
+1960 & Earns Ph.D. from Yale University under the supervision of André Weil. \\ \hline
+1960--1967 & Assistant Professor and later Associate Professor at Princeton University. \\ \hline
+1967 & Formulates the initial ideas of what would become the Langlands program in a letter to André Weil. \\ \hline
+1967--1972 & Professor at Yale University. \\ \hline
+1970 & Publishes "Problems in the theory of automorphic forms," a foundational paper for the Langlands program. \\ \hline
+1972 & Joins the Institute for Advanced Study (IAS) in Princeton, New Jersey, as a Professor. \\ \hline
+1982 & Awarded the Frank Nelson Cole Prize in Number Theory by the American Mathematical Society. \\ \hline
+1996 & Awarded the Wolf Prize in Mathematics (jointly with Andrew Wiles). \\ \hline
+2005 & Awarded the Shaw Prize in Mathematical Sciences. \\ \hline
+2018 & Awarded the Abel Prize "for his visionary program connecting representation theory to number theory." \\ \hline
+\end{tabularx}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}\begin{description}
 \item[Adeles] The restricted product \(\mathbb{A}_F = \prod_v' F_v\) of all completions of a number field \(F\), a locally compact ring that unifies local and global phenomena.
 \item[Affine Grassmannian] The quotient \(\Gr_G = G(\C((t)))/G(\C[[t]])\), an ind-scheme whose geometry encodes the representation theory of the Langlands dual group.
 \item[Arthur--Selberg trace formula] An identity relating sums over conjugacy classes of a reductive group to sums over its automorphic representations.
@@ -496,5 +526,29 @@ In the words of the Norwegian Academy of Sciences and Letters: ``Robert Langland
 \end{description}
 
 \section{Related Chapters}
-
 See also Chapter~4 (Weil) on number theory, and Chapter~16 (Selberg) on automorphic forms and the trace formula.
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item Langlands, R. P. (1967). \textit{Euler Products}. Yale University Press.
+    \item Langlands, R. P. (1969). On the functional equations of certain Eisenstein series. In \textit{Lecture Notes in Mathematics}, Vol. 544, pp. 1-18. Springer-Verlag.
+    \item Langlands, R. P. (1970). Problems in the theory of automorphic forms. In \textit{Lectures in Modern Analysis and Applications III}. Lecture Notes in Mathematics, Vol. 170, pp. 18-61. Springer-Verlag.
+    \item Jacquet, H., \& Langlands, R. P. (1970). \textit{Automorphic Forms on GL(2)}. Lecture Notes in Mathematics, Vol. 114. Springer-Verlag.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item Arthur, J. (2003). The work of Robert Langlands. \textit{Notices of the American Mathematical Society}, 50(6), 706-714.
+    \item Gelbart, S. S. (1984). An elementary introduction to the Langlands program. \textit{Bulletin of the American Mathematical Society (New Series)}, 10(2), 177-219.
+    \item Faltings, G. (2018). The Abel Prize Laureate 2018: Robert P. Langlands. \textit{EMS Newsletter}, 108, 10-14.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item Bump, D. (1997). \textit{Automorphic Forms and Representations}. Cambridge University Press.
+    \item Gelbart, S. S. (1975). \textit{Automorphic Forms on Adele Groups}. Princeton University Press.
+    \item Cogdell, J. W. (2004). Lectures on the Langlands Program. In J. W. Cogdell, D. Goldfeld, D. Ramakrishnan, \& M. R. Murty (Eds.), \textit{Automorphic Forms and the Langlands Program} (pp. 1-46). American Mathematical Society.
+    \item Knapp, A. W. (1992). \textit{Elliptic Curves}. Princeton University Press.
+\end{enumerate}

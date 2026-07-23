@@ -22,7 +22,7 @@ Hans Lewy (1904--1988) was a German-American mathematician whose work transforme
 
 Lewy's three most famous contributions are:
 \begin{enumerate}
-    \item \textbf{Lewy's example} (1957): a linear PDE with smooth coefficients having no solutions, which revolutionized the understanding of solvability.
+    \item \textbf{Lewy's example}\index{Lewy example} (1957): a linear PDE with smooth coefficients having no solutions, which revolutionized the understanding of solvability.
     \item \textbf{Lewy's extension theorem}: a CR function on a real hypersurface in $\mathbb{C}^n$ extends holomorphically to one side.
     \item \textbf{Hopf--Lewy maximum principle}: for elliptic equations, the maximum of a solution occurs only on the boundary of the domain.
 \end{enumerate}
@@ -54,7 +54,7 @@ Lewy's 1957 example shattered this belief. He constructed a first-order linear P
 
 The historical context: the theory of linear PDEs was approaching completion. The Cauchy--Kovalevskaya theorem handled analytic coefficients. The theory of elliptic operators was mature (Schauder estimates, Fredholm theory). Hyperbolic equations were well understood via characteristics. Lewy's example showed that there were fundamental obstacles to a general existence theory.
 
-\subsection{CR Functions and Extension}
+\subsection{CR Geometry\index{CR geometry} and Extension}
 
 A CR function on a real hypersurface $M \subset \mathbb{C}^n$ is a function that satisfies the tangential Cauchy--Riemann equations. The question: does a CR function on $M$ extend to a holomorphic function on a neighborhood of $M$?
 
@@ -224,7 +224,7 @@ The Nirenberg--Treves theorem (1970) characterizes local solvability for princip
 
 When condition (P) fails, the operator has a non-trivial imaginary part that oscillates along bicharacteristics. This produces a sign-changing phenomenon that makes it impossible to construct a local inverse.
 
-\subsection{The $\overline{\partial}$ Problem and CR Geometry}
+\subsection{The \texorpdfstring{$\overline{\partial}$}{d-bar} Problem and CR Geometry}
 
 The Lewy extension theorem is the beginning of the theory of CR functions and the $\overline{\partial}_b$ complex. The $\overline{\partial}$ operator on $\mathbb{C}^n$ has:
 \[
@@ -242,7 +242,7 @@ The $\overline{\partial}_b$-Neumann problem studies the solvability of $\overlin
     \item The theory of the corona problem in several complex variables.
 \end{itemize}
 
-\subsection{The $\overline{\partial}$-Neumann Problem}
+\subsection{The \texorpdfstring{$\overline{\partial}$}{d-bar}-Neumann Problem}
 
 The $\overline{\partial}$-Neumann problem asks: given a $(0,q)$-form $f$ on a domain $\Omega \subset \mathbb{C}^n$, find $u$ such that $\overline{\partial} u = f$ and $u$ satisfies the $\overline{\partial}$-Neumann boundary condition (the normal component of $u$ vanishes on $\partial \Omega$).
 
@@ -274,7 +274,7 @@ This method, developed by Alexandrov, Serrin, Gidas--Ni--Nirenberg, relies cruci
     \item The Serrin overdetermined problem: if a domain admits a solution of $\Delta u = -1$ with $u = 0$ and $\partial u/\partial \nu = \text{constant}$ on the boundary, the domain is a ball.
 \end{itemize}
 
-\subsection{The $\overline{\partial}$-Neumann Problem and Subelliptic Estimates}
+\subsection{The \texorpdfstring{$\overline{\partial}$}{d-bar}-Neumann Problem and Subelliptic Estimates}
 
 The $\overline{\partial}$-Neumann problem is central to the theory of several complex variables. For a domain $\Omega \subset \mathbb{C}^n$, define:
 \[
@@ -418,7 +418,7 @@ Lewy's example was a major motivation for the development of microlocal analysis
 
 The Lewy operator is not of real principal type (the symbol is complex). The theory of complex principal type operators is richer and more subtle, with condition (P) as the key criterion.
 
-\section{Impact and Legacy}
+\section{Impact on Science and Technology}
 
 Lewy's example fundamentally changed PDE theory:
 \begin{itemize}
@@ -450,9 +450,8 @@ Primary: Lewy 1957 (counterexample), Lewy 1956 (extension theorem), Hopf 1927 (m
 
 1904 Born Breslau (now Wroc\l aw). 1926 PhD G\"{o}ttingen (under Courant). 1933 Flees Nazi Germany to US. 1935 Professor Berkeley. 1936--1945 Works on water waves. 1945 Professor Brown. 1948--1951 Studies minimal surfaces. 1956 Lewy extension theorem. 1957 Lewy's example. 1960s CR geometry and $\overline{\partial}$-Neumann problem. 1972 Professor Stanford. 1985 Wolf Prize with Kodaira. 1988 Dies in Berkeley.
 
-\section*{Exercises}
-
-\begin{enumerate}
+\section*{Exercises for the Reader}
+\addcontentsline{toc}{section}{Exercises}\begin{enumerate}
     \item [B] Verify that the Lewy operator $L = \partial/\partial \overline{z} - i z \partial/\partial t$ is not elliptic by computing its symbol.
     \item [I] Show that if $f$ is real-analytic, the Lewy equation has a local solution, using the Cauchy--Kovalevskaya theorem.
     \item [I] Prove the Hopf boundary point lemma for the Laplace operator $\Delta$ using the Poisson integral formula.
@@ -470,8 +469,25 @@ Primary: Lewy 1957 (counterexample), Lewy 1956 (extension theorem), Hopf 1927 (m
     \item [I] Show that the Nirenberg--Treves condition (P) is satisfied by every elliptic operator.
 \end{enumerate}
 
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Year} & \textbf{Event} \\ \hline
+1904 & Born Hans Lewy on October 20 in Breslau, Germany (now Wrocław, Poland). \\ \hline
+1926 & Earns Ph.D. from the University of Göttingen under Richard Courant. \\ \hline
+1928 & Co-authors the seminal paper introducing the Courant-Friedrichs-Lewy (CFL) condition, a fundamental stability criterion for numerical solutions of PDEs. \\ \hline
+1933 & Flees Nazi Germany, moving first to Italy, then to France. \\ \hline
+1935 & Emigrates to the United States, taking a position as a lecturer at Brown University. \\ \hline
+1937 & Joins the faculty of the University of California, Berkeley, where he would spend the remainder of his career. \\ \hline
+1957 & Publishes "An example of a smooth linear partial differential equation without solution," known as Lewy's example, demonstrating the existence of linear PDEs with smooth coefficients that have no local solutions. This was a major counterexample in the theory of PDEs. \\ \hline
+1964 & Elected a member of the National Academy of Sciences. \\ \hline
+1986 & Awarded the Wolf Prize in Mathematics (shared with Samuel Eilenberg) for his pioneering work on partial differential equations. \\ \hline
+1988 & Dies on August 23 in Berkeley, California. \\ \hline
+\end{tabularx}
+
 \section*{Glossary}
-\begin{description}
+\addcontentsline{toc}{section}{Glossary}\begin{description}
     \item[Local solvability] Existence of a distribution solution near every point for any smooth right-hand side.
     \item[CR function] A function on a real hypersurface satisfying tangential Cauchy--Riemann equations.
     \item[Condition (P)] The Nirenberg--Treves condition ensuring local solvability of principal-type operators.
@@ -485,3 +501,26 @@ Primary: Lewy 1957 (counterexample), Lewy 1956 (extension theorem), Hopf 1927 (m
     \item[Fourier integral operator] An operator that quantizes canonical transformations in phase space.
     \item[$\overline{\partial}_b$ complex] The tangential Cauchy--Riemann complex on a CR manifold.
 \end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item Lewy, H. (1957). An example of a smooth linear partial differential equation without solution. \textit{Annals of Mathematics}, 66(1), 155--158.
+    \item Courant, R., Friedrichs, K. O., \& Lewy, H. (1928). Über die partiellen Differenzengleichungen der mathematischen Physik. \textit{Mathematische Annalen}, 100(1), 32--74.
+    \item Lewy, H. (1938). On the reflection law of solutions of partial differential equations in two independent variables. \textit{Bulletin of the American Mathematical Society}, 44(1), 1--7.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item Morawetz, C. S. (1992). Hans Lewy (1904--1988). In \textit{Biographical Memoirs of the National Academy of Sciences}, Vol. 61, pp. 273--284. National Academies Press.
+    \item Nirenberg, L. (1989). Hans Lewy. \textit{Bulletin of the American Mathematical Society}, 21(1), 153--157.
+    \item Bers, L. (1989). Hans Lewy. \textit{Notices of the American Mathematical Society}, 36(1), 13--15.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item Hörmander, L. (1983). \textit{The Analysis of Linear Partial Differential Operators I: Distribution Theory and Fourier Analysis}. Springer-Verlag.
+    \item Evans, L. C. (2010). \textit{Partial Differential Equations} (2nd ed.). American Mathematical Society.
+    \item Treves, F. (1975). \textit{Basic Linear Partial Differential Equations}. Academic Press.
+\end{enumerate}

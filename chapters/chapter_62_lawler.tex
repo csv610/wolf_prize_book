@@ -8,6 +8,10 @@
 \it ``Gregory Lawler's work has transformed probability theory and its connections to statistical physics. The development of the Schramm--Loewner evolution, together with his deep results on random walks, intersection exponents, and loop-erased random walks, has provided a rigorous foundation for conformal invariance in critical systems.'' --- Wolf Prize Citation, 2019
 \end{quote}
 
+\section{Early Life and Career}
+
+Gregory Francis Lawler was born in 1955 in Bangor, Maine. He studied at the University of Virginia, receiving his Ph.D.\ in 1979 under the supervision of Harry Kesten at Cornell University. He held positions at the University of Virginia, Duke University, the University of Chicago, and Cornell University before joining the faculty at Cornell. He was awarded the Wolf Prize in Mathematics in 2019.
+
 \section{Main Contributions}
 
 Gregory Lawler (born 1955) is an American mathematician whose work in probability theory has fundamentally changed the understanding of critical phenomena in statistical physics through the rigorous development of the Schramm--Loewner Evolution (SLE). He was awarded the Wolf Prize in Mathematics in 2019 alongside Jean-Fran\c{c}ois Le Gall.
@@ -125,8 +129,98 @@ A random curve in $\H$ from $0$ to $\infty$ satisfies the \textbf{restriction pr
 \end{definition}
 
 \begin{theorem}[Lawler--Schramm--Werner, 2003]
-SLE$_{8/3}$ is the unique curve satisfying the restriction property. It is the scaling limit of the self-avoiding walk (SAW).
+SLE$_{8/3}$ is the unique curve satisfying the restriction property. It is the scaling limit of the self-avoiding walk\index{self-avoiding walk} (SAW).
 \end{theorem}
+
+\subsection{Intersection Probability of Brownian Paths}
+
+\begin{theorem}[Lawler's Intersection Probability Theorem]
+Let $B^1$ and $B^2$ be independent Brownian motions in $\R^2$ started at distance $R$ apart and run for time $1$. Then the probability that their ranges intersect satisfies:
+\[
+\mathbb{P}\bigl(\operatorname{range}(B^1[0,1]) \cap \operatorname{range}(B^2[0,1]) \neq \emptyset\bigr) = 1 - c \, R^{-5/4} + o(R^{-5/4})
+\]
+as $R \to \infty$, where $c > 0$ is an explicit constant. More generally, for $m$ Brownian motions started in a ball of radius $R$ in the plane, the probability that at least one pair intersects decays as:
+\[
+\mathbb{P}(\text{some pair intersects}) = 1 - c_m R^{-m(m-1)\xi/2} + o(R^{-m(m-1)\xi/2})
+\]
+where $\xi = 5/8$ is the fundamental intersection exponent.
+\end{theorem}
+
+\begin{remark}
+The value $\xi = 5/8$ was first conjectured by Cardy in conformal field theory and proved rigorously by Lawler, Schramm, and Werner using SLE techniques. The key idea is to relate the intersection probability to a crossing probability in conformal field theory, which can be computed via SLE. The intersection exponent $\xi = 5/8$ is related to the central charge $c = 0$ of the underlying CFT by the KPZ relation.
+\end{remark}
+
+\begin{theorem}[Lawler--Schramm--Werner, 2001; Conformal Field Theory Connection]
+The intersection exponents for planar Brownian motion satisfy the conformal field theory prediction:
+\[
+\xi(m,n) = \frac{1}{12}\bigl(\sqrt{4m+1} - \sqrt{4n+1}\bigr)^2
+\]
+for $m,n \geq 1$. In particular, the arm exponent for a single path to avoid $n$ other paths is:
+\[
+\xi(1,n) = \frac{(1 + 2\sqrt{n})^2 - 1}{12}
+\]
+This confirms the Coulomb gas formalism of conformal field theory and provides the first rigorous proof of the KPZ (Knizhnik--Polyakov--Zamolodchikov) relation in the context of random curves.
+\end{theorem}
+
+\subsection{Self-Avoiding Walk Critical Exponent}
+
+\begin{definition}[Self-Avoiding Walk]
+A \textbf{self-avoiding walk} (SAW) on $\Z^d$ is a sequence of vertices $(\omega_0, \omega_1, \ldots, \omega_n)$ such that $\omega_i \in \Z^d$, $|\omega_{i+1} - \omega_i| = 1$, and $\omega_i \neq \omega_j$ for $i \neq j$. Let $c_n^{(d)}$ denote the number of SAWs of length $n$ starting at the origin.
+\end{definition}
+
+\begin{theorem}[Existence of the Connective Constant]
+For any $d \geq 1$, the limit
+\[
+\mu = \lim_{n \to \infty} \bigl(c_n^{(d)}\bigr)^{1/n}
+\]
+exists and is called the \textbf{connective constant} of the lattice. Moreover, $c_n^{(d)}$ satisfies the submultiplicative inequality $c_{m+n}^{(d)} \leq c_m^{(d)} \cdot c_n^{(d)}$, guaranteeing convergence by Fekete's lemma.
+\end{theorem}
+
+\begin{theorem}[Critical Exponents for $d \geq 5$]
+For $d \geq 5$ (the mean-field regime), the self-avoiding walk satisfies:
+\[
+c_n^{(d)} \sim C \cdot \mu^n \cdot n^{\gamma - 1}, \qquad \langle |\omega_n|^2 \rangle \sim D \cdot n^{2\nu}
+\]
+with critical exponents $\gamma = 1$ and $\nu = 1/2$, agreeing with the mean-field (random walk) values. The two-point function satisfies:
+\[
+G(x) = \sum_{n=0}^{\infty} c_n^{(d)} \, p_n(x) \sim |x|^{2-d} \quad \text{as } |x| \to \infty
+\]
+where $p_n(x)$ is the $n$-step random walk transition probability.
+\end{theorem}
+
+\begin{remark}
+For $d = 2$, the exact exponents are conjectured (and partially proved via SLE) to be $\nu = 3/4$ and $\gamma = 43/32$. The SLE$_{8/3}$ description of the scaling limit of the SAW in $d = 2$ was established by Lawler, Schramm, and Werner, connecting the critical exponents to the intersection theory of Brownian paths.
+\end{remark}
+
+\subsection{SLE and Conformal Invariance}
+
+\begin{definition}[Conformally Invariant Random Curve]
+A random curve $\gamma$ in a domain $D \subset \C$ is \textbf{conformally invariant} if for any conformal map $\phi: D \to D'$, the image $\phi \circ \gamma$ has the same law (in $D'$) as $\gamma$ (up to reparametrization).
+\end{definition}
+
+\begin{theorem}[Universality of SLE]
+SLE$_\kappa$ is the unique conformally invariant random curve with the Markov property in the upper half-plane $\H$, up to the choice of the parameter $\kappa > 0$. Moreover:
+\begin{enumerate}
+    \item The parameter $\kappa$ determines the fractal dimension: $\dim_H(\text{SLE}_\kappa) = \min(2, 1 + \kappa/8)$.
+    \item The value $\kappa = 8/3$ corresponds to the self-avoiding walk (restriction measure).
+    \item The value $\kappa = 2$ corresponds to the loop-erased random walk.
+    \item The value $\kappa = 3$ corresponds to the interface of the critical Ising model.
+    \item The value $\kappa = 6$ corresponds to the percolation exploration path.
+    \item The value $\kappa = 8$ corresponds to the Peano curve of the uniform spanning tree.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Conformal Invariance of Brownian Intersection Exponents]
+The intersection exponents for Brownian motion are conformally invariant. That is, for any conformal map $\phi$ defined on a neighborhood of the ranges of the Brownian motions:
+\[
+\xi(\phi \circ B^1, \ldots, \phi \circ B^m; \phi \circ B^{m+1}, \ldots, \phi \circ B^{m+n}) = \xi(B^1, \ldots, B^m; B^{m+1}, \ldots, B^{m+n})
+\]
+This conformal invariance is the key property that allows the computation of intersection exponents via SLE.
+\end{theorem}
+
+\begin{remark}
+The connection between SLE and conformal field theory (CFT) is through the Schramm--Loewner evolution as a martingale. The partition function of CFT can be identified with a martingale associated to the SLE, and the intersection exponents correspond to the scaling dimensions of primary fields in the CFT. This identification was made precise by Lawler, Schramm, and Werner, and independently by Bauer and Bernard.
+\end{remark}
 
 \section{Impact on Science and Technology}
 
@@ -147,7 +241,7 @@ SLE$_{8/3}$ is the unique curve satisfying the restriction property. It is the s
     \item \textbf{Quantum Gravity:} Connections between SLE and Liouville quantum gravity.
 \end{enumerate}
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: What is SLE?}
 Schramm--Loewner Evolution is a family of random curves in the plane characterized by conformal invariance and a Markov property. The curves are generated by the Loewner equation with a Brownian driving function.
@@ -165,7 +259,6 @@ A random walk obtained by erasing loops as they are created. It converges to SLE
 Probability theory (Brownian motion, random walks), complex analysis (conformal maps), and basic statistical mechanics. Recommended: \textit{Introduction to Stochastic Processes} (Lawler), \textit{Conformally Invariant Processes in the Plane} (Lawler), and \textit{SLE} (Werner).
 
 \section{Related Chapters}
-
 See also Chapter~17 (It\^o) on stochastic processes.
 
 \section*{Exercises for the Reader}
@@ -184,7 +277,7 @@ See also Chapter~17 (It\^o) on stochastic processes.
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1955 & Born in Baltimore, Maryland \\ \hline
@@ -211,9 +304,7 @@ See also Chapter~17 (It\^o) on stochastic processes.
     \item[Scaling limit] The continuum limit obtained by rescaling a discrete model.
 \end{description}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item G.\ Lawler, O.\ Schramm, and W.\ Werner, \textit{Values of Brownian intersection exponents I: half-plane exponents}, Acta Math.\ 187 (2001), 237--273.
     \item G.\ Lawler, O.\ Schramm, and W.\ Werner, \textit{Conformal restriction: the chordal case}, J.\ Amer.\ Math.\ Soc.\ 16 (2003), 917--955.

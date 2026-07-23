@@ -76,14 +76,12 @@
 \newcommand{\inv}{\operatorname{inv}}
 \let\ab\relax
 \newcommand{\ab}{\mathrm{ab}}
-\let\Sha\relax
-\newcommand{\Sha}{\text{\fontencoding{T2A}\selectfont\CYRSH}}
 
 \chapter{John Tate (2002/03)}
 \index{Tate, John}
 
 \begin{quote}
-\it ``John Tate's work has profoundly shaped modern number theory and arithmetic geometry. His creation of Tate cohomology, his thesis on Fourier analysis in number fields, his discovery of the Tate--Shafarevich group, his conjecture on algebraic cycles, and his foundational contributions to rigid analytic geometry, formal groups, and the arithmetic of elliptic curves have opened entire new fields of investigation. His ideas, characterized by their depth, elegance, and lasting influence, permeate nearly every corner of algebraic number theory.'' --- Wolf Prize Citation
+\it ``John Tate's work has profoundly shaped modern number theory and arithmetic geometry. His creation of Tate cohomology, his thesis on Fourier analysis in number fields, his discovery of the Tate--Shafarevich group\index{Tate-Shafarevich group}, his conjecture on algebraic cycles, and his foundational contributions to rigid analytic geometry, formal groups, and the arithmetic of elliptic curves have opened entire new fields of investigation. His ideas, characterized by their depth, elegance, and lasting influence, permeate nearly every corner of algebraic number theory.'' --- Wolf Prize Citation
 \end{quote}
 
 John Torrence Tate Jr.\ (March 13, 1925 -- October 16, 2019) was one of the most influential mathematicians of the 20th century. His work transformed algebraic number theory, arithmetic geometry, and the theory of automorphic forms. He received the Wolf Prize in Mathematics in 2002/03 (shared with Mikio Sato) for his fundamental contributions to number theory and related fields. In 2010, he was awarded the Abel Prize for his immense and lasting impact on mathematics.
@@ -147,7 +145,7 @@ such that the cohomology of \(\Hom_{\Z[G]}(P_\bullet^{\text{Tate}}, A)\) compute
 
 \subsection{The Tate--Nakayama Theorem and Class Field Theory}
 
-The fundamental theorem of local class field theory can be expressed entirely in the language of Tate cohomology. For a finite Galois extension \(L/K\) of local fields with Galois group \(G = \Gal(L/K)\), the Brauer group \(\Br(L/K) = H^2(G, L^\times)\) is cyclic of order \([L:K]\), and the invariant map
+The fundamental theorem of local class field theory can be expressed entirely in the language of Tate cohomology. For a finite Galois extension \(L/K\) of local fields with Galois group \(G = \Gal(L/K)\), the Brauer group\index{Brauer group} \(\Br(L/K) = H^2(G, L^\times)\) is cyclic of order \([L:K]\), and the invariant map
 \[
 \inv_{L/K}: H^2(G, L^\times) \longrightarrow \frac{1}{[L:K]}\Z/\Z
 \]
@@ -293,9 +291,9 @@ This exact sequence is the primary tool for bounding the Mordell--Weil rank of a
 
 The Tate--Shafarevich group is conjectured to be finite. This is one of the seven Clay Millennium Problems (the Birch and Swinnerton-Dyer conjecture) and one of the central open problems in arithmetic geometry.
 
-\begin{conj}[Finiteness of \(\Sha\)]
+\begin{conjecture}[Finiteness of \(\Sha\)]
 For any elliptic curve \(E\) over a number field \(k\), the Tate--Shafarevich group \(\Sha(E/k)\) is finite.
-\end{conj}
+\end{conjecture}
 
 The finiteness of \(\Sha\) is known only in certain special cases:
 \begin{itemize}
@@ -329,12 +327,12 @@ x_p = \frac{a_p(E)}{2\sqrt{p}} \in [-1, 1].
 
 Sato, through extensive numerical computation on the IBM 7090 at the University of Tokyo, observed that the distribution of the \(x_p\) for curves without complex multiplication seemed to follow a specific semicircular law. Tate independently arrived at the same conjecture from a theoretical perspective.
 
-\begin{conj}[Sato--Tate Conjecture, 1960s]
+\begin{conjecture}[Sato--Tate Conjecture, 1960s]
 Let \(E\) be an elliptic curve over \(\Q\) without complex multiplication. Then as \(p\) varies over primes of good reduction, the normalized Frobenius traces \(x_p = a_p(E)/2\sqrt{p}\) are equidistributed in \([-1, 1]\) with respect to the measure
 \[
 \mu_{\ST}(x) = \frac{2}{\pi} \, \sqrt{1 - x^2} \; dx.
 \]
-\end{conj}
+\end{conjecture}
 
 Equivalently, for any continuous function \(f: [-1, 1] \to \C\),
 \[
@@ -358,9 +356,9 @@ The proof proceeds by establishing the potential automorphy of the symmetric pow
 
 The Sato--Tate conjecture has been generalized far beyond elliptic curves. For any smooth projective variety \(X\) over a number field, the Frobenius eigenvalues at each prime produce a statistical distribution governed by a compact Lie group --- the Sato--Tate group of \(X\). The generalized Sato--Tate conjecture (formulated by Serre, Katz, and others) predicts:
 
-\begin{conj}[Generalized Sato--Tate Conjecture]
+\begin{conjecture}[Generalized Sato--Tate Conjecture]
 Let \(X\) be a smooth projective variety over a number field \(k\). For each prime \(v\) of good reduction, consider the normalized Frobenius eigenvalues \(\{\alpha_{i,v}\}\) acting on the \(l\)-adic cohomology \(H^i_{\text{\'et}}(X_{\overline{k}}, \Q_l)\). These eigenvalues are equidistributed in the unitary group with respect to the Haar measure of the Sato--Tate group \(\ST(X)\), which is the Zariski closure of the image of the Galois group in the automorphism group of the cohomology.
-\end{conj}
+\end{conjecture}
 
 This conjecture has been proved for abelian varieties of GL(2)-type by the work of Fite, Kedlaya, Rotger, and Sutherland, and for many specific families of varieties through the ongoing development of potential automorphy theorems.
 
@@ -485,7 +483,7 @@ Over the complex numbers, every elliptic curve \(E\) is isomorphic to a torus \(
 \]
 and the map \(z \mapsto (\wp(z), \wp'(z))\) identifies \(\C/\Lambda\) with the elliptic curve \(y^2 = 4x^3 - g_2 x - g_3\).
 
-\subsection{The Tate Curve Over \(p\)-adic Fields}
+\subsection{The Tate Curve Over \texorpdfstring{\(p\)}{p}-adic Fields}
 
 Over a \(p\)-adic field \(k\), the situation is radically different. An elliptic curve with bad reduction (specifically, multiplicative reduction) admits a uniformization by the multiplicative group \(\G_m\).
 
@@ -546,13 +544,13 @@ cl(Z) \in H^{2r}_{\text{\'et}}(X_{\overline{k}}, \Q_l(r)),
 \]
 which is fixed by the action of \(G_k\) (because \(Z\) is defined over \(k\)).
 
-\begin{conj}[Tate Conjecture, 1963]
+\begin{conjecture}[Tate Conjecture, 1963]
 Let \(X\) be a smooth projective variety over a finitely generated field \(k\). For any prime \(l \neq \operatorname{char}(k)\), the cycle class map
 \[
 \Pic^r(X) \longrightarrow H^{2r}_{\text{\'et}}(X_{\overline{k}}, \Q_l(r))^{G_k}
 \]
 is surjective when tensored with \(\Q_l\). More precisely, the \(\Q_l\)-vector space spanned by classes of algebraic cycles of codimension \(r\) (defined over \(k\)) coincides with the subspace of \(H^{2r}_{\text{\'et}}(X_{\overline{k}}, \Q_l(r))\) that is fixed by the Galois group \(G_k\).
-\end{conj}
+\end{conjecture}
 
 In the simplest case \(r = 1\), the Tate conjecture asserts that the Galois-invariant part of \(H^2_{\text{\'et}}(X_{\overline{k}}, \Q_l(1))\) is spanned by the classes of divisors. This case is equivalent to the finiteness of the Brauer group of \(X\) (the Tate conjecture for divisors), and it follows from the Kummer sequence and the theory of N\'eron--Severi groups once the algebraic closure of the base field is finite.
 
@@ -595,7 +593,7 @@ The Tate conjecture is deeply connected to many other fundamental conjectures in
     \item \textbf{Generalized Hodge conjecture:} Over number fields, the Tate conjecture for all varieties implies the Hodge conjecture for all varieties defined over number fields (by the comparison isomorphism and the standard conjectures).
 \end{itemize}
 
-\section{Impact and Legacy}
+\section{Impact on Science and Technology}
 
 \subsection{Number Theory and Arithmetic Geometry}
 
@@ -617,9 +615,8 @@ Tate's rigid analytic geometry laid the foundations for modern non-archimedean g
 
 The Tate conjecture remains one of the grand open problems of arithmetic geometry. Its proof for divisors on abelian varieties and K3 surfaces over finite fields represents significant progress, but the full conjecture is far from resolved. The conjecture is a central pillar of the web of conjectures (together with the Hodge conjecture, Beilinson's conjectures, and the standard conjectures) that define the landscape of modern arithmetic geometry.
 
-\section{Timeline}
-
-\begin{tabularx}{\linewidth}{|l|X|}
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1925 & Born on March 13 in Minneapolis, Minnesota, USA \\ \hline
@@ -684,7 +681,7 @@ The Tate conjecture is proved for divisors on abelian varieties (Tate, Zarhin, F
 
 Tate's adelic framework in his thesis was a direct precursor to Langlands' re-interpretation of automorphic forms as functions on \(\GL_n(\A_k)\) and the Langlands philosophy of associating Galois representations to automorphic representations. The symmetric power \(L\)-functions used in the proof of the Sato--Tate conjecture are a key instance of the Langlands functoriality principle.
 
-\section*{Exercises}
+\section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
@@ -737,3 +734,29 @@ Tate's adelic framework in his thesis was a direct precursor to Langlands' re-in
     \item[Tamagawa number] The volume of the adelic points of an algebraic group with respect to the Tamagawa measure, given by an Euler product of local factors.
     \item[Theta function] A power series \(\theta(u) = \sum_{n \in \Z} q^{n(n-1)/2} u^n\) used in the construction of the Tate uniformization.
 \end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item Tate, J. (1950). \textit{Fourier analysis in number fields and Hecke's zeta-functions}. Ph.D. thesis, Princeton University. (Later published as a chapter in Cassels, J.W.S., \& Fröhlich, A. (Eds.). (1967). \textit{Algebraic Number Theory}. Academic Press.)
+    \item Tate, J. (1963). Duality theorems in Galois cohomology over number fields. \textit{Proceedings of the International Congress of Mathematicians, Stockholm 1962}, 288--295.
+    \item Tate, J. (1965). Algebraic cycles and poles of zeta functions. In \textit{Arithmetical Algebraic Geometry (Proc. Conf. Purdue Univ., 1963)} (pp. 93--110). Harper \& Row, New York.
+    \item Tate, J. (1966). Classes d'isogénie des variétés abéliennes sur un corps fini (d'après J.-P. Serre). \textit{Séminaire Bourbaki}, Vol. 9, Exp. No. 306, 1--21.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item Milne, J.S. (2010). The work of John Tate. \textit{Notices of the American Mathematical Society}, 57(10), 1296--1301.
+    \item The Norwegian Academy of Science and Letters. (2010). \textit{The Abel Prize 2010: John Torrence Tate}. Official citation and biography.
+    \item Serre, J.-P. (2019). John Tate (1925--2019). \textit{Comptes Rendus Mathématique}, 357(5), 405--407.
+    \item Rubin, K. (2019). John Torrence Tate (1925--2019). \textit{Nature}, 570(7760), 168.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item Cassels, J.W.S., \& Fröhlich, A. (Eds.). (1967). \textit{Algebraic Number Theory}. Academic Press.
+    \item Serre, J.-P. (1979). \textit{Local Fields}. Graduate Texts in Mathematics, Vol. 67. Springer-Verlag.
+    \item Silverman, J.H. (2009). \textit{The Arithmetic of Elliptic Curves} (2nd ed.). Graduate Texts in Mathematics, Vol. 106. Springer.
+    \item Milne, J.S. (n.d.). \textit{Class Field Theory}. Available online at www.jmilne.org/math/CourseNotes/CFT.pdf.
+\end{enumerate}

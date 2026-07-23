@@ -80,7 +80,7 @@ The 1960s were a period of extraordinary productivity. Furstenberg developed the
 
 The concept of recurrence lies at the heart of ergodic theory. The classical Poincar\'e recurrence theorem states that in any measure-preserving system, almost every point returns to any measurable set of positive measure infinitely often. Furstenberg's insight was that much deeper recurrence properties hold and that these have profound combinatorial consequences.
 
-\begin{theorem}[Furstenberg Recurrence Theorem, 1977]
+\begin{theorem}[Furstenberg Recurrence Theorem\index{Furstenberg recurrence theorem}, 1977]
 Let \((X,\mathscr{B},\mu,T)\) be a measure-preserving dynamical system. Let \(A \in \mathscr{B}\) with \(\mu(A) > 0\) and let \(k \geq 1\) be an integer. Then there exists \(n \in \N\) such that
 \[
 \mu\bigl(A \cap T^{-n}A \cap T^{-2n}A \cap \cdots \cap T^{-kn}A\bigr) > 0.
@@ -109,7 +109,7 @@ Furstenberg's recurrence theorem is not merely a technical refinement of the Poi
 
 The most spectacular application of Furstenberg's multiple recurrence theorem was his proof of Szemer\'edi's theorem on arithmetic progressions. Endre Szemer\'edi had proved in 1975 that any subset of the integers of positive upper density contains arbitrarily long arithmetic progressions, a result that vastly generalized van der Waerden's theorem and settled a long-standing conjecture of Erd\H{o}s and Tur\'an.
 
-\begin{theorem}[Szemer\'edi's Theorem, 1975]
+\begin{theorem}[Szemer\'edi's Theorem\index{Szemer\'edi theorem}, 1975]
 Let \(A \subseteq \Z\) have positive upper Banach density, i.e.,
 \[
 \overline{d}(A) = \limsup_{N \to \infty} \frac{|A \cap \{-N,\dots,N\}|}{2N+1} > 0.
@@ -187,7 +187,7 @@ X_n = g_1 g_2 \cdots g_n,
 \]
 where the \(g_i\) are independent and identically distributed with law \(\mu\). The behavior of such random walks is governed by the convolution powers \(\mu^{*n}\), where \(\mu^{*n}(A) = \Prob(X_n \in A)\).
 
-Furstenberg's fundamental insight was that the long-term behavior of the random walk is captured by a measure-theoretic boundary, now called the \textbf{Furstenberg boundary} or the \textbf{Poisson boundary} of the random walk. The boundary is a \(G\)-space \(\partial G\) equipped with a family of harmonic measures \(\nu_x\) (one for each starting point \(x\)) such that the random walk converges to a random point on the boundary, and the distribution of this limit point encodes the asymptotic behavior of the walk.
+Furstenberg's fundamental insight was that the long-term behavior of the random walk is captured by a measure-theoretic boundary, now called the \textbf{Furstenberg boundary}\index{Furstenberg boundary} or the \textbf{Poisson boundary} of the random walk. The boundary is a \(G\)-space \(\partial G\) equipped with a family of harmonic measures \(\nu_x\) (one for each starting point \(x\)) such that the random walk converges to a random point on the boundary, and the distribution of this limit point encodes the asymptotic behavior of the walk.
 
 \begin{definition}[Poisson Boundary]
 For a random walk on \(G\) with step distribution \(\mu\), the \textbf{Poisson boundary} is a \(G\)-space \((\partial G, \nu)\) with the following properties:
@@ -479,9 +479,8 @@ The polynomial Szemer\'edi theorem (Bergelson--Leibman, 1996) is fully proved. I
 
 Several major open problems remain. The polynomial Hales--Jewett theorem (a density version for polynomial configurations in high-dimensional cubes) is conjectured but unproven. Quantitative effective bounds for Szemer\'edi's theorem and its polynomial generalizations are still far from optimal. The relationship between the Furstenberg correspondence principle and the finite-field models used by Gowers and others is an active area of investigation. Understanding the structure of characteristic factors for polynomial multiple ergodic averages beyond the linear case is also an important open direction.
 
-\section{Timeline}
-
-\begin{tabularx}{\linewidth}{|l|X|}
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1935 & Born on September 29 in Berlin, Germany \\ \hline
@@ -502,7 +501,7 @@ Several major open problems remain. The polynomial Hales--Jewett theorem (a dens
 2020 & Awarded the Abel Prize (shared with Grigory Margulis) \\ \hline
 \end{tabularx}
 
-\section*{Exercises}
+\section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
@@ -548,3 +547,38 @@ Several major open problems remain. The polynomial Hales--Jewett theorem (a dens
     \item[Top Lyapunov exponent] The largest Lyapunov exponent, governing the fastest growth direction for products of random matrices.
     \item[Unique ergodicity] A dynamical system is uniquely ergodic if it has exactly one invariant measure; the horocycle flow on \(G/\Gamma\) is uniquely ergodic.
 \end{description}
+
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+\begin{description}
+    \item[Ergodic Theory] A branch of mathematics that studies dynamical systems with an invariant measure. Furstenberg made fundamental contributions, particularly in applying ergodic methods to problems in number theory and combinatorics.
+    \item[Furstenberg's Recurrence Theorem] A key result in ergodic theory stating that for any measure-preserving system $(X, \mathcal{B}, \mu, T)$ and any set $A \in \mathcal{B}$ with $\mu(A) > 0$, there exists an integer $n \ge 1$ such that $\mu(A \cap T^{-n}A \cap T^{-2n}A \cap \dots \cap T^{-kn}A) > 0$ for any $k \ge 1$. This theorem is a powerful tool for proving combinatorial results.
+    \item[Szemeredi's Theorem] A theorem in combinatorial number theory stating that any subset of the integers with positive upper density contains arbitrarily long arithmetic progressions. Furstenberg provided a groundbreaking proof of this theorem using methods from ergodic theory.
+    \item[IP Set] An "infinite polynomial" set. A set $S \subseteq \mathbb{N}$ is an IP set if it contains all finite sums of distinct elements from an infinite sequence $(x_n)_{n=1}^\infty$ of positive integers. These sets play a role in Furstenberg's work on recurrence and combinatorial number theory.
+    \item[Profinite Topology] A topology on the integers (or other groups) where open sets are unions of arithmetic progressions. Furstenberg used this topological perspective to study recurrence and prove results like Szemeredi's Theorem, connecting dynamics with number theory.
+    \item[Unique Ergodicity] A property of a dynamical system where there is only one invariant probability measure. Furstenberg's work often involves constructing or analyzing systems with unique ergodicity, particularly in the context of compact group extensions and random walks.
+    \item[Poisson Boundary] For a random walk on a group, the Poisson boundary is a space that captures the asymptotic behavior of the random walk. Furstenberg made significant contributions to the theory of Poisson boundaries, especially in the context of products of random matrices and their applications to Lie groups.
+\end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item Furstenberg, H. (1967). Disjointness in ergodic theory, minimal sets, and a problem in Diophantine approximation. \textit{Mathematical Systems Theory}, 1(1), 1-49.
+    \item Furstenberg, H. (1977). Ergodic behavior of diagonal measures and a theorem of Szemeredi on arithmetic progressions. \textit{Journal d'Analyse Mathématique}, 31(1), 204-256.
+    \item Furstenberg, H. (1981). \textit{Recurrence in Ergodic Theory and Combinatorial Number Theory}. Princeton University Press.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item Assaf, S., \& Glasner, E. (Eds.). (2019). \textit{Ergodic Theory and Dynamical Systems: A Volume in Honor of Hillel Furstenberg}. American Mathematical Society.
+    \item Glasner, E. (2020). The work of Hillel Furstenberg. \textit{Notices of the American Mathematical Society}, 67(10), 1545-1554.
+    \item The Norwegian Academy of Science and Letters. (2020). \textit{The Abel Prize Laureates 2020: Hillel Furstenberg and Gregory Margulis}. Retrieved from \url{https://www.abelprize.no/c76307/seksjon/vis.html?tid=76308} (Accessed October 26, 2023).
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item Einsiedler, M., \& Ward, T. (2011). \textit{Ergodic Theory with a View Towards Number Theory}. Springer.
+    \item Glasner, E. (2003). \textit{Ergodic Theory Old and New}. Birkhäuser.
+    \item Walters, P. (1982). \textit{An Introduction to Ergodic Theory}. Springer.
+\end{enumerate}

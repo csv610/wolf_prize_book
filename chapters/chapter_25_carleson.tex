@@ -72,7 +72,7 @@ Carleson's early work in the 1950s focused on the boundary behavior of conformal
 
 One of his important early results concerned the convergence of conformal mappings on the boundary for domains with rough boundaries. He proved sharp estimates for the modulus of continuity of a conformal map in terms of the geometry of the target domain. These results refined the classical work of Carath\'eodory, Koebe, and Lindel\"of and provided tools that would later prove essential in his attack on the corona problem.
 
-\subsection{Interpolation in \(H^\infty\)}
+\subsection{Interpolation in \texorpdfstring{\(H^\infty\)}{H-infinity}}
 
 The algebra \(H^\infty\) consists of all bounded analytic functions on the unit disk \(\D = \{z \in \C : |z| < 1\}\), equipped with the supremum norm
 \[
@@ -166,9 +166,9 @@ where the integral is interpreted as a principal value. The main step is to prov
 
 Carleson's proof uses a decomposition of \(f\) into a sum of functions each supported on a frequency interval of dyadic length. The partial sum operator at frequency \(N\) is controlled by a tree-like structure on these dyadic intervals, and the maximal function is bounded using a subtle combinatorial estimate known as \textbf{Carleson's estimate}.
 
-The proof was later simplified by Charles Fefferman (1971), who gave a cleaner exposition using the notion of \textbf{Carleson measures} and a more systematic use of the Calder\'on--Zygmund decomposition. Fefferman's work showed that Carleson's theorem fits naturally into the theory of singular integrals.
+The proof was later simplified by Charles Fefferman (1971), who gave a cleaner exposition using the notion of \textbf{Carleson measures} and a more systematic use of the Calder\'on--Zygmund decomposition. Fefferman's work showed that Carleson's theorem\index{Carleson theorem} fits naturally into the theory of singular integrals.
 
-\subsection{Extension to \(L^p\) and Significance}
+\subsection{Extension to \texorpdfstring{\(L^p\)}{Lp Spaces} and Significance}
 
 Shortly after Carleson's proof, Richard Hunt (1968) extended the result to all \(L^p\) spaces for \(p > 1\):
 
@@ -252,7 +252,7 @@ Thus Carleson measures provide a geometric bridge between function theory on the
 
 \section{The Corona Theorem}
 
-\subsection{The Maximal Ideal Space of \(H^\infty\)}
+\subsection{The Maximal Ideal Space of \texorpdfstring{\(H^\infty\)}{H-infinity}}
 
 The algebra \(H^\infty\) of bounded analytic functions on the unit disk is a commutative Banach algebra with identity (the constant function 1). For such algebras, the \textbf{Gelfand theory} provides a correspondence between the algebra and its space of maximal ideals. The \textbf{maximal ideal space} \(\mathfrak{M}(H^\infty)\) is the set of all nonzero multiplicative linear functionals \(\varphi: H^\infty \to \C\).
 
@@ -361,7 +361,7 @@ Carleson's techniques have found applications in partial differential equations.
 
 Carleson himself worked on the Korteweg--de Vries equation and other nonlinear dispersive equations in his later career. His work on the convergence of Fourier series also found application in the study of the nonlinear Schr\"odinger equation, where the Carleson operator controls the convergence of the linear evolution.
 
-\section{Impact and Legacy}
+\section{Impact on Science and Technology}
 
 \subsection{The Carleson Revolution in Analysis}
 
@@ -427,9 +427,8 @@ In the 1970s and 1980s, Carleson worked on several areas beyond harmonic and com
 
 The difficulty lies in the fact that the Dirichlet kernel \(D_N(t) = \sin((N+1/2)t)/\sin(t/2)\) is not uniformly integrable in \(N\) --- its \(L^1\) norm grows like \(\log N\). Classical methods based on the Hardy--Littlewood maximal function do not suffice to control the partial sums. Carleson had to develop a completely new approach based on decomposing the function into dyadic frequency bands and controlling their interactions through a sophisticated tree structure and stopping-time arguments. The proof runs over 50 pages and involves estimates at multiple scales that must be carefully orchestrated.
 
-\section{Timeline}
-
-\begin{tabularx}{\linewidth}{|l|X|}
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1928 & Born on March 18 in Stockholm, Sweden \\ \hline
@@ -451,7 +450,7 @@ The difficulty lies in the fact that the Dirichlet kernel \(D_N(t) = \sin((N+1/2
 2006 & Awarded the Abel Prize from the Norwegian Academy of Science and Letters \\ \hline
 \end{tabularx}
 
-\section*{Exercises}
+\section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
@@ -509,3 +508,26 @@ The difficulty lies in the fact that the Dirichlet kernel \(D_N(t) = \sin((N+1/2
     \item[Weak type \((p,q)\)] An operator \(T\) satisfies \(|\{x : |T f(x)| > \lambda\}| \leq C \|f\|_p^q / \lambda^q\).
     \item[Wolff's lemma] A geometric covering lemma for the disk used in simplified proofs of the corona theorem.
 \end{description}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item Carleson, L. (1962). Interpolation by bounded analytic functions and the Corona problem. \textit{Annals of Mathematics}, 76(3), 547--559.
+    \item Carleson, L. (1966). On the convergence and growth of partial sums of Fourier series. \textit{Acta Mathematica}, 116(1), 135--157.
+    \item Carleson, L. (1967). \textit{Selected problems on exceptional sets}. Van Nostrand Mathematical Studies, No. 13. D. Van Nostrand Co., Inc., Princeton, N.J.-Toronto, Ont.-London.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item Fefferman, C. (2006). The work of Lennart Carleson. In \textit{Proceedings of the International Congress of Mathematicians (Madrid, 2006)}, Vol. I (pp. 13--22). European Mathematical Society.
+    \item Jones, P. W. (2006). Lennart Carleson's work in complex analysis. In \textit{Proceedings of the International Congress of Mathematicians (Madrid, 2006)}, Vol. I (pp. 23--32). European Mathematical Society.
+    \item The Norwegian Academy of Science and Letters. (2006). \textit{The Abel Prize 2006: Lennart Carleson}. Retrieved from \url{https://abelprize.no/abel-prize-laureates/2006}.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item Garnett, J. B. (2007). \textit{Bounded Analytic Functions} (Revised 1st ed.). Springer.
+    \item Grafakos, L. (2008). \textit{Classical Fourier Analysis} (2nd ed.). Springer.
+    \item Stein, E. M. (1993). \textit{Harmonic Analysis: Real-Variable Methods, Orthogonality, and Oscillatory Integrals}. Princeton University Press.
+\end{enumerate}

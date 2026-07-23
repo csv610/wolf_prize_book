@@ -9,8 +9,12 @@
 \index{Mostow, George D.}
 
 \begin{quote}
-\it ``Mostow rigidity is one of the great landmarks of modern geometry. When a compact manifold of negative curvature has dimension at least 3, its fundamental group determines it completely. This simple statement, whose proof reaches deep into the structure of semisimple Lie groups, has transformed our understanding of geometric structures and their moduli.'' --- Wolf Prize Citation, 2013
+\it ``Mostow rigidity\index{Mostow rigidity} is one of the great landmarks of modern geometry. When a compact manifold of negative curvature has dimension at least 3, its fundamental group determines it completely. This simple statement, whose proof reaches deep into the structure of semisimple Lie groups, has transformed our understanding of geometric structures and their moduli.'' --- Wolf Prize Citation, 2013
 \end{quote}
+
+\section{Early Life and Career}
+
+George Daniel Mostow was born on July 4, 1923, in Boston, Massachusetts. He studied at Harvard University, receiving his Ph.D.\ in 1948 under the supervision of Saunders Mac Lane. He held positions at Johns Hopkins University and Yale University, where he was the Henry L. Yeatman Professor of Mathematics. He was awarded the Wolf Prize in Mathematics in 2013. Mostow passed away on January 4, 2017.
 
 \section{Main Contributions}
 
@@ -127,6 +131,96 @@ An \textbf{algebraic group} over a field $k$ is a group that is also an algebrai
 Let $G$ be a connected linear algebraic group over a field $k$ of characteristic 0. Then $G$ has a Levi decomposition: $G = U \rtimes H$ where $U$ is the unipotent radical and $H$ is a reductive algebraic subgroup.
 \end{theorem}
 
+\subsection{Mostow Rigidity: Full Statement}
+
+\begin{theorem}[Mostow Rigidity Theorem, 1968]
+Let $M = \HH^n / \Gamma$ and $N = \HH^n / \Gamma'$ be two finite-volume complete hyperbolic manifolds of dimension $n \geq 3$, where $\Gamma, \Gamma' \subset \Isom(\HH^n) \cong \mathrm{PO}(n,1)$ are discrete subgroups. If $\varphi: \Gamma \to \Gamma'$ is a group isomorphism, then there exists a unique isometry $\Phi: \HH^n \to \HH^n$ such that $\Phi \circ \gamma \circ \Phi^{-1} = \varphi(\gamma)$ for all $\gamma \in \Gamma$. Consequently, the isometry $\Phi$ descends to an isometry $\overline{\Phi}: M \xrightarrow{\sim} N$.
+\end{theorem}
+
+\begin{remark}
+The theorem is best understood in contrast with dimension 2. A hyperbolic surface of genus $g \geq 2$ has a $(6g-6)$-dimensional Teichm\"uller space of inequivalent hyperbolic structures with the same fundamental group. For $n \geq 3$, this moduli space collapses to a single point: the representation $\rho: \Gamma \to \mathrm{PO}(n,1)$ defining the hyperbolic structure is isolated up to conjugacy in $\Isom(\HH^n)$.
+\end{remark}
+
+\begin{remark}[Volume and Rigidity]
+Since an isometry preserves volume, Mostow rigidity implies that any two finite-volume hyperbolic $n$-manifolds ($n \geq 3$) with isomorphic fundamental groups have equal volumes. In fact, the volume of a finite-volume hyperbolic manifold is a topological invariant---an extraordinary rigidity with no analogue in dimension 2.
+\end{remark}
+
+\subsection{Margulis Superrigidity}
+
+\begin{theorem}[Margulis Superrigidity]
+Let $G$ be a connected simple Lie group with $\operatorname{rank}(G) \geq 2$ (e.g., $\SL(n,\R)$ for $n \geq 3$), and let $\Gamma \subset G$ be an irreducible lattice (a discrete subgroup with $G/\Gamma$ of finite volume). Then any homomorphism $\varphi: \Gamma \to H$, where $H$ is any other Lie group, extends to a continuous homomorphism $\overline{\varphi}: G \to H$, provided $\varphi(\Gamma)$ is Zariski dense in $H$.
+\end{theorem}
+
+\begin{theorem}[Margulis Arithmeticity]
+Under the hypotheses of the superrigidity theorem, every irreducible lattice in a semisimple Lie group of real rank $\geq 2$ is \textbf{arithmetic}: it is commensurable with the group of integer points of an algebraic group defined over $\Q$.
+\end{theorem}
+
+\begin{remark}
+Margulis superrigidity is a far-reaching strengthening of Mostow rigidity. While Mostow's theorem applies specifically to hyperbolic isometry groups, Margulis shows that representations of higher-rank lattices into arbitrary Lie groups are rigid. In particular, Mostow rigidity for hyperbolic manifolds of dimension $\geq 3$ is a special case of Margulis superrigidity applied to $G = \mathrm{PO}(n,1)$ when $n \geq 3$ and one considers the lattice $\Gamma$ with $H = \mathrm{PO}(n,1)$ itself. However, $\mathrm{PO}(n,1)$ has rank 1 for all $n$, so the full power of Margulis's theorem requires higher-rank groups like $\SL(n,\R)$ for $n \geq 3$.
+\end{remark}
+
+\begin{remark}[Geometric Consequences]
+The arithmeticity result has profound geometric implications. For instance, by the result of Wang (1953) and Mostow, there are only finitely many pairwise non-isometric finite-volume hyperbolic 3-manifolds with a given volume. More strikingly, the set of volumes of finite-volume hyperbolic 3-manifolds is a well-ordered subset of $\R_{>0}$ (Gabai--Gu``o--Thurston, 2013), a result that relies fundamentally on the arithmeticity and rigidity framework established by Mostow and Margulis.
+\end{remark}
+
+\subsection{Quasi-conformal Mappings and Rigidity}
+
+\begin{definition}[Quasi-conformal Mapping]
+A homeomorphism $f: S^{n-1} \to S^{n-1}$ between spheres ($n \geq 2$) is \textbf{quasi-conformal} if, at every point, the map distorts infinitesimal spheres into ellipsoids whose eccentricity is uniformly bounded. Equivalently, $f$ is quasi-conformal if its pointwise distortion coefficient $K(x) = \limsup_{r \to 0} \frac{\max_{|y-x|=r} |f(y)-f(x)|}{\min_{|y-x|=r} |f(y)-f(x)|}$ is bounded by some constant $K < \infty$.
+\end{definition}
+
+\begin{theorem}[Liouville's Theorem on Quasi-conformal Maps]
+For $n \geq 3$, every quasi-conformal diffeomorphism of the sphere $S^{n-1}$ is the restriction of a M\"obius transformation, i.e., an element of $\mathrm{PO}(n,1)$ acting on the boundary at infinity of $\HH^n$.
+\end{theorem}
+
+\begin{remark}
+This theorem is the analytic heart of Mostow's rigidity proof. The chain of reasoning proceeds as follows:
+\begin{enumerate}
+    \item Given an isomorphism $\varphi: \Gamma_1 \to \Gamma_2$, one constructs a quasi-isometry $f: M_1 \to M_2$ between the hyperbolic manifolds (using the word metric on the fundamental groups).
+    \item The quasi-isometry extends continuously to a homeomorphism $\hat{f}: \partial_\infty \HH^n \to \partial_\infty \HH^n$, i.e., a homeomorphism of $S^{n-1}$.
+    \item By the Schwarz lemma for quasi-conformal maps, this boundary extension is quasi-conformal.
+    \item Since the geodesic flow on a finite-volume hyperbolic manifold is ergodic (a fact proved using the Hopf argument), the boundary map preserves the measure class of Lebesgue measure.
+    \item By Liouville's theorem, the quasi-conformal measure-preserving homeomorphism of $S^{n-1}$ must be a M\"obius transformation, hence extends to an isometry of $\HH^n$.
+\end{enumerate}
+The critical dichotomy is that for $n = 2$, quasi-conformal maps of $S^1$ are far more numerous (they include all homeomorphisms), so the argument breaks down completely. For $n \geq 3$, the rigidity of quasi-conformal maps is what forces the rigidity of the hyperbolic structure itself.
+\end{remark}
+
+\begin{remark}[Folland's Theorem and the Beltrami Equation]
+In dimension 2, quasi-conformal maps are solutions to the Beltrami equation $\bar\partial f = \mu \cdot \partial f$ for a measurable function $\|\mu\|_\infty < 1$. The space of solutions is infinite-dimensional, parameterized by $\mu$. In dimensions $\geq 3$, the higher-dimensional Beltrami system is overdetermined, and the only solutions are M\"obius transformations---this is the analytic manifestation of Mostow rigidity.
+\end{remark}
+
+\subsection{Entropy and Hyperbolic Volume}
+
+\begin{definition}[Topological Entropy]
+For a compact Riemannian manifold $(M, g)$, the \textbf{topological entropy} $h_{\mathrm{top}}$ of the geodesic flow is the exponential growth rate of the number of geodesic segments of length $\leq T$ connecting two fixed points, as $T \to \infty$. For finite-volume hyperbolic manifolds, the geodesic flow is ergodic and $h_{\mathrm{top}} = n-1$ (the dimension of the unstable horosphere in $\HH^n$).
+\end{definition}
+
+\begin{theorem}[Volume Entropy and Rigidity]
+Let $M = \HH^n/\Gamma$ be a closed hyperbolic manifold of dimension $n$. The volume of $M$ can be expressed as:
+\[
+\Vol(M) = \int_{\mathcal{P}} d\mu_{\mathrm{Bowman}}
+\]
+where $\mathcal{P}$ is the space of primitive closed geodesics and $\mu_{\mathrm{Bowman}}$ is the Bowen--Margulis measure. By rigidity, if two such manifolds have the same fundamental group, they must have the same Bowman--Margulis measure and hence the same volume.
+\end{theorem}
+
+\begin{remark}[Growth Rate and Spectral Theory]
+The Laplacian $\Delta$ on a finite-volume hyperbolic manifold has discrete spectrum $\{0 = \lambda_0 < \lambda_1 \leq \lambda_2 \leq \cdots\}$. The bottom of the essential spectrum satisfies $\lambda_{\mathrm{ess}} = (n-1)^2/4$, and the multiplicity of $\lambda_0 = 0$ is exactly 1. By Mostow rigidity, the entire spectrum $\{\lambda_i\}$ is a topological invariant of $M$---a remarkable fact with no analogue in dimension 2, where the spectrum varies over Teichm\"uller space.
+\end{remark}
+
+\subsection{Applications to Low-Dimensional Topology}
+
+\begin{remark}[3-Manifold Topology]
+Mostow rigidity was the starting point for Thurston's geometrization conjecture. If $M$ is a closed irreducible 3-manifold with infinite fundamental group, Thurston conjectured that $M$ admits a geometric structure modeled on one of eight Thurston geometries. The hyperbolic case---which accounts for the generic 3-manifold---relies heavily on Mostow rigidity to ensure that the geometric structure (if it exists) is unique.
+\end{remark}
+
+\begin{remark}[Dehn Surgery and Hyperbolic 3-Manifolds]
+Thurston's hyperbolic Dehn surgery theorem states that most Dehn fillings on a complete finite-volume hyperbolic 3-manifold with cusps yield closed hyperbolic 3-manifolds. Mostow rigidity guarantees that the resulting hyperbolic structures are uniquely determined by the topological type of the filled manifold. Combined with Thurston's theorem, this provides an extraordinarily rich source of hyperbolic 3-manifolds from simple topological constructions.
+\end{remark}
+
+\begin{remark}[Virtual Finiteness and Agol's Theorem]
+A fundamental consequence of the rigidity framework is that hyperbolic 3-manifolds are ``virtually special'': every closed hyperbolic 3-manifold has a finite-sheeted cover that embeds in a right-angled Artin group (Agol, 2012). This resolves Thurston's virtual fibering conjecture and, combined with Mostow rigidity, implies that the hyperbolic volume function on finite-volume hyperbolic 3-manifolds is a topological invariant that encodes deep information about the fundamental group.
+\end{remark}
+
 \section{Impact on Science and Technology}
 
 \subsection{In Mathematics}
@@ -146,7 +240,7 @@ Let $G$ be a connected linear algebraic group over a field $k$ of characteristic
     \item \textbf{String Theory:} Moduli spaces of Calabi--Yau manifolds contrast with the rigidity of negatively curved manifolds.
 \end{enumerate}
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: What is Mostow rigidity?}
 It states that any two finite-volume hyperbolic manifolds of dimension at least 3 with isomorphic fundamental groups are necessarily isometric. Unlike surfaces, where there are continuously many shapes with the same topology, higher-dimensional hyperbolic manifolds are rigid.
@@ -162,6 +256,9 @@ It is a bounded domain in $\C^n$ that is symmetric: around any point there is a 
 
 \subsection*{Q5: What should an undergraduate study to understand Mostow's work?}
 Differential geometry (Riemannian manifolds, curvature), Lie groups and Lie algebras, algebraic topology (fundamental groups, covering spaces), and ergodic theory. Recommended: \textit{Riemannian Geometry} (do Carmo), \textit{Introduction to Lie Groups} (Hall), and \textit{Ergodic Theory with a View towards Number Theory} (Einsiedler--Ward).
+
+\section{Related Chapters}
+See also Chapter~22 (Milnor) on differential topology and Chapter~63 (Donaldson) on 4-manifold topology.
 
 \section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
@@ -179,7 +276,7 @@ Differential geometry (Riemannian manifolds, curvature), Lie groups and Lie alge
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1923 & Born in Boston, Massachusetts \\ \hline
@@ -211,9 +308,7 @@ Differential geometry (Riemannian manifolds, curvature), Lie groups and Lie alge
     \item[Quasi-isometry] A map between metric spaces that distorts distances by at most a bounded multiplicative and additive factor.
 \end{description}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item G.\ D.\ Mostow, \textit{Quasi-conformal mappings in $n$-space and the rigidity of hyperbolic space forms}, Publ.\ Math.\ IH\'ES 34 (1968), 53--104.
     \item G.\ D.\ Mostow, \textit{Strong Rigidity of Locally Symmetric Spaces}, Ann.\ Math.\ Studies 78, Princeton Univ.\ Press, 1973.

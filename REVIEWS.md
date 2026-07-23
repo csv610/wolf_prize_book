@@ -1,5 +1,7 @@
 # Praise for *Wolf Prize in Mathematics*
 
+> **Note:** The following reviews are representative testimonials illustrating how the book might be received by different audiences. They are placeholder reviews for planning and promotional purposes.
+
 Critical acclaim and reviews for *Wolf Prize in Mathematics: A Comprehensive Survey (1978–2024)* from diverse academic, student, literary, and industry perspectives.
 
 ---

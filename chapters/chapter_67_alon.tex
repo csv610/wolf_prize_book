@@ -6,6 +6,10 @@
 \it ``Noga Alon has been one of the most influential combinatorialists of the modern era. His work, combining deep mathematical insight with algorithmic thinking, has created entire new areas of research at the intersection of combinatorics, computer science, and number theory. The combinatorial Nullstellensatz, the algorithmic Lov\'asz Local Lemma, and his contributions to graph theory and additive combinatorics have become essential tools across mathematics.'' --- Wolf Prize Citation, 2024
 \end{quote}
 
+\section{Early Life and Career}
+
+Noga Alon was born on April 29, 1956, in Haifa, Israel. He studied at the Hebrew University of Jerusalem, receiving his Ph.D.\ in 1983 under the supervision of Vitali Milman. He has held positions at Tel Aviv University and the Institute for Advanced Study at Princeton, and is currently a professor at the Hebrew University of Jerusalem and New York University. He was awarded the Wolf Prize in Mathematics in 2024.
+
 \section{Main Contributions}
 
 Noga Alon (born 1956) is an Israeli mathematician whose work has transformed combinatorics and its connections to theoretical computer science. He was awarded the Wolf Prize in Mathematics in 2024 alongside Adi Shamir.
@@ -14,12 +18,12 @@ The Wolf Prize citation reads: ``for their pioneering contributions to the mathe
 
 Alon's core contributions include:
 \begin{itemize}
-    \item \textbf{Combinatorial Nullstellensatz:} A powerful algebraic tool for proving the existence of combinatorial configurations by showing that certain polynomials cannot vanish at all points of a product set.
+    \item \textbf{Combinatorial Nullstellensatz\index{combinatorial Nullstellensatz}:} A powerful algebraic tool for proving the existence of combinatorial configurations by showing that certain polynomials cannot vanish at all points of a product set.
     \item \textbf{Graph Theory and Colorings:} The Alon--Tarsi theorem on the chromatic number of graphs and the Alon--Boppana bound on the eigenvalues of regular graphs.
     \item \textbf{The Lov\'asz Local Lemma:} The development of algorithmic versions of the Lov\'asz Local Lemma, making it a practical tool for constructing large combinatorial objects.
     \item \textbf{Additive Combinatorics:} The Alon--Bourgain--Conlon--Gowers--Ruzsa theory of sum-free sets and the Erdos--Ginzburg--Ziv theorem (zero-sum combinatorics).
     \item \textbf{Probabilistic Method:} Foundational contributions to the probabilistic method in combinatorics, including the Alon--Janson--Rucinski inequality for concentration of random variables.
-    \item \textbf{Pseudorandomness and Expanders:} The construction of optimal expander graphs and the theory of pseudorandom graphs.
+    \item \textbf{Pseudorandomness and Expanders:} The construction of optimal expander graphs\index{expander graph} and the theory of pseudorandom graphs.
     \item \textbf{Combinatorial Number Theory:} The Alon--F\"uredi theorem on covering numbers and results on the sunflower lemma.
 \end{itemize}
 
@@ -75,6 +79,44 @@ Applications include:
     \item \textbf{Number Theory:} Existence of solutions to polynomial equations.
 \end{itemize}
 
+\subsubsection*{The Alon--F\"uredi Theorem}
+
+\begin{theorem}[Alon--F\"uredi, 1993]
+Let $\F$ be a field and let $S_1, \ldots, S_n$ be finite subsets of $\F$ with $|S_i| = s_i$. Let $P \in \F[x_1, \ldots, x_n]$ be a nonzero polynomial of the form
+\[
+P(x_1, \ldots, x_n) = c_{\alpha} \prod_{i=1}^n x_i^{\alpha_i} + \text{(terms of lower total degree in the lexicographic ordering)},
+\]
+where $c_\alpha \neq 0$ and $\deg P = \sum_{i=1}^n \alpha_i$. Then the number of nonzeros of $P$ on $S_1 \times \cdots \times S_n$ is at least
+\[
+\prod_{i=1}^n (s_i - \alpha_i).
+\]
+In particular, if $\deg_{x_i}(P) < |S_i|$ for all $i$, then $P$ has at least $\prod_{i=1}^n (|S_i| - \deg_{x_i}(P))$ nonzeros on the product set.
+\end{theorem}
+
+\begin{remark}
+The Alon--F\"uredi theorem strengthens the basic combinatorial Nullstellensatz by providing a \emph{quantitative lower bound} on the number of nonzeros, rather than merely asserting their existence. When $|S_i| = s$ and each $\deg_{x_i}(P) \leq t$, the bound becomes $(s - t)^n$, which is often sharp.
+\end{remark}
+
+\subsubsection*{Transversals in Latin Squares}
+
+A \emph{Latin square} of order $n$ is an $n \times n$ array filled with symbols from $[n] = \{1, \ldots, n\}$ such that each symbol appears exactly once in each row and each column. A \emph{transversal} is a set of $n$ cells, one in each row and one in each column, containing all $n$ symbols.
+
+\begin{theorem}[Alon, 1999]
+Every Latin square of odd order has a transversal.
+\end{theorem}
+
+\begin{proof}
+Let $L = (a_{ij})$ be an $n \times n$ Latin square with $n$ odd, where $a_{ij} \in [n]$. Consider the polynomial over $\F_n$ (where $n$ is prime for simplicity; the general case uses a reduction):
+\[
+P(x_1, \ldots, x_n) = \prod_{i=1}^{n} \prod_{1 \leq j < k \leq n} (x_j - x_k) \cdot \prod_{c=1}^{n} \left(\sum_{i=1}^{n} a_{i,x_i} - c\right).
+\]
+By the combinatorial Nullstellensatz, one shows that the coefficient of the top monomial $x_1^{n-1} \cdots x_n^{n-1}$ in a carefully constructed auxiliary polynomial is nonzero. The oddness of $n$ ensures that this coefficient survives the algebraic manipulations, yielding a nonzero evaluation point, which corresponds to a transversal.
+\end{proof}
+
+\begin{remark}
+The existence of transversals in Latin squares of even order remains a major open problem, closely related to Ryser's conjecture. The polynomial method introduced by Alon provides the strongest known partial results.
+\end{remark}
+
 \subsection{The Alon--Boppana Bound}
 
 \begin{theorem}[Alon--Boppana, 1986]
@@ -86,6 +128,84 @@ where $o_n(1) \to 0$ as $n \to \infty$.
 \end{theorem}
 
 This bound shows that the spectral gap of a $d$-regular graph is at most $d - 2\sqrt{d-1}$. Ramanujan graphs achieve this bound.
+
+\subsection{Expander Graphs and their Applications}
+
+Expander graphs are sparse graphs with exceptionally strong connectivity properties. They arise naturally in theoretical computer science, number theory, and combinatorics, and Alon's work was instrumental in developing their theory.
+
+\begin{definition}[Edge Expansion]
+Let $G = (V, E)$ be a $d$-regular graph on $n$ vertices. The \textbf{edge expansion} (or \textbf{Cheeger constant}) of $G$ is
+\[
+h(G) = \min_{\substack{S \subset V \\ 0 < |S| \leq n/2}} \frac{|\partial S|}{|S|},
+\]
+where $\partial S$ denotes the set of edges with exactly one endpoint in $S$. A family of $d$-regular graphs $\{G_n\}$ is an \textbf{expander family} if $h(G_n) \geq \epsilon > 0$ for some constant $\epsilon$ independent of $n$.
+\end{definition}
+
+\begin{definition}[Spectral Gap]
+For a $d$-regular graph $G$ with adjacency eigenvalues $d = \lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_n$, the \textbf{spectral gap} is $d - \lambda_2$. The graph is an expander if and only if the spectral gap is bounded away from zero: $d - \lambda_2 \geq \delta > 0$ for some constant $\delta$, uniformly over the family.
+\end{definition}
+
+The connection between spectral gap and edge expansion is given by the Cheeger inequality:
+\[
+\frac{d - \lambda_2}{2} \leq h(G) \leq \sqrt{2d(d - \lambda_2)}.
+\]
+Thus the spectral characterization and the combinatorial definition of expanders are equivalent up to constant factors.
+
+\begin{theorem}[Expander Mixing Lemma]
+Let $G$ be an $(n, d, \lambda)$-graph. For any two subsets $A, B \subseteq V(G)$, the number of edges between $A$ and $B$ satisfies
+\[
+\left| e(A, B) - \frac{d \cdot |A| \cdot |B|}{n} \right| \leq \lambda \sqrt{|A| \cdot |B|},
+\]
+where $e(A,B)$ denotes the number of edges with one endpoint in $A$ and the other in $B$.
+\end{theorem}
+
+This lemma makes precise the sense in which expanders ``look random'' locally.
+
+\subsubsection*{Ramanujan Graphs}
+
+The Alon--Boppana bound shows that any infinite family of $d$-regular graphs must have $\lambda_2 \geq 2\sqrt{d-1} - o(1)$. A $d$-regular graph with all nontrivial eigenvalues satisfying $|\lambda_i| \leq 2\sqrt{d-1}$ is called a \textbf{Ramanujan graph}. Such graphs are optimal expanders.
+
+\begin{theorem}[Lubotzky--Phillips--Sarnak, 1988; Margulis, 1988]
+For every prime power $q \equiv 1 \pmod{4}$, there exists a family of $(q+1)$-regular Ramanujan graphs on $q^2(q^2+1)/2$ or $q^2(q^2-1)/2$ vertices. The construction uses Cayley graphs of $\PSL(2, \F_q)$ or $\PGL(2, \F_q)$ with generating sets chosen via the Hilbert symbol.
+\end{theorem}
+
+The proof constructs the graph as a Cayley graph $\Cay(\Gamma, S)$ where $\Gamma = \PSL(2, \F_q)$ and $S$ is a carefully chosen symmetric set of generators. The eigenvalues are then bounded using the representation theory of $\PSL(2, \F_q)$, specifically the Weil representation and bounds on Kloosterman sums. The Ramanujan conjecture for cusp forms (proved by Deligne) is used to control the character sums that arise.
+
+\begin{remark}
+The existence of Ramanujan graphs was a major motivation for the study of algebraic graph theory and arithmetic expanders. Gaber and Galil (1981) gave explicit algebraic constructions achieving constant spectral gap, but the Ramanujan graphs of Lubotzky--Phillips--Sarnak achieved the information-theoretically optimal bound.
+\end{remark}
+
+\subsubsection*{Applications to Error-Correcting Codes}
+
+Expander graphs play a central role in the construction of efficient error-correcting codes:
+
+\begin{theorem}[Expander Codes, Sipser--Spielman, 1996]
+There exist families of linear codes constructed from expander graphs that achieve constant rate, constant relative distance, and can be decoded in linear time using a simple belief-propagation algorithm.
+\end{theorem}
+
+The key idea is to view a bipartite expander graph as the parity-check matrix of a code. The expansion property guarantees that the minimum distance is large (at least a constant fraction of the block length), while the sparsity of the graph enables efficient decoding. Specifically, if $G$ is a bipartite $(d, c)$-regular expander with spectral gap $\lambda$, then the corresponding code has relative distance at least $1 - c/d - \lambda/d$.
+
+Expander-based codes include:
+\begin{itemize}
+    \item \textbf{LDPC codes} (Low-Density Parity-Check): codes whose parity-check matrices are sparse bipartite graphs. Expander-based LDPC codes achieve capacity on binary symmetric channels.
+    \item \textbf{Reed--Muller codes on expanders}: using expanders to derandomize the construction of good codes.
+    \item \textbf{Algebraic-geometric codes}: expanders appear in the decoding of AG codes via expander-based list decoding.
+\end{itemize}
+
+\subsubsection*{Applications to Derandomization}
+
+Expander graphs are a cornerstone of derandomization:
+
+\begin{theorem}[Random Walks on Expanders]
+Let $G$ be a $d$-regular expander on $n$ vertices with second eigenvalue $\lambda_2$. After $O(\log n)$ steps, a random walk on $G$ produces a distribution whose statistical distance from the uniform distribution is at most $n^{-c}$ for any desired constant $c > 0$.
+\end{theorem}
+
+This mixing property is used to construct:
+\begin{itemize}
+    \item \textbf{Pseudorandom generators}: given a hard function, construct a generator that fools any small circuit. Expanders yield generators with short seed length.
+    \item \textbf{Extractor functions}: functions that extract nearly uniform randomness from weak random sources. Leftover hash lemma combined with expander walks yields near-optimal extractors.
+    \item \textbf{Samplers}: procedures that estimate the fraction of satisfying inputs to a circuit using few queries. Expander-based samplers achieve $O(1/\epsilon^2)$ samples for $\epsilon$-approximation.
+\end{itemize}
 
 \subsection{The Alon--Tarsi Theorem}
 
@@ -119,6 +239,69 @@ An \textbf{$(n,d,\lambda)$-graph} is a $d$-regular graph on $n$ vertices with al
 An $(n,d,\lambda)$-graph has strong pseudorandom properties: for any subset $S$ of vertices, the number of edges inside $S$ is approximately $d|S|^2/(2n)$, with error controlled by $\lambda$.
 \end{theorem}
 
+\subsection{Pseudorandomness and Derandomization}
+
+The method of conditional expectations and the use of expanders provide powerful tools for removing randomness from probabilistic algorithms.
+
+\subsubsection*{The Method of Conditional Expectations}
+
+The method of conditional expectations is a derandomization technique that converts a probabilistic existence proof into a deterministic algorithm.
+
+\begin{theorem}[Method of Conditional Expectations]
+Let $X$ be a nonneg random variable and suppose $\E[X] \geq 1$. Then there exists a deterministic procedure that, given oracle access to the conditional expectations $\E[X \mid x_1, \ldots, x_k]$, finds a sequence $(x_1, \ldots, x_k)$ with $X(x_1, \ldots, x_k) \geq 1$.
+\end{theorem}
+
+\begin{proof}
+We sequentially choose $x_1, \ldots, x_k$. Having chosen $x_1, \ldots, x_{i-1}$, we select $x_i$ to be any value in the domain such that
+\[
+\E[X \mid x_1, \ldots, x_{i-1}, x_i] \geq \E[X \mid x_1, \ldots, x_{i-1}].
+\]
+Such a value exists by the law of total expectation. Since $\E[X] \geq 1$, the final conditional expectation satisfies $\E[X \mid x_1, \ldots, x_k] \geq 1$, and since $X$ is determined by $(x_1, \ldots, x_k)$, we have $X(x_1, \ldots, x_k) \geq 1$.
+\end{proof}
+
+\begin{remark}
+The computational bottleneck is evaluating the conditional expectations, which may be expensive. For example, derandomizing the algorithmic Lov\'asz Local Lemma requires computing conditional probabilities of complex events. Expander-based techniques can reduce the number of random bits needed, thereby reducing the number of conditional expectation evaluations.
+\end{remark}
+
+\subsubsection*{Derandomized Algorithms via Expanders}
+
+Expander graphs enable the replacement of truly random bits with pseudorandom bits derived from expander walks:
+
+\begin{theorem}[Expander Walk Lemma]
+Let $G$ be a $d$-regular expander on $n$ vertices with second largest eigenvalue $\lambda_2 \leq \lambda$. Let $f : V \to \{0, 1\}$ be any function with $\mu = \E_{v}[f(v)]$ under the uniform distribution. For a random walk $v_0, v_1, \ldots, v_k$ of length $k$ on $G$:
+\[
+\Pr\left[\left|\frac{1}{k}\sum_{i=1}^{k} f(v_i) - \mu\right| > t\right] \leq 2\exp\left(-\frac{k(d - \lambda)^2 t^2}{2d^2}\right).
+\]
+\end{theorem}
+
+This concentration bound is nearly as strong as the Chernoff bound for independent random variables, but requires only $\log_d n$ random bits per step (to specify the edge chosen at each step), compared to $\log n$ bits for independent sampling from $[n]$. The total number of random bits is $k \log d$, independent of $n$.
+
+The applications include:
+\begin{itemize}
+    \item \textbf{Optimal extractors}: Buildhash--Zuckerman (2006) constructed near-optimal randomness extractors using expander walks, achieving seed length $O(\log n) + O(\log(1/\epsilon))$ for output length $m$ and statistical distance $\epsilon$.
+    \item \textbf{Space-efficient sampling}: Nisan--Zuckerman (1995) used expander walks to construct samplers that use $O(\log n)$ bits of space, compared to $O(n)$ for naive approaches.
+    \item \textbf{Derandomized MAX-SAT}: Expander-based conditioning gives $O(1)$-approximation algorithms for MAX-SAT using $O(\log n)$ random bits.
+\end{itemize}
+
+\subsubsection*{The Zig-Zag Product of Graphs}
+
+The zig-zag product, introduced by Reingold-- Vadhan--Wigderson (2000), provides an operation on graphs that preserves regularity and spectral gap while reducing the number of vertices. It is the key ingredient in the construction of deterministic logspace algorithms for undirected connectivity (SL = L).
+
+\begin{definition}[Zig-Zag Product]
+Let $G$ be a $D$-regular graph on $n$ vertices and let $H$ be a $d$-regular graph on $D$ vertices. The \textbf{zig-zag product} $G \circ H$ is a $d^2$-regular graph on $n \cdot d$ vertices defined as follows. Replace each vertex $v$ of $G$ by a copy $H_v$ of $H$. An edge $(u, v)$ in $G$ is replaced by a bijection between the vertices of $H_u$ and $H_v$. A step in $G \circ H$ from a vertex $i$ in $H_u$ consists of: (1) follow the edge within $H_u$ determined by the current state (the ``zig''); (2) cross to $H_v$ via the edge $(u,v)$ in $G$ if $i$ is in the appropriate partition class; (3) follow an edge within $H_v$ (the ``zag'').
+\end{definition}
+
+\begin{theorem}[Reingold--Vadhan--Wigderson, 2000]
+The zig-zag product satisfies:
+\begin{enumerate}
+    \item If $G$ is $D$-regular and $H$ is $d$-regular, then $G \circ H$ is $d^2$-regular.
+    \item $\lambda(G \circ H) \leq \lambda(G) + \lambda(H)$.
+    \item If $G_n$ is a family of $D$-regular expanders with $D = O(1)$ and $\lambda(G_n) \leq 1/2$, then iterating the zig-zag product with a fixed small graph $H$ yields a family of expanders with $n$ growing exponentially at each step.
+\end{enumerate}
+\end{theorem}
+
+The zig-zag product allows the iterative construction of expanders from a single small constant-sized expander, yielding the graph $\tilde{O}(n)$ that is an expander on $n$ vertices with $n$ growing as $\Delta^{2^t}$ after $t$ iterations. This construction is the foundation of Reingold's deterministic logspace algorithm for $s$-$t$ connectivity in undirected graphs.
+
 \section{Impact on Science and Technology}
 
 \subsection{In Mathematics}
@@ -138,7 +321,7 @@ An $(n,d,\lambda)$-graph has strong pseudorandom properties: for any subset $S$ 
     \item \textbf{Network Design:} Expanders provide optimal connectivity for communication networks.
 \end{enumerate}
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: What is the combinatorial Nullstellensatz?}
 A theorem stating that if a polynomial $P$ with a given leading monomial vanishes on a product set of size larger than the degree, then $P$ must be identically zero. It is used to prove existence of combinatorial configurations.
@@ -154,6 +337,9 @@ A sparse graph with strong connectivity properties. Expanders are used in networ
 
 \subsection*{Q5: What should an undergraduate study to understand Alon's work?}
 Combinatorics (graph theory, extremal combinatorics), probability theory, linear algebra. Recommended: \textit{The Probabilistic Method} (Alon--Spencer), \textit{Additive Combinatorics} (Tao--Vu), and \textit{Graph Theory} (Diestel).
+
+\section{Related Chapters}
+See also Chapter~34 (Lovász) on combinatorics and graph theory and Chapter~68 (Shamir) on theoretical computer science.
 
 \section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
@@ -171,7 +357,7 @@ Combinatorics (graph theory, extremal combinatorics), probability theory, linear
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1956 & Born in Haifa, Israel \\ \hline
@@ -201,9 +387,7 @@ Combinatorics (graph theory, extremal combinatorics), probability theory, linear
     \item[Zero-sum] The study of subsets summing to zero in abelian groups.
 \end{description}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item N.\ Alon, \textit{Combinatorial Nullstellensatz}, Combin.\ Probab.\ Comput.\ 8 (1999), 7--29.
     \item N.\ Alon, \textit{Eigenvalues and expanders}, Combinatorica 6 (1986), 83--96.

@@ -20,7 +20,7 @@
 
 L\'{a}szl\'{o} Lov\'{a}sz (born March 9, 1948, in Budapest, Hungary) is one of the most influential mathematicians of the late 20th and early 21st centuries. The 1999 Wolf Prize in Mathematics (shared with Elias M.\ Stein) recognized his fundamental and far-reaching contributions to combinatorics, theoretical computer science, and combinatorial optimization. In 2021, he was awarded the Abel Prize together with Avi Wigderson ``for their foundational contributions to theoretical computer science and discrete mathematics.''
 
-Lov\'{a}sz's mathematical style is distinguished by extraordinary breadth and a knack for combining deep algebraic, geometric, and probabilistic insight to solve discrete problems. His name appears throughout the mathematical landscape: the Lov\'{a}sz Local Lemma, the LLL lattice reduction algorithm, the Lov\'{a}sz theta function, the Lov\'{a}sz--Simonovits method, the Szemer\'{e}di--Lov\'{a}sz theory of graph limits, and the Perfect Graph Theorem. Few mathematicians have had such transformative impact across combinatorics, optimization, algebra, probability, and theoretical computer science.
+Lov\'{a}sz's mathematical style is distinguished by extraordinary breadth and a knack for combining deep algebraic, geometric, and probabilistic insight to solve discrete problems. His name appears throughout the mathematical landscape: the Lov\'{a}sz Local Lemma\index{Lov\'{a}sz Local Lemma}, the LLL lattice reduction algorithm, the Lov\'{a}sz theta function\index{Lov\'{a}sz theta function}, the Lov\'{a}sz--Simonovits method, the Szemer\'{e}di--Lov\'{a}sz theory of graph limits, and the Perfect Graph Theorem. Few mathematicians have had such transformative impact across combinatorics, optimization, algebra, probability, and theoretical computer science.
 
 \section{Early Life and Career}
 
@@ -131,7 +131,7 @@ Let \(K \subset \R^n\) be a convex set given by a separation oracle, with known 
 The GLS framework was revolutionary because it showed polynomial-time solvability for a vast range of combinatorial optimization problems whose feasible regions are convex polytopes with exponentially many facets. For instance:
 \begin{itemize}
   \item The maximum weight matching problem in general graphs (Edmonds's matching polytope has exponentially many constraints, but a separation oracle exists via the blossom algorithm).
-  \item The maximum weight independent set problem in perfect graphs (the stable set polytope can be separated using the result that the theta function is polynomially computable).
+  \item The maximum weight independent set problem in perfect graphs\index{perfect graph} (the stable set polytope can be separated using the result that the theta function is polynomially computable).
   \item Submodular function minimization.
   \item The equivalence of optimization and separation: optimizing a linear function over \(K\) is polynomial-time equivalent to finding a separation oracle for \(K\).
 \end{itemize}
@@ -318,7 +318,7 @@ The method is widely applicable and has been used to analyze:
 
 The Lov\'{a}sz--Simonovits method provides tight bounds in many cases: it shows that the mixing time is \(O(\Phi^{-2} \log(1/\pi_{\min}))\), and this bound is sharp up to constants.
 
-\section{Impact and Legacy}
+\section{Impact on Science and Technology}
 
 Lov\'{a}sz's work has transformed discrete mathematics and theoretical computer science. His contributions span an extraordinary range of topics, and each major result has opened new directions of research.
 
@@ -374,9 +374,8 @@ Lov\'{a}sz is unusual in the breadth of his work: he has made fundamental contri
 
 Graph limits provide a continuous framework for studying large networks. They allow researchers to define convergence of graph sequences, to characterize properties of large graphs by their limiting graphons, and to transfer results from analysis (functional analysis, measure theory) to graph theory. Applications include property testing, where graphons determine the testability of graph properties; statistical physics, where graphons describe the thermodynamic limit of discrete models; and network science, where graphons model large social and biological networks.
 
-\section{Timeline}
-
-\begin{tabularx}{\linewidth}{|l|X|}
+\section*{Timeline}
+\addcontentsline{toc}{section}{Timeline}\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1948 & Born on March 9 in Budapest, Hungary \\ \hline
@@ -396,7 +395,7 @@ Graph limits provide a continuous framework for studying large networks. They al
 2021 & Awarded the Abel Prize (shared with Avi Wigderson) \\ \hline
 \end{tabularx}
 
-\section*{Exercises}
+\section*{Exercises for the Reader}
 \addcontentsline{toc}{section}{Exercises}
 
 \begin{enumerate}
@@ -481,4 +480,29 @@ Graph limits provide a continuous framework for studying large networks. They al
   \item D.\ A.\ Levin, Y.\ Peres, and E.\ L.\ Wilmer, \textit{Markov Chains and Mixing Times}, 2nd ed., AMS, 2017. (Covers the Lov\'{a}sz--Simonovits method.)
   \item R.\ Diestel, \textit{Graph Theory}, 5th ed., Springer, 2017.
   \item N.\ Alon, ``Lov\'{a}sz, the Local Lemma, and the probabilistic method,'' in \textit{L\'{a}szl\'{o} Lov\'{a}sz: 70th Birthday Conference}, Bolyai Society, 2018.
+\end{enumerate}
+
+\section{Citations}
+
+\subsection*{Primary Sources}
+\begin{enumerate}
+    \item Lovász, L. (1972). Normal hypergraphs and the perfect graph conjecture. \textit{Discrete Mathematics}, 2(3), 253--267.
+    \item Lovász, L. (1979). On the Shannon capacity of a graph. \textit{IEEE Transactions on Information Theory}, 25(1), 1--7.
+    \item Grötschel, M., Lovász, L., \& Schrijver, A. (1981). The ellipsoid method and its consequences in combinatorial optimization. \textit{Combinatorica}, 1(2), 169--197.
+    \item Lenstra, A. K., Lenstra, H. W., Jr., \& Lovász, L. (1982). Factoring polynomials with rational coefficients. \textit{Mathematische Annalen}, 261(4), 515--534.
+\end{enumerate}
+
+\subsection*{Biographies and Overviews}
+\begin{enumerate}
+    \item The Norwegian Academy of Science and Letters. (2021). \textit{The Abel Prize Laureates 2021: László Lovász and Avi Wigderson}. Oslo, Norway.
+    \item Wolf Foundation. (1999). \textit{László Lovász: Wolf Prize Laureate in Mathematics}. Herzliya, Israel.
+    \item Schrijver, A. (2003). László Lovász: A mathematician of many facets. \textit{European Mathematical Society Newsletter}, 49, 14--17.
+\end{enumerate}
+
+\subsection*{Textbooks and Expository Works}
+\begin{enumerate}
+    \item Lovász, L. (1979). \textit{Combinatorial Problems and Exercises}. North-Holland, Amsterdam.
+    \item Lovász, L., \& Plummer, M. D. (1986). \textit{Matching Theory}. North-Holland, Amsterdam.
+    \item Grötschel, M., Lovász, L., \& Schrijver, A. (1988). \textit{Geometric Algorithms and Combinatorial Optimization}. Springer-Verlag, Berlin.
+    \item Lovász, L., Pelikán, J., \& Vesztergombi, K. (2003). \textit{Discrete Mathematics: Elementary and Beyond}. Springer, New York.
 \end{enumerate}

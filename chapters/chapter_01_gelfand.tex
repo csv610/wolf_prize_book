@@ -13,7 +13,7 @@ The Wolf Prize citation reads: ``for his work in functional analysis, group repr
 
 Gelfand's core contributions include:
 \begin{itemize}
-    \item \textbf{Functional Analysis:} The theory of normed rings (Banach algebras), the Gelfand representation, the Gelfand--Mazur theorem, the Gelfand--Naimark theorem, and the Gelfand--Naimark--Segal (GNS) construction.
+    \item \textbf{Functional Analysis:} The theory of normed rings (Banach algebras), the Gelfand representation\index{Gelfand transform}, the Gelfand--Mazur theorem, the Gelfand--Naimark theorem, and the Gelfand--Naimark--Segal (GNS) construction\index{GNS construction}.
     \item \textbf{Representation Theory:} Unitary representations of Lie groups, Gelfand pairs, Gelfand--Tsetlin bases, Bernstein--Gelfand--Gelfand (BGG) resolutions, and the orbit method.
     \item \textbf{Generalized Functions:} The multi-volume series ``Generalized Functions'' with G.\ Shilov, systematizing distribution theory and introducing Gelfand--Shilov spaces.
     \item \textbf{Integral Geometry:} Generalizations of the Radon transform (the Gelfand transform in integral geometry), the Gelfand--Graev transform.
@@ -33,11 +33,11 @@ In the 1930s, functional analysis was emerging as a distinct field, but it lacke
     \item The theory of integral equations and Fredholm operators
 \end{itemize}
 
-Norbert Wiener had proven a deep result about the invertibility of functions in $L^1(\mathbb{R})$ using the Fourier transform, but his proof was long, technical, and heavily computational. The central problem was: can we understand the relationship between algebraic operations (like convolution) and analytic properties (like invertibility) in a systematic, unifying way? This question led Gelfand to create the theory of normed rings (Banach algebras).
+Norbert Wiener had proven a deep result about the invertibility of functions in $L^1(\mathbb{R})$ using the Fourier transform, but his proof was long, technical, and heavily computational. The central problem was: can we understand the relationship between algebraic operations (like convolution) and analytic properties (like invertibility) in a systematic, unifying way? This question led Gelfand to create the theory of normed rings (Banach algebras)\index{Banach algebra}\index{Gelfand representation}.
 
 \subsection{The Need for Non-Commutative Analysis}
 
-Quantum mechanics forced mathematicians to confront non-commutative structures. In classical mechanics, observables are functions on phase space (a commutative algebra). In quantum mechanics, observables are operators on Hilbert space, which do not commute: generally $AB \neq BA$. The mathematical framework needed to handle both commutative and non-commutative cases in a unified way. This led Gelfand to study algebras with involution---what we now call C$^*$-algebras.
+Quantum mechanics forced mathematicians to confront non-commutative structures. In classical mechanics, observables are functions on phase space (a commutative algebra). In quantum mechanics, observables are operators on Hilbert space, which do not commute: generally $AB \neq BA$. The mathematical framework needed to handle both commutative and non-commutative cases in a unified way. This led Gelfand to study algebras with involution---what we now call C$^*$-algebras\index{C*-algebra}.
 
 \subsection{Representations of Non-Compact Groups}
 
@@ -129,7 +129,7 @@ Let $A$ be a commutative Banach algebra with unit. Then:
 For $A = L^1(\mathbb{R})$ with convolution, the characters are $\phi_\xi(f) = \hat{f}(\xi) = \int f(x) e^{-2\pi i x\xi}\,dx$ for $\xi \in \mathbb{R}$. The Gelfand transform $\Gamma(f)$ is exactly the Fourier transform $\hat{f}$. The Gelfand representation thus generalizes the Fourier transform to arbitrary commutative Banach algebras.
 \end{example}
 
-\subsection{C$^*$-Algebras and the GNS Construction}
+\subsection{C\texorpdfstring{$^*$}{}-Algebras and the GNS Construction}
 
 \begin{definition}[C$^*$-Algebra]
 A \textbf{C$^*$-algebra} is a Banach algebra $A$ over $\mathbb{C}$ with an involution $*: A \to A$ satisfying:
@@ -356,7 +356,7 @@ Students of the Gelfand seminar include some of the most influential mathematici
 
 Gelfand co-founded the Institute of Biological Physics at the USSR Academy of Sciences. He published on control mechanisms in multicellular organisms, mathematical models of gene regulation, and movement control. His approach was characteristically Gelfandian: find the mathematical structure underlying biological complexity.
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: What was Gelfand's greatest mathematical achievement?}
 
@@ -406,7 +406,6 @@ A strong path includes:
 Gelfand's own books are excellent starting points: \textit{Lectures on Linear Algebra} and \textit{Calculus of Variations} (with Fomin) are accessible at the undergraduate level. For deeper work, Rudin's \textit{Functional Analysis} and Murphy's \textit{C$^*$-Algebras and Operator Theory} are recommended.
 
 \section{Related Chapters}
-
 For further exploration, see Chapter~10 (Krein) on functional analysis and operator theory, Chapter~18 (Lax) on functional analysis and PDEs, and Chapter~21 (Calder\'on) on singular integrals and functional analysis.
 
 \section*{Exercises for the Reader}
@@ -425,7 +424,7 @@ For further exploration, see Chapter~10 (Krein) on functional analysis and opera
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1913 & Born in Okny, Ukraine \\ \hline
@@ -464,9 +463,7 @@ For further exploration, see Chapter~10 (Krein) on functional analysis and opera
     \item[Spectrum] Set of characters of a Banach algebra, or eigenvalues of an operator.
 \end{description}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item I.\ M.\ Gelfand, \textit{Normierte Ringe}, Rec.\ Math.\ (Mat.\ Sbornik) N.S.\ 9(51) (1941), 3--24.
     \item I.\ M.\ Gelfand and M.\ A.\ Naimark, \textit{On the embedding of normed rings into the ring of operators in Hilbert space}, Rec.\ Math.\ (Mat.\ Sbornik) N.S.\ 12(54) (1943), 197--217.

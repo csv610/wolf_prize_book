@@ -9,6 +9,10 @@
 \it ``Peter Sarnak has made profound contributions to number theory, analysis, and geometry. His work, which combines deep insights from these fields, has opened up new directions and solved long-standing problems. He is a mathematician of exceptional breadth and power.'' --- Wolf Prize Citation, 2014
 \end{quote}
 
+\section{Early Life and Career}
+
+Peter Claus Sarnak was born on December 18, 1953, in Johannesburg, South Africa. He studied at the University of the Witwatersrand, receiving his B.Sc.\ (Hons) in 1974, and then at Stanford University, where he earned his Ph.D.\ in 1980 under the supervision of Paul Cohen. He held positions at the Courant Institute and New York University before joining Princeton University, where he has been a professor since 1991. He was awarded the Wolf Prize in Mathematics in 2014.
+
 \section{Main Contributions}
 
 Peter Sarnak (born 1953) is a South African--American mathematician whose work bridges number theory, spectral geometry, and analysis. He was awarded the Wolf Prize in Mathematics in 2014.
@@ -17,11 +21,11 @@ The Wolf Prize citation reads: ``for his deep contributions to analysis, number 
 
 Sarnak's core contributions include:
 \begin{itemize}
-    \item \textbf{Random Matrix Theory and L-Functions:} Pioneering work (with Katz and others) on the connection between the statistics of zeros of L-functions and random matrix ensembles, providing compelling evidence for the Riemann Hypothesis and its generalizations.
-    \item \textbf{Sarnak's Conjecture:} The conjecture that the M\"obius function $\mu(n)$ is orthogonal to any deterministic zero-entropy sequence, a far-reaching generalization of Chowla's conjecture connecting to dynamics.
+    \item \textbf{Random Matrix Theory\index{random matrix theory} and L-Functions:} Pioneering work (with Katz and others) on the connection between the statistics of zeros of L-functions and random matrix ensembles, providing compelling evidence for the Riemann Hypothesis and its generalizations.
+    \item \textbf{Sarnak's Conjecture:} The conjecture that the M\"obius function\index{M\"obius function} $\mu(n)$ is orthogonal to any deterministic zero-entropy sequence, a far-reaching generalization of Chowla's conjecture connecting to dynamics.
     \item \textbf{Analysis on Symmetric Spaces:} Foundational work on the spectral theory of the Laplacian on locally symmetric spaces, including the Phillips--Sarnak theorem on the non-existence of cusp forms.
     \item \textbf{Arithmetic Groups and Homogeneous Dynamics:} Applications of homogeneous dynamics to counting lattice points, Diophantine approximation, and the solution of the Oppenheim conjecture (with Margulis and others).
-    \item \textbf{Extremal Regular Graphs:} The construction of Ramanujan graphs (with Lubotzky and Phillips), which are optimal expander graphs with deep number-theoretic properties.
+    \item \textbf{Extremal Regular Graphs:} The construction of Ramanujan graphs\index{Ramanujan graph} (with Lubotzky and Phillips), which are optimal expander graphs with deep number-theoretic properties.
     \item \textbf{The Selberg Eigenvalue Conjecture:} Progress toward and insights into Selberg's conjecture that the smallest non-zero eigenvalue of the Laplacian on congruence quotients is at least $1/4$.
 \end{itemize}
 
@@ -132,6 +136,111 @@ For congruence subgroups $\Gamma(N) \subset \SL(2,\Z)$, the smallest non-zero ei
 
 Sarnak has made significant contributions to understanding the optimality of this bound, relating it to the Ramanujan conjecture for modular forms and to properties of automorphic representations.
 
+\subsection{Sarnak's Conjecture on M\"obius Randomness}
+
+The M\"obius function $\mu(n)$ is defined multiplicatively with $\mu(p) = -1$ for all primes $p$, $\mu(n) = 0$ if $n$ has a squared prime factor, and $\mu(n) = (-1)^k$ if $n$ is a product of $k$ distinct primes. The Prime Number Theorem is equivalent to the estimate $\sum_{n \leq X} \mu(n) = o(X)$, expressing the cancellation of $\mu$.
+
+\begin{conjecture}[Sarnak's Conjecture on M\"obius Randomness]
+Let $X$ be a compact metrizable topological space and $T: X \to X$ a continuous map with zero topological entropy $h(T) = 0$. For any continuous function $f: X \to \R$ and any point $x \in X$, define the deterministic sequence $a_n = f(T^n x)$. Then:
+\[
+\lim_{X \to \infty} \frac{1}{X} \sum_{n \leq X} a_n \, \mu(n) = 0.
+\]
+\end{conjecture}
+
+This conjecture expresses the principle that $\mu(n)$ behaves like a random $\pm 1$ sequence from the perspective of all deterministic zero-entropy processes. Equivalently, the M\"obius function is completely predictable in the sense that it cannot be correlated with any sequence arising from a system of subexponential complexity.
+
+\begin{remark}
+The conjecture is unconditional in the following cases:
+\begin{itemize}
+    \item Systems with discrete spectrum (by work of Green--Tao, 2012).
+    \item Systems of topological entropy zero that are minimal and have a certain equidistribution property (Sarnak--Yang, 2012).
+    \item The full conjecture remains open in general.
+\end{itemize}
+\end{remark}
+
+\subsection{Applications: Chowla Conjecture and Recent Progress}
+
+\begin{conjecture}[Chowla, 1965]
+For any $k \geq 1$ and any distinct $h_1, \ldots, h_k \geq 1$:
+\[
+\sum_{n \leq X} \mu(n + h_1) \mu(n + h_2) \cdots \mu(n + h_k) = o(X).
+\]
+\end{conjecture}
+
+Sarnak's conjecture for the system $(X, T) = (\Z, T: n \mapsto n+1)$ implies Chowla's conjecture for $k = 2$, since the indicator function of shifted M\"obius values $\mu(n+h)$ has zero entropy as a sequence in $n$. The Chowla conjecture, in turn, implies the Elliott conjecture on correlations of multiplicative functions.
+
+\begin{theorem}[Matom\"aki--Radziwi\l{}--Tao, 2016]
+For any multiplicative function $f: \N \to [-1, 1]$ and any $H = H(X) \to \infty$ as $X \to \infty$, one has:
+\[
+\frac{1}{X} \sum_{n \leq X} \frac{1}{H} \left| \sum_{h=1}^{H} f(n+h) \right| \to 0 \quad \text{as } X \to \infty.
+\]
+\end{theorem}
+
+This theorem, establishing the short-interval almost-orthogonality of multiplicative functions, provides partial evidence toward both Chowla's and Sarnak's conjectures. The proof combines entropy methods from additive combinatorics with deep results on correlations of multiplicative functions.
+
+\begin{theorem}[Tao, 2015]
+Assuming the Elliott conjecture (a consequence of Chowla's conjecture), the Möbius function is orthogonal to deterministic zero-entropy sequences, i.e., Sarnak's conjecture holds for systems of zero entropy.
+\end{theorem}
+
+\subsection{L-functions and Random Matrix Theory}
+
+\begin{definition}[Symmetry Type of a Family]
+Let $\mathcal{F} = \{L(s, \pi_f)\}_{f \in \mathcal{F}}$ be a family of $L$-functions. The \textbf{symmetry type} $G$ of $\mathcal{F}$ is one of the classical compact groups:
+\begin{itemize}
+    \item \textbf{Unitary:} $G = \operatorname{U}(N)$, arising from Dirichlet $L$-functions $L(s, \chi)$ with $\chi$ primitive mod $q$.
+    \item \textbf{Orthogonal (even):} $G = \operatorname{O}(N)$, arising from the family of quadratic Dirichlet $L$-functions.
+    \item \textbf{Orthogonal (odd):} $G = \operatorname{SO}(\operatorname{odd})$, arising from $L$-functions of elliptic curves over $\Q$.
+    \item \textbf{Symplectic:} $G = \operatorname{Sp}(2N)$, arising from $L$-functions of Maass forms.
+\end{itemize}
+\end{definition}
+
+\begin{theorem}[Katz--Sarnak Philosophy, 1999]
+Let $\mathcal{F}$ be a family of primitive $L$-functions with symmetry type $G$, suitably normalized so that the lowest zero is at height $0$. Then the density of the low-lying zeros of $L(s, \pi_f)$ (as $f$ varies over $\mathcal{F}$) converges to the density of eigenvalues near $1$ of matrices in $G$ in the limit $\operatorname{rank}(G) \to \infty$.
+\end{theorem}
+
+More precisely, for a matrix $g \in G$ with eigenvalues $e^{i\theta_j}$, the \textbf{Frobenius--Katz--Sarnak density} $d_G$ describes the distribution of the normalized angles $\theta_j / 2\pi$. For the symplectic group:
+\[
+d_{\operatorname{Sp}}(s) = 1 - \frac{\sin(2\pi s)}{2\pi s},
+\]
+while for the orthogonal group:
+\[
+d_{\operatorname{O}}(s) = 1 + \frac{\sin(2\pi s)}{2\pi s} + \delta_0(s).
+\]
+
+The explicit formula relates zeros of $L$-functions to sums over primes:
+\[
+\sum_{\gamma_f} h(\gamma_f) = -\frac{\phi(q)}{q} \hat{h}(0) + \sum_p \frac{\log p}{p^{1/2}} \sum_{m=1}^{\infty} \frac{1}{p^{m/2}} \left( \bar{\chi}(p^m) \hat{h}(m \log p) + \chi(p^m) \hat{h}(-m \log p) \right),
+\]
+where the sum on the left runs over the nontrivial zeros $\gamma_f$ of $L(s, \chi)$. This formula, combined with character sum estimates and the method of moments, allows one to verify the Katz--Sarnak prediction for specific families.
+
+\begin{remark}
+The remarkable agreement between the statistics of zeros of $L$-functions and eigenvalues of random matrices provides strong numerical and theoretical evidence for the Generalized Riemann Hypothesis, since the predicted zero distributions are consistent with all zeros lying on the critical line.
+\end{remark}
+
+\subsection{Moments of L-functions and Random Matrix Predictions}
+
+The $k$-th moment of the Riemann zeta function on the critical line is:
+\[
+M_k(T) = \frac{1}{T} \int_0^T |\zeta(1/2 + it)|^{2k} \, dt.
+\]
+Random matrix theory predicts:
+\[
+M_k(T) \sim c_k \cdot (\log T)^{k^2} \quad \text{as } T \to \infty,
+\]
+where $c_k$ is the $2k$-th moment of the characteristic polynomial of a large Haar-random unitary matrix. The case $k = 1$ is the classic result of Hardy--Littlewood (1918); the case $k = 2$ was proved by Ingham (1926). The cases $k = 3$ (Keating--Iwaniec, 2003) and $k = 4$ (Conrey et al., 2005) confirmed the random matrix predictions using a combination of analytic number theory and random matrix calculations.
+
+\begin{theorem}[Keating--Sarnak, 1999]
+For a family of $L$-functions with unitary symmetry type and conductor up to $Q$, the $k$-th moment satisfies:
+\[
+\sum_{\substack{L(s, \chi) \\ q \leq Q}} |\zeta(1/2 + it)|^{2k} \sim C_k \cdot Q (\log Q)^{k^2},
+\]
+matching the random matrix prediction for the unitary group $\operatorname{U}(N)$ with $N \sim \log Q / 2\pi$.
+\end{theorem}
+
+\subsection{The Nonvanishing of L-functions}
+
+The Katz--Sarnak philosophy also predicts the density of zeros exactly on the critical line (the proportion of zeros with real part exactly $1/2$). For the family of Dirichlet $L$-functions, the density of zeros at height $0$ on the critical line is predicted by the unitary group, giving $d_{\operatorname{U}}(0) = 1$, which is consistent with $100\%$ of zeros being on the critical line for each individual $L$-function. The numerical verification of this prediction (by Rubinstein, 2001, using high-precision computation) provides compelling evidence for the Generalized Riemann Hypothesis.
+
 \section{Impact on Science and Technology}
 
 \subsection{In Mathematics}
@@ -150,7 +259,7 @@ Sarnak has made significant contributions to understanding the optimality of thi
     \item \textbf{Pseudorandomness:} Sarnak's conjecture on Mobius randomness has implications for pseudorandom number generation.
 \end{enumerate}
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: What is a Ramanujan graph?}
 A regular graph with optimal expansion properties. Its non-trivial eigenvalues are bounded by $2\sqrt{k-1}$, which is the smallest possible, giving the best possible spectral gap for a $k$-regular graph.
@@ -168,7 +277,6 @@ It shows that most hyperbolic surfaces have no cusp forms — only continuous sp
 Number theory (analytic, algebraic, modular forms), spectral geometry (Laplacians on manifolds), and random matrix theory. Recommended: \textit{Introduction to Analytic Number Theory} (Iwaniec--Kowalski), \textit{Spectral Theory of Automorphic Forms} (Iwaniec), and \textit{Random Matrices} (Mehta).
 
 \section{Related Chapters}
-
 See also Chapter~16 (Selberg) on analytic number theory and automorphic forms.
 
 \section*{Exercises for the Reader}
@@ -187,7 +295,7 @@ See also Chapter~16 (Selberg) on analytic number theory and automorphic forms.
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1953 & Born in Johannesburg, South Africa \\ \hline
@@ -216,9 +324,7 @@ See also Chapter~16 (Selberg) on analytic number theory and automorphic forms.
     \item[Spectral gap] The difference between the largest and second-largest eigenvalues of the adjacency matrix.
 \end{description}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item A.\ Lubotzky, R.\ Phillips, and P.\ Sarnak, \textit{Ramanujan graphs}, Combinatorica 8 (1988), 261--277.
     \item N.\ Katz and P.\ Sarnak, \textit{Random Matrices, Frobenius Eigenvalues, and Monodromy}, AMS Colloquium Publ., 1999.

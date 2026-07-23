@@ -9,6 +9,10 @@
 \it ``James Arthur has transformed the theory of automorphic forms through his development of the trace formula and his classification of representations of classical groups. His work is a monumental achievement that has laid the foundation for much of modern number theory.'' --- Wolf Prize Citation, 2015
 \end{quote}
 
+\section{Early Life and Career}
+
+James Arthur was born in 1944 in Hamilton, Ontario, Canada. He studied at the University of Toronto, receiving his Ph.D.\ in 1970 under the supervision of David Lowdenslager at Yale University. He held positions at Yale University and the University of Michigan before returning to the University of Toronto, where he has been a professor since 1978. He was awarded the Wolf Prize in Mathematics in 2015.
+
 \section{Main Contributions}
 
 James Arthur (born 1944) is a Canadian mathematician whose work on the trace formula and automorphic representations has fundamentally shaped modern number theory and representation theory. He was awarded the Wolf Prize in Mathematics in 2015.
@@ -17,7 +21,7 @@ The Wolf Prize citation reads: ``for his monumental work on the Selberg trace fo
 
 Arthur's core contributions include:
 \begin{itemize}
-    \item \textbf{Arthur--Selberg Trace Formula:} A far-reaching generalization of Selberg's trace formula that applies to any reductive group over a number field, relating automorphic representations to orbital integrals on the group.
+    \item \textbf{Arthur--Selberg Trace Formula\index{trace formula, Arthur-Selberg}:} A far-reaching generalization of Selberg's trace formula that applies to any reductive group over a number field, relating automorphic representations to orbital integrals on the group.
     \item \textbf{Arthur's Conjectures:} A conjectural classification of the discrete automorphic spectrum of any reductive group in terms of global Langlands parameters, now a central part of the Langlands program.
     \item \textbf{Endoscopic Classification:} The proof (building on work of many others) of the endoscopic classification of representations of classical groups, establishing the Langlands functoriality principle for these groups.
     \item \textbf{The Arthur--Clozel Base Change:} A fundamental result establishing base change for $\GL(n)$ as predicted by Langlands functoriality.
@@ -118,6 +122,171 @@ where $\Theta_\pi$ is the character of the representation $\pi$.
 
 Arthur developed the local trace formula to relate characters of representations to orbital integrals, providing a powerful tool for the local Langlands correspondence.
 
+\subsection{The Spectral and Geometric Sides}
+
+The Arthur--Selberg trace formula admits a precise decomposition into two sides, each carrying distinct arithmetic and geometric information.
+
+\begin{definition}[Spectral Side]
+Let $G$ be a connected reductive group over a number field $F$, and let $f \in C_c^\infty(G(\A_F))$ be a smooth compactly supported test function. The \textbf{spectral side} of the trace formula is the expression
+\[
+\operatorname{Is}_{\mathrm{spec}}(f) = \sum_{\pi \in \Pi(G)} m(\pi) \cdot \operatorname{tr} \pi(f),
+\]
+where the sum runs over the set $\Pi(G)$ of automorphic representations of $G(\A_F)$, $m(\pi)$ denotes the multiplicity of $\pi$ in $L^2_0(G(F)\backslash G(\A_F))$ (the cuspidal subspace), and $\operatorname{tr}\pi(f)$ is the trace of $f$ acting on the representation space of $\pi$.
+\end{definition}
+
+The spectral side also includes contributions from the residual spectrum and the continuous spectrum, arising from the constant term of Eisenstein series. Explicitly, one has
+\[
+\operatorname{Is}_{\mathrm{spec}}(f) = \sum_{\pi \in \Pi_{\mathrm{cusp}}} m(\pi)\,\operatorname{tr}\pi(f) + \sum_{\mathfrak{a}} \int_{\mathfrak{a}^*_\C} \sum_{\pi \in \Pi_{\mathrm{res}}} m(\pi,\lambda)\,\operatorname{tr}\pi_\lambda(f)\,d\lambda,
+\]
+where $\Pi_{\mathrm{cusp}}$ denotes the cuspidal spectrum, $\Pi_{\mathrm{res}}$ the residual spectrum, and the second sum runs over relevant Levi subgroups $\mathfrak{a}$.
+
+\begin{definition}[Geometric Side]
+The \textbf{geometric side} of the trace formula is the expression
+\[
+\operatorname{Is}_{\mathrm{geom}}(f) = \sum_{\{M\}} \frac{|W_0^M|}{|W_0^G|} \sum_{\gamma \in \mathfrak{C}(M)} \int_{G_\gamma(\A_F)\backslash G(\A_F)} \Delta^G(\gamma, g)\, f(g^{-1}\gamma g)\,dg,
+\]
+where $\{M\}$ runs over the set of rational conjugacy classes of Levi subgroups of $G$, $W_0^M$ denotes the relative Weyl group of $M$ in $G$, $\mathfrak{C}(M)$ denotes the set of conjugacy classes of $M$, $G_\gamma$ is the centralizer of $\gamma$ in $G$, and $\Delta^G(\gamma, g)$ is a combinatorial weight depending on the structure of $G$ and the element $\gamma$.
+\end{definition}
+
+\begin{theorem}[Arthur--Selberg Trace Formula, Precise Form]
+Let $G$ be a connected reductive group over a number field $F$, and let $f \in C_c^\infty(G(\A_F))$. Then
+\[
+\operatorname{Is}_{\mathrm{spec}}(f) = \operatorname{Is}_{\mathrm{geom}}(f),
+\]
+that is,
+\[
+\sum_{\pi \in \Pi(G)} m(\pi)\,\operatorname{tr}\pi(f) = \sum_{\{M\}} \frac{|W_0^M|}{|W_0^G|} \sum_{\gamma \in \mathfrak{C}(M)} \int_{G_\gamma(\A_F)\backslash G(\A_F)} \Delta^G(\gamma,g)\,f(g^{-1}\gamma g)\,dg.
+\]
+This identity holds provided that the test function $f$ is chosen to lie in an appropriate space of compactly supported functions satisfying certain regularity and support conditions (often denoted $C_c^\infty(G(\A_F))^{\sharp}$).
+\end{theorem}
+
+The key insight is that the spectral side encodes the automorphic spectrum (eigenvalues of operators on spaces of automorphic forms), while the geometric side encodes the conjugacy structure of $G$ over $F$. The trace formula thus provides a bridge between representation theory and arithmetic geometry.
+
+\subsection{Stabilization of the Trace Formula}
+
+The stabilization of the trace formula, due principally to Arthur, is the process of rewriting the geometric side in terms of stable orbital integrals rather than ordinary orbital integrals. This is essential for comparing trace formulas between different groups.
+
+\begin{definition}[Stable Orbital Integral]
+Let $\gamma \in G(F)$ be a semisimple element, and let $f \in C_c^\infty(G(\A_F))$. The \textbf{stable orbital integral} of $f$ over $\gamma$ is
+\[
+S\mathcal{O}_\gamma^G(f) = \int_{G_\gamma(\A_F)\backslash G(\A_F)} f(g^{-1}\gamma g)\,dg + \sum_{\gamma' \sim_s \gamma,\, \gamma' \neq \gamma} c(\gamma,\gamma')\,\int_{G_{\gamma'}(\A_F)\backslash G(\A_F)} f(g^{-1}\gamma' g)\,dg,
+\]
+where the sum runs over elements $\gamma'$ stably conjugate to but not rationally conjugate to $\gamma$, and $c(\gamma,\gamma')$ are explicit rational constants.
+\end{definition}
+
+\begin{remark}
+The distinction between rational conjugacy and stable conjugacy is fundamental. Two elements $\gamma, \gamma' \in G(F)$ are \emph{stably conjugate} if $g^{-1}\gamma g = \gamma'$ for some $g \in G(\bar{F})$, whereas they are \emph{rationally conjugate} if $g \in G(F)$. Stable conjugacy is a coarser equivalence relation, and the stable orbital integral is invariant under stable conjugacy by construction.
+\end{remark}
+
+The geometric side of the trace formula decomposes into contributions from elliptic, hyperbolic, and unipotent orbital integrals. For the semisimple conjugacy classes:
+
+\begin{itemize}
+    \item \textbf{Elliptic orbital integrals:} These correspond to regular semisimple elements $\gamma$ for which the centralizer $G_\gamma$ is an anisotropic torus. These are the dominant terms and correspond to discrete series representations on the spectral side.
+    \item \textbf{Hyperbolic orbital integrals:} These correspond to semisimple elements whose centralizer contains a split torus. They contribute to the continuous spectrum via the Eisenstein series.
+    \item \textbf{Unipotent orbital integrals:} These correspond to unipotent elements $u \in G(F)$. The orbital integrals over unipotent conjugacy classes encode information about the residual spectrum and are computed using Harish-Chandra's unipotent integration formulas.
+\end{itemize}
+
+\begin{theorem}[Arthur's Stabilization]
+There exists a stable test function $f^{\mathrm{st}} \in C_c^\infty(G(\A_F))$ such that the geometric side of the trace formula for $G$ can be rewritten as
+\[
+\operatorname{Is}_{\mathrm{geom}}(f) = \sum_{\{M\}} \frac{|W_0^M|}{|W_0^G|} \sum_{\gamma \in \mathfrak{S}(M)} S\mathcal{O}_\gamma^M(f^{\mathrm{st}}),
+\]
+where $\mathfrak{S}(M)$ denotes the set of stable conjugacy classes of $M$, and $S\mathcal{O}_\gamma^M$ denotes the stable orbital integral. Furthermore, the spectral side becomes a sum over stable packets of automorphic representations.
+\end{theorem}
+
+\begin{remark}
+The stabilization requires control over the endoscopic contributions to the orbital integrals. Arthur showed that the weighted orbital integrals, which arise from his truncation procedure, can be decomposed into stable orbital integrals plus corrections from endoscopic groups. These corrections involve the so-called transfer factors $\Delta(\gamma, \delta)$, which are explicit functions relating conjugacy classes in $G$ to conjugacy classes in an endoscopic group $H$.
+\end{remark}
+
+\subsection{The Endoscopic Classification}
+
+The endoscopic classification is one of the crowning achievements of Arthur's work and represents a major step toward the Langlands functoriality principle.
+
+\begin{definition}[Arthur Parameter]
+A \textbf{global Arthur parameter} for a reductive group $G$ over $F$ is a conjugacy class of homomorphisms
+\[
+\psi: L_F \times \SL_2(\C) \to {}^L G,
+\]
+where $L_F$ is the (conjectural) Langlands group of $F$ and ${}^L G$ is the Langlands dual group of $G$, such that:
+\begin{enumerate}
+    \item The restriction of $\psi$ to $L_F$ is a Langlands parameter (i.e., a homomorphism $L_F \to {}^L G$).
+    \item The restriction of $\psi$ to $\SL_2(\C)$ factors through the principal $\SL_2$-embedding into ${}^L G$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Tempered Representation]
+An automorphic representation $\pi$ of $G(\A_F)$ is \textbf{tempered} if, for every parabolic subgroup $P = MN$ with Levi component $M$, the Jacquet module $\pi_N$ is a tempered representation of $M(\A_F)$. Equivalently, $\pi$ is tempered if and only if its Langlands parameters lie in the maximal compact subgroup of ${}^L G$.
+\end{definition}
+
+\begin{theorem}[Arthur's Endoscopic Classification, 2013]
+Let $G$ be a classical group (symplectic $\mathrm{SO}(2n+1)$, orthogonal $\mathrm{SO}(2n)$ or $\mathrm{SO}(2n+1)$, or unitary $\mathrm{SU}(n)$) over a number field $F$. Then the discrete automorphic spectrum of $G$ is classified by Arthur parameters as follows:
+\begin{enumerate}
+    \item There is a canonical bijection between the set of global Arthur parameters $\psi$ for $G$ and the set of global Arthur packets $\Pi_\psi(G)$ of discrete automorphic representations.
+    \item Each packet $\Pi_\psi(G)$ is parametrized by self-dual automorphic representations of $\GL(N, \A_F)$ for appropriate $N$.
+    \item For tempered Arthur parameters (where $\psi|_{\SL_2(\C)}$ is trivial), the corresponding packets consist of tempered representations, and the classification reduces to the tempered endoscopic classification of Langlands and Rogawski.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+The proof of the endoscopic classification proceeds by comparison of the stable trace formula for $G$ with the trace formula for its endoscopic groups. The key ingredients are:
+\begin{enumerate}
+    \item \textbf{The Fundamental Lemma:} The identity relating orbital integrals on $G$ to orbital integrals on an endoscopic group $H$ for the test function arising from the unit element of the Hecke algebra. This was proved by Ng\^o and others.
+    \item \textbf{Transfer of test functions:} A map from test functions on $G$ to test functions on $H$ that preserves the trace formula.
+    \item \textbf{Local Langlands correspondence:} For the non-archimedean places, the local Langlands correspondence for classical groups (proved by Arthur, building on Harris--Taylor and Henniart for $\GL(n)$, and on Rogawski for unitary groups) is used to identify the local components of automorphic representations.
+\end{enumerate}
+\end{remark}
+
+The endoscopic classification has profound consequences. It implies, among other things:
+\begin{itemize}
+    \item The existence of Langlands functorial transfer from classical groups to $\GL(n)$.
+    \item The classification of supercuspidal representations of classical groups.
+    \item The verification of the local Langlands conjectures for all classical groups over $p$-adic fields.
+\end{itemize}
+
+\subsection{The Trace Formula for \texorpdfstring{$\GL(n)$}{GL(n)}}
+
+The case $G = \GL(n)$ occupies a special position in the Langlands program, as it is the group for which the Langlands correspondence is best understood and serves as the target for functorial transfers from other groups.
+
+\begin{definition}[Test Function for $\GL(n)$]
+For $G = \GL(n)$ over $F$, a \textbf{test function} is an element $f \in C_c^\infty(\GL(n, \A_F))$ of the form $f = \bigotimes_v f_v$, where $f_v \in C_c^\infty(\GL(n, F_v))$ for each place $v$ of $F$, and $f_v$ equals the characteristic function of $\GL(n, \mathcal{O}_v)$ for all but finitely many $v$.
+\end{definition}
+
+\begin{theorem}[Trace Formula for $\GL(n)$]
+For $G = \GL(n)$ over a number field $F$, the trace formula takes the form:
+\begin{align}
+\sum_{\pi \in \Pi(\GL(n))} m(\pi)\,\operatorname{tr}\pi(f) &= \sum_{\gamma \in \mathfrak{C}(\GL(n))} \frac{1}{|\det(\Ad(\gamma) - 1)|_{\mathfrak{gl}(n)/\mathfrak{z}}|} \cdot \operatorname{vol}(\GL(n,F)\backslash \GL(n,\A_F))^{\mathrm{cusp}} \notag \\
+&\quad \times \prod_v \int_{\GL(n,F_v)_\gamma \backslash \GL(n,F_v)} f_v(g^{-1}\gamma g)\,\frac{dg_v}{|\det(\Ad(\gamma)-1)|_{\mathfrak{gl}(n)/\mathfrak{z}}|^{1/2}}\,dg_v.
+\end{align}
+For $\GL(n)$, the geometric side simplifies because:
+\begin{enumerate}
+    \item Every semisimple element is elliptic (i.e., its centralizer is a torus), so the distinction between elliptic and hyperbolic orbital integrals becomes moot.
+    \item The only Levi subgroups relevant to the cuspidal trace formula are the Borel subgroups.
+    \item The transfer factors are explicit and well-understood.
+\end{enumerate}
+\end{theorem}
+
+The trace formula for $\GL(n)$ plays a central role in Langlands functoriality in the following way. Let $H$ be another reductive group, and let ${}^L H \to \GL(n, \C)$ be a homomorphism of Langlands dual groups. Functoriality predicts a transfer map
+\[
+\mathfrak{F}: \Pi(H) \to \Pi(\GL(n)),
+\]
+and the trace formula comparison is the analytic vehicle for establishing such transfers. Specifically, one shows that for appropriate test functions $f$ on $H$ and $f^{\natural}$ on $\GL(n)$,
+\[
+\operatorname{Is}_{\mathrm{spec}}^H(f) = \operatorname{Is}_{\mathrm{spec}}^{\GL(n)}(f^{\natural}),
+\]
+which implies the transfer of automorphic representations from $H$ to $\GL(n)$.
+
+\begin{remark}[Arthur's Function $f^\natural$]
+For $\GL(n)$, the Arthur--Clozel base change and the endoscopic classification both rely on a specific construction of the transfer function $f^\natural$ on $\GL(n)$ associated to a test function $f$ on $G$. The function $f^\natural$ is defined by the identity
+\[
+S\mathcal{O}_\gamma^G(f) = S\mathcal{O}_{\mathfrak{F}(\gamma)}^{\GL(n)}(f^\natural),
+\]
+where $\mathfrak{F}(\gamma)$ denotes the image of the conjugacy class of $\gamma$ under the transfer map. The existence and uniqueness of such $f^\natural$ is one of the fundamental results in the theory.
+\end{remark}
+
+\begin{remark}
+The trace formula for $\GL(n)$ is also the starting point for the \emph{relative trace formula}, which compares two different trace formulas on the same group. This technique, developed by Jacquet, Moeglin, and Waldspurger, has applications to the Gross--Prasad conjecture and the Ichino--Ikeda conjecture on central values of $L$-functions.
+\end{remark}
+
 \section{Impact on Science and Technology}
 
 \subsection{In Mathematics}
@@ -136,7 +305,7 @@ Arthur developed the local trace formula to relate characters of representations
     \item \textbf{Cryptography:} The Langlands program has connections to isogeny-based cryptography (SIDH).
 \end{enumerate}
 
-\section{Five Frequently Asked Questions}
+\section{Frequently Asked Questions}
 
 \subsection*{Q1: What is the Arthur--Selberg trace formula?}
 A vast generalization of Selberg's trace formula that applies to any reductive group over a number field. It relates sums over automorphic representations (spectral side) to sums over conjugacy classes (geometric side) and is a central tool in the Langlands program.
@@ -154,7 +323,6 @@ Given an extension of number fields $E/F$ and an automorphic representation of $
 Number theory (algebraic and analytic), representation theory of Lie groups, harmonic analysis on groups, and algebraic geometry. Recommended: \textit{Automorphic Forms and Representations} (Bump), \textit{An Introduction to the Langlands Program} (Gelbart), and \textit{Trace Formulas} (Arthur--Elstrodt--Grunewald).
 
 \section{Related Chapters}
-
 See also Chapter~16 (Selberg) on trace formula and automorphic forms.
 
 \section*{Exercises for the Reader}
@@ -172,7 +340,7 @@ See also Chapter~16 (Selberg) on trace formula and automorphic forms.
 \section*{Timeline}
 \addcontentsline{toc}{section}{Timeline}
 
-\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabularx}{\linewidth}{|p{1.5cm}|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Year} & \textbf{Event} \\ \hline
 1944 & Born in Hamilton, Ontario, Canada \\ \hline
@@ -203,9 +371,7 @@ See also Chapter~16 (Selberg) on trace formula and automorphic forms.
     \item[Trace formula] An identity relating a sum over representations to a sum over conjugacy classes.
 \end{description}
 
-\section{Citations}
-
-\subsection*{Primary Sources}
+\section{Citations}\subsection*{Primary Sources}
 \begin{enumerate}
     \item J.\ Arthur, \textit{A trace formula for reductive groups I}, Duke Math.\ J.\ 45 (1978), 911--952.
     \item J.\ Arthur, \textit{The invariant trace formula}, J.\ Amer.\ Math.\ Soc.\ 1 (1988), 323--383.
